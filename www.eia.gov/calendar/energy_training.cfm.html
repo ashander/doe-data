@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>U.S. Energy Information Administration (EIA)</title>
+    </head>
+<body>
+<div id="outerX">
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../consumption/index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../energyexplained/index.html">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+<div class="title_head bg_default">      <h1>Energy Training</h1>
+    </div>      <div class="pagecontent temp_rpt">
+      
+        <div class="main_col">
+                    <p>NOTE: The following
+            information is included on this web page as a service to organizations
+            offering energy training and to persons interested in learning about
+            energy training opportunities. A listing on this web page should not be
+            considered an endorsement by the U.S. Energy Information Administration.</p>
+          <span class="main bookshelf">
+
+          <h3>Selected Energy Training Classes<br />
+          </h3>
+          
+          <strong>Upcoming in 2016:</strong><br />
+          <ul class="double_space">
+            <li> December 5-6:<br />
+              Refining 101 (Non-Technical)<br />
+              Houston, TX<br />
+              <a href="https://emi.org/course/refining-101-non-technical/">https://emi.org/course/refining-101-non-technical/</a>
+            </li>
+            <li>December 5-6:<br />
+              Introduction to Energy Trading &amp; Hedging<br />
+              Houston, TX<br />
+              <a href="https://emi.org/course/introduction-to-energy-trading-hedging/">https://emi.org/course/introduction-to-energy-trading-hedging/</a> <br />
+            </li>
+            <li>December 7:<br />
+              Natural Gas Fundamentals<br />
+              Houston, TX<br />
+            <a href="https://emi.org/course/natural-gas-fundamentals/">https://emi.org/course/natural-gas-fundamentals/</a></li>
+            <li>December 7-8:<br />
+Physical Crude Oil &amp; Products Trading<br />
+Houston, TX<br />
+<a href="https://emi.org/course/physical-crude-oil-and-products-trading/">https://emi.org/course/physical-crude-oil-and-products-trading/</a></li>
+            <li>December 7-8:<br />
+Oil Industry Economics<br />
+Washington, D.C.<br />
+<a href="https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/">https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/</a></li>
+            <li>December 8:<br />
+Intro to Energy Trading for the Non-Trader<br />
+Houston, TX<br />
+<a href="https://emi.org/course/intro-to-energy-trading-for-the-non-trader/">https://emi.org/course/intro-to-energy-trading-for-the-non-trader/</a></li>
+            <li>December 12-13:<br />
+Futures, Options &amp; Derivatives<br />
+Houston, TX<br />
+<a href="https://emi.org/course/futures-options-derivatives/">https://emi.org/course/futures-options-derivatives/</a></li>
+            <li>December 12-13:<br />
+Fundamentals of Power Trading<br />
+Houston, TX<br />
+<a href="https://emi.org/course/fundamentals-of-power-trading/">https://emi.org/course/fundamentals-of-power-trading/</a></li>
+            <li>December 14-15:<br />
+Energy Risk Management<br />
+Houston, TX<br />
+<a href="https://emi.org/course/energy-risk-management/">https://emi.org/course/energy-risk-management/</a></li>
+          </ul>
+
+          <strong>Upcoming in 2017:</strong><br />
+          <ul class="double_space">
+            <li>January 10-11:<br />
+Energy Trading Fundamentals<br />
+Houston, TX<br />
+<a href="https://emi.org/course/energy-trading-fundamentals/">https://emi.org/course/energy-trading-fundamentals/</a></li>
+            <li>January 12-13:<br />
+Technical Analysis<br />
+Houston, TX<br />
+<a href="https://emi.org/course/technical-analysis/">https://emi.org/course/technical-analysis/</a></li>
+            <li>January 17-18:<br />
+Power Trading &amp; Hedging Fundamentals<br />
+Houston, TX<br />
+<a href="https://emi.org/course/power-trading-hedging-fundamentals/">https://emi.org/course/power-trading-hedging-fundamentals/</a></li>
+            <li>January 19:<br />
+Advanced Power Hedging<br />
+Houston, TX<br />
+<a href="https://emi.org/course/advanced-power-hedging/">https://emi.org/course/advanced-power-hedging/</a></li>
+            <li>January 25-26:<br />
+Physical Crude Oil &amp; Products Trading<br />
+Jersey City, NJ<br />
+<a href="https://emi.org/course/physical-crude-oil-and-products-trading/">https://emi.org/course/physical-crude-oil-and-products-trading/</a></li>
+            <li>February 1-2:<br />
+Fundamentals of the Petroleum Industry<br />
+Houston, TX<br />
+<a href="https://emi.org/course/fundamentals-of-the-petroleum-industry/">https://emi.org/course/fundamentals-of-the-petroleum-industry/</a></li>
+            <li>February 6-7:<br />
+Best Practices &amp; Financial Risk<br />
+Houston, TX<br />
+<a href="https://emi.org/course/fundamentals-of-the-petroleum-industry/">https://emi.org/course/best-practices-financial-risk/</a><br />
+            </li>
+            <li>February 7:<br />
+              Hydropower 101<br />
+              Denver, CO<br />
+  <a href="https://www.euci.com/event_post/0217-hydropower-101/">https://www.euci.com/event_post/0217-hydropower-101/</a></li>
+            <li>              February 8:<br />
+              FERC Hydropower 101<br />
+              Denver, CO<br />
+            <a href="https://www.euci.com/event_post/0217-ferc-hydropower-101/">https://www.euci.com/event_post/0217-ferc-hydropower-101/</a></li>
+            <li>February 8-9:<br />
+Trading OTC Advanced Options &amp; Derivatives<br />
+Houston, TX<br />
+            <a href="https://emi.org/course/trading-otc-advanced-options-and-derivatives/">https://emi.org/course/trading-otc-advanced-options-and-derivatives/</a></li>
+            <li>              February  9:<br />
+              Introduction to the Natural Gas Industry,  Infrastructure &amp; Regulations<br />
+              Denver, CO<br />
+            <a href="https://www.euci.com/event_post/0217-natural-gas-industry/">https://www.euci.com/event_post/0217-natural-gas-industry/</a></li>
+            <li>              February 10:<br />
+              Natural Gas Physical &amp; Financial Markets<br />
+              Denver, CO<br />
+            <a href="https://www.euci.com/event_post/0217-natural-gas-markets/">https://www.euci.com/event_post/0217-natural-gas-markets/</a></li>
+            <li>February 13-14:<br />
+Midstream Oil &amp; Gas Fundamentals<br />
+Houston, TX<br />
+            <a href="https://emi.org/course/midstream-oil-and-gas-fundamentals/">https://emi.org/course/midstream-oil-and-gas-fundamentals/</a></li>
+            <li>February 15-16:<br />
+Oil Industry Economics<br />
+Houston, TX<br />
+<a href="https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/">https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/</a></li>
+            <li>February 15-16:<br />
+Introduction to Liquefied Natural Gas (LNG)<br />
+Houston, TX<br />
+            <a href="https://emi.org/course/introduction-to-liquefied-natural-gas-lng/">https://emi.org/course/introduction-to-liquefied-natural-gas-lng/</a></li>
+            <li>February 22-23:<br />
+Physical Natural Gas Trading<br />
+Houston, TX<br />
+            <a href="https://emi.org/course/physical-natural-gas-trading/">https://emi.org/course/physical-natural-gas-trading/</a></li>
+            <li>February 22-23:<br />
+Introduction to Energy Trading &amp; Hedging<br />
+Houston, TX<br />
+<a href="https://emi.org/course/introduction-to-energy-trading-hedging/">https://emi.org/course/introduction-to-energy-trading-hedging/</a></li>
+            <li>February 23-24:<br />
+Refining 101 (Non-Technical)<br />
+Atlanta, GA<br />
+<a href="https://emi.org/course/refining-101-non-technical/">https://emi.org/course/refining-101-non-technical/</a></li>
+            <li>March 7:<br />
+Natural Gas Fundamentals<br />
+Houston, TX<br />
+<a href="https://emi.org/course/natural-gas-fundamentals/">https://emi.org/course/natural-gas-fundamentals/</a></li>
+            <li>March 8:<br />
+Intro to Energy Trading for the Non-Trader<br />
+Houston, TX<br />
+<a href="https://emi.org/course/intro-to-energy-trading-for-the-non-trader/">https://emi.org/course/intro-to-energy-trading-for-the-non-trader/</a></li>
+            <li>March 8-9:<br />
+              Fundamentals of the Petroleum Industry<br />
+Atlanta, GA<br />
+<a href="https://emi.org/course/fundamentals-of-the-petroleum-industry/">https://emi.org/course/fundamentals-of-the-petroleum-industry/</a></li>
+            <li>March 9-10:<br />
+              Introduction to Energy Trading &amp; Hedging<br />
+Houston, TX<br />
+<a href="https://emi.org/course/introduction-to-energy-trading-hedging/">https://emi.org/course/introduction-to-energy-trading-hedging/</a></li>
+            <li>March 15-16:<br />
+              Oil Industry Economics<br />
+Washington, DC<br />
+<a href="https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/">https://emi.org/course/oil-industry-economics-from-wellhead-to-gas-pump/</a></li>
+            <li>March 21-22:<br />
+              Physical Crude Oil &amp; Products Trading<br />
+              Houston, TX<br />
+<a href="https://emi.org/course/physical-crude-oil-and-products-trading/">https://emi.org/course/physical-crude-oil-and-products-trading/</a></li>
+            <li>March 22-23:<br />
+              Technical Analysis<br />
+Jersey City, NJ<br />
+<a href="https://emi.org/course/technical-analysis/">https://emi.org/course/technical-analysis/</a></li>
+            <li>March 23-24:<br />
+              Fundamentals of Power Trading<br />
+Houston, TX<br />
+<a href="https://emi.org/course/fundamentals-of-power-trading/">https://emi.org/course/fundamentals-of-power-trading/</a></li>
+            <li>March 28-29:<br />
+              Physical Crude Oil &amp; Products Trading<br />
+Calgary, Alberta<br />
+<a href="https://emi.org/course/physical-crude-oil-and-products-trading/">https://emi.org/course/physical-crude-oil-and-products-trading/</a></li>
+            <li>March 29-30:<br />
+              Introduction to Energy Trading &amp; Hedging<br />
+Chicago, IL<br />
+<a href="https://emi.org/course/introduction-to-energy-trading-hedging/">https://emi.org/course/introduction-to-energy-trading-hedging/</a></li>
+            <li>March 29-30:<br />
+              Refining 101 (Non-Technical)<br />
+Houston, TX<br />
+<a href="https://emi.org/course/refining-101-non-technical/">https://emi.org/course/refining-101-non-technical/</a></li>
+            <li>March 30-31:<br />
+              Physical Natural Gas Trading<br />
+Calgary, Alberta<br />
+<a href="https://emi.org/course/physical-natural-gas-trading/">https://emi.org/course/physical-natural-gas-trading/</a></li>
+          </ul>
+          </span><span class="main bookshelf">
+
+
+
+
+          </span><span class="main bookshelf">
+
+
+          </span>
+
+
+          <span class="side bookshelf">
+                    
+<h3>Training Centers (listed alphabetically)</h3>
+<ul class="double_space no_bullet no_left_pad">
+  <li><strong>Abraham Lincoln University Power Generation Management:</strong><br />
+    Earn your MBA Online in Power Generation Management. In addition to the business principles and practices in a traditional  MBA, the curriculum in this program provides 1) A strong, detailed overview as  to management requirements in a Power Generation environment and 2) Management  and leadership strategies unique to the business of Power Generation. Abraham Lincoln University online degree programs now use live interactive delivery technology and with sessions recorded for later viewing students have more opportunities than ever.  This exciting technology permits voice-to-voice and face-to-face interaction between students and faculty.  The interactive class sessions provide students with a multifaceted experience to learn new skills and gain insights.  The immediate feedback from experienced faculty allows students to deepen their understanding.  The eight-week courses are designed to meet the adult learner's need for flexibility. Located in Los Angeles, ALU began in 1996 as one of  California's first distance education law schools. Today ALU is a  student-centered online university providing flexible, affordable and high  quality undergraduate and graduate degrees, certificates and diploma programs. Visit us online at <a href="http://www.alu.edu">www.alu.edu</a> or call ALU at 1-866-558-0999.</li>
+  <li><strong>Apogee Interactive, Inc.</strong> provides on-line courses for the electric and gas industry. They offer a wide variety of courses focusing on educating the energy employee in the areas of Customer Service, Energy Management, Residential and Account Managers and Field Operations. The courses meet the needs for training of new employees, meeting OSHA and Electrical Training requirements as well as refresher courses for veterans of the industry. Since the courses are offered on-line, the student can learn at their own pace and in their own environment. Companies may add courses to their Learning Management Systems with customized portals. Block purchasing of courses easily accommodated. For more information visit their eLearning portal as <a href="http://www.study-center.com/">http://www.study-center.com/</a> or contact Theresa Lavoie at <a href="mailto:tlavoie@apogee.net">tlavoie@apogee.net</a> or 800.322.9934</li>
+  <li><strong>Bismarck State College (BSC) National Energy Center of  Excellence</strong> offers online and classroom training for the energy industry.  Associate in  Applied Science (AAS) degrees can be earned, or courses can simply be taken for  professional development and training. Classes are available  in Electric Power Technology (distribution), Electrical Transmission  Systems Technology (system operations), Power Plant (fossil generation), Process (refining, gasification, ethanol, biodiesel), Nuclear Power and  Renewable Generation (wind, solar, tidal, hydro, biomass) Technologies. In  addition, a Bachelor of Applied Science degree in Energy Management is  available entirely online. The classes are offered in a convenient  block-style format, giving students the opportunity to complete a class in 3-6  weeks. The National Energy Center of Excellence is also known for their  non-credit offerings such as apprenticeship programs, customized training and  NERC CEH courses.  For more information please visit our website at <a href="http://www.bismarckstate.edu/energy">www.bismarckstate.edu/energy</a> or  contact Mike Myers at 701.224.2594 or <a href="mailto:Michael.M.Myers@bsc.nodak.edu">Michael.M.Myers@bsc.nodak.edu</a>.</li>
+  <li><strong>Center for Energy Economics at the University of Texas at Austin</strong> is an interdisciplinary research center that conducts strategic critical thinking and analytical research on the economics of the energy value chains and educates stakeholders to improve public policy and investment for economic development. CEE provides training programs on energy economics, energy value chain investment and associated frameworks. The CEE engages in professional training activities through both custom programs and ongoing offerings. &nbsp;For more information, please visit <a title="http://www.beg.utexas.edu/energyecon/new-era" href="http://www.beg.utexas.edu/energyecon/new-era">www.beg.utexas.edu/energyecon/new-era</a> or contact us 713-654-5400 or <a title="mailto:energyecon@beg.utexas.edu" href="mailto:energyecon@beg.utexas.edu">energyecon@beg.utexas.edu</a></li>
+  <li><strong>Christensen Associates </strong>offer training seminars at large to the retail and wholesale energy industry at conference centers located around the world or at clients' on-site facilities. Insights and techniques gained at these sessions have helped utilities develop market strategies such as PBR plans, market management - both financial and physical such as transmission planning and pricing - and retail and wholesale pricing strategies. Visit Christensen Associates' website at <a href="http://www.lrca.com/">http://www.lrca.com/</a>.</li>
+  <li><strong> CWC School for Energy</strong>provides premium training  courses for international energy industry executives and government officials. Our success and distinguished reputation is thanks to our  commitment to provide first-class programmes to our clients. Combining leading professionals from across the industry as lecturers and an interactive,  practical format, the lessons learnt in a CWC School for Energy courses are directly transferable back to the workplace. For more information visit our website <a href="http://www.cwcschool.com/">www.cwcschool.com</a> or contact Alia Fakim on +44 20 7089 0085 or <a href="mailto:afakim@thecwcgroup.com">afakim@thecwcgroup.com</a>.</li>
+  <li><strong>Electric Power Training Center</strong><br />
+    Located in Golden Colorado, the EPTC offers various classes in power system operations - for both technical and non-technical students. One-of-a-kind, full size simulators of generation and substation control stations offer students opportunities to enhance their understanding of electrical theory with hands-on problem solving exercises. Visit <a href="http://www.eptc.wapa.gov/">www.eptc.wapa.gov/</a> for current information on facility, class description, schedules, online registration and payment information. Toll free telephone 800-867-2617.</li>
+  <li><strong>Electric Utility Consultants, Inc (EUCI)</strong> is a Colorado Corporation formed in 1988. The firm  promotes knowledge and expertise in the fields of Electrical Energy, Energy  Resources, Energy Regulation, and Electric Industry Competitive Issues through Professional Conferences, Courses, Seminars, and Workshops. GSA Contract number: GS02F0039X. Visit their Web  site at <a href="http://www.euci.com/">http://www.euci.com/</a></li>
+  <li><strong>Enerdata</strong> provides training programs in energy markets, energy modeling, energy accounting   and carbon management. Our   training sessions are available for open registration, as well as corporate   workshops &amp; customized classes. For   more information and our complete program(session) schedule, please visit our   website: <a href="http://www.training.enerdata.net/">http://www.training.enerdata.net/</a></li>
+  <li><strong>Enerdynamics</strong>' training and education programs are focused on including all employees in your organization's marketing efforts. They provide an overview of the national energy marketplace or design a custom education program so that your employees understand the specific challenges facing                     them. By incorporating lecture with interactive exercises, students participate in building their own educational experience. The lectures, materials, and hands-on exercises are blended so that comprehension can be tracked at all times. For more details, visit their Web site at <a href="http://www.enerdynamics.com/">http://www.enerdynamics.com/</a></li>
+  <li><strong>Energy Intelligence</strong>, has brought together years of knowledge and experience to offer you a tailor-made training program. You are invited to choose from a list of 50 tutorial topics that directly address the immediate questions that you have about the energy industry. For a complete listing of our tutorial topics and the biographies of our lecturers, please visit: <a title="http://www.energyintel.com/eir_executive.asp" href="http://www.energyintel.com/eir_executive.asp">http://www.energyintel.com/eir_executive.asp</a>. Alternatively, you can email Nasri Atallah, Training Coordinator, at <a title="mailto:vfotuhi@energyintel.com" href="mailto:vfotuhi@energyintel.com">mailto:vfotuhi@energyintel.com</a>&nbsp;with your direct queries.</li>
+  <li><strong>The Energy Management Institute</strong> provides higher learning for energy professionals. The institute's education programs focus on downstream petroleum, alternative fuels, and natural gas and power. They offer intensive purchasing, risk management, and fundamentals curriculum from basic to advanced levels. The programs are available both at their venues or at your location. <br />
+    For more information, call (410) 442-5757, e-mail: <a title="mailto:sales@energyinstitution.org" href="mailto:sales@energyinstitution.org">sales@energyinstitution.org</a>, or visit their Web site at <a title="http://www.energyinstitution.org/" href="http://www.energyinstitution.org/">http://www.energyinstitution.org/</a>.</li>
+  <li><strong>Energy Seminars, Inc. </strong>creates and produces seminars, both public and in-house, on a variety of topics of interest to professionals in the energy producing, marketing, transportation, utility, and end-user industries. Courses include: natural gas basic and advanced topics, processing,                     contracts, hedging; electricity basic and advanced topics, purchase, and hedging; and so forth.<br />
+    For more information, phone (281) 362-7979 or visit their Web site at <a href="http://www.energyseminars.com/">http://www.energyseminars.com/</a></li>
+  <li><strong>Euromoney Energy Training</strong> provides a full range of expert upstream and downstream training courses focused on the energy industry. These courses consist of practical and interactive lectures and workshops, providing professionals with the required skills and insight to further their hands-on business experience.<br />
+    For more   information please visit <a title="http://www.euromoneyenergytraining.com" href="http://www.euromoneyenergytraining.com">www.euromoneyenergytraining.com</a>&nbsp;or   either email us on <a title="mailto:energy@euromoneytraining.com" href="mailto:energy@euromoneytraining.com">energy@euromoneytraining.com</a> or   call +44 (0)20 7779 8601</li>
+  <li><strong>Financial Accounting Institute</strong> offers utility finance and accounting seminars with CPE and CLE credit for financial and non-financial professionals. These workshops focus on how to use finance and accounting data to improve managerial skills. They specialize their topics to fit the company when they present the workshops inhouse.<br />
+    For more information, phone (201) 568-0249 or visit their Web site at <a href="http://www.financialaccounting.com/">http://www.financialaccounting.com/</a></li>
+  <li><strong>GE's Power Systems and Energy Courses (PSEC)</strong><br />
+    In this challenging economy, the most successful businesses  recognize the importance of providing their power systems and energy  professionals with the quality education needed to make informative decisions.  With a 62-year history, GE Energy's Power Systems and Energy Courses are  designed to provide valuable insights about industry trends, best practices,  and the latest technologies through professional experts considered to be among  the best practical engineers in the world.  Our  courses and programs enhance learning through the use of the latest industry  software and include tours of GE's research centers, manufacturing facilities,  and other industry businesses.<br />
+    For more information, call us at (518) 385-2222 or visit our Web site at <a href="http://www.ge-energy.com/psec">www.ge-energy.com/psec</a></li>
+  <li><strong>International Human Resources Development Corporation (IHRDC) </strong><br />
+    IHRDC has  been a global leader in training and competency management for the oil and gas  industry for more than 40 years, offering the best Instructional Programs,  e-Learning resources, and Competency Management services available to the  industry today. IHRDC offers a comprehensive set of Instructional Programs  spanning the business of petroleum and natural gas, petroleum law, human  resources, as well as finance and project economics. IHRDC's programs employ a  unique blend of lectures, group discussions, and challenging business  simulation workshops to ensure maximum learning. The company is  headquartered in Boston, USA with offices in Houston, Amsterdam, Dubai, Kuala  Lumpur, Jakarta, and Lagos. For more information, please visit <a href="http://www.ihrdc.com">http://www.ihrdc.com</a> or contact us at&nbsp;+1-617-536-0202.</li>
+  <li><strong>Manufacturing Technology Strategies - MTS </strong><br />
+    Consultants and contractors in the areas of technical documentation, training systems and management systems for manufacturing industries. Four phase system focused on manufacturing and business management processes: 1) Align Processes, Organization and People (Planning Phase), 2) Documentation Phase, 3) Training/Transfer Phase, 4) Apply and Measure Phase. Each phase is customized to meet the customer&rsquo;s needs or can run independently. Products and Services: Conduct     Operations and Maintenance Training; Analysis of the Technology; Writing Documents and Training Writers; Technical and Administrative Document Development and Electronic     Conversion; Comprehensive Training Program Design; Training Needs Assessments; Competency Matrix; Technology Audits; Gap Analysis; Customized Operations and Maintenance Training; E-Learning System (in development); Learning-How-To-Learn; Training Trainers.<br />
+    For more information, phone (314)     298-0004, fax (314) 298-0006 or visit their Web site at <a href="http://www.mtsworld.com/">http://www.mtsworld.com/</a> or <a href="http://www.mtsworld.com/mtssystem.php">http://www.mtsworld.com/mtssystem.php</a>.</li>
+  <li><strong>Mercatus Energy Advisors</strong><br />
+    Mercatus Energy Advisors is the leading, independent energy hedging and risk management advisory firm. Our veteran energy  traders and risk managers provide hands on executive training courses on a  variety of energy hedging and risk management related topics including bunker  fuel, crude oil, diesel fuel, electricity, gasoline, heating oil, jet fuel,  natural gas and natural gas liquids. In addition to our public training  courses, we also provide private, in-house training on energy hedging, risk  management and trading to companies of all sizes. For more information  and a full calendar of our upcoming training courses, please visit <a href="http://www.mercatusenergy.com/education">www.mercatusenergy.com/education</a>&nbsp;or  call us at (713) 970-1003. &nbsp; &nbsp;</li>
+  <li><strong>MIT Professional Institute </strong><br />
+    The MIT Professional Institute (PI) offers 40+ intensive short courses   designed especially for professionals. Courses are from 2 to 6 days long and are   taught on campus by MIT faculty from June through August. Several short courses are   offered on energy / transportation topics each summer. Additional offerings   include: biotechnology, computing, networks, communications, renewable energy,   transportation, nanotechnology, lasers, lean enterprise, technology policy, systems   engineering, data analysis and other topics of vital interest to today&rsquo;s engineers and   scientists.<br />
+    For more information, visit: <a title="http://professionalinstitute.mit.edu" href="http://professionalinstitute.mit.edu">http://professionalinstitute.mit.edu</a>,   Email: <a title="mailto:professionalinstitute@mit.edu" href="mailto:professionalinstitute@mit.edu">professionalinstitute@mit.edu</a> or Telephone: 617-253-2101.</li>
+  <li><strong>National Registry of Environmental Professionals (NREP)</strong> offers courses that are taught by subject matter experts and which have applicability to both Government and Commercial Environmental Management. The curriculum is broad with courses at both the introductory and advanced level. Several of the course offerings explore, in detail, lessons learned through DOE and EPA specific examples. All courses meet the TQP standards as set forth by the U.S. Department of Energy National Training Office (NETO) and are delivered by the same instructor pool.<br />
+    For more information, contact Kristy at (865) 694-9826 or e-mail: <a href="mailto:nrep@etmdtraining.net">nrep@etmdtraining.net</a> or <a href="mailto:kristyd@etmdtraining.net">kristyd@etmdtraining.net</a>, or visit their Web site at <a href="http://www.t-f-e.com/Environmental.htm">http://www.t-f-e.com/Environmental.htm</a></li>
+  <li><strong>Northwest Public Power Association (NWPPA)</strong> helps its members  to Connect, Learn, and Serve through more than 175 annual training events,  conferences, workshops, and e-Learning programs. We serve more than 400 member  organizations, primarily made up of consumer-owned utilities (municipals,  districts, and cooperatives) and a variety of organizations that provide  products and services to those utilities. Membership is not required to  participate in most programs, so please take a look at our event listings at: <a href="http://www.nwppa.org/education/welcome_to_educational_opportunities.aspx">http://www.nwppa.org/education/welcome_to_educational_opportunities.aspx</a>.  Or contact us at 360.254.0109 or <a href="mailto:arnie@nwppa.org">arnie@nwppa.org</a>.</li>
+  <li><strong>Oil   Price Information Service (OPIS)</strong> provides executive education events across the U.S. and Webinars on a variety of   energy-related topics including fuel purchasing, energy risk management, natural   gas liquids, ethanol, biodiesel and more. OPIS also holds three large   conventions each year providing unique learning and networking experiences for   energy professionals. Our instructors are recruited from among the top experts   in their fields. For more information and a full calendar of events, please   visit: <a title="blocked::http://www.opisnet.com/conferences.asp" href="http://www.opisnet.com/conferences.asp">http://www.opisnet.com/conferences.asp</a> or call 1-866-620-5940.</li>
+  <li><strong>The Oxford Princeton Programme</strong> is the world's leading  provider of education and training to the  energy and derivatives markets. Courses are designed by renowned faculty  for all levels of expertise and include views on<br />
+    oil, natural gas, power,  renewables, trading, hedging, risk management and a variety of other topics.  Companies and individual professionals can choose from a wide array of instructer-led, in-house/on-site, and internet-enabled courses.   We are constantly updating our  course schedule. For the latest on dates,locations  and titles, please visit <a href="http://www.oxfordprinceton.com">www.oxfordprinceton.com</a>.</li>
+  <li><strong>PGS Energy Training</strong> is the leading provider of training programs for today&rsquo;s  energy industry. PGS offers a wide variety of seminars in energy trading and  the electric power, natural gas and petroleum industries. PGS offers on-site  training programs, open registration public seminars, Webinars, confidential  training for senior executives, and Seminars-on-Demand online training  programs. The company can be reached at 43 Fawnvue Drive, Suite 700; McKees  Rocks, PA 15136. Telephone: (412) 521-4737; e-mail: <a href="mailto:newinfo@pgsenergy.com">newinfo@pgsenergy.com</a>. <br />
+    Visit their Web site <a href="http://www.pgsenergy.com/" title="blocked::http://www.pgsenergy.com/">http://www.pgsenergy.com/</a></li>
+  <li><strong>Paradigm</strong> provides practical non-theoretical training in energy derivatives and their related risk management technologies. Programs are structured to the specific needs of today's dynamic energy industry.<br />
+    For more information, visit their Web site at <a href="http://www.paradigmtraining.com/">http://www.paradigmtraining.com/</a> or call 203-637-1092 (Connecticut office) or 281-360-7822 (Texas office); e-mail: <a href="mailto:info@paradigmtraining.com">info@paradigmtraining.com</a>.</li>
+  <li><strong>Patterson &amp; Associates</strong> offers our extensive knowledge and expertise to assist companies in the energy industry by designing and providing companies   with in-depth, customized, complete training programs to help a company's   personnel thrive in the ever-changing energy industry. Our training programs are   designed to help a company &ldquo;Be Competitive&rdquo; with greater efficiency and cost   savings by providing employees with the skills necessary to help them perform   their own jobs better and have a more valuable understanding of the business   processes linked to their immediate job function. Please visit our website at <a title="blocked::http://www.patterson-associates.com/" href="http://www.patterson-associates.com/">www.patterson-associates.com</a>.</li>
+  <li><strong>Petroleum Institute for Continuing Education</strong> provides opportunities for participants to learn via Self Study (Purpose: Learn the basics); Large Group Experiences (Purpose: Create Community); Small Group Experiences (Purpose: Engage in Shared Experiences); and One-on-One Experiences (Purpose: Maximize our Human Potential). Some of the course topics include Drilling and Completions, Exploration (Geology/ Geophysics/Exploitation), Heavy Oil/Oil Sands/Other, Pipeline Design, Construction, and Operation, Production (Well and Gathering System Optimization), and so forth. The training is provided on-site at their training centers in Houston, Texas, or in Calgary, Canada, or off-site, i.e., at your business location.<br />
+    For more information, visit their Web site at <a title="http://www.peice.com?frfi=38519" href="http://www.peice.com/?frfi=38519">http://www.peice.com/?frfi=38519</a>.</li>
+  <li><strong>Petrostrategies, Inc.</strong> is a consulting, research, and training organization focusing on the oil and gas industry. Check out their Web site's training area at <a href="http://www.t-f-e.com/Environmental.htm">http://www.petrostrategies.org/Learning_Center/learning_center.htm</a>. This company also offers Web-based training. For more information, call (972) 867-5950 or e-mail: <a href="mailto:allenmesch@petrostrategies.org">allenmesch@petrostrategies.org</a></li>
+  <li><strong>PIRA Energy Group</strong> is an international energy consulting firm specializing in global energy market analysis and intelligence. PIRA Energy Group conducts seminars year-round at various strategic locations. PIRA's Oil Executive Training Program offer one-on-one instruction on all facets of the international oil market. <br />
+    For more information, please contact them at 212-686-6808 or visit <a title="http://www.pira.com" href="http://www.pira.com/">http://www.pira.com/</a>.</li>
+  <li><strong>ProComply</strong> is a provider of energy and regulatory-related courses tailored specifically for natural gas and electric utilities, marketers and transmission companies in the US. Their highly customized content is based on the unique business model and operating conditions for each energy company. In addition to   customized training programs, ProComply performs in-house compliance assessment and implementation services that also serve to train internal staff for developing compliance programs. FERC areas include Standards and Codes of   Conduct, Market Behavior and Manipulation Rules, Gas Capacity Release and general FERC educational areas. NERC areas include Physical Access Cyber   Security and Electronic Access Cyber Security. <br />
+    For more information, ProComply   can be reached at 512-782-4344, <a title="mailto:info@procomply.com" href="mailto:info@procomply.com">info@procomply.com</a>, or visit their   website at <a title="http://www.procomply.com/" href="http://www.procomply.com/">www.procomply.com</a>.</li>
+  <li><strong>Siemens Power Academy TD - North America</strong>, has   been providing power system engineers and industry technicians with educational   programs for over 45 years.<br />
+    With the growth of emerging technology and trends in Energy it is vital that our power system, transmission, and distribution industries attract and retain a qualified and   knowledgeable workforce. As power engineering programs disappear from the academic landscape,this has becomean even   greater challenge. One way engineers can demonstrate value, skills, and competencies in their field of expertise is topursuecontinuous learning. At Siemens Power Academy TD North America, we offer short   courses in Power Distribution, Power Engineering, Power Transmission, and on our world class PSS&reg;E softwareand PSS&reg; Product Suite. In 2010, Siemens Power   Academy TD NA announced the introduction of three Certification   Programs in Power SystemEngineering, Power System Transmission and Power System   Dynamics. Siemens Power Academy   Certifications aredesignedfor engineering professionals and allow employees   tovalidate skills whilealso providingemployers with a proven method for   developing its workforce toremain competitive. Located throughout the   continental United States and Canada, you'll find courses that are meaningful,   locations that are convenient, and contentthat is vital for this industry's sustainability. Call today to find our more (518) 395-5186 or visit our   website at: <a title="blocked::http://www.usa.siemens.com/energy/pti-education" href="http://www.usa.siemens.com/energy/pti-education">http://www.usa.siemens.com/energy/pti-education</a></li>
+  <li><strong>Skipping Stone Inc.</strong><br />
+    Skipping Stone offers a unique method of providing energy training and continuing education services. Unlike others, our courses are focused on the business aspects of the energy market and are taught by veteran energy executives with a deep understanding of the energy industry. Our course instructors take pride in their ability to make complex topics easy to understand and to engage each participant to assure they gain a strong foundation, which they can carry forward into their professional careers. Each of our courses comes with a comprehensive manual and utilizes interactive exercises that create real world simulations for course participants. Immediate application of the concepts in the training manual through these exercises results in significantly higher retention levels. The experience of our instructors allows participants to ask wide ranging and in-depth questions about the training topic and related industry experiences. By engaging client leadership beforehand, all of our training courses can be shaped to fit client strategies, utilize client products and services in the examples, and provide industry context for the participant. Our unique methods enable participants to understand the big picture, as well as how the concepts in each chapter apply to their company and to their specific job function. For more information call Laura Curran (714) 965-0800 or  e-mail: <a href="mailto:training@skippingstone.com">training@skippingstone.com</a>.</li>
+  <li><strong>SNL CFE</strong>, an affiliate of SNL Financial, LC, develops and produces sector-focused conferences and   seminars for professionals who focus on the energy, financial services, real estate and media sectors. Attendees include corporate development, finance and investor relations professionals, Wall Street analysts and asset managers, investment bankers, private equity investors and industry regulators. Instructors for CFE programs are drawn from the ranks of active practitioners, industry executive and acknowledged experts with the goal of exposing participants to a variety of perspectives and approaches. Website: <a href="http://www.snlcenter.com/">www.snlcenter.com</a>.</li>
+</ul>
+           
+</span>
+          <p><br />
+            <br />
+            Please contact Claudia Hernandez to list your conference here.<br \>
+            e-mail: <A href="mailto:claudia.hernandez@eia.gov">claudia.hernandez@eia.gov</A> <br \>
+            telephone: (202) 586-4323</P>
+        </div>
+
+
+  </span>
+                  </div>
+        
+</div>
+       
+          
+      	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="addbar">
+						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../about/index.html">About EIA</a></h3>
+			<h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+			<h3><a href="../about/careers/index.html">Careers</a></h3>
+						<h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="https://www.eia.gov/petroleum/">Petroleum</a><br/>
+				<a href="https://www.eia.gov/coal/">Coal</a><br/>
+				<a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br/>
+				<a href="https://www.eia.gov/renewable/">Renewable</a><br/>
+				<a href="../nuclear/index.html">Nuclear</a><br/>
+				<a href="../electricity/index.html">Electricity</a><br/>
+				<a href="../consumption/index.html">Consumption</a><br/>
+				<a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br/>
+				<a href="../environment.1.html">Environment</a><br/>
+				<a href="https://www.eia.gov/finance/">Markets & Finance</a><br/>
+				<a href="../todayinenergy/index.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../state/index.html">States</a><br/>
+				<a href="../countries/index.html">Countries</a><br/>
+				<a href="https://www.eia.gov/maps/">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+				<a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+				<a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br/>
+				<a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br/>
+				<a href="../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+</div>
+</body>
+</html>

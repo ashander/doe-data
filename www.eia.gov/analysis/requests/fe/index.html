@@ -1,0 +1,888 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+
+<body>
+<div id="outerX">
+  
+  
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../consumption/index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../energyexplained/index.html">Energy Explained</a></h3>
+              <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+    $('.dropdown').dd();
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+
+
+<div class="title bg_analysis">
+  <h1>Analysis & Projections</h1>
+</div>
+
+<div class="subnav">
+  <span class="right"><a href="https://www.eia.gov/tools/glossary/">Glossary &rsaquo;</a> <a href="https://www.eia.gov/tools/faqs/">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="https://www.eia.gov/analysis/">Overview</a></li>
+    <li class="dropdown "><a href="https://www.eia.gov/analysis/projection-data.cfm">Projection Data</a></li>
+    
+    <div class="dat_block dat_links">
+      <ul>
+        <li><a href="https://www.eia.gov/analysis/projection-data.cfm#forecasts">Monthly short-term forecasts through the next calender year</a></li>
+        <li><a href="https://www.eia.gov/analysis/projection-data.cfm#annualproj">Annual projections to 2050</a></li>
+        <li><a href="https://www.eia.gov/analysis/projection-data.cfm#intlproj">International projections</a></li>
+        <li><a href="https://www.eia.gov/analysis/projection-data.cfm">All projections reports</a></li>
+      </ul>
+    </div>
+
+    
+    <li class="dropdown "><a href="../../reports.cfm@t=128.html">Analysis & Projections</a></li>
+
+    
+    <div id="analysis-projections" class="dat_block dat_links" style="width:600px;">
+
+      
+      <div style="float:left; width:400px;">
+        <h4 style="margin: 12px 20px 6px 20px;border-bottom:1px solid #CCC;padding-bottom:2px;">Major Topics</h4>
+        <ul class="split_2columns" style="margin-bottom:16px;">
+          
+          
+<li><a href="../../reports.cfm@t=128.html#/T214">Most popular</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T128">Annual Energy Outlook related</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T138">Congressional & other requests</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T132">International Energy Outlook related</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T136">Presentations</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T214">Recurring</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T130">Short-Term Outlook Related</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T140">Special outlooks</a></li>
+<li><a href="../../reports.cfm@t=128.html#/T134">Testimony</a></li>
+<li class="no-border" style="padding-bottom:0px;"><a href="../../reports.cfm@t=128.html">All reports</a></li>
+
+
+        </ul>
+      </div>
+
+      
+      <div class="listContainer2" style="width:200px; float:right">
+        <h4 style="margin: 12px 20px 6px 20px; border-bottom:1px solid #ccc; padding-bottom:2px;">Browse by Tag</h4>
+        <ul>
+          <li><a href="https://www.eia.gov/analysis/browsebytag.cfm">Alphabetical</a></li>
+          <li><a href="https://www.eia.gov/analysis/browsebytag.cfm?frequency">Frequency</a></li>
+          <li><a href="https://www.eia.gov/analysis/browsebytag.cfm?tagcloud">Tag Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </ul>
+</div>
+  
+  <div class="pagecontent mr_temp7">
+    <div class="side_col right">
+		
+		        <br />
+<div class="side_col right">
+        
+        <span class="grey_side blue_top">
+        <p class="no_btm_border">
+        <a class="ico_pdf" href="https://www.eia.gov/analysis/requests/fe/pdf/lng.pdf">Full report</a><br />
+        <a class="ico_pdf" href="https://www.eia.gov/analysis/requests/fe/pdf/appa.pdf">Appendix A-Request Letter</a><br />
+        <a class="ico_pdf" href="https://www.eia.gov/analysis/requests/fe/pdf/appb.pdf">Appendix B-Summary Tables</a><br /><br />
+         
+          
+          
+          </p>
+        </span>
+
+</div>
+<div class="side_col right">
+  
+        <span class="grey_side blue_top">
+        <h4> Baseline and scenario data</h4>
+      
+      
+      
+      <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=1-FE2014&region=0-0&cases=fe2014-d102413a,refaeo-d062614a,ref12-d080214a,ref16-d080214a,ref20-d080214a,ref20p-d100614a">Reference</a> </h5>
+      <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=17-FE2014&region=1-0&cases=hres20-d080614a,hres16-d080614a,hres12-d073114a,hresaeo-d062614a,fehres-d112913b">High Oil and Gas Resource case</a></h5>
+      <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=1-FE2014&region=0-0&cases=lres20-d080214a,lres16-d080614a,lres12-d073114a,lresaeo-d071414a,felres-d112913a">Low Oil and Gas Resource case</a></h5>
+      <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=1-FE2014&region=0-0&cases=hmac20-d080614a,hmac16-d080214a,hmac12-d080214a,hmacaeo-d072014a,fehmac-d112913a">High Economic Growth case</a></h5>
+      <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=1-FE2014&region=0-0&cases=rclnc20nclgn-d090914a,rclnc16nclgn-d090914a,rclnc12nclgn-d090914a,rclncaeonclgn-d090914a,fehclonuc-d012314a">Accelerated Coal and Nuclear Retirements case</a></h5>        
+      
+ 
+          
+          
+</div>
+
+
+
+<div class="side_col right">
+        
+        <span class="grey_side blue_top">
+        <div class="d_side">
+                <h5><a href="https://www.eia.gov/oiaf/aeo/tablebrowser/#release=FE2014&subject=0-FE2014&table=17-FE2014&region=1-0&cases=fe2014-d102413a,refaeo-d062614a,ref12-d080214a,ref16-d080214a,ref20-d080214a,ref20p-d100614a">Interactive table viewer</a></h5>
+		</div> 
+          
+          
+          
+        </span>
+
+</div>
+
+
+<div class="side_col right">
+  
+  
+  
+  
+  </div>
+      
+
+
+    </div>
+
+    <div class="main_col">
+        <h1 align="left">Effect of Increased Levels of Liquefied Natural Gas Exports on U.S. Energy Markets</h1>
+<p class="dat"> Release date: October 29, 2014</p><br />
+        <h2>Introduction</h2>
+<p>This report responds to a May 29, 2014 request from the U.S.  Department of Energy's Office of Fossil Energy (DOE/FE) for an update of the  Energy Information Administration's (EIA) January 2012 study of liquefied  natural gas (LNG) export scenarios. This  updated study, like the prior one, is intended to serve as an input to be  considered in the evaluation of applications to export LNG from the United  States under Section 3 of the Natural Gas Act, which requires DOE to grant a  permit to export domestically produced natural gas unless it finds that such  action is not consistent with the public interest. Appendix A provides a copy  of the DOE/FE request letter.</p>
+<p>  DOE/FE asked EIA to assess how specified scenarios of  increased exports of LNG from the Lower 48 states could affect domestic energy  markets, focusing on consumption, production, and prices. The DOE/FE scenarios posit total LNG exports  sourced from the Lower 48 states of 12 billion standard cubic feet per day  (Bcf/d), 16 Bcf/d, and 20 Bcf/d, with these exports phased in at a rate of 2  Bcf/d each year beginning in 2015.</p>
+<p>DOE/FE requested that EIA consider the specified  Lower 48 states LNG export scenarios in the context of baseline cases from  EIA's 2014 Annual Energy Outlook (AEO2014) that reflect varying perspectives on  the domestic natural gas supply situation, the growth rate of the U.S. economy,  and natural gas use for electricity generation. The AEO2014 cases considered in this report include: </p>
+<ul>
+  <li>The AEO2014 Reference case </li>
+  <li>The High Oil and Gas Resource (HOGR) case, which  reflects more optimistic assumptions about domestic natural gas supply  prospects than the Reference case</li>
+  <li>The Low Oil and Gas Resource (LOGR) case, which  reflects less optimistic assumptions about domestic oil and natural gas supply  prospects than the Reference case </li>
+  <li>The High Economic Growth (HEG) case, in which  the U.S. gross domestic product grows at an average annual rate 0.4 percentage  points higher than in the Reference case, resulting in higher domestic energy  demand</li>
+  <li>The Accelerated Coal and Nuclear Retirements  (ACNR) case, in which higher costs for running existing coal and nuclear plants  result in accelerated capacity retirements, resulting in more reliance on  natural gas to fuel electricity generation than in the Reference case</li></ul>
+<p><span><a href="https://www.eia.gov/analysis/requests/fe/images/figure_1.jpg" class="lightbox"><img src="https://www.eia.gov/analysis/requests/fe/images/figure_1.jpg" alt="Figure 1. Lower 48 states LNG exports in scenarios specified by DOE/FE" width="340" /></a><span class="caption"></span></span></p>
+<p>EIA recognizes that the ramp-up specified by  DOE/FE for the scenarios analyzed in this report, under which total Lower 48 states  LNG exports reach 12 Bcf/d in 2020, is extremely aggressive, indeed almost  impossible, and that the ultimate LNG export levels specified by DOE/FE are  also very unlikely for some of the baselines. EIA understood that the DOE/FE scenarios were  intended to provide results that show an outer envelope of domestic production  and consumption responses that might follow from the approval of export  licenses beyond 12 Bcf/d. Accordingly, EIA  also included a 20 Bcf/d export scenario, applied to the Reference case, with a  delayed ramp-up to identify the impact of higher LNG exports implemented at a  more credible pace. The DOE/FE scenarios, as well as the alternative 20 Bcf/d (Alt  20-Bcfd) scenario are shown in Figure 1. </p>
+
+<p>Each of the five AEO2014 cases used as baselines  in this study already includes some amount of LNG exports from the Lower 48  states. The  LNG exports in the AEO2014 baseline cases, rather than the scenarios specified  for this study, reflect EIA&rsquo;s own views on future LNG exports. As  shown in Figure 2, LNG exports from the Lower 48 states in the baselines have  projected 2040 levels ranging from 3.3 Bcf/d (LOGR case) to 14.0 Bcf/d (HOGR  case). Projected exports are positively correlated with the abundance of the  domestic resource base, and negatively correlated with the level of domestic  natural gas demand.<a href="index.html#1" ><sup>1</sup></a></p>
+<p><span><a href="https://www.eia.gov/analysis/requests/fe/images/figure_2.jpg" class="lightbox"><img src="https://www.eia.gov/analysis/requests/fe/images/figure_2.jpg" alt="Figure 2. Lower 48 states LNG exports in the five AEO2014 baseline cases" width="340" /></a><span class="caption"></span></span></p>
+<p>As shown in Figure 3, projected U.S. natural gas  prices increase in each of the five baseline cases. The price paths depend on  the assumptions made regarding the resource base and advances in production  technology, economic growth, and natural gas demand. In the Reference case, the  average Lower 48 state supply price more than doubles between 2013 and 2040,  ultimately reaching $7.25/Million British thermal units (MMBtu) in 2040.<a href="index.html#2"><sup>2</sup></a> In contrast, under the more optimistic resource  assumptions of the HOGR case, prices increase by only 38% by 2040 and never  rise above $4.34/MMBtu. Under the more pessimistic resource assumptions of the  LOGR case, prices reach $10.08/MMBtu in 2040.</p>
+
+ <p>The different price paths in Figure 3 are key  drivers of variation in the level of Lower 48 states LNG exports across the  AEO2014 baseline cases. The amount of added Lower 48 LNG exports above the  baseline projection required to fulfill each of the export scenarios specified  by DOE/FE for this analysis, cumulative Lower 48 LNG exports at specified dates  for each baseline, and additional Lower 48 states cumulative exports above  baseline through those same specified dates for each of the DOE/FE scenarios  are reported in Table 1. For example in  the Reference case baseline, Lower 48 states exports are 5.7 Bcf/d in 2020 and  cumulative exports through 2020 are 6.2 trillion cubic feet (Tcf). In the 12-, 16- and 20-Bcf/d export  scenarios, cumulative exports through 2020 are 9.1 Tcf above those in the  Reference case baseline (as shown in the lower panel of Table 1).</p>
+ <p><span><a href="https://www.eia.gov/analysis/requests/fe/images/figure_3.jpg" class="lightbox"><img src="https://www.eia.gov/analysis/requests/fe/images/figure_3.jpg" alt="Figure 3. Average Lower 48 states natural has supply price in the five AEO2014 baseline cases used in this study" width="340" /></a><span class="caption"></span></span></p>
+ <p>Estimated price and market responses to each  pairing of a specified export scenario and a baseline will reflect the  additional amount of LNG exports needed to reach the targeted export level  starting from that baseline. For example, as shown in Table 1, the 20-Bcf/d  export scenario starting from the HOGR baseline requires a smaller additional amount  of cumulative exports relative to baseline (55.4 Tcf over the 2015-40 period)  than the 12-Bcf/d export scenario starting from the LOGR baseline (72.3 Tcf  over the same period).</p>
+ <table class="basic_table">
+   <caption>
+     Table 1. Added LNG exports needed in each pairing of DOE/FE export scenarios and baseline cases<br />
+  
+     </caption>
+   
+   <thead>
+       <tr>
+       <th>Reference</th>
+       <th>2015</th>
+       <th>2020</th>
+       <th>2025</th>
+       <th>2030</th>
+       <th>2035</th>
+       <th>2040</th>
+       </tr>
+       </thead>
+   <tbody>
+     <tr>
+       <td>Export level (Bcf/d)</td>
+       <td>0.3</td>
+       <td>5.7</td>
+       <td>7.4</td>
+       <td>7.4</td>
+       <td>7.4</td>
+       <td>7.4</td>
+       </tr>
+     <tr>
+       <td>Cumulative exports since 2015 (Tcf)</td>
+       <td>&nbsp;</td>
+       <td>6.2</td>
+       <td>18.8</td>
+       <td>32.3</td>
+       <td>45.9</td>
+       <td>59.4</td>
+       </tr>
+     <tr class="sectionhead">
+       <td colspan="7">Difference from baseline in cumulative LNG exports for each DOE/FE export scenario/baseline paring (Tcf)</td>
+       </tr>
+     <tr>
+       <td>12 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>9.1</td>
+       <td>18.5</td>
+       <td>26.8</td>
+       <td>35.2</td>
+       <td>43.5</td>
+       </tr>
+     <tr>
+       <td>16 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>9.1</td>
+       <td>25.0</td>
+       <td>40.7</td>
+       <td>56.3</td>
+       <td>72.0</td>
+       </tr>
+     <tr>
+       <td>20 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>9.1</td>
+       <td>28.7</td>
+       <td>51.6</td>
+       <td>74.6</td>
+       <td>97.5</td>
+       </tr>
+     <tr>
+       <td>Alt 20 Bcf/d*</td>
+       <td>&nbsp;</td>
+       <td>0.0</td>
+       <td>8.8</td>
+       <td>30.7</td>
+       <td>53.7</td>
+       <td>76.6</td>
+       </tr>
+     <tr class="sectionhead">
+     <td colspan="7">&nbsp;</td></tr>
+     </tbody>
+   <tfoot>
+     </tfoot>
+ </table>
+ <table class="basic_table">
+      
+   <thead>
+       <tr>
+       <th>High Oil and Gas Resource</th>
+       <th>2015</th>
+       <th>2020</th>
+       <th>2025</th>
+       <th>2030</th>
+       <th>2035</th>
+       <th>2040</th>
+       </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>Export level (Bcf/d)</td>
+       <td>0.3</td>
+       <td>6.8</td>
+       <td>12.9</td>
+       <td>14.0</td>
+       <td>14.0</td>
+       <td>14.0</td>
+       </tr>
+     <tr>
+       <td>Cumulative exports since 2015 (Tcf)</td>
+       <td>&nbsp;</td>
+       <td>6.6</td>
+       <td>24.9</td>
+       <td>50.5</td>
+       <td>76.0</td>
+       <td>101.6</td>
+       </tr>
+     <tr class="sectionhead">
+       <td colspan="7">Difference from baseline in cumulative LNG exports for each DOE/FE export scenario/baseline paring (Tcf)</td>
+     </tr>
+     <tr>
+       <td>12 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>8.7</td>
+       <td>12.3</td>
+       <td>8.6</td>
+       <td>5.0</td>
+       <td>1.3</td>
+       </tr>
+     <tr>
+       <td>16 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>8.7</td>
+       <td>18.9</td>
+       <td>22.5</td>
+       <td>26.2</td>
+       <td>29.8</td>
+       </tr>
+     <tr>
+       <td>20 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>8.7</td>
+       <td>22.5</td>
+       <td>33.5</td>
+       <td>44.4</td>
+       <td>55.4</td>
+       </tr>
+     <tr>
+       <td>Alt 20 Bcf/d*</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       </tr>
+     <tr class="sectionhead">
+       <td colspan="7">&nbsp;</td>
+     </tr>
+   </tbody>
+   <tfoot>
+   </tfoot>
+ </table>
+ <table class="basic_table">
+    
+   <thead>
+      <tr>
+       <th>Low Oil and Gas Resource</th>
+       <th>2015</th>
+       <th>2020</th>
+       <th>2025</th>
+       <th>2030</th>
+       <th>2035</th>
+       <th>2040</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+       <td>Export level (Bcf/d)</td>
+       <td>0.3</td>
+       <td>3.6</td>
+       <td>3.6</td>
+       <td>3.6</td>
+       <td>3.6</td>
+       <td>3.3</td>
+     </tr>
+     <tr>
+       <td>Cumulative exports since 2015 (Tcf)</td>
+       <td>&nbsp;</td>
+       <td>4.6</td>
+       <td>11.2</td>
+       <td>17.7</td>
+       <td>24.3</td>
+       <td>30.6</td>
+     </tr>
+     <tr class="sectionhead">
+       <td colspan="7">Difference from baseline in cumulative LNG exports for each DOE/FE export scenario/baseline paring (Tcf)</td>
+     </tr>
+     <tr>
+       <td>12 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>10.7</td>
+       <td>26.1</td>
+       <td>41.4</td>
+       <td>56.8</td>
+       <td>72.3</td>
+     </tr>
+     <tr>
+       <td>16 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>10.7</td>
+       <td>32.6</td>
+       <td>55.3</td>
+       <td>77.9</td>
+       <td>100.8</td>
+     </tr>
+     <tr>
+       <td>20 Bcf/d</td>
+       <td>&nbsp;</td>
+       <td>10.7</td>
+       <td>36.3</td>
+       <td>66.2</td>
+       <td>96.2</td>
+       <td>126.3</td>
+     </tr>
+     <tr>
+       <td>Alt 20 Bcf/d*</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+       <td>&nbsp;</td>
+     </tr>
+     <tr class="section">
+       <td colspan="7">*Note: EIA included the Alt 20 Bcf/d scenario to  reflect a more realistic ramp-up of near-term LNG exports. </td>
+     </tr>
+   </tbody>
+   <tfoot>
+   </tfoot>
+ </table>
+ <p>Although the study reports results for all  pairings of export scenarios and baselines, some combinations are inherently  less plausible than others. High additional levels of LNG exports are unlikely  to occur under baseline conditions associated with high U.S. natural gas prices  because high domestic prices and limited resources to grow supply would  discourage investment in projects to liquefy and export domestic gas. The  combination of the 20-Bcf/d export scenario with LOGR case baseline, which  projects U.S. producer-level prices near $8/MMBtu by 2030 and above $10/MMBtu  by 2040 even before consideration of added LNG exports, seems particularly  implausible.</p>
+ <h2>Analysis approach</h2>
+<p>EIA used the five AEO2014 cases described above  as the starting point for its analysis and made several changes to represent  the export scenarios specified in the study request. EIA exogenously added LNG  exports from the Lower 48 states in its model runs, using the National Energy  Modeling System (NEMS), to reach the targeted LNG export levels. The Mid-Atlantic and South Atlantic regions  were each assumed to host 1 Bcf/d of LNG export capacity, the Pacific region  was assumed to host 2 Bcf/d, with all of the remaining Lower 48 states' export  capacity hosted along the Gulf Coast in the West South Central Census division.</p>
+<p>In addition to the volume of natural gas needed  to satisfy the levels of LNG exports defined in the scenarios, a supplemental  volume of gas is required in order to liquefy natural gas for export as LNG.  EIA assumed that this volume would equal 10% of the LNG export volume (Figure 4).  The additional natural gas consumed during the liquefaction process is counted  as fuel use within the U.S. region where liquefaction occurs.</p>
+
+<p><span><a href="https://www.eia.gov/analysis/requests/fe/images/figure_4.jpg" class="lightbox"><img src="https://www.eia.gov/analysis/requests/fe/images/figure_4.jpg" alt="Figure 4. Added average LNG export-related demand needed in each pairing of DOE/FE export scenarios and baseline cases (2015-40)" width="340" /></a><span class="caption"></span></span></p>
+<p>As in AEO2014, U.S. natural gas pipeline imports  and exports and U.S. LNG imports are endogenously determined in the model. However, LNG exports out of Alaska were set  exogenously to the projected level from the corresponding baseline cases. </p>
+<p>One further modeling change was applied only in  export scenario runs using the ACNR case. The ACNR case was included in the  study to reflect a baseline with high use of natural gas and low use of coal  for electricity generation that is driven by factors other than favorable  natural gas supply conditions and low natural gas prices, which are considered  in the HOGR case. In order to represent a situation in which increased coal  generation is not an available response to higher domestic natural gas prices,  coal-fired generation was not allowed to rise above the ACNR baseline level  when the DOE/FE export scenarios were implemented. In effect, the model was forced to accommodate  added LNG exports using a combination of responses other than a reversion to  coal-fired generation.</p>
+<h2>Caveats regarding interpretation of the analysis results</h2>
+<p>EIA recognizes that projections of energy  markets over a 25-year period are highly uncertain and subject to many events  that cannot be foreseen, such as supply disruptions, policy changes, and  technological breakthroughs. This uncertainty is particularly true in  projecting the effects of exporting significant LNG volumes from the United  States because of the following factors: </p>
+<ul>
+  <li>NEMS is not a world energy model and does not  address the interaction between the potential for additional U.S. natural gas  exports and developments in world natural gas markets. </li>
+  <li>Global natural gas markets are not fully  integrated, and their nature could change substantially in response to  significant changes in natural gas trading patterns. Future opportunities to  profitably export natural gas from the United States depend on the future of  global natural gas markets, the inclusion of relevant terms in specific  contracts to export natural gas, as well as on the assumptions in the various  cases analyzed.</li>
+  <li>Given its focus on the domestic energy system,  NEMS does not fully account for interactions between energy prices and the  global economy that could benefit the U.S. economy. For example, while NEMS  reflects both the positive effects of higher domestic production and the  negative effects of higher domestic energy prices on the U.S. economy, it does  not include a linkage between energy prices outside the United States and  global economic performance. As in the United States, a reduction in the price  of imported energy tends to support economic activity. Any reduction in global  natural gas prices that might occur as a result of U.S. LNG exports would tend  to stimulate the economies of countries that import gas, increasing their  demand for both domestic goods and services and imports sourced from the United  States and elsewhere. Because the NEMS  model does not consider how LNG export might change natural gas pricing in  overseas markets, or the implications of such changes for economic activity,  this interaction is not reflected in this study. Capturing that linkage would  require the use of a global economic model that explicitly includes the energy  sector.</li>
+  <li>Measures of domestic industrial activity in NEMS  are sensitive to both the composition of final U.S. demand and changes in  domestic energy prices. However, NEMS does not account for the impact of  domestic and global energy price changes on the global utilization pattern for  existing manufacturing capacity or the siting of new capacity inside or outside  of the United States in energy-intensive industries. Assessment of these effects can be  challenging and require careful attention to detail. For example, while the  implementation of the export scenarios raises domestic natural gas prices  relative to the baseline, increases in production from shale gas resources that  provide most of the natural gas used to increase LNG exports also increase the  projected domestic supply of natural gas liquids such as ethane and propane  that are important feedstock for some energy-intensive industries.</li>
+</ul>
+<p>EIA's January 2012 analysis of LNG exports, <a href="https://www.eia.gov/analysis/requests/fe/2012/">Effect of Increased Natural Gas  Exports on Domestic Energy Markets</a>, includes an extensive discussion of  caveats and issues involving the representation of global natural gas markets  and their interaction with the North American market. Much of that discussion  also applies to the analysis contained in this updated report. Additional observations regarding issues  surrounding the estimation of economic impacts of the export scenarios are  provided in the economic results section of this report.</p>
+
+<h2>Summary of results</h2>
+
+<ul>
+  <li><strong>Increased  LNG exports lead to increased natural gas prices.</strong> Starting from the AEO2014 Reference case  baseline, projected average natural gas prices in the Lower 48 states received  by producers in the export scenarios are 4% (12-Bcf/d scenario) to 11%  (20-Bcf/d scenario) more than their base projection over the 2015-40  period. Percentage changes in delivered  natural gas prices, which include charges for gas transportation and  distribution, are lower than percentage changes in producer prices,  particularly for residential and commercial customers. Starting from the AEO2014 Reference case  baseline, projected average Lower 48 states residential natural gas prices in  the export scenarios are 2% (12-Bcf/d scenario) to 5% (20-Bcf/d scenario) above  their base projection over the 2015-40 period. </li>
+  <li><strong>Natural  gas markets in the United States balance in response to increased LNG exports  mainly through increased natural gas production. </strong>Across the different export scenarios and  baselines, higher natural gas production satisfies about 61% to 84% of the  increase in natural gas demand from LNG exports, with a minor additional  contribution from increased imports from Canada. Across most cases, about  three-quarters of this increased production is from shale sources.</li>
+  <li><strong>Supply  from higher domestic production is augmented by reductions in natural gas use  by domestic end-users, who respond to higher domestic natural gas prices.</strong> As a result of higher natural gas prices, the  electric generation mix shifts towards other generation sources, including coal  and renewables, with some decrease in total generation as electricity prices  rise. The reduction in the average annual level of gas-fired generation over  the 2015-40 period ranges from 30 to 146 billion kilowatthours (kWh), starting  from levels that range from 1200 to 1782 billion kWh across the five baselines  used in this study. There is also a small reduction in natural gas use in all  sectors from efficiency improvements and conservation.</li>
+  <li><strong>Increased  LNG exports result in higher total primary energy use and energy-related CO<sub>2</sub>  emissions in the United States</strong>. The 0.1% to 0.6% increase in total primary  energy use and a -0.1% to 0.6% change in CO<strong><sub>2</sub></strong> emissions relative to baseline  over the 2015-40 period reflect both increased use of natural gas to fuel added  liquefaction and fuel switching in the electric power sector that for some  cases increases both fuel use and emissions intensity.</li>
+  <li><strong>Consumer  expenditures for natural gas and electricity increase modestly with added LNG  exports</strong>. On average, from 2015 to 2040, natural gas bills  paid by end-use consumers in the residential, commercial, and industrial  sectors combined increase 1% to 8% over a comparable baseline case, depending  on the export scenario and case, while increases in electricity bills paid by  end-use customers range from 0% to 3%. These estimates reflect the combined  impact of higher prices and small reductions in natural gas and electricity  use.</li>
+  <li><strong>Added  U.S. LNG exports result in higher levels of economic output, as measured by  real gross domestic product as (GDP)</strong>. Increased energy production spurs investment,  which more than offsets the adverse impact of somewhat higher energy prices  when the export scenarios are applied. Economic gains, measured as changes in  the level of GDP relative to baseline, range from 0.05% to 0.17% and generally  increase with the amount of added LNG exports required to fulfill an export  scenario for the applicable baseline. As noted in the previous discussion of  caveats, EIA&rsquo;s NEMS model is focused on the U.S. energy system and the domestic  economy and does not address several key international linkages that may  increase economic benefits.</li>
+  <li><strong>Added  U.S. LNG exports result in higher levels of domestic consumption expenditures  for goods and services in most cases</strong>. Domestic consumption is influenced more by  movements in energy prices, than increased energy production. In most cases, U.S. consumers increase their  consumption expenditures as the positive impacts of increased energy production  outweigh energy price changes. As energy  prices increase by more than 10% above baseline, then consumption changes  become very small to negative in some instances. Consumption gains range from 0.0% to 0.08%  and generally increase with the amount of added LNG exports required to fulfill  an export scenario for the applicable baseline. </li>
+  <li><strong>Results  for export scenarios using baselines representing higher domestic demand for  natural gas than in the Reference case both economy-wide (HEG case) and  specifically for electric power generation (ACNR case) differ only slightly   from those using the Reference case baseline.</strong> Although domestic gas use is higher in the HEG  and ACNR baselines than in the Reference baseline, the preponderance of the  energy market response to added LNG exports occurs on the supply side, with  similar price, expenditure, and economic effects across the three baselines.</li>
+  <li><strong>Results  for export scenarios using the HOGR and LOGR baselines that respectively make  more optimistic and more pessimistic assumptions regarding natural gas  resources and technology than the Reference case show some   differences from those using the other baselines.</strong> The amount of added LNG exports to fulfill the  export scenarios is smaller for the HOGR baseline, which starts with relatively  high LNG exports, than for other baselines. At the same time, the greater  ability to increase production also holds down increases in natural gas prices.  The LOGR case is the opposite, requiring the largest amount of added LNG  exports to fulfill the export scenarios under supply conditions that make it  more difficult and costly to raise production, leading to modeled outcomes with  the highest impacts on natural gas prices and the largest diversions of natural  gas from domestic end uses. As noted in the introduction, competition in global  LNG markets is likely to prevent the realization of high LNG exports under the  unfavorable domestic supply conditions of the LOGR case.</li>
+  <li><strong>A slower,  more realistic, ramp-up in LNG export capability results in slightly lower  price impacts in the early years of the projection and delays increases in  domestic natural gas production that support higher LNG exports. </strong>In the scenarios specified by DOE/FE, LNG  exports from the Lower 48 states start in 2015 and rise rapidly to reach 12  Bcf/d by 2020. EIA implemented the Alt 20-Bcf/d scenario, under Reference case  conditions. In EIA's Alt 20-Bcf/d scenario, the ramp-up in Lower 48 states LNG  exports is delayed but still quite aggressive, reaching 12 Bcf/d in 2023.  Comparison of results for the &quot;alt&quot; and &quot;standard&quot; versions of the 20-Bcf/d  scenario shows very modest differences in impacts over the entire projection  period.</li>
+  <li><strong>AEO2014,  which includes the cases used as baselines in this study, best reflects EIA's  view on LNG exports and U.S. natural gas markets more generally</strong>. Consideration of the energy market and economic  implications of export scenarios specified by DOE/FE in this analysis should  not be construed as reflecting any change in EIA's own projections.</li>
+</ul>
+
+    <p><a href="https://www.eia.gov/analysis/requests/fe/pdf/lng.pdf" class="ico_pdf">See complete report</a></p>
+    <hr align="left" width="75" />
+    <h4>Footnotes</h4>
+    <p><a name="1"></a><sup>1</sup>In the HOGR baseline case, projected Lower 48 states  LNG exports exceed 12 Bcf/d, one of the specified DOE/FE scenarios, by the  mid-2020s. Although the 12-Bcf/d scenario with the HOGR case assumptions is  included in the figures and tables of this report, it is excluded from the  narrative of the discussion of the ranges of results due to LNG exports being  less than the baseline.</p>
+    <p><a name="2"></a><sup>2</sup>All  prices in this report are in 2012 dollars unless otherwise noted. To convert  one thousand cubic feet (Mcf) to MMBtu, a ratio of 1 Mcf to 1.027 MMBtu was  used.
+      </li>
+      </li>
+  </ul>
+</p>
+    </div>
+
+    </div>
+</div>
+
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+      <div class="rs_comments">
+        <form>
+        <p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+            <textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+            <input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+        </p>
+        </form>
+      </div>
+	  
+      </div>
+      <div id="addbar">
+      <a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../../../about/index.html">About EIA</a></h3>
+        <h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+        <h3><a href="../../../about/careers/index.html">Careers</a></h3>
+        
+        <h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="https://www.eia.gov/petroleum/">Petroleum</a><br />
+           <a href="https://www.eia.gov/coal/">Coal</a><br />
+           <a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br />
+           <a href="https://www.eia.gov/renewable/">Renewable</a><br />
+           <a href="../../../nuclear/index.html">Nuclear</a><br />
+           <a href="../../../electricity/index.html">Electricity</a><br />
+           <a href="../../../consumption/index.html">Consumption</a><br />
+           <a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br />
+           <a href="../../../environment.1.html">Environment</a><br />
+           <a href="https://www.eia.gov/finance/">Markets & Finance</a><br />
+           <a href="../../../todayinenergy/index.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../../../state/index.html">States</a><br />
+           <a href="../../../countries/index.html">Countries</a><br />
+           <a href="https://www.eia.gov/maps/">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+           <a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+           <a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br />
+           <a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br />
+           <a href="../../../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>
