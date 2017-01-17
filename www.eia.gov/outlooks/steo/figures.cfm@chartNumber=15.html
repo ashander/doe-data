@@ -1,0 +1,303 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+
+
+<!-- New values from the Application variables--->
+
+
+<style>
+#lbFig15container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig15container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig15container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig15container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. liquid fuels product supplied'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'left',
+					x: 55,
+					y: 20
+				},
+				startOnTick: false,
+				endOnTick: true,
+				showFirstLabel: true,
+				showLastLabel: false,
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_green
+					}
+				},
+				min: 15,
+				max: 21,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_green
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'year over year change, million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_blue
+					}
+				},
+				min: -0.4,
+				max: 0.8,
+				tickInterval: 0.2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 1, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_blue
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				snap : 0,
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Total product supplied (left axis)' == this.series.name)
+					{	precision = 2;frequency = 'M'; }
+					
+					if('Product supplied forecast (left axis)' == this.series.name)
+					{	precision = 2;frequency = 'M'; }
+					
+					if('Motor gasoline (right axis)' == this.series.name)
+					{	precision = 2;	frequency = 'A'; }
+					
+					if('Jet fuel (right axis)' == this.series.name)
+					{   precision = 2;frequency = 'A'; }
+					
+					if('Distillate fuel (right axis)' == this.series.name)
+					{	precision = 2;frequency = 'A'; }
+					
+					if('Other fuels (right axis)' == this.series.name)
+					{	precision = 2;frequency = 'A'; }
+					
+					var date = new Date(this.x);
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					yLabel = this.y;
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Total product supplied (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 6,
+				color: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2015,0, 1), 19.218243], 
+						[Date.UTC(2015,1, 1), 19.676807], 
+						[Date.UTC(2015,2, 1), 19.350745], 
+						[Date.UTC(2015,3, 1), 19.263399], 
+						[Date.UTC(2015,4, 1), 19.301143], 
+						[Date.UTC(2015,5, 1), 19.84025], 
+						[Date.UTC(2015,6, 1), 20.12577], 
+						[Date.UTC(2015,7, 1), 19.929422], 
+						[Date.UTC(2015,8, 1), 19.418035], 
+						[Date.UTC(2015,9, 1), 19.500745], 
+						[Date.UTC(2015,10, 1), 19.142833], 
+						[Date.UTC(2015,11, 1), 19.600114], 
+						[Date.UTC(2016,0, 1), 19.055408], 
+						[Date.UTC(2016,1, 1), 19.680027], 
+						[Date.UTC(2016,2, 1), 19.616477], 
+						[Date.UTC(2016,3, 1), 19.264118], 
+						[Date.UTC(2016,4, 1), 19.202012], 
+						[Date.UTC(2016,5, 1), 19.799279], 
+						[Date.UTC(2016,6, 1), 19.712031], 
+						[Date.UTC(2016,7, 1), 20.130902], 
+						[Date.UTC(2016,8, 1), 19.863565], 
+						[Date.UTC(2016,9, 1), 19.621791], 
+						[Date.UTC(2016,10, 1), 19.603890733], 
+						[Date.UTC(2016,11, 1), 19.509094623] 				
+				]
+			}, {
+				name: 'Product supplied forecast (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5,
+				color: Highcharts.eia_green,
+				dashStyle: 'dash',
+				data: [
+				
+				
+						[Date.UTC(2016,11, 1), 19.509094623], 
+						[Date.UTC(2017,0, 1), 19.5265], 
+						[Date.UTC(2017,1, 1), 19.58131], 
+						[Date.UTC(2017,2, 1), 19.58312], 
+						[Date.UTC(2017,3, 1), 19.52104], 
+						[Date.UTC(2017,4, 1), 19.52938], 
+						[Date.UTC(2017,5, 1), 19.95852], 
+						[Date.UTC(2017,6, 1), 20.14022], 
+						[Date.UTC(2017,7, 1), 20.23074], 
+						[Date.UTC(2017,8, 1), 20.09217], 
+						[Date.UTC(2017,9, 1), 19.90712], 
+						[Date.UTC(2017,10, 1), 19.95177], 
+						[Date.UTC(2017,11, 1), 20.1312], 
+						[Date.UTC(2018,0, 1), 19.8844], 
+						[Date.UTC(2018,1, 1), 19.91111], 
+						[Date.UTC(2018,2, 1), 19.91832], 
+						[Date.UTC(2018,3, 1), 19.87521], 
+						[Date.UTC(2018,4, 1), 19.89397], 
+						[Date.UTC(2018,5, 1), 20.37639], 
+						[Date.UTC(2018,6, 1), 20.53689], 
+						[Date.UTC(2018,7, 1), 20.66696], 
+						[Date.UTC(2018,8, 1), 20.4309], 
+						[Date.UTC(2018,9, 1), 20.29678], 
+						[Date.UTC(2018,10, 1), 20.29024], 
+						[Date.UTC(2018,11, 1), 20.57604]  			
+				]
+			}, {
+				name: 'Motor gasoline (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 4,
+				color: Highcharts.eia_grey,
+				pointRange: 1000 * 3600 * 24 * 365,  
+				data: [
+					
+						[Date.UTC(2015,5 , 1), 0.2575326137], 
+						[Date.UTC(2016,5 , 1), 0.1004063105], 
+						[Date.UTC(2017,5 , 1), 0.0439503607], 
+						[Date.UTC(2018,5 , 1), 0.0884296712] 
+				]
+			}, {
+				name: 'Jet fuel (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 3,
+				color: Highcharts.eia_dk_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5 , 1), 0.0782926028], 
+						[Date.UTC(2016,5 , 1), 0.055416407], 
+						[Date.UTC(2017,5 , 1), 0.003909119], 
+						[Date.UTC(2018,5 , 1), 0.005451937] 
+				]
+			}, {
+				name: 'Distillate fuel (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 2,
+				color: Highcharts.eia_blue,
+				pointRange: 1000 * 3600 * 24 * 365,  
+				data: [
+				
+						[Date.UTC(2015,5 , 1), -0.0420103041], 
+						[Date.UTC(2016,5 , 1), -0.139500648], 
+						[Date.UTC(2017,5 , 1), 0.1129188151], 
+						[Date.UTC(2018,5 , 1), 0.0737049534] 
+				]
+			}, {
+				name: 'Other fuels (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_lt_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5 , 1), 0.425073247 - ( 0.2575326137 + 0.0782926028 + -0.0420103041)], 
+						[Date.UTC(2016,5 , 1), 0.056549515 - ( 0.1004063105 + 0.055416407 + -0.139500648)], 
+						[Date.UTC(2017,5 , 1), 0.260657641 - ( 0.0439503607 + 0.003909119 + 0.1129188151)], 
+						[Date.UTC(2018,5 , 1), 0.375860493 - ( 0.0884296712 + 0.005451937 + 0.0737049534)] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) 
+	{
+		throw (err);
+	}
+});
+</script> 

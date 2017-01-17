@@ -1,0 +1,200 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig8container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig8container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig8container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig8container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'World crude oil and liquid fuels production growth'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				categories: [
+				
+						'2016', 
+						'2017', 
+						'2018' 
+				],
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 0.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 1
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -1.5,
+				max: 2,
+				tickInterval: 0.5,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 1, true, false);
+					}
+
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 3, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'OPEC countries',
+				color: Highcharts.eia_blue,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 6,
+				data: [
+				
+						['2016', 0.925345219], 
+						['2017', 0.675427944], 
+						['2018', 0.664787276] 
+				]
+			}, {
+				name: 'Russia and Caspian Sea',
+				color: Highcharts.eia_green,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 3,
+				data: [
+				
+						['2016', 0.17513919028], 
+						['2017', 0.18737983408], 
+						['2018', 0.08602472262] 
+				]
+			}, {
+				name: 'North America',
+				color: Highcharts.eia_yellow,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 5,
+				data: [
+				
+						['2016', -0.3771618568], 
+						['2017', 0.3647211616], 
+						['2018', 0.736219811] 
+				]
+			}, {
+				name: 'Latin America',
+				color: Highcharts.eia_tan,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				data: [
+				
+						['2016', -0.0832422465], 
+						['2017', 0.03018386594], 
+						['2018', 0.06251110004] 
+				]
+			}, {
+				name: 'North Sea',
+				color: Highcharts.eia_red,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 4,
+				data: [
+				
+						['2016', 0.07202956895], 
+						['2017', -0.13980468013], 
+						['2018', -0.15565274541] 
+				]
+			}, {
+				name: 'Other Non-OPEC',
+				color: Highcharts.eia_brown,
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				data: [
+				
+						['2016', -0.40930714593], 
+						['2017', -0.03428227349], 
+						['2018', -0.06709782225] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

@@ -1,0 +1,275 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig10container
+{
+	display:none;
+}
+
+</style>
+
+<DIV id="lbFig10container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig10container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig10container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'World consumption and Non-OPEC production growth',
+				style: {
+		         color: "black",
+		         font: 'bold 15.8px "Arial", Verdana, Helvetica, sans-serif'
+		     	}
+			},
+			subtitle: {
+				text: "(change from previous year)"
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'center',
+					y: 20
+				},
+				categories: [
+				
+						'Q1 2013', 
+						'Q2 2013', 
+						'Q3 2013', 
+						'Q4 2013', 
+						'Q1 2014', 
+						'Q2 2014', 
+						'Q3 2014', 
+						'Q4 2014', 
+						'Q1 2015', 
+						'Q2 2015', 
+						'Q3 2015', 
+						'Q4 2015', 
+						'Q1 2016', 
+						'Q2 2016', 
+						'Q3 2016', 
+						'Q4 2016', 
+						'Q1 2017', 
+						'Q2 2017', 
+						'Q3 2017', 
+						'Q4 2017', 
+						'Q1 2018', 
+						'Q2 2018', 
+						'Q3 2018', 
+						'Q4 2018' 
+				],
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 15.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				tickInterval: 4
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -2,
+				max: 5,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'dollars per barrel',
+					align: 'above',
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -100,
+				max: 20,
+				tickInterval: 20,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				color: Highcharts.eia_blue,
+				name: 'World oil consumption (left axis)',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				data: [
+				
+						['Q1 2013', 1.155813975], 
+						['Q2 2013', 1.105058648], 
+						['Q3 2013', 1.017594834], 
+						['Q4 2013', 0.673610647], 
+						['Q1 2014', 1.603665], 
+						['Q2 2014', 0.739360051], 
+						['Q3 2014', 1.060268791], 
+						['Q4 2014', 1.342413536], 
+						['Q1 2015', 1.494855009], 
+						['Q2 2015', 1.761255803], 
+						['Q3 2015', 2.148586933], 
+						['Q4 2015', 0.686068753], 
+						['Q1 2016', 0.856665357], 
+						['Q2 2016', 1.90032788], 
+						['Q3 2016', 1.51528933], 
+						['Q4 2016', 1.46426459], 
+						['Q1 2017', 1.519470808], 
+						['Q2 2017', 1.584022821], 
+						['Q3 2017', 1.609188769], 
+						['Q4 2017', 1.767817249], 
+						['Q1 2018', 1.565733851], 
+						['Q2 2018', 1.521085007], 
+						['Q3 2018', 1.486748059], 
+						['Q4 2018', 1.47035899] 
+				]
+			}, {
+				color: '#bd732a',
+				name: 'Non-OPEC production (left axis)',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				data: [
+				
+						['Q1 2013', 0.520993098], 
+						['Q2 2013', 1.510978676], 
+						['Q3 2013', 2.290123285], 
+						['Q4 2013', 1.893727292], 
+						['Q1 2014', 2.284514632], 
+						['Q2 2014', 2.594389953], 
+						['Q3 2014', 2.31698643], 
+						['Q4 2014', 2.721363149], 
+						['Q1 2015', 2.595009571], 
+						['Q2 2015', 1.657591696], 
+						['Q3 2015', 1.552152237], 
+						['Q4 2015', 0.543873643], 
+						['Q1 2016', -0.002979478], 
+						['Q2 2016', -0.855929789], 
+						['Q3 2016', -1.042093437], 
+						['Q4 2016', -0.581229159], 
+						['Q1 2017', -0.568443492], 
+						['Q2 2017', 0.842500814], 
+						['Q3 2017', 0.885702869], 
+						['Q4 2017', 0.459514636], 
+						['Q1 2018', 0.593594403], 
+						['Q2 2018', 0.822761639], 
+						['Q3 2018', 0.62112727], 
+						['Q4 2018', 0.610797117] 
+				]
+			}, {
+				color: '#5d9732',
+				name: 'Change in WTI price (right axis)',
+				type: 'line',
+				yAxis: 1,
+				zIndex: 3,
+				data: [
+				
+						['Q1 2013', -8.61562857], 
+						['Q2 2013', 0.760315972], 
+						['Q3 2013', 13.66290873], 
+						['Q4 2013', 9.486484375], 
+						['Q1 2014', 4.352298361], 
+						['Q2 2014', 9.29757292], 
+						['Q3 2014', -7.961640625], 
+						['Q4 2014', -24.285578125], 
+						['Q1 2015', -50.193803279], 
+						['Q2 2015', -45.492206353], 
+						['Q3 2015', -51.315432452], 
+						['Q4 2015', -31.27465625], 
+						['Q1 2016', -15.133032787], 
+						['Q2 2016', -12.394460317], 
+						['Q3 2016', -1.702208173], 
+						['Q4 2016', 7.259390625], 
+						['Q1 2017', 18.648737705], 
+						['Q2 2017', 6.54], 
+						['Q3 2017', 8.14853125], 
+						['Q4 2017', 3.804296875], 
+						['Q1 2018', 1], 
+						['Q2 2018', 2.671875], 
+						['Q3 2018', 2.666666667], 
+						['Q4 2018', 4.3125] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

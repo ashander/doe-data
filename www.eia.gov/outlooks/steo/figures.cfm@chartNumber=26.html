@@ -1,0 +1,308 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig26container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig26container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig26container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig26container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. renewable energy supply'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 365*24*3600*1000 
+			},
+			yAxis: [{
+				title: {
+					text: 'quadrillion Btu',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0,
+				max: 12,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%Y', this.x);
+					var yLabel = formatNumber(this.y, 3, true, false);
+					
+					if(this.series.type == 'arearange') {
+						yLabel += ' to ' + formatNumber(this.point.options.high, 0, true, false);
+					}
+					
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Solar',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 7,
+				color: '#000',
+				stacking: 'normal',
+				stack: '1',
+				fillColor: '#000',
+				data: [
+				
+						[Date.UTC(2006,0, 1), 0.06844104], 
+						[Date.UTC(2007,0, 1), 0.075657103], 
+						[Date.UTC(2008,0, 1), 0.073783615], 
+						[Date.UTC(2009,0, 1), 0.07761389], 
+						[Date.UTC(2010,0, 1), 0.090339735], 
+						[Date.UTC(2011,0, 1), 0.110679501], 
+						[Date.UTC(2012,0, 1), 0.156692107], 
+						[Date.UTC(2013,0, 1), 0.224552008], 
+						[Date.UTC(2014,0, 1), 0.337310894], 
+						[Date.UTC(2015,0, 1), 0.427414513], 
+						[Date.UTC(2016,0, 1), 0.57691653], 
+						[Date.UTC(2017,0, 1), 0.6885909], 
+						[Date.UTC(2018,0, 1), 0.8260479] 		
+				]
+			},{
+				name: 'Geothermal',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 6,
+				color: '#42C0FB',
+				stacking: 'normal',
+				stack: '1',
+				fillColor: '#42C0FB',
+				data: [
+				
+						[Date.UTC(2006,0, 1), 0.18120028], 
+						[Date.UTC(2007,0, 1), 0.185774215], 
+						[Date.UTC(2008,0, 1), 0.192433129], 
+						[Date.UTC(2009,0, 1), 0.200184503], 
+						[Date.UTC(2010,0, 1), 0.207978644], 
+						[Date.UTC(2011,0, 1), 0.212310919], 
+						[Date.UTC(2012,0, 1), 0.211592042], 
+						[Date.UTC(2013,0, 1), 0.214006166], 
+						[Date.UTC(2014,0, 1), 0.214489708], 
+						[Date.UTC(2015,0, 1), 0.21294468], 
+						[Date.UTC(2016,0, 1), 0.228550947], 
+						[Date.UTC(2017,0, 1), 0.2301627], 
+						[Date.UTC(2018,0, 1), 0.2268631] 		
+				]
+			},{
+				name: 'Other biomass',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 5,
+				color: Highcharts.eia_red,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_red,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 0.396560573], 
+						[Date.UTC(2007,0, 1), 0.413235318], 
+						[Date.UTC(2008,0, 1), 0.435263359], 
+						[Date.UTC(2009,0, 1), 0.451686907], 
+						[Date.UTC(2010,0, 1), 0.467912094], 
+						[Date.UTC(2011,0, 1), 0.461793307], 
+						[Date.UTC(2012,0, 1), 0.466604262], 
+						[Date.UTC(2013,0, 1), 0.496435622], 
+						[Date.UTC(2014,0, 1), 0.515877062], 
+						[Date.UTC(2015,0, 1), 0.522346875], 
+						[Date.UTC(2016,0, 1), 0.527005858], 
+						[Date.UTC(2017,0, 1), 0.5159834], 
+						[Date.UTC(2018,0, 1), 0.5173432] 		
+				]
+			}, {
+				name: 'Wind power',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 4,
+				color: '#AA6600',
+				stacking: 'normal',
+				stack: '1',
+				fillColor: '#AA6600',
+				data: [
+				
+						[Date.UTC(2006,0, 1), 0.26373764999], 
+						[Date.UTC(2007,0, 1), 0.34050308268], 
+						[Date.UTC(2008,0, 1), 0.54554798858], 
+						[Date.UTC(2009,0, 1), 0.72112661688], 
+						[Date.UTC(2010,0, 1), 0.92327053466], 
+						[Date.UTC(2011,0, 1), 1.1670944041], 
+						[Date.UTC(2012,0, 1), 1.3393646844], 
+						[Date.UTC(2013,0, 1), 1.6004236409], 
+						[Date.UTC(2014,0, 1), 1.7260260421], 
+						[Date.UTC(2015,0, 1), 1.8120999203], 
+						[Date.UTC(2016,0, 1), 2.1219484482], 
+						[Date.UTC(2017,0, 1), 2.1203004], 
+						[Date.UTC(2018,0, 1), 2.3379111] 		
+				]
+			},{
+				name: 'Liquid biofuels',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 3,
+				color: Highcharts.eia_green,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 0.41156380775], 
+						[Date.UTC(2007,0, 1), 0.54947502797], 
+						[Date.UTC(2008,0, 1), 0.78437286524], 
+						[Date.UTC(2009,0, 1), 0.90231796406], 
+						[Date.UTC(2010,0, 1), 1.0975466584], 
+						[Date.UTC(2011,0, 1), 1.1495521148], 
+						[Date.UTC(2012,0, 1), 1.0906491156], 
+						[Date.UTC(2013,0, 1), 1.0965445906], 
+						[Date.UTC(2014,0, 1), 1.1806211798], 
+						[Date.UTC(2015,0, 1), 1.2205793847], 
+						[Date.UTC(2016,0, 1), 1.2623501207], 
+						[Date.UTC(2017,0, 1), 1.2716874], 
+						[Date.UTC(2018,0, 1), 1.2854064] 		
+				]
+			},{
+				name: 'Wood biomass',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				color: '#FFA812',
+				stacking: 'normal',
+				stack: '1',
+				fillColor: '#FFA812',
+				data: [
+				
+						[Date.UTC(2006,0, 1), 2.099319235], 
+						[Date.UTC(2007,0, 1), 2.088774754], 
+						[Date.UTC(2008,0, 1), 2.058985068], 
+						[Date.UTC(2009,0, 1), 1.931010018], 
+						[Date.UTC(2010,0, 1), 1.98068689], 
+						[Date.UTC(2011,0, 1), 2.010246451], 
+						[Date.UTC(2012,0, 1), 2.010265721], 
+						[Date.UTC(2013,0, 1), 2.169543485], 
+						[Date.UTC(2014,0, 1), 2.229612055], 
+						[Date.UTC(2015,0, 1), 2.043340178], 
+						[Date.UTC(2016,0, 1), 1.953002509], 
+						[Date.UTC(2017,0, 1), 1.9499419], 
+						[Date.UTC(2018,0, 1), 1.9557582] 		
+				]
+			}, {
+				name: 'Hydropower',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				color: Highcharts.eia_blue,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_blue,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 2.869035197], 
+						[Date.UTC(2007,0, 1), 2.446388587], 
+						[Date.UTC(2008,0, 1), 2.511108471], 
+						[Date.UTC(2009,0, 1), 2.66882412], 
+						[Date.UTC(2010,0, 1), 2.538541145], 
+						[Date.UTC(2011,0, 1), 3.102852243], 
+						[Date.UTC(2012,0, 1), 2.628701965], 
+						[Date.UTC(2013,0, 1), 2.562382317], 
+						[Date.UTC(2014,0, 1), 2.466576574], 
+						[Date.UTC(2015,0, 1), 2.321177312], 
+						[Date.UTC(2016,0, 1), 2.492683534], 
+						[Date.UTC(2017,0, 1), 2.4387182], 
+						[Date.UTC(2018,0, 1), 2.5399608] 		
+				]
+			}],
+			captions: {
+				items: [{
+					text: 'Note: Hydropower excludes pumped storage generation.  Liquid biofuels include ethanol and biodiesel.  Other biomass includes municipal waste from biogenic sources, landfill gas, and other non-wood waste.'
+				}, {
+					text: ''
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

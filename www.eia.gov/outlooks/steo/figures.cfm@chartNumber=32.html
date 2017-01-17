@@ -1,0 +1,311 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig32container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig32container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig32container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig32container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'World liquid fuels production and consumption'
+			},
+			subtitle: {
+				text: 'balance',
+				style: {
+		         color: "black",
+		         font: 'bold 16px "Arial", Verdana, Helvetica, sans-serif'
+		    	}
+		     },
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'center',
+					y: 20
+				},			
+				categories: [
+				
+						'Q1 2012', 
+						'Q2 2012', 
+						'Q3 2012', 
+						'Q4 2012', 
+						'Q1 2013', 
+						'Q2 2013', 
+						'Q3 2013', 
+						'Q4 2013', 
+						'Q1 2014', 
+						'Q2 2014', 
+						'Q3 2014', 
+						'Q4 2014', 
+						'Q1 2015', 
+						'Q2 2015', 
+						'Q3 2015', 
+						'Q4 2015', 
+						'Q1 2016', 
+						'Q2 2016', 
+						'Q3 2016', 
+						'Q4 2016', 
+						'Q1 2017', 
+						'Q2 2017', 
+						'Q3 2017', 
+						'Q4 2017', 
+						'Q1 2018', 
+						'Q2 2018', 
+						'Q3 2018', 
+						'Q4 2018' 
+				],				
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 19.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				tickInterval: 4
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 86,
+				max: 102,
+				tickInterval: 2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -1,
+				max: 6,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+
+					if ('Implied stock change and balance (right axis)' == this.series.name) {
+						precision = 2;
+						frequency = 'Q';
+					}
+
+					if ('World production (left axis)' == this.series.name) {
+						precision = 2;
+						frequency = 'Q';
+					}
+
+					if ('World consumption (left axis)' == this.series.name) {
+						precision = 2;
+						frequency = 'Q';
+					}
+
+					xLabel = this.x;
+					yLabel = this.y;
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Implied stock change and balance (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_green,
+				data: [	
+				
+						['Q1 2012', 90.477174478 - 89.154906501 ], 
+						['Q2 2012', 90.30275904 - 89.926974887 ], 
+						['Q3 2012', 90.325618453 - 91.041093312 ], 
+						['Q4 2012', 90.786177443 - 91.629264122 ], 
+						['Q1 2013', 89.788399814 - 90.310720476 ], 
+						['Q2 2013', 90.922070962 - 91.032033535 ], 
+						['Q3 2013', 91.519639205 - 92.058688146 ], 
+						['Q4 2013', 91.602374024 - 92.302874769 ], 
+						['Q1 2014', 91.929678857 - 91.914385476 ], 
+						['Q2 2014', 92.596061219 - 91.771393586 ], 
+						['Q3 2014', 93.883453142 - 93.118956937 ], 
+						['Q4 2014', 95.211336126 - 93.645288305 ], 
+						['Q1 2015', 94.991316207 - 93.409240485 ], 
+						['Q2 2015', 95.913787761 - 93.532649389 ], 
+						['Q3 2015', 96.751613154 - 95.26754387 ], 
+						['Q4 2015', 96.88332887 - 94.331357058 ], 
+						['Q1 2016', 95.977345663 - 94.265905842 ], 
+						['Q2 2016', 95.683254862 - 95.432977269 ], 
+						['Q3 2016', 96.27144897 - 96.7828332 ], 
+						['Q4 2016', 97.833342843 - 95.795621648 ], 
+						['Q1 2017', 96.432393695 - 95.78537665 ], 
+						['Q2 2017', 97.262093111 - 97.01700009 ], 
+						['Q3 2017', 98.024592552 - 98.392021969 ], 
+						['Q4 2017', 98.367454596 - 97.563438897 ], 
+						['Q1 2018', 97.78491305 - 97.351110501 ], 
+						['Q2 2018', 98.948950292 - 98.538085097 ], 
+						['Q3 2018', 99.261012239 - 99.878770028 ], 
+						['Q4 2018', 99.403300772 - 99.033797887 ] 				
+				]
+			}, {
+				name: 'World production (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				color: Highcharts.eia_blue,
+				data: [	
+				
+						['Q1 2012', 90.477174478], 
+						['Q2 2012', 90.30275904], 
+						['Q3 2012', 90.325618453], 
+						['Q4 2012', 90.786177443], 
+						['Q1 2013', 89.788399814], 
+						['Q2 2013', 90.922070962], 
+						['Q3 2013', 91.519639205], 
+						['Q4 2013', 91.602374024], 
+						['Q1 2014', 91.929678857], 
+						['Q2 2014', 92.596061219], 
+						['Q3 2014', 93.883453142], 
+						['Q4 2014', 95.211336126], 
+						['Q1 2015', 94.991316207], 
+						['Q2 2015', 95.913787761], 
+						['Q3 2015', 96.751613154], 
+						['Q4 2015', 96.88332887], 
+						['Q1 2016', 95.977345663], 
+						['Q2 2016', 95.683254862], 
+						['Q3 2016', 96.27144897], 
+						['Q4 2016', 97.833342843], 
+						['Q1 2017', 96.432393695], 
+						['Q2 2017', 97.262093111], 
+						['Q3 2017', 98.024592552], 
+						['Q4 2017', 98.367454596], 
+						['Q1 2018', 97.78491305], 
+						['Q2 2018', 98.948950292], 
+						['Q3 2018', 99.261012239], 
+						['Q4 2018', 99.403300772] 						
+				]
+			}, {
+				name: 'World consumption (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: Highcharts.eia_brown,
+				data: [	
+				
+						['Q1 2012', 89.154906501], 
+						['Q2 2012', 89.926974887], 
+						['Q3 2012', 91.041093312], 
+						['Q4 2012', 91.629264122], 
+						['Q1 2013', 90.310720476], 
+						['Q2 2013', 91.032033535], 
+						['Q3 2013', 92.058688146], 
+						['Q4 2013', 92.302874769], 
+						['Q1 2014', 91.914385476], 
+						['Q2 2014', 91.771393586], 
+						['Q3 2014', 93.118956937], 
+						['Q4 2014', 93.645288305], 
+						['Q1 2015', 93.409240485], 
+						['Q2 2015', 93.532649389], 
+						['Q3 2015', 95.26754387], 
+						['Q4 2015', 94.331357058], 
+						['Q1 2016', 94.265905842], 
+						['Q2 2016', 95.432977269], 
+						['Q3 2016', 96.7828332], 
+						['Q4 2016', 95.795621648], 
+						['Q1 2017', 95.78537665], 
+						['Q2 2017', 97.01700009], 
+						['Q3 2017', 98.392021969], 
+						['Q4 2017', 97.563438897], 
+						['Q1 2018', 97.351110501], 
+						['Q2 2018', 98.538085097], 
+						['Q3 2018', 99.878770028], 
+						['Q4 2018', 99.033797887] 				
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

@@ -1,0 +1,333 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+
+
+
+
+<!-- New values from the Application variables--->
+
+
+<style>
+#lbFig21container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig21container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig21container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig21container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. coal production'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'left',
+					x: 35,
+					y: 20
+				},
+				startOnTick: false,
+				endOnTick: true,
+				showFirstLabel: true,
+				showLastLabel: false,
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'million short tons',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_green
+					}
+				},
+				min: 0,
+				max: 120,
+				tickInterval: 20,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_green
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'year over year change, million short tons',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_blue
+					}
+				},
+				min: -120,
+				max: 90,
+				tickInterval: 30,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_blue
+					}
+				},
+				opposite: true
+			}],
+			tooltip:  {
+				snap : 0,
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Total production (left axis)' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Production forecast (left axis)' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Western region (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					if('Appalachian region (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					if('Interior region (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Total production (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5,
+				color: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2015,0, 1), 86.587957], 
+						[Date.UTC(2015,1, 1), 72.243226], 
+						[Date.UTC(2015,2, 1), 81.467754], 
+						[Date.UTC(2015,3, 1), 75.171518], 
+						[Date.UTC(2015,4, 1), 70.379823], 
+						[Date.UTC(2015,5, 1), 66.900332], 
+						[Date.UTC(2015,6, 1), 76.530001], 
+						[Date.UTC(2015,7, 1), 82.68153], 
+						[Date.UTC(2015,8, 1), 77.778392], 
+						[Date.UTC(2015,9, 1), 75.662374], 
+						[Date.UTC(2015,10, 1), 68.573907], 
+						[Date.UTC(2015,11, 1), 63.000565], 
+						[Date.UTC(2016,0, 1), 60.499695], 
+						[Date.UTC(2016,1, 1), 57.263177], 
+						[Date.UTC(2016,2, 1), 55.264828], 
+						[Date.UTC(2016,3, 1), 48.115101], 
+						[Date.UTC(2016,4, 1), 53.011506], 
+						[Date.UTC(2016,5, 1), 59.388369], 
+						[Date.UTC(2016,6, 1), 61.796253], 
+						[Date.UTC(2016,7, 1), 68.2607], 
+						[Date.UTC(2016,8, 1), 65.082778], 
+						[Date.UTC(2016,9, 1), 73.018586], 
+						[Date.UTC(2016,10, 1), 70.837108], 
+						[Date.UTC(2016,11, 1), 66.122828] 								
+				]
+			}, {
+				name: 'Production forecast (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 4,
+				color: Highcharts.eia_green,
+				dashStyle: 'dash',
+				data: [
+				
+						[Date.UTC(2015,0, 1), 86.587957], 
+						[Date.UTC(2015,1, 1), 72.243226], 
+						[Date.UTC(2015,2, 1), 81.467754], 
+						[Date.UTC(2015,3, 1), 75.171518], 
+						[Date.UTC(2015,4, 1), 70.379823], 
+						[Date.UTC(2015,5, 1), 66.900332], 
+						[Date.UTC(2015,6, 1), 76.530001], 
+						[Date.UTC(2015,7, 1), 82.68153], 
+						[Date.UTC(2015,8, 1), 77.778392], 
+						[Date.UTC(2015,9, 1), 75.662374], 
+						[Date.UTC(2015,10, 1), 68.573907], 
+						[Date.UTC(2015,11, 1), 63.000565], 
+						[Date.UTC(2016,0, 1), 60.499695], 
+						[Date.UTC(2016,1, 1), 57.263177], 
+						[Date.UTC(2016,2, 1), 55.264828], 
+						[Date.UTC(2016,3, 1), 48.115101], 
+						[Date.UTC(2016,4, 1), 53.011506], 
+						[Date.UTC(2016,5, 1), 59.388369], 
+						[Date.UTC(2016,6, 1), 61.796253], 
+						[Date.UTC(2016,7, 1), 68.2607], 
+						[Date.UTC(2016,8, 1), 65.082778], 
+						[Date.UTC(2016,9, 1), 73.018586], 
+						[Date.UTC(2016,10, 1), 70.837108], 
+						[Date.UTC(2016,11, 1), 66.122828], 
+						[Date.UTC(2017,0, 1), 70.99508], 
+						[Date.UTC(2017,1, 1), 63.67515], 
+						[Date.UTC(2017,2, 1), 68.32908], 
+						[Date.UTC(2017,3, 1), 55.57131], 
+						[Date.UTC(2017,4, 1), 60.34578], 
+						[Date.UTC(2017,5, 1), 60.98549], 
+						[Date.UTC(2017,6, 1), 68.85486], 
+						[Date.UTC(2017,7, 1), 74.43712], 
+						[Date.UTC(2017,8, 1), 63.50396], 
+						[Date.UTC(2017,9, 1), 65.24355], 
+						[Date.UTC(2017,10, 1), 65.39951], 
+						[Date.UTC(2017,11, 1), 72.60628], 
+						[Date.UTC(2018,0, 1), 69.32605], 
+						[Date.UTC(2018,1, 1), 59.09496], 
+						[Date.UTC(2018,2, 1), 66.85705], 
+						[Date.UTC(2018,3, 1), 54.87457], 
+						[Date.UTC(2018,4, 1), 58.85686], 
+						[Date.UTC(2018,5, 1), 62.14113], 
+						[Date.UTC(2018,6, 1), 69.32156], 
+						[Date.UTC(2018,7, 1), 74.53602], 
+						[Date.UTC(2018,8, 1), 62.4423], 
+						[Date.UTC(2018,9, 1), 66.23473], 
+						[Date.UTC(2018,10, 1), 66.13044], 
+						[Date.UTC(2018,11, 1), 81.69984] 								
+				]
+			}, {
+				name: 'Western region (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 3,
+				color: Highcharts.eia_dk_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -35.444859], 
+						[Date.UTC(2016,5, 1), -100.93039], 
+						[Date.UTC(2017,5, 1), 32.386962], 
+						[Date.UTC(2018,5, 1), 15.0484] 	
+				]
+			}, {
+				name: 'Appalachian region (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 2,
+				color: Highcharts.eia_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -46.521926], 
+						[Date.UTC(2016,5, 1), -39.463057], 
+						[Date.UTC(2017,5, 1), 7.42594], 
+						[Date.UTC(2018,5, 1), -6.70587] 	
+				]
+			}, {
+				name: 'Interior region (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_lt_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -21.104594], 
+						[Date.UTC(2016,5, 1), -17.923003], 
+						[Date.UTC(2017,5, 1), 11.473359], 
+						[Date.UTC(2018,5, 1), -6.77418] 	
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script> 
+

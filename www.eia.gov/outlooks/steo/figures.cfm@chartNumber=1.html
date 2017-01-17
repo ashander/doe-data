@@ -1,0 +1,310 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig1container
+{
+	display:none;
+}
+</style>
+	
+<DIV id="lbFig1container"></DIV>
+
+<script>
+$(document).ready(function() {
+	$('#lbFig1container').css('display','block');
+
+	try {
+	
+		var chartOptions = {
+			chart: {				
+				renderTo: 'lbFig1container',
+				lineUpAxisZeros: false,
+				breakLines : false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'West Texas intermediate (WTI) crude oil price'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function() {
+						return Highcharts.dateFormat('%b-%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20 
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 16),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 365*24*3600*1000/2
+			},
+			yAxis: [{
+				title: {
+					text: 'dollars per barrel',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0,
+				max: 120,
+				tickInterval: 20,
+				labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				snap : 0,
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Historical spot price' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('STEO price forecast' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('NYMEX futures price' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('95% NYMEX futures lower confidence interval' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('95% NYMEX futures upper confidence interval' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Historical spot price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5, 
+				color: Highcharts.eia_blue,
+				data: [
+				
+							[Date.UTC(2016,0, 1), 31.683], 
+							[Date.UTC(2016,1, 1), 30.323], 
+							[Date.UTC(2016,2, 1), 37.545], 
+							[Date.UTC(2016,3, 1), 40.754], 
+							[Date.UTC(2016,4, 1), 46.712], 
+							[Date.UTC(2016,5, 1), 48.757], 
+							[Date.UTC(2016,6, 1), 44.651], 
+							[Date.UTC(2016,7, 1), 44.724], 
+							[Date.UTC(2016,8, 1), 45.182], 
+							[Date.UTC(2016,9, 1), 49.775], 
+							[Date.UTC(2016,10, 1), 45.71], 
+							[Date.UTC(2016,11, 1), 51.97] 
+				]
+			}, {
+				name: 'STEO price forecast',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 4, color: '#a33340', 
+				data: [ 
+							[Date.UTC(2016,10, 1), 45.71], 
+							[Date.UTC(2016,11, 1), 51.97], 
+							[Date.UTC(2017,0, 1), 52], 
+							[Date.UTC(2017,1, 1), 52], 
+							[Date.UTC(2017,2, 1), 52], 
+							[Date.UTC(2017,3, 1), 52], 
+							[Date.UTC(2017,4, 1), 52], 
+							[Date.UTC(2017,5, 1), 52], 
+							[Date.UTC(2017,6, 1), 53], 
+							[Date.UTC(2017,7, 1), 53], 
+							[Date.UTC(2017,8, 1), 53], 
+							[Date.UTC(2017,9, 1), 53], 
+							[Date.UTC(2017,10, 1), 53], 
+							[Date.UTC(2017,11, 1), 53], 
+							[Date.UTC(2018,0, 1), 53], 
+							[Date.UTC(2018,1, 1), 53], 
+							[Date.UTC(2018,2, 1), 53], 
+							[Date.UTC(2018,3, 1), 54], 
+							[Date.UTC(2018,4, 1), 55], 
+							[Date.UTC(2018,5, 1), 55], 
+							[Date.UTC(2018,6, 1), 55], 
+							[Date.UTC(2018,7, 1), 56], 
+							[Date.UTC(2018,8, 1), 56], 
+							[Date.UTC(2018,9, 1), 57], 
+							[Date.UTC(2018,10, 1), 57], 
+							[Date.UTC(2018,11, 1), 58] 
+				]
+			}, {
+				name: 'NYMEX futures price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3, color: '#5D9732', 
+				data: [
+				
+							[Date.UTC(2017,1, 1), 53.368], 
+							[Date.UTC(2017,2, 1), 54.314], 
+							[Date.UTC(2017,3, 1), 55.116], 
+							[Date.UTC(2017,4, 1), 55.778], 
+							[Date.UTC(2017,5, 1), 56.266], 
+							[Date.UTC(2017,6, 1), 56.574], 
+							[Date.UTC(2017,7, 1), 56.742], 
+							[Date.UTC(2017,8, 1), 56.844], 
+							[Date.UTC(2017,9, 1), 56.894], 
+							[Date.UTC(2017,10, 1), 56.922], 
+							[Date.UTC(2017,11, 1), 56.944], 
+							[Date.UTC(2018,0, 1), 56.884], 
+							[Date.UTC(2018,1, 1), 56.824], 
+							[Date.UTC(2018,2, 1), 56.754], 
+							[Date.UTC(2018,3, 1), 56.68], 
+							[Date.UTC(2018,4, 1), 56.608], 
+							[Date.UTC(2018,5, 1), 56.564], 
+							[Date.UTC(2018,6, 1), 56.486], 
+							[Date.UTC(2018,7, 1), 56.428], 
+							[Date.UTC(2018,8, 1), 56.402], 
+							[Date.UTC(2018,9, 1), 56.386], 
+							[Date.UTC(2018,10, 1), 56.38], 
+							[Date.UTC(2018,11, 1), 56.384] 
+				]
+			}, {
+				name: '95% NYMEX futures lower confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2, color: '#5D9732', dashStyle: 'ShortDash',
+				data: [
+				
+				
+							[Date.UTC(2017,2, 1), 44.992506655], 
+							[Date.UTC(2017,3, 1), 43.09177291], 
+							[Date.UTC(2017,4, 1), 41.598697955], 
+							[Date.UTC(2017,5, 1), 40.105096854], 
+							[Date.UTC(2017,6, 1), 38.837387675], 
+							[Date.UTC(2017,7, 1), 37.920401357], 
+							[Date.UTC(2017,8, 1), 36.860305349], 
+							[Date.UTC(2017,9, 1), 36.04716913], 
+							[Date.UTC(2017,10, 1), 35.326408826], 
+							[Date.UTC(2017,11, 1), 34.81811856], 
+							[Date.UTC(2018,5, 1), 32.021640238], 
+							[Date.UTC(2018,11, 1), 30.097734613] 
+				]
+			}, {
+				name: '95% NYMEX futures upper confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 1, color: '#5D9732', dashStyle: 'ShortDash',
+				data: [
+				
+						[Date.UTC(2017,2, 1), 65.56670911], 
+						[Date.UTC(2017,3, 1), 70.495439173], 
+						[Date.UTC(2017,4, 1), 74.790448666], 
+						[Date.UTC(2017,5, 1), 78.93916246], 
+						[Date.UTC(2017,6, 1), 82.410730165], 
+						[Date.UTC(2017,7, 1), 84.905603549], 
+						[Date.UTC(2017,8, 1), 87.661789706], 
+						[Date.UTC(2017,9, 1), 89.796988616], 
+						[Date.UTC(2017,10, 1), 91.719316842], 
+						[Date.UTC(2017,11, 1), 93.130222715], 
+						[Date.UTC(2018,5, 1), 99.916371309], 
+						[Date.UTC(2018,11, 1), 105.62773235] 
+				]
+			}],
+			captions: {
+				items: [{
+					text: 'Note: Confidence interval derived from options market information for the 5 trading days ending Jan. 5 2017.  Intervals not calculated for months with sparse trading in near-the-money options contracts.'
+				}, {
+					text: ''
+				}]
+			}
+		};
+		
+		var chart = new Highcharts.Chart(chartOptions);
+	}
+	catch(err)
+	{
+		throw(err);
+	}
+});
+</script>

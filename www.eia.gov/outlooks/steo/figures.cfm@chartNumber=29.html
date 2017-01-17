@@ -1,0 +1,292 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig29container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig29container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig29container').css('display', 'block');
+
+	try {
+		var errorBars = [];
+
+		var drawErrorBars = function () {
+			var chart = this;
+
+			for (var k = 0; k < errorBars.length; k++) {
+				errorBars[k].destroy();
+			}
+
+			errorBars = [];
+
+			var barWidth = 1;
+			var plotLeft = chart.plotLeft;
+			var plotTop = chart.plotTop;
+			var capHeight = 2;
+
+			for (var i = 0; i < chart.series.length; i++) {
+				if (chart.series[i].type == 'column' && chart.series[i].visible) {
+					barWidth += chart.series[i].data[0].graphic.width;
+					barWidth += chart.options.plotOptions.column.pointPadding * barWidth;
+				}
+			}
+
+			for (var i = 0; i < chart.series.length; i++) {
+				if (chart.series[i].type == 'scatter') {
+					for (var j = 0; j < chart.series[i].data.length; j++) {
+						var dataX = chart.series[i].data[j].plotX + plotLeft;
+						var dataY = chart.series[i].data[j].plotY + plotTop;
+						var leftX = dataX - (barWidth / 2);
+						var rightX = dataX + (barWidth / 2);
+						errorBars.push(chart.renderer.path(['M', leftX, dataY - capHeight,
+							'L', leftX, dataY + capHeight,
+							'M', leftX, dataY,
+							'L', rightX, dataY,
+							'M', rightX, dataY - capHeight,
+							'L', rightX, dataY + capHeight]).attr({
+							'stroke-width': 2,
+							stroke: 'black',
+								'stroke-linecap': 'butt',
+							zIndex: 3
+						}).add());
+					}
+				}
+			}
+		};
+		
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig29container',
+				lineUpAxisZeros: false,
+				events: {
+					redraw: drawErrorBars,
+					load: drawErrorBars
+				}
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. summer cooling degree days'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				categories: [
+					'April', 'May', 'June', 'July', 'August', 'September' 
+				],				
+				tickmarkPlacement: 'on',
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				tickInterval: 1
+			},
+			yAxis: [{
+				title: {
+					text: 'cooling degree-days',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0,
+				max: 450,
+				tickInterval: 50,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 0, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [
+						
+				{
+					name: '2015',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 4,
+					color: Highcharts.eia_green,
+					data: [
+						
+							['April',53]
+							, 
+							['May',126]
+							, 
+							['June',255]
+							, 
+							['July',336]
+							, 
+							['August',315]
+							, 
+							['September',224]
+							
+					]
+				},
+							
+				{
+					name: '2016',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 3,
+					color: Highcharts.eia_tan,
+					data: [
+						
+							['April',43]
+							, 
+							['May',98]
+							, 
+							['June',271]
+							, 
+							['July',384]
+							, 
+							['August',361]
+							, 
+							['September',220]
+							
+					]
+				},
+							
+				{
+					name: '2017',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 2,
+					color: Highcharts.eia_blue,
+					data: [
+						
+							['April',43]
+							, 
+							['May',126]
+							, 
+							['June',247]
+							, 
+							['July',356]
+							, 
+							['August',332]
+							, 
+							['September',183]
+							
+					]
+				},
+							
+				{
+					name: '2018',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 1,
+					color: Highcharts.eia_yellow,
+					data: [
+						
+							['April',43]
+							, 
+							['May',126]
+							, 
+							['June',247]
+							, 
+							['July',357]
+							, 
+							['August',332]
+							, 
+							['September',183]
+							
+					]
+				},
+				
+				{
+					name: '2008 - 2017 Avg',
+					type: 'scatter',
+					yAxis: 0,
+					marker: {
+						enabled: false
+					},
+					zIndex: 5,
+					showInLegend: false,
+					color: '#000',
+					fillColor: '#000',
+					data: [
+							
+								['April',39]
+								, 
+								['May',116]
+								, 
+								['June',250]
+								, 
+								['July',347]
+								, 
+								['August',323]
+								, 
+								['September',188]
+								
+					]
+				}
+			
+			],
+			captions: {
+				items: [{
+					text: 'Note: EIA calculations based on from the National Oceanic and Atmospheric Administration data. Horizontal lines indicate each month\'s prior 10-year average (2007 - 2016). Projections reflect NOAA\'s 14-16 month outlook.'
+				}, {
+					text: ''
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

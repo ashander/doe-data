@@ -1,0 +1,301 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig25container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig25container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig25container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig25container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. electricity generation by fuel, all sectors'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 365*24*3600*1000 
+			},
+			yAxis: [{
+				title: {
+					text: 'thousand megawatthours per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0,
+				max: 14000,
+				tickInterval: 2000,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%Y', this.x);
+					var yLabel = formatNumber(this.y, 0, true, false);
+					
+					if(this.series.type == 'arearange') {
+						yLabel += ' to ' + formatNumber(this.point.options.high, 0, true, false);
+					}
+					
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Coal',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				color: '#42C0FB',
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_blue,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 5453.4551475], 
+						[Date.UTC(2007,0, 1), 5524.5358272], 
+						[Date.UTC(2008,0, 1), 5425.6864484], 
+						[Date.UTC(2009,0, 1), 4810.6965658], 
+						[Date.UTC(2010,0, 1), 5061.0692385], 
+						[Date.UTC(2011,0, 1), 4749.1232849], 
+						[Date.UTC(2012,0, 1), 4136.7293394], 
+						[Date.UTC(2013,0, 1), 4331.8211221], 
+						[Date.UTC(2014,0, 1), 4333.4529961], 
+						[Date.UTC(2015,0, 1), 3705.2005228], 
+						[Date.UTC(2016,0, 1), 3392.5023114], 
+						[Date.UTC(2017,0, 1), 3639.5684384], 
+						[Date.UTC(2018,0, 1), 3579.0878082] 				
+				]
+			},{
+				name: 'Natural gas',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				color: Highcharts.eia_yellow,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 2236.8239976], 
+						[Date.UTC(2007,0, 1), 2456.4103584], 
+						[Date.UTC(2008,0, 1), 2412.5152687], 
+						[Date.UTC(2009,0, 1), 2523.2292332], 
+						[Date.UTC(2010,0, 1), 2706.0197895], 
+						[Date.UTC(2011,0, 1), 2777.2299144], 
+						[Date.UTC(2012,0, 1), 3349.4376069], 
+						[Date.UTC(2013,0, 1), 3081.7412298], 
+						[Date.UTC(2014,0, 1), 3086.5998553], 
+						[Date.UTC(2015,0, 1), 3653.3756132], 
+						[Date.UTC(2016,0, 1), 3791.7229287], 
+						[Date.UTC(2017,0, 1), 3623.4475726], 
+						[Date.UTC(2018,0, 1), 3708.0333836] 				
+				]
+			},{
+				name: 'Petroleum',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 6,
+				color: Highcharts.eia_brown,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_brown,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 175.79835584], 
+						[Date.UTC(2007,0, 1), 180.10674773], 
+						[Date.UTC(2008,0, 1), 126.34589317], 
+						[Date.UTC(2009,0, 1), 106.67534096], 
+						[Date.UTC(2010,0, 1), 101.53698493], 
+						[Date.UTC(2011,0, 1), 82.691043836], 
+						[Date.UTC(2012,0, 1), 63.359365765], 
+						[Date.UTC(2013,0, 1), 74.423095644], 
+						[Date.UTC(2014,0, 1), 82.826978438], 
+						[Date.UTC(2015,0, 1), 77.393792521], 
+						[Date.UTC(2016,0, 1), 64.598316478], 
+						[Date.UTC(2017,0, 1), 70.541876685], 
+						[Date.UTC(2018,0, 1), 72.636247699] 				
+				]
+			}, {
+				name: 'Nuclear',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 3,
+				color: Highcharts.eia_green,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_yellow,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 2156.7633863], 
+						[Date.UTC(2007,0, 1), 2209.3828849], 
+						[Date.UTC(2008,0, 1), 2202.7552869], 
+						[Date.UTC(2009,0, 1), 2188.6426986], 
+						[Date.UTC(2010,0, 1), 2210.8720563], 
+						[Date.UTC(2011,0, 1), 2164.9434712], 
+						[Date.UTC(2012,0, 1), 2101.9979481], 
+						[Date.UTC(2013,0, 1), 2161.6889671], 
+						[Date.UTC(2014,0, 1), 2184.016389], 
+						[Date.UTC(2015,0, 1), 2184.0489781], 
+						[Date.UTC(2016,0, 1), 2200.4286967], 
+						[Date.UTC(2017,0, 1), 2163.5052795], 
+						[Date.UTC(2018,0, 1), 2122.9725233] 				
+				]
+			}, {
+				name: 'Hydropower',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 4,
+				color: Highcharts.eia_red,
+				stacking: 'normal',
+				stack: '1',
+				color: Highcharts.eia_blue,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 774.48922901], 
+						[Date.UTC(2007,0, 1), 659.21539014], 
+						[Date.UTC(2008,0, 1), 679.08010358], 
+						[Date.UTC(2009,0, 1), 736.48696978], 
+						[Date.UTC(2010,0, 1), 697.81351219], 
+						[Date.UTC(2011,0, 1), 857.35447195], 
+						[Date.UTC(2012,0, 1), 741.22873757], 
+						[Date.UTC(2013,0, 1), 722.97080718], 
+						[Date.UTC(2014,0, 1), 693.67964014], 
+						[Date.UTC(2015,0, 1), 668.46189529], 
+						[Date.UTC(2016,0, 1), 710.09163518], 
+						[Date.UTC(2017,0, 1), 688.40494192], 
+						[Date.UTC(2018,0, 1), 717.84350384] 				
+				]
+			}, {
+				name: 'Renewables',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 5,
+				color: Highcharts.eia_tan,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_tan,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 264.45337362], 
+						[Date.UTC(2007,0, 1), 288.32191795], 
+						[Date.UTC(2008,0, 1), 344.53822607], 
+						[Date.UTC(2009,0, 1), 395.28408299], 
+						[Date.UTC(2010,0, 1), 458.0081751], 
+						[Date.UTC(2011,0, 1), 531.45527888], 
+						[Date.UTC(2012,0, 1), 596.5381541], 
+						[Date.UTC(2013,0, 1), 694.54259715], 
+						[Date.UTC(2014,0, 1), 764.96624126], 
+						[Date.UTC(2015,0, 1), 808.65995581], 
+						[Date.UTC(2016,0, 1), 926.06200429], 
+						[Date.UTC(2017,0, 1), 954.95465397], 
+						[Date.UTC(2018,0, 1), 1043.4115551] 				
+				]
+			},  {
+				name: 'Other sources',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 7,
+				color: Highcharts.eia_red,
+				stacking: 'normal',
+				stack: '1',
+				fillColor: Highcharts.eia_grey,
+				data: [
+				
+						[Date.UTC(2006,0, 1), 38.840563644], 
+						[Date.UTC(2007,0, 1), 36.858497918], 
+						[Date.UTC(2008,0, 1), 31.985994016], 
+						[Date.UTC(2009,0, 1), 29.129053233], 
+						[Date.UTC(2010,0, 1), 30.993931068], 
+						[Date.UTC(2011,0, 1), 31.688215644], 
+						[Date.UTC(2012,0, 1), 32.50705877], 
+						[Date.UTC(2013,0, 1), 35.213522192], 
+						[Date.UTC(2014,0, 1), 32.936395753], 
+						[Date.UTC(2015,0, 1), 35.936155233], 
+						[Date.UTC(2016,0, 1), 35.751592874], 
+						[Date.UTC(2017,0, 1), 36.870399151], 
+						[Date.UTC(2018,0, 1), 37.586568822] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

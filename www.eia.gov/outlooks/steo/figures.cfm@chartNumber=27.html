@@ -1,0 +1,227 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+	#lbFig27container
+	{
+		display:none;
+	}
+</style>
+	
+<DIV id="lbFig27container">
+</DIV>
+<script>
+	$(document).ready(function() {
+		$('#lbFig27container').css('display','block');
+		
+		try {
+			var chartOptions = {
+				chart: {				
+					renderTo: 'lbFig27container',
+					lineUpAxisZeros: false
+		
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				
+					text: 'Source: Short-Term Energy Outlook, January 2017',
+					
+					href: null,
+					style: {
+						cursor: 'default'
+					},
+					
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+		    },
+			title: {
+				text: 'U.S. annual energy expenditures'
+				
+			},
+			
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+				
+					formatter: function() {
+						
+						return Highcharts.dateFormat('%Y', this.value);
+						
+					},
+				
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					}
+					,y: 20 
+				}
+					
+				,plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 3, 1),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+						,align: 'right',x:-10
+					},
+					zIndex: 2		
+				}]
+				,tickInterval: 365*24*3600*1000*4 
+				
+			},
+			yAxis: [
+				
+				{
+				title: {
+					text: 'percent',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				}
+				,min: 0 ,max: 12 ,tickInterval: 2 
+				,labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					}
+					
+				}
+				,opposite: false
+				}
+				
+			],
+			tooltip: {
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Energy expenditures as share of GDP' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; format = 'percent';
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical', align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			/*exporting: {
+				buttons: {
+					exportButton: {
+						//menuItems: Highcharts.getOptions().exporting.buttons.exportButton.menuItems.slice(0,Highcharts.getOptions().exporting.buttons.exportButton.menuItems.length - 2).concat([{
+						menuItems: Highcharts.getOptions().exporting.buttons.exportButton.menuItems.concat([{
+							text: 'Download Data and Chart in XLS',
+							onclick: function() {
+								window.open('/outlooks/steo/xls/Fig27.xls');
+								}
+						}])
+					},
+					printButton: {
+						enabled: false
+					}
+				},
+				filename: '',
+				type: 'image/png'
+			},*/
+			series: [
+			
+				{
+					name: 'Energy expenditures as share of GDP',
+					type: 'line',
+					yAxis: 0,
+					zIndex: 1, 
+					data: [ 
+							[Date.UTC(1991,0, 1), 7.6469496145], 
+							[Date.UTC(1992,0, 1), 7.2881288322], 
+							[Date.UTC(1993,0, 1), 7.1514968456], 
+							[Date.UTC(1994,0, 1), 6.9032029192], 
+							[Date.UTC(1995,0, 1), 6.7103571109], 
+							[Date.UTC(1996,0, 1), 6.9123188879], 
+							[Date.UTC(1997,0, 1), 6.5925483497], 
+							[Date.UTC(1998,0, 1), 5.7858326957], 
+							[Date.UTC(1999,0, 1), 5.7837297287], 
+							[Date.UTC(2000,0, 1), 6.6875827642], 
+							[Date.UTC(2001,0, 1), 6.5557104739], 
+							[Date.UTC(2002,0, 1), 6.0492917303], 
+							[Date.UTC(2003,0, 1), 6.5609354374], 
+							[Date.UTC(2004,0, 1), 7.0987272383], 
+							[Date.UTC(2005,0, 1), 7.9881360687], 
+							[Date.UTC(2006,0, 1), 8.365065361], 
+							[Date.UTC(2007,0, 1), 8.5235634211], 
+							[Date.UTC(2008,0, 1), 9.5756089934], 
+							[Date.UTC(2009,0, 1), 7.3967990728], 
+							[Date.UTC(2010,0, 1), 8.0994808306], 
+							[Date.UTC(2011,0, 1), 8.9763438777], 
+							[Date.UTC(2012,0, 1), 8.3937369946], 
+							[Date.UTC(2013,0, 1), 8.2575531235], 
+							[Date.UTC(2014,0, 1), 8.0194880247], 
+							[Date.UTC(2015,0, 1), 6.056402047], 
+							[Date.UTC(2016,0, 1), 5.4288008074], 
+							[Date.UTC(2017,0, 1), 5.7765803879], 
+							[Date.UTC(2018,0, 1), 5.7186503946] 
+					]
+				}
+				
+			]
+		
+			};
+			
+			var chart = new Highcharts.Chart(chartOptions);
+		}
+		catch(err)
+		{
+			
+			throw(err);
+			
+		}
+	});
+	</script>

@@ -1,0 +1,282 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig4container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig4container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig4container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig4container',
+				lineUpAxisZeros: false,
+				breakLines : false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'Henry Hub natural gas price'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%b-%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 1),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 365 * 24 * 3600 * 1000 / 2
+			},
+			yAxis: [
+			{
+				title: {
+					text: 'dollars per million Btu',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 1,
+				max: 8,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Historical spot price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5,
+				color: '#0096d7',
+				data: [
+				
+						[Date.UTC(2016,0, 1), 2.283], 
+						[Date.UTC(2016,1, 1), 1.989], 
+						[Date.UTC(2016,2, 1), 1.729], 
+						[Date.UTC(2016,3, 1), 1.917], 
+						[Date.UTC(2016,4, 1), 1.922], 
+						[Date.UTC(2016,5, 1), 2.587], 
+						[Date.UTC(2016,6, 1), 2.822], 
+						[Date.UTC(2016,7, 1), 2.822], 
+						[Date.UTC(2016,8, 1), 2.992], 
+						[Date.UTC(2016,9, 1), 2.977], 
+						[Date.UTC(2016,10, 1), 2.548], 
+						[Date.UTC(2016,11, 1), 3.591] 
+				]
+			}, {
+				name: 'STEO forecast price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 4,
+				color: '#a33340',
+				data: [
+				
+							[Date.UTC(2016,11, 1), 3.591], 
+							[Date.UTC(2017,0, 1), 3.6], 
+							[Date.UTC(2017,1, 1), 3.696587], 
+							[Date.UTC(2017,2, 1), 3.64572], 
+							[Date.UTC(2017,3, 1), 3.547893], 
+							[Date.UTC(2017,4, 1), 3.482358], 
+							[Date.UTC(2017,5, 1), 3.485832], 
+							[Date.UTC(2017,6, 1), 3.491064], 
+							[Date.UTC(2017,7, 1), 3.465944], 
+							[Date.UTC(2017,8, 1), 3.449159], 
+							[Date.UTC(2017,9, 1), 3.472851], 
+							[Date.UTC(2017,10, 1), 3.576984], 
+							[Date.UTC(2017,11, 1), 3.732842], 
+							[Date.UTC(2018,0, 1), 3.794321], 
+							[Date.UTC(2018,1, 1), 3.809222], 
+							[Date.UTC(2018,2, 1), 3.777278], 
+							[Date.UTC(2018,3, 1), 3.744936], 
+							[Date.UTC(2018,4, 1), 3.685594], 
+							[Date.UTC(2018,5, 1), 3.687252], 
+							[Date.UTC(2018,6, 1), 3.684827], 
+							[Date.UTC(2018,7, 1), 3.650195], 
+							[Date.UTC(2018,8, 1), 3.62558], 
+							[Date.UTC(2018,9, 1), 3.641235], 
+							[Date.UTC(2018,10, 1), 3.738774], 
+							[Date.UTC(2018,11, 1), 3.889753] 
+				]
+			}, {
+				name: 'NYMEX futures price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: '#5D9732',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 3.4786], 
+							[Date.UTC(2017,2, 1), 3.4544], 
+							[Date.UTC(2017,3, 1), 3.3778], 
+							[Date.UTC(2017,4, 1), 3.365], 
+							[Date.UTC(2017,5, 1), 3.3884], 
+							[Date.UTC(2017,6, 1), 3.4164], 
+							[Date.UTC(2017,7, 1), 3.4094], 
+							[Date.UTC(2017,8, 1), 3.3882], 
+							[Date.UTC(2017,9, 1), 3.407], 
+							[Date.UTC(2017,10, 1), 3.4468], 
+							[Date.UTC(2017,11, 1), 3.5528], 
+							[Date.UTC(2018,0, 1), 3.6348], 
+							[Date.UTC(2018,1, 1), 3.5902], 
+							[Date.UTC(2018,2, 1), 3.4912], 
+							[Date.UTC(2018,3, 1), 2.9328], 
+							[Date.UTC(2018,4, 1), 2.8724], 
+							[Date.UTC(2018,5, 1), 2.8902], 
+							[Date.UTC(2018,6, 1), 2.9096], 
+							[Date.UTC(2018,7, 1), 2.902], 
+							[Date.UTC(2018,8, 1), 2.8796], 
+							[Date.UTC(2018,9, 1), 2.8972], 
+							[Date.UTC(2018,10, 1), 2.9422], 
+							[Date.UTC(2018,11, 1), 3.0684] 
+				]
+			}, {
+				name: '95% NYMEX futures lower confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 1,
+				color: '#5D9732',dashStyle: 'ShortDash',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 2.7722178214], 
+							[Date.UTC(2017,2, 1), 2.4846151162], 
+							[Date.UTC(2017,3, 1), 2.3900205334], 
+							[Date.UTC(2017,4, 1), 2.3245041726], 
+							[Date.UTC(2017,5, 1), 2.258209662], 
+							[Date.UTC(2017,6, 1), 2.2156439628], 
+							[Date.UTC(2017,7, 1), 2.1527250237], 
+							[Date.UTC(2017,8, 1), 2.0634886953], 
+							[Date.UTC(2017,9, 1), 2.0235690432], 
+							[Date.UTC(2017,10, 1), 1.9767646237], 
+							[Date.UTC(2017,11, 1), 1.9664734616], 
+							[Date.UTC(2018,0, 1), 1.9175227418], 
+							[Date.UTC(2018,1, 1), 1.7848346024], 
+							[Date.UTC(2018,2, 1), 1.6647938206], 
+							[Date.UTC(2018,3, 1), 1.6838287407], 
+							[Date.UTC(2018,4, 1), 1.6745804092], 
+							[Date.UTC(2018,5, 1), 1.6679241273], 
+							[Date.UTC(2018,6, 1), 1.6616984128], 
+							[Date.UTC(2018,7, 1), 1.635667536], 
+							[Date.UTC(2018,8, 1), 1.5954422184], 
+							[Date.UTC(2018,9, 1), 1.5822474682], 
+							[Date.UTC(2018,10, 1), 1.5964963765], 
+							[Date.UTC(2018,11, 1), 1.6581785049] 
+				]
+			}, {
+				name: '95% NYMEX futures upper confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				color: '#5D9732',dashStyle: 'ShortDash',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 4.3649737284], 
+							[Date.UTC(2017,2, 1), 4.8027073821], 
+							[Date.UTC(2017,3, 1), 4.7738220993], 
+							[Date.UTC(2017,4, 1), 4.871243138], 
+							[Date.UTC(2017,5, 1), 5.0842287822], 
+							[Date.UTC(2017,6, 1), 5.2678991553], 
+							[Date.UTC(2017,7, 1), 5.3996716869], 
+							[Date.UTC(2017,8, 1), 5.5633448664], 
+							[Date.UTC(2017,9, 1), 5.7362258228], 
+							[Date.UTC(2017,10, 1), 6.0100378656], 
+							[Date.UTC(2017,11, 1), 6.4187938899], 
+							[Date.UTC(2018,0, 1), 6.8900205207], 
+							[Date.UTC(2018,1, 1), 7.2216977542], 
+							[Date.UTC(2018,2, 1), 7.32131348], 
+							[Date.UTC(2018,3, 1), 5.108189231], 
+							[Date.UTC(2018,4, 1), 4.927014382], 
+							[Date.UTC(2018,5, 1), 5.0081750742], 
+							[Date.UTC(2018,6, 1), 5.0946502053], 
+							[Date.UTC(2018,7, 1), 5.1487260182], 
+							[Date.UTC(2018,8, 1), 5.1973653853], 
+							[Date.UTC(2018,9, 1), 5.3049652529], 
+							[Date.UTC(2018,10, 1), 5.4222113922], 
+							[Date.UTC(2018,11, 1), 5.6779644244] 
+				]
+			}],
+			captions: {
+				items: [{
+					text: 'Note: Confidence interval derived from options market information for the 5 trading days ending Jan. 5 2017.  Intervals not calculated for months with sparse trading in near-the-money options contracts.'
+				}, {
+					text: ''
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

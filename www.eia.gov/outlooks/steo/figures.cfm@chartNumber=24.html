@@ -1,0 +1,431 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig24container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig24container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig24container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig24container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. residential electricity price'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'left',
+					x: 5,
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 16),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				showLastLabel: false,
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'cents per kilowatthour',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_green
+					}
+				},
+				min: 0,
+				max: 16,
+				tickInterval: 2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_green
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'percent change from prior year',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_blue
+					}
+				},
+				min: 0,
+				max: 28,
+				tickInterval: 4,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_blue
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Residential electricity price' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Price forecast' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Annual growth (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; format = 'percent';
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Residential electricity price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2003,0, 1), 8], 
+						[Date.UTC(2003,1, 1), 8.02], 
+						[Date.UTC(2003,2, 1), 8.35], 
+						[Date.UTC(2003,3, 1), 8.82], 
+						[Date.UTC(2003,4, 1), 8.99], 
+						[Date.UTC(2003,5, 1), 9.25], 
+						[Date.UTC(2003,6, 1), 9.21], 
+						[Date.UTC(2003,7, 1), 9.22], 
+						[Date.UTC(2003,8, 1), 8.92], 
+						[Date.UTC(2003,9, 1), 8.85], 
+						[Date.UTC(2003,10, 1), 8.72], 
+						[Date.UTC(2003,11, 1), 8.3], 
+						[Date.UTC(2004,0, 1), 8.24], 
+						[Date.UTC(2004,1, 1), 8.33], 
+						[Date.UTC(2004,2, 1), 8.62], 
+						[Date.UTC(2004,3, 1), 8.93], 
+						[Date.UTC(2004,4, 1), 9.07], 
+						[Date.UTC(2004,5, 1), 9.29], 
+						[Date.UTC(2004,6, 1), 9.36], 
+						[Date.UTC(2004,7, 1), 9.5], 
+						[Date.UTC(2004,8, 1), 9.39], 
+						[Date.UTC(2004,9, 1), 9.05], 
+						[Date.UTC(2004,10, 1), 8.96], 
+						[Date.UTC(2004,11, 1), 8.58], 
+						[Date.UTC(2005,0, 1), 8.5], 
+						[Date.UTC(2005,1, 1), 8.74], 
+						[Date.UTC(2005,2, 1), 8.86], 
+						[Date.UTC(2005,3, 1), 9.21], 
+						[Date.UTC(2005,4, 1), 9.55], 
+						[Date.UTC(2005,5, 1), 9.77], 
+						[Date.UTC(2005,6, 1), 9.75], 
+						[Date.UTC(2005,7, 1), 9.91], 
+						[Date.UTC(2005,8, 1), 9.91], 
+						[Date.UTC(2005,9, 1), 9.73], 
+						[Date.UTC(2005,10, 1), 9.74], 
+						[Date.UTC(2005,11, 1), 9.25], 
+						[Date.UTC(2006,0, 1), 9.55], 
+						[Date.UTC(2006,1, 1), 9.8], 
+						[Date.UTC(2006,2, 1), 9.87], 
+						[Date.UTC(2006,3, 1), 10.32], 
+						[Date.UTC(2006,4, 1), 10.61], 
+						[Date.UTC(2006,5, 1), 10.85], 
+						[Date.UTC(2006,6, 1), 10.96], 
+						[Date.UTC(2006,7, 1), 10.94], 
+						[Date.UTC(2006,8, 1), 10.94], 
+						[Date.UTC(2006,9, 1), 10.58], 
+						[Date.UTC(2006,10, 1), 10.18], 
+						[Date.UTC(2006,11, 1), 9.84], 
+						[Date.UTC(2007,0, 1), 10.06], 
+						[Date.UTC(2007,1, 1), 9.89], 
+						[Date.UTC(2007,2, 1), 10.27], 
+						[Date.UTC(2007,3, 1), 10.63], 
+						[Date.UTC(2007,4, 1), 10.77], 
+						[Date.UTC(2007,5, 1), 11.09], 
+						[Date.UTC(2007,6, 1), 11.07], 
+						[Date.UTC(2007,7, 1), 11.07], 
+						[Date.UTC(2007,8, 1), 10.96], 
+						[Date.UTC(2007,9, 1), 10.82], 
+						[Date.UTC(2007,10, 1), 10.7], 
+						[Date.UTC(2007,11, 1), 10.33], 
+						[Date.UTC(2008,0, 1), 10.14], 
+						[Date.UTC(2008,1, 1), 10.16], 
+						[Date.UTC(2008,2, 1), 10.45], 
+						[Date.UTC(2008,3, 1), 10.93], 
+						[Date.UTC(2008,4, 1), 11.4], 
+						[Date.UTC(2008,5, 1), 11.77], 
+						[Date.UTC(2008,6, 1), 12.07], 
+						[Date.UTC(2008,7, 1), 12.09], 
+						[Date.UTC(2008,8, 1), 11.92], 
+						[Date.UTC(2008,9, 1), 11.81], 
+						[Date.UTC(2008,10, 1), 11.42], 
+						[Date.UTC(2008,11, 1), 10.86], 
+						[Date.UTC(2009,0, 1), 10.98], 
+						[Date.UTC(2009,1, 1), 11.18], 
+						[Date.UTC(2009,2, 1), 11.28], 
+						[Date.UTC(2009,3, 1), 11.5], 
+						[Date.UTC(2009,4, 1), 11.78], 
+						[Date.UTC(2009,5, 1), 11.81], 
+						[Date.UTC(2009,6, 1), 11.85], 
+						[Date.UTC(2009,7, 1), 11.94], 
+						[Date.UTC(2009,8, 1), 11.96], 
+						[Date.UTC(2009,9, 1), 11.65], 
+						[Date.UTC(2009,10, 1), 11.26], 
+						[Date.UTC(2009,11, 1), 10.9], 
+						[Date.UTC(2010,0, 1), 10.49], 
+						[Date.UTC(2010,1, 1), 10.89], 
+						[Date.UTC(2010,2, 1), 11.11], 
+						[Date.UTC(2010,3, 1), 11.71], 
+						[Date.UTC(2010,4, 1), 11.91], 
+						[Date.UTC(2010,5, 1), 11.91], 
+						[Date.UTC(2010,6, 1), 12.04], 
+						[Date.UTC(2010,7, 1), 12.03], 
+						[Date.UTC(2010,8, 1), 11.95], 
+						[Date.UTC(2010,9, 1), 11.86], 
+						[Date.UTC(2010,10, 1), 11.62], 
+						[Date.UTC(2010,11, 1), 11.06], 
+						[Date.UTC(2011,0, 1), 10.87], 
+						[Date.UTC(2011,1, 1), 11.06], 
+						[Date.UTC(2011,2, 1), 11.52], 
+						[Date.UTC(2011,3, 1), 11.67], 
+						[Date.UTC(2011,4, 1), 11.93], 
+						[Date.UTC(2011,5, 1), 11.97], 
+						[Date.UTC(2011,6, 1), 12.09], 
+						[Date.UTC(2011,7, 1), 12.09], 
+						[Date.UTC(2011,8, 1), 12.17], 
+						[Date.UTC(2011,9, 1), 12.08], 
+						[Date.UTC(2011,10, 1), 11.78], 
+						[Date.UTC(2011,11, 1), 11.4], 
+						[Date.UTC(2012,0, 1), 11.41], 
+						[Date.UTC(2012,1, 1), 11.51], 
+						[Date.UTC(2012,2, 1), 11.7], 
+						[Date.UTC(2012,3, 1), 11.92], 
+						[Date.UTC(2012,4, 1), 11.9], 
+						[Date.UTC(2012,5, 1), 12.09], 
+						[Date.UTC(2012,6, 1), 12], 
+						[Date.UTC(2012,7, 1), 12.17], 
+						[Date.UTC(2012,8, 1), 12.3], 
+						[Date.UTC(2012,9, 1), 12.03], 
+						[Date.UTC(2012,10, 1), 11.75], 
+						[Date.UTC(2012,11, 1), 11.62], 
+						[Date.UTC(2013,0, 1), 11.46], 
+						[Date.UTC(2013,1, 1), 11.63], 
+						[Date.UTC(2013,2, 1), 11.61], 
+						[Date.UTC(2013,3, 1), 11.93], 
+						[Date.UTC(2013,4, 1), 12.4], 
+						[Date.UTC(2013,5, 1), 12.54], 
+						[Date.UTC(2013,6, 1), 12.65], 
+						[Date.UTC(2013,7, 1), 12.53], 
+						[Date.UTC(2013,8, 1), 12.51], 
+						[Date.UTC(2013,9, 1), 12.36], 
+						[Date.UTC(2013,10, 1), 12.1], 
+						[Date.UTC(2013,11, 1), 11.72], 
+						[Date.UTC(2014,0, 1), 11.65], 
+						[Date.UTC(2014,1, 1), 11.94], 
+						[Date.UTC(2014,2, 1), 12.25], 
+						[Date.UTC(2014,3, 1), 12.31], 
+						[Date.UTC(2014,4, 1), 12.85], 
+						[Date.UTC(2014,5, 1), 12.99], 
+						[Date.UTC(2014,6, 1), 13.09], 
+						[Date.UTC(2014,7, 1), 13.04], 
+						[Date.UTC(2014,8, 1), 12.95], 
+						[Date.UTC(2014,9, 1), 12.6], 
+						[Date.UTC(2014,10, 1), 12.48], 
+						[Date.UTC(2014,11, 1), 12.17], 
+						[Date.UTC(2015,0, 1), 12.1], 
+						[Date.UTC(2015,1, 1), 12.29], 
+						[Date.UTC(2015,2, 1), 12.33], 
+						[Date.UTC(2015,3, 1), 12.62], 
+						[Date.UTC(2015,4, 1), 12.93], 
+						[Date.UTC(2015,5, 1), 12.92], 
+						[Date.UTC(2015,6, 1), 12.94], 
+						[Date.UTC(2015,7, 1), 12.91], 
+						[Date.UTC(2015,8, 1), 13.03], 
+						[Date.UTC(2015,9, 1), 12.72], 
+						[Date.UTC(2015,10, 1), 12.71], 
+						[Date.UTC(2015,11, 1), 12.32], 
+						[Date.UTC(2016,0, 1), 11.98], 
+						[Date.UTC(2016,1, 1), 12.14], 
+						[Date.UTC(2016,2, 1), 12.57], 
+						[Date.UTC(2016,3, 1), 12.43], 
+						[Date.UTC(2016,4, 1), 12.79], 
+						[Date.UTC(2016,5, 1), 12.72], 
+						[Date.UTC(2016,6, 1), 12.68], 
+						[Date.UTC(2016,7, 1), 12.9], 
+						[Date.UTC(2016,8, 1), 12.87], 
+						[Date.UTC(2016,9, 1), 12.45], 
+						[Date.UTC(2016,10, 1), 12.44125], 
+						[Date.UTC(2016,11, 1), 12.02864] 	
+				]
+			}, {
+				name: 'Price forecast',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				color: Highcharts.eia_green,
+				dashStyle: 'dash',
+				data: [
+				
+						[Date.UTC(2016,11, 1), 12.02864], 
+						[Date.UTC(2017,0, 1), 12.00226], 
+						[Date.UTC(2017,1, 1), 12.298], 
+						[Date.UTC(2017,2, 1), 12.64004], 
+						[Date.UTC(2017,3, 1), 12.58726], 
+						[Date.UTC(2017,4, 1), 12.99655], 
+						[Date.UTC(2017,5, 1), 13.05063], 
+						[Date.UTC(2017,6, 1), 13.13088], 
+						[Date.UTC(2017,7, 1), 13.38755], 
+						[Date.UTC(2017,8, 1), 13.46998], 
+						[Date.UTC(2017,9, 1), 13.03986], 
+						[Date.UTC(2017,10, 1), 12.89692], 
+						[Date.UTC(2017,11, 1), 12.45821], 
+						[Date.UTC(2018,0, 1), 12.66027], 
+						[Date.UTC(2018,1, 1), 12.89983], 
+						[Date.UTC(2018,2, 1), 13.06776], 
+						[Date.UTC(2018,3, 1), 12.94215], 
+						[Date.UTC(2018,4, 1), 13.29643], 
+						[Date.UTC(2018,5, 1), 13.28729], 
+						[Date.UTC(2018,6, 1), 13.32869], 
+						[Date.UTC(2018,7, 1), 13.56612], 
+						[Date.UTC(2018,8, 1), 13.64257], 
+						[Date.UTC(2018,9, 1), 13.23405], 
+						[Date.UTC(2018,10, 1), 13.11969], 
+						[Date.UTC(2018,11, 1), 12.7191] 	
+				]
+			}, {
+				name: 'Annual growth (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2003,5, 1), 3.24790834323], 
+						[Date.UTC(2004,5, 1), 2.59150457033], 
+						[Date.UTC(2005,5, 1), 5.38351902972], 
+						[Date.UTC(2006,5, 1), 10.3439718416], 
+						[Date.UTC(2007,5, 1), 2.38695858179], 
+						[Date.UTC(2008,5, 1), 5.74501026], 
+						[Date.UTC(2009,5, 1), 2.17416457585], 
+						[Date.UTC(2010,5, 1), 0.245443241441], 
+						[Date.UTC(2011,5, 1), 1.56707723395], 
+						[Date.UTC(2012,5, 1), 1.37928828385], 
+						[Date.UTC(2013,5, 1), 2.08687388403], 
+						[Date.UTC(2014,5, 1), 3.22919060607], 
+						[Date.UTC(2015,5, 1), 1.06528883637], 
+						[Date.UTC(2016,5, 1), -1.10643459454], 
+						[Date.UTC(2017,5, 1), 2.62952787075], 
+						[Date.UTC(2018,5, 1), 2.46144567819] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

@@ -1,0 +1,885 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+	<style>
+	#lbFig36container
+	{
+		display:none;
+	}
+	
+	</style>
+	
+	
+	
+		<DIV id="lbFig36container">
+		</DIV>
+	
+	
+	<script>
+	$(document).ready(function() {
+		$('#lbFig36container').css('display','block');
+		
+		try {
+			var chartOptions = {
+				chart: {				
+					renderTo: 'lbFig36container',
+					lineUpAxisZeros: false
+		
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				
+					text: 'Source: Short-Term Energy Outlook, January 2017',
+					
+					href: null,
+					style: {
+						cursor: 'default'
+					},
+					
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+		    },
+			title: {
+				text: 'Estimated unplanned Non-OPEC liquid fuels production outages'
+				
+			},
+			
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+				
+					formatter: function() {
+						
+						return Highcharts.dateFormat('%b-%Y', this.value);
+						
+					},
+				
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					}
+					,align: 'center' ,y: 20 
+				}
+				,startOnTick: false ,endOnTick: false ,showFirstLabel: true ,tickInterval: 365*24*3600*1000 
+				
+			},
+			yAxis: [
+				
+				{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				}
+				,min: 0 ,max: 1.4 ,tickInterval: .2
+				,labels: {
+					formatter: function() {
+						return formatNumber(this.value, 1, true, ('' == 'percent'));
+					}
+					
+				}
+				,opposite: false
+				}
+				
+			],
+			tooltip: {
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					precision = 3;
+					frequency = 'M'; 
+	
+					var date = new Date(this.x);
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					yLabel = this.y;
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical', align: 'right',
+				verticalAlign: 'bottom',
+				margin: 30,
+				
+				borderWidth: 0
+			},
+			series: [
+				{
+					name: 'United States',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 1, color: '#bed5ad', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0], 
+								[Date.UTC(2014,1, 1), 0], 
+								[Date.UTC(2014,2, 1), 0], 
+								[Date.UTC(2014,3, 1), 0], 
+								[Date.UTC(2014,4, 1), 0], 
+								[Date.UTC(2014,5, 1), 0], 
+								[Date.UTC(2014,6, 1), 0], 
+								[Date.UTC(2014,7, 1), 0], 
+								[Date.UTC(2014,8, 1), 0], 
+								[Date.UTC(2014,9, 1), 0], 
+								[Date.UTC(2014,10, 1), 0], 
+								[Date.UTC(2014,11, 1), 0], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0], 
+								[Date.UTC(2015,2, 1), 0], 
+								[Date.UTC(2015,3, 1), 0], 
+								[Date.UTC(2015,4, 1), 0], 
+								[Date.UTC(2015,5, 1), 0], 
+								[Date.UTC(2015,6, 1), 0], 
+								[Date.UTC(2015,7, 1), 0], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0], 
+								[Date.UTC(2016,1, 1), 0], 
+								[Date.UTC(2016,2, 1), 0], 
+								[Date.UTC(2016,3, 1), 0], 
+								[Date.UTC(2016,4, 1), 0.005], 
+								[Date.UTC(2016,5, 1), 0.05], 
+								[Date.UTC(2016,6, 1), 0.07], 
+								[Date.UTC(2016,7, 1), 0.02820083871], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+				{
+					name: 'Mexico',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 2, color: '#5d9732', stacking: 'normal',stack: '1',
+					data: [
+					
+							[Date.UTC(2014,0, 1), 0.01], 
+							[Date.UTC(2014,1, 1), 0.01], 
+							[Date.UTC(2014,2, 1), 0.01], 
+							[Date.UTC(2014,3, 1), 0.01], 
+							[Date.UTC(2014,4, 1), 0.01], 
+							[Date.UTC(2014,5, 1), 0.01], 
+							[Date.UTC(2014,6, 1), 0.028], 
+							[Date.UTC(2014,7, 1), 0.01], 
+							[Date.UTC(2014,8, 1), 0.01], 
+							[Date.UTC(2014,9, 1), 0.01], 
+							[Date.UTC(2014,10, 1), 0.01], 
+							[Date.UTC(2014,11, 1), 0.01], 
+							[Date.UTC(2015,0, 1), 0.01], 
+							[Date.UTC(2015,1, 1), 0.01], 
+							[Date.UTC(2015,2, 1), 0.01], 
+							[Date.UTC(2015,3, 1), 0.04], 
+							[Date.UTC(2015,4, 1), 0.04], 
+							[Date.UTC(2015,5, 1), 0.03], 
+							[Date.UTC(2015,6, 1), 0.01], 
+							[Date.UTC(2015,7, 1), 0], 
+							[Date.UTC(2015,8, 1), 0], 
+							[Date.UTC(2015,9, 1), 0], 
+							[Date.UTC(2015,10, 1), 0], 
+							[Date.UTC(2015,11, 1), 0], 
+							[Date.UTC(2016,0, 1), 0], 
+							[Date.UTC(2016,1, 1), 0], 
+							[Date.UTC(2016,2, 1), 0], 
+							[Date.UTC(2016,3, 1), 0], 
+							[Date.UTC(2016,4, 1), 0], 
+							[Date.UTC(2016,5, 1), 0], 
+							[Date.UTC(2016,6, 1), 0], 
+							[Date.UTC(2016,7, 1), 0], 
+							[Date.UTC(2016,8, 1), 0], 
+							[Date.UTC(2016,9, 1), 0], 
+							[Date.UTC(2016,10, 1), 0], 
+							[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+               {
+					name: 'Canada',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 7, color: '#2a4b11', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0], 
+								[Date.UTC(2014,1, 1), 0], 
+								[Date.UTC(2014,2, 1), 0], 
+								[Date.UTC(2014,3, 1), 0], 
+								[Date.UTC(2014,4, 1), 0], 
+								[Date.UTC(2014,5, 1), 0], 
+								[Date.UTC(2014,6, 1), 0], 
+								[Date.UTC(2014,7, 1), 0], 
+								[Date.UTC(2014,8, 1), 0], 
+								[Date.UTC(2014,9, 1), 0], 
+								[Date.UTC(2014,10, 1), 0], 
+								[Date.UTC(2014,11, 1), 0], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0], 
+								[Date.UTC(2015,2, 1), 0], 
+								[Date.UTC(2015,3, 1), 0.16], 
+								[Date.UTC(2015,4, 1), 0.058], 
+								[Date.UTC(2015,5, 1), 0.058], 
+								[Date.UTC(2015,6, 1), 0], 
+								[Date.UTC(2015,7, 1), 0.02], 
+								[Date.UTC(2015,8, 1), 0.2], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0.025], 
+								[Date.UTC(2016,1, 1), 0.05], 
+								[Date.UTC(2016,2, 1), 0.05], 
+								[Date.UTC(2016,3, 1), 0], 
+								[Date.UTC(2016,4, 1), 0.75], 
+								[Date.UTC(2016,5, 1), 0.4], 
+								[Date.UTC(2016,6, 1), 0.05], 
+								[Date.UTC(2016,7, 1), 0], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+				{
+					name: 'Ghana',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 1, color:'#c8858c', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0], 
+								[Date.UTC(2014,1, 1), 0], 
+								[Date.UTC(2014,2, 1), 0], 
+								[Date.UTC(2014,3, 1), 0], 
+								[Date.UTC(2014,4, 1), 0], 
+								[Date.UTC(2014,5, 1), 0], 
+								[Date.UTC(2014,6, 1), 0], 
+								[Date.UTC(2014,7, 1), 0], 
+								[Date.UTC(2014,8, 1), 0], 
+								[Date.UTC(2014,9, 1), 0], 
+								[Date.UTC(2014,10, 1), 0], 
+								[Date.UTC(2014,11, 1), 0], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0], 
+								[Date.UTC(2015,2, 1), 0], 
+								[Date.UTC(2015,3, 1), 0], 
+								[Date.UTC(2015,4, 1), 0], 
+								[Date.UTC(2015,5, 1), 0], 
+								[Date.UTC(2015,6, 1), 0.04], 
+								[Date.UTC(2015,7, 1), 0], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0], 
+								[Date.UTC(2016,1, 1), 0], 
+								[Date.UTC(2016,2, 1), 0.025], 
+								[Date.UTC(2016,3, 1), 0.04], 
+								[Date.UTC(2016,4, 1), 0.015], 
+								[Date.UTC(2016,5, 1), 0.015], 
+								[Date.UTC(2016,6, 1), 0.015], 
+								[Date.UTC(2016,7, 1), 0.015], 
+								[Date.UTC(2016,8, 1), 0.015], 
+								[Date.UTC(2016,9, 1), 0.015], 
+								[Date.UTC(2016,10, 1), 0.015], 
+								[Date.UTC(2016,11, 1), 0.015], 
+				]
+				}
+				,
+				{
+						name: 'Gabon',
+						type: 'column',
+						yAxis: 0,
+						zIndex: 1, color:'#a33340', stacking: 'normal',stack: '1',
+						data: [
+						
+									[Date.UTC(2014,0, 1), 0], 
+									[Date.UTC(2014,1, 1), 0], 
+									[Date.UTC(2014,2, 1), 0], 
+									[Date.UTC(2014,3, 1), 0.01], 
+									[Date.UTC(2014,4, 1), 0], 
+									[Date.UTC(2014,5, 1), 0], 
+									[Date.UTC(2014,6, 1), 0], 
+									[Date.UTC(2014,7, 1), 0], 
+									[Date.UTC(2014,8, 1), 0], 
+									[Date.UTC(2014,9, 1), 0], 
+									[Date.UTC(2014,10, 1), 0], 
+									[Date.UTC(2014,11, 1), 0], 
+									[Date.UTC(2015,0, 1), 0], 
+									[Date.UTC(2015,1, 1), 0], 
+									[Date.UTC(2015,2, 1), 0], 
+									[Date.UTC(2015,3, 1), 0.01], 
+									[Date.UTC(2015,4, 1), 0], 
+									[Date.UTC(2015,5, 1), 0], 
+									[Date.UTC(2015,6, 1), 0], 
+									[Date.UTC(2015,7, 1), 0], 
+									[Date.UTC(2015,8, 1), 0], 
+									[Date.UTC(2015,9, 1), 0], 
+									[Date.UTC(2015,10, 1), 0], 
+									[Date.UTC(2015,11, 1), 0], 
+									[Date.UTC(2016,0, 1), 0], 
+									[Date.UTC(2016,1, 1), 0], 
+									[Date.UTC(2016,2, 1), 0], 
+									[Date.UTC(2016,3, 1), 0], 
+									[Date.UTC(2016,4, 1), 0], 
+									[Date.UTC(2016,5, 1), 0], 
+									[Date.UTC(2016,6, 1), 0], 
+									[Date.UTC(2016,7, 1), 0], 
+									[Date.UTC(2016,8, 1), 0], 
+									[Date.UTC(2016,9, 1), 0.01], 
+									[Date.UTC(2016,10, 1), 0], 
+									[Date.UTC(2016,11, 1), 0], 
+					]
+					}
+					,
+                {
+						name: 'Sudan / S. Sudan',
+						type: 'column',
+						yAxis: 0,
+						zIndex: 12, color: '#521a20', stacking: 'normal',stack: '1',
+						data: [
+						
+									[Date.UTC(2014,0, 1), 0.12], 
+									[Date.UTC(2014,1, 1), 0.12], 
+									[Date.UTC(2014,2, 1), 0.12], 
+									[Date.UTC(2014,3, 1), 0.12], 
+									[Date.UTC(2014,4, 1), 0.12], 
+									[Date.UTC(2014,5, 1), 0.12], 
+									[Date.UTC(2014,6, 1), 0.12], 
+									[Date.UTC(2014,7, 1), 0.12], 
+									[Date.UTC(2014,8, 1), 0.12], 
+									[Date.UTC(2014,9, 1), 0.12], 
+									[Date.UTC(2014,10, 1), 0.12], 
+									[Date.UTC(2014,11, 1), 0.12], 
+									[Date.UTC(2015,0, 1), 0.12], 
+									[Date.UTC(2015,1, 1), 0.12], 
+									[Date.UTC(2015,2, 1), 0.12], 
+									[Date.UTC(2015,3, 1), 0.12], 
+									[Date.UTC(2015,4, 1), 0.135], 
+									[Date.UTC(2015,5, 1), 0.12], 
+									[Date.UTC(2015,6, 1), 0.12], 
+									[Date.UTC(2015,7, 1), 0.12], 
+									[Date.UTC(2015,8, 1), 0.12], 
+									[Date.UTC(2015,9, 1), 0.12], 
+									[Date.UTC(2015,10, 1), 0.12], 
+									[Date.UTC(2015,11, 1), 0.12], 
+									[Date.UTC(2016,0, 1), 0.12], 
+									[Date.UTC(2016,1, 1), 0.12], 
+									[Date.UTC(2016,2, 1), 0.12], 
+									[Date.UTC(2016,3, 1), 0.12], 
+									[Date.UTC(2016,4, 1), 0.12], 
+									[Date.UTC(2016,5, 1), 0.12], 
+									[Date.UTC(2016,6, 1), 0.12], 
+									[Date.UTC(2016,7, 1), 0.12], 
+									[Date.UTC(2016,8, 1), 0.12], 
+									[Date.UTC(2016,9, 1), 0.12], 
+									[Date.UTC(2016,10, 1), 0.12], 
+									[Date.UTC(2016,11, 1), 0.12], 
+					]
+					},
+					 {
+							name: 'Peru',
+							type: 'column',
+							yAxis: 0,
+							zIndex: 8, color: '#c8eeff', stacking: 'normal',stack: '1',
+							data: [
+							
+										[Date.UTC(2014,0, 1), 0], 
+										[Date.UTC(2014,1, 1), 0], 
+										[Date.UTC(2014,2, 1), 0], 
+										[Date.UTC(2014,3, 1), 0], 
+										[Date.UTC(2014,4, 1), 0], 
+										[Date.UTC(2014,5, 1), 0], 
+										[Date.UTC(2014,6, 1), 0], 
+										[Date.UTC(2014,7, 1), 0], 
+										[Date.UTC(2014,8, 1), 0], 
+										[Date.UTC(2014,9, 1), 0], 
+										[Date.UTC(2014,10, 1), 0], 
+										[Date.UTC(2014,11, 1), 0], 
+										[Date.UTC(2015,0, 1), 0], 
+										[Date.UTC(2015,1, 1), 0], 
+										[Date.UTC(2015,2, 1), 0], 
+										[Date.UTC(2015,3, 1), 0], 
+										[Date.UTC(2015,4, 1), 0], 
+										[Date.UTC(2015,5, 1), 0], 
+										[Date.UTC(2015,6, 1), 0], 
+										[Date.UTC(2015,7, 1), 0], 
+										[Date.UTC(2015,8, 1), 0.01], 
+										[Date.UTC(2015,9, 1), 0], 
+										[Date.UTC(2015,10, 1), 0], 
+										[Date.UTC(2015,11, 1), 0], 
+										[Date.UTC(2016,0, 1), 0], 
+										[Date.UTC(2016,1, 1), 0], 
+										[Date.UTC(2016,2, 1), 0], 
+										[Date.UTC(2016,3, 1), 0], 
+										[Date.UTC(2016,4, 1), 0], 
+										[Date.UTC(2016,5, 1), 0.015], 
+										[Date.UTC(2016,6, 1), 0.02], 
+										[Date.UTC(2016,7, 1), 0.02], 
+										[Date.UTC(2016,8, 1), 0.02], 
+										[Date.UTC(2016,9, 1), 0.02], 
+										[Date.UTC(2016,10, 1), 0.02], 
+										[Date.UTC(2016,11, 1), 0.02], 
+						]
+						}
+						,
+					{
+						name: 'Colombia',
+						type: 'column',
+						yAxis: 0,
+						zIndex: 3, color: '#76d5ff', stacking: 'normal',stack: '1',
+						data: [
+						
+									[Date.UTC(2014,0, 1), 0.02], 
+									[Date.UTC(2014,1, 1), 0.02], 
+									[Date.UTC(2014,2, 1), 0.015], 
+									[Date.UTC(2014,3, 1), 0.08], 
+									[Date.UTC(2014,4, 1), 0.07], 
+									[Date.UTC(2014,5, 1), 0.07], 
+									[Date.UTC(2014,6, 1), 0.07], 
+									[Date.UTC(2014,7, 1), 0.05], 
+									[Date.UTC(2014,8, 1), 0.02], 
+									[Date.UTC(2014,9, 1), 0.035], 
+									[Date.UTC(2014,10, 1), 0.05], 
+									[Date.UTC(2014,11, 1), 0.04], 
+									[Date.UTC(2015,0, 1), 0.04], 
+									[Date.UTC(2015,1, 1), 0.04], 
+									[Date.UTC(2015,2, 1), 0.04], 
+									[Date.UTC(2015,3, 1), 0.04], 
+									[Date.UTC(2015,4, 1), 0.04], 
+									[Date.UTC(2015,5, 1), 0.04], 
+									[Date.UTC(2015,6, 1), 0.08], 
+									[Date.UTC(2015,7, 1), 0.05], 
+									[Date.UTC(2015,8, 1), 0.04], 
+									[Date.UTC(2015,9, 1), 0.04], 
+									[Date.UTC(2015,10, 1), 0.02], 
+									[Date.UTC(2015,11, 1), 0.02], 
+									[Date.UTC(2016,0, 1), 0.02], 
+									[Date.UTC(2016,1, 1), 0.04], 
+									[Date.UTC(2016,2, 1), 0.03], 
+									[Date.UTC(2016,3, 1), 0.02], 
+									[Date.UTC(2016,4, 1), 0.04], 
+									[Date.UTC(2016,5, 1), 0.04], 
+									[Date.UTC(2016,6, 1), 0.04], 
+									[Date.UTC(2016,7, 1), 0.02], 
+									[Date.UTC(2016,8, 1), 0.07], 
+									[Date.UTC(2016,9, 1), 0.02], 
+									[Date.UTC(2016,10, 1), 0.08], 
+									[Date.UTC(2016,11, 1), 0.04], 
+					]
+					}
+					,
+                	{
+						name: 'Argentina',
+						type: 'column',
+						yAxis: 0,
+						zIndex: 4, color: '#0096d7', stacking: 'normal',stack: '1',
+						data: [
+						
+									[Date.UTC(2014,0, 1), 0], 
+									[Date.UTC(2014,1, 1), 0], 
+									[Date.UTC(2014,2, 1), 0], 
+									[Date.UTC(2014,3, 1), 0], 
+									[Date.UTC(2014,4, 1), 0], 
+									[Date.UTC(2014,5, 1), 0], 
+									[Date.UTC(2014,6, 1), 0.015], 
+									[Date.UTC(2014,7, 1), 0], 
+									[Date.UTC(2014,8, 1), 0], 
+									[Date.UTC(2014,9, 1), 0], 
+									[Date.UTC(2014,10, 1), 0], 
+									[Date.UTC(2014,11, 1), 0], 
+									[Date.UTC(2015,0, 1), 0], 
+									[Date.UTC(2015,1, 1), 0], 
+									[Date.UTC(2015,2, 1), 0], 
+									[Date.UTC(2015,3, 1), 0], 
+									[Date.UTC(2015,4, 1), 0], 
+									[Date.UTC(2015,5, 1), 0], 
+									[Date.UTC(2015,6, 1), 0], 
+									[Date.UTC(2015,7, 1), 0], 
+									[Date.UTC(2015,8, 1), 0], 
+									[Date.UTC(2015,9, 1), 0], 
+									[Date.UTC(2015,10, 1), 0], 
+									[Date.UTC(2015,11, 1), 0], 
+									[Date.UTC(2016,0, 1), 0], 
+									[Date.UTC(2016,1, 1), 0], 
+									[Date.UTC(2016,2, 1), 0], 
+									[Date.UTC(2016,3, 1), 0], 
+									[Date.UTC(2016,4, 1), 0.015], 
+									[Date.UTC(2016,5, 1), 0.01], 
+									[Date.UTC(2016,6, 1), 0], 
+									[Date.UTC(2016,7, 1), 0], 
+									[Date.UTC(2016,8, 1), 0], 
+									[Date.UTC(2016,9, 1), 0], 
+									[Date.UTC(2016,10, 1), 0], 
+									[Date.UTC(2016,11, 1), 0], 
+					]
+					}
+					,
+                {
+					name: 'Brazil',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 6, color: '#003953', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0.07], 
+								[Date.UTC(2014,1, 1), 0.07], 
+								[Date.UTC(2014,2, 1), 0.05], 
+								[Date.UTC(2014,3, 1), 0.05], 
+								[Date.UTC(2014,4, 1), 0.096], 
+								[Date.UTC(2014,5, 1), 0.03], 
+								[Date.UTC(2014,6, 1), 0.02], 
+								[Date.UTC(2014,7, 1), 0.012], 
+								[Date.UTC(2014,8, 1), 0.01], 
+								[Date.UTC(2014,9, 1), 0.01], 
+								[Date.UTC(2014,10, 1), 0.01], 
+								[Date.UTC(2014,11, 1), 0.01], 
+								[Date.UTC(2015,0, 1), 0.01], 
+								[Date.UTC(2015,1, 1), 0.01], 
+								[Date.UTC(2015,2, 1), 0.01], 
+								[Date.UTC(2015,3, 1), 0.01], 
+								[Date.UTC(2015,4, 1), 0.035], 
+								[Date.UTC(2015,5, 1), 0.048], 
+								[Date.UTC(2015,6, 1), 0.01], 
+								[Date.UTC(2015,7, 1), 0.01], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0.09], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0], 
+								[Date.UTC(2016,1, 1), 0], 
+								[Date.UTC(2016,2, 1), 0.025], 
+								[Date.UTC(2016,3, 1), 0.05], 
+								[Date.UTC(2016,4, 1), 0], 
+								[Date.UTC(2016,5, 1), 0], 
+								[Date.UTC(2016,6, 1), 0], 
+								[Date.UTC(2016,7, 1), 0], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+
+				]
+				}
+				,
+					{
+						name: 'North Sea',
+						type: 'column',
+						yAxis: 0,
+						zIndex: 8, color: '#bd732a', stacking: 'normal',stack: '1',
+						data: [
+						
+									[Date.UTC(2014,0, 1), 0.05], 
+									[Date.UTC(2014,1, 1), 0.02], 
+									[Date.UTC(2014,2, 1), 0], 
+									[Date.UTC(2014,3, 1), 0], 
+									[Date.UTC(2014,4, 1), 0], 
+									[Date.UTC(2014,5, 1), 0], 
+									[Date.UTC(2014,6, 1), 0.03], 
+									[Date.UTC(2014,7, 1), 0], 
+									[Date.UTC(2014,8, 1), 0], 
+									[Date.UTC(2014,9, 1), 0], 
+									[Date.UTC(2014,10, 1), 0], 
+									[Date.UTC(2014,11, 1), 0], 
+									[Date.UTC(2015,0, 1), 0.01], 
+									[Date.UTC(2015,1, 1), 0], 
+									[Date.UTC(2015,2, 1), 0], 
+									[Date.UTC(2015,3, 1), 0], 
+									[Date.UTC(2015,4, 1), 0], 
+									[Date.UTC(2015,5, 1), 0], 
+									[Date.UTC(2015,6, 1), 0.011290322581], 
+									[Date.UTC(2015,7, 1), 0], 
+									[Date.UTC(2015,8, 1), 0], 
+									[Date.UTC(2015,9, 1), 0.024677419355], 
+									[Date.UTC(2015,10, 1), 0.002], 
+									[Date.UTC(2015,11, 1), 0.002], 
+									[Date.UTC(2016,0, 1), 0], 
+									[Date.UTC(2016,1, 1), 0], 
+									[Date.UTC(2016,2, 1), 0], 
+									[Date.UTC(2016,3, 1), 0], 
+									[Date.UTC(2016,4, 1), 0], 
+									[Date.UTC(2016,5, 1), 0], 
+									[Date.UTC(2016,6, 1), 0], 
+									[Date.UTC(2016,7, 1), 0.013935483871], 
+									[Date.UTC(2016,8, 1), 0.072], 
+									[Date.UTC(2016,9, 1), 0.01], 
+									[Date.UTC(2016,10, 1), 0], 
+									[Date.UTC(2016,11, 1), 0], 
+					]
+					}
+				,
+				{
+					name: 'Australia',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 5, color: '#ffc702', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0], 
+								[Date.UTC(2014,1, 1), 0], 
+								[Date.UTC(2014,2, 1), 0], 
+								[Date.UTC(2014,3, 1), 0], 
+								[Date.UTC(2014,4, 1), 0], 
+								[Date.UTC(2014,5, 1), 0], 
+								[Date.UTC(2014,6, 1), 0], 
+								[Date.UTC(2014,7, 1), 0], 
+								[Date.UTC(2014,8, 1), 0], 
+								[Date.UTC(2014,9, 1), 0], 
+								[Date.UTC(2014,10, 1), 0], 
+								[Date.UTC(2014,11, 1), 0], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0.017], 
+								[Date.UTC(2015,2, 1), 0.04], 
+								[Date.UTC(2015,3, 1), 0.035], 
+								[Date.UTC(2015,4, 1), 0.035], 
+								[Date.UTC(2015,5, 1), 0], 
+								[Date.UTC(2015,6, 1), 0], 
+								[Date.UTC(2015,7, 1), 0], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0], 
+								[Date.UTC(2016,1, 1), 0], 
+								[Date.UTC(2016,2, 1), 0], 
+								[Date.UTC(2016,3, 1), 0], 
+								[Date.UTC(2016,4, 1), 0], 
+								[Date.UTC(2016,5, 1), 0], 
+								[Date.UTC(2016,6, 1), 0], 
+								[Date.UTC(2016,7, 1), 0], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+
+				{
+				name: 'Yemen',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 9, color: '#d1ba8d', stacking: 'normal',stack: '1',
+				data: [
+					
+							[Date.UTC(2014,0, 1), 0.075], 
+							[Date.UTC(2014,1, 1), 0.054], 
+							[Date.UTC(2014,2, 1), 0.063], 
+							[Date.UTC(2014,3, 1), 0.062], 
+							[Date.UTC(2014,4, 1), 0.071], 
+							[Date.UTC(2014,5, 1), 0.06], 
+							[Date.UTC(2014,6, 1), 0.059], 
+							[Date.UTC(2014,7, 1), 0.058], 
+							[Date.UTC(2014,8, 1), 0.057], 
+							[Date.UTC(2014,9, 1), 0.056], 
+							[Date.UTC(2014,10, 1), 0.055], 
+							[Date.UTC(2014,11, 1), 0.064], 
+							[Date.UTC(2015,0, 1), 0.063], 
+							[Date.UTC(2015,1, 1), 0.062], 
+							[Date.UTC(2015,2, 1), 0.081], 
+							[Date.UTC(2015,3, 1), 0.1], 
+							[Date.UTC(2015,4, 1), 0.12], 
+							[Date.UTC(2015,5, 1), 0.12], 
+							[Date.UTC(2015,6, 1), 0.12], 
+							[Date.UTC(2015,7, 1), 0.12], 
+							[Date.UTC(2015,8, 1), 0.13], 
+							[Date.UTC(2015,9, 1), 0.13], 
+							[Date.UTC(2015,10, 1), 0.13], 
+							[Date.UTC(2015,11, 1), 0.13], 
+							[Date.UTC(2016,0, 1), 0.13], 
+							[Date.UTC(2016,1, 1), 0.13], 
+							[Date.UTC(2016,2, 1), 0.13], 
+							[Date.UTC(2016,3, 1), 0.13], 
+							[Date.UTC(2016,4, 1), 0.13], 
+							[Date.UTC(2016,5, 1), 0.13], 
+							[Date.UTC(2016,6, 1), 0.13], 
+							[Date.UTC(2016,7, 1), 0.13], 
+							[Date.UTC(2016,8, 1), 0.13], 
+							[Date.UTC(2016,9, 1), 0.13], 
+							[Date.UTC(2016,10, 1), 0.13], 
+							[Date.UTC(2016,11, 1), 0.13], 
+				]
+				}
+				,
+				{
+				name: 'China',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 10, color: '#a27d33', stacking: 'normal',stack: '1',
+				data: [
+					
+							[Date.UTC(2014,0, 1), 0.02], 
+							[Date.UTC(2014,1, 1), 0], 
+							[Date.UTC(2014,2, 1), 0], 
+							[Date.UTC(2014,3, 1), 0], 
+							[Date.UTC(2014,4, 1), 0], 
+							[Date.UTC(2014,5, 1), 0], 
+							[Date.UTC(2014,6, 1), 0], 
+							[Date.UTC(2014,7, 1), 0], 
+							[Date.UTC(2014,8, 1), 0], 
+							[Date.UTC(2014,9, 1), 0], 
+							[Date.UTC(2014,10, 1), 0], 
+							[Date.UTC(2014,11, 1), 0], 
+							[Date.UTC(2015,0, 1), 0], 
+							[Date.UTC(2015,1, 1), 0], 
+							[Date.UTC(2015,2, 1), 0], 
+							[Date.UTC(2015,3, 1), 0], 
+							[Date.UTC(2015,4, 1), 0], 
+							[Date.UTC(2015,5, 1), 0], 
+							[Date.UTC(2015,6, 1), 0], 
+							[Date.UTC(2015,7, 1), 0], 
+							[Date.UTC(2015,8, 1), 0], 
+							[Date.UTC(2015,9, 1), 0], 
+							[Date.UTC(2015,10, 1), 0], 
+							[Date.UTC(2015,11, 1), 0], 
+							[Date.UTC(2016,0, 1), 0], 
+							[Date.UTC(2016,1, 1), 0], 
+							[Date.UTC(2016,2, 1), 0], 
+							[Date.UTC(2016,3, 1), 0], 
+							[Date.UTC(2016,4, 1), 0], 
+							[Date.UTC(2016,5, 1), 0], 
+							[Date.UTC(2016,6, 1), 0.01], 
+							[Date.UTC(2016,7, 1), 0.01], 
+							[Date.UTC(2016,8, 1), 0.01], 
+							[Date.UTC(2016,9, 1), 0.01], 
+							[Date.UTC(2016,10, 1), 0.01], 
+							[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+				{
+					name: 'Syria',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 11, color: '#594620', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0.294801], 
+								[Date.UTC(2014,1, 1), 0.294801], 
+								[Date.UTC(2014,2, 1), 0.29], 
+								[Date.UTC(2014,3, 1), 0.29], 
+								[Date.UTC(2014,4, 1), 0.29], 
+								[Date.UTC(2014,5, 1), 0.29], 
+								[Date.UTC(2014,6, 1), 0.29], 
+								[Date.UTC(2014,7, 1), 0.27], 
+								[Date.UTC(2014,8, 1), 0.22], 
+								[Date.UTC(2014,9, 1), 0.17], 
+								[Date.UTC(2014,10, 1), 0.12], 
+								[Date.UTC(2014,11, 1), 0.07], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0], 
+								[Date.UTC(2015,2, 1), 0], 
+								[Date.UTC(2015,3, 1), 0], 
+								[Date.UTC(2015,4, 1), 0], 
+								[Date.UTC(2015,5, 1), 0], 
+								[Date.UTC(2015,6, 1), 0], 
+								[Date.UTC(2015,7, 1), 0], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0], 
+								[Date.UTC(2016,0, 1), 0], 
+								[Date.UTC(2016,1, 1), 0], 
+								[Date.UTC(2016,2, 1), 0], 
+								[Date.UTC(2016,3, 1), 0], 
+								[Date.UTC(2016,4, 1), 0], 
+								[Date.UTC(2016,5, 1), 0], 
+								[Date.UTC(2016,6, 1), 0], 
+								[Date.UTC(2016,7, 1), 0], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+				{
+					name: 'Azerbaijan',
+					type: 'column',
+					yAxis: 0,
+					zIndex: 9, color: '#746395', stacking: 'normal',stack: '1',
+					data: [
+					
+								[Date.UTC(2014,0, 1), 0], 
+								[Date.UTC(2014,1, 1), 0], 
+								[Date.UTC(2014,2, 1), 0], 
+								[Date.UTC(2014,3, 1), 0], 
+								[Date.UTC(2014,4, 1), 0], 
+								[Date.UTC(2014,5, 1), 0], 
+								[Date.UTC(2014,6, 1), 0], 
+								[Date.UTC(2014,7, 1), 0], 
+								[Date.UTC(2014,8, 1), 0], 
+								[Date.UTC(2014,9, 1), 0], 
+								[Date.UTC(2014,10, 1), 0], 
+								[Date.UTC(2014,11, 1), 0], 
+								[Date.UTC(2015,0, 1), 0], 
+								[Date.UTC(2015,1, 1), 0], 
+								[Date.UTC(2015,2, 1), 0], 
+								[Date.UTC(2015,3, 1), 0], 
+								[Date.UTC(2015,4, 1), 0], 
+								[Date.UTC(2015,5, 1), 0], 
+								[Date.UTC(2015,6, 1), 0], 
+								[Date.UTC(2015,7, 1), 0], 
+								[Date.UTC(2015,8, 1), 0], 
+								[Date.UTC(2015,9, 1), 0], 
+								[Date.UTC(2015,10, 1), 0], 
+								[Date.UTC(2015,11, 1), 0.075], 
+								[Date.UTC(2016,0, 1), 0.075], 
+								[Date.UTC(2016,1, 1), 0.0375], 
+								[Date.UTC(2016,2, 1), 0.014], 
+								[Date.UTC(2016,3, 1), 0.014], 
+								[Date.UTC(2016,4, 1), 0.014], 
+								[Date.UTC(2016,5, 1), 0.014], 
+								[Date.UTC(2016,6, 1), 0], 
+								[Date.UTC(2016,7, 1), 0], 
+								[Date.UTC(2016,8, 1), 0], 
+								[Date.UTC(2016,9, 1), 0], 
+								[Date.UTC(2016,10, 1), 0], 
+								[Date.UTC(2016,11, 1), 0], 
+				]
+				}
+				,
+				]
+			};
+			
+			var chart = new Highcharts.Chart(chartOptions);
+		}
+		catch(err)
+		{
+		throw(err);
+		}
+	});
+	</script>

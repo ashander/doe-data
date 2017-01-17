@@ -1,0 +1,760 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>International Energy Outlook 2016-Coal - Energy Information Administration</title>
+<link rel="stylesheet" href="https://www.eia.gov/outlooks/ieo/styles/text_styles.css" type="text/css" media="screen, projection">
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+
+<body>
+<div id="outerX">
+
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../consumption/index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../energyexplained/index.html">Energy Explained</a></h3>
+              <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+    <div class="pub_title bg_aeo">
+	
+    <a href="index.html">&lsaquo; IEO Home</a>
+      <h1>International Energy Outlook 2016</h1>
+      <p><b>Release Date:</b> May 11, 2016 &nbsp; | &nbsp; <b>Next Release Date:</b> September 2017&nbsp;&nbsp; |&nbsp; <a href="pdf/0484(2016).pdf" class="pdf">Report Number: DOE/EIA-0484(2016)</a></p>
+    </div>
+
+
+    
+    <div class="pagecontent mr_temp1">
+      <div class="main_col" style="width:595px">
+	  
+		
+            
+        
+        
+        <h1>Chapter 4. Coal</h1>
+        <div align="right"><a class="ico_pdf" href="https://www.eia.gov/outlooks/ieo/pdf/coal.pdf"> print version</a></div>
+        <h2>Overview</h2>
+        
+        <p>In the IEO2016 Reference case, coal remains the  second-largest energy source worldwide&#8212;behind petroleum and other liquids&#8212;until  2030. From 2030 through 2040, it is the third-largest energy source, behind  both liquid fuels and natural gas. World coal consumption increases from 2012  to 2040 at an average rate of 0.6%/year, from 153 quadrillion Btu in 2012 to 169  quadrillion Btu in 2020 and to 180 quadrillion Btu in 2040.</p>
+<p>The Reference case estimates do not include the  effect of the recently finalized Clean Power Plan (CPP) regulations in the  United States, which would reduce world coal consumption to 165 quadrillion Btu  in 2020 and to 176 quadrillion Btu in 2040 (about 2.5% in both years), based on  EIA's analysis of the CPP proposed rule [<a href="footnotes.cfm.html#100">100</a>].  (EIA's analysis of the final rule is still being prepared; it is expected to  show a roughly similar effect on projected coal use.) Over the 2012&#8211;40  projection period, total coal consumption in the non-OECD countries increases by  an average of 0.8%/year, compared with an average increase of 0.1%/year in the  OECD countries without the U.S. CPP and a decrease of 0.3%/year in the OECD  countries with the U.S. CPP (Figure 4-1).</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-1.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-1.png" alt="Figure 4-1. World coal consumption by region, 1980&#8211;2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-1_data.xls" class="ico_xls">figure  data</a></span></span></p>
+      
+<p>Throughout  the projection, the top three coal-consuming countries are China, the United  States, and India, which together account for more than 70% of world coal use. China  accounted for 50% of world coal consumption in 2012, and its coal use continues  to grow through 2025 in the Reference case before beginning a decline along  with slower overall growth in energy consumption and the implementation of policies  addressing air pollution and climate change. In 2040, China's share of world  coal consumption falls to 46%. As a result of the slower growth and decline in  China&rsquo;s coal use, the world coal share of total primary energy consumption  declines steadily, from 28% in 2012 to 22% in 2040&#8212;in contrast to its sustained  growth from 24% in 2001 to 29% in 2009, primarily as a result of increasing  coal use in China. Total U.S. coal consumption per year, which peaked in 2007,  remains largely unchanged from 2012 to 2040 without the CPP but declines  significantly with the CPP. Although coal consumption in China does not change  much from 2012 to 2040,  coal use in India and the other countries of non-OECD Asia continues to rise. India&rsquo;s  coal use surpasses the United States total around 2030, and its share of world  coal consumption grows from 8% in 2012 to 14% in 2040 (Figure 4-2).</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-2.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-2.png" alt="Figure 4-2. Coal consumption in China, the United States, and India, 1990&#8211;2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-2_data.xls" class="ico_xls">figure  data</a></span></span></p>
+      
+<p>Electricity  generation accounted for 59% of world coal consumption in 2012, and remains  close to that share of coal use through 2040 in the IEO2016 Reference case (Figure  4-3). The industrial sector accounted for 36% of total coal use in 2012 [<a href="footnotes.cfm.html#101">101</a>, <a href="footnotes.cfm.html#102">102</a>].  Its share grows slightly in the Reference case, to 38% in 2040. Coal use in  other sectors (residential and commercial), which made up 4% of total world  coal consumption in 2012, accounts for 3% of the 2040 total. In the electric  power sector, as renewable energy, natural gas, and nuclear power in  combination account for a rising share of power generation. The share of  electricity generated from coal worldwide declines from 40% in 2012 to 29% in  2040. </p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-3.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-3.png" alt="Figure 4-3. Coal share of world energy consumption by sector, 2012, 2020, and 2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-3_data.xls" class="ico_xls">figure  data</a></span></span></p>
+       
+      <p>World  coal production in the Reference case increases from 9 billion tons in 2012 to  10 billion tons in 2040 [<a href="footnotes.cfm.html#103">103</a>],  with much of the growth occurring in India, China, and Australia (Figure 4-4).  Their combined share of total world coal production increases in the IEO2016  Reference case from 60% in 2012 to 64% in 2040, but the share of the world&rsquo;s  leading coal producer, China, decreases from 48% in 2012 to 44% in 2040. World  coal production varies significantly from region to region in the Reference  case, with sustained strong growth in India, slowing growth and a gradual  decline after 2025 in China, and little change in the United States and OECD  Europe. </p>
+      <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-4.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-4.png" alt="Figure 4-4. World coal production, 2012&#8211;40" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-4_data.xls" class="ico_xls">figure  data</a></span></span></p>
+<p>Because  most of the countries that consume substantial amounts of coal have domestic  coal resources, the volume of world coal trade tends to be small relative to total  consumption. On a tonnage basis, about 15% of the coal consumed worldwide in  2012 was imported. In the IEO2016 Reference case, the import share of world  coal consumption declines slightly to 13% in 2020 and remains at that level  through 2040. Total world coal trade also declines in the first few years of  the projection, from 1,376 million short tons (MMst) in 2013 to 1,237 MMst in 2020,  but increases thereafter to 1,354 MMst in 2040. The initial drop in world coal  trade from 2013 to 2020 is attributable to projected declines in import demand for both China and India, where substantial expansion  of domestic coal supplies reduces the need for imported coal. Coal trade  increases from 2020 through 2040 but only to about its 2013 level. Increases in  trade between 2020 and 2040 are attributable to additions of new coal-fired  generating capacity, primarily in the countries of non-OECD Asia, and growing  demand for imported coking coal in Asia.</p>
+<p>International coal trade consists of two  separate markets&#8212;one for steam coal (also referred to as thermal coal) and one  for coking coal. Steam coal is used primarily for electricity generation and in  industrial applications for the production of steam and direct heat. In the  IEO2016 Reference case, international steam coal trade declines from 1,031 MMst  in 2013 to 896 MMst in 2020, then increases to 960 MMst in 2040. Coking coal is  used to produce coal coke, which in turn is used as a fuel and as a reducing  agent for iron ore smelting in blast furnaces. World coking coal trade  increases in the Reference case from 344 MMst in 2013 to 393 MMst in 2040.  India, whose steel industry relies almost exclusively on imports of coking coal  because of a lack of domestic reserves of coking coal, accounts for much of the  growth, with its imports increasing from 43 MMst in 2013 to approximately 120  MMst in 2040.</p>
+<h2>World coal consumption</h2>
+<h4>OECD coal consumption</h4>
+<p>With its total coal consumption remaining  largely unchanged throughout the IEO2016 projection, the OECD share of world  coal consumption shrinks as fuel market fundamentals and environmental  regulations shift in favor of natural gas and renewables, particularly in the OECD  Europe and OECD Americas regions. The United States is the largest coal  consumer among the OECD countries, accounting for more than 40% of the OECD total  from 2012 to 2040, and the decrease in its coal consumption from 2007 to 2012  led to a significant decline in total OECD coal consumption. In the Reference  case, after a moderate recovery from 42 quadrillion Btu in 2012 to 44  quadrillion Btu in 2025, OECD coal consumption settles around 43 quadrillion  Btu through 2040 (Figure 4-5), and the coal share of the OECD&rsquo;s total primary  energy consumption falls from 18% in 2012 to 15% in 2040. Over the same period,  the renewable energy (including hydropower) share of OECD energy use increases  from 11% to 16%.</p>
+
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-5.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-5.png" alt="Figure 4-5. OECD coal consumption by region, 1980, 2012, 2020, and 2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-5_data.xls" class="ico_xls">figure  data</a></span></span></p>
+      
+<h4>OECD Americas</h4>
+<p>Most of the OECD Americas coal is consumed in  the United States, which accounted for 93% the region&rsquo;s total coal use in 2012.  In the IEO2016 Reference case, U.S. coal use remains relatively flat rising by  only 2 quadrillion Btu over the projection  period. However, if the proposed CPP were implemented, U.S. coal consumption  decline by almost 3 quadrillion Btu by 2040 and U.S. coal consumption would be  almost 25% lower in 2040 compared to the IEO2016 Reference case. Moreover, strong  growth in shale gas production, slowing electricity demand, environmental  regulations, and development of renewable energy reduce the share of coal-fired  generation for total U.S. electricity generation (including electricity generated  at plants in the industrial and commercial sectors) from 37% in 2012 to 26% in  2040 in EIA's analysis of the proposed CPP [<a href="footnotes.cfm.html#104">104</a>].</p>
+<p>Coal  plays a relatively minor role in Canada's energy supply system, and its role is  expected to decline further with federal and provincial government efforts to  reduce greenhouse gases. Canada's total coal consumption declines by 51% (0.4  quadrillion Btu) from 2012 to 2040 in the IEO2016 Reference case, and the share  of coal in total primary energy supply declines from 5% in 2012 to 2% in 2040.  In 2012, more than three-quarters of the coal consumed in Canada was used to  generate electricity, with most of the rest going to industrial plants. The elimination  of coal-fired generation in Ontario province in April 2014, followed by enactment  of the Canadian government's &quot;Reduction of Carbon Dioxide Emissions from  Coal-fired Generation of Electricity&quot; regulations on July 1, 2015, is likely to  result in more closures of coal-fired power plants [<a href="footnotes.cfm.html#105">105</a>, <a href="footnotes.cfm.html#106">106</a>].  Consequently, in the Reference case, the electric power sector share of Canada&rsquo;s  total coal consumption falls to 36% in 2040, and the coal share of total  electricity generation declines from 10% in 2012 to 1% in 2040. </p>
+<h4>OECD Europe</h4>
+<p>Total coal consumption in OECD Europe is largely flat in the  Reference case, with a slight decline from 13.4 quadrillion Btu in 2012 (32% of  the OECD total) to 12.6 quadrillion Btu in 2040 (30% of the OECD total).  Although all nations in the region consume coal, 68% of OECD Europe&rsquo;s 2012  total coal consumption (in physical units) was concentrated in Germany, Poland,  Turkey, and the United Kingdom. Germany alone accounted for 30% of the regional  total. The electric power sector accounted for 70% of the region&rsquo;s total coal  consumption in 2012, and the industrial sector accounted for most of the remainder.</p>
+<p>With demand for coal declining in the electric  power sector after 2025, the region&rsquo;s overall coal consumption also declines.  The European Union&rsquo;s Industrial Emissions Directive, which requires the use of <em>Best Available Technologies</em> [<a href="footnotes.cfm.html#107">107</a>] for reduction of sulfur dioxide and nitrogen oxides among other pollutants  beginning in 2016, is likely to trigger retirements of some coal-fired power  plants, especially in the four leading coal-consuming countries [<a href="footnotes.cfm.html#108">108</a>].  However, new coal-fired capacity additions in Germany, Turkey, Poland, the  Netherlands, and potentially Italy counterbalance the retirements. New  coal-fired capacity in Germany fills a part of the supply gap left by a nuclear  power phaseout; in Italy it replaces less competitive power plants (such as  oil-to-coal conversions or replacement of older, less efficient units); in  Turkey it supplies more power to meet demand growth [<a href="footnotes.cfm.html#109">109</a>].  After 2025, the expansion of renewable power and natural gas-fired generation leads  to a gradual decline in coal-fired generation.</p>
+<h4>OECD Asia</h4>
+<p>Japan's coal consumption declines gradually through 2040 in  the IEO2016 Reference case. Japan is the largest coal consumer in OECD Asia, accounting  for nearly half (approximately 5 quadrillion Btu) of the region&rsquo;s total coal  consumption in 2012. Coal use in Japan in 2012 was split almost evenly between  the electric power and industrial sectors, which together accounted for nearly  all of the region&rsquo;s coal consumption. Despite a temporary increase in coal use following  the shutdown of nuclear power plants after the Fukushima disaster in 2011, a  shift toward renewable energy and natural gas for electricity generation reduces  electric power sector demand for coal after 2015. Industrial sector use of coal  begins to decline after 2020, primarily as a result of reductions in steel output  as Japan's population and domestic demand decline.</p>
+  <p>South Korea's coal consumption increases in the Reference  case from 3 quadrillion Btu in 2012 to more than 4 quadrillion Btu in 2040.  Coal consumption increases steadily in the country's industrial sector, driven  by steel production. Coal consumption in the electric power sector, which  accounted for 62% of total coal consumption in 2012, increases strongly in the  near term, as a result of significant growth of the coal-fired generating fleet  in response to the government's focus on thermal power expansion [<a href="footnotes.cfm.html#110">110</a>].  As nuclear and renewable power capacity continues to grow, coal consumption for  electricity generation decreases in the medium term before recovering gradually  after 2030 when the nuclear power expansion tapers off.</p>
+<h4>Non-OECD coal consumption</h4>
+<p>In the IEO2016 Reference case, total non-OECD  coal consumption increases by 0.8%/year on average, from 111 quadrillion Btu in  2012 to 137 quadrillion Btu in 2040 (Figure 4-6). Non-OECD Asia accounts for  more than 90% of the growth in total non-OECD coal use over the projection.  Coal is the largest source of energy consumed in the non-OECD region until  around 2030, when the use of petroleum and other liquid fuels surpasses coal  use.</p>
+
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-6.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-6.png" alt="Figure 4-6. Non-OECD coal consumption by region, 1980, 2012, 2020, and 2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-6_data.xls" class="ico_xls">figure  data</a></span></span> </p>
+<h4>Non-OECD Asia</h4>
+<p>China and India are the top two coal consumers  in non-OECD Asia. India, which is the second-largest coal user in the region, accounts  for nearly one-half of the increase in coal consumption from 2012 to 2040,  while China contributes less
+than  one-third. China is the leading consumer of coal in the world, using 76  quadrillion Btu of coal in 2012&#8212;one-half of the world's coal consumption and  more than four times as much as the United States, which was the world's  second-largest coal consumer in 2012. In 2012, China's electricity-sector coal  use alone was more than double total U.S. coal consumption, and China's  industrial-sector coal use was nearly double total U.S. coal consumption. After  rapid growth from 2003 to 2011, China's coal consumption began to slow in 2012.  The slowing trend continues into the projection period, as the country's  economy and energy system undergo structural changes (<a href="https://www.eia.gov/outlooks/ieo/structural"><em>see Structural transformations in China's energy economy)</em></a>.</p>
+<div class="tie_correction">
+        <h4><a name="structural"></a>Structural transformations in China's energy economy</h4>
+        <p>Economic  deceleration, industry restructuring, and new energy and environmental policies  have slowed the growth of coal consumption in China, leading to more  centralized and cleaner use of coal. Despite rapidly rising coal prices,  China's coal consumption increased by an average of 9%/year (based on energy  content) from 2003 to 2011. In 2012 and 2013, increases in coal consumption  were between 1% and 2%. In 2014, coal consumption based on energy content was  largely the same as in 2013 and coal consumption in physical units decreased  for the first time since 1998 [<a href="footnotes.cfm.html#111">111</a>],  as the average heat content of the coal consumed increased after years of  decline. China&rsquo;s coal imports also declined in 2014 for the first time since  2009, when China became a net coal importer (Figure 4-7). The sustained slowing  of coal consumption growth stands in contrast to the sustained falling of coal  prices since 2012, which led to prices in 2014 that were 35% lower than prices in  2011 (Figure 4-8). The trends continued into 2015, signaling that fast-paced  growth in China's coal use may not return, and suggesting that the pattern of  growth in the China&rsquo;s coal consumption could be changing gradually (although  not necessarily implying an imminent peak in coal consumption).</p>
+        <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-7.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-7.png" alt="Figure 4-7. China coal consumption and net imports, 2000&#8211;2014" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-7_data.xls" class="ico_xls">figure  data</a></span></span></p>
+      
+      <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-8.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-8.png" alt="Figure 4-8. China coal prices, 2004â€“14" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-8_data.xls" class="ico_xls">figure  data</a></span></span></p>
+      <p>Notes:  Price shown are annual spot prices for Datong 5,800 kcal/kg net as received,  free on board Qinhuangdao, reported by IHS China Energy Services. The renminbi is  the official currency of the People's Republic of China.</p>
+      <p>Slower growth of gross domestic production  (GDP) and shifts in GDP composition have slowed the growth of China&rsquo;s total  energy consumption. In 2014, for the first time in 15 years, China did not meet  or exceed its economic growth targets. Real GDP grew by 7.4%, below the 7.5%  target the government set in March 2014 for the year and economic growth rates over  the prior decade. For many years, China pursued high GDP growth through massive  investments in energy-intensive industrial development, coupled with targeted  monetary policy. The recent economic slowdown was in part a result of  diminishing returns on investment, financial sector problems, and  inefficiencies at state-owned enterprises, among other factors. Currently, the  government is exploring ways to address those issues through deeper, market-oriented  reforms; polices intended to accelerate the development of the service sector  and to increase domestic consumption; and setting goals and implementing  regulations to balance economic growth with environmental protection.</p>
+<p>Changes in the composition of China&rsquo;s economy,  with shifts toward the less energy-intensive service sector, also are affecting  energy consumption. In 2013, the service sector share of nominal GDP (46.9%)  surpassed the industry sector share (43.7%) for the first time in China&rsquo;s  history. In 2014, the service sector share increased to 48.2%, exceeding the  government&rsquo;s goal of 47% for 2015 (Figure 4-9). The government&rsquo;s ongoing policy  push to accelerate the development of service industries [<a href="footnotes.cfm.html#112">112</a>],  as well as the history of developed economies, suggests that the service sector  share of China&rsquo;s GDP will continue to increase in the long run, at the expense  of the heavy manufacturing industries. This trend should moderate or reduce  coal consumption.</p>
+
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-9.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-9.png" alt="Figure 4-9. Economic composition of gross domestic product in China and developed economies by sector, 1970â€“2014" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-9_data.xls" class="ico_xls">figure  data</a></span></span></p>
+<p>Notes:  The &quot;developed economies&rdquo; are as defined in United Nations Conference on Trade  and Development, &ldquo;Development status groupings and composition&quot; (July 3, 2015), <a href="http://unctadstat.unctad.org/EN/Classifications/DimCountries_DevelopmentStatus_Hierarchy.pdf">http://unctadstat.unctad.org/EN/Classifications/DimCountries_DevelopmentStatus_Hierarchy.pdf</a>. &quot;Industry&quot; here refers to an economic sector and  is different from the IEO2016 &quot;industrial sector,&quot; which includes agriculture.</p>
+      
+<p>In  addition to the effects of slower economic growth and GDP composition changes  on China&rsquo;s coal use, industry restructuring has slowed the growth of  coal-intensive industries such as steel, cement, and fertilizer and increased  the average energy efficiency of industrial processes (Figure 4-10). Direct  coal burning in the industrial sector accounted for about 20% of China's coal  consumption in 2012, compared with less than 5% in the United States. The Made  in China 2025 blueprint unveiled by the State Council in May 2015 [<a href="footnotes.cfm.html#113">113</a>] outlined  an action plan to modernize China&rsquo;s manufacturing through innovation  enhancements and the integration of information technology into manufacturing,  while continuing to make efficiency improvements and shedding excess and  outdated heavy manufacturing capacity. If successfully implemented, the plan  could accelerate not only the reduction in the manufacturing sector's energy  intensity but also the transformation of its energy consumption patterns. Coal  use would be concentrated increasingly in large and more efficient energy  conversion facilities (mainly, power and heat generation plants), as hundreds  of thousands of scattered, inefficient, and highly polluting small coal-fired  boilers are phased out. </p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-10.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-10.png" alt="Figure 4-10. Annual changes in production from Chinaâ€™s coal-intensive industries, 2003&#8211;14" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-10_data.xls" class="ico_xls">figure  data</a></span></span></p>
+<p>China's  energy policy focus has evolved from energy supply security to sustainability,  calling for controlled, cleaner, and more efficient use of coal. Concerted new  policies and regulations [<a href="footnotes.cfm.html#114">114</a>]  galvanized by severe air pollution in 2013 and 2014 started a widespread  campaign of upgrading the coal fleet nationwide, restricting coal use in  coastal China, reducing coal consumption in targeted industries, and expediting  the expansion of alternative energy sources. The coal share of China&rsquo;s energy consumption  is expected to continue declining if the following goals are implemented successfully:</p>
+<ul>
+  <li>The 2014-2020 Action Plan for Upgrading and  Transforming Energy Conservation and Emission Reduction in Coal Power Industry [<a href="footnotes.cfm.html#115">115</a>],  issued jointly by China&rsquo;s National Development and Reform Commission (NDRC),  Ministry of Environmental Protection, and National Energy Administration, sets  strict, detailed standards on the size, technology, efficiency, and emissions  of existing and new coal-fired power plants and requires the adoption of  advanced coal technologies. Compliance with the standards will increase the  average efficiency of China&rsquo;s fleet of coal-fired power plants, reduce coal  consumption for every unit of electricity generated, and slow the rate of  growth in demand for coal from the power sector compared with the growth rate  of coal-fired power generation.</li>
+
+<li>An action plan [<a href="footnotes.cfm.html#116">116</a>]  jointly announced by China&rsquo;s Ministry of Industry and Information Technology  and the Ministry of Finance aims to cut coal consumption in coking and  coal-to-chemicals processes, industrial boilers, and industrial kilns by more  than 80 million metric tons by 2017 and by more than 160 million tons by 2020 [<a href="footnotes.cfm.html#117">117</a>].</li>
+
+<li>The Energy Development Strategy Action Plan (2014-2020) [<a href="footnotes.cfm.html#118">116</a>], released by the State Council immediately after the China-U.S. Joint Announcement on Climate Change [<a href="footnotes.cfm.html#119">119</a> ], set binding caps on annual primary energy and coal consumption until 2020 at absolute levels for the first time. It also specified targets for reducing the coal share of primary energy consumption to less than 62% and increasing the share of nonfossil energy to 15% by 2020 and to about 20% by 2030. Specific targets for reducing coal consumption in key eastern regions and specific development targets for natural gas, nuclear, hydropower, wind, and solar power capacity builds are assigned accordingly.</li></ul>
+<p>In addition, China's  government leaders have taken actions to strengthen implementation of  environmental policies and regulations. The revised Environmental Law [<a href="footnotes.cfm.html#120">120</a>]  included provisions to add fulfillment of environmental targets to the  performance assessment of governmental officials, raised both organizational and  personal liabilities for noncompliance, enhanced emissions monitoring, increased  public disclosure of environmental information, and provided protection for  whistleblowers. Although many details remain to be developed and many  controversies need to be resolved, passage of the law after three years of  contentious debate suggests the central government&rsquo;s increasing commitment to  more sustainable development.</p>
+<p>The moderating growth of the total energy consumption  and the shrinking coal share suggest that China&rsquo;s coal consumption could stay  on the path of slow grow followed by decline. However, the sheer size of the  country's additional future energy demand even with weaker economic growth,  plus coal's dominance and economic appeal, indicate that coal will remain the  leading energy source in China for many years to come. Therefore, while seeking  to limit coal consumption on one hand, the Chinese government has also focused  on consolidating and modernizing the domestic coal mining industry [<a href="footnotes.cfm.html#121">121</a>],  mitigating the environmental effects of coal mining, and improving the logistics  of coal supply [<a href="footnotes.cfm.html#122">122</a>] to ensure the steady operation and continued development of the country's coal  sector and to improve the economic competitiveness of domestic coal relative to  imports.</p>
+</div>
+      <p>Coal  consumption in China reaches a peak of nearly 90 quadrillion Btu around 2025  before gradually declining to 83 quadrillion Btu in 2040 (Figure 4-11).  Government policy and an economic slowdown are responsible for the peak and  ultimate decline in China's coal consumption. For many years, reducing energy  intensity has been a part of the government&rsquo;s five-year plans. In the IEO2016  Reference case, total energy consumption growth slows to less than 2%/year from  2012 to 2040, compared to nearly 10%/year from 2003 to 2011.</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-11.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-11.png" alt="Figure 4-11. Coal consumption in the United States and China and in Chinaâ€™s electric power and industrial sectors, 2012, 2020, and 2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-11_data.xls" class="ico_xls">figure  data</a></span></span></p>
+    
+     <p>China's  economic growth averages 4.7%/year from 2012 to 2040, while the economy  gradually transitions away from heavy manufacturing to less energy-intensive  service industries. In addition, the government continues to pursue policies  aimed at improving energy efficiency by setting binding industry-specific  targets and monitoring implementation. Consistent with President Xi's 2014 pledge  to stop CO2 emissions from increasing by around 2030, the central government  has declared ambitious goals and provided incentives to expedite the  development of nuclear and renewable power, and to replace coal with natural  gas in some eastern regions. In the IEO2016 Reference case, natural gas,  renewables (including hydroelectric power), and nuclear power together provide more  than 70% of the increment in China's total primary energy needs from 2012 to 2040.  Natural gas, renewables, and nuclear, which in combination accounted for less  than 25% of China's total electricity generation in 2012, account for 55% of the  total in 2040. As a result, the coal share of China&rsquo;s electricity generation  declines from about 75% in 2012 to 45% in 2040, and the coal share of China's  total primary energy consumption declines from 66% in 2012 to 44% in 2040 (Figure  4-12).</p>
+     
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-12.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-12.png" alt="Figure 4-12. Coal share of Chinaâ€™s energy consumption by sector, 2012, 2020, and 2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-12_data.xls" class="ico_xls">figure  data</a></span></span></p>
+<p>India,  the world's third-largest coal consumer in 2012, is projected to surpass the  United States as the second-largest coal consumer. Coal consumption in India  increases from 13 quadrillion Btu in 2012 to 25 quadrillion Btu in 2040. Coal  is especially important to India&rsquo;s electric power generation,  and 63% of its total coal consumption in 2012 was for generation. India&rsquo;s rapid  economic growth (average GDP growth of 5.5%/year from 2012 to 2040), combined  with its growing population (average population growth of 0.8%/year from 2012  to 2040), leads to electricity demand growth of 3.5%/year in the IEO2016  Reference case. India&rsquo;s population surpasses China's in the late 2020s, with an  expanding middle class using more electricity-consuming appliances. Coal-fired  generation accounted for 72% of India&rsquo;s total electricity generation in 2012  and is expected to increase by 2.6%/year over the projection, as the country  strives to provide enough electricity to meet growing demand. India's net  coal-fired electricity generation grows by 783 terawatthours, which is more  than the 2012 total; and its coal consumption for electricity generation nearly  doubles, from 8 quadrillion Btu in 2012 to 15 quadrillion Btu in 2040.</p>
+<p>Outside of China and India, coal consumption in  the other nations of non-OECD Asia grows by an average of 2.3%/year in the  Reference case, from 6 quadrillion Btu in 2012 to 11 quadrillion Btu in 2040.  More than two-thirds of the additional coal consumed is for electricity  generation. Indonesia, Malaysia, Taiwan, Vietnam, and Thailand were the major  contributors to coal consumption growth in the other non-OECD Asia countries from  2000 to 2013, with Malaysia&rsquo;s coal demand growing at the fastest pace [<a href="footnotes.cfm.html#123">123</a>].  Favorable economics of coal-fired generation over natural gas-fired generation  in Southeast Asia have sparked growth of coal-fired generating capacity in the  region in the past decade, and significant additional capacity is already in  the pipeline, particularly in Vietnam, Malaysia, Indonesia, and Taiwan. In the  IEO2016 Reference case, coal-fired generating capacity in non-OECD Asia  (excluding China and India) nearly doubles from 2012 to 2040.</p>
+<h4>Non-OECD Europe and Eurasia</h4>
+<p>In 2012, coal accounted for 20% of the total primary energy  supply in non-OECD Europe and Eurasia, where natural gas use is more prevalent  than other energy sources. Russia consumes more than half of the region&rsquo;s coal  throughout the projection period, although coal provides only 16% to 17% of  Russia's primary energy needs. Coal consumption in Russia increases slightly in  the IEO2016 Reference case, whereas total coal consumption by the other  countries in the region shows little change.</p>
+<p> Russia's electric power and industrial sectors each consumed  about the same amount of coal in 2012, and together they accounted for 90% of  Russia&rsquo;s total coal consumption. The residential and commercial sectors used  the remaining 10%&#8212;exceeding the world average share of 4% in 2012&#8212;primarily for  space heating and water heating. Coal-fired generation, which accounted for  only 16% of Russia's total electricity generation in 2012, declines further  before 2025 as a result of increasing nuclear power generation and a  short-term, temporary reduction in total electricity demand resulting from the  effects of international financial sanctions imposed on Russia in 2014. After  2025, coal use in the electricity sector recovers as electricity demand grows  and generation from nuclear power plants decreases. Coal use in the industrial  sector declines as a result of the 2014 sanctions but recovers to slightly  above the pre-sanction levels toward the end of the projection.</p>
+<h4>Africa</h4>
+<p>In the IEO2016 Reference case, total coal  consumption in Africa increases from just under 5 quadrillion Btu in 2012 to 7  quadrillion Btu in 2040, mainly as a result of demand in the electric power  sector and metallurgical industries. South Africa accounts for more than 90% of  Africa's total coal consumption and more than 72% of its total primary energy consumption in 2012 [<a href="footnotes.cfm.html#124">124</a>].  More than one-half of the coal consumed in South Africa is for electricity  generation, one-third is for coal-to-liquids (CTL) production, and most of the  remainder is for metallurgical use [<a href="footnotes.cfm.html#125">125</a>].  (CTL and metallurgical coal use are classified as industrial sector uses in IEO2016.)  More than 85% of South Africa&rsquo;s installed electric generating capacity is  powered by coal [<a href="footnotes.cfm.html#126">126</a>],  and although the government prefers a diversified generation portfolio with  more renewable power [<a href="footnotes.cfm.html#127">127</a>],  chronic power shortages combined with the economic advantage of coal-fired  generation suggest that coal will continue growing as a primary source of  energy supply for South Africa.
+<h2>World coal production</h2>
+<p>In the IEO2016 Reference case, world coal  production increases by 1.2 billion tons from 2012 to 2040, with 0.7 billion  tons (62% of the total increase) coming from India (<a href="https://www.eia.gov/outlooks/ieo/table4-1.cfm">Table 4-1</a>). China remains  the largest coal producer through 2040, although its annual production declines  in the second half of the projection period after peaking at approximately 4.7  billion tons in 2025. Production in Australia, Africa, and Russia also  increases substantially, with their combined increases representing 24% of the  world's total production increase. As shown in Table 4-1, coal production in  the United States and OECD Americas, as a whole is significantly reduced by the  proposed U.S. Clean Power Plan. The actual effect of the CPP on U.S. coal  production is likely to be sensitive to implementation decisions, and would  tend to be larger than shown if states choose a mass-based implementation  strategy.</p>
+<p>Coal  production trends in China and India hinge on their ability to meet domestic  coal demand. China is expected to supply coal primarily from domestic sources  through 2040, given the magnitude of its current coal consumption requirements  and production capacity, its increasing reliance on newer, large coal mining  bases that are farther from coastal export terminals, and its efforts to  improve the competitiveness of its domestic coal production. India's sustained  and accelerating domestic demand for coal throughout the projection period  requires significant expansion of domestic production. A host of government  policies, regulatory efforts, and investment activities are moving in the  direction of enabling this long-awaited expansion (<a href="https://www.eia.gov/outlooks/ieo/india"><em>see India's coal supply chain: Challengees and reforms</em></a>). In the IEO2016 Reference case, India's coal  production expands strongly from 2015 to 2020 and eventually surpasses U.S.  coal production, making India the world&rsquo;s second-largest coal producer.</p>
+<div class="tie_correction">
+  <h4><a name="india" id="india"></a>India's coal supply chain: Challenges and reforms</h4>
+  <p>India  is the world&rsquo;s third-largest coal producer, with about 600 million metric tons (MMmt)  of production in fiscal year 2013&#8211;14 [<a href="footnotes.cfm.html#128">128</a>]  falling behind the United States (900 MMmt in 2013) and China (about 4,000 MMmt  in 2013). From 2005 to 2012, the total capacity of India's fleet of coal-fired  power plants, already underutilized as a result of coal shortages, grew by  about 9.4%/year while its coal production grew by only 4.7%/year (Figure 4-13).  As a result of the imbalance between coal supply and demand, India frequently  has resorted to forced outages of coal-fired generating plants, lower plant  utilization rates, and increased coal imports. To end its coal supply shortfall,  India has set an ambitious coal production target of 1.5 billion metric tons by  2020. Success in meeting that goal will depend heavily on the timing and  effectiveness of reforms in the country&rsquo;s strained coal supply chain.</p>
+  
+  <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-13.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-13.png" alt="Figure 4-13. Indiaâ€™s domestic coal consumption, production, and production targets by fiscal year, 2004&#8211;20" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-13_data.xls" class="ico_xls">figure  data</a></span></span></p>
+    
+  <h4>Coal production  challenges</h4>
+<p>India's ambitious goal of 1,500 MMmt total  annual coal production by 2020 includes 1,000 MMmt from its national coal  producer, Coal India Ltd. (CIL). To attain this level, CIL's annual coal  production alone must increase by more than 400 MMmt within 5 years;  previously, it took the country more than 20 years to ramp up to such an  increase in coal production. From 2002 to 2012, India's total coal production grew  by 25 MMmt per year on average, with a peak annual
+increase of 45 MMmt in 2009.  As of February 2015, CIL has identified coal projects capable of producing  about 900 MMmt per year by FY2019&#8211;20 [<a href="footnotes.cfm.html#129">129</a>].</p>
+<p>Despite coal distribution reforms,  CIL continues to face challenges. Before 2008, CIL <em>linkages</em> (guarantees of certain levels of coal supply provided at a  fixed price to coal consumers) were assigned in a discretionary manner by two  CIL committees, and linkage recipients were not legally allowed to resell their  coal. Beginning in 2007, CIL introduced a revised coal distribution policy that  replaced linkages with auctions and fuel supply agreements (FSAs). FSAs allow a  more transparent process by which coal consumers can negotiate guaranteed coal  supplies under take-or-pay arrangements.</p>
+<p>Even with the ongoing  challenges, India's coal production has risen in recent years. CIL's production  grew by 32 MMmt to about 494 MMmt in FY2014&#8211;15, whereas in the past it had  taken 4 years (FY2011&#8211;14) to achieve an increase of 31 MMmt [<a href="footnotes.cfm.html#130">130</a>].  Some of the recent production growth is attributable to improved mechanization  in CIL&rsquo;s Western Coalfields subsidiary and mine expansions in the eastern part  of Odisha [<a href="footnotes.cfm.html#131">131</a>].  Also, as of 2012, CIL began outsourcing production operations at its coal mines  to private and foreign companies under a Mine Developers and Operators (MDO)  program as one means to improve mechanization and operating expertise.  Additional upcoming reforms include CIL&rsquo;s development of a turnkey MDO  agreement to promote uniformity, efficiency, and transparency in its  outsourcing effort.
+<h4>Private sector  coal development in transition</h4>
+<p>Anticipating difficulty in  keeping pace with projected coal demand, India&rsquo;s government began allowing  private mining in 1993, but only for captive purposes (own use). Between 1993  and 2014, a program was in place to encourage the allocation of coal blocks, or  licenses to mine. More than 200 blocks were allocated to public and private  licensees over that period, but buying and selling the coal produced from the allocated  blocks was prohibited, and without the ability to adapt to market conditions,  production from the captive blocks changed very little over the decade. For the  FY2013&#8211;14 period (as of March 2014), 40 captive coal blocks (excluding lignite)  were in production, with total production of 39 MMmt out of about 32,000 MMmt  of reserves for all active licenses held at the time (138 coal blocks). A total  of 61 out of 138 captive coal blocks were licensed to the private sector. They represented  one-third of the total captive coal block reserves licensed and accounted for 4%  (25 MMmt) of the country&rsquo;s total coal production [<a href="footnotes.cfm.html#132">132</a>].</p>
+<p>Although the cancellation of coal block  allocations was disruptive for the coal supply chain, the government has  quickly followed through with new e-auctions of many of the canceled blocks. In  March 2015, the Indian Parliament passed the Coal Mines Special Provision Bill,  legally allowing commercial coal mining (permitting the resale of coal) by both  private and foreign companies with Indian subsidiaries. This bill represents a  significant departure for India's coal mining industry, which has been  nationalized for more than 40 years, and India has been wary of allowing  foreign investment in its fuel minerals industry. In addition, the government  is studying the possibility of an e-auction for commercial miners in
+FY2016.  Even with the reforms, however, foreign companies still may be reluctant to  invest directly in India's coal mines, given the complex permitting process  that precedes the start of mine operations.
+<h4>Permitting issues  and environmental complications</h4>
+<p>Acquisition of a coal block  represents the initial step in a long process (including approvals, permits,  and land acquisition) toward actual production. Forest clearance permits are  required, and typically they have been the most time-consuming part of the  process&#8212;taking 3 to 6  years (although they can overlap in time with other steps). When successful, the  whole process can take up to 8 years, despite the Ministry of Coal's guidelines  suggesting a 36- to 42-month span for surface mining operations [<a href="footnotes.cfm.html#133">133</a>].</p>
+  <p>In the past there have been  significant environmental challenges for the coal mining industry. For example,  just as national production began to grow at a faster rate&#8212;7%/year from 2006 to  2009&#8212;the Ministry of Environment and Forestry announced a <em>go, no-go</em> policy whereby coal block allocations could be rejected  outright, depending on the forest density at a particular location. When the  Ministry's designation process was completed in 2011, approximately 660 MMmt of  coal reserves were labeled as ineligible for mining activity (<em>no-go</em>), affecting 40 CIL projects [<a href="footnotes.cfm.html#134">134</a>].  Although the original purpose of the policy was to streamline the forestry  permitting process, forest clearance permits still lagged for those mines  categorized as <em>go</em>. From 2009 to 2012,  while the policy was in effect, India's total coal production grew by only 2.2%/year.  The policy was officially canceled in 2011, but without an immediate  replacement, uncertainty continues to affect the permitting process and mine  investment. As of August 2015, a new &ldquo;inviolate forest&rdquo; policy is pending. Details  are not yet available, but early drafts suggest it may be more lenient toward  coal mining. Despite its stringency, the <em>go,  no-go</em> policy did provide clarity, and its absence now leaves coal block  licensees in limbo.<br />
+  <p>Other environmental  regulations also have affected coal production. For example, because of a prohibition  on mining in industrial geographic clusters that violated the pollution index, CIL  production was reduced by 19 MMmt in FY2010&#8211;11 and by 39 MMmt in FY2011&#8211;12 [<a href="footnotes.cfm.html#135">135</a>].  In addition, a Ministry of Environment and Forestry circular issued in March  2011 stipulated that even if only a portion of a coal block lay under forest,  none of it could be mined until all forest clearances were received for the  entire block&#8212;a practice that had not been followed previously. As a direct effect  of this policy, an estimated 11.5 MMmt of CIL coal could not be mined in  FY2011&#8211;12 [<a href="footnotes.cfm.html#136">136</a>].</p>
+<p>Even with the reallocation of coal blocks in  2015, permitting challenges may continue to obstruct development. A more  efficient handling of the permit and approval process will be required to  ensure the desired effect of smoother operation of the coal supply chain in the  future. To facilitate achievement of India's ambitious production goals, the  Ministry of Coal has established a detailed mine plan for CIL development and  has established a coal portal database to track the progress of mining  projects. The tracking system allows mine licensees to report progress and  impediments in gaining their environmental clearances. When delays are noted,  the government may intervene in order to speed the processing of applications.</p>
+<h4>Rail infrastructure issues</h4>
+<p>Inadequate rail infrastructure and a lack of  dedicated freight infrastructure have impeded the growth of India&rsquo;s coal  supply. With the bulk of coal reserves concentrated in the northeastern area of  the country in the states of Jharkhand, Chhattisgarh, and Odisha, and with coal-fired  generating plants located in nearly all the Indian states (Figure 4-14), rail  plays a critical role in coal supply. In 2014, as a result of the shortage of  transportation capacity, a total of 50 MMmt of coal lay in piles at CIL mines [<a href="footnotes.cfm.html#137">137</a>]  while stockpiles at some generation plants dwindled to 4 days of burn.  Decades-long projectsâ€”including dedicated freight linesâ€”have yet to be  completed, and several rail projects have stalled, including the 93-km  Tori-Shivpur-Kathautia line to provide access to coal mines in Jharkhand, which  was begun in 1999 and scheduled to be completed in 2005 but was only half  complete as of 2015 [<a href="footnotes.cfm.html#138">138</a>].</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-14.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-14.png" alt="Figure 4-14. Indiaâ€™s coal production and coal-fired electricity generation capacity by state, FY2013&#8211;14" width="322" /></a><br />
+    </span></p>
+  <p>In  an effort to unlock an additional 300 MMmt of coal [<a href="footnotes.cfm.html#139">139</a>],  India's government is trying to fast-track three key rail projects that it says  will add 100 MMmt of production capacity initially. Among them is the  Tori-Shivpur stretch of the Jharkhand rail line, a subset of a full rail project  that could open up about 40&#8211;50 MMmt of capacity. The second rail project, in  Chhattisgarh, will connect Bhupdeopur, Raigarh, and Mand Area. The third  project, a Jharsuguda-Barpali railway  link in Odisha, is slated for the earliest completion, in 2017. CIL&rsquo;s production  growth goals depend on the successful and timely completion of these projects.  Additional projects also have been proposed, to accommodate an incremental 200 MMmt  of coal production capacity [<a href="footnotes.cfm.html#140">140</a>].  The Dedicated Eastern Freight Corridor&#8212;supported by the World Bank&#8212;will be an  important project for India to move coal northward. With the CIL production  path indicating a planned increase of 247 MMmt between FY 2018&#8211;19 and FY2019&#8211;20  [<a href="footnotes.cfm.html#141">141</a>],  along with its plans to purchase 2,000 rail cars [<a href="footnotes.cfm.html#142">142</a>],  the government has noted the importance of transportation infrastructure in  meeting its goals for coal production.</p>
+  <h2>Land acquisition challenges</h2>
+  <p>Because  coal reserves and rail projects, as well as prospective coal-fired generating  plants, are in areas under or near privately owned or state-owned land, land  acquisition has been a significant barrier to improving the coal supply chain.  India is still an agricultural-based economy, with roughly 47% of its workforce  engaged in farming [<a href="footnotes.cfm.html#143">143</a>],  and a new or expanding mine project means displacing not only homes but also  livelihoods. As indicated in CIL's updated Rehabilitation and Resettlement  Policy, the population affected by land acquisition is an important barrier to  robust coal production. The controversial Land Acquisition Reform Act pending  in India&rsquo;s parliament may make it easier for the government to force sales of  land by private owners, and if it is passed, projects may advance at a faster  pace.</p>
+<p>A more reliable, growing coal supply would allow  more efficient operation of existing coal-fired power plants. For example, an  improvement of 5 percentage points in plant utilization alone&#8212;without adding  any additional coal-fired capacity or displacing any coal imports&#8212;would require  about 50 MMmt of additional domestic coal production per year [<a href="footnotes.cfm.html#144">144</a>].</p>
+</div>
+<h2>World coal trade</h2>
+<h3>Imports</h3>
+<p>For the three major coal-importing regions  represented in IEO2016, overall demand for coal imports in the Reference case  is nearly the same in 2040 as in 2013, with total coal imports to Asia slightly  higher in 2040, imports to Europe/Other [<a href="footnotes.cfm.html#145">145</a>]  slightly lower, and imports to the Americas in 2040 about the same as in 2013 (Figure  4-15 and <a href="https://www.eia.gov/outlooks/ieo/table4-2.cfm">Table 4-2</a>).</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-15.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-15.png" alt="Figure 4-15. World coal imports by major importing region, 1995&#8211;2040" width="322" /></a><br /> 
+      <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-15_data.xls" class="ico_xls">figure  data</a></span></span></p>
+<p>Asia is the predominant  destination for coal exports, with the region&rsquo;s share of total world international  coal imports ranging from a low of 75% in 2020 to a high of 78% in 2040. The  projected trend for Asian coal imports mirrors that of global demand for coal  imports, declining from 1,053 MMst in 2013 to 927 MMst in 2020 and increasing  to 1,057 MMst in 2040. The initial decline in Asia&rsquo;s coal imports through 2020  is the result of declining imports to China and India, by 183 MMst from 2013 to  2020. From 2020 to 2040, coal imports to Asia increase by 130 MMst. Coal  imports to China and India combined stabilize, with imports to India (primarily  coking coal) increasing by 58 MMst and imports to China declining by 50 MMst.  Much of the overall growth in coal imports to Asia between 2020 and 2040 is  projected for Vietnam, South Korea, Taiwan, and Malaysia. Vietnam&rsquo;s electricity  demand is expected to increase substantially in future years, and the  government&rsquo;s energy plan indicates that much of the increase will be met by generation  from new coal-fired power plants (<em>see box  in Electricity Chapter</em>). In the IEO2016 Reference case, coal-fired  generating capacity in the countries of non-OECD Asia (including Vietnam,  Taiwan, and Malaysia but excluding China and India) increases by 33 gigawatts from  2020 to 2040. In South Korea, coking coal accounts for nearly all of the 25  MMst of incremental growth in coal imports from 2020 to 2040.</p>
+<p>In the Europe/Other region, total coal imports increase  slightly, from 255 MMst in 2013 to 263 MMst in 2015, then decline to 230 MMst  in 2040. Coal becomes a less significant component of the region&rsquo;s fuel mix for  electricity generation, with most European countries placing greater emphasis  on renewable energy and natural gas for electricity generation. The relatively  modest change in imports through 2040 belies some significant shifts within the  region. Growth in coal imports for some countries, such as Turkey and Morocco,  partially offsets declines for other countries in the region, including the  United Kingdom, Germany, Spain, and France.</p>
+<p>Environmental initiatives in Europe include  efforts to reduce emissions of sulfur dioxide, nitrogen oxide, and particulates,  leading to some significant retirements of coal-fired generating capacity and  the phasing out of domestic hard coal production in Germany by 2018 [<a href="footnotes.cfm.html#146">146</a>].  Restrictions on carbon dioxide emissions, primarily based on the European  Union's Emissions Trading System (ETS), are another potential issue for Europe&rsquo;s  coal consumption and imports. Thus far, however, carbon dioxide emission prices  have been relatively low and have not significantly affected Europe's coal demand. In contrast, the United Kingdom&rsquo;s recent  doubling of its Carbon Price Support (CPS) tax (to $28 per metric ton CO2 equivalent  in early 2015, which is in addition to the European Union&rsquo;s standard ETS costs)  did lead to substantial declines in both coal-fired electricity generation and coal  imports for the year [<a href="footnotes.cfm.html#147">147 </a>].</p>
+<p>The countries of OECD Europe accounted for more than 90% of  total seaborne coal imports to the Europe/Other region in 2013, and they account  for only slightly less than 90% in 2040. Although there is significant overland  coal trade among several countries in the non-OECD Europe and Eurasia region,  only seaborne shipments of coal for Europe and Asia are represented in EIA&rsquo;s  projections, primarily because of data availability problems and the increased complexity  associated with modeling non-seaborne coal trade.</p>
+<p>Coal imports to the Americas decline from 62 MMst in 2013 to  a low of 52 MMst in 2020 in the Reference case, followed by an increase to 67  MMst in 2040. Steam coal imports decline from 37 MMst in 2013 to 32 MMst in 2020,  then rise to 37 MMst in 2040, while coking coal imports increase from 25 MMst  in 2013 to 29 MMst in 2040. Brazil, which has substantial iron ore resources  and was the world&rsquo;s ninth-largest producer of pig iron in 2013 [<a href="footnotes.cfm.html#148">148</a>],  accounts for nearly all the growth in coking coal imports to the Americas  region. Relative to global coal trade, the coal import market for the Americas  is relatively small, accounting for only about 5% of the world total in both  2013 and 2040.</p>
+<h2>Exports</h2>
+<p>Based on the relatively flat outlook for world coal imports,  both worldwide and in each of the three major coal-importing regions, exports  from some regions increase while exports from other regions decline. The lack  of growth in total world coal imports represents a substantial change to the  long-term historical trend of continuous annual growth, which led to  substantial increases in coal exports for a number of regions. In the IEO2016  Reference case, regions whose coal exports increase from 2013 to 2040 include  Australia (85 MMst), Southern Africa (23 MMst); Eurasia (19 MMst), and South  America (27 MMst). On the other side of the ledger, declines in exports from  2013 to 2040 are projected for Indonesia (-95 MMst), the United States (-59 MMst),  and Vietnam/North Korea (-28 MMst).</p>
+  <p>Most of the world's coal trade consists of steam coal. In  2013, the top five exporters of steam coal were Indonesia, Australia, Eurasia  (primarily Russia), South America (primarily Colombia), and Southern Africa  (primarily South Africa) (<em>see box below</em>).  Indonesia, which was the world&rsquo;s largest exporter of steam coal in 2013,  remains the top exporter through 2040. The three top exporters of coking coal  in 2013 were Australia, the United States, and Canada; and despite a substantial  drop in coking coal exports from the United States and increases in exports  from Southern Africa and Eurasia, the same countries continue to be the top  three exporters of coking coal through 2040.</p>
+<p>A substantial portion of the growth in coal exports  projected for Australia and Southern Africa from 2013 to 2040 is attributable  to increases in coking coal imports to Asia. Australia&rsquo;s exports of steam coal  also grow somewhat, primarily as the result of recent improvements in coal  mining productivity that have improved the cost competitiveness of their  exports relative to those from other regions [<a href="footnotes.cfm.html#149">149 </a>].  The projected increase in coking coal exports from Southern Africa is
+attributable  primarily to investments in new mining capacity and transportation infrastructure  that are underway in Mozambique with the goal of exploiting its substantial  deposits of coking-quality coals [<a href="footnotes.cfm.html#150">150</a>, <a href="footnotes.cfm.html#151">151</a>].    
+<div class="tie_correction">
+  <h4>Recent developments in world coal trade</h4>
+  <p>From  2008 to 2013, international seaborne shipments of coal increased by 47%, from  937 MMst to 1,376 MMst (Figure 4-16). Most of the growth in world coal trade occurred  in Asia. The Americas and the Europe/Other region (Europe, Eurasia, Middle  East, and Africa) [<a href="footnotes.cfm.html#152">152</a>] saw  modest declines in overall coal imports&#8212;by 34 MMst and 14 MMst, respectively [<a href="https://www.eia.gov/outlooks/ieo/153">153</a>].  From 2009 to 2013, world coal trade grew by approximately 100 MMst each year,  surpassing the previous high of 69 MMst from 2005 to 2006. However, the data  for 2014 and 2015 indicate a retreat from the record-breaking 2009&#8211;13 increases  in annual trade, with declines in China's coal imports currently on pace to  more than offset increases in other countries during both years (Figure 4-17). </p>
+  <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-16.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-16.png" alt="Figure 4-16. China coal consumption and net imports, 2000â€“2014" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-16_data.xls" class="ico_xls">figure  data</a></span></span></p>
+    
+  <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-17.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-17.png" alt="Figure 4-17. Annual changes in total world coal trade, 1995&#8211;2014" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-17_data.xls" class="ico_xls">figure  data</a></span></span></p>
+  <h2>Coal imports</h2>
+<p>Almost all (98%) of the 2008&#8211;13 growth in world  coal trade involved imports to Asia by China and India (Figure 4-18). China's  imports rose from 45 MMst in 2008 to 341 MMst in 2013, and India's imports rose  from 69 MMst in 2008 to 203 MMst in 2013. Steam coal imports accounted for 74% and  90% of the growth in coal imports to China and India, respectively, with coking  coal accounting for the remainder. The increases in coal imports by China and  India resulted primarily from mismatches between domestic coal supply and  demand, as coal production and transportation infrastructure were unable to  keep up with increases in domestic coal use.</p>
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-18.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-18.png" alt="Figure 4-18. World coal trade by importing and exporting regions, 2008 and 2013" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-18_data.xls" class="ico_xls">figure  data</a></span></span></p>
+  <p>India's  coal imports continued to rise in 2014 and through the first half of 2015, as  demand rose at a faster pace than domestic coal supplies. In China, however,  coal imports fell in 2014 and are estimated to have declined further in 2015 [<a href="footnotes.cfm.html#154">154</a>].  Increased output from China&rsquo;s domestic coal mines, improvements in its coal  transportation infrastructure, and minimal growth in domestic coal demand  improved the balance between domestic supply and demand in 2014 and 
+  2015,  resulting in lower prices for domestic coal supplies and reducing demand for  coal imports. In addition, the Chinese government introduced a number of  measures in late 2014 and early 2015 to support the domestic coal industry, including  taxes on coal imports (3% for anthracite and coking coal and 6% for thermal  coal); limits on allowable sulfur, ash, and trace elements in imported coal;  and a directive for major utilities to reduce their annual coal imports by a  combined total of approximately 55 MMst [<a href="footnotes.cfm.html#155">155</a>].</p>
+<p>The  markets for world coal trade present significant challenges in terms of their  predictability. On the demand side, the recent emergence of China and India&#8212;both  of which have substantial coal resources and well-developed coal industries&#8212;as  major coal-importing countries increases the complexity of the Pacific market. In  the past, most of the coal trade in Pacific markets was based on a more  predictable buildup of coal-fired generating capacity and integrated steelmaking  capacity in countries such as Japan, South Korea, and Taiwan, which have very  little domestic coal production and are almost entirely dependent on imports. More  recently, however, China's domestic seaborne shipments of coal (primarily  consisting of coal shipped from loading ports in northeastern China to  unloading ports located along the eastern and southern coasts) have expanded  rapidly, creating the possibility of substantial variations in its coal  imports, depending on the domestic and imported coal prices. Recent data  indicate that China's annual domestic seaborne shipments and imports of coal  together amounted to about 1 billion short tons, or about one-fourth of its  total annual coal consumption [<a href="footnotes.cfm.html#156">156</a>].  India, which imported approximately 25% of the coal it consumed in 2013, has  ambitious goals to more than double domestic coal production between 2013 and  2020, which conceivably could eliminate its need for imports of steam coal [<a href="footnotes.cfm.html#157">157</a>].  However, India&rsquo;s history of failing to meet production targets and not  completing major coal transportation projects leads to considerable uncertainty  regarding its future requirements for coal imports [<a href="footnotes.cfm.html#158">158</a>].</p>
+  <h4>Coal exports</h4>
+  <p>Coal  exports from producers in Indonesia and Australia satisfied most of the  increase in demand for imports over the 2008&#8211;13 period, with Indonesia's  exports growing by 247 MMst (56% of the total increase) and Australia&rsquo;s exports  growing by 106 MMst (24% of the total increase) over that period (Figure 4-18).  Among the other suppliers, exports from Eurasia and the United States increased  by 49 MMst and 36 MMst, respectively, over the same period. In contrast,  China's coal exports fell substantially, from 50 MMst in 2008 to 8 MMst in  2013.</p>
+<p>By coal type, Australia's exports of both steam  coal and coking coal increased from 2008 to 2013, while nearly all of the  increase in Indonesia&rsquo;s exports consisted of steam coal. In 2006 Indonesia  surpassed Australia as the world&rsquo;s largest supplier of steam coal, and in 2013  it accounted for more than 40% of the world&rsquo;s seaborne shipments of steam coal.</p>
+<p>Australia  has continued to dominate world trade in coking coal, accounting for more than  50% of all international shipments in 2013.</p>
+<p>World  coal export supplies and patterns are constantly changing and evolving and,  similar to coal imports, can be challenging to predict. As noted, the recent  surge in demand for coal imports has led to substantial increases in coal  exports from Australia and Indonesia, both of which benefit from their close  geographic proximity to China and India. At the same time, the large expansion  in the Pacific coal market has led to a shift in Southern Africa's coal exports  from Europe to Asia, substantial growth in Eurasia's export shipments to the  Pacific market, and a revival in U.S. coal exports to Asia. In turn, Southern Africa's  substantial shift away from the Atlantic to the Pacific coal market, combined  with reduced exports from Australia and Indonesia to Europe, has led to  increased exports to Europe from both the United States and South America.</p>
+<p>In  addition to changes in international demand for coal imports, coal export  supplies are susceptible to a host of often unpredictable factors, such as  floods, labor strikes, changes in government policies, and transportation  bottlenecks. Examples of some recent supply disruptions include heavy rains and  flooding from a strong La Ni&ntilde;a  weather phenomenon that slowed coal exports from Colombia in 2010, heavy rains  and flooding in late 2010 and early 2011 that reduced coking coal exports from  Australia in 2011, and labor strikes and rebel attacks on rail lines that  adversely affected coal exports from Colombia in 2013.</p>
+<p>The increase in world coal trade from 2008 to  2013 resulted in some sharp increases in international coal prices (both steam  and coking coal), as coal exporters struggled to bring on additional coal  mining and transportation capacity (Figure 4-19 and Figure 4-20). In turn, the  elevated prices provided an opportunity for higher-cost suppliers to  participate in international markets. For example, U.S. coal producers, which  typically act as swing suppliers in world coal markets, had effectively been  locked out of coal markets in Asia for several years until 2008&#8211;12, when much  higher international prices for steam coal and coking coal allowed U.S. coal  exports to generate positive financial returns. In 2014 and 2015, however,  world coal trade showed relatively little growth, and expansions of coal  production capacity, primarily in Australia, led to substantial reductions in  coal export prices and decreases in coal exports from higher cost supplies,  including exports from U.S. coal mines.</p>
+
+<p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-19.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-19.png" alt="Figure 4-19. Average annual steam coal export prices by country of origin, 1990&#8211;2014" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-19_data.xls" class="ico_xls">figure  data</a></span></span></p>
+  
+  
+  <p><span><a href="https://www.eia.gov/outlooks/ieo/images/figure_4-20.png" class="lightbox"><img src="https://www.eia.gov/outlooks/ieo/images/figure_4-20.png" alt="Figure 4-20. Average annual coking coal export prices by country of origin, 1990&#8211;2014" width="322" /></a><br />
+    <span class="caption"><a href="https://www.eia.gov/outlooks/ieo/excel/figure4-20_data.xls" class="ico_xls">figure  data</a></span></span></p>
+    
+  <h2>Uncertainties in future prospects for international coal  trade</h2>
+  
+    <p>Currently, international  coal trade is on track for a modest decline in 2015. Looking forward, however,  there are considerable uncertainties about future levels and distribution  patterns for world coal trade. They include the question of how demand for coal  imports in China and India will evolve in coming years. Although both countries  are working to expand domestic coal production and complete major new coal  transportation infrastructure projects, it is possible that either country  could become more dependent on coal imports in the future. In addition, other  countries in Asia also have the potential to increase coal imports  substantially, given that coal-fired power plants generally are  cost-competitive in the region, particularly in comparison with natural  gas-fired power plants that to a large extent rely on imports of liquefied  natural gas. In Vietnam, where electricity demand has been increasing at a  rapid pace in recent years, there are ambitious plans to increase coal-fired  generating capacity. As of January 2016, more than 12 GW of coal-fired capacity  was under construction, and there are plans to add an additional 60 gigawatts  of new coal-fired generating capacity by 2030, much of which is expected to be  fueled by imported coal [<a href="footnotes.cfm.html#159">159</a>].  Evolving environmental policies also have the potential to affect world coal  consumption and, consequently, coal trade. In particular, significant  commitments to reduce greenhouse gas emissions worldwide could lead to  substantial reductions in coal use by key coal-importing countries in both Asia  and Europe.</p>
+  
+<p>Uncertainties about coal export supplies also  loom large. Indonesia&rsquo;s government has been assessing the potential need to  curtail its coal exports to assure adequate supplies of domestic coal for  planned additions to its coal-fired generating capacity, including announced  plans to add 20 gigawatts of new coal-fired capacity by the end of 2020 [<a href="footnotes.cfm.html#160">160</a>].  Australia, which during the boom years of 2008&ndash;13 was having difficulty adding  sufficient new mining and transportation capacity to meet demand for its coal  exports, now has excess coal mining capacity. Other factors affecting the outlook  for world coal export supplies and distribution patterns include whether  industry will be successful in financing and completing  major  new coal export projects across the globe, and how coal prices (including both  mining and transportation cost components) will change over time. Examples of  major new projects oriented toward coal exports include new mining, rail, and  port projects currently under development in Mozambique; plans by Adani  Enterprises Ltd.to develop the large Carmichael mine in Australia's Galilee  Basin; and the proposed Gateway Pacific and Millennium coal export facilities  in the U.S. Pacific Northwest [<a href="footnotes.cfm.html#161">161</a>].<p></div>
+
+<h2>World coal reserves</h2>
+<p>As  of January 1, 2012, total recoverable reserves of coal around the world were  estimated at 978 billion tons&mdash;providing a reserves-to-production ratio of  approximately 110 years (<a href="https://www.eia.gov/outlooks/ieo/table4-3.cfm">Table 4-3</a>). Historically, estimates of world  recoverable coal reserves, although relatively stable, have declined gradually  from 1,145 billion tons in 1991 to 909 billion tons in 2008 [<a href="footnotes.cfm.html#162">162</a>, <a href="footnotes.cfm.html#163">163</a>].  In the most recently published reserves data (as of January 1, 2009, and  January 1, 2012), estimates of total world coal reserves increased, with new  assessments for Germany (2009) adding 37 billion tons of recoverable coal  reserves, Indonesia (2012) adding 25 billion tons, and Turkey (2012) adding 7  billion tons. Although the overall decline in estimated reserves from 1991 to  2012 was sizable, the large reserves-to-production ratio for world coal  indicates that sufficient coal will be available to meet demand well into the  future. Further, because recoverable reserves are a subset of total coal  resources, recoverable reserve estimates for a number of regions with large  coal resource bases&#8212;notably, China and the United States&#8212;could increase  substantially as coal mining technology improves and additional geological  assessments of coal resources are completed. </p>
+<p>Although coal deposits are widely  distributed, 76% of the world&rsquo;s recoverable reserves are located in five  regions: the United States (26%), Russia (18%), China (13%), non-OECD Europe  and Eurasia outside of Russia (10%), and Australia/New Zealand (9%). In 2012,  those five regions together produced 6.4 billion tons of coal, or 72% of total  world coal production by tonnage. By rank, anthracite and bituminous coal  account for 45% of the world&rsquo;s estimated recoverable coal reserves on a tonnage  basis, subbituminous coal accounts for 32%, and lignite accounts for 23%.</p>
+<p>Quality  and geological characteristics of coal deposits are important parameters for  coal reserves. Coal is heterogeneous, with quality (for example,  characteristics such as heat, sulfur, and ash content) varying significantly by  region and even within individual coal seams. At the top end of the quality  spectrum are premium-grade bituminous coals, or coking coals, used to  manufacture coke for the steelmaking process. Coking coals produced in the  United States in 2012 had an estimated heat content of 28.7 million Btu/ton and  a relatively low sulfur content of approximately 0.9% by weight. At the other  end of the spectrum are reserves of low-Btu lignite. On a Btu basis, lignite  reserves show considerable variation. Estimates published by the International  Energy Agency for 2012 indicate that the average heat content of lignite in  major producing countries varies from a low of 4.8 million Btu/ton in Greece to  a high of 12.9 million Btu/ton in Canada.      </p>
+      </div>
+      <div class="side_col pub_side right">
+	  
+                        
+            <h2>IEO Sections</h2>
+              <ul class="split_2columns">
+                  <li><a href="index.cfm.html">Preface</a></li>
+                  <li><a href="exec_summ.cfm.html">Executive summary</a></li>
+                  <li><a href="world.cfm.html">World energy demand and economic outlook</a></li>
+                  <li><a href="liquid_fuels.cfm.html">Liquid fuels</a></li>
+                  <li><a href="nat_gas.cfm.html">Natural gas</a></li>
+				  <a href="early_economic.cfm.html"></a></li>
+                  <li><a href="coal.cfm.html">Coal</a></li>
+                  <li><a href="electricity.cfm.html">Electricity<br />
+                  </a></li>
+                  <li><a href="buildings.cfm.html">Buildings<br />
+                  </a></li>
+                  <li><a href="industrial.cfm.html">Industrial sector energy consumption<br />
+                  </a></li>
+                  <li><a href="transportation.cfm.html">Transportation sector energy consumption</a></li>
+                  <li><a href="emissions.cfm.html">Energy-related carbon dioxide emissions</a></li>
+                </ul>      
+<hr class="novis"/><br />
+			
+                <span class="grey_side blue_top">
+                  <h4>Press Conference</h4>
+                    <p class="no_btm_border"><a href="https://www.eia.gov/pressroom/releases/press432.cfm">Press release</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="../../pressroom/presentations/sieminski_05112016.pdf" class="ico_pdf_right">Presentation</a></p>
+                </span><br />
+                
+            
+            <h2>Data Tables</h2>
+            <h4>Reference Case Summary & Detailed Tables</h4>
+                <table class="aeo_data">
+                  <tr>
+                    <td><b>A1</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=1-IEO2016&sourcekey=0">World total primary energy consumption by region, Reference case, 2011-40</a></td>
+                   <td><a href="pdf/ieotab_1.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_1.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A2</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=2-IEO2016&sourcekey=0">World total energy consumption by region and fuel, Reference case, 2011-40</a></td>
+                   <td><a href="pdf/ieotab_2.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_2.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A3</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=3-IEO2016&sourcekey=0">World gross domestic product (GDP) by region expressed in purchasing power parity, 
+                    Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_3.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_3.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A4</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=4-IEO2016&sourcekey=0">World gross domestic product (GDP) by region expressed in market exchange rates, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_4.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_4.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A5</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=5-IEO2016&sourcekey=0">World liquids consumption by region, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_5.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_5.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A6</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=6-IEO2016&sourcekey=0">World natural gas consumption by region, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_6.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_6.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  
+                </table>
+		       <p><a href="ieo_tables.cfm.html"><b>View more &rsaquo;</b></a></p>
+<hr />
+                <img src="https://www.eia.gov/global/images/icons/graph.jpg" class="left"/><p><a href="../aeo/data/browser/index.html#/?id=1-IEO2016&&sourcekey=0"><b>Interactive Table Viewer &rsaquo;</b></a><br />
+                Provides custom data views of the <em>IEO2016</em> Reference case and alternate cases.</p>
+            
+            <hr class="hr_soft"/>
+      
+      </div>
+      
+      	  
+         <div class="aeo_footer blue_top">
+            <div class="aeo_inner">
+              <span class="left_box">
+                <h4>About the International Energy Outlook</h4>
+                <ul class="no-liststyle">
+                   <li><a href="../../about/contact/forecasting.cfm.html#international">Contact Information and Staff</a></li>
+                   
+                   <li><a href="https://www.eia.gov/pressroom/releases/press432.cfm">Press Release</a> 
+                </ul>
+              </span>
+              <span class="mid_box">
+     <h4>Previous Editions of the IEO</h4>
+                  <form name="form" id="form">
+                     <select name="jumpMenu" id="jumpMenu" style="width:110px">
+                       <option value="http://www.eia.gov/outlooks/archive/ieo14/">2014</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo13/">2013</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo11/">2011</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo10/index.html">2010</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo09/index.html">2009</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo08/index.html">2008</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo07/index.html">2007</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo06/index.html">2006</option>
+                       <option value="http://www.eia.gov/outlooks/ieo/ieoarchive.cfm">See all</option>
+                     </select>
+                     <input type="button" name="go_button" class="arrow_go" align="absmiddle" id= "go_button" value="Go" onclick="MM_jumpMenuGo('jumpMenu','parent',1)" />
+                   </form>
+              </span>
+              <span class="right_box">
+              <h4>Documentation and Assumptions</h4>
+                <ul class="split_2columns no-liststyle">
+                   
+                   <li><a href="http://www.eia.gov/reports/index.cfm#/T1601">Model documentation</a></li>
+                </ul>
+                   
+              </span>
+            </div>
+         </div>
+      
+    </div>
+
+
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+      <div class="rs_comments">
+        <form>
+        <p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+            <textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+            <input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+        </p>
+        </form>
+      </div>
+	  
+      </div>
+      <div id="addbar">
+      <a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../../about/index.html">About EIA</a></h3>
+        <h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+        <h3><a href="../../about/careers/index.html">Careers</a></h3>
+        
+        <h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="https://www.eia.gov/petroleum/">Petroleum</a><br />
+           <a href="https://www.eia.gov/coal/">Coal</a><br />
+           <a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br />
+           <a href="https://www.eia.gov/renewable/">Renewable</a><br />
+           <a href="../../nuclear/index.html">Nuclear</a><br />
+           <a href="../../electricity/index.html">Electricity</a><br />
+           <a href="../../consumption/index.html">Consumption</a><br />
+           <a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br />
+           <a href="../../environment.1.html">Environment</a><br />
+           <a href="https://www.eia.gov/finance/">Markets & Finance</a><br />
+           <a href="../../todayinenergy/index.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../../state/index.html">States</a><br />
+           <a href="../../countries/index.html">Countries</a><br />
+           <a href="https://www.eia.gov/maps/">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+           <a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+           <a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br />
+           <a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br />
+           <a href="../../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>

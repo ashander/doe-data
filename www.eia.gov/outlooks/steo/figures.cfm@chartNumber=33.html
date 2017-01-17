@@ -1,0 +1,381 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig33container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig33container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig33container').css('display', 'block');
+		try {		
+			var chartOptions = {
+				chart: {				
+					renderTo: 'lbFig33container',
+					lineUpAxisZeros: false
+		
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. total industrial production index'
+				
+			},
+			
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				categories: [
+				
+						'Jan 2013', 
+						'Feb 2013', 
+						'Mar 2013', 
+						'Apr 2013', 
+						'May 2013', 
+						'Jun 2013', 
+						'Jul 2013', 
+						'Aug 2013', 
+						'Sep 2013', 
+						'Oct 2013', 
+						'Nov 2013', 
+						'Dec 2013', 
+						'Jan 2014', 
+						'Feb 2014', 
+						'Mar 2014', 
+						'Apr 2014', 
+						'May 2014', 
+						'Jun 2014', 
+						'Jul 2014', 
+						'Aug 2014', 
+						'Sep 2014', 
+						'Oct 2014', 
+						'Nov 2014', 
+						'Dec 2014', 
+						'Jan 2015', 
+						'Feb 2015', 
+						'Mar 2015', 
+						'Apr 2015', 
+						'May 2015', 
+						'Jun 2015', 
+						'Jul 2015', 
+						'Aug 2015', 
+						'Sep 2015', 
+						'Oct 2015', 
+						'Nov 2015', 
+						'Dec 2015', 
+						'Jan 2016', 
+						'Feb 2016', 
+						'Mar 2016', 
+						'Apr 2016', 
+						'May 2016', 
+						'Jun 2016', 
+						'Jul 2016', 
+						'Aug 2016', 
+						'Sep 2016', 
+						'Oct 2016', 
+						'Nov 2016', 
+						'Dec 2016', 
+						'Jan 2017', 
+						'Feb 2017', 
+						'Mar 2017', 
+						'Apr 2017', 
+						'May 2017', 
+						'Jun 2017', 
+						'Jul 2017', 
+						'Aug 2017', 
+						'Sep 2017', 
+						'Oct 2017', 
+						'Nov 2017', 
+						'Dec 2017', 
+						'Jan 2018', 
+						'Feb 2018', 
+						'Mar 2018', 
+						'Apr 2018', 
+						'May 2018', 
+						'Jun 2018', 
+						'Jul 2018', 
+						'Aug 2018', 
+						'Sep 2018', 
+						'Oct 2018', 
+						'Nov 2018', 
+						'Dec 2018' 
+				],				
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 49.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 18,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				tickInterval: 12
+			},
+			yAxis: [{
+				title: {
+					text: 'index (2007 = 100)',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				},
+				min: 70 ,max: 125 ,tickInterval: 5, 
+				labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+					
+				},
+				opposite: false
+				},{
+				title: {
+					text: 'change',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				},
+				min: -10 ,max: 35 ,tickInterval: 5, 
+				labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					}
+					
+				},
+				opposite: true
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical', align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Change from prior year(right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_green, 
+				data: [					
+				
+						['Jan 2013', 1.59259479144], 
+						['Feb 2013', 1.82655045566], 
+						['Mar 2013', 2.70044129877], 
+						['Apr 2013', 1.74570010297], 
+						['May 2013', 1.59733291202], 
+						['Jun 2013', 1.78973086558], 
+						['Jul 2013', 0.928192899838], 
+						['Aug 2013', 2.15737553198], 
+						['Sep 2013', 2.52581285095], 
+						['Oct 2013', 2.2093587162], 
+						['Nov 2013', 1.99285268411], 
+						['Dec 2013', 1.89344228223], 
+						['Jan 2014', 1.48640965755], 
+						['Feb 2014', 1.7873807255], 
+						['Mar 2014', 2.4199499755], 
+						['Apr 2014', 2.61698619349], 
+						['May 2014', 3.00438182076], 
+						['Jun 2014', 3.24114313101], 
+						['Jul 2014', 3.91429443435], 
+						['Aug 2014', 3.14345718521], 
+						['Sep 2014', 3.01537692943], 
+						['Oct 2014', 3.13915923955], 
+						['Nov 2014', 3.80799663726], 
+						['Dec 2014', 3.46464784806], 
+						['Jan 2015', 3.44371235803], 
+						['Feb 2015', 2.48393146026], 
+						['Mar 2015', 1.36939713478], 
+						['Apr 2015', 0.99030227099], 
+						['May 2015', 0.355265584435], 
+						['Jun 2015', -0.249614021002], 
+						['Jul 2015', 0.254925276098], 
+						['Aug 2015', 0.360650158889], 
+						['Sep 2015', -0.253658536585], 
+						['Oct 2015', -0.45359844989], 
+						['Nov 2015', -2.06182957967], 
+						['Dec 2015', -2.321668973], 
+						['Jan 2016', -1.35964887452], 
+						['Feb 2016', -1.36371880715], 
+						['Mar 2016', -1.98028716296], 
+						['Apr 2016', -1.36283498554], 
+						['May 2016', -1.26844902067], 
+						['Jun 2016', -0.600992371726], 
+						['Jul 2016', -0.835265061555], 
+						['Aug 2016', -1.05248900579], 
+						['Sep 2016', -1.02784994758], 
+						['Oct 2016', -0.852185472529], 
+						['Nov 2016', -0.681810194751], 
+						['Dec 2016', -0.217515858492], 
+						['Jan 2017', -0.370829128786], 
+						['Feb 2017', -0.0866742007777], 
+						['Mar 2017', 1.01822084496], 
+						['Apr 2017', 0.666515791349], 
+						['May 2017', 1.01356205825], 
+						['Jun 2017', 0.762546567821], 
+						['Jul 2017', 0.832548556568], 
+						['Aug 2017', 1.28049883648], 
+						['Sep 2017', 1.83593540117], 
+						['Oct 2017', 2.11252274172], 
+						['Nov 2017', 2.90466154802], 
+						['Dec 2017', 3.15695434795], 
+						['Jan 2018', 3.11112135159], 
+						['Feb 2018', 3.22055912618], 
+						['Mar 2018', 3.32039288428], 
+						['Apr 2018', 3.47094534997], 
+						['May 2018', 3.50671680763], 
+						['Jun 2018', 3.48813848197], 
+						['Jul 2018', 3.36300185938], 
+						['Aug 2018', 3.27726152311], 
+						['Sep 2018', 3.17802339024], 
+						['Oct 2018', 3.03893815616], 
+						['Nov 2018', 2.93269906076], 
+						['Dec 2018', 2.83296170553] 					
+				]
+			},{
+				name: 'Industrial production index (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2, 
+				color: Highcharts.eia_blue, 
+				data: [					
+				
+						['Jan 2013', 100.9614], 
+						['Feb 2013', 101.4781], 
+						['Mar 2013', 101.6302], 
+						['Apr 2013', 101.5825], 
+						['May 2013', 101.6016], 
+						['Jun 2013', 101.8221], 
+						['Jul 2013', 101.2443], 
+						['Aug 2013', 101.9928], 
+						['Sep 2013', 102.4847], 
+						['Oct 2013', 102.4287], 
+						['Nov 2013', 102.7732], 
+						['Dec 2013', 102.9513], 
+						['Jan 2014', 102.4621], 
+						['Feb 2014', 103.2919], 
+						['Mar 2014', 104.0896], 
+						['Apr 2014', 104.2409], 
+						['May 2014', 104.6541], 
+						['Jun 2014', 105.1223], 
+						['Jul 2014', 105.2073], 
+						['Aug 2014', 105.1989], 
+						['Sep 2014', 105.575], 
+						['Oct 2014', 105.6441], 
+						['Nov 2014', 106.6868], 
+						['Dec 2014', 106.5182], 
+						['Jan 2015', 105.9906], 
+						['Feb 2015', 105.8576], 
+						['Mar 2015', 105.515], 
+						['Apr 2015', 105.2732], 
+						['May 2015', 105.0259], 
+						['Jun 2015', 104.8599], 
+						['Jul 2015', 105.4755], 
+						['Aug 2015', 105.5783], 
+						['Sep 2015', 105.3072], 
+						['Oct 2015', 105.1649], 
+						['Nov 2015', 104.4871], 
+						['Dec 2015', 104.0452], 
+						['Jan 2016', 104.5495], 
+						['Feb 2016', 104.414], 
+						['Mar 2016', 103.4255], 
+						['Apr 2016', 103.8385], 
+						['May 2016', 103.6937], 
+						['Jun 2016', 104.2297], 
+						['Jul 2016', 104.5945], 
+						['Aug 2016', 104.4671], 
+						['Sep 2016', 104.2248], 
+						['Oct 2016', 104.2687], 
+						['Nov 2016', 103.7746963], 
+						['Dec 2016', 103.81888519], 
+						['Jan 2017', 104.1618], 
+						['Feb 2017', 104.3235], 
+						['Mar 2017', 104.4786], 
+						['Apr 2017', 104.5306], 
+						['May 2017', 104.7447], 
+						['Jun 2017', 105.0245], 
+						['Jul 2017', 105.4653], 
+						['Aug 2017', 105.8048], 
+						['Sep 2017', 106.1383], 
+						['Oct 2017', 106.4714], 
+						['Nov 2017', 106.789], 
+						['Dec 2017', 107.0964], 
+						['Jan 2018', 107.4024], 
+						['Feb 2018', 107.6833], 
+						['Mar 2018', 107.9477], 
+						['Apr 2018', 108.1588], 
+						['May 2018', 108.4178], 
+						['Jun 2018', 108.6879], 
+						['Jul 2018', 109.0121], 
+						['Aug 2018', 109.2723], 
+						['Sep 2018', 109.5114], 
+						['Oct 2018', 109.707], 
+						['Nov 2018', 109.9208], 
+						['Dec 2018', 110.1304] 				
+					]
+				}]		
+			};
+			
+			var chart = new Highcharts.Chart(chartOptions);
+		}	catch(err)	{
+			throw(err);			
+		}
+	});
+	</script>

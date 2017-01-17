@@ -1,0 +1,334 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+
+
+
+
+<!-- New values from the Application variables--->
+
+
+<style>
+#lbFig20container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig20container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig20container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig20container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. coal consumption'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'left',
+					x: 30,
+					y: 20
+				},
+				startOnTick: false,
+				endOnTick: true,
+				showFirstLabel: true,
+				showLastLabel: false,
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'million short tons',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_green
+					}
+				},
+				min: -40,
+				max: 120,
+				tickInterval: 20,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_green
+					}
+				},
+				opposite: false
+			},
+			{
+				title: {
+					text: 'year over year change, million short tons',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_blue
+					}
+				},
+				min: -120,
+				max: 200,
+				tickInterval: 40,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_blue
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				snap : 0,
+				formatter: function() {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Total consumption (left axis)' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Consumption forecast (left axis)' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Electric power (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					if('Coke plants (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					if('Retail and general industry (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; 
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Total consumption (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5,
+				color: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2015,0, 1), 76.894689784], 
+						[Date.UTC(2015,1, 1), 72.317598724], 
+						[Date.UTC(2015,2, 1), 63.559966283], 
+						[Date.UTC(2015,3, 1), 53.20741905], 
+						[Date.UTC(2015,4, 1), 61.923189533], 
+						[Date.UTC(2015,5, 1), 73.84488024], 
+						[Date.UTC(2015,6, 1), 81.448948888], 
+						[Date.UTC(2015,7, 1), 78.574441152], 
+						[Date.UTC(2015,8, 1), 69.36949182], 
+						[Date.UTC(2015,9, 1), 58.404551583], 
+						[Date.UTC(2015,10, 1), 53.63995341], 
+						[Date.UTC(2015,11, 1), 54.929549233], 
+						[Date.UTC(2016,0, 1), 67.187502707], 
+						[Date.UTC(2016,1, 1), 55.585182905], 
+						[Date.UTC(2016,2, 1), 44.618475925], 
+						[Date.UTC(2016,3, 1), 43.37500503], 
+						[Date.UTC(2016,4, 1), 49.35357852], 
+						[Date.UTC(2016,5, 1), 67.73449857], 
+						[Date.UTC(2016,6, 1), 78.758535675], 
+						[Date.UTC(2016,7, 1), 78.511890623], 
+						[Date.UTC(2016,8, 1), 66.81381981], 
+						[Date.UTC(2016,9, 1), 59.319074896], 
+						[Date.UTC(2016,10, 1), 51.5239362], 
+						[Date.UTC(2016,11, 1), 71.63589244] 				
+				]
+			}, {
+				name: 'Consumption forecast (left axis)',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 4,
+				color: Highcharts.eia_green,
+				dashStyle: 'dash',
+				data: [
+				
+						[Date.UTC(2015,0, 1), 76.894689784], 
+						[Date.UTC(2015,1, 1), 72.317598724], 
+						[Date.UTC(2015,2, 1), 63.559966283], 
+						[Date.UTC(2015,3, 1), 53.20741905], 
+						[Date.UTC(2015,4, 1), 61.923189533], 
+						[Date.UTC(2015,5, 1), 73.84488024], 
+						[Date.UTC(2015,6, 1), 81.448948888], 
+						[Date.UTC(2015,7, 1), 78.574441152], 
+						[Date.UTC(2015,8, 1), 69.36949182], 
+						[Date.UTC(2015,9, 1), 58.404551583], 
+						[Date.UTC(2015,10, 1), 53.63995341], 
+						[Date.UTC(2015,11, 1), 54.929549233], 
+						[Date.UTC(2016,0, 1), 67.187502707], 
+						[Date.UTC(2016,1, 1), 55.585182905], 
+						[Date.UTC(2016,2, 1), 44.618475925], 
+						[Date.UTC(2016,3, 1), 43.37500503], 
+						[Date.UTC(2016,4, 1), 49.35357852], 
+						[Date.UTC(2016,5, 1), 67.73449857], 
+						[Date.UTC(2016,6, 1), 78.758535675], 
+						[Date.UTC(2016,7, 1), 78.511890623], 
+						[Date.UTC(2016,8, 1), 66.81381981], 
+						[Date.UTC(2016,9, 1), 59.319074896], 
+						[Date.UTC(2016,10, 1), 51.5239362], 
+						[Date.UTC(2016,11, 1), 71.63589244], 
+						[Date.UTC(2017,0, 1), 72.69099], 
+						[Date.UTC(2017,1, 1), 61.12784], 
+						[Date.UTC(2017,2, 1), 58.28137], 
+						[Date.UTC(2017,3, 1), 51.91243], 
+						[Date.UTC(2017,4, 1), 56.07734], 
+						[Date.UTC(2017,5, 1), 64.86118], 
+						[Date.UTC(2017,6, 1), 76.65971], 
+						[Date.UTC(2017,7, 1), 78.65893], 
+						[Date.UTC(2017,8, 1), 63.67099], 
+						[Date.UTC(2017,9, 1), 58.62598], 
+						[Date.UTC(2017,10, 1), 57.88752], 
+						[Date.UTC(2017,11, 1), 73.1526], 
+						[Date.UTC(2018,0, 1), 71.57632], 
+						[Date.UTC(2018,1, 1), 59.69314], 
+						[Date.UTC(2018,2, 1), 56.9736], 
+						[Date.UTC(2018,3, 1), 50.62257], 
+						[Date.UTC(2018,4, 1), 54.64813], 
+						[Date.UTC(2018,5, 1), 63.92134], 
+						[Date.UTC(2018,6, 1), 75.88289], 
+						[Date.UTC(2018,7, 1), 77.96534], 
+						[Date.UTC(2018,8, 1), 63.26612], 
+						[Date.UTC(2018,9, 1), 58.28055], 
+						[Date.UTC(2018,10, 1), 57.64722], 
+						[Date.UTC(2018,11, 1), 74.13521] 				
+				]
+			}, {
+				name: 'Electric power (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 3,
+				color: Highcharts.eia_dk_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -113.15777683], 
+						[Date.UTC(2016,5, 1), -59.743931], 
+						[Date.UTC(2017,5, 1), 41.33594832], 
+						[Date.UTC(2018,5, 1), -10.51552] 	
+				
+				]
+			}, {
+				name: 'Coke plants (right axis)', 
+				type: 'column',
+				yAxis: 1,
+				zIndex: 2,
+				color: Highcharts.eia_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -1.588237937], 
+						[Date.UTC(2016,5, 1), -1.464136043], 
+						[Date.UTC(2017,5, 1), 0.590484], 
+						[Date.UTC(2018,5, 1), 0.218496] 	
+				]
+			}, {
+				name: 'Retail and general industry (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_lt_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2015,5, 1), -4.870783933], 
+						[Date.UTC(2016,5, 1), -2.489232555], 
+						[Date.UTC(2017,5, 1), -2.736928418], 
+						[Date.UTC(2018,5, 1), 1.302587] 	
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>   

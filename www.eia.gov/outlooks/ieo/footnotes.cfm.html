@@ -1,0 +1,942 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+
+<body>
+<div id="outerX">
+
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../consumption/index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../energyexplained/index.html">Energy Explained</a></h3>
+              <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+    <div class="pub_title bg_aeo">
+	
+    <a href="index.html">&lsaquo; IEO Home</a>
+      <h1>International Energy Outlook 2016</h1>
+      <p><b>Release Date:</b> May 11, 2016 &nbsp; | &nbsp; <b>Next Release Date:</b> September 2017&nbsp;&nbsp; |&nbsp; <a href="pdf/0484(2016).pdf" class="pdf">Report Number: DOE/EIA-0484(2016)</a></p>
+    </div>
+
+
+    <div class="pagecontent mpub_temp">
+      <div class="main_col">
+	  
+		
+            
+        
+        
+        <h2>Chapter footnotes </h2>
+        <h4>Preface</h4>
+        <p> <a name="1"></a>1. OECD includes all members of the organization as  of January 1, 2016, in all the time series included in this report. Israel,  which became a member in 2010, is included in OECD Europe for statistical  reporting purposes.</p>
+        <p><a name="2"></a>2. Nonmarketed  energy sources include selected energy consumption data for which the energy is  not bought or sold, either directly or indirectly, as an input to marketed  energy&#8212;particularly, traditional fuels such as fuelwood, charcoal, agricultural  waste, and animal dung used for cooking and water heating. EIA does not  estimate or project total consumption of nonmarketed energy.</p>
+        <h4>Executive Summary</h4>
+        <p><a name="3" id="3"></a>3. For  consistency, OECD includes all members of the organization as of January 1,  2016, throughout all the time series included in this report. OECD member  countries as of January 1, 2016, were Austria, Australia, Belgium, Canada,  Chile, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece,  Hungary, Iceland, Ireland, Israel, Italy, Japan, Luxembourg, Mexico, the  Netherlands, New Zealand, Norway, Poland, Portugal, Slovakia, Slovenia, South  Korea, Spain, Sweden, Switzerland, Turkey, the United Kingdom, and the United  States. For statistical reporting purposes, Israel is included in OECD Europe.  See Appendix M for the complete list of regional definitions used in the  IEO2016.</p>
+        <p><a name="4" id="4"></a>4.U.S.  Energy Information Administration, <em>Analysis  of the Impacts of the Clean Power Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+        <p><a name="5" id="5"></a>5. Crude and  lease condensate includes tight oil, shale oil extra-heavy crude oil, field  condensate, and bitumen.</p>
+        <p><a name="6" id="6"></a>6. Other  liquid fuels include natural gas plant liquids (NGPL), biofuels, gas-to-liquids  (GTL), coal-to-liquids (CTL), kerogen, and refinery gain.</p>
+        <p><a name="7" id="7"></a>7. U.S.  Energy Information Administration, <em>Analysis  of the Impacts of the Clean Power Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+        <p><a name="8" id="72"></a>8. U.S.  Energy Information Administration, <em>Analysis  of the Impacts of the Clean Power Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>. </p> 
+      <h4>Chapter 1 - World energy demand and economic outlook</h4>
+      <p><a name="9"></a>9. U.S. Energy Information Administration, <em>Analysis of the Impacts of the Clean Power  Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+      <p><a name="10"></a>10. For  consistency, OECD includes all members of the Organization for Economic  Cooperation and Development as of January 1, 2016, throughout every time series  presented in this publication.</p>
+      <p><a name="11"></a>11. U.S.  Energy Information Administration, International Energy Statistics database (as  of September 2015), <a href="http://www.eia.gov/ies">www.eia.gov/ies</a>. World coal consumption grew from 4.3  million short tons in 1982 to 8.3 million short tons in 2012, or an average  annual growth rate of 2.2%.</p>
+      <p><a name="12"></a>12. U.S. Energy Information Administration, <em>Analysis of the Impacts of the Clean Power  Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>. </p>
+      <p><a name="13"></a>13. This  outlook does not incorporate the effect on the United States of the  recently-released final clean power plant (CPP) rules. EIA&rsquo;s assessment of the  proposed rules suggests that U.S. coal-fired generation could be reduced significantly  from the IEO2016 Reference case projection.</p>
+      <p><a name="14"></a>14. Delivered  energy consumption in the end-use sectors consists of primary energy  consumption and retail sales of electricity, excluding electrical system energy  losses.</p>
+      <p><a name="15"></a>15. <em>Backtesting</em> is used to test predictive  models by comparing their results with historical data.</p>
+      <p><a name="16"></a>16. The  purchasing power parity exchange rate is the exchange rate at which the  currency of one country is converted into that of another country to buy the  same amount of goods and services.</p>
+      <p><a name="17"></a>17. The World  Bank, &quot;Data: Services, etc., value added (% of GDP),&quot; (2015) <a href="http://data.worldbank.org/indicator/NV.SRV.TETC.ZS">http://data.worldbank.org/indicator/NV.SRV.TETC.ZS</a>.</p>
+      <p><a name="18"></a>18. Federal  Reserve Bank of St. Louis, &quot;Economic Research: Working Age Population: Aged  15-64: All Persons for Japan&quot; (April 29, 2015), <a href="https://research.stlouisfed.org/fred2/series/LFWA64TTJPM647S">https://research.stlouisfed.org/fred2/series/LFWA64TTJPM647S</a>.</p>
+      <p><a name="19"></a>19. IHS  Economics, <em>World Overview: Fourth-quarter  2015</em> (2015), p. 69, <a href="https://www.ihs.com">https://www.ihs.com</a> (subscription site).</p>
+      <h4>Chapter 2 - Petroleum and other liquid fuels</h4>
+      <p><a name="20"></a>20. The terms  biofuels, GTL, CTL, and kerogen are used in the text of this chapter because  they are common terms; however, in the tables a more uniform nomenclature is  employed: liquids from renewable sources, liquids from natural gas, liquids from  coal, and liquids from kerogen, respectively.</p>
+      <p><a name="21" id="21"></a>21. U.S.  Energy Information Administration, Effects of Removing Restrictions on U.S.  Crude Oil Exports (Washington, DC: September 2015), <a href="../../analysis/requests/crude-exports/index.html">http://www.eia.gov/analysis/requests/crude-exports/</a>.</p>
+      <p><a name="22" id="22"></a>22. U.S.  Energy Information Administration, <em>Short-Term  Energy Outlook</em> (Washington, DC: December 2015), Figures 35 and 36, <a href="http://www.eia.gov/outlooks/STEO">www.eia.gov/outlooks/STEO</a>.</p>
+      <p><a name="23" id="23"></a>23. Unless otherwise  noted, all prices are reported in inflation-adjusted 2013 U.S. dollars.</p>
+      <p><a name="24" id="24"></a>24. Price  volatility is a measure of price risk, often expressed as the degree of  variation in a price series over time, as measured by the standard deviation of  returns (i.e., percentage price changes). The price changes do not have to be  measured on a daily basis and annualized. The price changes could be measured  weekly, monthly, or even annually and then annualized.</p>
+      <p><a name="25" id="25"></a>25. EIA/ARI 2013 assessments noted large shale  deposits in China and Argentina. See U.S. Energy Information Administration, &quot;World  Shale Resource Assessments,&quot; <a href="http://www.eia.gov/analysis/studies/worldshalegas/">http://www.eia.gov/analysis/studies/worldshalegas/</a> (updated September 24, 2015), and <em>Technically Recoverable Shale Gas and Shale  Oil Resources: An Assessment of 137 Shale Formations in 41 Countries Outside  the United States</em> (Washington, DC: June 13, 2013), <a href="http://www.eia.gov/analysis/studies/worldshalegas/archive/2013/pdf/fullreport_2013.pdf">http://www.eia.gov/analysis/studies/worldshalegas/archive/2013/pdf/fullreport_2013.pdf</a>.</p>
+      <p><a name="26"></a>26.  International Maritime Organization,  &ldquo;International Convention for the Prevention of Pollution from Ships (MARPOL)&rdquo;  (London, UK: 2015), <a href="http://www.imo.org/en/About/Conventions/ListOfConventions/Pages/International-Convention-for-the-Prevention-of-Pollution-from-Ships-(MARPOL).aspx">http://www.imo.org/en/About/Conventions/ListOfConventions/Pages/International-Convention-for-the-Prevention-of-Pollution-from-Ships-(MARPOL).aspx</a>.</p>
+      <p><a name="27"></a>27. When the revised Marpol Annex VI entered into  force in July 2010, it included a change to the name and definition of an  emission control area from SECA to ECA&#8212;an area where special mandatory measures  are required to control nitrogen oxides (NOX), sulfur oxides (SOX),  particulate matter (PM), or all three types of emissions from ships. See U.S.  Environmental Protection Agency, &ldquo;MARPOL Annex VI&rdquo; (Washington, DC: September  1, 2015), <a href="https://www.epa.gov/enforcement/marpol-annex-vi">https://www.epa.gov/enforcement/marpol-annex-vi</a>.
+</p>
+      <p><a name="28"></a>28. Purchasing  power parity (PPP) compares different currencies through a <em>market basket of goods</em> approach. Two currencies are in PPP when a  market basket of goods (taking exchange rates into account) is priced the same  in both countries. See Investopedia LLC, <a href="http://www.investopedia.com/video/play/purchasing-power-parity-ppp/">http://www.investopedia.com/video/play/purchasing-power-parity-ppp/</a> (2016) and The Economist Newspaper Ltd., <a href="http://www.economist.com/content/big-mac-index">http://www.economist.com/content/big-mac-index</a>.</p>
+      <p><a name="29"></a>29. U.S. Energy Information Administration,  &quot;Petroleum &amp; other liquids: data: exports by destination: petroleum coke&quot;  (October 30, 2015), <a href="http://www.eia.gov/dnav/pet/PET_MOVE_EXPC_A_EPPC_EEX_MBBL_A.htm">http://www.eia.gov/dnav/pet/PET_MOVE_EXPC_A_EPPC_EEX_MBBL_A.htm</a>.</p>
+      <p><a name="30"></a>30. Wang Tao, &quot;Managing China's Petcoke Problem&quot;  (Beijing, China: Carnegie-Tsinghu a Center for Global Policy, May 31, 2015), <a href="http://carnegietsinghua.org/2015/06/03/managing-china-s-petcoke-problem/i9fa">http://carnegietsinghua.org/2015/06/03/managing-china-s-petcoke-problem/i9fa</a>.</p>
+      <p><a name="31"></a>31. U.S.  Department of the Treasury, &quot;Treasury Sanctions Those Involved in Ballistic  Missile Procurement for Iran&quot; (January 17, 2016), <a href="https://www.treasury.gov/press-center/press-releases/Pages/jl0322.aspx">https://www.treasury.gov/press-center/press-releases/Pages/jl0322.aspx</a>.</p>
+      <p><a name="32"></a>32. U.S.  Energy Information Administration, &quot;Iran's petroleum production seen rising as  many sanctions are lifted,&quot; This Week in Petroleum (January 21, 2016), <a href="../../petroleum/weekly/archive/2016/160121/includes/analysis_print.cfm.html">https://www.eia.gov/petroleum/weekly/archive/2016/160121/includes/analysis_print.cfm</a>.</p>
+      <p><a name="33"></a>33. U.S.  Energy Information Administration, &quot;Under sanctions, Iran's crude oil exports  have nearly halved in three years,&quot; Today in Energy (June 24, 2015), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=21792">http://www.eia.gov/todayinenergy/detail.cfm?id=21792</a>.</p>
+      <p><a name="34"></a>34. U.S.  Energy Information Administration, &quot;Iran,&quot; Country Analysis Brief (June 19,  2015), <a href="http://www.eia.gov/beta/international/analysis.cfm?iso=IRN">http://www.eia.gov/beta/international/analysis.cfm?iso=IRN</a>.</p>
+      <p><a name="35"></a>35. U.S.  Energy Information Administration, &quot;Nuclear accord creates potential for  additional crude oil production from Iran,&quot; Today in Energy (August 13, 2015), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=22492">http://www.eia.gov/todayinenergy/detail.cfm?id=22492</a>.</p>
+      <p><a name="36"></a>36. U.S.  Energy Information Administration, &quot;Global Petroleum and Other Liquids,&quot;  Short-Term Energy Outlook (January 12, 2016), <a href="../steo/report/global_oil.cfm.html">https://www.eia.gov/outlooks/steo/report/global_oil.cfm</a>.</p>
+      <p><a name="37"></a>37. Although  companies can book reserves, the National Iranian Oil Company (NIOC) retains  exclusive ownership of fields.</p>
+      <p><a name="38"></a>38. A.  Lidgett, &quot;Iran's New Oil And Gas Contract Framework Revealed,&quot; <em>International Business Times</em> (November  28, 2015), <a href="http://www.ibtimes.com/irans-new-oil-gas-contract-framework-revealed-2202878">http://www.ibtimes.com/irans-new-oil-gas-contract-framework-revealed-2202878</a>.</p>
+      <p><a name="39"></a>39. &quot;Mexico's  first bid round proves a disappointment,&quot; <em>Petroleum  Intelligence Weekly</em> (July 20, 2015), <a href="http://www.energyintel.com/pages/login.aspx?fid=art&amp;DocId=893018">http://www.energyintel.com/pages/login.aspx?fid=art&amp;DocId=893018</a> (subscription site).</p>
+      <p><a name="40"></a>40. U.S.  Energy Information Administration, &quot;Sustained low oil prices could reduce  exploration and production investment,&quot; This Week in Petroleum (September 23, 2015), <a href="http://www.eia.gov/petroleum/weekly/archive/2015/150923/includes/analysis_print.cfm">http://www.eia.gov/petroleum/weekly/archive/2015/150923/includes/analysis_print.cfm</a>.</p>
+      <p><a name="41"></a>41. Pemex,  &quot;Newsletter No. 3: Round Zero Resolution &amp; Round One Updates&quot; (September  2014), <a href="http://www.ri.pemex.com/files/content/No.%203%20Round%200%20&amp;%20Round%201.pdf">http://www.ri.pemex.com/files/content/No.%203%20Round%200%20&amp;%20Round%201.pdf</a>.</p>
+      <p>42. F. Tanner  et al., &quot;Mexico: Learning from the first phase of Round 1,&rdquo; Oil and Gas Risk  Service (July 30, 2015), <a href="https://www.pfcenergy.com/Members/PRM/Special-Reports-and-Quarterly-Outlooks/2015/Mexico-Learning-from-the-first-phase-of-Round-1">https://www.pfcenergy.com/Members/PRM/Special-Reports-and-Quarterly-Outlooks/2015/Mexico-Learning-from-the-first-phase-of-Round-1</a> (subscription site).</p>
+      <p><a name="43"></a>43. P.M.  Lara, &quot;Mexican E&amp;P companies emerge,&quot; <em>Strategic  Horizons</em> (IHS Energy: October 26, 2015), <a href="https://www.pfcenergy.com/Members/Horizons/Exploration-and-Production/2015/Mexican-EP-companies-emerge">https://www.pfcenergy.com/Members/Horizons/Exploration-and-Production/2015/Mexican-EP-companies-emerge</a> (subscription site).</p>
+      <p><a name="44"></a>44. Energy  Intelligence, &quot;Mexico's flexibility bodes well for first bid round,&quot; <em>Petroleum Intelligence Weekly</em> (June 29,  2015), <a href="http://www.energyintel.com/pages/articlesummary/890602/mexico-s-flexibility-bodes-well-for-first-bid-round">http://www.energyintel.com/pages/articlesummary/890602/mexico-s-flexibility-bodes-well-for-first-bid-round</a> (subscription site).</p>
+      <p><a name="45"></a>45. Note: EIA  does not collect statistics on international HEFA fuels.</p>
+      <p><a name="46"></a>46. ASTM International, &quot;Standard Specification  for Aviation Turbine Fuel Containing Synthesized Hydrocarbons,&quot; ASTM D7566-15c  (West Conshohocken, PA: 2015), <a href="http://www.astm.org/Standards/D7566.htm">http://www.astm.org/Standards/D7566.htm</a>.</p>
+      <p><a name="47"></a>47. Eni S.p.A., &quot;Green Refinery&quot; (October 11,  2014), <a href="http://www.eni.com/en_IT/innovation-technology/technological-focus/green-refinery/green-refinery.shtml">http://www.eni.com/en_IT/innovation-technology/technological-focus/green-refinery/green-refinery.shtml</a>.</p>
+      <p><a name="48"></a>48. R. Kotrba, &quot;A Transformative Project: Total's  La MÃ¨de Conversion,&quot; <em>Biodiesel Magazine</em>(November  20, 2015), <a href="http://www.biodieselmagazine.com/articles/606885/a-transformative-project-totals-la-mede-conversion">http://www.biodieselmagazine.com/articles/606885/a-transformative-project-totals-la-mede-conversion</a>.</p>
+      <p><a name="49"></a>49. Shell Global, &quot;Military Jet Fuel Grades and  Specifications (NATO),&quot; <a href="http://www.shell.com/global/products-services/solutions-for-businesses/aviation/shell-aviation-fuels/fuels/types/military-jet-fuel-grades.html">http://www.shell.com/global/products-services/solutions-for-businesses/aviation/shell-aviation-fuels/fuels/types/military-jet-fuel-grades.html</a>.</p>
+      <p><a name="50"></a>50. International  Energy Agency, World Energy Outlook 2012 (Paris, France: November 12, 2012), <a href="http://www.worldenergyoutlook.org/weo2012/">http://www.worldenergyoutlook.org/weo2012/</a>.</p>
+      <p><a name="51"></a>51. C. Xu, T.  Dunnahoe, M.T. Slocum, and L. Bell, &quot;Reserves grow modestly as crude oil  production climbs&quot; <em>Oil &amp; Gas Journal</em> (December 7, 2015), <a href="http://www.ogj.com/articles/print/volume-113/issue-12/special-report-worldwide-report/reserves-grow-modestly-as-crude-oil-production-climbs.html">http://www.ogj.com/articles/print/volume-113/issue-12/special-report-worldwide-report/reserves-grow-modestly-as-crude-oil-production-climbs.html</a> (subscription site).</p>
+      <p><a name="52"></a>52. Canada,  Iran, Iraq, Kuwait, Russia, Saudi Arabia, United Arab Emirates, and Venezuela.</p>
+      <p><a name="53"></a>53. &quot;Global  oil production up in 2012 as reserve estimates rise again,&quot; <em>Oil &amp; Gas Journal</em> (December 3, 2012), <a href="http://www.ogj.com">http://www.ogj.com</a> (subscription  site).</p>
+      <h4>Chapter 3 - Natural gas</h4>
+      <p><a name="54"></a>54. Defined here  as trade volumes delivered under contracts with duration of 4 years or less.</p>
+      <p><a name="55"></a>55. Includes  natural gas trade by pipeline and LNG.</p>
+      <p><a name="56"></a>56. Nuclear  Energy Institute, &quot;Japan Nuclear Update&quot; (Washington, DC: January 26, 2016), <a href="http://www.nei.org/News-Media/News/Japan-Nuclear-Update">http://www.nei.org/News-Media/News/Japan-Nuclear-Update</a>.</p>
+      <p><a name="57"></a>57. International  Gas Union, <em>World LNG Report - 2015  Edition </em>(Forenbu, Norway: 2015), pp. 79-81, <a href="http://www.igu.org/sites/default/files/node-page-field_file/IGU-World%20LNG%20Report-2015%20Edition.pdf">http://www.igu.org/sites/default/files/node-page-field_file/IGU-World%20LNG%20Report-2015%20Edition.pdf</a>.</p>
+      <p><a name="58"></a>58. E. Ng, &quot;High  prices threaten Beijing's target of natural gas accounting for 10pc of energy  use,&quot; <em>South China Morning News: China  Business</em> (June 21, 2015), <a href="http://www.scmp.com/business/china-business/article/1824591/high-prices-threaten-beijings-target-natural-gas-accounting">http://www.scmp.com/business/china-business/article/1824591/high-prices-threaten-beijings-target-natural-gas-accounting</a>.</p>
+      <p><a name="59"></a>59. U.S.  Energy Information Administration, &quot;Australia: International Energy Data and  Analysis&quot; (Washington, DC: August 28, 2014), <a href="https://www.eia.gov/beta/international/analysis.cfm?iso=AUS">https://www.eia.gov/beta/international/analysis.cfm?iso=AUS</a>.</p>
+      <p><a name="60"></a>60. BP, &quot;BP  Azerbaijan: Operations and Projects: Shah Deniz Stage 2,&quot; <em>BP Azerbaijan</em> (undated), <a href="http://www.bp.com/en_az/caspian/operationsprojects/Shahdeniz/SDstage2.html">http://www.bp.com/en_az/caspian/operationsprojects/Shahdeniz/SDstage2.html</a>.</p>
+      <p><a name="61"></a>61. &quot;Chevron  CEO: Angola LNG to ship in 2nd quarter,&quot; LNG World News (February 1, 2016), <a href="http://www.lngworldnews.com/chevron-ceo-angola-lng-to-ship-lng-cargo-in-2nd-quarter/">http://www.lngworldnews.com/chevron-ceo-angola-lng-to-ship-lng-cargo-in-2nd-quarter/</a>.</p>
+      <p><a name="62"></a>62. Liu  Chenglin, Che Changbo, Fan Mingzhu, Zhu Jie, and Yang Hulin, &quot;China CBM Geology  and Resources Evaluation,&quot; <em>China Coalbed  Methane</em> (2009), <a href="http://www.nios.com.cn/common/files/File/2009.03-English.pdf">http://www.nios.com.cn/common/files/File/2009.03-English.pdf</a>.</p>
+      <p><a name="63"></a>63. U.S.  Energy Information Administration, &quot;World Shale Resource Assessments&quot;  (Washington, DC: September 24, 2015), <a href="http://www.eia.gov/analysis/studies/worldshalegas/">http://www.eia.gov/analysis/studies/worldshalegas/</a>.</p>
+      <p><a name="64"></a>64. International  Energy Agency, &quot;3rd IEA Unconventional Gas Forum&quot; (Chengdu, China: April 10,  2015), <a href="https://www.iea.org/workshops/3rd-iea-unconventional-gas-forum.html">https://www.iea.org/workshops/3rd-iea-unconventional-gas-forum.html</a>.</p>
+      <p><a name="65"></a>65. Reported  by Platts (quoting Mr. Ma Yongsheng, Sinopec's Chief Geologist in China) in  October 2013, for a horizontal well at Fuling field in the Sichuan Basin.</p>
+      <p><a name="66"></a>66. U.S.  Energy Information Administration, &quot;Foreign investors play large role in U.S.  shale industry&quot; (Washington, DC: April 8, 2013), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=10711">http://www.eia.gov/todayinenergy/detail.cfm?id=10711</a>.</p>
+      <p><a name="67"></a>67. IHS Energy, &quot;Market Briefing, China Oil and  Gas Service, China Upstream Market Briefing Second Quarter 2015&quot; (July 2015), <a href="https://www.ihs.com/products/cera-china-energy-research.html">https://www.ihs.com/products/cera-china-energy-research.html</a> (subscription site).</p>
+      <p><a name="68"></a>68. U.S. Energy Information Administration and  Advanced Resources International, Inc., <em>World  Shale Gas and Shale Oil Resource Assessment</em> (June 26, 2015), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=21832">http://www.eia.gov/todayinenergy/detail.cfm?id=21832</a>; and U.S. Energy Information  Administration/Advanced Resources International, Inc., EIA/ARI World Shale Gas  and Shale Oil Resource Assessment: Technically Recoverable Shale Gas and Shale  Oil Resources: An Assessment of 137 Shale Formations in 41 Countries Outside  the United States (Fairfax, VA: June 2013), <a href="http://www.adv-res.com/pdf/A_EIA_ARI_2013%20World%20Shale%20Gas%20and%20Shale%20Oil%20Resource%20Assessment.Pdf">http://www.adv-res.com/pdf/A_EIA_ARI_2013%20World%20Shale%20Gas%20and%20Shale%20Oil%20Resource%20Assessment.Pdf</a>.</p>
+      <p><a name="69"></a>69. BP, <em>BP  Statistical Review of World Energy June 2015</em> (London, UK: June 2015), <a href="http://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf">http://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf</a>.</p>
+      <p><a name="70"></a>70. G. Duffy,  &quot;Huge&rsquo; gas field found off Brazil,&quot; BBC News (Sao Paulo, Brazil: January 22,  2008), <a href="http://news.bbc.co.uk/2/hi/americas/7201744.stm">http://news.bbc.co.uk/2/hi/americas/7201744.stm</a>.</p>
+      <p><a name="71"></a>71. Other  includes gas produced from structural and stratigraphic traps (e.g.,  reservoirs), historically called conventional.</p>
+      <p><a name="72"></a>72. BP  Statistical Review of World Energy, 64th edition (June 2015), <a href="https://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf">https://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf</a>.</p>
+      <p><a name="73"></a>73. Based on  preliminary estimates from IHS Strategic Report, &quot;Global Gas in 2016, The  tipping of the scales&quot; (February 2016), <a href="http://www.ihs.com">www.ihs.com</a> (subscription site).</p>
+      <p><a name="74"></a>74. Generally,  spot trade implies a single transaction between a buyer and a seller.</p>
+      <p><a name="75"></a>75. Short-term  contracts have a duration of 4 years or less.</p>
+      <p><a name="76"></a>76. The Asia  Pacific region includes Australia, China, India, Japan, Malaysia, Singapore,  South Korea, Taiwan, and Thailand.</p>
+      <p><a name="77"></a>77. <em>BP Statistical Review of World Energy</em>, 64th  edition (June 2015), <a href="https://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf">https://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf</a>.</p>
+      <p><a name="78"></a>78. U.S.  Energy Information Administration, &quot;Floating LNG regasification is used to meet  rising natural gas demand in smaller markets&quot; (Washington, DC: April 27, 2015), <a href="../../todayinenergy/detail.cfm@id=20972.html">http://www.eia.gov/todayinenergy/detail.cfm?id=20972</a>.</p>
+      <p><a name="79"></a>79. Australian  Petroleum Production &amp; Exploration Association, &quot;Australian LNG projects&quot;  (not dated), <a href="http://www.appea.com.au/oil-gas-explained/operation/australian-lng-projects/">http://www.appea.com.au/oil-gas-explained/operation/australian-lng-projects/</a>.</p>
+      <p><a name="80"></a>80. International  Gas Union, <em>2016 World LNG Report</em> (Fornebu, Norway: 2016), p. 5, <a href="http://www.igu.org/publications/2016-world-lng-report">http://www.igu.org/publications/2016-world-lng-report</a>.</p>
+      <p><a name="81"></a>81. C. Xu and  L. Bell, &quot;Global reserves, oil production show increases for 2014,&quot; <em>Oil &amp; Gas Journal</em> (December 1,  2014).</p>
+      <p><a name="82"></a>82. FACTS Global Energy, &quot;Iran Oil &amp; Gas  Monthly Report&quot; (Datafile) (London, UK: August 2015), <a href="https://www.fgenergy.com/">https://www.fgenergy.com/</a> (subscription site).</p>
+      <p><a name="83"></a>83. Reuters,  &quot;Fitch: Major Iranian Gas Exports Will Take at Least Five Years&quot; (July 10,  2015), <a href="http://www.reuters.com/article/2015/07/10/idUSFit92836320150710#xjyCPxxARoAqX4sD.97">http://www.reuters.com/article/2015/07/10/idUSFit92836320150710#xjyCPxxARoAqX4sD.97</a>.</p>
+      <p><a name="84"></a>84. &quot;Domestic  upgrades key to Iran exports,&quot; <em>World Gas  Intelligence</em> (August 12, 2015), <a href="http://www.energyintel.com/pages/about_wgi.aspx">http://www.energyintel.com/pages/about_wgi.aspx</a> (subscription site).</p>
+      <p><a name="85"></a>85. Phase 11  of South Pars development was initially allocated to the Pars LNG project, with  a production target of 1.9 Bcf/d of gas and 80,000 b/d condensate; however, because  of sanctions, the project failed to progress.</p>
+      <p><a name="86"></a>86. R.  Yeganehshakib, &quot;Will South Pars help bring Iran&rsquo;s economy back to life?&quot;  Almonitor (December 30, 2015), <a href="http://www.al-monitor.com/pulse/originals/2015/12/iran-south-pars-phases-15-16-inauguration-impact.html">http://www.al-monitor.com/pulse/originals/2015/12/iran-south-pars-phases-15-16-inauguration-impact.html#</a>.</p>
+      <p><a name="87"></a>87. &quot;Iran  allocates $1.4 B to develop Kish gas field,&quot; Natural Gas Europe: Greater  Caspian Region Weekly Overview (July 12, 2015), <a href="http://www.naturalgaseurope.com/greater-caspian-region-weekly-overview-july-12th-24609">http://www.naturalgaseurope.com/greater-caspian-region-weekly-overview-july-12th-24609</a>.</p>
+      <p><a name="88"></a>88. &quot;Iran's  Gas Exports Outlook Post-Sanctions,&quot; FACTS Global Energy, Issue 238, published  July 22, 2015 (subscription site), <a href="http://www.fgenergy.com">http://www.fgenergy.com</a>.</p>
+      <p><a name="89"></a>89. D.R.  Jalilvand, <em>Iran's gas exports: can past  failure become future success?</em> (Oxford, UK: June 2013), <a href="http://www.oxfordenergy.org/wpcms/wp-content/uploads/2013/06/NG-78.pdf">http://www.oxfordenergy.org/wpcms/wp-content/uploads/2013/06/NG-78.pdf</a>.</p>
+      <p><a name="90"></a>90. Estimate  derived from IHS Energy, &quot;Liquefaction Sales Contract Database&quot; (March 24, 2015), <a href="http://www.ihs.com">www.ihs.com</a> (subscription site).</p>
+      <p><a name="91"></a>91. U.S.  Energy Information Administration, &quot;China: International Energy Data and  Analysis&quot; (Washington, DC: May 14, 2015), <a href="https://www.eia.gov/beta/international/analysis.cfm?iso=CHN">https://www.eia.gov/beta/international/analysis.cfm?iso=CHN</a>.</p>
+      <p><a name="92"></a>92. Du Juan, &quot;Myanmar-China  gas pipeline opens,&quot; China Daily USA (July 30, 2013), <a href="http://usa.chinadaily.com.cn/epaper/2013-07/30/content_16851851.htm">http://usa.chinadaily.com.cn/epaper/2013-07/30/content_16851851.htm</a>.</p>
+      <p><a name="93"></a>93. E.  Mazneva and S. Kravchenko, &quot;Russia, China Sign $400B Gas Deal After Decade of  Talks&quot; BloombergBusiness News (May 21, 2014), <a href="http://www.bloomberg.com/news/articles/2014-05-21/russia-signs-china-gas-deal-after-decade-of-talks">http://www.bloomberg.com/news/articles/2014-05-21/russia-signs-china-gas-deal-after-decade-of-talks</a>.</p>
+      <p><a name="94"></a>94. J. Paton  and A. Guo, &quot;Russia, China Add to $400 Billion Gas Deal With Accord,&quot;  BloombergBusiness News (November 9, 2014), <a href="http://www.bloomberg.com/news/articles/2014-11-10/russia-china-add-to-400-billion-gas-deal-with-accord">http://www.bloomberg.com/news/articles/2014-11-10/russia-china-add-to-400-billion-gas-deal-with-accord</a>.</p>
+      <p><a name="95"></a>95. U.S.  Energy Information Administration, &quot;India: International Energy Data and  Analysis&quot; (Washington, DC: June 26, 2014), <a href="https://www.eia.gov/beta/international/analysis.cfm?iso=IND">https://www.eia.gov/beta/international/analysis.cfm?iso=IND</a>.</p>
+      <p><a name="96"></a>96. U.S.  Energy Information Administration, &quot;Argentina: International Energy Data and  Analysis&quot; (Washington, DC: April 2014), <a href="http://www.eia.gov/beta/international/analysis.cfm?iso=ARG">http://www.eia.gov/beta/international/analysis.cfm?iso=ARG</a>.</p>
+      <p><a name="97"></a>97. &quot;Worldwide  Look at Reserves and Production,&quot; <em>Oil  &amp; Gas Journal</em>, Vol. 113, No. 12 (December 7, 2015), pp. 22-23, <a href="http://www.ogj.com/articles/print/volume-113/issue-12.html">http://www.ogj.com/articles/print/volume-113/issue-12.html</a> (subscription site).</p>
+      <p><a name="98"></a>98. BP,  &quot;Natural gas: Total proved reserves,&quot; <em>BP  Statistical Review of World Energy June 2015</em> (London, United Kingdom: June  2015), <a href="http://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf">http://www.bp.com/content/dam/bp/pdf/energy-economics/statistical-review-2015/bp-statistical-review-of-world-energy-2015-full-report.pdf</a>.</p>
+      <p><a name="99"></a>99. A 13-year  R/P ratio does not imply that the United States will run out of gas in 13  years. The U.S. gas resource base is sufficiently large to allow for continuing  expansion of both reserves and production (under most economic, technical, and  environmental scenarios). It would not be unusual, for example, for an R/P  ratio to remain constant or grow over time, despite production growth. Under  R/P, the United States has had 10 years or so of natural gas remaining for the  past 100 years. Clearly, the R/P ratio can be a misleading statistic.</p>
+      <h4>Chapter 4 - Coal</h4>
+      <p><a name="100"></a>100. U.S. Energy Information Administration, <em>Analysis of the Impacts of the Clean Power  Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+      <p><a name="101"></a>101. In IEO2016, the electric power sector includes  only power plants that generate electricity or electricity and heat mainly for  selling electricity to the electric grid. Unless otherwise noted, &ldquo;electricity  generators&rdquo; refers to power plants in the electric power sector only, and  &ldquo;electricity generation&rdquo; refers to electricity generated from those plants  only. Coal consumed at plants that serve the electricity and heat needs of  local industrial facilities is counted as industrial sector consumption.</p>
+      <p><a name="102"></a>102. In this chapter, energy consumption expressed  in percentage terms is calculated on the basis of energy content, and coal  production expressed in percentage terms is calculated on the basis of physical  tonnage.</p>
+      <p><a name="103"></a>103. Throughout IEO2016, <em>tons</em> (of coal) refers to <em>short  tons</em> (2,000 pounds) unless otherwise specified.</p>
+      <p><a name="104"></a>104. U.S.  Environmental Protection Agency, &quot;Clean  Power Plan for Existing Power Plants&quot; (Washington, DC: November 20, 2015).</p>
+      <p><a name="105"></a>105. Ontario Ministry of Energy, &quot;Creating Cleaner  Air in Ontario: Province Has Eliminated Coal-Fired Generation&quot; (April 15,  2014), <a href="http://news.ontario.ca/mei/en/2014/04/creating-cleaner-air-in-ontario-1.html">http://news.ontario.ca/mei/en/2014/04/creating-cleaner-air-in-ontario-1.html</a>.</p>
+      <p><a name="106"></a>106. Government of Canada, &quot;Reduction of Carbon  Dioxide Emissions from Coal-fired Generation of Electricity Regulations&quot;  (August 30, 2012), <a href="http://www.gazette.gc.ca/rp-pr/p2/2012/2012-09-12/html/sor-dors167-eng.html">http://www.gazette.gc.ca/rp-pr/p2/2012/2012-09-12/html/sor-dors167-eng.html</a>.</p>
+      <p><a name="107"></a>107. &quot;Best  Available Technologies&quot; is defined as the latest stage of development (&quot;state  of the art&quot;) of processes, facilities, or methods of operation that indicate  the practical suitability of a particular measure for limiting discharges.</p>
+      <p><a name="108"></a>108. European Commission, &quot;Prevention and control  of industrial emissions,&quot; <a href="http://ec.europa.eu/environment/industry/stationary/">http://ec.europa.eu/environment/industry/stationary/</a>.</p>
+      <p><a name="109"></a>109. IHS, &quot;Global Steam Coal service: coal-fired  power stations: operational and planned,&quot; <a href="https://connect.ihs.com/">https://connect.ihs.com/</a> (subscription site).</p>
+      <p><a name="110"></a>110. Ministry of Knowledge Economy, &quot;The 6th basic  plan of long-term electricity supply and demand (2013-2027)&quot; (February 2013), <a href="http://www.kpx.or.kr/eng/downloadBbsFile.do?atchmnflNo=23330">www.kpx.or.kr/eng/downloadBbsFile.do?atchmnflNo=23330</a>.</p>
+      <p><a name="111"></a>111. U.S.  Energy Information Administration, &quot;Recent statistical revisions suggest higher  historical coal consumption in China,&quot; Today In Energy (Washington, DC:  September 16, 2015), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=22952&amp;src=email">http://www.eia.gov/todayinenergy/detail.cfm?id=22952&amp;src=email</a>.</p>
+      <p><a name="112"></a>112. National Development and Reform Commission,  &quot;China's Policies and Actions on Climate Change&quot; (November 2014), <a href="http://en.ccchina.gov.cn/archiver/ccchinaen/UpFile/Files/Default/20141126133727751798.pdf">http://en.ccchina.gov.cn/archiver/ccchinaen/UpFile/Files/Default/20141126133727751798.pdf</a>.</p>
+      <p><a name="113"></a>113. The State Council, People's Republic of China,  &quot;'Made in China 2025' plan issued&quot; (May 19, 2015,), <a href="http://english.gov.cn/policies/latest_releases/2015/05/19/content_281475110703534.htm">http://english.gov.cn/policies/latest_releases/2015/05/19/content_281475110703534.htm</a>.</p>
+      <p><a name="114"></a>114. China Council for International Cooperation on  Environment and Development (CCICED), <em>Progress  in Environment and Development Policies in China (2013-2014) and CCICED Policy  Recommendations Impact</em> (December 2014), <a href="http://www.cciced.net/encciced/policyresearch/impact/201504/P020150413373426638425.pdf">http://www.cciced.net/encciced/policyresearch/impact/201504/P020150413373426638425.pdf</a>.</p>
+      <p><a name="115"></a>115. (Chinese)  Ministry of Environmental Protection (September 2014), <a href="http://www.mep.gov.cn/gkml/hbb/gwy/201409/W020140925407622627853.pdf">http://www.mep.gov.cn/gkml/hbb/gwy/201409/W020140925407622627853.pdf</a>.</p>
+      <p><a name="116"></a>116. China Energy Conservation and Environmental  Protection Group, &quot;Three Ministries and Commissions Jointly Issue Action Plan  for the Transformation and Upgrading of Coal Power Energy Conservation and  Emission Reduction&quot; (October 9, 2014), <a href="http://www.cecep.cn/g3621/s12528/t37687.aspx">http://www.cecep.cn/g3621/s12528/t37687.aspx</a>.</p>
+      <p><a name="117"></a>117. Xinhua Finance Agency, &quot;China targets  industrial coal use for environmental protection&quot; (March 2, 2015), <a href="http://en.xinfinance.com/html/Industries/Energy/2015/59603.shtml">http://en.xinfinance.com/html/Industries/Energy/2015/59603.shtml</a>.</p>
+      <p><a name="118"></a>118.  Xinhuanet,  &quot;China unveils energy strategy, targets for 2020&quot; (November 19, 2014), <a href="http://news.xinhuanet.com/english/china/2014-11/19/c_133801014.htm">http://news.xinhuanet.com/english/china/2014-11/19/c_133801014.htm</a></p>
+      <p><a name="119"></a>119. L.  Lan, &quot;China, US promise to reduce emissions,&quot; China Daily (November 13, 2014), <a href="http://m.chinadaily.com.cn/en/2014-11/13/content_18904652.htm">http://m.chinadaily.com.cn/en/2014-11/13/content_18904652.htm</a>.</p>
+      <p><a name="120"></a>120. &quot;China's harsher environmental protection law  to take effect,&quot; China Daily (January 1, 2015), <a href="http://www.chinadaily.com.cn/business/2015-01/01/content_19212213.htm">http://www.chinadaily.com.cn/business/2015-01/01/content_19212213.htm</a>.</p>
+      <p><a name="121"></a>121. (Chinese) Coal Industry Policy, National  Energy Administration, February 2013, <a href="http://www.nea.gov.cn/2013-02/04/c_132149959.htm">http://www.nea.gov.cn/2013-02/04/c_132149959.htm</a>.</p>
+      <p><a name="122"></a>122. (Chinese) Coal Logistics Development Plan,  National Development and Reform Commission (December 2013), <a href="http://www.sdpc.gov.cn/zcfb/zcfbghwb/201401/W020140221373227123903.pdf">http://www.sdpc.gov.cn/zcfb/zcfbghwb/201401/W020140221373227123903.pdf</a>.</p>
+      <p><a name="123"></a>123. U.S. Energy Information Administration,  International Energy Statistics, <a href="../../emeu/international/contents.html">http://www.eia.gov/beta/international/</a>.</p>
+      <p><a name="124"></a>124. BP, Statistical Review 2015, <a href="http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy/downloads.html">http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy/downloads.html</a>.</p>
+      <p><a name="125"></a>125. Eskom, &quot;Coal in South Africa,&quot; <a href="http://www.eskom.co.za/AboutElectricity/FactsFigures/Documents/CO_0007CoalSARev13.pdf">http://www.eskom.co.za/AboutElectricity/FactsFigures/Documents/CO_0007CoalSARev13.pdf</a>.</p>
+      <p><a name="126"></a>126. U.S. Energy Information Administration, &quot;South  Africa&quot; (April, 2015), <a href="http://www.eia.gov/beta/international/analysis.cfm?iso=ZAF">http://www.eia.gov/beta/international/analysis.cfm?iso=ZAF</a>.</p>
+      <p><a name="127"></a>127. U.S. Energy Information Administration, &ldquo;South  Africa&rdquo; (April, 2015), <a href="http://www.eia.gov/beta/international/analysis.cfm?iso=ZAF">http://www.eia.gov/beta/international/analysis.cfm?iso=ZAF</a>.</p>
+      <p><a name="128" id="128"></a>128. India  production, 2013-14: Government of India, Ministry of Coal, <em>Provisional Coal Statistics 2013-14</em> (Kolkata, July 2014), Table 2.9, &quot;Trends of Company Wise Production of Coal  &amp; Lignite During Last Three Years,&quot; <a href="http://www.coal.nic.in/sites/upload_files/coal/files/coalupload/provisional1314_0.pdf">http://www.coal.nic.in/sites/upload_files/coal/files/coalupload/provisional1314_0.pdf</a>.</p>
+      <p><a name="129"></a>129. S. Jha, &quot;Coal India goes for makeover,&quot; <em>The Financial Express</em> (June 3, 2015), <a href="http://www.financialexpress.com/article/industry/companies/coal-india-goes-for-makeover/79443/">http://www.financialexpress.com/article/industry/companies/coal-india-goes-for-makeover/79443/</a>; and &quot;Coal India gearing up for 1 billion  tonne coal production,&quot; Newsroom24x7 (February 20, 2015), <a href="http://newsroom24x7.com/2015/02/20/coal-india-gearing-up-for-1-billion-tonne-coal-production/">http://newsroom24x7.com/2015/02/20/coal-india-gearing-up-for-1-billion-tonne-coal-production/</a>.</p>
+      <p><a name="130"></a>130. The Hindu Business Line, &quot;Coal India to invest  $20 billion in five years: Goyal&quot; (May 15, 2015), <a href="http://www.thehindubusinessline.com/news/coal-india-to-invest-20-billion-in-five-years-goyal/article7209867.ece?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication">http://www.thehindubusinessline.com/news/coal-india-to-invest-20-billion-in-five-years-goyal/article7209867.ece?utm_source=RSS_Feed&amp;utm_medium=RSS&amp;utm_campaign=RSS_Syndication</a>.</p>
+      <p><a name="131"></a>131. K.N. Das and J. Dash, &quot;Coal India units see  double-digit output growth in 2014/15,&quot; Reuters Business News (February 18,  2014), <a href="http://in.reuters.com/article/2014/02/18/coalindia-output-westerncoalfields-idINDEEA1H07F20140218">http://in.reuters.com/article/2014/02/18/coalindia-output-westerncoalfields-idINDEEA1H07F20140218</a>.</p>
+      <p><a name="132"></a>132. Government of India, <em>Provisional Coal Statistics 2013-14</em>, p. 32, Table 2.10, &quot;Block wise  production of raw coal during 2013-14,&quot; and p. 12, &ldquo;Captive Coal Blocks,&rdquo; <a href="http://www.coal.nic.in/sites/upload_files/coal/files/coalupload/provisional1314_0.pdf">http://www.coal.nic.in/sites/upload_files/coal/files/coalupload/provisional1314_0.pdf</a>.</p>
+      <p><a name="133"></a>133. Infrastructure Development Finance Company,  Ltd., &quot;Captive coal mining by private power developers &#8211; Issues and road ahead&quot;  (2008), <a href="http://www.idfc.com/pdf/publications/captive_coal_mining_final.pdf">http://www.idfc.com/pdf/publications/captive_coal_mining_final.pdf</a>.</p>
+      <p><a name="134"></a>134. S.P. Singh, &quot;No-go ghost still haunts Coal  India&quot; (May 22, 2012), <em>Business Standard</em>, <a href="http://www.business-standard.com/article/companies/no-go-ghost-still-haunts-coal-india-112052200055_1.html">http://www.business-standard.com/article/companies/no-go-ghost-still-haunts-coal-india-112052200055_1.html</a>.</p>
+      <p><a name="135"></a>135. <em>The  Economic Times</em>, &quot;Coal India  to take 11.5MT hit on latest green directive; stock up&quot; (June 3, 2011), <a href="http://articles.economictimes.indiatimes.com/2011-06-03/news/29617105_1_environment-ministry-coal-projects-forest-clearances">http://articles.economictimes.indiatimes.com/2011-06-03/news/29617105_1_environment-ministry-coal-projects-forest-clearances</a>.</p>
+      <p><a name="136"></a>136. <em>The  Economic Times</em>, &quot;Government  panel says 'Go, No-Go' concept of forest area classification legally not  tenable and should be abandoned&quot; (July 29, 2011), <a href="http://articles.economictimes.indiatimes.com/2011-07-29/news/29829405_1_environment-ministry-coal-blocks-forest-clearance">http://articles.economictimes.indiatimes.com/2011-07-29/news/29829405_1_environment-ministry-coal-blocks-forest-clearance</a>.</p>
+      <p><a name="137"></a>137. S. Saraf, &quot;India coal: transport bottlenecks  as demand is expected to rise&quot; (Platts: May 27, 2015), <a href="http://www.platts.com/news-feature/2015/coal/india-coal-transport/index?wt.mc_id=coap201505we_indiarail&amp;wt.tsrc=eloqua">http://www.platts.com/news-feature/2015/coal/india-coal-transport/index?wt.mc_id=coap201505we_indiarail&amp;wt.tsrc=eloqua</a>.</p>
+      <p><a name="138"></a>138. New Delhi Television, &quot;Government to expedite  construction of three rail lines to move coal&quot; (July 8, 2014), <a href="http://profit.ndtv.com/budget/government-to-expedite-construction-of-three-rail-lines-to-move-coal-585385">http://profit.ndtv.com/budget/government-to-expedite-construction-of-three-rail-lines-to-move-coal-585385</a>; and A. Swarup, &quot;Odisha rail project for coal  likely to complete by 2017: Coal India Ltd,&quot; <em>The Times of India: The Economic Times</em> (April 13, 2015), <a href="http://articles.economictimes.indiatimes.com/2015-04-13/news/61103072_1_bhupdeopur-raigarh-mand-area-coal-india-ltd-tori-shivpur-kathautia-area">http://articles.economictimes.indiatimes.com/2015-04-13/news/61103072_1_bhupdeopur-raigarh-mand-area-coal-india-ltd-tori-shivpur-kathautia-area</a>.</p>
+      <p><a name="139"></a>139. Zeenews,  &quot;Govt to give priority to 3 critical rail links to carry coal&quot; (May 26, 2014), <a href="http://zeenews.india.com/business/news/economy/govt-to-give-priority-to-3-critical-rail-links-to-carry-coal_100279.html">http://zeenews.india.com/business/news/economy/govt-to-give-priority-to-3-critical-rail-links-to-carry-coal_100279.html</a>.</p>
+      <p><a name="140"></a>140. New Delhi Television, &quot;Government to expedite  construction of three rail lines to move coal&quot; (July 8, 2014), <a href="http://profit.ndtv.com/budget/government-to-expedite-construction-of-three-rail-lines-to-move-coal-585385">http://profit.ndtv.com/budget/government-to-expedite-construction-of-three-rail-lines-to-move-coal-585385</a>.</p>
+      <p><a name="141"></a>141. CNBCTV18 moneycontrol, &quot;Targeting 10% total  sales via e-auction route: Coal India&quot; (April 08, 2015), <a href="http://www.moneycontrol.com/news/business/targeting-10total-sales-via-e-auction-routecoal-india_1351734.html?utm_source=ref_article">http://www.moneycontrol.com/news/business/targeting-10total-sales-via-e-auction-routecoal-india_1351734.html?utm_source=ref_article</a>.</p>
+      <p><a name="142"></a>142. S. Jha, &quot;Coal India goes for makeover&quot; (The  Financial Express: June 3, 2015) <a href="http://www.financialexpress.com/article/industry/companies/coal-india-goes-for-makeover/79443/">http://www.financialexpress.com/article/industry/companies/coal-india-goes-for-makeover/79443/</a>.</p>
+      <p><a name="143"></a>143. World Bank, &quot;India: Data,&quot; <a href="http://data.worldbank.org/country/india">http://data.worldbank.org/country/india</a> (2015).</p>
+      <p><a name="144"></a>144. Derived by assuming 200 gigawatts of  coal-fired power plant capacity (utility and non-utility plants) and 0.6 MMmt  of coal per additional kilowatthour of generation.</p>
+      <p><a name="145"></a>145. Europe/Other includes coal-importing countries  in Europe, Eurasia, the Middle East, and Africa.</p>
+      <p><a name="146"></a>146. P. Baruya, Impacts of seaborne trade on coal  importing countries â€“ global summary, IEA Clean Coal Center, CCC/197 (London,  United Kingdom, May 2012), pp. 27-29, <a href="http://www.iea-coal.org.uk">http://www.iea-coal.org.uk</a> (subscription site); EURACOAL members and  secretariat, EURACOAL Market Report 1/2015, Euracoal (Brussels, Belgium, April  2015), pp. 5-7; and &ldquo;Turkey Coal Profile,&rdquo; IHS Energy Global Steam Coal Service  Country Profiles (September 2015), <a href="http://connect.ihs.com/DisplayDocument/Show?source=gi&amp;docid=2437095&amp;connectPath=EmailAlerts&amp;utm_campaign=Immediate%202437095%20from%20gi&amp;utm_source=EmailAlerts&amp;utm_medium=email">http://connect.ihs.com/DisplayDocument/Show?source=gi&amp;docid=2437095&amp;connectPath=EmailAlerts&amp;utm_campaign=Immediate%202437095%<br />
+        20from%20gi&amp;utm_source=EmailAlerts&amp;utm_medium=email</a> (subscription site).</p>
+      <p><a name="147"></a>147. B. Lee, &quot;UK fuel switch gains traction but  road not smooth,&quot; ICIS (November 16, 2015), <a href="http://www.icis.com/resources/news/2015/11/16/9944374/analysis-uk-fuel-switch-gains-traction-but-road-not-smooth">http://www.icis.com/resources/news/2015/11/16/9944374/analysis-uk-fuel-switch-gains-traction-but-road-not-smooth</a>; and J. Holman, &quot;UK July thermal coal imports  fall 71% on-year to 821,375 mt,&quot; <em>Platts  Coal Trader International</em>, Vol. 15, No. 175 (October 14, 2015), pp. 1 &amp;  11, <a href="http://www.platts.com">http://www.platts.com</a> (subscription site).</p>
+      <p><a name="148"></a>148. World Steel Association, <em>Steel Statistical Yearbook 2015</em> (Brussels, Belgium: 2015), pp.  91-92, <a href="https://www.worldsteel.org/statistics/statistics-archive/yearbook-archive.html">https://www.worldsteel.org/statistics/statistics-archive/yearbook-archive.html</a>.</p>
+      <p><a name="149"></a>149. Australian Government, Department of Industry  and Science, Office of the Chief Economist, <em>Coal  in India</em> (June 2015), pp. 79-83, <a href="http://www.industry.gov.au/Office-of-the-Chief-Economist/Publications/Pages/Coal-in-India.aspx">http://www.industry.gov.au/Office-of-the-Chief-Economist/Publications/Pages/Coal-in-India.aspx</a>.</p>
+      <p><a name="150"></a>150. Financial pressures related to the recent  decline in both international coal trade and prices have led some companies to  back away from their investments in Mozambique&rsquo;s coal industry (e.g., Rio Tinto  sold its three coal mining projects in the country to the Indian company  International Coal Ventures Private Limited (ICVL) in 2014 for a price much  lower than it paid for them in 2011). However, other companies have remained  and are continuing to move forward with their investment projects. For example,  Vale is continuing its work to complete a 567-mile rail line to the port of  Nacala in Mozambique. That project, scheduled for completion in 2016, will have  an initial annual coal transport capacity of 20 MMst. Upgrades to the 357-mile  Sena Railway, also underway, will increase its annual transport capacity from 7  MMst to approximately 22 MMst by June 2016.</p>
+      <p><a name="151"></a>151. K. Campbell, &quot;Mozambique's coal sector still  embattled, but bottlenecks should soon go,&quot; Creamer Media's Mining Weekly  (October 16, 2015), <a href="http://www.miningweekly.com/article/mozambiques-coal-sector-still-embattled-but-bottlenecks-should-soon-go-2015-10-16">http://www.miningweekly.com/article/mozambiques-coal-sector-still-embattled-but-bottlenecks-should-soon-go-2015-10-16</a>; P. Fauvet, &quot;Tata Steel to Sell Benga Coal  Assets,&quot; allAfrica (February 20, 2015), <a href="http://allafrica.com/stories/201505131549.html">http://allafrica.com/stories/201505131549.html</a>; J. Rowland, &quot;Vale coal production down y/y  in 3Q15,&quot; <em>World Coal</em> (October 21,  2015), <a href="http://www.worldcoal.com/mining/21102015/Vale-coal-production-down-year-on-year-in-3Q15-3041">http://www.worldcoal.com/mining/21102015/Vale-coal-production-down-year-on-year-in-3Q15-3041</a>; and L. Caruana, &quot;Isaac Plains, Integra  reduce Vale's coal output,&quot; <em>International  Coal News</em> (October 21, 2015), <a href="http://www.internationalcoalnews.com/storyview.asp?storyID=826957202&amp;section=News&amp;sectionsource=s46&amp;aspdsc=yes">http://www.internationalcoalnews.com/storyview.asp?storyID=826957202&amp;section=News&amp;sectionsource=s46&amp;aspdsc=yes</a>.</p>
+      <p><a name="152"></a>152. Europe/Other  includes the countries of Europe, Eurasia, the Middle East, and Africa.</p>
+      <p><a name="153"></a>153. U.S.  Energy Information Administration, &quot;International energy data and analysis,&quot; <a href="../../emeu/international/contents.html">http://www.eia.gov/beta/international/</a>.</p>
+      <p><a name="154"></a>154. Xiaomin  Liu and Shan Xue, &quot;China Coal Market Briefing: Third quarter 2015&quot; (IHS Energy,  August 2015), p. 2, <a href="http://connect.ihs.com/DisplayDocument/Show?source=gi&amp;docid=2831005&amp;connectPath=EmailAlerts&amp;utm_campaign=Immediate%202831005%20from%20gi&amp;utm_source=EmailAlerts&amp;utm_medium=email">http://connect.ihs.com/DisplayDocument/Show?source=gi&amp;docid=2831005&amp;connectPath=EmailAlerts&amp;utm_campaign=<br />
+        Immediate%202831005%20from%20gi&amp;utm_source=EmailAlerts&amp;utm_medium=email</a> (subscription site).</p>
+      <p><a name="155"></a>155. R.  Somwanshi, &quot;After import tariff, China to impose coal resource tax,&quot; SNL Energy  Extra (October 13, 2014), <a href="http://www.snl.com">http://www.snl.com</a> (subscription site); J. Yang, &quot;China reinstates coal import tariffs to support  domestic miners,&quot; Bloomberg News (October 9, 2014), <a href="http://www.bloomberg.com/news/articles/2014-10-09/china-reinstates-coal-import-tariffs-to-support-domestic-miners">http://www.bloomberg.com/news/articles/2014-10-09/china-reinstates-coal-import-tariffs-to-support-domestic-miners</a>;  and Australian Government, Department of Industry and Science, Office of the  Chief Economist, <em>Resources and Energy  Quarterly</em>, Vol. 4, No. 3 (Canberra, Australia: March 2015), pp. 49-50, <a href="http://www.industry.gov.au/Office-of-the-Chief-Economist/Publications/Pages/Resources-and-energy-quarterly.aspx">http://www.industry.gov.au/Office-of-the-Chief-Economist/Publications/Pages/Resources-and-energy-quarterly.aspx</a>.</p>
+      <p><a name="156"></a>156. Argus  Consulting Services, <em>Argus Seaborne  Thermal Coal Report</em>, Issue 15-11 (November 6, 2015), p. 5, <a href="http://www.argusmedia.com">http://www.argusmedia.com</a> (subscription site); and personal  communication (e-mail) from Mr. Hayden Atkins, Argus Consulting Services, New  York, NY (November 23, 2015).</p>
+      <p><a name="157"></a>157. R. Somwanshi, &quot;Government eyes zero Indian coal  imports by 2020, experts say not possible,&quot; <em>SNL  Daily Coal Report</em>, Vol. 9, No. 43 (March 6, 2015), pp. 10-11, <a href="http://www.snl.com">http://www.snl.com</a> (subscription site).</p>
+      <p><a name="158"></a>158. U.S. Energy Information Administration,  &quot;India's coal industry in flux as government sets ambitious coal production  targets,&quot; Today in Energy (Washington, DC: August 25, 2015), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=22652">http://www.eia.gov/todayinenergy/detail.cfm?id=22652</a>.</p>
+      <p><a name="159"></a>159. R. Somwanshi, &ldquo;Coal &lsquo;importing is inevitable&rsquo;  for Vietnam, expert says,&rdquo; SNL Energy (November 19, 2014), <a href="http://www.snl.com">http://www.snl.com</a> (subscription site); E. Adourian, &ldquo;Global  Steam Coal Service: Vietnam Coal Profile&rdquo; (IHS Energy, July 2015), <a href="http://connect.ihs.com">http://connect.ihs.com</a> (subscription site); and C. Shearer et al., <em>Boom and Bust 2016: Tracking the Global Coal  Plant Pipeline</em> (March 2016), p. 38, <a href="http://sierraclub.org/sites/www.sierraclub.org/files/uploads-wysiwig/final%20boom%20and%20bust%202017%20(3-27-16).pdf">http://sierraclub.org/sites/www.sierraclub.org/files/uploads-wysiwig/final%20boom%20and%20bust%202017%20(3-27-16).pdf</a>.</p>
+      <p><a name="160"></a>160. R. Somwanshi, &ldquo;Global coal exports slip in  April, but continued growth in seaborne markets seen,&rdquo; SNL Energy Exclusive  (June 30, 2015), <a href="http://www.snl.com">http://www.snl.com</a> (subscription site).</p>
+      <p><a name="161"></a>161. Mitsui &amp; Co., &quot;News release: Mitsui to  participate in Coal and Rail &amp; Port Infrastructure Business in Mozambique&quot;  (December 9, 2014), <a href="https://www.mitsui.com/jp/en/release/2014/1203631_5699.html">https://www.mitsui.com/jp/en/release/2014/1203631_5699.html</a>; R. Somwanshi, &quot;Major banks end advisory roles,  cast doubt over big coal project in Australia,&quot; SNL Energy Extra (August 11,  2015), <a href="http://www.snl.com">http://www.snl.com</a> (subscription site); and M. Christian, &quot;West Coast coal terminal developers  keep eyes on prize in face of opposition,&quot; SNL Energy Exclusive (June 12,  2015), <a href="http://www.snl.com">http://www.snl.com</a> (subscription site).</p>
+      <p><a name="162"></a>162. Recoverable reserves are those quantities of  coal that geological and engineering information indicates with reasonable  certainty can be extracted in the future under existing economic and operating  conditions. The reserves-to-production ratio is based on reserves estimates and  data on world coal production for 2012 (Table C3).</p>
+      <p><a name="163"></a>163. U.S. Energy Information Administration, <em>International Energy Annual 1991</em>,  DOE/EIA-0219(91) (Washington, DC: December 1992), Table 33, <a href="https://books.google.com/books?id=2JEtMwEACAAJ&amp;dq=International+Energy+Annual+1991&amp;hl=en&amp;sa=X&amp;ved=0ahUKEwi51N6UlNLJAhVDQSYKHRHJD9kQ6AEIHTAA">https://books.google.com/books?id=2JEtMwEACAAJ&amp;dq=International+Energy+Annual+1991&amp;hl=en&amp;sa=X&amp;ved=<br />
+        0ahUKEwi51N6UlNLJAhVDQSYKHRHJD9kQ6AEIHTAA</a>; and <em>Annual  Energy Review 2009</em>, DOE/EIA-0384 (2009) (Washington, DC, August 2010),  Table 11.13, <a href="../../totalenergy/data/annual/index.cfm.html">http://www.eia.gov/totalenergy/data/annual/index.cfm</a>.</p>
+      <p><a name="164"></a>164. World  Resources Institute, &quot;Renewable Energy in China: An Overview&quot; (Washington, DC:  May 13, 2014), <a href="http://www.chinafaqs.org/files/chinainfo/ChinaFAQs_Renewable_Energy_Overview_0.pdf">http://www.chinafaqs.org/files/chinainfo/ChinaFAQs_Renewable_Energy_Overview_0.pdf</a>.</p>
+      <p><a name="165"></a>165. European Commission, &quot;2030 climate &amp;  energy framework&quot; (December 10, 2015), <a href="http://ec.europa.eu/clima/policies/strategies/2030/index_en.htm">http://ec.europa.eu/clima/policies/strategies/2030/index_en.htm</a>.</p>
+      <p><a name="166"></a>166. &quot;India  graduating from megawatts to gigawatts in renewable energy: Modi,&quot;  newKerala.com (February 16, 2015), <a href="http://www.newkerala.com/news/2015/fullnews-19800.html">http://www.newkerala.com/news/2015/fullnews-19800.html</a>.</p>
+      <p><a name="167"></a>167. International  Institute for Sustainable Development, &quot;Climate Change Policy &amp; Practice&quot;  (undated), <a href="http://climate-l.iisd.org/events/unfccc-cop-21/">http://climate-l.iisd.org/events/unfccc-cop-21/</a>.</p>
+      <h4>Chapter 5 - Electricity</h4>
+      <p><a name="168"></a>168. International  Energy Agency, &quot;Coal statistics&quot; (undated), <a href="http://www.iea.org/statistics/topics/coal/">http://www.iea.org/statistics/topics/coal/</a>.</p>
+      <p><a name="169"></a>169. Excluding  the impact of the Clean Power Plan in the United States, which would reduce  overall growth by roughly 560 billion kWh, or about 5%, by 2030 according to  the EIA report, <em>Analysis of the Impacts  of the Clean Power Plan</em> (Washington, DC: May 2015), <a href="https://www.eia.gov/analysis/requests/powerplants/cleanplan/">https://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+      <p><a name="170"></a>170. International  Energy Agency, Energy Balances of OECD Countries (2013), and Energy Balances of  Non-OECD Countries (2013), <a href="http://www.iea.org/statistics/onlinedataservice/">http://www.iea.org/statistics/onlinedataservice/</a> (subscription site).</p>
+      <p><a name="171"></a>171. International Energy Agency, Photovoltaic  Power Systems Programme, &quot;National Survey Reports,&quot; <a href="http://www.iea-pvps.org">http://www.iea-pvps.org</a>.</p>
+      <p><a name="172"></a>172. T.  Kenning, &quot;Government of India officially approves 100GW solar target&quot; (June 18,  2015), <a href="http://www.pv-tech.org/news/government_of_india_officially_approves_100gw_solar_target">http://www.pv-tech.org/news/government_of_india_officially_approves_100gw_solar_target</a>.</p>
+      <p><a name="173"></a>173. U.S. Energy Information Administration,  International Energy Statistics database (Washington, DC: October 2015), <a href="http://www.eia.gov/cfapps/ipdbproject/iedindex3.cfm?tid=2&amp;pid=2&amp;aid=7&amp;cid=r7,&amp;syid=2008&amp;eyid=2012&amp;unit=MK">http://www.eia.gov/cfapps/ipdbproject/iedindex3.cfm?tid=2&amp;pid=2&amp;aid=7&amp;cid=r7,&amp;syid=2008&amp;eyid=2012&amp;unit=MK</a></p>
+      <p><a name="174"></a>174. Mekong River Commission, <em>State of the Basin Report: 2010</em> (Vientiane, Laos: October 2010), <a href="http://www.mrcmekong.org/assets/Publications/basin-reports/MRC-SOB-report-2010full-report.pdf">http://www.mrcmekong.org/assets/Publications/basin-reports/MRC-SOB-report-2010full-report.pdf</a>.</p>
+      <p><a name="175"></a>175. International Centre for Environment  Management, <em>Strategic Environmental  Assessment of Hydropower on the Mekong Mainstream: Summary of the Final Report</em> (Melbourne, Australia: October 2010), <a href="http://www.mrcmekong.org/assets/Publications/Consultations/SEA-Hydropower/SEA-FR-summary-13oct.pdf">http://www.mrcmekong.org/assets/Publications/Consultations/SEA-Hydropower/SEA-FR-summary-13oct.pdf</a>.</p>
+      <p><a name="176"></a>176. T.  Minh, &quot;PM approves adjustments to electricity plan,&quot; <em>Vietnam Economic Times</em> (March 19, 2016), <a href="http://vneconomictimes.com/article/vietnam-today/pm-approves-adjustments-to-electricity-plan">http://vneconomictimes.com/article/vietnam-today/pm-approves-adjustments-to-electricity-plan</a>.</p>
+      <p><a name="177"></a>177. The World Bank, &quot;Vietnam: Trung Son Hydropower Project:  Map 2: Area of Project Activities&quot; (December 2010), <a href="http://www.worldbank.org/content/dam/Worldbank/document/vn-trung-son-map.pdf">http://www.worldbank.org/content/dam/Worldbank/document/vn-trung-son-map.pdf</a>.</p>
+      <p><a name="178"></a>178. PWC Indonesia, <em>Power  in Indonesia: Investment and Taxation Guide</em>, Second Edition (April 2013), <a href="http://www.pwc.com/id/en/publications/assets/electricity-guide-2013.pdf">http://www.pwc.com/id/en/publications/assets/electricity-guide-2013.pdf</a>.</p>
+      <p><a name="179"></a>179. P. Johansen, &quot;Indonesia - Upper Cisokan Pumped Storage  Hydro-Electrical Power (1040 MW) Project : P112158 - Implementation Status  Results Report: Sequence 06 (English)&quot; (World Bank Group: December 15, 2014), <a href="http://documents.worldbank.org/curated/en/2014/12/23026604/indonesia-upper-cisokan-pumped-storage-hydro-electrical-power-1040-mw-project-p112158-implementation-status-results-report-sequence-06">http://documents.worldbank.org/curated/en/2014/12/23026604/indonesia-upper-cisokan-pumped-storage-hydro-electrical-power-1040-mw-project-p112158-implementation-status-results-report-sequence-06</a>.</p>
+      <p><a name="180"></a>180. M. Harris, &quot;Gate installation begins at Laos' 1,285-MW  Xayaburi hydropower plant,&quot; <em>Hydro Review</em> (Luang Prabang, Laos: September 2, 2014), <a href="http://www.hydroworld.com/articles/2014/09/gate-installation-begins-at-laos-1-285-mw-xayaburi-hydropower-plant.html">http://www.hydroworld.com/articles/2014/09/gate-installation-begins-at-laos-1-285-mw-xayaburi-hydropower-plant.html</a>.</p>
+      <p><a name="181"></a>181. International Centre for Environment Management, <em>Strategic Environmental Assessment of  Hydropower on the Mekong Mainstream: Final Report</em> (Melbourne, Australia:  October 2010), <a href="http://www.mrcmekong.org/assets/Publications/Consultations/SEA-Hydropower/SEA-Main-Final-Report.pdf">http://www.mrcmekong.org/assets/Publications/Consultations/SEA-Hydropower/SEA-Main-Final-Report.pdf</a>.</p>
+      <p><a name="182"></a>182 The  IEO2015 projections include only marketed renewables as renewable energy  sources. Nonmarketed traditional biomass from plant and animal resources is not  included, because comprehensive data on its use are not available.</p>
+      <p><a name="183"></a>183. A. Goetzl, <em>Developments  in the Global Trade of Wood Pellets</em>, U.S. International Trade Commission,  Office of Industries Working Paper No. ID-039 (Washington, DC: January 2015), <a href="http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf">http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf</a>.</p>
+      <p><a name="184"></a>184. European Commission, &quot;2020 climate &amp;  energy package&quot; (updated October 6, 2015), <a href="http://ec.europa.eu/clima/policies/strategies/2020/faq_en.htm">http://ec.europa.eu/clima/policies/strategies/2020/faq_en.htm</a>.</p>
+      <p><a name="185"></a>185. Cofiring is the simultaneous combustion of two  different fuels&#8212;usually coal and biomass. Dedicated biomass plants run  completely on biomass.</p>
+      <p><a name="186"></a>186. A. Goetzl, <em>Developments  in the Global Trade of Wood Pellets</em>, <a href="http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf">http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf</a>.</p>
+      <p><a name="187"></a>187. United Kingdom, Department of Energy &amp;  Climate Change, Environment Agency, Policy paper, 2010 to 2015 government  policy: low carbon technologies (May 8, 2015), <a href="https://www.gov.uk/government/publications/2010-to-2015-government-policy-low-carbon-technologies/2010-to-2015-government-policy-low-carbon-technologies">https://www.gov.uk/government/publications/2010-to-2015-government-policy-low-carbon-technologies/2010-to-2015-government-policy-low-carbon-technologies</a>.</p>
+      <p><a name="188"></a>188. United Kingdom, Department of Energy &amp;  Climate Change, Statistics - national statistics, Energy Trends section 6:  renewables (October 8, 2015) <a href="https://www.gov.uk/government/statistics/energy-trends-section-6-renewables">https://www.gov.uk/government/statistics/energy-trends-section-6-renewables</a>.</p>
+      <p><a name="189"></a>189. Drax Group plc, &quot;Biomass Supply&quot; (February  2015), <a href="http://www.drax.com/media/56583/biomass-supply-report-2014.pdf">http://www.drax.com/media/56583/biomass-supply-report-2014.pdf</a>.</p>
+      <p><a name="190"></a>190. K.  Fletcher, &quot;Drax discusses recent regulation changes in half-year results,&quot; <em>Biomass Magazine</em> (July 28, 2015), <a href="http://biomassmagazine.com/articles/12237/drax-discusses-recent-regulation-changes-in-half-year-results">http://biomassmagazine.com/articles/12237/drax-discusses-recent-regulation-changes-in-half-year-results</a>.</p>
+      <p><a name="191"></a>191. A. Goetzl, <em>Developments  in the Global Trade of Wood Pellets</em>, U.S. International Trade Commission,  Office of Industries Working Paper No. ID-039 (Washington, DC: January 2015), <a href="http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf">http://www.usitc.gov/publications/332/wood_pellets_id-039_final.pdf</a>.</p>
+      <p><a name="192"></a>192. Bloomberg New Energy Finance, <a href="http://www.bnef.com">www.bnef.com</a> (subscription site).</p>
+      <p><a name="193"></a>193. Capacity  factors for the five-year period are averages, weighted for generators' annual  capacities. For regions with capacity factors missing for some years, only the  available capacity factors are used to calculate the five-year weighted  average.</p>
+      <p><a name="194"></a>194. For  example, a typical solar PV plant might have a DC rating of 10 megawatts (MW)  and an AC rating of 8 MW. If the plant produced 14,016 MWh of AC generation per  year, its AC-rated capacity factor (based on AC generation) would be 20%, but  its apparent DC-rated capacity factor, based on the DC capacity rating and the AC  generation, would be only 16%.</p>
+      <p><a name="195"></a>195. A.A.M. Singh (editor), <em>Renewable Energy&#8212;Renewables: The Energy for the 21st Century</em>, Part  IV (Oxford, UK: Elsevier Science Ltd., 2000), p. 2560, <a href="https://books.google.com/books/about/Renewable_Energy.html?id=8NEeAQAAIAAJ">https://books.google.com/books/about/Renewable_Energy.html?id=8NEeAQAAIAAJ</a>.</p>
+      <p><a name="196"></a>196. U.S. Energy Information Administration, &quot;Japan  restarts first nuclear reactor under new safety rules,&quot; <em>Today in Energy</em> (August 12, 2015), <a href="../../todayinenergy/detail.cfm@id=22472.html">http://www.eia.gov/todayinenergy/detail.cfm?id=22472</a>.</p>
+      <p><a name="197"></a>197. Under  ideal conditions, an ultra-supercritical turbine cycle system can convert steam  into rotational energy at 54% or higher efficiency, supercritical turbine  cycles can achieve 50% efficiency, and subcritical turbine cycles can achieve  46% efficiency.</p>
+      <p><a name="198"></a>198. K.  Burnard and S. Bhattacharya, <em>Power  Generation from Coal: Ongoing Developments and Outlook</em> (Paris, France: International  Energy Agency, October 2011), <a href="https://www.iea.org/publications/freepublications/publication/Power_Generation_from_Coal2011.pdf">https://www.iea.org/publications/freepublications/publication/Power_Generation_from_Coal2011.pdf</a>.</p>
+      <p><a name="199"></a>199. A.  Sheldrick and I. Kato, &quot;Japan restarts reactor in test of Abe's nuclear  policy,&quot; Reuters (August 11, 2015), <a href="http://www.reuters.com/article/us-japan-nuclear-restarts-idUSKCN0QF0YW20150811">http://www.reuters.com/article/us-japan-nuclear-restarts-idUSKCN0QF0YW20150811</a>.</p>
+      <p><a name="200"></a>200. U.S.  Energy Information Administration, &quot;Japan restarts first nuclear reactor under  new safety rules,&quot; Today in Energy (August 12, 2015), <a href="../../todayinenergy/detail.cfm@id=22472.html">http://www.eia.gov/todayinenergy/detail.cfm?id=22472</a>.</p>
+      <p><a name="201"></a>201. K. Appunn,  &quot;The history behind Germany's nuclear phase-out,&quot; Clean Energy Wire (July 24,  2015), <a href="https://www.cleanenergywire.org/factsheets/history-behind-germanys-nuclear-phase-out">https://www.cleanenergywire.org/factsheets/history-behind-germanys-nuclear-phase-out</a>.</p>
+      <p><a name="202"></a>202. World  Nuclear News, &quot;French parliament approves energy transition&quot; (October 13,  2014), <a href="http://www.world-nuclear-news.org/NP-French-parliament-approves-energy-transition-1310144.html">http://www.world-nuclear-news.org/NP-French-parliament-approves-energy-transition-1310144.html</a>.</p>
+      <p><a name="203"></a>203. &quot;FACT  SHEET: U.S.-China Joint Announcement on Climate Change and Clean Energy  Cooperation,&quot; White House press release (November 11, 2014), <a href="https://www.whitehouse.gov/the-press-office/2014/11/11/fact-sheet-us-china-joint-announcement-climate-change-and-clean-energy-c">https://www.whitehouse.gov/the-press-office/2014/11/11/fact-sheet-us-china-joint-announcement-climate-change-and-clean-energy-c</a>.</p>
+      <p><a name="204"></a>204. World  Resources Institute, &quot;CAIT Climate Data Explorer: China&quot; (last updated July 1,  2015), <a href="http://cait.wri.org/indc/#/profile/China">http://cait.wri.org/indc/#/profile/China</a>.</p>
+      <p><a name="205"></a>205. &quot;FACT  SHEET: U.S.-China Joint Announcement on Climate Change and Clean Energy  Cooperation,&quot; White House press release (November 11, 2014), <a href="https://www.whitehouse.gov/the-press-office/2014/11/11/fact-sheet-us-china-joint-announcement-climate-change-and-clean-energy-c">https://www.whitehouse.gov/the-press-office/2014/11/11/fact-sheet-us-china-joint-announcement-climate-change-and-clean-energy-c</a>.</p>
+      <p><a name="206"></a>206. C.  Helman, &quot;China-Russia Gas Deal Should Unleash A Euro-Fracking Revolution,&quot;  Forbes / Energy (May 21, 2014), <a href="http://www.forbes.com/sites/christopherhelman/2014/05/21/china-russia-gas-deal-should-unleash-a-euro-fracking-revolution/">http://www.forbes.com/sites/christopherhelman/2014/05/21/china-russia-gas-deal-should-unleash-a-euro-fracking-revolution/</a>.</p>
+      <p><a name="207"></a>207. International  Energy Agency, <em>World Energy Outlook 2014</em> (Paris, France: November 2014), p. 235.</p>
+      <p><a name="208"></a>208. India's  fiscal year runs from April 1 to March 31. FY 2001 ran from April 1, 2001, to  March 31, 2002.</p>
+      <p><a name="209"></a>209. H. Sarma  and R. Russell, &quot;Second day of India's electricity outage hits 620 million,&quot; <em>USA Today News</em> (July 31, 2012), <a href="http://usatoday30.usatoday.com/news/world/story/2012-07-31/india-power-outage/56600520/1">http://usatoday30.usatoday.com/news/world/story/2012-07-31/india-power-outage/56600520/1</a>; &quot;Power Cuts in India,&quot; <a href="http://powercuts.in/reports">http://powercuts.in/reports</a>.</p>
+      <p><a name="210"></a>210. International Energy Agency, <em>Understanding Energy Challenges in India:  Policies, Players and Issues</em> (Paris, France: 2012), <a href="http://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf">http://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf</a>.</p>
+      <p><a name="211"></a>211. Government of India, Ministry of Power,  Central Electricity Authority, <em>Load  Generation Balance Report 2015-16</em> (New Delhi, India: May 2015), <a href="http://www.cea.nic.in/reports/yearly/lgbr_report.pdf">http://www.cea.nic.in/reports/yearly/lgbr_report.pdf</a>.</p>
+      <p><a name="212"></a>212. ABB Inc., <em>Energy  Efficiency in the Power Grid</em> (Norwalk, CT: 2007), <a href="http://www.nema.org/Products/Documents/TDEnergyEff.pdf">http://www.nema.org/Products/Documents/TDEnergyEff.pdf</a>.</p>
+      <p><a name="213"></a>213. ABB Inc., <em>Energy  Efficiency in the Power Grid</em> (Norwalk, CT: 2007), <a href="http://www.nema.org/Products/Documents/TDEnergyEff.pdf">http://www.nema.org/Products/Documents/TDEnergyEff.pdf</a>.</p>
+      <p><a name="214"></a>214. R. Jackson et al., <em>Opportunities  for Energy Efficiency Improvements in the U.S. Electricity Transmission and  Distribution System</em>, ORNL/TM-2015/5 (Oak Ridge National Laboratory, Oak  Ridge, TN: April 2015), p. 21, <a href="http://energy.gov/sites/prod/files/2015/04/f22/QER%20Analysis%20-%20Opportunities%20for%20Energy%20Efficiency%20Improvements%20in%20the%20US%20Electricity%20Transmission%20and%20Distribution%20System_0.pdf">http://energy.gov/sites/prod/files/2015/04/f22/QER%20Analysis%20-%20Opportunities%20for%20Energy%20Efficiency%20Improvements%20in%20the%20US%20Electricity%20Transmission%20and%20Distribution<br />
+        %20System_0.pdf</a>.</p>
+      <p><a name="215"></a>215. Power System Operation Corporation Limited,  &quot;National Load Despatch Center&quot; (undated), <a href="http://posoco.in/about-us/mission">http://posoco.in/about-us/mission</a>.</p>
+      <p><a name="216"></a>216. Government of India, Ministry of Power,  &quot;Transmission,&quot; <a href="http://powermin.nic.in/Transmission-0">http://powermin.nic.in/Transmission-0</a>.</p>
+      <p><a name="217"></a>217. Government of India, Ministry of Power,  Central Electricity Authority, Executive Summary: Power Sector (New Delhi,  India: July 2015), <a href="http://www.cea.nic.in/new_website/reports/monthly/executivesummary/2015/exe_summary-07.pdf">http://www.cea.nic.in/new_website/reports/monthly/executivesummary/2015/exe_summary-07.pdf</a>.</p>
+      <p><a name="218"></a>218. R. Katakey and R. Kumar Singh, &quot;India fights  to keep the lights on,&quot; <em>Bloomberg  Business</em> (June 5, 2014), <a href="http://www.bloomberg.com/bw/articles/2014-06-05/india-fights-electricity-theft-as-modi-pledges-energy-upgrade">http://www.bloomberg.com/bw/articles/2014-06-05/india-fights-electricity-theft-as-modi-pledges-energy-upgrade</a>.</p>
+      <p><a name="219"></a>219. V. Gupta, &quot;A Comparative Analysis: Electricity  Theft vis-a-vis Revenue Protection&quot; (undated), <a href="https://www.upcl.org/wss/downloads/WhitePapers_pdfs/wp-7-elect-theft.pdf">https://www.upcl.org/wss/downloads/WhitePapers_pdfs/wp-7-elect-theft.pdf</a>.</p>
+      <p><a name="220"></a>220. R. Katakey and R. Kumar Singh, &quot;India fights  to keep the lights on,&quot; <em>Bloomberg  Business</em> (June 5, 2014), <a href="http://www.bloomberg.com/bw/articles/2014-06-05/india-fights-electricity-theft-as-modi-pledges-energy-upgrade">http://www.bloomberg.com/bw/articles/2014-06-05/india-fights-electricity-theft-as-modi-pledges-energy-upgrade</a>.</p>
+      <p><a name="221"></a>221. Government of India, Ministry of Power,  &quot;National Electricity Policy&quot; (February 12, 2005), <a href="http://powermin.nic.in/National-Electricity-Policy-0">http://powermin.nic.in/National-Electricity-Policy-0</a>.</p>
+      <p><a name="222"></a>222. Power Finance Corporation Ltd., <em>A Report on the Performance of State Power  Utilities for the years 2010-11 to 2012-13</em> (May 2014), <a href="http://www.pfcindia.com/writereaddata/userfiles/file/Report%20for%20the%20years%202010-11%20to%202012-13%20Final.pdf">http://www.pfcindia.com/writereaddata/userfiles/file/Report%20for%20the%20years%202010-11%20to%202012-13%20Final.pdf</a>.</p>
+      <p><a name="223"></a>223. AT&amp;C losses represent the difference  between energy available for sale (MWh), adjusted for transmission losses and  trading in energy, and energy realized (MWh). Energy realized is the energy  billed, adjusted for trading in energy (MWh), factored by the collection  efficiency. Collection efficiency is an index of efficiency in realization of  billings for current and previous years, focusing on the year-to-year movement  of receivables.</p>
+      <p><a name="224"></a>224. Government of India, Ministry of Power,  &quot;Restructured Accelerated Power Development &amp; Reforms Programme&quot; (updated  September 15, 2015), <a href="http://www.apdrp.gov.in/Forms/Know_More">http://www.apdrp.gov.in/Forms/Know_More</a>.</p>
+      <p><a name="225"></a>225. Government of India, Ministry of Power,  &quot;Office Memorandum: Scheme for Restructuring of State Distribution Companies  (Discoms),&quot; No. 20/11/2012-APDRP (October 5, 2012), <a href="http://powermin.nic.in/upload/pdf/Financial_restructuring_of_State_Distribution_Companies_discoms_Oct2012.pdf">http://powermin.nic.in/upload/pdf/Financial_restructuring_of_State_Distribution_Companies_discoms_Oct2012.pdf</a></p>
+      <p><a name="226"></a>226. Government of India, Central Electricity  Regulatory Commission, &quot;State Electricity Regulatory Commissions &#8211; Links,&quot; <a href="http://www.cercind.gov.in/serc.html">http://www.cercind.gov.in/serc.html</a>.</p>
+      <p><a name="227"></a>227. Government of India, Ministry of Power,  &quot;Office Memorandum: Integrated Power Development Scheme&quot; (IDPS), No.  26/1/2014-APDRP (December 3, 2014), <a href="http://powermin.nic.in/upload/pdf/Integrated_Power_Development_Scheme.pdf">http://powermin.nic.in/upload/pdf/Integrated_Power_Development_Scheme.pdf</a>.</p>
+      <p><a name="228"></a>228. Government of India, Ministry of Power,  &quot;Office Memorandum: National Smart Grid Mission&quot; (NSGM), 20/13(2)/2009-APDRP  (March 27, 2015), <a href="http://powermin.nic.in/upload/pdf/National_Smart_Grid_Mission_OM.pdf">http://powermin.nic.in/upload/pdf/National_Smart_Grid_Mission_OM.pdf</a>.</p>
+      <p><a name="229"></a>229. Government of India, Ministry of Power, &quot;State  Distribution Utilities: Third Annual Integrated Rating&quot; (August 2015), <a href="http://www.pfcindia.com/writereaddata/userfiles/file/Annual_IR/Third%20Anual%20IR%20of%20State%20Discoms_Final%20Website%20Soft%20Print.pdf">http://www.pfcindia.com/writereaddata/userfiles/file/Annual_IR/Third%20Anual%20IR%20of%20State%20Discoms_Final%20Website%20Soft%20Print.pdf</a>.</p>
+      <p><a name="230"></a>230. World  Resources Institute, &quot;CAIT Climate Data Explorer: India,&quot; (last updated October  1, 2015), <a href="http://cait.wri.org/indc/#/profile/India">http://cait.wri.org/indc/#/profile/India</a>.</p>
+      <p><a name="231"></a>231. International  Energy Agency, <em>Understanding Energy  Challenges in India Policies: Players and Issues</em> (Paris, France: 2012), p.  43, <a href="https://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf">https://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf</a>.</p>
+      <p><a name="232"></a>232. U.S.  Energy Information Administration, International Data and Analysis: India (Washington,  DC: June 26, 2014), <a href="http://www.eia.gov/beta/international/analysis.cfm?iso=IND">http://www.eia.gov/beta/international/analysis.cfm?iso=IND</a>.</p>
+      <p><a name="233"></a>233. International  Atomic Energy Agency, <em>Country Nuclear  Power Profiles 2013 Edition</em>, &quot;Vietnam&quot; (April 2013), <a href="http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm">http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm</a>.</p>
+      <p><a name="234"></a>234. United  Nations Environment Programme Dams and Development Project, &quot;National  Hydropower Plan for Vietnam,&quot; <a href="http://www.unep.org/dams/documents/ell.asp?story_id=15">http://www.unep.org/dams/documents/ell.asp?story_id=15</a>.</p>
+      <p><a name="235"></a>235. International  Atomic Energy Agency, <em>Country Nuclear  Power Profiles 2013 Edition</em>, &quot;Vietnam&quot; (April 2013), <a href="http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm">http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm</a>.</p>
+      <p><a name="236"></a>236. Power-technology.com,  &quot;Bac Lieu Offshore Wind Farm, Vietnam&quot; (not dated, accessed August 16, 2015), <a href="http://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/">http://www.power-technology.com/projects/bac-lieu-offshore-wind-farm/</a>.</p>
+      <p><a name="237"></a>237. Japan  External Trade Organization, &quot;Vietnam Energy Map&quot; (2010), <a href="http://www.jetro.go.jp/ext_images/jfile/report/07000429/vn_energy_map.pdf">http://www.jetro.go.jp/ext_images/jfile/report/07000429/vn_energy_map.pdf</a>.</p>
+      <p><a name="238"></a>238. BP, <em>BP Statistical Review of World Energy June  2015</em>, <a href="http://www.bp.com/en/global/corporate/about-bp/energy-economics/statistical-review-of-world-energy.html">http://www.bp.com/en/global/corporate/about-bp/energy-economics/statistical-review-of-world-energy.html</a>.</p>
+      <p><a name="239"></a>239. <em>BP Statistical Review of World Energy June  2015</em>. A metric ton, or tonne, is equal to 1,000 kilograms, or approximately  2,204.6 pounds (1.10 U.S. short tons).</p>
+      <p><a name="240"></a>240. <em>BP Statistical Review of World Energy June  2015</em>.</p>
+      <p><a name="241"></a>241. American  Chamber of Commerce in Vietnam, &quot;ExxonMobil natural gas find increased  Vietnam&rsquo;s proved reserves by 30%; to support major energy FDI in Central  Vietnam&quot; (not dated, accessed August 24, 2015), <a href="http://www.amchamvietnam.com/30443603/exxonmobile-natural-gas-find-increased-vietnams-proved-reserves-by-30-to-support-major-energy-fdi-in-central-vietnam/">http://www.amchamvietnam.com/30443603/exxonmobile-natural-gas-find-increased-vietnams-proved-reserves-by-30-to-support-major-energy-fdi-in-central-vietnam/</a>.</p>
+      <p><a name="242"></a>242. International  Atomic Energy Agency, <em>Country Nuclear  Power Profiles 2013 Edition</em>, &quot;Vietnam&quot; (April 2013), <a href="http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm">http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm</a>.</p>
+      <p><a name="243"></a>243. Internal  U.S. Energy Information Administration data, supplied by General Statistical  Office, Vietcombank, and Haver Analytics (June 19, 2015).</p>
+      <p><a name="244"></a>244. International  Atomic Energy Agency, <em>Country Nuclear  Power Profiles 2013 Edition</em>, &ldquo;Vietnam&rdquo; (April 2013), <a href="http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm">http://www-pub.iaea.org/MTCD/Publications/PDF/CNPP2013_CD/countryprofiles/Vietnam/Vietnam.htm</a>.</p>
+      <p><a name="245"></a>245. Reuters,  &quot;Petrovietnam to import coal from 2017 for power plants&quot; (February 10, 2014), <a href="http://www.reuters.com/article/2014/02/10/vietnam-coal-import-idUSL3N0LF36Y20140210">http://www.reuters.com/article/2014/02/10/vietnam-coal-import-idUSL3N0LF36Y20140210</a>.</p>
+      <p><a name="246"></a>246. IHS  Energy (subscription site), &quot;Vietnam raises coal imports to supply ballooning  power capacity&quot; (February 12, 2014).</p>
+      <p><a name="247"></a>247. IHS  Energy (subscription site), &quot;Vietnam's gas master plan: prospects and  challenges&quot; (August 8, 2012).</p>
+      <p><a name="248"></a>248. IHS  Energy (subscription site), &quot;Vietnam signs LNG sales and purchase agreement  with Gazprom&quot; (March 7, 2014).</p>
+      <p><a name="249"></a>249. A. Starz  and B. Lecossois, &quot;IAEA Reviews Viet Nam's Nuclear Power Infrastructure  Development&quot; (International Atomic Energy Agency: November 18, 2014), <a href="https://www.iaea.org/newscenter/news/iaea-reviews-viet-nams-nuclear-power-infrastructure-development">https://www.iaea.org/newscenter/news/iaea-reviews-viet-nams-nuclear-power-infrastructure-development</a>.</p>
+      <p><a name="250"></a>250. &quot;Bac  Lieu Province Wind Power Plant &#8211; phase III,&quot; 4COffshore webpage (2015), <a href="http://www.4coffshore.com/windfarms/bac-lieu-province-wind-power-plant----phase-iii-vietnam-vn03.html">http://www.4coffshore.com/windfarms/bac-lieu-province-wind-power-plant----phase-iii-vietnam-vn03.html</a>.</p>
+      <p><a name="251"></a>251. United  States Trade and Development Agency, &quot;USTDA Strengthens Support of Wind Power  Development in Vietnam&quot; (March 26, 2015), <a href="http://www.ustda.gov/news/pressreleases/2015/SouthAsia/Vietnam/PressReleaseUSTDAStrengthensSupportofWindPowerDevelopmentinVietnam_032615.asp">http://www.ustda.gov/news/pressreleases/2015/SouthAsia/Vietnam/PressReleaseUSTDAStrengthensSupportofWindPowerDevelopmentinVietnam_032615.asp</a></p>
+      <p><a name="252"></a>252. World  Bank, &quot;Projects and Operations: Transmission Efficiency Project (TEP)&quot; (2015), <a href="http://www.worldbank.org/projects/P131558?lang=en">http://www.worldbank.org/projects/P131558?lang=en</a>. The TEP has committed $500 million (U.S.  dollars) toward increasing transmission and distribution capacity and  reliability in Vietnam.</p>
+      <h4>Chapter 6 - Buildings sector energy consumption</h4>
+      <p><a name="253"></a>253. Total  delivered energy used in the residential and commercial sectors includes  electricity, natural gas, liquid fuels, coal, and marketed renewable energy  (e.g., solar thermal energy).</p>
+      <p><a name="254"></a>254. R.  Vasudevan, K. Cherail, R. Bhatia, and N. Jayaram, <em>Energy Efficiency in India: History and Overview</em> (Alliance for an  Energy Efficient Economy, New Delhi, India, December 2011), pp. 16-17, <a href="http://aeee.in/wp-content/uploads/2014/09/AEEE-EE-Book-Online-Version-.pdf">http://aeee.in/wp-content/uploads/2014/09/AEEE-EE-Book-Online-Version-.pdf</a>.</p>
+      <p><a name="255"></a>255 United  Nations, Department of Economic and Social Affairs, Population Division, &quot;World  Urbanization Prospects: The 2014 Revision, CD-ROM Edition&quot; (November 2014), <a href="http://esa.un.org/unpd/wup/CD-ROM/">http://esa.un.org/unpd/wup/CD-ROM/</a>.</p>
+      <p><a name="256"></a>256. &quot;The  largest migration in history,&quot; <em>The  Economist</em>, Free Exchange Blogs (February 24, 2012), <a href="http://www.economist.com/blogs/freeexchange/2012/02/china">www.economist.com/blogs/freeexchange/2012/02/china</a> (subscription site).</p>
+      <p><a name="257"></a>257. E.  Safirova, S. Houde, and W. Harrington, <em>Spatial  Development and Energy Consumption</em> (Washington, DC: Resources for the  Future, December 2007), <a href="http://www.rff.org/files/sharepoint/WorkImages/Download/RFF-DP-07-51.pdf">http://www.rff.org/files/sharepoint/WorkImages/Download/RFF-DP-07-51.pdf</a>.</p>
+      <p><a name="258"></a>258. Wang Qing  Song, &quot;Research on air environmental impact of urbanization development  strategy in Shandong Province&quot; (Ph.D. Dissertation, Shandong University: 2010), <a href="http://www.topresearch.org/showinfo-53-213750-0.html">http://www.topresearch.org/showinfo-53-213750-0.html</a>.</p>
+      <p><a name="259"></a>259. S. Bin  and L. Jun, &quot;Building Energy Efficiency Policies in China: Status Report,&quot; p.  74 (American Council for an Energy-Efficient Economy, Research Report E129, July  2012), <a href="http://aceee.org/research-report/e129">http://aceee.org/research-report/e129</a>.</p>
+      <p><a name="260"></a>260. S.  Yu, M. Evans, and Q. Shi, <em>Analysis of the  Chinese Market for Building Energy Efficiency</em>, PNNL-22761 (Pacific  Northwest National Laboratory, Richland, WA, March 2014), <a href="http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22761.pdf">http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22761.pdf</a>.</p>
+      <p><a name="261"></a>261. Berkeley  Lab, China climate zone map, in &quot;Cool Roofs in China Can Save Energy and Reduce  Emissions&quot; (Berkeley, CA, August 2014), <a href="http://newscenter.lbl.gov/2014/08/27/cool-roofs-in-china-can-save-energy-and-reduce-emissions/">http://newscenter.lbl.gov/2014/08/27/cool-roofs-in-china-can-save-energy-and-reduce-emissions/</a>.</p>
+      <p><a name="262"></a>262. M.  Evans, B. Shui, M.A. Halverson, and A. Delgado, <em>Enforcing Building Energy Codes in China: Progress and Comparative  Lessons</em>, PNNL-19247 (Pacific Northwest National Laboratory, Richland, WA,  August 2010), <a href="http://www.pnl.gov/main/publications/external/technical_reports/PNNL-19247.pdf">http://www.pnl.gov/main/publications/external/technical_reports/PNNL-19247.pdf</a>.</p>
+      <p><a name="263"></a>263. Institute for Building Efficiency, &quot;Green  Building Rating Systems: China&quot; (Fact Sheet, September 2013), <a href="http://www.institutebe.com/InstituteBE/media/Library/Resources/Green%20Buildings/Fact-Sheet_Green-Building-Ratings_China.pdf">http://www.institutebe.com/InstituteBE/media/Library/Resources/Green%20Buildings/Fact-Sheet_Green-Building-Ratings_China.pdf</a>.</p>
+      <p><a name="264"></a>264. N.  Khanna, J. Romankiewicz, W. Feng, N. Zhou, and Q. Ye, <em>Comparative Policy Study for Green Buildings in U.S. and China</em>,  LBNL-6609E (Lawrence Berkeley National Laboratory, Berkeley, CA, April 2014), <a href="https://china.lbl.gov/sites/all/files/green_buildings_policy_comparison.pdf">https://china.lbl.gov/sites/all/files/green_buildings_policy_comparison.pdf</a>.</p>
+      <p><a name="265"></a>265. Institute  for Building Efficiency, &quot;Efficient Buildings in China: Tough Policies Target  Major Gains&quot; (September 2010), <a href="http://www.institutebe.com/energy-policy/Efficient-Buildings-in-China.aspx">http://www.institutebe.com/energy-policy/Efficient-Buildings-in-China.aspx</a>.</p>
+      <p><a name="266"></a>266. N.  Zhou, N.Z. Khanna, D. Fridley, and J. Romankiewicz, <em>Development and implementation of energy efficiency standards and labeling  programs in China: Progress and challenges</em>, LBNL-6141E (Lawrence Berkeley  National Laboratory, Berkeley, CA, January 2013), <a href="https://china.lbl.gov/sites/all/files/china_sl_info.pdf">https://china.lbl.gov/sites/all/files/china_sl_info.pdf</a>.</p>
+      <p><a name="267"></a>267. N.  Zhou, <em>Status of China's Energy Efficiency  Standards and Labels for Appliances and International Collaboration</em>,  LBNL-251E (Lawrence Berkeley National Laboratory, Berkeley, CA, March 2008), <a href="https://china.lbl.gov/sites/all/files/china_sl_info.pdf">https://china.lbl.gov/sites/all/files/china_sl_info.pdf</a>.</p>
+      <p><a name="268"></a>268. CLASP  Publication Library, &quot;Survey Evaluates China's $4.26 billion Subsidy Program  for Energy Efficient Appliances&quot; (November 2013), <a href="http://clasp.ngo/Resources/Resources/PublicationLibrary/2013/Survey_Evaluates_Chinas_4-26_billion_Subsidy_Program_for_Energy_Efficient_Appliances">http://clasp.ngo/Resources/Resources/PublicationLibrary/2013/Survey_Evaluates_Chinas_4-26_billion_Subsidy_Program_for_Energy_Efficient_Appliances</a>.</p>
+      <p><a name="269"></a>269. Institute  for Building Efficiency, &quot;Efficient Buildings in China: Tough Policies Target  Major Gains&quot; (September 2010), <a href="http://www.institutebe.com/energy-policy/Efficient-Buildings-in-China.aspx">http://www.institutebe.com/energy-policy/Efficient-Buildings-in-China.aspx</a>.</p>
+      <p><a name="270"></a>270. S.  Yu, M. Evans, and Q. Shi, <em>Analysis of the  Chinese Market for Building Energy Efficiency</em>, PNNL-22761 (Pacific  Northwest National Laboratory, Richland, WA, March 2014), <a href="http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22761.pdf">http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22761.pdf</a>.</p>
+      <p><a name="271"></a>271. S-J Ahn  and D. Graczyk, <em>Understanding Energy  Challenges in India: Policies, Players, and Issues</em> (International Energy  Agency, Paris, France, 2012), <a href="https://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf">https://www.iea.org/publications/freepublications/publication/India_study_FINAL_WEB.pdf</a>.</p>
+      <p><a name="272"></a>272. R. Rawal  and Y. Shukla, <em>Residential Buildings in  India: Energy Use Projections and Savings Potentials</em> (Global Buildings  Performance Network, Paris, France, September 2014), p. 16, <a href="http://www.gbpn.org/sites/default/files/08.%20INDIA%20Baseline_TR_low.pdf">http://www.gbpn.org/sites/default/files/08.%20INDIA%20Baseline_TR_low.pdf</a>.</p>
+      <p><a name="273"></a>273. S. de la  Rue du Can, et al., <em>Residential and  Transportation Energy Use in India: Past Trend and Future Outlook</em> (Berkeley,  CA: Ernest Orlando Lawrence Berkeley National Laboratory, January 2009), <a href="http://eetd.lbl.gov/sites/all/files/lbnl-1753e.pdf">http://eetd.lbl.gov/sites/all/files/lbnl-1753e.pdf</a>.</p>
+      <p><a name="274"></a>274. Asia  Pacific Energy Research Centre, <em>APEC  Energy Demand and Supply Outlook 2006: Economy Review</em> (Japan: Institute of  Energy Economics, 2006), pp. 79-84, <a href="http://aperc.ieej.or.jp/file/2010/9/24/EDSO2006_Whole_Report.pdf">http://aperc.ieej.or.jp/file/2010/9/24/EDSO2006_Whole_Report.pdf</a>.</p>
+      <p><a name="275"></a>275. T.  Lychuk, M. Evans, M. Halverson, and V. Roshchanka, <em>Analysis of the Russian Market for Building Energy Efficiency</em>,  PNNL-22110 (Richland, WA: Pacific Northwest National Laboratory, December 2012)  p. 2, <a href="http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22110.pdf">http://www.pnnl.gov/main/publications/external/technical_reports/PNNL-22110.pdf</a>.</p>
+      <p><a name="276"></a>276. K.V.  Bruk, &quot;Energy Efficiency Laws in Russia &#8211; Starting the Journey,&quot; <em>The Moscow Times</em> (April 10, 2012), <a href="http://www.themoscowtimes.com/article/energy-efficiency-laws-in-russia--starting-the-journey/456427.html">http://www.themoscowtimes.com/article/energy-efficiency-laws-in-russia--starting-the-journey/456427.html</a>.</p>
+      <p><a name="277"></a>277. U.S.  Energy Information Administration, <em>Annual  Energy Outlook 2013</em>, DOE/EIA-0383(2013) (Washington, DC: April 2013), pp.  63-64, <a href="http://www.eia.gov/outlooks/archive/aeo13/pdf/0383(2013).pdf">http://www.eia.gov/outlooks/archive/aeo13/pdf/0383(2013).pdf</a>.</p>
+      <p><a name="278"></a>278. European  Commission, &quot;Energy Efficiency: Energy Efficiency Directive,&quot; <a href="http://ec.europa.eu/energy/efficiency/eed/eed_en.htm">http://ec.europa.eu/energy/efficiency/eed/eed_en.htm</a>.</p>
+      <p><a name="279"></a>279. N. Betlem,  H. van Eck, R. Beuken, M. Heinemans, and L. van Diggelen, &quot;Implementation of  the EPBD in The Netherlands: Status in November 2010&quot; (European Union, 2011), <a href="http://www.epbd-ca.org/Medias/Pdf/country_reports_14-04-2011/The_Netherlands.pdf">http://www.epbd-ca.org/Medias/Pdf/country_reports_14-04-2011/The_Netherlands.pdf</a>.</p>
+      <p><a name="280"></a>280. U.S.  Energy Information Administration, &quot;Air conditioning in nearly 100 million U.S.  homes,&quot; 2009 Residential Energy Consumption Survey, <a href="http://www.eia.gov/consumption/residential/reports/2009/air-conditioning.cfm">http://www.eia.gov/consumption/residential/reports/2009/air-conditioning.cfm</a>.</p>
+      <p><a name="281"></a>281. M.  Sivak, &quot;Will AC Put a Chill on the Global Energy Supply?&quot; <em>American Scientist</em>, Vol. 101, No. 5 (September-October 2013), p.  330, <a href="http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1">http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1</a>.</p>
+      <p><a name="282"></a>282. Research  and Markets, &quot;Opportunities in the Indian Air Conditioner Market&quot; (December  2014), <a href="http://www.researchandmarkets.com/reports/3058379/opportunities-in-the-indian-air-conditioner-market">http://www.researchandmarkets.com/reports/3058379/opportunities-in-the-indian-air-conditioner-market</a></p>
+      <p><a name="283"></a>283. M.  Sivak, &quot;Will AC Put a Chill on the Global Energy Supply?&quot; <em>American Scientist</em>, Vol. 101, No. 5 (September-October 2013), p.  330, <a href="http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1">http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1</a>.  The study normalized for cooling degree days (CDD) but not for other factors,  such as dwelling characteristics and aspects of climate other than temperature  (for example, cloud cover and humidity).</p>
+      <p><a name="284"></a>284. S.  Chidanamarri, &quot;Air Conditioners Market in India&quot; (Frost &amp; Sullivan, March  18, 2013), <a href="https://www.frost.com/sublib/display-market-insight.do?id=275489972">https://www.frost.com/sublib/display-market-insight.do?id=275489972</a>.</p>
+      <p><a name="285"></a>285. M. Sivak, &quot;Will AC Put a Chill on the Global  Energy Supply?&quot; <em>American Scientist</em>,  Vol. 101, No. 5 (September-October 2013), p. 330, <a href="http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1">http://www.americanscientist.org/issues/pub/2013/5/will-ac-put-a-chill-on-the-global-energy-supply/1</a>.</p>
+      <p><a name="286"></a>286. TechSci  Research, <em>India Air Conditioners Market  Forecast and Opportunities, 2020</em> (June 2015), <a href="http://www.reportlinker.com/p0881690-summary/India-Air-Conditioners-Market-Forecast-Opportunities.html">http://www.reportlinker.com/p0881690-summary/India-Air-Conditioners-Market-Forecast-Opportunities.html</a>.</p>
+      <p><a name="287"></a>287. S.  Cox, &quot;Cooling a Warming Planet: A Global Air Conditioning Surge,&quot; Yale Environment  360 (July 10, 2012), <a href="http://e360.yale.edu/feature/cooling_a_warming_planet_a_global_air_conditioning_surge/2550/">http://e360.yale.edu/feature/cooling_a_warming_planet_a_global_air_conditioning_surge/2550/</a></p>
+      <p><a name="288"></a>288. <em>Hindustan  Times</em>, &quot;Heatwave claims over  1,100 across country, temperatures soaring&quot; (May 28, 2015), <a href="http://www.hindustantimes.com/india-news/heat-wave-claims-over-750-lives-in-ap-telangana-temperatures-will-continue-to-soar-this-week/article1-1351358.aspx">http://www.hindustantimes.com/india-news/heat-wave-claims-over-750-lives-in-ap-telangana-temperatures-will-continue-to-soar-this-week/article1-1351358.aspx</a>.</p>
+      <p><a name="289"></a>289. J.  Samenow, &quot;India's hellish heat wave, in hindsight,&quot; <em>The Washington Post</em> (June 10, 2015), <a href="http://www.washingtonpost.com/blogs/capital-weather-gang/wp/2015/06/10/indias-hellish-heat-wave-in-hindsight/">http://www.washingtonpost.com/blogs/capital-weather-gang/wp/2015/06/10/indias-hellish-heat-wave-in-hindsight/</a>.</p>
+      <p><a name="290"></a>290. <em>Hindustan  Times</em>, &ldquo;India&rsquo;s electricity  woes: The heat's on, the power&rsquo;s off&rdquo; (May 25, 2015), <a href="http://www.hindustantimes.com/comment/india-s-electricity-woes-the-heat-s-on-the-power-s-off/article1-1351170.aspx">http://www.hindustantimes.com/comment/india-s-electricity-woes-the-heat-s-on-the-power-s-off/article1-1351170.aspx</a>.</p>
+      <p><a name="291"></a>291. M.A.  McNeil and M. Iyer, <em>Techno-Economic  Analysis of Indian Draft Standard Levels for Room Air Conditioners</em>,  LBNL-64204 (Lawrence Berkeley National Laboratory, Berkeley, CA, March 2007), <a href="https://escholarship.org/uc/item/8wr8433w#page-1">https://escholarship.org/uc/item/8wr8433w#page-1</a>.</p>
+      <p><a name="292"></a>292. A.  Phadke, N. Abhyankar, and N. Shah, <em>Avoiding  100 New Power Plants by Increasing Efficiency of Room Air Conditioners in  India: Opportunities and Challenges</em> (Lawrence Berkeley National Laboratory,  Berkeley, CA, June 2014), <a href="http://eetd.lbl.gov/sites/all/files/lbnl-6674e.pdf">http://eetd.lbl.gov/sites/all/files/lbnl-6674e.pdf</a>.</p>
+      <p><a name="293"></a>293. C. Naves,  D. Amorim, et al., &quot;Energy efficiency code in Brazil: Experiences in the first  public building labeled in Brasilia,&quot; in <em>Proceedings  of the Fourth National Conference of IBPSA-USA</em> (New York, NY: August 11-13,  2010), pp. 352-357.</p>
+      <h4>Chapter 7 - Industrial sector energy consumption</h4>
+      <p><a name="294"></a>294. Delivered  energy is measured as the heat content of energy at the site of use. It  includes the heat content of electricity (3,412 Btu/kWh) but does not include  conversion losses at generation plants in the electricity sector. Delivered  energy also includes fuels (natural gas, coal, liquids, and renewables) used  for combined heat and power facilities (cogeneration) in the industrial sector.</p>
+      <p><a name="295"></a>295. Details  of the industries included in gross output, along with their NACE 2 codes, can  be found in the IEO2016 macroeconomic documentation.</p>
+      <p><a name="296"></a>296. D. Paul,  &quot;Modeling the U.S. Iron and Steel Industry,&quot; U.S. Energy Information  Administration Task Order DE-DT0001606, Subtask 1.2 (Leidos: November 15,  2013).</p>
+      <p><a name="297"></a>297. D. Paul,  &quot;Final Report: Modeling the U.S. Pulp and Paper Industry,&quot; U.S. Energy  Information Administration Task Order 7965, Subtask 17 (Leidos: July 15, 2015).</p>
+      <p><a name="298"></a>298. European  Commission, &quot;Report from the Commission to the European Parliament, the  Council, the European Economic and Social Committee and the Committee of the  Regions: Renewable Energy Progress Report&quot; (Brussels: March 27, 2013), p. 3, <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52013DC0175&amp;from=EN">http://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:52013DC0175&amp;from=EN</a>.</p>
+      <p><a name="299"></a>299. European  Parliamentary Research Service, &quot;EU climate and energy policies post-2020:  Energy security, competitiveness and decarbonisation&quot; (Briefing 24/03/2014), <a href="http://www.europarl.europa.eu/RegData/bibliotheque/briefing/2014/130681/LDM_BRI(2014)130681_REV1_EN.pdf">http://www.europarl.europa.eu/RegData/bibliotheque/briefing/2014/130681/LDM_BRI(2014)130681_REV1_EN.pdf</a></p>
+      <p><a name="300"></a>300. European  Parliament, &quot;Energy Union: New impetus for coordination and integration of  energy policies in the EU&quot; (Briefing 5 March 2015: Tracking European Commission  priority initiatives in 2015 â€“ Number 1), <a href="http://www.europarl.europa.eu/RegData/etudes/BRIE/2015/551310/EPRS_BRI(2015)551310_EN.pdf">http://www.europarl.europa.eu/RegData/etudes/BRIE/2015/551310/EPRS_BRI(2015)551310_EN.pdf</a></p>
+      <p><a name="301"></a>301. World  Steel Association, <em>Steel Statistical  Yearbook 2014</em> (Brussels, Belgium: worldsteel Committee on Economic Studies,  October 2014), <a href="http://www.worldsteel.org/dms/internetDocumentList/statistics-archive/yearbook-archive/Steel-Statistical-Yearbook-2014/document/Steel-Statistical-Yearbook-2014.pdf">http://www.worldsteel.org/dms/internetDocumentList/statistics-archive/yearbook-archive/Steel-Statistical-Yearbook-2014/document/Steel-Statistical-Yearbook-2014.pdf</a>.</p>
+      <p><a name="302"></a>302. &quot;Blast  furnace steel&quot; refers to the process of reducing iron ore in a blast furnace  and processing the molten steel in a basic oxygen furnace.</p>
+      <p><a name="303"></a>303. E.  Worrell, P. Blinde, M. Neelis, E. Blomen, and E. Masanet, <em>Energy Efficiency Improvement and Cost Saving Opportunities for the  U.S. Iron and Steel industry: An ENERGY STARÂ® Guide for Energy and Plant  Managers</em>, LBNL-4779E (Berkeley, CA: Lawrence Berkeley National Laboratory,  Environmental Technologies Division, October 2010), <a href="https://www.energystar.gov/ia/business/industry/Iron_Steel_Guide.pdf">https://www.energystar.gov/ia/business/industry/Iron_Steel_Guide.pdf</a>.</p>
+      <p><a name="304"></a>304. A.  Hasanbeigi, Zeyi Jiang, and L. Price, &quot;Why the energy use of Chinese steel  industry may peak as early as 2015?&quot; (Berkeley, CA: Lawrence Berkeley National  Laboratory, 2014), <a href="http://proceedings.eceee.org/visabstrakt.php?event=4&amp;doc=3-008-14">http://proceedings.eceee.org/visabstrakt.php?event=4&amp;doc=3-008-14</a>.</p>
+      <p><a name="305"></a>305. U.S.  Energy Information Administration, &quot;Recycling is the primary energy efficiency  technology for aluminum and steel manufacturing&quot; (Washington, DC: May 9, 2014), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=16211">http://www.eia.gov/todayinenergy/detail.cfm?id=16211</a>.</p>
+      <p><a name="306"></a>306. Institute of Scrap Recycling Industries, Inc.,  Recycling Industry (undated), <a href="http://www.isri.org/recycling-industry">http://www.isri.org/recycling-industry</a>; and U.S. Department of Energy, Energy  Efficiency and Renewable Energy, <em>U.S.  Energy Requirements for Aluminum Production: Historical Perspective, Theoretical  Limits, and Current Practices</em> (Washington, DC: February 2007), <a href="http://www1.eere.energy.gov/manufacturing/resources/aluminum/pdfs/al_theoretical.pdf">http://www1.eere.energy.gov/manufacturing/resources/aluminum/pdfs/al_theoretical.pdf</a>.</p>
+      <p><a name="307"></a>307. U.S. Energy Information Administration,  &quot;Recycling is the primary energy efficiency technology for aluminum and steel  manufacturing&quot; (Washington, DC: May 9, 2014), <a href="http://www.eia.gov/todayinenergy/detail.cfm?id=16211">http://www.eia.gov/todayinenergy/detail.cfm?id=16211</a>.</p>
+      <p><a name="308"></a>308. Bureau of International Recycling, Ferrous  Division, <em>World Steel Recycling in  Figures 2008-2012</em>, <a href="http://www.bdsv.org/downloads/weltstatistik_2008_2012.pdf">http://www.bdsv.org/downloads/weltstatistik_2008_2012.pdf</a>.</p>
+      <p><a name="309"></a>309. United States Geological Survey, Mineral  Industry of China Data for 2012, <a href="http://minerals.usgs.gov/minerals/pubs/country/2012/myb3-2012-ch.xls">http://minerals.usgs.gov/minerals/pubs/country/2012/myb3-2012-ch.xls</a>; and United States Geological Survey,  Minerals Information, Recycling Statistics and Information, <a href="http://minerals.usgs.gov/minerals/pubs/commodity/recycle/">http://minerals.usgs.gov/minerals/pubs/commodity/recycle/</a>.</p>
+      <p><a name="310"></a>310. U.S. Department of Energy, Energy Efficiency  and Renewable Energy, <em>U.S. Energy  Requirements for Aluminum Production: Historical Perspective, Theoretical  Limits, and Current Practices</em> (Washington, DC: February 2007), <a href="http://www1.eere.energy.gov/manufacturing/resources/aluminum/pdfs/al_theoretical.pdf">http://www1.eere.energy.gov/manufacturing/resources/aluminum/pdfs/al_theoretical.pdf</a>.</p>
+      <p><a name="311"></a>311. J. Wubbeke and T. Heroth, &quot;Challenges and  political solutions for steel recycling in China,&quot; <em>Resources, Conservation and Recycling</em>, Vol. 87 (June 2014), pp.  1-7, <a href="http://www.sciencedirect.com/science/article/pii/S0921344914000627">http://www.sciencedirect.com/science/article/pii/S0921344914000627</a>.</p>
+      <p><a name="312"></a>312. United States Geological Survey, Mineral  Industry of China Data for 2012, <a href="http://minerals.usgs.gov/minerals/pubs/country/2012/myb3-2012-ch.xls">http://minerals.usgs.gov/minerals/pubs/country/2012/myb3-2012-ch.xls</a>.</p>
+      <p><a name="313"></a>313. Chuin-Wei  Yap, &quot;The Fall of Steel in China: a Primer&quot; (<em>The Wall Street Journal</em>, September 8, 2015), <a href="http://blogs.wsj.com/chinarealtime/2015/09/08/the-fall-of-steel-in-china-a-primer/">http://blogs.wsj.com/chinarealtime/2015/09/08/the-fall-of-steel-in-china-a-primer/</a>.</p>
+      <p><a name="314"></a>314. G. Dolan,  &quot;Will Politics Push the Gas or Brakes on Methanol Fuel&quot; (Methanol Institute, 2013), <a href="http://www.methanolfuels.org/wp-content/uploads/2013/05/15-Dolan_MI.pdf">http://www.methanolfuels.org/wp-content/uploads/2013/05/15-Dolan_MI.pdf</a>.</p>
+      <p><a name="315"></a>315. L.E.  Apodaca, &quot;2013 Minerals Yearbook: Nitrogen [Advance Release]&quot; (Washington, DC: 2013), <a href="http://minerals.usgs.gov/minerals/pubs/commodity/nitrogen/myb1-2013-nitro.pdf">http://minerals.usgs.gov/minerals/pubs/commodity/nitrogen/myb1-2013-nitro.pdf</a>.</p>
+      <p><a name="316"></a>316. L. Jin, &quot;China's  12th 5-Year Plan: Sustainability&quot;(KPMG Advisory China, Ltd: April 2011), <a href="https://www.kpmg.com/CN/en/IssuesAndInsights/ArticlesPublications/Documents/China-12th-Five-Year-Plan-Sustainability-201104-v2.pdf">https://www.kpmg.com/CN/en/IssuesAndInsights/ArticlesPublications/Documents/China-12th-Five-Year-Plan-Sustainability-201104-v2.pdf</a>.</p>
+      <p><a name="317"></a>317. J. R.  Bartels, &quot;A Feasibility Study of Implementing an Ammonia Economy&quot; (Iowa State  University, 2008), <a href="http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2119&amp;context=etd">http://lib.dr.iastate.edu/cgi/viewcontent.cgi?article=2119&amp;context=etd</a>.</p>
+      <p><a name="318"></a>318. C. Yang,  &quot;Coal Chemicals: China's High-Carbon Clean Coal Programme?&quot; (Taylor and Francis  Group: 2016), <a href="http://people.duke.edu/~cy42/C2C.pdf">http://people.duke.edu/~cy42/C2C.pdf</a>.</p>
+      <p><a name="319"></a>319. D. Hurd, S.  Park, and J. Kan, <em>China&rsquo;s Coal to Olefins  Industry</em> (Deutsche Bank AG, Hong Kong: July 2, 2014), <a href="http://www.fullertreacymoney.com/system/data/files/PDFs/2014/July/3rd/0900b8c088667819.pdf">http://www.fullertreacymoney.com/system/data/files/PDFs/2014/July/3rd/0900b8c088667819.pdf</a>.</p>
+      <p><a name="320"></a>320. S. Moore,  &quot;Issue Brief: Water Resources Issues, Policy and Politics in China&quot; (Washington,  DC: February 12, 2013), <a href="http://www.brookings.edu/research/papers/2013/02/water-politics-china-moore">http://www.brookings.edu/research/papers/2013/02/water-politics-china-moore</a>.</p>
+      <p><a name="321"></a>321. Z. Ronghji,  &quot;Report on the Outline of the Tenth Five Year Plan for National Economic and  Social Development (2001),&quot; <a href="http://www.gov.cn/english/official/2005-07/29/content_18334.htm">http://www.gov.cn/english/official/2005-07/29/content_18334.htm</a>.</p>
+      <p><a name="322"></a>322. For  example, see Energy &amp; Climate Intelligence Unit and China Dialogue, &quot;China  Heads to Low Carbon Future&quot; (Davos, Switzerland: 2014), <a href="http://eciu.net/assets/ECIU_China-Doc-151015-FINAL.pdf">http://eciu.net/assets/ECIU_China-Doc-151015-FINAL.pdf</a>.</p>
+      <p><a name="323"></a>323. ASEAN  member countries include Brunei, Cambodia, Indonesia, Laos, Malaysia, Myanmar,  Philippines, Singapore, Thailand, and Vietnam.</p>
+      <p><a name="324"></a>324. ASEAN  Centre for Energy, &quot;Energy Efficiency and Conservation&quot; (Jakarta, Indonesia: 2015), <a href="http://www.aseanenergy.org/programme-area/eec/">http://www.aseanenergy.org/programme-area/eec/</a>.</p>
+      <p><a name="325"></a>325. N.  Desbrosses, &quot;Understanding electrification of industrial energy consumption in  Europe,&quot; Leonardo ENERGY (February 2012), <a href="http://www.leonardo-energy.org/blog/understanding-electrification-industrial-energy-consumption-europe">http://www.leonardo-energy.org/blog/understanding-electrification-industrial-energy-consumption-europe</a>.</p>
+      <h4>Chapter 8 - Transportation sector energy consumption</h4>
+      <p><a name="326"></a>326. Other  liquid fuels include natural gas plant liquids, biofuels, gas-to-liquids, and  coal-to-liquids.</p>
+      <p><a name="327"></a>327. The value  for revenue passenger-miles is calculated as: (<em>number of revenue-paying passengers</em>) Ã— (<em>total miles traveled</em>).</p>
+      <p><a name="328"></a>328. Ton-mile  is a common measure of freight movement, defined as the product of tons and  miles, taking into account both distance moved and weight. For example, 100  ton-miles may be 1 ton of freight moved 100 miles or 100 tons of freight moved  1 mile.</p>
+      <p><a name="329"></a>329. The  nonservice industrial sector includes agriculture, construction, mining, and  manufacturing.</p>
+      <p><a name="330"></a>330. United  Nations, Development Policy and Analysis Division, <em>World Economic Situation and Prospects 2012</em>, Chapter 2 (New York,  NY: 2012), p. 44, <a href="http://www.un.org/en/development/desa/policy/wesp/wesp_archive/2012chap2.pdf">http://www.un.org/en/development/desa/policy/wesp/wesp_archive/2012chap2.pdf</a>.</p>
+      <h4>Chapter 9 - Energy-related carbon dioxide emissions</h4>
+      <p><a name="331"></a>331. In IEO2016,  energy-related CO2 emissions are defined as emissions related to the combustion  of fossil fuels (liquid fuels, natural gas, and coal) and emissions associated  with petroleum feedstocks. Emissions from the flaring of natural gas are not  included.</p>
+      <p><a name="332"></a>332. United Nations Framework Convention on Climate  Change, &quot;United Nations Climate Change Conference, Paris, France,&quot; <a href="http://unfccc.int/files/meetings/paris_nov_2015/application/pdf/overview-schedule_cop21cmp11.pdf">http://unfccc.int/files/meetings/paris_nov_2015/application/pdf/overview-schedule_cop21cmp11.pdf</a>.</p>
+      <p><a name="332"></a>333. European Commission, &quot;Climate Action: 2030  climate &amp; energy framework&quot; (September 24, 2015), <a href="http://ec.europa.eu/clima/policies/strategies/2030/index_en.htm">http://ec.europa.eu/clima/policies/strategies/2030/index_en.htm</a>.</p>
+      <p><a name="334"></a>334. The EU  membership intersects with the countries included in the IEO2016 OECD Europe  region, as follows: Norway and Turkey are included in OECD Europe but are not  EU member countries; Bulgaria, Cyprus, Latvia, Lithuania, Malta, and Romania  are EU member countries but are not included in OECD Europe; Israel is reported  in OECD Europe for statistical purposes.</p>
+      <p><a name="335"></a>335. Carbon Market Watch, &quot;Policy Briefing: What's  needed to fix the EU's carbon market: Recommendations for the Market Stability  Reserve and future ETS reform proposals&quot; (July 9, 2014), <a href="http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/">http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/</a>.</p>
+      <p><a name="336"></a>336. Bloomberg New Energy Finance, &quot;EU Carbon  Allowances Rise as More Bidders Participate in Sales&quot; (September 8, 2015), <a href="http://www.bnef.com">www.bnef.com</a> (subscription site).</p>
+      <p><a name="337"></a>337. Carbon Market Watch, &quot;Policy Briefing: What&rsquo;s  needed to fix the EU's carbon market: Recommendations for the Market Stability  Reserve and future ETS reform proposals&quot; (July 9, 2014), <a href="http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/">http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/</a>.</p>
+      <p><a name="338"></a>338. Carbon Market Watch, &quot;Policy Briefing: What's  needed to fix the EU's carbon market: Recommendations for the Market Stability  Reserve and future ETS reform proposals&quot; (July 9, 2014), <a href="http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/">http://carbonmarketwatch.org/whats-needed-to-fix-the-eus-carbon-market-recommendations-for-the-market-stability-reserve-and-future-ets-reform-proposals/</a>.</p>
+      <p><a name="339"></a>339. BusinessGreen, &quot;EU carbon price tops â‚¬8 for first time  since 2012&quot; (July 21, 2015), <a href="http://www.businessgreen.com/bg/news/2418553/eu-carbon-price-tops-eur8-for-first-time-since-2012">http://www.businessgreen.com/bg/news/2418553/eu-carbon-price-tops-eur8-for-first-time-since-2012</a> (subscription site).</p>
+      <p><a name="340"></a>340. Climate Action Tracker, &quot;European Union&quot; (April 7,  2016), <a href="http://climateactiontracker.org/countries/eu.html">http://climateactiontracker.org/countries/eu.html</a>.</p>
+      <p><a name="341"></a>341. The White House, Office of the Press Secretary, &quot;FACT  SHEET: U.S. Reports its 2025 Emissions Target to the UNFCCC&quot; (Washington, DC:  March 31, 2015), <a href="https://www.whitehouse.gov/the-press-office/2015/03/31/fact-sheet-us-reports-its-2025-emissions-target-unfccc">https://www.whitehouse.gov/the-press-office/2015/03/31/fact-sheet-us-reports-its-2025-emissions-target-unfccc</a>.</p>
+      <p><a name="342"></a>342. United States Environmental Protection Agency, &quot;Clean  Power Plan for Existing Power Plants&quot; (Washington, DC: November 16, 2015), <a href="http://www2.epa.gov/cleanpowerplan/clean-power-plan-existing-power-plants">http://www2.epa.gov/cleanpowerplan/clean-power-plan-existing-power-plants</a>.</p>
+      <p><a name="343"></a>343. U.S.  Energy Information Administration, &quot;Analysis of the Impacts of the Clean Power  Plan&quot; (Washington, DC: May 22, 2015), <a href="../../analysis/requests/powerplants/cleanplan/index.html">http://www.eia.gov/analysis/requests/powerplants/cleanplan/</a>.</p>
+      <p><a name="344"></a>344. See  Intergovernmental Panel on Climate Change, &quot;Emissions Scenarios,&quot; <a href="http://www.ipcc.ch/ipccreports/sres/emission/index.php?idp=50">http://www.ipcc.ch/ipccreports/sres/emission/index.php?idp=50</a>.</p>
+      
+      
+      </div>
+      <div class="side_col pub_side right">
+	  
+                      
+            <h2>IEO Sections</h2>
+              <ul class="split_2columns">
+                  <li><a href="index.cfm.html">Preface</a></li>
+                  <li><a href="exec_summ.cfm.html">Executive summary</a></li>
+                  <li><a href="world.cfm.html">World energy demand and economic outlook</a></li>
+                  <li><a href="liquid_fuels.cfm.html">Liquid fuels</a></li>
+                  <li><a href="nat_gas.cfm.html">Natural gas</a></li>
+				  <a href="early_economic.cfm.html"></a></li>
+                  <li><a href="coal.cfm.html">Coal</a></li>
+                  <li><a href="electricity.cfm.html">Electricity<br />
+                  </a></li>
+                  <li><a href="buildings.cfm.html">Buildings<br />
+                  </a></li>
+                  <li><a href="industrial.cfm.html">Industrial sector energy consumption<br />
+                  </a></li>
+                  <li><a href="transportation.cfm.html">Transportation sector energy consumption</a></li>
+                  <li><a href="emissions.cfm.html">Energy-related carbon dioxide emissions</a></li>
+                </ul>      
+<hr class="novis"/><br />
+			
+                <span class="grey_side blue_top">
+                  <h4>Press Conference</h4>
+                    <p class="no_btm_border"><a href="https://www.eia.gov/pressroom/releases/press432.cfm">Press release</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="../../pressroom/presentations/sieminski_05112016.pdf" class="ico_pdf_right">Presentation</a></p>
+                </span><br />
+                
+            
+            <h2>Data Tables</h2>
+            <h4>Reference Case Summary & Detailed Tables</h4>
+                <table class="aeo_data">
+                  <tr>
+                    <td><b>A1</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=1-IEO2016&sourcekey=0">World total primary energy consumption by region, Reference case, 2011-40</a></td>
+                   <td><a href="pdf/ieotab_1.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_1.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A2</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=2-IEO2016&sourcekey=0">World total energy consumption by region and fuel, Reference case, 2011-40</a></td>
+                   <td><a href="pdf/ieotab_2.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_2.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A3</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=3-IEO2016&sourcekey=0">World gross domestic product (GDP) by region expressed in purchasing power parity, 
+                    Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_3.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_3.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A4</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=4-IEO2016&sourcekey=0">World gross domestic product (GDP) by region expressed in market exchange rates, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_4.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_4.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A5</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=5-IEO2016&sourcekey=0">World liquids consumption by region, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_5.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_5.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>A6</b></td>
+                    <td><a href="../aeo/data/browser/index.html#/?id=6-IEO2016&sourcekey=0">World natural gas consumption by region, Reference case, 2011-40</a></td>
+                    <td><a href="pdf/ieotab_6.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/ieotab_6.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  
+                </table>
+		       <p><a href="ieo_tables.cfm.html"><b>View more &rsaquo;</b></a></p>
+<hr />
+                <img src="https://www.eia.gov/global/images/icons/graph.jpg" class="left"/><p><a href="../aeo/data/browser/index.html#/?id=1-IEO2016&&sourcekey=0"><b>Interactive Table Viewer &rsaquo;</b></a><br />
+                Provides custom data views of the <em>IEO2016</em> Reference case and alternate cases.</p>
+            
+            <hr class="hr_soft"/>
+      
+      </div>
+      
+      	  
+         <div class="aeo_footer blue_top">
+            <div class="aeo_inner">
+              <span class="left_box">
+                <h4>About the International Energy Outlook</h4>
+                <ul class="no-liststyle">
+                   <li><a href="../../about/contact/forecasting.cfm.html#international">Contact Information and Staff</a></li>
+                   
+                   <li><a href="https://www.eia.gov/pressroom/releases/press432.cfm">Press Release</a> 
+                </ul>
+              </span>
+              <span class="mid_box">
+     <h4>Previous Editions of the IEO</h4>
+                  <form name="form" id="form">
+                     <select name="jumpMenu" id="jumpMenu" style="width:110px">
+                       <option value="http://www.eia.gov/outlooks/archive/ieo14/">2014</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo13/">2013</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo11/">2011</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo10/index.html">2010</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo09/index.html">2009</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo08/index.html">2008</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo07/index.html">2007</option>
+                       <option value="http://www.eia.gov/outlooks/archive/ieo06/index.html">2006</option>
+                       <option value="http://www.eia.gov/outlooks/ieo/ieoarchive.cfm">See all</option>
+                     </select>
+                     <input type="button" name="go_button" class="arrow_go" align="absmiddle" id= "go_button" value="Go" onclick="MM_jumpMenuGo('jumpMenu','parent',1)" />
+                   </form>
+              </span>
+              <span class="right_box">
+              <h4>Documentation and Assumptions</h4>
+                <ul class="split_2columns no-liststyle">
+                   
+                   <li><a href="http://www.eia.gov/reports/index.cfm#/T1601">Model documentation</a></li>
+                </ul>
+                   
+              </span>
+            </div>
+         </div>
+      
+    </div>
+
+
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+      <div class="rs_comments">
+        <form>
+        <p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+            <textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+            <input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+        </p>
+        </form>
+      </div>
+	  
+      </div>
+      <div id="addbar">
+      <a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../../about/index.html">About EIA</a></h3>
+        <h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+        <h3><a href="../../about/careers/index.html">Careers</a></h3>
+        
+        <h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="https://www.eia.gov/petroleum/">Petroleum</a><br />
+           <a href="https://www.eia.gov/coal/">Coal</a><br />
+           <a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br />
+           <a href="https://www.eia.gov/renewable/">Renewable</a><br />
+           <a href="../../nuclear/index.html">Nuclear</a><br />
+           <a href="../../electricity/index.html">Electricity</a><br />
+           <a href="../../consumption/index.html">Consumption</a><br />
+           <a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br />
+           <a href="../../environment.1.html">Environment</a><br />
+           <a href="https://www.eia.gov/finance/">Markets & Finance</a><br />
+           <a href="../../todayinenergy/index.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../../state/index.html">States</a><br />
+           <a href="../../countries/index.html">Countries</a><br />
+           <a href="https://www.eia.gov/maps/">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+           <a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+           <a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br />
+           <a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br />
+           <a href="../../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,428 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+	<style>
+	#lbFig34container
+	{
+		display:none;
+	}
+	
+	</style>
+	
+	
+	
+		<DIV id="lbFig34container">
+		</DIV>
+	
+	
+	<script>
+	$(document).ready(function() {
+		$('#lbFig34container').css('display','block');
+		
+		try {
+			var chartOptions = {
+				chart: {				
+					renderTo: 'lbFig34container',
+					lineUpAxisZeros: false
+		
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				
+					text: 'Source: Short-Term Energy Outlook, January 2017',
+					
+					href: null,
+					style: {
+						cursor: 'default'
+					},
+					
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+		    },
+			title: {
+				text: 'U.S. disposable income'
+				
+			},
+			
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+				
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					}
+					,align: 'center' ,y: 20 
+				},
+				categories: [
+				
+						'Jan 2013', 
+						'Feb 2013', 
+						'Mar 2013', 
+						'Apr 2013', 
+						'May 2013', 
+						'Jun 2013', 
+						'Jul 2013', 
+						'Aug 2013', 
+						'Sep 2013', 
+						'Oct 2013', 
+						'Nov 2013', 
+						'Dec 2013', 
+						'Jan 2014', 
+						'Feb 2014', 
+						'Mar 2014', 
+						'Apr 2014', 
+						'May 2014', 
+						'Jun 2014', 
+						'Jul 2014', 
+						'Aug 2014', 
+						'Sep 2014', 
+						'Oct 2014', 
+						'Nov 2014', 
+						'Dec 2014', 
+						'Jan 2015', 
+						'Feb 2015', 
+						'Mar 2015', 
+						'Apr 2015', 
+						'May 2015', 
+						'Jun 2015', 
+						'Jul 2015', 
+						'Aug 2015', 
+						'Sep 2015', 
+						'Oct 2015', 
+						'Nov 2015', 
+						'Dec 2015', 
+						'Jan 2016', 
+						'Feb 2016', 
+						'Mar 2016', 
+						'Apr 2016', 
+						'May 2016', 
+						'Jun 2016', 
+						'Jul 2016', 
+						'Aug 2016', 
+						'Sep 2016', 
+						'Oct 2016', 
+						'Nov 2016', 
+						'Dec 2016', 
+						'Jan 2017', 
+						'Feb 2017', 
+						'Mar 2017', 
+						'Apr 2017', 
+						'May 2017', 
+						'Jun 2017', 
+						'Jul 2017', 
+						'Aug 2017', 
+						'Sep 2017', 
+						'Oct 2017', 
+						'Nov 2017', 
+						'Dec 2017', 
+						'Jan 2018', 
+						'Feb 2018', 
+						'Mar 2018', 
+						'Apr 2018', 
+						'May 2018', 
+						'Jun 2018', 
+						'Jul 2018', 
+						'Aug 2018', 
+						'Sep 2018', 
+						'Oct 2018', 
+						'Nov 2018', 
+						'Dec 2018' 
+				],				
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 49.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				tickInterval: 12
+			},
+			yAxis: [
+				
+				{
+				title: {
+					text: 'billion 2009 dollars, seasonally adjusted',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				}
+				,min: 10000 ,max: 13800 ,tickInterval: 400 
+				,labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+					
+				}
+				,opposite: false
+				}
+				
+				,
+				
+				{
+				title: {
+					text: 'change',
+					align: 'above',
+					y: -10,
+					style:{
+						fontWeight: 'normal'
+						
+					}
+				}
+				,min: -6 ,max: 22 ,tickInterval: 3
+				,labels: {
+					formatter: function() {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					}
+					
+				}
+				,opposite: true
+				}
+				
+			],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical', align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			/*exporting: {
+				buttons: {
+					exportButton: {
+						//menuItems: Highcharts.getOptions().exporting.buttons.exportButton.menuItems.slice(0,Highcharts.getOptions().exporting.buttons.exportButton.menuItems.length - 2).concat([{
+						menuItems: Highcharts.getOptions().exporting.buttons.exportButton.menuItems.concat([{
+							text: 'Download Data and Chart in XLS',
+							onclick: function() {
+								window.open('/outlooks/steo/xls/Fig34.xls');
+								}
+						}])
+					},
+					printButton: {
+						enabled: false
+					}
+				},
+				filename: '',
+				type: 'image/png'
+			},*/
+			series: [
+			
+				{
+					name: 'Change from prior year(right axis)',
+					type: 'column',
+					yAxis: 1,
+					zIndex: 1, color: Highcharts.eia_green, 
+					data: [
+					
+							['Jan 2013', -0.51934720579], 
+							['Feb 2013', -1.09178994723], 
+							['Mar 2013', -1.2416947105], 
+							['Apr 2013', -1.46471600688], 
+							['May 2013', -0.981765975189], 
+							['Jun 2013', -0.963303539261], 
+							['Jul 2013', -0.752597536641], 
+							['Aug 2013', -0.276590611429], 
+							['Sep 2013', -0.492272859814], 
+							['Oct 2013', -1.33769854465], 
+							['Nov 2013', -2.3761643121], 
+							['Dec 2013', -4.75120543182], 
+							['Jan 2014', 1.94744436186], 
+							['Feb 2014', 2.54618291232], 
+							['Mar 2014', 3.04759241946], 
+							['Apr 2014', 3.29001379937], 
+							['May 2014', 3.10386441973], 
+							['Jun 2014', 3.34849075397], 
+							['Jul 2014', 3.60779623708], 
+							['Aug 2014', 3.76809089731], 
+							['Sep 2014', 3.65342848278], 
+							['Oct 2014', 4.38896666148], 
+							['Nov 2014', 4.52065538729], 
+							['Dec 2014', 4.71787454586], 
+							['Jan 2015', 4.39947847867], 
+							['Feb 2015', 3.98758092444], 
+							['Mar 2015', 3.32883948482], 
+							['Apr 2015', 3.66803365324], 
+							['May 2015', 3.60998366371], 
+							['Jun 2015', 3.37995826384], 
+							['Jul 2015', 3.43532521413], 
+							['Aug 2015', 3.27654543032], 
+							['Sep 2015', 3.33341648166], 
+							['Oct 2015', 3.15808643968], 
+							['Nov 2015', 2.89029257512], 
+							['Dec 2015', 3.04766759294], 
+							['Jan 2016', 3.07860423462], 
+							['Feb 2016', 2.91188870843], 
+							['Mar 2016', 3.1945185246], 
+							['Apr 2016', 2.9191781604], 
+							['May 2016', 2.78687591941], 
+							['Jun 2016', 2.76521231577], 
+							['Jul 2016', 2.8513897088], 
+							['Aug 2016', 2.61305641332], 
+							['Sep 2016', 2.57169525894], 
+							['Oct 2016', 2.66739423509], 
+							['Nov 2016', 2.77531552499], 
+							['Dec 2016', 2.53123700944], 
+							['Jan 2017', 2.60310223342], 
+							['Feb 2017', 2.82806223299], 
+							['Mar 2017', 2.8369566946], 
+							['Apr 2017', 2.8110982549], 
+							['May 2017', 2.82636198308], 
+							['Jun 2017', 2.81757582929], 
+							['Jul 2017', 2.65062703935], 
+							['Aug 2017', 2.8024231567], 
+							['Sep 2017', 2.87357223547], 
+							['Oct 2017', 2.60489291856], 
+							['Nov 2017', 2.72127935464], 
+							['Dec 2017', 2.96281476476], 
+							['Jan 2018', 3.64983010135], 
+							['Feb 2018', 3.8910273602], 
+							['Mar 2018', 4.01157697194], 
+							['Apr 2018', 3.84169781491], 
+							['May 2018', 3.8511432625], 
+							['Jun 2018', 3.86882589478], 
+							['Jul 2018', 3.91318068387], 
+							['Aug 2018', 3.93377494579], 
+							['Sep 2018', 3.94875509971], 
+							['Oct 2018', 4.06725846273], 
+							['Nov 2018', 3.98988806268], 
+							['Dec 2018', 3.82674595851] 						
+					]
+				}
+				
+				,
+				
+				{
+					name: 'Real disposable income (left axis)',
+					type: 'line',
+					yAxis: 0,
+					zIndex: 2, color: Highcharts.eia_blue, 
+					data: [						
+					
+							['Jan 2013', 11435.5], 
+							['Feb 2013', 11432.8], 
+							['Mar 2013', 11445.1], 
+							['Apr 2013', 11449.8], 
+							['May 2013', 11517.9], 
+							['Jun 2013', 11545.5], 
+							['Jul 2013', 11538.9], 
+							['Aug 2013', 11573.5], 
+							['Sep 2013', 11602.8], 
+							['Oct 2013', 11572.2], 
+							['Nov 2013', 11602.3], 
+							['Dec 2013', 11615.4], 
+							['Jan 2014', 11658.2], 
+							['Feb 2014', 11723.9], 
+							['Mar 2014', 11793.9], 
+							['Apr 2014', 11826.5], 
+							['May 2014', 11875.4], 
+							['Jun 2014', 11932.1], 
+							['Jul 2014', 11955.2], 
+							['Aug 2014', 12009.6], 
+							['Sep 2014', 12026.7], 
+							['Oct 2014', 12080.1], 
+							['Nov 2014', 12126.8], 
+							['Dec 2014', 12163.4], 
+							['Jan 2015', 12171.1], 
+							['Feb 2015', 12191.4], 
+							['Mar 2015', 12186.5], 
+							['Apr 2015', 12260.3], 
+							['May 2015', 12304.1], 
+							['Jun 2015', 12335.4], 
+							['Jul 2015', 12365.9], 
+							['Aug 2015', 12403.1], 
+							['Sep 2015', 12427.6], 
+							['Oct 2015', 12461.6], 
+							['Nov 2015', 12477.3], 
+							['Dec 2015', 12534.1], 
+							['Jan 2016', 12545.8], 
+							['Feb 2016', 12546.4], 
+							['Mar 2016', 12575.8], 
+							['Apr 2016', 12618.2], 
+							['May 2016', 12647], 
+							['Jun 2016', 12676.5], 
+							['Jul 2016', 12718.5], 
+							['Aug 2016', 12727.2], 
+							['Sep 2016', 12747.2], 
+							['Oct 2016', 12794], 
+							['Nov 2016', 12823.584444], 
+							['Dec 2016', 12851.367778], 
+							['Jan 2017', 12872.38], 
+							['Feb 2017', 12901.22], 
+							['Mar 2017', 12932.57], 
+							['Apr 2017', 12972.91], 
+							['May 2017', 13004.45], 
+							['Jun 2017', 13033.67], 
+							['Jul 2017', 13055.62], 
+							['Aug 2017', 13083.87], 
+							['Sep 2017', 13113.5], 
+							['Oct 2017', 13127.27], 
+							['Nov 2017', 13172.55], 
+							['Dec 2017', 13232.13], 
+							['Jan 2018', 13342.2], 
+							['Feb 2018', 13403.21], 
+							['Mar 2018', 13451.37], 
+							['Apr 2018', 13471.29], 
+							['May 2018', 13505.27], 
+							['Jun 2018', 13537.92], 
+							['Jul 2018', 13566.51], 
+							['Aug 2018', 13598.56], 
+							['Sep 2018', 13631.32], 
+							['Oct 2018', 13661.19], 
+							['Nov 2018', 13698.12], 
+							['Dec 2018', 13738.49] 							
+					]
+				}
+				
+			]
+		
+			};
+			
+			var chart = new Highcharts.Chart(chartOptions);
+		}
+		catch(err)
+		{
+			
+			throw(err);
+			
+		}
+	});
+	</script>

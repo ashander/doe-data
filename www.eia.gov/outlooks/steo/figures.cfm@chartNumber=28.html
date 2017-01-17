@@ -1,0 +1,216 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig28container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig28container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig28container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig28container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. energy-related carbon dioxide emissions'
+			},
+			subtitle: {
+				text: 'growth',
+				style: {
+		         color: "black",
+		         font: 'bold 16px "Arial", Verdana, Helvetica, sans-serif'
+		     	}
+		     },
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					formatter: function () {
+						return this.value;
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},categories: [	
+						'2015', 
+						'2016', 
+						'2017', 
+						'2018' ]
+				,
+				tickmarkPlacement: 'on'
+				,
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: 1.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+                        x: 125,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				
+			},
+			yAxis: [{
+				title: {
+					text: 'percent',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -15,
+				max: 6,
+				tickInterval: 3,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+
+					if ('All fossil fuels' == this.series.name) {
+						precision = 2;
+						frequency = 'A';
+						format = 'percent';
+					}
+
+					if ('Coal' == this.series.name) {
+						precision = 2;
+						frequency = 'A';
+						format = 'percent';
+					}
+
+					if ('Petroleum' == this.series.name) {
+						precision = 2;
+						frequency = 'A';
+						format = 'percent';
+					}
+
+					if ('Natural gas' == this.series.name) {
+						precision = 2;
+						frequency = 'A';
+						format = 'percent';
+					}
+
+					var date = new Date(this.x);
+
+					xLabel = this.x;
+
+					yLabel = this.y;
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'All fossil fuels',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 4,
+				data: [
+				
+						['2015', -2.73066199226], 
+						['2016', -1.64728823382], 
+						['2017', 1.61182293757], 
+						['2018', 0.764328832116] 	
+				]
+			}, {
+				name: 'Coal',
+				type: 'column',
+				yAxis: 0,color: Highcharts.eia_yellow,
+				zIndex: 3,
+				data: [
+				
+						['2015', -13.6105686409], 
+						['2016', -7.95718891212], 
+						['2017', 5.44260213052], 
+						['2018', -1.12992772495] 	
+				]
+			}, {
+				name: 'Petroleum',
+				type: 'column',
+				yAxis: 0,color: Highcharts.eia_green,
+				zIndex: 2,
+				data: [
+				
+						['2015', 1.90389253295], 
+						['2016', 0.796967870708], 
+						['2017', 0.35898183624], 
+						['2018', 1.17665379841] 	
+				]
+			}, {
+				name: 'Natural gas',
+				type: 'column',
+				yAxis: 0,color: '#9C661F',
+				zIndex: 1,
+				data: [
+				
+						['2015',3.00949073211], 
+						['2016',0.886546819035], 
+						['2017',0.049235610143], 
+						['2018',1.95121668975] 	
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

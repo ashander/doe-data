@@ -1,0 +1,151 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig9container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig9container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig9container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig9container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'Non-OPEC crude oil and liquid fuels production'
+			},
+			subtitle: {
+				text: 'growth',
+				style: {
+		         color: "black",
+		         font: 'bold 16px "Arial", Verdana, Helvetica, sans-serif'
+		    	}
+		     },
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'right',
+					y: 20,
+					rotation: 270
+				},
+				categories: [
+					'United States', 'Canada', 'Brazil', 'Kazakhstan', 'Russia', 'Sudan / S. Sudan', 'China', 'Oman', 'Colombia', 'Malaysia', 'Other North Sea', 'Vietnam', 'India', 'Australia', 'Egypt', 'Norway', 'Mexico', 'Azerbaijan', 'Syria', 'United Kingdom' 
+				],
+				tickmarkPlacement: 'on'
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: -0.6,
+				max: 1.0,
+				tickInterval: 0.2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 1, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 3, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'horizontal',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				color: Highcharts.eia_green,
+				name: '2018',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 3,
+				stacking: 'normal',
+				stack: '1',
+				data: [
+					['United States', 0.692765809], ['Canada', 0.1584265372], ['Brazil', 0.0591918521], ['Kazakhstan', 0.0383271175], ['Russia', 0.052120921], ['Sudan / S. Sudan', -0.0499444888], ['China', -0.0704046952], ['Oman', 0.0063668632], ['Colombia', -0.0060804153], ['Malaysia', 0.00334057811], ['Other North Sea', -0.01190826252], ['Vietnam', -0.01368934744], ['India', 0.0045971349], ['Australia', 0.06272449538], ['Egypt', -0.01860490496], ['Norway', -0.1021670212], ['Mexico', -0.1149725352], ['Azerbaijan', -0.0046631685], ['Syria', -0.003205690249], ['United Kingdom', -0.04157746169] 
+				]
+			}, {
+				color: Highcharts.eia_yellow,
+				name: '2017',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				stacking: 'normal',
+				stack: '1',
+				data: [
+					['United States', 0.31024362], ['Canada', 0.1962259307], ['Brazil', 0.048066804], ['Kazakhstan', 0.0880281589], ['Russia', 0.121810727], ['Sudan / S. Sudan', -0.00491998067], ['China', -0.1112050088], ['Oman', 0.0087270612], ['Colombia', -0.0157802256], ['Malaysia', 0.00268866464], ['Other North Sea', -0.00660228747], ['Vietnam', -0.01942717537], ['India', 0.00311457599], ['Australia', 0.01544125048], ['Egypt', -0.0122619813], ['Norway', -0.0105122163], ['Mexico', -0.1417483891], ['Azerbaijan', -0.03947587254], ['Syria', -0.002641106707], ['United Kingdom', -0.12269017636] 
+				]
+			}, {
+				color: Highcharts.eia_blue,
+				name: '2016',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				stacking: 'normal',
+				stack: '1',
+				data: [
+					['United States', -0.292369926], ['Canada', 0.0236918256], ['Brazil', 0.0499322339], ['Kazakhstan', -0.032538807], ['Russia', 0.210842355], ['Sudan / S. Sudan', -0.00361327544], ['China', -0.2809841539], ['Oman', 0.02793264724], ['Colombia', -0.10502087102], ['Malaysia', 0.01085201389], ['Other North Sea', -0.02342126402], ['Vietnam', -0.03198068156], ['India', -0.01280700039], ['Australia', -0.02686539767], ['Egypt', -0.01439084949], ['Norway', 0.0536401702], ['Mexico', -0.1084837564], ['Azerbaijan', 0.00776689111], ['Syria', -0.000383601722], ['United Kingdom', 0.04181066277] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

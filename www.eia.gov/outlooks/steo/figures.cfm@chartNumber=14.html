@@ -1,0 +1,343 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig14container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig14container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig14container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig14container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. commercial crude oil stocks'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%b-%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 16),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 11,
+						x: 2,
+						rotation: 0
+					},
+					zIndex: 5
+				}],
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 240,
+				max: 560,
+				tickInterval: 20,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					var yLabel = formatNumber(this.y, 1, true, false);
+
+					if(this.series.type == 'arearange') {
+						yLabel += ' to ' + formatNumber(this.point.options.high, 0, true, false);
+					}
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'U.S. crude oil stocks',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: '#397D02',
+				data: [
+				
+						[Date.UTC(2011,0, 1), 323.459], 
+						[Date.UTC(2011,1, 1), 326.814], 
+						[Date.UTC(2011,2, 1), 338.421], 
+						[Date.UTC(2011,3, 1), 344.413], 
+						[Date.UTC(2011,4, 1), 346.072], 
+						[Date.UTC(2011,5, 1), 333.699], 
+						[Date.UTC(2011,6, 1), 324.292], 
+						[Date.UTC(2011,7, 1), 324.817], 
+						[Date.UTC(2011,8, 1), 308.245], 
+						[Date.UTC(2011,9, 1), 314.922], 
+						[Date.UTC(2011,10, 1), 314.602], 
+						[Date.UTC(2011,11, 1), 308.221], 
+						[Date.UTC(2012,0, 1), 317.882], 
+						[Date.UTC(2012,1, 1), 322.879], 
+						[Date.UTC(2012,2, 1), 347.608], 
+						[Date.UTC(2012,3, 1), 357.045], 
+						[Date.UTC(2012,4, 1), 363.759], 
+						[Date.UTC(2012,5, 1), 362.153], 
+						[Date.UTC(2012,6, 1), 346.677], 
+						[Date.UTC(2012,7, 1), 336.391], 
+						[Date.UTC(2012,8, 1), 343.342], 
+						[Date.UTC(2012,9, 1), 349.531], 
+						[Date.UTC(2012,10, 1), 352.411], 
+						[Date.UTC(2012,11, 1), 337.796], 
+						[Date.UTC(2013,0, 1), 349.294], 
+						[Date.UTC(2013,1, 1), 356.799], 
+						[Date.UTC(2013,2, 1), 364.621], 
+						[Date.UTC(2013,3, 1), 367.555], 
+						[Date.UTC(2013,4, 1), 363.304], 
+						[Date.UTC(2013,5, 1), 348.807], 
+						[Date.UTC(2013,6, 1), 339.391], 
+						[Date.UTC(2013,7, 1), 337.127], 
+						[Date.UTC(2013,8, 1), 344.016], 
+						[Date.UTC(2013,9, 1), 352.597], 
+						[Date.UTC(2013,10, 1), 344.172], 
+						[Date.UTC(2013,11, 1), 327.191], 
+						[Date.UTC(2014,0, 1), 336.238], 
+						[Date.UTC(2014,1, 1), 345.274], 
+						[Date.UTC(2014,2, 1), 354.987], 
+						[Date.UTC(2014,3, 1), 365.339], 
+						[Date.UTC(2014,4, 1), 365.46], 
+						[Date.UTC(2014,5, 1), 354.305], 
+						[Date.UTC(2014,6, 1), 338.737], 
+						[Date.UTC(2014,7, 1), 331.076], 
+						[Date.UTC(2014,8, 1), 332.155], 
+						[Date.UTC(2014,9, 1), 351.717], 
+						[Date.UTC(2014,10, 1), 356.729], 
+						[Date.UTC(2014,11, 1), 360.865], 
+						[Date.UTC(2015,0, 1), 389.213], 
+						[Date.UTC(2015,1, 1), 415.313], 
+						[Date.UTC(2015,2, 1), 443.2], 
+						[Date.UTC(2015,3, 1), 452.713], 
+						[Date.UTC(2015,4, 1), 448.961], 
+						[Date.UTC(2015,5, 1), 438.81], 
+						[Date.UTC(2015,6, 1), 424.809], 
+						[Date.UTC(2015,7, 1), 425.853], 
+						[Date.UTC(2015,8, 1), 429.129], 
+						[Date.UTC(2015,9, 1), 455.213], 
+						[Date.UTC(2015,10, 1), 455.994], 
+						[Date.UTC(2015,11, 1), 449.22], 
+						[Date.UTC(2016,0, 1), 468.702], 
+						[Date.UTC(2016,1, 1), 488.411], 
+						[Date.UTC(2016,2, 1), 501.513], 
+						[Date.UTC(2016,3, 1), 506.287], 
+						[Date.UTC(2016,4, 1), 508.98], 
+						[Date.UTC(2016,5, 1), 497.968], 
+						[Date.UTC(2016,6, 1), 490.013], 
+						[Date.UTC(2016,7, 1), 483.617], 
+						[Date.UTC(2016,8, 1), 469.063], 
+						[Date.UTC(2016,9, 1), 488.823], 
+						[Date.UTC(2016,10, 1), 486.09728571], 
+						[Date.UTC(2016,11, 1), 478.17812533], 
+						[Date.UTC(2017,0, 1), 485.6765], 
+						[Date.UTC(2017,1, 1), 490.4722], 
+						[Date.UTC(2017,2, 1), 500.9735], 
+						[Date.UTC(2017,3, 1), 506.8191], 
+						[Date.UTC(2017,4, 1), 503.7441], 
+						[Date.UTC(2017,5, 1), 490.2665], 
+						[Date.UTC(2017,6, 1), 473.7861], 
+						[Date.UTC(2017,7, 1), 465.6334], 
+						[Date.UTC(2017,8, 1), 465.5906], 
+						[Date.UTC(2017,9, 1), 472.4349], 
+						[Date.UTC(2017,10, 1), 468.5421], 
+						[Date.UTC(2017,11, 1), 453.9018], 
+						[Date.UTC(2018,0, 1), 463.9631], 
+						[Date.UTC(2018,1, 1), 472.9279], 
+						[Date.UTC(2018,2, 1), 485.0627], 
+						[Date.UTC(2018,3, 1), 491.4352], 
+						[Date.UTC(2018,4, 1), 488.9093], 
+						[Date.UTC(2018,5, 1), 477.9526], 
+						[Date.UTC(2018,6, 1), 463.7425], 
+						[Date.UTC(2018,7, 1), 457.4141], 
+						[Date.UTC(2018,8, 1), 456.8311], 
+						[Date.UTC(2018,9, 1), 464.0034], 
+						[Date.UTC(2018,10, 1), 462.3543], 
+						[Date.UTC(2018,11, 1), 451.835] 
+				]
+			}, {
+				name: 'Normal range',
+				type: 'arearange',
+				yAxis: 0,
+				showInLegend: false,
+				color: '#A4D3EE',
+				lineWidth: 1,
+				data: [
+				
+						[Date.UTC(2011,0, 1), 317.882, 468.702], 
+						[Date.UTC(2011,1, 1), 322.879, 488.411], 
+						[Date.UTC(2011,2, 1), 338.421, 501.513], 
+						[Date.UTC(2011,3, 1), 344.413, 506.287], 
+						[Date.UTC(2011,4, 1), 346.072, 508.98], 
+						[Date.UTC(2011,5, 1), 333.699, 497.968], 
+						[Date.UTC(2011,6, 1), 324.292, 490.013], 
+						[Date.UTC(2011,7, 1), 324.817, 483.617], 
+						[Date.UTC(2011,8, 1), 308.245, 469.063], 
+						[Date.UTC(2011,9, 1), 314.922, 488.823], 
+						[Date.UTC(2011,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2011,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2012,0, 1), 317.882, 468.702], 
+						[Date.UTC(2012,1, 1), 322.879, 488.411], 
+						[Date.UTC(2012,2, 1), 338.421, 501.513], 
+						[Date.UTC(2012,3, 1), 344.413, 506.287], 
+						[Date.UTC(2012,4, 1), 346.072, 508.98], 
+						[Date.UTC(2012,5, 1), 333.699, 497.968], 
+						[Date.UTC(2012,6, 1), 324.292, 490.013], 
+						[Date.UTC(2012,7, 1), 324.817, 483.617], 
+						[Date.UTC(2012,8, 1), 308.245, 469.063], 
+						[Date.UTC(2012,9, 1), 314.922, 488.823], 
+						[Date.UTC(2012,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2012,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2013,0, 1), 317.882, 468.702], 
+						[Date.UTC(2013,1, 1), 322.879, 488.411], 
+						[Date.UTC(2013,2, 1), 338.421, 501.513], 
+						[Date.UTC(2013,3, 1), 344.413, 506.287], 
+						[Date.UTC(2013,4, 1), 346.072, 508.98], 
+						[Date.UTC(2013,5, 1), 333.699, 497.968], 
+						[Date.UTC(2013,6, 1), 324.292, 490.013], 
+						[Date.UTC(2013,7, 1), 324.817, 483.617], 
+						[Date.UTC(2013,8, 1), 308.245, 469.063], 
+						[Date.UTC(2013,9, 1), 314.922, 488.823], 
+						[Date.UTC(2013,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2013,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2014,0, 1), 317.882, 468.702], 
+						[Date.UTC(2014,1, 1), 322.879, 488.411], 
+						[Date.UTC(2014,2, 1), 338.421, 501.513], 
+						[Date.UTC(2014,3, 1), 344.413, 506.287], 
+						[Date.UTC(2014,4, 1), 346.072, 508.98], 
+						[Date.UTC(2014,5, 1), 333.699, 497.968], 
+						[Date.UTC(2014,6, 1), 324.292, 490.013], 
+						[Date.UTC(2014,7, 1), 324.817, 483.617], 
+						[Date.UTC(2014,8, 1), 308.245, 469.063], 
+						[Date.UTC(2014,9, 1), 314.922, 488.823], 
+						[Date.UTC(2014,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2014,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2015,0, 1), 317.882, 468.702], 
+						[Date.UTC(2015,1, 1), 322.879, 488.411], 
+						[Date.UTC(2015,2, 1), 338.421, 501.513], 
+						[Date.UTC(2015,3, 1), 344.413, 506.287], 
+						[Date.UTC(2015,4, 1), 346.072, 508.98], 
+						[Date.UTC(2015,5, 1), 333.699, 497.968], 
+						[Date.UTC(2015,6, 1), 324.292, 490.013], 
+						[Date.UTC(2015,7, 1), 324.817, 483.617], 
+						[Date.UTC(2015,8, 1), 308.245, 469.063], 
+						[Date.UTC(2015,9, 1), 314.922, 488.823], 
+						[Date.UTC(2015,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2015,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2016,0, 1), 317.882, 468.702], 
+						[Date.UTC(2016,1, 1), 322.879, 488.411], 
+						[Date.UTC(2016,2, 1), 338.421, 501.513], 
+						[Date.UTC(2016,3, 1), 344.413, 506.287], 
+						[Date.UTC(2016,4, 1), 346.072, 508.98], 
+						[Date.UTC(2016,5, 1), 333.699, 497.968], 
+						[Date.UTC(2016,6, 1), 324.292, 490.013], 
+						[Date.UTC(2016,7, 1), 324.817, 483.617], 
+						[Date.UTC(2016,8, 1), 308.245, 469.063], 
+						[Date.UTC(2016,9, 1), 314.922, 488.823], 
+						[Date.UTC(2016,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2016,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2017,0, 1), 317.882, 468.702], 
+						[Date.UTC(2017,1, 1), 322.879, 488.411], 
+						[Date.UTC(2017,2, 1), 338.421, 501.513], 
+						[Date.UTC(2017,3, 1), 344.413, 506.287], 
+						[Date.UTC(2017,4, 1), 346.072, 508.98], 
+						[Date.UTC(2017,5, 1), 333.699, 497.968], 
+						[Date.UTC(2017,6, 1), 324.292, 490.013], 
+						[Date.UTC(2017,7, 1), 324.817, 483.617], 
+						[Date.UTC(2017,8, 1), 308.245, 469.063], 
+						[Date.UTC(2017,9, 1), 314.922, 488.823], 
+						[Date.UTC(2017,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2017,11, 1), 308.221, 478.17812533], 
+						[Date.UTC(2018,0, 1), 317.882, 468.702], 
+						[Date.UTC(2018,1, 1), 322.879, 488.411], 
+						[Date.UTC(2018,2, 1), 338.421, 501.513], 
+						[Date.UTC(2018,3, 1), 344.413, 506.287], 
+						[Date.UTC(2018,4, 1), 346.072, 508.98], 
+						[Date.UTC(2018,5, 1), 333.699, 497.968], 
+						[Date.UTC(2018,6, 1), 324.292, 490.013], 
+						[Date.UTC(2018,7, 1), 324.817, 483.617], 
+						[Date.UTC(2018,8, 1), 308.245, 469.063], 
+						[Date.UTC(2018,9, 1), 314.922, 488.823], 
+						[Date.UTC(2018,10, 1), 314.602, 486.09728571], 
+						[Date.UTC(2018,11, 1), 308.221, 478.17812533] 
+				]
+			}],
+			captions: {
+				items: [{
+					text: 'Note:  Colored band around storage levels represents the range between the minimum and maximum from Jan. 2011 - Dec. 2016.'
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>

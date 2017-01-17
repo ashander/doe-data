@@ -1,0 +1,176 @@
+
+
+
+<script>
+	$(document).ready(function(){
+		Highcharts.setOptions({chart: { width: 800, height: 450}});
+	});
+</script>
+
+
+<style>
+#lbFig7container
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig7container"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig7container').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig7container',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'World liquid fuels consumption growth'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'category',
+				labels: {
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				categories: [
+				
+						'2016', 
+						'2017', 
+						'2018' 
+				],
+				tickmarkPlacement: 'on',
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2016, 5, 1),
+					value: 0.5,
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 1
+			},
+			yAxis: [{
+				title: {
+					text: 'million barrels per day',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0.0,
+				max: 1.2,
+				tickInterval: 0.4,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 1, true, false);
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = this.x;
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'OECD*',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 4,
+				data: [
+				
+						['2016', 0.299485539], 
+						['2017', 0.386071795], 
+						['2018', 0.289095734] 
+				]
+			}, {
+				name: 'Non-OECD Asia',  
+				type: 'column',
+				yAxis: 0,
+				zIndex: 3,
+				data: [
+				
+						['2016', 0.374638268 + 0.523792178], 
+						['2017', 0.326566025 + 0.456484656], 
+						['2018', 0.300030158 + 0.455726872] 
+				]
+			}, {
+				name: 'Former Soviet Union',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 2,
+				data: [
+				
+						['2016', 0.0148964664], 
+						['2017', 0.0040370552], 
+						['2018', 0.004902911] 
+				]
+			}, {
+				name: 'Other',
+				type: 'column',
+				yAxis: 0,
+				zIndex: 1,
+				data: [
+				
+						['2016', 0.2196295136], 
+						['2017', 0.4511976348], 
+						['2018', 0.460898108] 
+				]
+			} ] ,
+			captions: {
+				items: [ {
+					text: '*  Countries belonging to the Organization for Economic Cooperation and Development'
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>
