@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="http://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="http://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="http://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/eia-theme-module.min.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/captions.min.js"></script>
+		
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="../../../../favicon.ico" />
+<link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../../favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="http://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+<body>
+
+
+<div id="outerX">
+  
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="http://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="../../../../index.html"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="../../../index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../coal/index.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="../../../../renewable/index.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../fuelnuclear.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="../../../../totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../petroleum/weekly/index.html">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="../../index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/monthly.1.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="../../../../cneaf/coal/quarterly/html/t33p01p1.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="../../../../emeu/recs/recs97_additions/recs_changes.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../analysis/index.html"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="../../../../finance/index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../environment.1.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../forecasts/steo/xls/Probability_HH.xls.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../forecasts/aeo/er/early_elecgen.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../special/disruptions/index.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../forecasts/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../emeu/international/contents.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../state/seds/index.html">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="../../../../special/gulf_of_mexico/index.html">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="../../../../state/maps.cfm.html">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="../../../../tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="../../../../tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="../../../../survey.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="../../../../listserv_signup.html" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="../../../../tools/rssfeeds/index.html" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../todayinenergy.1.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="../../../../tools/faqs/index.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="../../../../tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../energyexplained.1.html">Energy Explained</a></h3>
+              <p class="width152"><a href="../../../../energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=environment_home.html">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="../../../../energyexplained/index.cfm@page=oil_home.html">Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../energyexplained/index.cfm@page=hgls_home.html">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=natural_gas_home.html">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=coal_home.html">Coal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=nuclear_home.html">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="../../../../energyexplained/index.cfm@page=hydropower_home.html">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=biofuel_home.html">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=wind_home.html">Wind&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../../energy_in_brief.1.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/article/renewable_electricity.cfm.html">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/article/shale_in_the_united_states.cfm.html">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="../../../../about/new/index.html">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="../../../../pressroom/index.html" style="color:#fff !important;">Press Room</a></h3>
+              <a href="../../../../pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
+              <a href="../../../../pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
+              <a href="../../../../pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="../../../../radio/index.html">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="http://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="../../../../tools/a-z/index.html">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="../../../../tools/a-z/index.html">A-Z Index</a></h3>
+          <a href="../../../../tools/a-z/index.cfm@id=a.html">A</a>
+          <a href="../../../../tools/a-z/index.cfm@id=b.html">B</a>
+          <a href="../../../../tools/a-z/index.cfm@id=c.html">C</a>
+          <a href="../../../../tools/a-z/index.cfm@id=d.html">D</a>
+          <a href="../../../../tools/a-z/index.cfm@id=e.html">E</a>
+          <a href="../../../../tools/a-z/index.cfm@id=f.html">F</a>
+          <a href="../../../../tools/a-z/index.cfm@id=g.html">G</a>
+          <a href="../../../../tools/a-z/index.cfm@id=h.html">H</a>
+          <a href="../../../../tools/a-z/index.cfm@id=i.html">I</a>
+          <a href="../../../../tools/a-z/index.cfm@id=j.html">J</a>
+          <a href="../../../../tools/a-z/index.cfm@id=k.html">K</a>
+          <a href="../../../../tools/a-z/index.cfm@id=l.html">L</a>
+          <a href="../../../../tools/a-z/index.cfm@id=m.html">M</a>
+          <a href="../../../../tools/a-z/index.cfm@id=n.html">N</a>
+          <a href="../../../../tools/a-z/index.cfm@id=o.html">O</a>
+          <a href="../../../../tools/a-z/index.cfm@id=p.html">P</a>
+          <a href="../../../../tools/a-z/index.cfm@id=q.html">Q</a>
+          <a href="../../../../tools/a-z/index.cfm@id=r.html">R</a>
+          <a href="../../../../tools/a-z/index.cfm@id=s.html">S</a>
+          <a href="../../../../tools/a-z/index.cfm@id=t.html">T</a>
+          <a href="../../../../tools/a-z/index.cfm@id=u.html">U</a>
+          <a href="../../../../tools/a-z/index.cfm@id=v.html">V</a>
+          <a href="../../../../tools/a-z/index.cfm@id=w.html">W</a>
+          <a href="../../../../tools/a-z/index.cfm@id=xyz.html">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+    $('.dropdown').dd();
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+
+
+<div class="title bg_naturalgas">
+  <h1>Natural Gas</h1>
+</div>
+
+<div class="subnav">
+  <span class="right"><a href="../../../../tools/glossary/index.html@id=natural%2520gas.html">Glossary &rsaquo;</a> <a href="../../../../tools/faqs/index.html#naturalgas">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="../../../index.html">Overview</a></li>
+    <li class="dropdown "><a href="../../../data.cfm.html">Data</a></li>
+    
+    <div class="dat_block dat_links">
+      <ul>
+        <li><a href="../../../data.cfm.html#summary">Summary</a></li>
+        <li><a href="../../../data.cfm.html#prices">Prices</a></li>
+        <li><a href="../../../data.cfm.html#exploration">Exploration & reserves</a></li>
+        <li><a href="../../../data.cfm.html#production">Production</a></li>
+        <li><a href="../../../data.cfm.html#imports">Imports/exports</a></li>
+        <li><a href="../../../data.cfm.html#pipelines">Pipelines</a></li>
+        <li><a href="../../../data.cfm.html#storage" target="_parent">Storage</a></li>
+        <li><a href="../../../data.cfm.html#consumption">Consumption</a></li>
+        <li><a href="../../../data.cfm.html">All natural gas data reports</a></li>
+      </ul>
+    </div>
+    
+
+    <li class="dropdown "><a href="../../../reports.cfm.1.html">Analysis & Projections</a></li>
+
+    
+    <div id="analysis-projections" class="dat_block dat_links" style="width:600px;">
+
+      
+      <div style="float:left; width:400px;">
+        <h4 style="margin: 12px 20px 6px 20px;border-bottom:1px solid #CCC;padding-bottom:2px;">Major Topics</h4>
+        <ul class="split_2columns" style="margin-bottom:16px;">
+          
+          
+<li><a href="../../../reports.cfm.1.html#/T214">Most popular</a></li>
+<li><a href="../../../reports.cfm.1.html#/T72">Consumption</a></li>
+<li><a href="../../../reports.cfm.1.html#/T170">Exploration & reserves</a></li>
+<li><a href="../../../reports.cfm.1.html#/T172">Imports/exports & pipelines</a></li>
+<li><a href="../../../reports.cfm.1.html#/T66">Prices</a></li>
+<li><a href="../../../reports.cfm.1.html#/T80">Production</a></li>
+<li><a href="../../../reports.cfm.1.html#/T186">Projections</a></li>
+<li><a href="../../../reports.cfm.1.html#/T214">Recurring</a></li>
+<li><a href="../../../reports.cfm.1.html#/T174">Storage</a></li>
+<li class="no-border" style="padding-bottom:0px;"><a href="../../../reports.cfm.1.html">All reports</a></li>
+
+
+        </ul>
+      </div>
+
+      
+      <div class="listContainer2" style="width:200px; float:right">
+        <h4 style="margin: 12px 20px 6px 20px; border-bottom:1px solid #ccc; padding-bottom:2px;">Browse by Tag</h4>
+        <ul>
+          <li><a href="../../../browsebytag.cfm.html">Alphabetical</a></li>
+          <li><a href="../../../browsebytag.cfm@frequency.html">Frequency</a></li>
+          <li><a href="../../../browsebytag.cfm@tagcloud.html">Tag Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </ul>
+</div> <div class="report_header"> <span class="left rtitle" style="width:680px"> <a href="../../../index.html">&lsaquo; See all Natural Gas </a>
+  <h2>Natural Gas Weekly Update </h2>
+  <p><strong>for week ending November 4, 2015</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Release date:</strong>&nbsp;&nbsp;November 5, 2015&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Next release:</strong> November 12, 2015&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.eia.gov/naturalgas/weekly/includes/archive.cfm" data-fancybox-type="iframe" class="lightbox" style="text-transform:none; font-size:11px">Previous weeks</a>
+  
+</p> 
+</p></span>
+   
+</div>
+
+  
+   
+  
+  <div class="pagecontent mr_temp4"> 
+    
+    <div class="main_col"> 
+      
+      
+<div class="ngwu_text_box">
+  <span class="ngwu_jump_menu do-not-print"><strong>JUMP TO:</strong> <a href="11_05.html#jm-trends">In The News</a> | <a href="11_05.html#jm-overview">Overview</a> | <a href="11_05.html#jm-prices">Prices/Supply/Demand</a> | <a href="11_05.html#jm-storage">Storage</a></span><hr />  
+  <div class="ngwu_itn_box">
+    <h2><a name="jm-trends" id="jm-trends"></a>In the News:</h2>
+     
+     <p><strong>Winter natural gas futures prices are significantly lower than previous years</strong></p>
+    
+    <p>The winter natural gas futures strip, the four contracts from December 2015 through March 2016, averaged $2.419 per million British thermal units (MMBtu) over the report week (Wednesday, October 28, through Wednesday, November 4). This is nearly 40% lower than the five-year average, and one-third lower than the five-year minimum in trading on the New York Mercantile Exchange (Nymex). There are several factors driving these lower prices, including:</p>
+    
+<p><strong>Year-over-year production growth:</strong> As reported in EIA's recently released <a href="../../../monthly.1.html">Natural Gas Monthly</a>, in August dry natural gas production reached record high levels for any month since EIA began reporting that data series. Dry natural gas production for August averaged 76.5 billion cubic feet a day (Bcf/d), a 7% increase over August 2014. Although EIA's latest <a href="../../../../forecasts/steo/archives/oct15.pdf">Short-Term Energy Outlook </a>is showing a slowdown in month-to-month production growth, compared to the previous year, average dry natural gas production in December to March is forecast to reach levels around 2% over the previous year's levels for that time period.</p>
+ 
+<p><strong>Record storage levels:</strong> After <a href="http://www.eia.gov/naturalgas/weekly/archive/2015/06_04/index.cfm">surpassing the five-year average</a> on May 29, natural gas storage as of October 30 was 3,929 Bcf, matching the record level reported by EIA's Weekly Natural Gas Storage Report on November 2, 2012.  Injections totaled 2,453 Bcf from April 3 to October 30, 15% larger than the five-year average, but 280 Bcf short of last year's record injection over the same time period.</p>
+
+<p><strong>Forecast for relatively warm weather:</strong> The <a href="http://www.cpc.ncep.noaa.gov/products/predictions/long_range/fxus05.html">U.S. Winter Outlook</a>, released October 15 by the National Oceanic and Atmospheric Administration (NOAA), reflects an El Ni&ntilde;o event, which will likely bring warmer-than-normal temperatures across the northern and western United States.   Based on forecasts for warmer-than-normal temperatures, EIA's<a href="http://www.eia.gov/forecasts/steo/pdf/steo_text.pdf"> Winter Fuels Outlook</a>, released October 6, forecasts a 6% decline in residential natural gas consumption this winter.  With nearly half of all U.S. households heating with natural gas, residential consumption, the sector most responsive to winter temperatures, represents over 25% of the total natural gas consumption over November 2015 through March 2016. Total U.S. consumption is forecast to average 90 Bcf/d over that time period.</p>
+
+
+
+  </div>
+  
+  <h2><a name="jm-overview" id="jm-overview"></a>Overview:</h2>
+   
+  
+  <h4>(<strong>For the Week Ending Wednesday, November 4, 2015)</strong></h4>
+  <ul>
+  
+<li>Warm weather and strong supply led to declines in natural gas prices at most locations east of the Rockies. The Henry Hub spot price fell from $2.10 per million British thermal units (MMBtu) last Wednesday, October 28, to $2.02/MMBtu yesterday, November 4. The Henry Hub spot price dropped to three-year lows midweek, falling below $2/MMBtu. </li>
+ 
+<li>At the New York Mercantile Exchange, the December 2015 contract fell from $2.298/MMBtu last Wednesday to $2.262/MMBtu yesterday. </li>
+
+<li>Working natural gas in storage increased by 52 Bcf, rising to 3,929 Bcf as of Friday, October 30.  The net injection into storage resulted in storage levels 10% above a year ago and 4% above the five-year average for this week. </li>
+
+<li>The total rig count fell by 12 units to 775 as of Friday, October 30, according to data provided by Baker Hughes Incorporated. This is 60% lower than year-ago levels. Oil rigs declined by 16 to 578 units and natural gas rigs rose by 4 to 197 units.</li>
+ 
+<li>The natural gas plant liquids composite price at Mont Belvieu, Texas, rose slightly to $4.86/MMBtu for the week ending Friday, October 30. The prices of natural gasoline, butane, and isobutane rose 2.2%, 3.0%, and 3.2%, respectively, while the prices of propane and ethane fell by 0.4% and 3.2%, respectively. 
+
+</li>
+
+
+
+  </ul>
+  
+  <p class="do-not-print"> <a href="../../../../dnav/ng/ng_sum_lsum_dcu_nus_m.htm">more summary data</a></p>
+  <h2><a name="jm-prices" id="jm-prices"></a>Prices/Demand/Supply:</h2>
+  
+   
+  
+  
+  
+
+<p><strong>Natural gas spot prices fall.</strong> Henry Hub spot prices dropped to three-year lows this report week, settling below the $2/MMBtu threshold on trading days Friday, Monday, and Tuesday. At the end of the report week, Henry Hub prices increased to offset some of its losses, settling at $2.02/MMBtu for a net loss of 8cent over the report week. Prices posted declines in trading at most points in the United States. At the Chicago Citygate, prices posted a decline from $2.44/MMBtu last Wednesday to $2.19/MMBtu yesterday. Like the Henry Hub spot price, the Chicago price fell below $2/MMBtu midweek before increasing at the end of the week. Year-over-year growth in production, strong storage levels, and mild temperatures are the factors driving the low-price environment. </p>
+ 
+
+<p><strong>Prices mixed in the Rockies and points west.</strong> At the PG&E Citygate in Northern California, prices rose 1% from $2.65/MMBtu last Wednesday to $2.68/MMBtu yesterday, though prices fell in Southern California. At several points in the Rockies and Pacific Northwest, prices rose slightly. </p>
+
+
+<p><strong>Northeast prices drop.</strong> In the Northeast market areas, prices posted large declines as cold weather in the beginning of the report week eased. At the Algonquin Citygate, which serves Boston area consumers, prices declined from $6.25/MMBtu last Wednesday to $3.95/MMBtu yesterday, declining all five consecutive days of the report week. In New York, prices at Transcontinental Pipeline's Zone 6 point fell from $2.10/MMBtu last Wednesday to $1.36/MMBtu yesterday. </p>
+
+
+<p><strong>Marcellus prices down.</strong> Prices at trading locations in the Marcellus Shale declined this week, with prices at many locations settling at less than $1/MMBtu. At Tennessee's Zone 4 Marcellus trading point, prices began the week at $1.04/MMBtu last Wednesday and ended the week at 76&cent/MMBtu. On Transco's Leidy Line, prices fell from $1.06/MMBtu to 87&cent/MMBtu from Wednesday to Wednesday. </p>
+
+<p><strong>Nymex prices drop.</strong> The December 2015 contract, which moved into the front month-position last week, fell from $2.298/MMBtu last Wednesday to $2.262/MMBtu yesterday. The price of the 12-month strip (the 12 contracts between December 2015 and January 2016) fell slightly from $2.511/MMBtu last Wednesday to $2.502/MMBtu yesterday. </p>
+
+<p><strong>Supply declines.</strong> Supply declined week over week, with dry production falling 0.4% from the previous week. Imports of natural gas from Canada fell 10.4%, with the largest declines occurring in imports to the Midwest. Liquefied natural gas imports rose by 1.5%, but remained at very low levels. 
+</p> 
+
+<p><strong>Demand increases slightly.</strong> U.S. consumption rose 1.4% week over week. Consumption of natural gas for electric power generation fell 3.1%, while industrial consumption rose 1.0%. Residential and commercial consumption rose 7.6% week over week, but dropped off midweek, with stronger demand in the early part of the week when temperatures were lower. </p> 
+
+    
+  <p><a href="../../../../dnav/ng/ng_pri_sum_dcu_nus_m.htm">more price data</a></p>
+  <h2><a name="jm-storage" id="jm-storage"></a>Storage</h2>
+      
+    
+
+  <p><strong>Working gas stocks equal highest recorded levels.</strong> Despite the below-average weekly inventory build, working gas climbed to tie the record high of 3,929 Bcf reported for the week ending November 2, 2012. Working gas stocks appear poised to establish an all-time record high in next week's storage report if working gas stocks increase during the coming week, as typically occurs in early November. This year's high injections have been driven by builds in the Producing region, particularly in the Producing salt region, which had never been higher than 332 Bcf before this year.  Both the salt and nonsalt Producing regions have established new all-time highs, 371 Bcf and 997 Bcf, respectively.  Working gas stocks in both the East and West regions remain off the pace established in 2012.</p>
+  
+<p><strong>Net storage injection is lower than both the five-year average and last year's builds.</strong> The net injection reported for the week ending October 30 was 52 Bcf, down from 63 Bcf the previous week. This injection compares with the five-year average increase of 58 Bcf for the week and last year's increase of 90 Bcf. Working gas inventories for the report week were 371 Bcf (10%) higher than last year at this time and 147 Bcf (4%) higher than the five-year (2010-14) average.</p>
+
+<p><strong>Storage injections are smaller than market expectations.</strong> Market expectations, on average, called for a build of 58 Bcf for this week. When the EIA storage report was released at 10:30 a.m. on November 5, the December Nymex price rose about 2&cent, to $2.33/MMBtu, and oscillated between $2.33 and $2.35/MMBtu in the following hour.</p>
+
+<p>From April 3 (the beginning of the injection season) through October 30, net storage injections totaled 2,453 Bcf, or 280 Bcf lower than the 2,733 Bcf injected during the same 30 weeks in 2014.  During these weeks for the years 2010-14, net injections into storage averaged 2,133 Bcf. The estimated average unit value of the natural gas put into storage from April 3 to October 30 this year is $2.69/MMBtu, 36% lower than the average value of $4.20/MMBtu for the same 31 weeks last year. </p>
+
+<p><strong>Temperatures during the storage report week are warmer than normal.</strong> Temperatures in the Lower 48 states averaged 57&deg for the storage report week, 4&deg warmer than the 30-year normal temperature and 1&deg cooler than the average temperature during the same week last year. </p>
+
+ 
+
+  </p>
+  <p class="do-not-print"><a href="http://ir.eia.gov/ngs/ngs.html">more storage data</a></p>
+  <p class="do-not-print">See also:</p>
+  <ul class="do-not-print">
+    <li> <a href="../../../reports.cfm.1.html">Natural Gas Analysis Reports</a></li>
+    <li> <a href="../../../../forecasts/steo.1.html">Short-Term Energy Outlook</a></li>
+  </ul>
+</div>
+
+      <div id="ngwu_left_column"> 
+        
+        <div style="height:15px;"></div>
+<div class="page_tabs" id="sector1">
+  
+
+    
+
+
+   
+   
+
+
+   
+
+
+    
+</div>
+
+ 
+    
+       
+  
+ 
+	
+    
+	 
+ 
+   
+	 
+	
+  
+  
+    
+  
+   
+
+  
+  
+  
+  <div class="ngwu_image_container"> 
+  <img src="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2015/11_05/img/20151105_itn.png" width="422" alt="Winter Nymex strip, October 28 through November 4 average" /> 
+   <div style="clear:left"> </div>
+   
+   
+    
+    
+
+</div>
+   
+    
+ 
+ 
+
+
+
+
+ 
+
+
+
+
+<br />
+        <br />
+        
+        <div class="page_tabs" id="prices">
+          <ul>
+            <li><a href="11_05.html#tabs-prices-1">Spot prices</a></li>
+            <li><a href="11_05.html#tabs-prices-2">Spot prices table</a></li>
+            <li><a href="11_05.html#tabs-prices-3">Nymex prices</a></li>
+            <li><a href="11_05.html#tabs-prices-4">NGPL prices</a></li>
+          </ul>
+          <div id="tabs-prices-1"> 
+             
+            <img src="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2015/11_05/img/20151105_NGSP.png" alt="Natural gas spot prices" />
+          </div>
+          <div id="tabs-prices-2">
+            
+  <table class="simpletable ngwu_tables">
+    <thead>
+      <tr>
+        <th width="140px"><strong>Spot Prices ($/MMBtu)</strong></th>
+        <th width="42px"><div align="center"><strong>Thu,<br />
+            29-Oct</strong></div></th>
+        <th width="42px"><div align="center"><strong>Fri,<br />
+            30-Oct</strong></div></th>
+        <th width="42px"><div align="center"><strong>Mon,<br />
+            02-Nov</strong></div></th>
+        <th width="42px"><div align="center"><strong>Tue,<br />
+            03-Nov</strong></div></th>
+        <th width="42px"><div align="center"><strong>Wed,<br />
+            04-Nov</strong></div></th>
+      </tr>
+    </thead>
+    <tr>
+      <td><strong>Henry Hub</strong></td>
+      <td><div align="center">
+          2.10 
+        </div></td>
+      <td><div align="center">1.94</div></td>
+      <td><div align="center">1.92</div></td>
+      <td><div align="center">1.90</div></td>
+      <td><div align="center">2.02</div></td>
+    </tr>
+    <tr>
+      <td><strong>New York</strong></td>
+      <td><div align="center">
+          2.03 
+        </div></td>
+      <td><div align="center">1.48</div></td>
+      <td><div align="center">1.55</div></td>
+      <td><div align="center">1.39</div></td>
+      <td><div align="center">1.36</div></td>
+    </tr>
+    <tr>
+      <td><strong>Chicago</strong></td>
+      <td><div align="center">
+          2.34 
+        </div></td>
+      <td><div align="center">2.06</div></td>
+      <td><div align="center">1.96</div></td>
+      <td><div align="center">1.98</div></td>
+      <td><div align="center">2.19</div></td>
+    </tr>
+    <tr>
+      <td><strong>Cal. Comp. Avg,*</strong></td>
+      <td><div align="center">
+          2.33 
+        </div></td>
+      <td><div align="center">2.19</div></td>
+      <td><div align="center">2.26</div></td>
+      <td><div align="center">2.23</div></td>
+      <td

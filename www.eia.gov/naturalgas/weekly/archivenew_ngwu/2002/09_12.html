@@ -1,0 +1,2362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="http://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="http://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="http://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/eia-theme-module.min.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/captions.min.js"></script>
+		
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="../../../../favicon.ico" />
+<link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../../favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="http://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+<body>
+
+
+<div id="outerX">
+  
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="http://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="../../../../index.html"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="../../../index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../coal/index.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="../../../../renewable/index.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../fuelnuclear.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="../../../../totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../petroleum/weekly/index.html">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="../../index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/monthly.1.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="../../../../cneaf/coal/quarterly/html/t33p01p1.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="../../../../emeu/recs/recs97_additions/recs_changes.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../analysis/index.html"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="../../../../finance/index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../environment.1.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../forecasts/steo/xls/Probability_HH.xls.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../forecasts/aeo/er/early_elecgen.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../special/disruptions/index.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../forecasts/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../emeu/international/contents.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../state/seds/index.html">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="../../../../special/gulf_of_mexico/index.html">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="../../../../state/maps.cfm.html">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="../../../../tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="../../../../tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="../../../../survey.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="../../../../listserv_signup.html" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="../../../../tools/rssfeeds/index.html" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../todayinenergy.1.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="../../../../tools/faqs/index.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="../../../../tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../energyexplained.1.html">Energy Explained</a></h3>
+              <p class="width152"><a href="../../../../energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=environment_home.html">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="../../../../energyexplained/index.cfm@page=oil_home.html">Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../energyexplained/index.cfm@page=hgls_home.html">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=natural_gas_home.html">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=coal_home.html">Coal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=nuclear_home.html">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="../../../../energyexplained/index.cfm@page=hydropower_home.html">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=biofuel_home.html">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=wind_home.html">Wind&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../../energy_in_brief.1.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/article/renewable_electricity.cfm.html">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/article/shale_in_the_united_states.cfm.html">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="../../../../about/new/index.html">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="../../../../pressroom/index.html" style="color:#fff !important;">Press Room</a></h3>
+              <a href="../../../../pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
+              <a href="../../../../pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
+              <a href="../../../../pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="../../../../radio/index.html">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="http://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="../../../../tools/a-z/index.html">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="../../../../tools/a-z/index.html">A-Z Index</a></h3>
+          <a href="../../../../tools/a-z/index.cfm@id=a.html">A</a>
+          <a href="../../../../tools/a-z/index.cfm@id=b.html">B</a>
+          <a href="../../../../tools/a-z/index.cfm@id=c.html">C</a>
+          <a href="../../../../tools/a-z/index.cfm@id=d.html">D</a>
+          <a href="../../../../tools/a-z/index.cfm@id=e.html">E</a>
+          <a href="../../../../tools/a-z/index.cfm@id=f.html">F</a>
+          <a href="../../../../tools/a-z/index.cfm@id=g.html">G</a>
+          <a href="../../../../tools/a-z/index.cfm@id=h.html">H</a>
+          <a href="../../../../tools/a-z/index.cfm@id=i.html">I</a>
+          <a href="../../../../tools/a-z/index.cfm@id=j.html">J</a>
+          <a href="../../../../tools/a-z/index.cfm@id=k.html">K</a>
+          <a href="../../../../tools/a-z/index.cfm@id=l.html">L</a>
+          <a href="../../../../tools/a-z/index.cfm@id=m.html">M</a>
+          <a href="../../../../tools/a-z/index.cfm@id=n.html">N</a>
+          <a href="../../../../tools/a-z/index.cfm@id=o.html">O</a>
+          <a href="../../../../tools/a-z/index.cfm@id=p.html">P</a>
+          <a href="../../../../tools/a-z/index.cfm@id=q.html">Q</a>
+          <a href="../../../../tools/a-z/index.cfm@id=r.html">R</a>
+          <a href="../../../../tools/a-z/index.cfm@id=s.html">S</a>
+          <a href="../../../../tools/a-z/index.cfm@id=t.html">T</a>
+          <a href="../../../../tools/a-z/index.cfm@id=u.html">U</a>
+          <a href="../../../../tools/a-z/index.cfm@id=v.html">V</a>
+          <a href="../../../../tools/a-z/index.cfm@id=w.html">W</a>
+          <a href="../../../../tools/a-z/index.cfm@id=xyz.html">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+    $('.dropdown').dd();
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+
+
+<div class="title bg_naturalgas">
+  <h1>Natural Gas</h1>
+</div>
+
+<div class="subnav">
+  <span class="right"><a href="../../../../tools/glossary/index.html@id=natural%2520gas.html">Glossary &rsaquo;</a> <a href="../../../../tools/faqs/index.html#naturalgas">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="../../../index.html">Overview</a></li>
+    <li class="dropdown "><a href="../../../data.cfm.html">Data</a></li>
+    
+    <div class="dat_block dat_links">
+      <ul>
+        <li><a href="../../../data.cfm.html#summary">Summary</a></li>
+        <li><a href="../../../data.cfm.html#prices">Prices</a></li>
+        <li><a href="../../../data.cfm.html#exploration">Exploration & reserves</a></li>
+        <li><a href="../../../data.cfm.html#production">Production</a></li>
+        <li><a href="../../../data.cfm.html#imports">Imports/exports</a></li>
+        <li><a href="../../../data.cfm.html#pipelines">Pipelines</a></li>
+        <li><a href="../../../data.cfm.html#storage" target="_parent">Storage</a></li>
+        <li><a href="../../../data.cfm.html#consumption">Consumption</a></li>
+        <li><a href="../../../data.cfm.html">All natural gas data reports</a></li>
+      </ul>
+    </div>
+    
+
+    <li class="dropdown "><a href="../../../reports.cfm.1.html">Analysis & Projections</a></li>
+
+    
+    <div id="analysis-projections" class="dat_block dat_links" style="width:600px;">
+
+      
+      <div style="float:left; width:400px;">
+        <h4 style="margin: 12px 20px 6px 20px;border-bottom:1px solid #CCC;padding-bottom:2px;">Major Topics</h4>
+        <ul class="split_2columns" style="margin-bottom:16px;">
+          
+          
+<li><a href="../../../reports.cfm.1.html#/T214">Most popular</a></li>
+<li><a href="../../../reports.cfm.1.html#/T72">Consumption</a></li>
+<li><a href="../../../reports.cfm.1.html#/T170">Exploration & reserves</a></li>
+<li><a href="../../../reports.cfm.1.html#/T172">Imports/exports & pipelines</a></li>
+<li><a href="../../../reports.cfm.1.html#/T66">Prices</a></li>
+<li><a href="../../../reports.cfm.1.html#/T80">Production</a></li>
+<li><a href="../../../reports.cfm.1.html#/T186">Projections</a></li>
+<li><a href="../../../reports.cfm.1.html#/T214">Recurring</a></li>
+<li><a href="../../../reports.cfm.1.html#/T174">Storage</a></li>
+<li class="no-border" style="padding-bottom:0px;"><a href="../../../reports.cfm.1.html">All reports</a></li>
+
+
+        </ul>
+      </div>
+
+      
+      <div class="listContainer2" style="width:200px; float:right">
+        <h4 style="margin: 12px 20px 6px 20px; border-bottom:1px solid #ccc; padding-bottom:2px;">Browse by Tag</h4>
+        <ul>
+          <li><a href="../../../browsebytag.cfm.html">Alphabetical</a></li>
+          <li><a href="../../../browsebytag.cfm@frequency.html">Frequency</a></li>
+          <li><a href="../../../browsebytag.cfm@tagcloud.html">Tag Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </ul>
+</div> <div class="report_header"> <span class="left rtitle" style="width:620px"> <a href="../../index.html">&lsaquo; See latest Natural Gas Weekly Update</a>
+  <h2>Natural Gas Weekly Update Archive</h2>
+  <p><strong>for week ending September 11, 2002</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Release Date:</strong>&nbsp;&nbsp;September 12, 2002&nbsp;&nbsp;
+  
+</p> 
+</p></span>
+  <span class="left rtitle_form do-not-print" style="width:332px">
+  <h4>Previous Issues</h4>
+  <span class="rtitle_form_a" style="width:337px">
+  <script type="text/javascript">
+//Datepicker
+var pickDate = $(function() {
+	$( "#datepicker" ).datepicker({
+		changeYear: true,
+		selectWeek:true,
+		minDate: new Date(1996, 4, 13),
+		maxDate: (new Date()),
+		beforeShowDay: $.datepicker.noWeekends 
+		});
+	});
+$(window).load(function() {
+	var pickDate
+});
+</script>
+<form action="http://www.eia.gov/naturalgas/weekly/includes/NGWU_form_process.cfm" method="post">
+<p>Week: <input type="text" id="datepicker" name="datepicker" value="01/17/2017">
+<input type="submit" border="0" align="absmiddle" class="arrow_go">
+&nbsp;(<a href="http://www.eia.gov/naturalgas/weekly/archive/">View Archive</a>)</p>
+</form>
+<br />
+  </span>
+  </span> 
+</div>
+
+  
+   
+  
+  <div class="pagecontent mr_temp4"> 
+
+<div class=Section1>
+
+<p class=MsoBodyText><a name="_Hlt513428572"><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>Overview: <o:p></o:p></span></a></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt513428572'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Natural gas spot prices have
+moved up by 10 to 25 cents at most trading locations since Wednesday, September
+4. For the week (Wednesday-Wednesday), the average Henry Hub price climbed
+$0.20 per MMBtu to $3.32 as Tropical Storm Fay temporarily threatened Gulf area
+production activity and late-season high temperatures triggered cooling demand
+in key market areas. The price of the NYMEX futures contract for October
+delivery at the Henry Hub increased a more moderate $0.057 per MMBtu since last
+Wednesday to settle at $3.250 yesterday. Natural gas in storage increased to
+2,855 Bcf, which exceeds the 5-year average by nearly 12.3 percent. The spot
+price for West Texas Intermediate (WTI) crude oil rose $1.49 per barrel to
+$29.77, or $5.13 per MMBtu.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt513428572'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><!--[if gte vml 1]><o:wrapblock><v:shapetype
+  id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t"
+  path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+  <v:stroke joinstyle="miter"/>
+  <v:formulas>
+   <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+   <v:f eqn="sum @0 1 0"/>
+   <v:f eqn="sum 0 0 @1"/>
+   <v:f eqn="prod @2 1 2"/>
+   <v:f eqn="prod @3 21600 pixelWidth"/>
+   <v:f eqn="prod @3 21600 pixelHeight"/>
+   <v:f eqn="sum @0 0 1"/>
+   <v:f eqn="prod @6 1 2"/>
+   <v:f eqn="prod @7 21600 pixelWidth"/>
+   <v:f eqn="sum @8 21600 0"/>
+   <v:f eqn="prod @7 21600 pixelHeight"/>
+   <v:f eqn="sum @10 21600 0"/>
+  </v:formulas>
+  <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+  <o:lock v:ext="edit" aspectratio="t"/>
+ </v:shapetype><v:shape id="_x0000_s1071" type="#_x0000_t75" style='position:absolute;
+  left:0;text-align:left;margin-left:0;margin-top:0;width:375pt;height:302.3pt;
+  z-index:1;mso-position-horizontal-relative:text;
+  mso-position-vertical-relative:text'>
+  <v:imagedata src="./ngweek_files/image001.wmz" o:title=""/>
+  <w:wrap type="topAndBottom"/>
+ </v:shape><![endif]--><![if !vml]><img width=500 height=403
+ src="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2002/09_12/ngweek_files/image002.gif" v:shapes="_x0000_s1071"><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br
+style='mso-ignore:vglayout' clear=ALL>
+<span style='mso-bookmark:_Hlt513428572'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<span style='mso-bookmark:_Hlt513428572'></span><br style='mso-ignore:vglayout'
+clear=ALL>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><a href="../../../../dnav/ng/ng_pri_sum_dcu_nus_m.htm" title="Prices:">Prices:</a><o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-bidi-font-weight:bold'>Spot prices this week
+(Wednesday-Wednesday) recovered much of the previous week's losses as hot weather
+returned to many regions and Tropical Storm Fay stirred fears of possible
+production shut-ins. The Henry Hub spot price climbed 19 cents to an average of
+$3.38 per MMBtu last Friday, the highest price at the hub for the week, as
+Tropical Storm Fay threatened production fields near Galveston, Texas. However,
+Fay's strength diminished by the next day, and few producers reported shutting
+in production, according to the Minerals Management Service. Adding to the cash
+market's strength, hot weather returned to both coasts as temperatures this
+weekend hit the 90s in parts of California and in New York. For the week, the
+spot price at the Southern California border gained 20 cents to an average of
+$3.11 per MMBtu yesterday (Wednesday, September 11). The spot price at the New
+York citygate climbed $0.16 per MMBtu to an average of $3.60. Rockies prices
+suffered yet another downturn this week as infrastructure maintenance limited
+outlets for supplies. Before a mild recovery yesterday, the spot price in Opal,
+Wyoming, dropped to as low as 67 cents per MMBtu earlier this week. The
+region's oversupply was compounded by Questar's directive that all holders of
+interruptible storage would have to empty their supplies from the Clay Basin
+storage facility because of high storage inventories. Prices at the Questar
+trading point dropped to an average of 55 cents per MMBtu on Tuesday. Prices on
+El Paso Natural Gas in the Southwest plummeted on the week as supplies were
+diverted to the pipeline owing to maintenance on Transwestern Pipeline. On the
+week, the El Paso non-Bondad trading point in New Mexico suffered the biggest
+decline, falling 46 cents to $2.16 per MMBtu.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>At the NYMEX, the price of the futures contract for
+October delivery at the Henry Hub increased $0.057 per MMBtu on the week to a
+close of $3.250 yesterday. The near-month contract this week benefited from
+fears of slowing production and strong prices for crude oil, which rose to near
+$30 this week owing to reports of relatively low U.S. oil stocks. Concerns over
+a possible U.S. invasion of Iraq and the renewed fears of terrorism also
+appeared to contribute to strength in oil prices, which have increased by $2.01
+per barrel since the beginning of the month. After a delayed opening yesterday
+in recognition of the September 11 anniversary ceremonies, the October contract
+yesterday recorded a loss in value of slightly less than 11 cents per MMBtu.
+The futures contract for November closed at $3.645 per MMBtu, down 8.9 cents on
+the day. The 12-month strip, which is the average cost for futures contracts
+over the next year, moved down 6.4 cents to $3.796 per MMBtu.<b> </b><o:p></o:p></span></p>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=0 cellspacing=0 cellpadding=0 width=389 style='width:292.0pt;
+ border-collapse:collapse;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='height:24.95pt'>
+  <td width=143 rowspan=2 style='width:107.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Spot Prices</span></b><b><span
+  style='font-size:9.0pt;font-family:Arial;color:white'> </span></b><b><span
+  style='font-family:Arial;color:white'>($ per MMBtu)</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Thur.</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Fri.</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Mon.</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Tues.</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:24.95pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>Wed.</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt;mso-height-source:userset'>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="37504">
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>5-Sep</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="37505">
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>6-Sep</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="37508">
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>9-Sep</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="37507">
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>8-Sep</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#666699;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="37508">
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial;color:white'>9-Sep</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt;mso-height-source:userset'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Henry Hub</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.19</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.38</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.24</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.35</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.32</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>New York</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.50</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.75</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.62</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.62</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.60</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'
+  x:str="Chicago ">
+  <p class=MsoNormal><b><span style='font-family:Arial'>Chicago </span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.20</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.40</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.23</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.36</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.35</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Cal. Comp. Avg,*</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>2.96</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.0733333333333337">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.07</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="2.9833333333333329">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>2.98</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.1166666666666667">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.12</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.1266666666666665">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>3.13</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Futures ($/MMBtu)</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=49 style='width:37.0pt;background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Oct delivery</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.3420000000000001">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.342</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.2650000000000001">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.265</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.399">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.399</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.3559999999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.356</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.250</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=143 valign=bottom style='width:107.0pt;border:none;border-right:
+  solid windowtext .5pt;background:silver;padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Nov delivery</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.6539999999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.654</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.605">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.605</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.7440000000000002">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.744</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.734">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.734</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td nowrap valign=bottom style='background:#FFFFCC;padding:0in 0in 0in 0in;
+  height:12.75pt' x:num="3.645">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.645</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=389 colspan=6 valign=bottom style='width:292.0pt;padding:0in 0in 0in 0in;
+  height:12.75pt'
+  x:str="*Avg. of NGI's reported avg. prices for:  Malin, PG&amp;E citygate, ">
+  <p class=MsoNormal><span style='font-family:Arial'>*Avg. of NGI's reported
+  avg. prices for: Malin, PG&amp;E
+  citygate, </span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=389 colspan=6 valign=bottom style='width:292.0pt;padding:0in 0in 0in 0in;
+  height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>and Southern California
+  Border Avg.</span><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td nowrap colspan=6 valign=bottom style='padding:0in 0in 0in 0in;height:
+  12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>Source: NGI's Daily Gas
+  Price Index (http://intelligencepress.com).</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<p class=MsoBodyText style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;mso-bidi-font-weight:bold'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><span style='mso-bidi-font-weight:
+bold'><a href="http://tonto.eia.doe.gov/oog/info/ngs/ngs.html"><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>Storage:</span></a> <o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt;font-weight:normal'>Working gas in storage was 2,855
+Bcf or 12.3 percent above the 5-year average for the week ending September 6,
+according to EIA's <span style='mso-bidi-font-style:italic'>Weekly Natural Gas
+Storage Report</span>. <span style='mso-bidi-font-weight:bold;mso-bidi-font-style:
+italic'><a href="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2002/09_12/nwstorage.htm"><span style='mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>(See Storage Figure)</span></a></span> With temperatures in many areas of the
+country much hotter than last year as measured by cooling degree days (CDDs),
+the implied net injection for the week was 74 Bcf, which is 4.2 percent higher
+than the 5-year average injection for the week of 71 Bcf. CDDs were 20 percent
+higher than the comparable week last year for the country as a whole, but
+almost double in the Upper Plains region for the week ending September 7. <span
+style='mso-bidi-font-weight:bold'>(<a href="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2002/09_12/temp.gif"><span style='mso-ascii-font-family:
+"Times New Roman";mso-hansi-font-family:"Times New Roman"'>See Temperature Map</span></a>)
+<a href="http://www.eia.gov/naturalgas/weekly/archivenew_ngwu/2002/09_12/deviation.gif"><span style='mso-ascii-font-family:"Times New Roman";
+mso-hansi-font-family:"Times New Roman"'>(See Deviation Map)</span></a> </span> With summer heat dissipating, the industry
+has historically boosted injections during September. Storage stocks are 183
+Bcf higher than a year ago and 313 Bcf
+higher than the 5-year average for the week.<o:p></o:p></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></p>
+
+<table border=0 cellspacing=0 cellpadding=0 width=464 style='width:348.0pt;
+ border-collapse:collapse;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='height:76.5pt'>
+  <td width=124 valign=bottom style='width:93.0pt;background:#666699;
+  padding:0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>All Volumes
+  in Bcf</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=67 valign=bottom style='width:50.0pt;background:#666699;padding:
+  0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Current
+  Stocks 9/6//2002</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=68 valign=bottom style='width:51.0pt;background:#666699;padding:
+  0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Estimated
+  Prior 5-Year (1997-2001) Average</span></b><b><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#666699;padding:
+  0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Percent
+  Difference from 5 Year Average</span></b><b><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=64 valign=bottom style='width:48.0pt;background:#666699;padding:
+  0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Implied Net
+  Change from Last Week</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#666699;padding:
+  0in 0in 0in 0in;height:76.5pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>One-Week
+  Prior Stocks 8/30/02</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:76.5pt;border:none' width=0 height=102></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=124 valign=bottom style='width:93.0pt;background:#666699;
+  padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>East Region</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=67 valign=bottom style='width:50.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="1642">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>1,642</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=68 valign=bottom style='width:51.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="1546">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>1,546</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="6.2E-2">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>6.2%</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=bottom style='width:48.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>52</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="1590">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>1,590</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=124 valign=bottom style='width:93.0pt;background:#666699;
+  padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>West Region</span></b><b><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=67 valign=bottom style='width:50.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>390</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=68 valign=bottom style='width:51.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>324</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="0.20399999999999999">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>20.4%</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=bottom style='width:48.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>9</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>381</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=124 valign=bottom style='width:93.0pt;background:#666699;
+  padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Producing
+  Region</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS";color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=67 valign=bottom style='width:50.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>823</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=68 valign=bottom style='width:51.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>671</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="0.22700000000000001">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>22.7%</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=bottom style='width:48.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>13</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>810</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=124 valign=bottom style='width:93.0pt;background:#666699;
+  padding:0in 0in 0in 0in;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial;color:white'>Total Lower
+  48</span></b><b><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS";
+  color:white'><o:p></o:p></span></b></p>
+  </td>
+  <td width=67 valign=bottom style='width:50.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="2855">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>2,855</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=68 valign=bottom style='width:51.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="2542">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>2,542</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="0.123">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>12.3%</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=bottom style='width:48.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num>
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>74</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <td width=71 valign=bottom style='width:53.0pt;background:#FFFFCC;padding:
+  0in 0in 0in 0in;height:12.75pt' x:num="2781">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial;color:black'>2,781</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS";color:black'><o:p></o:p></span></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=464 colspan=6 rowspan=3 valign=top style='width:348.0pt;padding:
+  0in 0in 0in 0in;height:12.75pt'
+  x:str="Source:  Energy Information Administration:  Form EIA-912, &quot;Weekly Underground Natural Gas Storage Report,&quot; and the Historical Weekly Storage Estimates Database. ">
+  <p class=MsoNormal><span style='font-family:Arial'>Source: Energy Information Administration: Form EIA-912, &quot;Weekly Underground Natural
+  Gas Storage Report,&quot; and the Historical Weekly Storage Estimates
+  Database. </span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+ <tr style='height:12.75pt'>
+  <![if !supportMisalignedRows]>
+  <td style='height:12.75pt;border:none' width=0 height=17></td>
+  <![endif]>
+ </tr>
+</table>
+
+<p class=MsoNormal style='text-align:justify'><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]><![endif]><o:p></o:p></span><b><span style='font-size:12.0pt;
+mso-bidi-font-size:10.0pt'>Other Market Trends:
+      <o:p></o:p>
+</span></b></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;mso-bidi-font-style:italic'>FERC
+  Proposes Plan To Protect Critical Energy Infrastructure Information: </span></span><span style='mso-bookmark:
+_Hlt533493462'><span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>After
+    examining the issue for nearly a year in the wake of the terrorist attacks of
+    September 11, 2001, the Federal Energy Regulatory Commission (FERC) last week
+    proposed to establish regulations that would limit access to information about
+    the nation's energy infrastructure. In its Notice of Proposed Rulemaking
+    (NOPR), FERC defines &quot;critical energy infrastructure information (CEII)&quot; as
+    information about proposed or existing critical infrastructure that:<o:p></o:p></span></span></p>
+
+<ul>
+
+<li><span style="mso-bookmark:_Hlt533493462"><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:Symbol'><span style='font:7.0pt &quot;Times New Roman&quot;'> </span></span>
+    <![endif]>
+    <span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>relates
+to the production, generation, transportation, transmission, or distribution of
+energy</span></span></li>
+
+<li><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">could
+be useful to a person in planning an attack on critical infrastructure</span></li>
+
+<li><span style="mso-bookmark:_Hlt533493462"><span style='font-size:
+12.0pt;mso-bidi-font-size:10.0pt;font-family:Symbol'><span style='font:7.0pt &quot;Times New Roman&quot;'> </span></span>
+    <![endif]>
+    <span style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>is
+exempt from mandatory disclosure under the Freedom of Information Act </span></span></li>
+
+<li><span style="font-size:12.0pt;mso-bidi-font-size:10.0pt">gives
+strategic information beyond the location of the critical infrastructure</span>. </li>
+
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>The NOPR proposes procedures
+for requesting confidential treatment of CEII, and sets forth a method for
+handling challenges to the designation of certain information as CEII. The stated overall objective is to protect
+information designated sensitive, while still allowing efficient access to such
+information by those with a valid &quot;need to know.&quot; In many cases the CEII designation will require the removal of
+certain information from the public domain. <o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><b><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Natural Gas Summary from the
+<i>Short-Term Energy Outlook</i>: <o:p></o:p></span></b></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>EIA projects that natural
+gas wellhead prices will range between $2.71 and $2.75 per MMBtu through
+October and then increase to $2.92 in November as the heating season gets
+underway (</span></span><a
+href="http://www.eia.doe.gov/emeu/steo/pub/contents.html"><span
+style='mso-bookmark:_Hlt533493462'><span style='font-size:12.0pt;mso-bidi-font-size:
+10.0pt;mso-ascii-font-family:"Times New Roman";mso-hansi-font-family:"Times New Roman";
+mso-bidi-font-style:italic'>Short-Term Energy Outlook</span></span><span
+style='mso-bookmark:_Hlt533493462'></span></a><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>, September 2002). Prices
+remained above $2.90 during the last half of August as unusually hot weather
+across the nation resulted in added cooling demand, placing upward pressure on
+prices. Now that the summer is nearly over, cooling demand should be tapering
+off, while at the same time, the heating season has not yet begun. Overall in
+2002, wellhead prices are expected to average about $2.73 per MMBtu compared
+with $4.00 in 2001. Prices during the upcoming heating season (November through
+March), assuming normal weather, are expected to average $3.20 per MMBtu, which
+is about $0.84 higher than last winter's price.<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoBodyText style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt;font-weight:normal'>Domestic
+dry natural gas production is projected to fall by about 1.7 percent in 2002
+compared with the 2001 growth rate of 2.4 percent. Lower natural gas prices
+have reduced production and resource development incentives from their highs of
+last year. Still, current supplies, including natural gas in storage, appear to
+be at very comfortable levels. Working gas in storage has exceeded the highest
+levels recorded in the previous 5 years since the beginning of the year. By the
+end of August, working gas storage stocks were about 2,781 Bcf, which is 12.5
+percent above the 5-year average and 205 Bcf higher than a year ago. Moreover,
+natural gas-directed drilling, while down from the record levels of mid 2001,
+is still quite strong by a longer historical perspective. The gas rig count as
+of August 30, 2002, was 741, which is 25 percent above the recent low of 591
+for the week of April 5, 2002. In 2003, production is expected to rebound by
+3.2 percent as demand rises and inventories fall back closer to normal<o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'><![if !supportEmptyParas]>&nbsp;<![endif]><o:p></o:p></span></span></p>
+
+<p class=MsoNormal style='text-align:justify'><span style='mso-bookmark:_Hlt533493462'><span
+style='font-size:12.0pt;mso-bidi-font-size:10.0pt'>Natural gas demand is
+expected to increase sharply in November and December and early 2003 because of
+the expected continuation of solid recovery in the U.S. industrial economy by
+the fourth quarter of this year and the return of colder weather. The expected
+increase in natural gas demand for the coming winter, assuming normal weather,
+is 12 percent above the year-ago level. Natural gas demand for the entire year
+2002 is projected to increase by 3.3 percent over 2001 levels in large part
+because of increased demand for natural gas for power generation. In 2003,
+natural gas demand growth is expected to increase by 3.6 percent, as the
+economy continues to recover. Natural gas demand growth is expected across all
+sectors, with the exception of the electric utility sector. This is because of
+the still ongoing transfer of ownership of electric power plants from utilities
+to independent power producers (included in the industrial sector) that stems
+from deregulation.<o:p></o:p></span></span></p>
+
+<span style='mso-bookmark:_Hlt533493462'></span>
+
+<p class=MsoNormal style='text-align:justify;tab-stops:0in .5in 1.0in 1.5in 2.0in 2.5in 3.0in 3.5in 4.0in 4.5in 5.0in 5.5in 6.0in'><span
+style='font-size:12.0pt'> <o:p></o:p></span></p>
+
+<table border=0 cellspacing=0 cellpadding=0 width=683 style='width:512.0pt;
+ border-collapse:collapse;mso-padding-alt:0in 0in 0in 0in'>
+ <tr style='height:12.75pt'>
+  <td width=261 nowrap valign=bottom style='width:196.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><b><span style='font-family:Arial'>Monthly Natural Gas
+  Market Summary</span></b><b><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=101 nowrap valign=bottom style='width:76.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 nowrap valign=bottom style='width:48.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 nowrap valign=bottom style='width:48.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 nowrap valign=bottom style='width:48.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 nowrap valign=bottom style='width:48.0pt;border-top:solid black .5pt;
+  border-left:none;border-bottom:solid black .5pt;border-right:none;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 nowrap valign=bottom style='width:48.0pt;border:solid black .5pt;
+  border-left:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt;mso-height-source:userset'>
+  <td width=261 valign=top style='width:196.0pt;border-top:none;border-left:
+  solid black .5pt;border-bottom:solid white .5pt;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal>&nbsp;<span style='font-size:12.0pt;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=229 colspan=3 valign=top style='width:172.0pt;border-top:none;
+  border-left:none;border-bottom:solid black .5pt;border-right:solid black .5pt;
+  mso-border-top-alt:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;height:
+  12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial'>History</span></b><b><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+  <td width=192 colspan=3 valign=top style='width:2.0in;border-top:none;
+  border-left:none;border-bottom:solid black .5pt;border-right:solid black .5pt;
+  mso-border-top-alt:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;height:
+  12.75pt'>
+  <p class=MsoNormal align=center style='text-align:center'><b><span
+  style='font-family:Arial'>Projections</span></b><b><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></b></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="37408">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Jun-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="37438">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Jul-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="37469">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Aug-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="37500">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Sep-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="37530">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Oct-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="37561">
+  <p class=MsoNormal align=center style='text-align:center'><span
+  style='font-family:Arial'>Nov-02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;background:silver;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'>PRICES
+  ($/MMBtu)</span><span style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;background:
+  silver;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Average Wellhead Price</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="2.8821811100292116">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.88</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.8140214216163586">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.81</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.7443281402142166">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.74</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.7051110029211296">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.71</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.7461596884128534">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.75</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.9245813047711784">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.92</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Residential Price</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="8.7974011684518025">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>8.80</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="9.2282775073028258">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>9.23</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="9.4296553067185975">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>9.43</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="9.0689532619279465">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>9.07</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="8.0857604673807213">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>8.09</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="7.4444391431353463">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>7.44</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Electric Utilities Price</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="3.2580040000000001">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.26</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="3.0180479999999998">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.02</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.8896169999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.89</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.815067">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.82</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.924671">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.92</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="3.2514639999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.25</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:15.0pt;mso-height-source:userset'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;background:silver;padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'>SUPPLY
+  (Trillion Cubic Feet)</span><span style='font-family:Arial;mso-fareast-font-family:
+  "Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;background:
+  silver;padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;background:silver;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:15.0pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Total Dry Gas Prod</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="1.5538404000000001">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.55</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.5975539999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.60</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.5949453499999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.59</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.5417000000000001">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.54</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.5990110000000002">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.60</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.5749403">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.57</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Net Imports</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="0.24989821899999998">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.25</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.27692393000000004">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.28</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.28437257899999996">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.28</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.26538930000000005">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.27</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.27912124100000002">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.28</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.27136838999999996">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.27</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Imports</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="0.28915721300000002">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.29</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.32014196">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.32</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.33075791000000004">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.33</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.31250759999999994">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.31</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.3272391">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.33</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.31831619999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.32</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Exports</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="3.9258993999999998E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.04</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="4.3217968000000002E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.04</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="4.6385331000000002E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.05</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="4.7118179999999996E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.05</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="4.8117982999999996E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.05</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="4.6947899999999994E-2">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.05</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Suppl. Gaseous Fuels</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="5.3037757782800005E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="6.2197501000000009E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="6.2731476E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="6.0375450000000001E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="6.135575800000001E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="7.1532449999999999E-3">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.01</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Total New Supply</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="1.8090423947782801"
+  x:fmla="=+SUM(B10,B11,B14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.809</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.8806976800999999" x:fmla="=+SUM(C10,C11,C14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.881</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.8855910765999999" x:fmla="=+SUM(D10,D11,D14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.886</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.8131268450000002" x:fmla="=+SUM(E10,E11,E14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.813</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.8842678168000002" x:fmla="=+SUM(F10,F11,F14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.884</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.8534619349999999" x:fmla="=+SUM(G10,G11,G14)">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.853</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:13.5pt;mso-height-source:userset'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:13.5pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Working Gas in Storage</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:13.5pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Opening</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="1.9681250529999998">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.968</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.308174782">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.308</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.5575714285714284">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.558</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.774">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.774</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="3.0569999999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.057</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.220</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Closing</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="2.308174782">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.308</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.5575714285714284">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.558</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="2.774">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>2.774</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="3.0569999999999999">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.057</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.220</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="3.069">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>3.069</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Net Storage Withdrawal</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="-0.34004972900000019"
+  x:fmla="=+B18-B19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>-0.340</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="-0.24939664657142835" x:fmla="=+C18-C19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>-0.249</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="-0.21642857142857164" x:fmla="=+D18-D19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>-0.216</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="-0.28299999999999992" x:fmla="=+E18-E19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>-0.283</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="-0.16300000000000026" x:fmla="=+F18-F19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>-0.163</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="0.15100000000000025" x:fmla="=+G18-G19">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>0.151</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border-top:none;border-left:
+  solid black .5pt;border-bottom:none;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal><span style='font-family:Arial'>&nbsp;</span><span
+  style='font-family:Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border:none;border-right:solid black .5pt;
+  padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>&nbsp;</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+ </tr>
+ <tr style='height:12.75pt'>
+  <td width=261 valign=top style='width:196.0pt;border:solid black .5pt;
+  border-top:none;padding:1.0pt 1.0pt 0in 1.0pt;height:12.75pt'>
+  <p class=MsoNormal style='text-align:justify'><span style='font-family:Arial'> Total Supply</span><span style='font-family:
+  Arial;mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=101 valign=top style='width:76.0pt;border-top:none;border-left:
+  none;border-bottom:solid black .5pt;border-right:solid black .5pt;padding:
+  1.0pt 1.0pt 0in 1.0pt;height:12.75pt' x:num="1.4689926657782799"
+  x:fmla="=+B15+B20">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.469</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=top style='width:48.0pt;border-top:none;border-left:none;
+  border-bottom:solid black .5pt;border-right:solid black .5pt;padding:1.0pt 1.0pt 0in 1.0pt;
+  height:12.75pt' x:num="1.6313010335285716" x:fmla="=+C15+C20">
+  <p class=MsoNormal align=right style='text-align:right'><span
+  style='font-family:Arial'>1.631</span><span style='font-family:Arial;
+  mso-fareast-font-family:"Arial Unicode MS"'><o:p></o:p></span></p>
+  </td>
+  <td width=64 valign=t
