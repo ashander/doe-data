@@ -1,0 +1,417 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=9" > <!-- IE9 mode -->
+<link href="http://www.eia.gov/styles/eia_sitewideF.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://www.eia.gov/energyexplained/styles/energyfacts.css" type="text/css" media="screen">
+<link rel="stylesheet" href="http://www.eia.gov/energyexplained/styles/energyfactsframe.css" type="text/css" media="screen">
+<link rel="stylesheet" href="http://www.eia.gov/energyexplained/styles/jquery.treeviewM.css" type="text/css" media="screen">
+<link rel="stylesheet" href="http://www.eia.gov/energyexplained/styles/rate_page.css" type="text/css" media="screen">
+<link rel="stylesheet" href="http://www.eia.gov/energyexplained/styles/print.css" type="text/css" media="print"/>
+<link rel="stylesheet" type="text/css" href="http://www.eia.gov/kids/shadowbox/shadowbox.css">
+<script type="text/javascript" src="http://www.eia.gov/styles/eia_header.js"></script>
+<script language="JavaScript" src="http://www.eia.gov/styles/eia_footer.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://www.eia.gov/kids/shadowbox/shadowbox.js"></script>
+
+<script src="http://www.eia.gov/energyexplained/js/jquery.treeview.js" type="text/javascript"></script>
+<script src="http://www.eia.gov/energyexplained/js/demom.js" type="text/javascript"></script>
+<script src="http://www.eia.gov/energyexplained/js/rating_style.js" type="text/javascript"></script>
+
+<title>How Electricity Is Delivered To Consumers - Energy Explained, Your Guide To Understanding Energy - Energy Information Administration</title>
+
+<script language="javascript">
+var selectedTab = "basics";
+
+	
+	function showPanel(tab, name)
+	{
+		if (selectedTab)
+		{
+			document.getElementById('tab' + selectedTab).className = 'tabinactive';
+			document.getElementById(selectedTab).className = 'panelinactive';
+		}
+		selectedTab = name;
+		document.getElementById('tab' + selectedTab).className = 'tabactive';
+		document.getElementById(selectedTab).className = 'panelactive';
+		getPrintPage();
+		return false;
+	}
+
+function getPrintPage()
+{
+	var x = location.href.search(/index/);
+	if(x == "-1")
+	{
+		document.getElementById('printTab').href = location.href.replace(/\?page/,"print.cfm?page");
+	}
+	else
+	{
+		document.getElementById('printTab').href = location.href.replace(/index/,"print");
+	}
+}
+
+var the_tab=0;
+
+function checkURL()
+{
+	var all_tabs=document.getElementById("tabs").getElementsByTagName("li");
+	the_tab=location.hash.substring(4);
+	if (the_tab > 0)
+	{
+		the_tab=the_tab - 1;
+	}
+	else
+	{
+		the_tab=0;
+	}
+
+	if (the_tab != "")
+	{
+		showPanel(all_tabs[the_tab].firstChild.href, all_tabs[the_tab].id.substring(3));
+	}
+}
+
+	
+	function emailPage()
+{
+	var browser=navigator.appName;
+	var SubjectLine='Take a look at this web page from the Energy Information Administration! ';
+	var BodyText='You can find the web page at: '+top.location.href;
+	var Message='mailto:?SUBJECT='+escape(SubjectLine)+'&BODY='+escape(BodyText);
+	var MessageIE='mailto:?SUBJECT='+(SubjectLine)+'&BODY='+(BodyText);
+	if(browser=="Microsoft Internet Explorer")
+		{
+			document.getElementById("email-this").href=MessageIE;
+		}
+	else
+		{
+			document.getElementById("email-this").href=Message;
+		}
+
+}
+
+	
+
+function showplace() {
+	var whichpage = location.search;
+	var endurl = whichpage.indexOf("?", 1);
+	if (endurl != -1)
+	{
+		whichpage = "im" + whichpage.substring(6, endurl);
+	}
+	else
+	{
+		whichpage = "im" + whichpage.substring(6);
+	}
+
+//		alert(document.getElementById(whichpage).id);
+
+	if (document.getElementById(whichpage) != null && document.getElementById(whichpage).id == whichpage)
+	{
+		document.getElementById(whichpage).style.display = "inline";
+	}
+
+}
+
+Shadowbox.init({
+    language: 'en',
+    players:  ['img', 'iframe'],
+	handleOversize: "resize"
+});
+
+window.onload = function(){
+
+	emailPage();
+	showplace();
+	checkURL();
+	$('.selected').focus();
+};
+
+</script>
+
+</head>
+<body class="home">
+<div id="print-hed"><img src="http://www.eia.gov/energyexplained/images/style-images/e-explained_150x75.jpg" alt="Energy Explained"></div>
+   <table width="100%" border="0" align="center" cellpadding="3" id="content">
+
+
+
+
+      <tr>
+         <td colspan="2" style="padding-bottom: 0px;">
+
+			<script language="JavaScript">InsertEIAHeaderCode();</script>
+
+
+<!--
+       <div id="eialogo"><a href="http://www.eia.gov/"><img src="images/style-images/eia-logo.jpg" width="410" height="55" border="0" alt="oxy/eia logo" align="left"></a>
+         </div>
+         <div id="search" style="margin-bottom: -20px;">
+         
+<form method="get" action="http://usasearch.gov/search" class="search">
+<input type="hidden" name="affiliate" value="eia.doe.gov">
+<input type="hidden" name="v:project" value="firstgov">
+
+<input type="text" name="query" size="28" maxlength="256" title="enter the information you are searching for" />
+
+<input type="button" name="search" alt="enter terms to search" align="absmiddle" value="Search" title="click to search EIA">
+		<p style="margin-right: 200px;"><a href="http://www.eia.gov/glossary/index.html">Glossary</a></p>
+</form></fieldset>
+
+         </div>
+   -->
+
+         <div id="breadcrumbs">
+            <p><a href='../index.html'>Home</a> > <a href='http://www.eia.gov/energyexplained/index.cfm'>Energy Explained</a> > <a href='http://www.eia.gov/energyexplained/index.cfm?page=secondary_home'><b>Secondary Sources</b></a> > <a href='index.cfm@page=electricity_home.html'>Electricity</a> > Delivery To Consumers</p>
+         </div>
+         </td>
+      </tr>
+
+      <tr>
+         <td id="donotprint">
+         
+         <div class='home-link'><a href='http://www.eia.gov/energyexplained/index.cfm'><img src='http://www.eia.gov/energyexplained/images/style-images/e-explained-home.jpg' width='220' height='37' alt='Energy Explained - Home'></a></div><div class='menu' id='main'><ul><ul id='navigation'> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_home' class='activepage' style='display:none;' /><a href='index.cfm@page=about_home.html'>What Is Energy?</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_forms_of_energy' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_forms_of_energy'>Forms of Energy</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_sources_of_energy' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_sources_of_energy'>Sources of Energy</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_laws_of_energy' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_laws_of_energy'>Laws of Energy</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_units' class='activepage' style='display:none;' /><a href='index.cfm@page=about_energy_units.html'>Units and Calculators</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_conversion_calculator' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_energy_conversion_calculator'>Energy Conversion Calculators</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_btu' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_btu'>British Thermal Units (Btu)</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_degree_days' class='activepage' style='display:none;' /><a href='index.cfm@page=about_degree_days.html'>Degree-Days</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_home'>U.S. Energy Facts</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_state' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_state'>State and U.S. Territory Data</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_use' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_use.html'>Use of Energy</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_industry' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_industry'>In Industry</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_transportation' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_transportation'>For Transportation</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_homes' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_homes'>In Homes</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_commercial' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_commercial'>In Commercial Buildings</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_efficiency' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=about_energy_efficiency'>Efficiency and Conservation</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_home' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_home.html'>Energy and the Environment</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_about_ghg' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=environment_about_ghg'>Greenhouse Gases</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_how_ghg_affect_climate' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=environment_how_ghg_affect_climate'>Effect on the Climate</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_where_ghg_come_from' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=environment_where_ghg_come_from'>Where Greenhouse Gases Come From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_outlook_for_emissions' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=environment_outlook_for_emissions'>Outlook for Future Emissions</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_recycling' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=environment_recycling'>Recycling and Energy</a> </ul> <li class='rightnav-split open'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnonrenewable_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=nonrenewable_home'><b>Nonrenewable Sources</b></a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_home' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_home.html'>Oil and Petroleum Products</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_refining' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_refining'>Refining Crude Oil</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_where'>Where Our Oil Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_imports' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_imports'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_offshore' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_offshore'> &nbsp;&nbsp;&nbsp;&nbsp;Offshore Oil and Gas</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_use'>Use of Oil</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_prices'>Prices and Outlook</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=oil_environment'>Oil and the Environment</a> </ul> </ul><ul> <ul><li style='display:block; position: relative; left:16px; max-width:150px;width:150px; margin-top:-6px;//display:inline-block; //margin-top:-9px;'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_home'>Gasoline</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_where'>Where Our Gasoline Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_use'>Use of Gasoline</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_prices.html'>Prices and Outlook</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_factors_affecting_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_factors_affecting_prices'>Factors Affecting Gasoline Prices</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_regional' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_regional'>Regional Price Differences</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_fluctuations' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_fluctuations'>Price Fluctuations</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_history' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_history'>History of Gasoline</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=gasoline_environment'>Gasoline &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_home'>Diesel Fuel</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_where'>Where Our Diesel Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_use'>Use of Diesel</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_prices.html'>Prices and Outlook</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_factors_affecting_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_factors_affecting_prices'>Factors Affecting Diesel Prices</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_surcharges' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_surcharges'>Diesel Fuel Surcharges</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=diesel_environment'>Diesel &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=heating_oil_home'>Heating Oil</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=heating_oil_where'>Where Our Heating Oil Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=heating_oil_use'>Use of Heating Oil</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=heating_oil_prices'>Prices and Outlook</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_factors_affecting_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=heating_oil_factors_affecting_prices'>Factors Affecting Heating Oil Prices</a> </ul> </ul> </ul> </ul> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_home' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_home.html'>Hydrocarbon Gas Liquids</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_where' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_where.html'>Where do Hydrocarbon Gas Liquids Come From?</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_transporting_storing' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hgls_transporting_storing'>Transporting and Storing</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_uses' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_uses.html'>Uses of Hydrocarbon Gas Liquids</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_imports_exports' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hgls_imports_exports'>Imports and Exports</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hgls_prices'>Prices</a> </ul> </ul> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_home' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_home.html'>Natural Gas</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_delivery' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_delivery'>Delivery and Storage</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_pipelines' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_pipelines'> &nbsp;&nbsp;&nbsp;&nbsp;Natural Gas Pipelines</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_lng' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_lng'> &nbsp;&nbsp;&nbsp;&nbsp;Liquefied Natural Gas</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_where'>Where Our Natural Gas Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_imports' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_imports'>&nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a><br>&nbsp;&nbsp;&nbsp;&nbsp;<em style='line-height:16px;'>Offshore: See Oil</em> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_reserves' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_reserves'>How Much Gas Is Left</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_use'>Use of Natural Gas</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_prices'>Prices</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_factors_affecting_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_factors_affecting_prices'>Factors Affecting Natural Gas Prices</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_environment'>Natural Gas &amp; the Environment</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_customer_choice' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=natural_gas_customer_choice'>Customer Choice Programs</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_home' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_home.html'>Coal</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_mining' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_mining'>Mining and Transportation</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_where'>Where Our Coal Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_imports' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_imports'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_reserves' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_reserves'>How Much Coal Is Left</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_use'>Use of Coal</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_prices'>Prices and Outlook</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=coal_environment'>Coal &amp; the Environment</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_home' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_home.html'>Nuclear</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_power_plants' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=nuclear_power_plants'>Nuclear Power Plants</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_fuel_cycle' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_fuel_cycle.html'>The Nuclear Fuel Cycle</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=nuclear_where'>Where Our Uranium Comes From</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=nuclear_use'>U.S. Nuclear Industry</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=nuclear_environment'>Nuclear Power &amp; the Environment</a> </ul> </ul> <li class='open'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imrenewable_home' class='activepage' style='display:none;' /><a href='index.cfm@page=renewable_home.html'><b>Renewable Sources</b></a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_home' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_home.html'>Hydropower</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydropower_where'>Where Hydropower Is Generated</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydropower_environment'>Hydropower &amp; the Environment</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_tidal' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydropower_tidal'>Tidal Power</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_wave' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydropower_wave'>Wave Power</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_ocean_thermal_energy_conversion' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydropower_ocean_thermal_energy_conversion'>Ocean Thermal Energy Conversion</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_home.html'>Biomass</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_wood' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_wood.html'>Wood and Wood Waste</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_waste_to_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_waste_to_energy.html'>Waste-to-Energy (MSW)</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_biogas' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_biogas.html'>Landfill Gas and Biogas</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biomass_environment'>Biomass &amp; the Environment</a><br><em style='line-height:16px;'>See also: Biofuels</em> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_home.html'>Biofuels: Ethanol &amp; Biodiesel</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_home'>Ethanol</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_use' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_ethanol_use.html'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Ethanol</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_environment'> &nbsp;&nbsp;&nbsp;&nbsp;Ethanol &amp; the Environment</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_home'>Biodiesel</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_use'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Biodiesel</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_environment'> &nbsp;&nbsp;&nbsp;&nbsp;Biodiesel &amp; the Environment</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_home' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_home.html'>Wind</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_electricity_generation' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=wind_electricity_generation'>Electricity Generation from Wind</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=wind_where'>Where Wind Power Is Harnessed</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_types_of_turbines' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=wind_types_of_turbines'>Types of Wind Turbines</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_history' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=wind_history'>History of Wind Power</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=wind_environment'>Wind Energy &amp; the Environment</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_home' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_home.html'>Geothermal</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=geothermal_where'>Where Geothermal Energy Is Found</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=geothermal_use'>Use of Geothermal Energy</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_power_plants' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=geothermal_power_plants'>Geothermal Power Plants</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_heat_pumps' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=geothermal_heat_pumps'>Geothermal Heat Pumps</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=geothermal_environment'>Geothermal Energy &amp; the Environment</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_home' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_home.html'>Solar</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_photovoltaics' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=solar_photovoltaics'>Photovoltaics and Electricity</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_where' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=solar_where'>Where Solar Is Found</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_thermal_power_plants' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=solar_thermal_power_plants'>Solar Thermal Power Plants</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_thermal_collectors' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=solar_thermal_collectors'>Solar Thermal Collectors</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=solar_environment'>Solar Energy and the Environment</a> </ul> </ul> <li class='open'><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsecondary_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=secondary_home'><b>Secondary Sources</b></a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_home' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_home.html'>Electricity</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_science' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_science.html'>The Science of Electricity</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_magnets' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_magnets'>Magnets and Electricity</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_batteries' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_batteries'>Batteries, Circuits, &amp; Transformers</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_measuring' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_measuring'>Measuring Electricity</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_generating' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_generating'>How Electricity Is Generated</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_in_the_united_states' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_in_the_united_states.html'>Electricity in the U.S.</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_delivery' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_delivery.html'>Delivery To Consumers</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_use' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_use.html'>Use of Electricity</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_factors_affecting_prices' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_factors_affecting_prices'>Prices and Factors Affecting Prices</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_environment' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_environment'>Electricity &amp; the Environment</a> </ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_home' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydrogen_home'>Hydrogen</a> <ul> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_production' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydrogen_production'>Production of Hydrogen</a> <li><img src='http://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_use' class='activepage' style='display:none;' /><a href='http://www.eia.gov/energyexplained/index.cfm?page=hydrogen_use'>Use of Hydrogen</a> </ul></ul></ul></ul></div> 
+         
+
+             <div id="outreach-image">
+             <a href="http://www.eia.gov/todayinenergy"><img src="http://www.eia.gov/todayinenergy/badges/smt1.png" /></a><br><br>
+             <a href="http://www.eia.gov/energyexplained/outreach.cfm" ><img src="http://www.eia.gov/energyexplained/images/style-images/outreach.jpg" border="0" alt="Help promote Energy Explained with the outreach toolkit" ></a>
+             </div>
+             
+             
+
+         </td>
+         <td width="735" >
+
+         <div id="page-frame" >
+         
+            <h1 id="pagetitle" style="background-image:url(http://www.eia.gov/energyexplained/images/section-headings/electricity.jpg);" >
+            <div class="pgtitle">How Electricity Is Delivered To Consumers</div>
+            </h1>
+         
+              <div class="main">
+
+                  <ul id="tabs">
+                  
+                     
+                              <li class='tabactive' id='tabbasics'><a href='index.cfm@page=electricity_delivery.html#tab1' onMouseDown="return event.returnValue = showPanel(this, 'basics');" ><span><b>Basics</b></span></a></li>
+						   
+                  
+                  </ul>
+                  
+                  <div class="print-email-share" align="right">
+                       
+                       <a href="index.cfm@page=electricity_delivery.html##" id="printTab" title="Print this page" target="_blank" onMouseOver="getPrintPage();">
+                       <img src="http://www.eia.gov/energyexplained/images/style-images/print-this.png" id="print-icon" alt="Print this page icon" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('print-icon').src='images/style-images/print-this-over.png';" onMouseOut="document.getElementById('print-icon').src='images/style-images/print-this.png';" title="Print this page" style="cursor: pointer;"/></a>
+                       |&nbsp;
+                       <a href="index.cfm@page=electricity_delivery.html##" title="Email someone about this page" id="email-this">
+                       <img src="http://www.eia.gov/energyexplained/images/style-images/email-this.png" id="email-icon" alt="Email this page" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('email-icon').src='images/style-images/email-this-over.png';" onMouseOut="document.getElementById('email-icon').src='images/style-images/email-this.png';"/></a>
+                       <noscript>
+                       <a href="mailto:?SUBJECT=Take%20a%20look%20at%20this%20article%20from%20the%20Energy%20Information%20Administration%21" title="Email someone about this page"><img src="http://www.eia.gov/energyexplained/images/style-images/email-this.png" alt="Email this page" width="73" height="28" border="0" align="absmiddle"/></a>
+                       </noscript>
+                       &nbsp;|&nbsp;
+                       					<!-- AddThis Bookmark Button BEGIN -->
+					<script type="text/javascript">
+                    addthis_url = location.href;
+                    addthis_title = document.title;                    
+                    addthis_logo_background = 'EFEFFF';
+                    addthis_logo_color      = '666699';
+                    addthis_options         = 'favorites, facebook, delicious, digg, myspace, google, live, furl, stumbleupon';
+                    
+                    </script>
+                    
+					<script type="text/javascript">var addthis_pub = 'Energy Information Administration';</script><script type="text/javascript" src="http://www.eia.gov/energyexplained/js/bookmarks.js"></script>  
+					<!-- AddThis Bookmark Button END -->
+                       <a href="http://www.addthis.com/bookmark.php" onClick="return addthis_sendto()" title="Share this page">
+                       <img src="http://www.eia.gov/energyexplained/images/style-images/share-this2.png" id="share-icon" alt="Share this page" width="140" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('share-icon').src='images/style-images/share-this-over2.png';" onMouseOut="document.getElementById('share-icon').src='images/style-images/share-this2.png';"/></a>
+                  </div>
+                  
+                  
+                  
+                     
+                  
+                  <div class='panelactive' id="basics">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+
+<h2>Electricity is delivered to consumers through a complex network</h2>
+
+<p>Electricity is generated at power plants and moves through a complex system, sometimes called the <em>grid</em>, of electricity substations, transformers, and power lines that connect electricity producers and consumers. Most local grids are interconnected for reliability and commercial purposes, forming larger, more dependable networks that enhance the coordination and planning of electricity supply.</p>
+
+<p>In the United States, the entire electricity grid consists of hundreds of thousands of miles of high-voltage power lines and millions of miles  of low-voltage power lines with  distribution transformers that connect thousands of power plants to hundreds of millions of electricity customers all across the country.</p>
+
+<div class="image large">
+<div class="image-title wide"></div><br /><img src="http://www.eia.gov/energyexplained/images/transmission.jpg" alt="A flow diagram of power generation, transmission, and distribution from the power plant to residential houses. " /><div class="image-caption">
+<p class="footnote-or-source"></p></div></div>
+
+<p>The stability of the electricity grid requires the electricity supply to constantly meet electricity demand, which in turn requires coordination of numerous entities that operate different components of the grid. The U.S. electricity grid consists of three large interconnected systems that operate to ensure the stability and reliability of the grid. To ensure coordination of electric system operations, the <a href="http://www.nerc.com/">North American Electric Reliability Corporation</a> developed and enforces mandatory grid reliability standards approved by the <a href="https://www.ferc.gov">Federal Energy Regulatory Commission (FERC)</a>.</p>
+
+<div class="did-you-know">
+<h4>The smart grid</h4>
+<div class="callout-content">
+<p>
+The <em>smart grid</em> incorporates digital technology and advanced instrumentation into the traditional electrical system, which enables utilities and customers to receive information from and communicate with the grid. A smarter grid makes the electrical system more reliable and efficient by helping utilities reduce electricity losses and to detect and fix problems more quickly. The smart grid can help consumers intelligently manage energy use, especially at times when demand reaches significantly high levels or when a reduced energy demand is needed to support system reliability.</p>
+<p><em>Smart devices</em> in homes, offices, and factories can inform consumers and their energy management systems of times when an appliance is using relatively higher-priced electricity. This helps consumers, or their intelligent systems, to optimally adjust settings that, when supported by demand reduction incentives or time-of use electricity rates, can lower their energy bills. Smart devices on transmission and distribution lines and at substations allow a utility to more efficiently manage voltage levels and more easily find out where an outage or other problem is on the system. Smart grids can sometimes even remotely correct problems in the electrical distribution system by digitally sending instructions to equipment that can adjust the conditions of the system. </p>
+</div>
+</div>
+<h2>Electricity comes from various sources and types of providers</h2>
+
+
+<p>The origin of the electricity that consumers purchase varies. Some electric utilities generate all the electricity they sell using just the power plants they own. Other utilities purchase electricity directly from other utilities, power marketers, and independent power producers or from a wholesale market organized by a regional transmission reliability organization.</p>
+
+<p>The retail structure of the electricity industry varies from region to region. The company selling you power may be a not-for-profit municipal electric utility; an electric cooperative owned by its members; a private, for-profit electric utility owned by stockholders (often called an investor-owned utility); or in some states, you may purchase electricity through a power marketer. A few federally-owned power authorities&mdash;including the <a href="https://www.bpa.gov">Bonneville Power Administration</a> and the <a href="https://www.tva.gov/">Tennessee Valley Authority</a>, among others&mdash;also generate, buy, sell, and distribute power. Local electric utilities operate the distribution system that connects consumers with the grid regardless of the source of the electricity.</p>
+
+<h2>The process of delivering electricity</h2>
+
+<p>The electricity power plants generate is delivered to customers over transmission and distribution power lines. High-voltage transmission lines, like those that hang between tall metal towers, carry electricity over long distances to where it is needed. Higher voltage electricity is more efficient and less expensive for long distance electricity transmission. Lower voltage electricity is safer for use in homes and businesses. Transformers at substations increase (step up) or reduce (step down) voltages  to adjust to the different stages of the journey from the power plant on long distance transmission lines to distribution lines that carry electricity to homes and businesses.</p>
+
+
+
+<h2>Evolution of the electric power grid</h2>
+
+<p>At the beginning of the 20th century, more than 4,000 individual electric utilities operated in isolation from each other.  As the demand for electricity grew, especially after World War II, utilities began to interconnect their transmission systems. These connections allowed utilities to share the economic benefits of building large and often jointly-owned electric generating units to serve their combined electricity demand at the lowest possible cost. Interconnection also reduced the amount of extra generating capacity that each utility had to hold to ensure reliable service during times of peak demand. Over time, three large interconnected systems evolved in the United States.</p>
+
+<h2>U.S. electrical systems are now interconnected</h2>
+
+<div class="image right">
+
+<a href="http://www.eia.gov/energyexplained/images/charts/elect_power_regions.jpg" class="lightbox"><img width="265" alt="NERC Map." src="http://www.eia.gov/energyexplained/images/charts/elect_power_regions_small.jpg"/>
+<div class="image-enlarge">Click to enlarge &raquo;</div></a>
+</div>
+
+<p>Local electricity grids are interconnected to form larger networks for reliability and commercial purposes. At the highest level, the U.S. power system in the Lower 48 states is made up of three main interconnections, which operate largely independently from each other with limited transfers of electricity between them.</p>
+<ul>
+  <li>The Eastern Interconnection encompasses the area east of the Rocky Mountains and a portion of the Texas panhandle.</li>
+  <li>The Western Interconnection encompasses the area from the Rockies west. </li>
+  <li>The Electric Reliability Council of Texas (ERCOT) covers most of Texas. </li>
+</ul>
+<br>
+<p>The Eastern and Western Interconnections in the United States are also linked with the Canadian power grid. The network structure of the interconnections helps maintain the reliability of the grid by providing multiple routes for power to flow and by allowing generators to supply electricity to many load centers. This redundancy helps prevent transmission line or power plant failures from causing interruptions in service to retail customers.</p>
+
+<h2>Balancing authorities manage grid operations</h2>
+
+<p>These three interconnections describe the large-scale physical structure of the grid. The regional operation of the electric system is managed by entities called balancing authorities, whose primary job is to ensure that electricity supply constantly matches power demand. Most of the balancing authorities are electric utilities that have taken on the balancing responsibilities for a specific part of the power system. All of the <a href="http://www.isorto.org">regional transmission organizations</a> in the United States also function as balancing authorities. ERCOT is unique in that the balancing authority, interconnection, and the regional transmission organization are all the same entity and physical system.</p>
+
+<p>A balancing authority ensures that electricity demand and supply are finely balanced to maintain the safe and reliable operation of the power system. If demand and supply fall out of balance, local or even widespread blackouts can result.  Balancing authorities maintain appropriate operating conditions for the electric system by ensuring that a sufficient supply of electricity is available to serve expected demand, which includes managing transfers of electricity with other balancing authorities. </p>
+
+<h2>Electric reliability organizations set standards for grid operations</h2>
+
+<p>Electric utilities are responsible for maintaining the safety of their systems and planning for the future power needs of their customers. Initially, voluntary standards were developed by the electric power industry to ensure coordination of linked interconnection operations. Today, mandatory reliability standards for planning and operating power systems and for addressing security concerns at critical electrical infrastructure are in place. The North American Electric Reliability Corporation and its member organizations developed and enforces these standards, which FERC approved. In Canada, Canadian regulators fill this role.</p>
+
+<div class="image right">
+<div class="image-title">A  <em>smart</em> electricity meter</div>
+<img width="265" alt="Picture of a smart meter." src="http://www.eia.gov/energyexplained/images/smart_meter.jpg"/><div class="image-caption"><p class="footnote-or-source">Source: Stock photography (copyrighted)</p></div>
+</div>
+<h2>Challenges facing the power grid</h2>
+
+<p>Construction of electricity infrastructure in the United States began in the early 1900s and investment was driven by new transmission technologies, by central station generating plants, and by growing electricity demand, especially after World War II. Now, some of the older existing transmission and distribution lines have reached the end of their useful life and must be replaced or upgraded. New power lines are also needed to maintain the electrical system's overall reliability and to provide links to new renewable energy generation resources, such as wind and solar power, which are often located far from where electricity demand is concentrated.</p>
+
+Several challenges exist for improving the infrastructure of the grid:
+</p>
+<ul>
+  <li>Siting new transmission lines (getting approval of new routes and obtaining rights to the necessary land)</li>
+<li>Determining an equitable approach for recovering the construction costs of a new transmission line built in one state when the line provides benefits to consumers in other states</li>
+<li>Addressing the uncertainty in federal regulations regarding who is responsible for paying for new transmission lines, which affects the private sector's ability to raise money to build transmission lines</li>
+<li>Expanding the network of long-distance transmission lines to renewable energy generation sites where high-quality wind and solar resources are located, which are often far from where electricity demand is concentrated </li>
+<li>Protecting the grid from physical and cyber attacks</li>
+</ul>
+<br>
+
+
+
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='index.cfm@page=electricity_use.html'>Use of Electricity</a></li><li><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_measuring'>Measuring Electricity</a></li><li><a href='http://www.eia.gov/energyexplained/index.cfm?page=electricity_factors_affecting_prices'>Factors Affecting Electricity Prices</a></li><li><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_homes'>Energy Use in Homes</a></li><li><a href='http://www.eia.gov/energyexplained/index.cfm?page=us_energy_commercial'>Energy Use in Commercial Buildings</a></li></ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='../tools/faqs/faq.cfm@id=567&amp;t=3.html'>Does EIA have maps or information on the location of electric power transmission lines and power plants in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=567&t=3</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=627&t=3'>Can customers choose their electricity supplier?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=627&t=3</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='http://energy.gov/videos/energygov-presents-understanding-grid'>Understanding the Grid (video)</a><span class='printonly'> &mdash; http://energy.gov/videos/energygov-presents-understanding-grid</span></li><li><a href='http://www.energy.gov/oe/information-center/educational-resources/electricity-101'>Electricity 101</a><span class='printonly'> &mdash; http://www.energy.gov/oe/information-center/educational-resources/electricity-101</span></li><li><a href='http://www.energy.gov/oe/services/technology-development/smart-grid'>Smart Grid</a><span class='printonly'> &mdash; http://www.energy.gov/oe/services/technology-development/smart-grid</span></li><li><a href='../todayinenergy/detail.cfm@id=27152.html'>U.S. electric system is made up of interconnections and balancing authorities</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/detail.cfm?id=27152</span></li><li><a href='http://www.eia.gov/todayinenergy/index.cfm?tg=%20transmission'>Articles on electricity transmission</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/index.cfm?tg=%20transmission</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last updated: December 19, 2016</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+
+              </div>
+
+           
+         </div>
+         
+
+
+                         
+
+                          <div id="forwardBackwardLinks">
+						     
+                             <table width="100%">
+                                <tr>
+                                   <td class="upward-links"><a class="backward-link" href="index.cfm@page=electricity_in_the_united_states.html">&laquo; Electricity in the United States</a></td>
+                                   <td class="downward-links"><a class="forward-link" href="index.cfm@page=electricity_use.html">Use of Electricity &raquo;</a></td>
+                                </tr>
+                             </table>
+							 
+                          </div>
+
+         </td>
+      </tr>
+      <tr><td colspan="2" valign="top">
+      <script language="JavaScript" type="text/javascript">InsertEIAFooterCode();</script>
+      </td>
+      </tr>
+   </table>
+   <br><br><br><br><br>
+</body>
+</html>

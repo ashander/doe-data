@@ -1,0 +1,925 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=9" > <!-- IE9 mode -->
+<link href="https://www.eia.gov/styles/eia_sitewideF.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="styles/energyfacts.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/energyfactsframe.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/jquery.treeviewM.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/rate_page.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/print.css" type="text/css" media="print"/>
+<link rel="stylesheet" type="text/css" href="https://www.eia.gov/kids/shadowbox/shadowbox.css">
+<script type="text/javascript" src="https://www.eia.gov/styles/eia_header.js"></script>
+<script language="JavaScript" src="https://www.eia.gov/styles/eia_footer.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.eia.gov/kids/shadowbox/shadowbox.js"></script>
+
+<script src="js/jquery.treeview.js" type="text/javascript"></script>
+<script src="js/demom.js" type="text/javascript"></script>
+<script src="js/rating_style.js" type="text/javascript"></script>
+
+<title>State and U.S. Territory Data - Energy Explained, Your Guide To Understanding Energy - Energy Information Administration</title>
+
+<script language="javascript">
+var selectedTab = "basics";
+
+	
+	function showPanel(tab, name)
+	{
+		if (selectedTab)
+		{
+			document.getElementById('tab' + selectedTab).className = 'tabinactive';
+			document.getElementById(selectedTab).className = 'panelinactive';
+		}
+		selectedTab = name;
+		document.getElementById('tab' + selectedTab).className = 'tabactive';
+		document.getElementById(selectedTab).className = 'panelactive';
+		getPrintPage();
+		return false;
+	}
+
+function getPrintPage()
+{
+	var x = location.href.search(/index/);
+	if(x == "-1")
+	{
+		document.getElementById('printTab').href = location.href.replace(/\?page/,"print.cfm?page");
+	}
+	else
+	{
+		document.getElementById('printTab').href = location.href.replace(/index/,"print");
+	}
+}
+
+var the_tab=0;
+
+function checkURL()
+{
+	var all_tabs=document.getElementById("tabs").getElementsByTagName("li");
+	the_tab=location.hash.substring(4);
+	if (the_tab > 0)
+	{
+		the_tab=the_tab - 1;
+	}
+	else
+	{
+		the_tab=0;
+	}
+
+	if (the_tab != "")
+	{
+		showPanel(all_tabs[the_tab].firstChild.href, all_tabs[the_tab].id.substring(3));
+	}
+}
+
+	
+	function emailPage()
+{
+	var browser=navigator.appName;
+	var SubjectLine='Take a look at this web page from the Energy Information Administration! ';
+	var BodyText='You can find the web page at: '+top.location.href;
+	var Message='mailto:?SUBJECT='+escape(SubjectLine)+'&BODY='+escape(BodyText);
+	var MessageIE='mailto:?SUBJECT='+(SubjectLine)+'&BODY='+(BodyText);
+	if(browser=="Microsoft Internet Explorer")
+		{
+			document.getElementById("email-this").href=MessageIE;
+		}
+	else
+		{
+			document.getElementById("email-this").href=Message;
+		}
+
+}
+
+	
+
+function showplace() {
+	var whichpage = location.search;
+	var endurl = whichpage.indexOf("?", 1);
+	if (endurl != -1)
+	{
+		whichpage = "im" + whichpage.substring(6, endurl);
+	}
+	else
+	{
+		whichpage = "im" + whichpage.substring(6);
+	}
+
+//		alert(document.getElementById(whichpage).id);
+
+	if (document.getElementById(whichpage) != null && document.getElementById(whichpage).id == whichpage)
+	{
+		document.getElementById(whichpage).style.display = "inline";
+	}
+
+}
+
+Shadowbox.init({
+    language: 'en',
+    players:  ['img', 'iframe'],
+	handleOversize: "resize"
+});
+
+window.onload = function(){
+
+	emailPage();
+	showplace();
+	checkURL();
+	$('.selected').focus();
+};
+
+</script>
+
+</head>
+<body class="home">
+<div id="print-hed"><img src="images/style-images/e-explained_150x75.jpg" alt="Energy Explained"></div>
+   <table width="100%" border="0" align="center" cellpadding="3" id="content">
+
+
+
+
+      <tr>
+         <td colspan="2" style="padding-bottom: 0px;">
+
+			<script language="JavaScript">InsertEIAHeaderCode();</script>
+
+
+<!--
+       <div id="eialogo"><a href="http://www.eia.gov/"><img src="images/style-images/eia-logo.jpg" width="410" height="55" border="0" alt="oxy/eia logo" align="left"></a>
+         </div>
+         <div id="search" style="margin-bottom: -20px;">
+         
+<form method="get" action="http://usasearch.gov/search" class="search">
+<input type="hidden" name="affiliate" value="eia.doe.gov">
+<input type="hidden" name="v:project" value="firstgov">
+
+<input type="text" name="query" size="28" maxlength="256" title="enter the information you are searching for" />
+
+<input type="button" name="search" alt="enter terms to search" align="absmiddle" value="Search" title="click to search EIA">
+		<p style="margin-right: 200px;"><a href="http://www.eia.gov/glossary/index.html">Glossary</a></p>
+</form></fieldset>
+
+         </div>
+   -->
+
+         <div id="breadcrumbs">
+            <p><a href='../index.html'>Home</a> > <a href='index.cfm@page=propane_factors_affecting_prices.html'>Energy Explained</a> > <a href='index.cfm@page=us_energy_home.html'>U.S. Energy Facts</a> > State and U.S. Territory Data</p>
+         </div>
+         </td>
+      </tr>
+
+      <tr>
+         <td id="donotprint">
+         
+         <div class='home-link'><a href='index.cfm@page=propane_factors_affecting_prices.html'><img src='images/style-images/e-explained-home.jpg' width='220' height='37' alt='Energy Explained - Home'></a></div><div class='menu' id='main'><ul><ul id='navigation'> <li><img src='images/style-images/acpage.png' id='imabout_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_home'>What Is Energy?</a> <ul> <li><img src='images/style-images/acpage.png' id='imabout_forms_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_forms_of_energy.html'>Forms of Energy</a> <li><img src='images/style-images/acpage.png' id='imabout_sources_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_sources_of_energy.html'>Sources of Energy</a> <li><img src='images/style-images/acpage.png' id='imabout_laws_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_laws_of_energy.html'>Laws of Energy</a> </ul> <li><img src='images/style-images/acpage.png' id='imabout_energy_units' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units'>Units and Calculators</a> <ul> <li><img src='images/style-images/acpage.png' id='imabout_energy_conversion_calculator' class='activepage' style='display:none;' /><a href='index.cfm@page=about_energy_conversion_calculator.html'>Energy Conversion Calculators</a> <li><img src='images/style-images/acpage.png' id='imabout_btu' class='activepage' style='display:none;' /><a href='index.cfm@page=about_btu.html'>British Thermal Units (Btu)</a> <li><img src='images/style-images/acpage.png' id='imabout_degree_days' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_degree_days'>Degree-Days</a> </ul> <li><img src='images/style-images/acpage.png' id='imus_energy_home' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_home.html'>U.S. Energy Facts</a> <ul> <li><img src='images/style-images/acpage.png' id='imus_energy_state' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_state.html'>State and U.S. Territory Data</a> </ul> <li><img src='images/style-images/acpage.png' id='imus_energy_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use'>Use of Energy</a> <ul> <li><img src='images/style-images/acpage.png' id='imus_energy_industry' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_industry.html'>In Industry</a> <li><img src='images/style-images/acpage.png' id='imus_energy_transportation' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_transportation.html'>For Transportation</a> <li><img src='images/style-images/acpage.png' id='imus_energy_homes' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_homes.html'>In Homes</a> <li><img src='images/style-images/acpage.png' id='imus_energy_commercial' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_commercial.html'>In Commercial Buildings</a> <li><img src='images/style-images/acpage.png' id='imabout_energy_efficiency' class='activepage' style='display:none;' /><a href='index.cfm@page=about_energy_efficiency.html'>Efficiency and Conservation</a> </ul> <li><img src='images/style-images/acpage.png' id='imenvironment_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_home'>Energy and the Environment</a> <ul> <li><img src='images/style-images/acpage.png' id='imenvironment_about_ghg' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_about_ghg.html'>Greenhouse Gases</a> <li><img src='images/style-images/acpage.png' id='imenvironment_how_ghg_affect_climate' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_how_ghg_affect_climate.html'>Effect on the Climate</a> <li><img src='images/style-images/acpage.png' id='imenvironment_where_ghg_come_from' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_where_ghg_come_from.html'>Where Greenhouse Gases Come From</a> <li><img src='images/style-images/acpage.png' id='imenvironment_outlook_for_emissions' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_outlook_for_emissions.html'>Outlook for Future Emissions</a> <li><img src='images/style-images/acpage.png' id='imenvironment_recycling' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_recycling.html'>Recycling and Energy</a> </ul> <li class='rightnav-split open'><img src='images/style-images/acpage.png' id='imnonrenewable_home' class='activepage' style='display:none;' /><a href='index.cfm@page=nonrenewable_home.html'><b>Nonrenewable Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imoil_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_home'>Oil and Petroleum Products</a> <ul> <li><img src='images/style-images/acpage.png' id='imoil_refining' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_refining.html'>Refining Crude Oil</a> <li><img src='images/style-images/acpage.png' id='imoil_where' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_where.html'>Where Our Oil Comes From</a> <li><img src='images/style-images/acpage.png' id='imoil_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_imports.html'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imoil_offshore' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_offshore.html'> &nbsp;&nbsp;&nbsp;&nbsp;Offshore Oil and Gas</a> <li><img src='images/style-images/acpage.png' id='imoil_use' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_use.html'>Use of Oil</a> <li><img src='images/style-images/acpage.png' id='imoil_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_prices.html'>Prices and Outlook</a> <li><img src='images/style-images/acpage.png' id='imoil_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_environment.html'>Oil and the Environment</a> </ul> </ul><ul> <ul><li style='display:block; position: relative; left:16px; max-width:150px;width:150px; margin-top:-6px;//display:inline-block; //margin-top:-9px;'><img src='images/style-images/acpage.png' id='imgasoline_home' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_home.html'>Gasoline</a> <ul> <li><img src='images/style-images/acpage.png' id='imgasoline_where' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_where.html'>Where Our Gasoline Comes From</a> <li><img src='images/style-images/acpage.png' id='imgasoline_use' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_use.html'>Use of Gasoline</a> <li><img src='images/style-images/acpage.png' id='imgasoline_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_prices'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imgasoline_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_factors_affecting_prices.html'>Factors Affecting Gasoline Prices</a> <li><img src='images/style-images/acpage.png' id='imgasoline_regional' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_regional.html'>Regional Price Differences</a> <li><img src='images/style-images/acpage.png' id='imgasoline_fluctuations' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_fluctuations.html'>Price Fluctuations</a> </ul> <li><img src='images/style-images/acpage.png' id='imgasoline_history' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_history.html'>History of Gasoline</a> <li><img src='images/style-images/acpage.png' id='imgasoline_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_environment.html'>Gasoline &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='images/style-images/acpage.png' id='imdiesel_home' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_home.html'>Diesel Fuel</a> <ul> <li><img src='images/style-images/acpage.png' id='imdiesel_where' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_where.html'>Where Our Diesel Comes From</a> <li><img src='images/style-images/acpage.png' id='imdiesel_use' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_use.html'>Use of Diesel</a> <li><img src='images/style-images/acpage.png' id='imdiesel_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_prices'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imdiesel_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_factors_affecting_prices.html'>Factors Affecting Diesel Prices</a> <li><img src='images/style-images/acpage.png' id='imdiesel_surcharges' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_surcharges.html'>Diesel Fuel Surcharges</a> </ul> <li><img src='images/style-images/acpage.png' id='imdiesel_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_environment.html'>Diesel &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='images/style-images/acpage.png' id='imheating_oil_home' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_home.html'>Heating Oil</a> <ul> <li><img src='images/style-images/acpage.png' id='imheating_oil_where' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_where.html'>Where Our Heating Oil Comes From</a> <li><img src='images/style-images/acpage.png' id='imheating_oil_use' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_use.html'>Use of Heating Oil</a> <li><img src='images/style-images/acpage.png' id='imheating_oil_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_prices.html'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imheating_oil_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_factors_affecting_prices.html'>Factors Affecting Heating Oil Prices</a> </ul> </ul> </ul> </ul> <ul> <li><img src='images/style-images/acpage.png' id='imhgls_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_home'>Hydrocarbon Gas Liquids</a> <ul> <li><img src='images/style-images/acpage.png' id='imhgls_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_where'>Where do Hydrocarbon Gas Liquids Come From?</a> <li><img src='images/style-images/acpage.png' id='imhgls_transporting_storing' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_transporting_storing.html'>Transporting and Storing</a> <li><img src='images/style-images/acpage.png' id='imhgls_uses' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_uses'>Uses of Hydrocarbon Gas Liquids</a> <li><img src='images/style-images/acpage.png' id='imhgls_imports_exports' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_imports_exports.html'>Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imhgls_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_prices.html'>Prices</a> </ul> </ul> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home'>Natural Gas</a> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_delivery' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_delivery.html'>Delivery and Storage</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_pipelines' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_pipelines.html'> &nbsp;&nbsp;&nbsp;&nbsp;Natural Gas Pipelines</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_lng' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_lng.html'> &nbsp;&nbsp;&nbsp;&nbsp;Liquefied Natural Gas</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_where' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_where.html'>Where Our Natural Gas Comes From</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_imports.html'>&nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a><br>&nbsp;&nbsp;&nbsp;&nbsp;<em style='line-height:16px;'>Offshore: See Oil</em> <li><img src='images/style-images/acpage.png' id='imnatural_gas_reserves' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_reserves.html'>How Much Gas Is Left</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_use' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_use.html'>Use of Natural Gas</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_prices.html'>Prices</a> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_factors_affecting_prices.html'>Factors Affecting Natural Gas Prices</a> </ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_environment.html'>Natural Gas &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_customer_choice' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_customer_choice.html'>Customer Choice Programs</a> </ul> <li><img src='images/style-images/acpage.png' id='imcoal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_home'>Coal</a> <ul> <li><img src='images/style-images/acpage.png' id='imcoal_mining' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_mining.html'>Mining and Transportation</a> <li><img src='images/style-images/acpage.png' id='imcoal_where' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_where.html'>Where Our Coal Comes From</a> <li><img src='images/style-images/acpage.png' id='imcoal_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_imports.html'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imcoal_reserves' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_reserves.html'>How Much Coal Is Left</a> <li><img src='images/style-images/acpage.png' id='imcoal_use' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_use.html'>Use of Coal</a> <li><img src='images/style-images/acpage.png' id='imcoal_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_prices.html'>Prices and Outlook</a> <li><img src='images/style-images/acpage.png' id='imcoal_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_environment.html'>Coal &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imnuclear_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home'>Nuclear</a> <ul> <li><img src='images/style-images/acpage.png' id='imnuclear_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_power_plants.html'>Nuclear Power Plants</a> <li><img src='images/style-images/acpage.png' id='imnuclear_fuel_cycle' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_fuel_cycle'>The Nuclear Fuel Cycle</a> <li><img src='images/style-images/acpage.png' id='imnuclear_where' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_where.html'>Where Our Uranium Comes From</a> <li><img src='images/style-images/acpage.png' id='imnuclear_use' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_use.html'>U.S. Nuclear Industry</a> <li><img src='images/style-images/acpage.png' id='imnuclear_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_environment.html'>Nuclear Power &amp; the Environment</a> </ul> </ul> <li class='open'><img src='images/style-images/acpage.png' id='imrenewable_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=renewable_home'><b>Renewable Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imhydropower_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home'>Hydropower</a> <ul> <li><img src='images/style-images/acpage.png' id='imhydropower_where' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_where.html'>Where Hydropower Is Generated</a> <li><img src='images/style-images/acpage.png' id='imhydropower_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_environment.html'>Hydropower &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imhydropower_tidal' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_tidal.html'>Tidal Power</a> <li><img src='images/style-images/acpage.png' id='imhydropower_wave' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_wave.html'>Wave Power</a> <li><img src='images/style-images/acpage.png' id='imhydropower_ocean_thermal_energy_conversion' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_ocean_thermal_energy_conversion.html'>Ocean Thermal Energy Conversion</a> </ul> <li><img src='images/style-images/acpage.png' id='imbiomass_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_home'>Biomass</a> <ul> <li><img src='images/style-images/acpage.png' id='imbiomass_wood' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_wood'>Wood and Wood Waste</a> <li><img src='images/style-images/acpage.png' id='imbiomass_waste_to_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_waste_to_energy'>Waste-to-Energy (MSW)</a> <li><img src='images/style-images/acpage.png' id='imbiomass_biogas' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_biogas'>Landfill Gas and Biogas</a> <li><img src='images/style-images/acpage.png' id='imbiomass_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_environment.html'>Biomass &amp; the Environment</a><br><em style='line-height:16px;'>See also: Biofuels</em> </ul> <li><img src='images/style-images/acpage.png' id='imbiofuel_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home'>Biofuels: Ethanol &amp; Biodiesel</a> <ul> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_ethanol_home.html'>Ethanol</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_use'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Ethanol</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_ethanol_environment.html'> &nbsp;&nbsp;&nbsp;&nbsp;Ethanol &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_home.html'>Biodiesel</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_use' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_use.html'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Biodiesel</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_environment.html'> &nbsp;&nbsp;&nbsp;&nbsp;Biodiesel &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imwind_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_home'>Wind</a> <ul> <li><img src='images/style-images/acpage.png' id='imwind_electricity_generation' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_electricity_generation.html'>Electricity Generation from Wind</a> <li><img src='images/style-images/acpage.png' id='imwind_where' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_where.html'>Where Wind Power Is Harnessed</a> <li><img src='images/style-images/acpage.png' id='imwind_types_of_turbines' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_types_of_turbines.html'>Types of Wind Turbines</a> <li><img src='images/style-images/acpage.png' id='imwind_history' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_history.html'>History of Wind Power</a> <li><img src='images/style-images/acpage.png' id='imwind_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_environment.html'>Wind Energy &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imgeothermal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home'>Geothermal</a> <ul> <li><img src='images/style-images/acpage.png' id='imgeothermal_where' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_where.html'>Where Geothermal Energy Is Found</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_use' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_use.html'>Use of Geothermal Energy</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_power_plants.html'>Geothermal Power Plants</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_heat_pumps' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_heat_pumps.html'>Geothermal Heat Pumps</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_environment.html'>Geothermal Energy &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imsolar_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_home'>Solar</a> <ul> <li><img src='images/style-images/acpage.png' id='imsolar_photovoltaics' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_photovoltaics.html'>Photovoltaics and Electricity</a> <li><img src='images/style-images/acpage.png' id='imsolar_where' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_where.html'>Where Solar Is Found</a> <li><img src='images/style-images/acpage.png' id='imsolar_thermal_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_thermal_power_plants.html'>Solar Thermal Power Plants</a> <li><img src='images/style-images/acpage.png' id='imsolar_thermal_collectors' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_thermal_collectors.html'>Solar Thermal Collectors</a> <li><img src='images/style-images/acpage.png' id='imsolar_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_environment.html'>Solar Energy and the Environment</a> </ul> </ul> <li class='open'><img src='images/style-images/acpage.png' id='imsecondary_home' class='activepage' style='display:none;' /><a href='index.cfm@page=secondary_home.html'><b>Secondary Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_home'>Electricity</a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_science' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_science'>The Science of Electricity</a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_magnets' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_magnets.html'>Magnets and Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_batteries' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_batteries.html'>Batteries, Circuits, &amp; Transformers</a> <li><img src='images/style-images/acpage.png' id='imelectricity_measuring' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_measuring.html'>Measuring Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_generating' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_generating.html'>How Electricity Is Generated</a> </ul> <li><img src='images/style-images/acpage.png' id='imelectricity_in_the_united_states' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_in_the_united_states'>Electricity in the U.S.</a> <li><img src='images/style-images/acpage.png' id='imelectricity_delivery' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_delivery'>Delivery To Consumers</a> <li><img src='images/style-images/acpage.png' id='imelectricity_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_use'>Use of Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_factors_affecting_prices.html'>Prices and Factors Affecting Prices</a> <li><img src='images/style-images/acpage.png' id='imelectricity_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_environment.html'>Electricity &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imhydrogen_home' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_home.html'>Hydrogen</a> <ul> <li><img src='images/style-images/acpage.png' id='imhydrogen_production' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_production.html'>Production of Hydrogen</a> <li><img src='images/style-images/acpage.png' id='imhydrogen_use' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_use.html'>Use of Hydrogen</a> </ul></ul></ul></ul></div> 
+         
+
+             <div id="outreach-image">
+             <a href="../todayinenergy.1.html"><img src="../todayinenergy/badges/smt1.png" /></a><br><br>
+             <a href="outreach.cfm.html" ><img src="images/style-images/outreach.jpg" border="0" alt="Help promote Energy Explained with the outreach toolkit" ></a>
+             </div>
+             
+             
+
+         </td>
+         <td width="735" >
+
+         <div id="page-frame" >
+         
+            <h1 id="pagetitle" style="background-image:url(https://www.eia.gov/energyexplained/images/section-headings/state.jpg);" >
+            <div class="pgtitle">State and U.S. Territory Data</div>
+            </h1>
+         
+              <div class="main">
+
+                  <ul id="tabs">
+                  
+                     
+                              <li class='tabactive' id='tabbasics'><a href='index.cfm@page=us_energy_state.html#tab1' onMouseDown="return event.returnValue = showPanel(this, 'basics');" ><span><b>Basics</b></span></a></li>
+						   
+                  
+                  </ul>
+                  
+                  <div class="print-email-share" align="right">
+                       
+                       <a href="index.cfm@page=us_energy_state.html##" id="printTab" title="Print this page" target="_blank" onMouseOver="getPrintPage();">
+                       <img src="images/style-images/print-this.png" id="print-icon" alt="Print this page icon" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('print-icon').src='images/style-images/print-this-over.png';" onMouseOut="document.getElementById('print-icon').src='images/style-images/print-this.png';" title="Print this page" style="cursor: pointer;"/></a>
+                       |&nbsp;
+                       <a href="index.cfm@page=us_energy_state.html##" title="Email someone about this page" id="email-this">
+                       <img src="images/style-images/email-this.png" id="email-icon" alt="Email this page" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('email-icon').src='images/style-images/email-this-over.png';" onMouseOut="document.getElementById('email-icon').src='images/style-images/email-this.png';"/></a>
+                       <noscript>
+                       <a href="mailto:?SUBJECT=Take%20a%20look%20at%20this%20article%20from%20the%20Energy%20Information%20Administration%21" title="Email someone about this page"><img src="images/style-images/email-this.png" alt="Email this page" width="73" height="28" border="0" align="absmiddle"/></a>
+                       </noscript>
+                       &nbsp;|&nbsp;
+                       					<!-- AddThis Bookmark Button BEGIN -->
+					<script type="text/javascript">
+                    addthis_url = location.href;
+                    addthis_title = document.title;                    
+                    addthis_logo_background = 'EFEFFF';
+                    addthis_logo_color      = '666699';
+                    addthis_options         = 'favorites, facebook, delicious, digg, myspace, google, live, furl, stumbleupon';
+                    
+                    </script>
+                    
+					<script type="text/javascript">var addthis_pub = 'Energy Information Administration';</script><script type="text/javascript" src="js/bookmarks.js"></script>  
+					<!-- AddThis Bookmark Button END -->
+                       <a href="http://www.addthis.com/bookmark.php" onClick="return addthis_sendto()" title="Share this page">
+                       <img src="images/style-images/share-this2.png" id="share-icon" alt="Share this page" width="140" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('share-icon').src='images/style-images/share-this-over2.png';" onMouseOut="document.getElementById('share-icon').src='images/style-images/share-this2.png';"/></a>
+                  </div>
+                  
+                  
+                  
+                     
+                  
+                  <div class='panelactive' id="basics">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+
+
+
+<p>The U.S. Energy Information Administration (EIA) collects and publishes data at different geographic levels (depending on the data series): 
+<ul>
+<li>National   </li>
+<li>Census region or division</li>
+<li>State or U.S. territory  </li>
+</ul></p>
+
+<p>The <a href="../state/index.html">State  Energy Portal</a> is the main area on  EIA's website to find state energy information. The State Energy Portal is home to EIA's  State Energy Profiles and EIA's State Energy Data System. The portal also features <a href="https://www.eia.gov/state/rankings/?sid=US">state rankings</a> for 10  key energy statistics, provides a <a href="../state/search/index.html@sid=US.html">search function</a> that allows  users to find EIA's state data easily, and provides users with the ability to <a href="https://www.eia.gov/state/compare/?sid=AL#?selected=AL-AK-AR">compare</a> state energy data along a variety of data points and energy indicators.</p>
+<p>One of the most popular features on EIA's  website is the State Energy Portal's multilayer <a href="https://www.eia.gov/state/maps.cfm">mapping</a> tool that provides user-selected views of fossil fuel and renewable energy resources, oil refineries, pipelines, power plants, transmission lines, and other energy infrastructure for the United States. Each individual state page contains a state map.</p>
+<h2>State energy profiles</h2>
+
+<div class="image right">
+<div class="image-title"><strong>Click a state for its energy profile</strong></div>
+
+
+<img width="237" alt="Map of the United Stats linking to each State Energy Profile" src="https://www.eia.gov/energyexplained/images/united_states_mini_map.gif" usemap="#US" border="0" align="left" />
+<br clear="all" />
+
+<form action="http://www.eia.gov/state/index.cfm" method="get" name="CFForm_1" onsubmit="return true;">
+<br/>
+<p><select name="sid" class="A" onChange="location='http://www.eia.gov/state/state_energy_profiles.cfm?sid='+this.options[this.selectedIndex].value;" style="background-color:white;color:black;">
+	 	<option value="US">Select State</option>
+
+  
+ <option value="AL">Alabama</option>
+  
+ <option value="AK">Alaska</option>
+  
+ <option value="AZ">Arizona</option>
+  
+ <option value="AR">Arkansas</option>
+  
+ <option value="CA">California</option>
+  
+ <option value="CO">Colorado</option>
+
+  
+ <option value="CT">Connecticut</option>
+  
+ <option value="DE">Delaware</option>
+  
+ <option value="DC">District of Columbia</option>
+  
+ <option value="FL">Florida</option>
+  
+ <option value="GA">Georgia</option>
+  
+ <option value="HI">Hawaii</option>
+
+  
+ <option value="ID">Idaho</option>
+  
+ <option value="IL">Illinois</option>
+  
+ <option value="IN">Indiana</option>
+  
+ <option value="IA">Iowa</option>
+  
+ <option value="KS">Kansas</option>
+  
+ <option value="KY">Kentucky</option>
+
+  
+ <option value="LA">Louisiana</option>
+  
+ <option value="ME">Maine</option>
+  
+ <option value="MD">Maryland</option>
+  
+ <option value="MA">Massachusetts</option>
+  
+ <option value="MI">Michigan</option>
+  
+ <option value="MN">Minnesota</option>
+
+  
+ <option value="MS">Mississippi</option>
+  
+ <option value="MO">Missouri</option>
+  
+ <option value="MT">Montana</option>
+  
+ <option value="NE">Nebraska</option>
+  
+ <option value="NV">Nevada</option>
+  
+ <option value="NH">New Hampshire</option>
+
+  
+ <option value="NJ">New Jersey</option>
+  
+ <option value="NM">New Mexico</option>
+  
+ <option value="NY">New York</option>
+  
+ <option value="NC">North Carolina</option>
+  
+ <option value="ND">North Dakota</option>
+  
+ <option value="OH">Ohio</option>
+
+  
+ <option value="OK">Oklahoma</option>
+  
+ <option value="OR">Oregon</option>
+  
+ <option value="PA">Pennsylvania</option>
+  
+ <option value="RI">Rhode Island</option>
+  
+ <option value="SC">South Carolina</option>
+  
+ <option value="SD">South Dakota</option>
+
+  
+ <option value="TN">Tennessee</option>
+  
+ <option value="TX">Texas</option>
+  
+ <option value="UT">Utah</option>
+  
+ <option value="VT">Vermont</option>
+  
+ <option value="VA">Virginia</option>
+  
+ <option value="WA">Washington</option>
+
+  
+ <option value="WV">West Virginia</option>
+  
+ <option value="WI">Wisconsin</option>
+  
+ <option value="WY">Wyoming</option>
+  
+ 	</select></p>
+    </form>
+
+</div>
+
+<p>
+<a href="../state/index.html">State Energy Profiles</a> summarize all of EIA's state-level and fuel-specific energy data for each state. Each profile, which can be printed as an integrated report, is updated monthly and includes several features: 
+</p>
+<ul> 
+  <li>Data  tables with about 90  key state-level data items, updated monthly</li>
+  <li>Quick  facts that present noteworthy  state energy facts in bulleted form</li>
+  <li>Analytical  narratives that explain how fossil  fuels, nuclear energy, renewable energy, energy infrastructure, and  energy-related activities interact in each state's energy markets</li>
+  <li>Downloadable charts that provide an overview of state energy production, consumption, as well as context to state energy prices </li>
+  <li>Related  links that give users quick access to additional state energy resources </li>
+  <li>Notes and sources that offer reference material on state energy data and facts</li>
+
+</ul>   
+
+   <br/>
+<p>State Energy Profiles  also include data and information for five U.S. territories:</p>
+<ul>
+<li> <a href="https://www.eia.gov/state/territory-energy-profiles.cfm?sid=AQ">American Samoa</a> </li>
+<li><a href="https://www.eia.gov/state/territory-energy-profiles.cfm?sid=GQ">Guam</a> </li>
+<li><a href="https://www.eia.gov/state/territory-energy-profiles.cfm?sid=CQ">Northern Mariana Islands</a></li>
+<li> <a href="https://www.eia.gov/state/territory-energy-profiles.cfm?sid=RQ">Puerto Rico</a></li>
+<li>  <a href="https://www.eia.gov/state/territory-energy-profiles.cfm?sid=VQ">U.S. Virgin Islands</a></li> 
+</ul>
+
+
+<h2>State Energy Data System</h2>
+
+<div class="image right">
+<div class="image-title"><strong>Click a state for data from the State Energy Data System</strong></div>
+
+
+<img width="237" alt="Map of the United Stats linking to each State Energy Profile" src="https://www.eia.gov/energyexplained/images/united_states_mini_map.gif" usemap="#SEDS" border="0" align="left" />
+<br clear="all" />
+
+<form action="http://www.eia.gov/state/index.cfm" method="get" name="CFForm_1" onsubmit="return true;">
+<br/>
+<p><select name="sid" class="A" onChange="location=this.options[this.selectedIndex].value;" style="background-color:white;color:black;">
+	 	<option value="US">Select State</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=al&q_state=Alabama">Alabama</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ak&q_state=Alaska">Alaska</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=az&q_state=Arizona">Arizona</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ar&q_state=Arkansas">Arkansas</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ca&q_state=California">California</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=co&q_state=Colorado">Colorado</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ct&q_state=Connecticut">Connecticut</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=de&q_state=Delaware">Delaware</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=dc&q_state=District of Columbia">District of Columbia</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=fl&q_state=Florida">Florida</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ga&q_state=Georgia">Georgia</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=hi&q_state=Hawaii">Hawaii</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=id&q_state=Idaho">Idaho</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=il&q_state=Illinois">Illinois</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=in&q_state=Indiana">Indiana</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ia&q_state=Iowa">Iowa</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ks&q_state=Kansas">Kansas</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ky&q_state=Kentucky">Kentucky</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=la&q_state=Louisiana">Louisiana</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=me&q_state=Maine">Maine</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=md&q_state=Maryland">Maryland</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ma&q_state=Massachusetts">Massachusetts</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=mi&q_state=Michigan">Michigan</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=mn&q_state=Minnesota">Minnesota</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ms&q_state=Mississippi">Mississippi</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=mo&q_state=Missouri">Missouri</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=mt&q_state=Montana">Montana</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ne&q_state=Nebraska">Nebraska</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nv&q_state=Nevada">Nevada</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nh&q_state=New Hampshire">New Hampshire</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nj&q_state=New Jersey">New Jersey</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nm&q_state=New Mexico">New Mexico</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ny&q_state=New York">New York</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nc&q_state=North Carolina">North Carolina</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=nd&q_state=North Dakota">North Dakota</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=oh&q_state=Ohio">Ohio</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ok&q_state=Oklahoma">Oklahoma</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=or&q_state=Oregon">Oregon</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=pa&q_state=Pennsylvania">Pennsylvania</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ri&q_state=Rhode Island">Rhode Island</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=sc&q_state=South Carolina">South Carolina</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=sd&q_state=South Dakota">South Dakota</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=tn&q_state=Tennessee">Tennessee</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=tx&q_state=Texas">Texas</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=ut&q_state=Utah">Utah</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=vt&q_state=Vermont">Vermont</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=va&q_state=Virginia">Virginia</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=wa&q_state=Washington">Washington</option>
+
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=wv&q_state=West Virginia">West Virginia</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=wi&q_state=Wisconsin">Wisconsin</option>
+  
+ <option value="/state/seds/seds-states.cfm?q_state_a=wy&q_state=Wyoming">Wyoming</option>
+  
+ 	</select></p>
+    </form>
+
+</div>
+
+<p>The <a href="https://www.eia.gov/state/seds/">State Energy Data System</a> provides annual time-series estimates of state-level energy consumption, prices, expenditures, and production. The full set of tables and data files are updated annually.<br />
+The estimates provide multi-dimensional information for the following:</p>
+<ul>
+  <li><strong>Concepts:</strong> Consumption in physical units and British  thermal units (Btu), prices in dollars per million Btu, expenditures in million current dollars, and production in physical units and Btu</li>
+  <li><strong>Energy sources:</strong> Coal; natural gas; 10 major petroleum products, other petroleum products, and total petroleum;  nuclear fuel; renewable energy, including hydroelectric power, geothermal  energy, solar energy, wind energy, and wood and waste; and total energy</li>
+  <li><strong>Consumption sectors:</strong> Residential, commercial, industrial, transportation, electric power, and total</li>
+  <li><strong>Geography:</strong> 50 individual states, the District of  Columbia, and data for the United States as a whole</li>
+  <li><strong>Time periods:</strong> Consumption (beginning in 1960), prices (beginning in 1970), expenditures (beginning in 1970), and production (beginning in 1960)</li></ul>
+    
+    
+    
+    <map name="US" id="US">
+      <area shape="rect" coords="202,15,222,30" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=NH" alt="NH" />
+      <area shape="rect" coords="202,107,223,119" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=DC" alt="DC" />
+      <area shape="rect" coords="202,29,222,41" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MA" alt="MA" />
+      <area shape="rect" coords="202,93,222,107" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MD" alt="MD" />
+      <area shape="poly" coords=
+              "123,73,122,82,132,84,132,73" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=AR" alt="AR" />
+      
+      <area shape="poly" coords=
+              "126,57,134,70,124,71,119,59" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MO" alt="MO" />
+      <area shape="rect" coords="200,40,222,54" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=CT" alt="CT" />
+      <area shape="rect" coords="202,81,223,93" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=DE" alt="DE" />
+      <area shape="rect" coords="201,55,223,69" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=RI" alt="RI" />
+      <area shape="rect" coords="202,69,222,81" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=NJ" alt="NJ" />
+      <area shape="rect" coords="81,116,103,129" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=AK" alt="AK" />
+      <area shape="rect" coords="130,127,150,139" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=HI" alt="HI" />
+      <area shape="rect" coords="147,16,168,29" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=VT" alt="VT" />
+      <area shape="poly" coords="64,67,64,82,75,88,78,70"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=AZ" alt="AZ" />
+      
+      <area shape="poly" coords=
+              "81,70,79,87,92,85,94,71,81,70" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=NM" alt="NM" />
+      <area shape="poly" coords=
+              "97,73,95,86,85,89,111,111,120,97,120,81,107,82"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=TX" alt="TX" />
+      <area shape="poly" coords="71,21,75,36,94,38,96,26"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=MT" alt="MT" />
+      <area shape="poly" coords=
+              "127,85,124,96,136,97,129,87" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=LA" alt="LA" />
+      <area shape="poly" coords=
+              "40,53,42,64,57,81,60,73,51,58,54,46,42,43" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=CA" alt="CA" />
+      <area shape="poly" coords="48,31,46,40,58,44,63,34"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=OR" alt="OR" />
+      <area shape="poly" coords="64,30,51,26,52,17,66,21"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=WA" alt="WA" />
+      <area shape="poly" coords="68,27,63,45,76,48,76,43"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=ID" alt="ID" />
+      <area shape="poly" coords="56,44,53,55,62,68,67,48"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=NV" alt="NV" />
+      
+      <area shape="poly" coords="70,51,69,64,77,65,80,55"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=UT" alt="UT" />
+      <area shape="poly" coords="82,55,81,68,97,69,98,57"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=CO" alt="CO" />
+      <area shape="poly" coords=
+              "80,38,78,51,92,53,94,41,91,41" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=WY" alt="WY" />
+      <area shape="poly" coords="99,27,98,36,113,35,112,27"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=ND" alt="ND" />
+      <area shape="poly" coords="99,37,97,46,115,49,114,38"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=SD" alt="SD" />
+      <area shape="poly" coords=
+              "96,49,96,54,100,57,117,57,115,50" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=NE" alt="NE" />
+      <area shape="poly" coords=
+              "101,60,100,70,119,70,118,59" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=KS" alt="KS" />
+      <area shape="poly" coords=
+              "106,71,106,79,120,81,119,72" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=OK" alt="OK" />
+      <area shape="poly" coords=
+              "115,26,116,46,124,47,124,34,129,30" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MN" alt="MN" />
+      
+      <area shape="poly" coords=
+              "116,49,119,56,130,55,128,48" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=IA" alt="IA" />
+      <area shape="poly" coords=
+              "128,35,130,49,140,49,138,37" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=WI" alt="WI" />
+      <area shape="poly" coords=
+              "143,36,144,52,153,52,152,41" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MI" alt="MI" />
+      <area shape="poly" coords=
+              "139,51,130,57,135,67,139,62" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=IL" alt="IL" />
+      <area shape="poly" coords=
+              "147,53,147,63,142,67,139,54" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=IN" alt="IN" />
+      <area shape="poly" coords=
+              "153,69,140,70,148,63,154,64" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=KY" alt="KY" />
+      <area shape="poly" coords=
+              "139,76,153,75,154,70,137,71" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=TN" alt="TN" />
+      <area shape="poly" coords=
+              "134,78,134,92,140,94,140,78" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=MS" alt="MS" />
+      <area shape="poly" coords=
+              "142,78,141,90,150,90,148,78" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=AL" alt="AL" />
+      
+      <area shape="poly" coords=
+              "162,91,170,111,147,92,158,94" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=FL" alt="FL" />
+      <area shape="poly" coords="150,76,152,89,163,87"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=GA" alt="GA" />
+      <area shape="poly" coords="155,73,162,84,171,76"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=SC" alt="SC" />
+      <area shape="poly" coords=
+              "160,69,176,69,173,76,159,74" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=NC" alt="NC" />
+      <area shape="poly" coords=
+              "161,48,162,56,173,53,173,47" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=PA" alt="PA" />
+      <area shape="poly" coords=
+              "149,53,149,63,156,62,158,51" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=OH" alt="OH" />
+      <area shape="poly" coords="168,58,161,68,170,65"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=VA" alt="VA" />
+      <area shape="poly" coords=
+              "159,56,156,63,159,66,163,60" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=WV" alt="WV" />
+      <area shape="poly" coords="173,34,180,48,163,46"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=NY" alt="NY" />
+      
+      <area shape="poly" coords=
+              "66,109,68,126,83,135,58,132,43,140,42,127,46,105"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=AK" alt="AK" />
+      <area shape="poly" coords=
+              "135,108,134,113,159,127,163,138,176,139,176,134,160,121"
+              href="http://www.eia.gov/state/state_energy_profiles.cfm?sid=HI" alt="HI" />
+      <area shape="poly" coords=
+              "183,21,179,30,183,36,190,28" href=
+              "http://www.eia.gov/state/state_energy_profiles.cfm?sid=ME" alt="ME" />
+      </map>
+    
+    <map name="SEDS" id="SEDS">
+      <area shape="rect" coords="202,15,222,30" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nh&amp;q_state=New&#32;Hampshire" alt="NH" />
+      <area shape="rect" coords="202,107,223,119" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=dc&amp;q_state=District&#32;of&#32;Columbia" alt="DC" />
+      <area shape="rect" coords="202,29,222,41" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ma&amp;q_state=Massachusetts" alt="MA" />
+      <area shape="rect" coords="202,93,222,107" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=md&amp;q_state=Maryland" alt="MD" />
+      <area shape="poly" coords=
+              "123,73,122,82,132,84,132,73" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ar&amp;q_state=Arkansas" alt="AR" />
+      
+      <area shape="poly" coords=
+              "126,57,134,70,124,71,119,59" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=mo&amp;q_state=Missouri" alt="MO" />
+      <area shape="rect" coords="200,40,222,54" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ct&amp;q_state=Connecticut" alt="CT" />
+      <area shape="rect" coords="202,81,223,93" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=de&amp;q_state=Delaware" alt="DE" />
+      <area shape="rect" coords="201,55,223,69" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ri&amp;q_state=Rhode&#32;Island" alt="RI" />
+      <area shape="rect" coords="202,69,222,81" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nj&amp;q_state=New&#32;Jersey" alt="NJ" />
+      <area shape="rect" coords="81,116,103,129" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ar&amp;q_state=Arkansas" alt="AK" />
+      <area shape="rect" coords="130,127,150,139" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=hi&amp;q_state=Hawaii" alt="HI" />
+      <area shape="rect" coords="147,16,168,29" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=vt&amp;q_state=Vermont" alt="VT" />
+      <area shape="poly" coords="64,67,64,82,75,88,78,70"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=az&amp;q_state=Arizona" alt="AZ" />
+      
+      <area shape="poly" coords=
+              "81,70,79,87,92,85,94,71,81,70" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nm&amp;q_state=New&#32;Mexico" alt="NM" />
+      <area shape="poly" coords=
+              "97,73,95,86,85,89,111,111,120,97,120,81,107,82"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=tx&amp;q_state=Texas" alt="TX" />
+      <area shape="poly" coords="71,21,75,36,94,38,96,26"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=mt&amp;q_state=Montana" alt="MT" />
+      <area shape="poly" coords=
+              "127,85,124,96,136,97,129,87" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=la&amp;q_state=Louisiana" alt="LA" />
+      <area shape="poly" coords=
+              "40,53,42,64,57,81,60,73,51,58,54,46,42,43" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ca&amp;q_state=California" alt="CA" />
+      <area shape="poly" coords="48,31,46,40,58,44,63,34"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=or&amp;q_state=Oregon" alt="OR" />
+      <area shape="poly" coords="64,30,51,26,52,17,66,21"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=wa&amp;q_state=Washington" alt="WA" />
+      <area shape="poly" coords="68,27,63,45,76,48,76,43"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=id&amp;q_state=Idaho" alt="ID" />
+      <area shape="poly" coords="56,44,53,55,62,68,67,48"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nv&amp;q_state=Nevada" alt="NV" />
+      
+      <area shape="poly" coords="70,51,69,64,77,65,80,55"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ut&amp;q_state=Utah" alt="UT" />
+      <area shape="poly" coords="82,55,81,68,97,69,98,57"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=co&amp;q_state=Colorado" alt="CO" />
+      <area shape="poly" coords=
+              "80,38,78,51,92,53,94,41,91,41" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=wy&amp;q_state=Wyoming" alt="WY" />
+      <area shape="poly" coords="99,27,98,36,113,35,112,27"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nd&amp;q_state=North&#32;Dakota" alt="ND" />
+      <area shape="poly" coords="99,37,97,46,115,49,114,38"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=sd&amp;q_state=South&#32;Dakota" alt="SD" />
+      <area shape="poly" coords=
+              "96,49,96,54,100,57,117,57,115,50" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ne&amp;q_state=Nebraska" alt="NE" />
+      <area shape="poly" coords=
+              "101,60,100,70,119,70,118,59" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ks&amp;q_state=Kansas" alt="KS" />
+      <area shape="poly" coords=
+              "106,71,106,79,120,81,119,72" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ok&amp;q_state=Oklahoma" alt="OK" />
+      <area shape="poly" coords=
+              "115,26,116,46,124,47,124,34,129,30" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=mn&amp;q_state=Minnesota" alt="MN" />
+      
+      <area shape="poly" coords=
+              "116,49,119,56,130,55,128,48" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ia&amp;q_state=Iowa" alt="IA" />
+      <area shape="poly" coords=
+              "128,35,130,49,140,49,138,37" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=wi&amp;q_state=Wisconsin" alt="WI" />
+      <area shape="poly" coords=
+              "143,36,144,52,153,52,152,41" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=mi&amp;q_state=Michigan" alt="MI" />
+      <area shape="poly" coords=
+              "139,51,130,57,135,67,139,62" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=il&amp;q_state=Illinois" alt="IL" />
+      <area shape="poly" coords=
+              "147,53,147,63,142,67,139,54" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=in&amp;q_state=Indiana" alt="IN" />
+      <area shape="poly" coords=
+              "153,69,140,70,148,63,154,64" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ky&amp;q_state=Kentucky" alt="KY" />
+      <area shape="poly" coords=
+              "139,76,153,75,154,70,137,71" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=tn&amp;q_state=Tennessee" alt="TN" />
+      <area shape="poly" coords=
+              "134,78,134,92,140,94,140,78" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ms&amp;q_state=Mississippi" alt="MS" />
+      <area shape="poly" coords=
+              "142,78,141,90,150,90,148,78" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=al&amp;q_state=Alabama" alt="AL" />
+      
+      <area shape="poly" coords=
+              "162,91,170,111,147,92,158,94" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=fl&amp;q_state=Florida" alt="FL" />
+      <area shape="poly" coords="150,76,152,89,163,87"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ga&amp;q_state=Georgia" alt="GA" />
+      <area shape="poly" coords="155,73,162,84,171,76"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=sc&amp;q_state=South&#32;Carolina" alt="SC" />
+      <area shape="poly" coords=
+              "160,69,176,69,173,76,159,74" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=nc&amp;q_state=North&#32;Carolina" alt="NC" />
+      <area shape="poly" coords=
+              "161,48,162,56,173,53,173,47" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=pa&amp;q_state=Pennsylvania" alt="PA" />
+      <area shape="poly" coords=
+              "149,53,149,63,156,62,158,51" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=oh&amp;q_state=Ohio" alt="OH" />
+      <area shape="poly" coords="168,58,161,68,170,65"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=va&amp;q_state=Virginia" alt="VA" />
+      <area shape="poly" coords=
+              "159,56,156,63,159,66,163,60" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=wv&amp;q_state=West&#32;Virginia" alt="WV" />
+      <area shape="poly" coords="173,34,180,48,163,46"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ny&amp;q_state=New&#32;York" alt="NY" />
+      
+      <area shape="poly" coords=
+              "66,109,68,126,83,135,58,132,43,140,42,127,46,105"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=ak&amp;q_state=Alaska" alt="AK" />
+      <area shape="poly" coords=
+              "135,108,134,113,159,127,163,138,176,139,176,134,160,121"
+              href="https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=hi&amp;q_state=Hawaii" alt="HI" />
+      <area shape="poly" coords=
+              "183,21,179,30,183,36,190,28" href=
+              "https://www.eia.gov/state/seds/seds-states.cfm?q_state_a=me&amp;q_state=Maine" alt="ME" />
+      </map>
+  </li>
+</ul>
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='index.cfm@page=coal_where.html'>Where Our Coal Comes From</a></li><li><a href='index.cfm@page=oil_where.html'>Where Our Oil Comes From</a></li><li><a href='index.cfm@page=hydropower_where.html'>Where Hydropower Is Generated</a></li><li><a href='index.cfm@page=wind_where.html'>Where Wind Power Is Harnessed</a></li></ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=967&t=5'>Does EIA have projections for energy production, consumption, and prices for individual states?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=967&t=5</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=448&t=5'>Does EIA have energy consumption and price data for cities, counties, or by zip code?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=448&t=5</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=587&t=5'>Does EIA have gasoline prices by city, county, or zip code?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=587&t=5</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=807&t=3'>Does EIA have county-level energy production data?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=807&t=3</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='../state.1.html'>State Energy Profiles</a><span class='printonly'> &mdash; http://www.eia.gov/state/</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last reviewed: December 15, 2015</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+
+              </div>
+
+           
+         </div>
+         
+
+
+                         
+
+                          <div id="forwardBackwardLinks">
+						     
+                             <table width="100%">
+                                <tr>
+                                   <td class="upward-links"><a class="backward-link" href="index.cfm@page=us_energy_home.html">&laquo; U.S. Energy Facts</a></td>
+                                   <td class="downward-links"><a class="forward-link" href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy in the United States &raquo;</a></td>
+                                </tr>
+                             </table>
+							 
+                          </div>
+
+         </td>
+      </tr>
+      <tr><td colspan="2" valign="top">
+      <script language="JavaScript" type="text/javascript">InsertEIAFooterCode();</script>
+      </td>
+      </tr>
+   </table>
+   <br><br><br><br><br>
+</body>
+</html>

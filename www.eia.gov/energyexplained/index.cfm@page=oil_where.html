@@ -1,0 +1,567 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=9" > <!-- IE9 mode -->
+<link href="https://www.eia.gov/styles/eia_sitewideF.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="styles/energyfacts.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/energyfactsframe.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/jquery.treeviewM.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/rate_page.css" type="text/css" media="screen">
+<link rel="stylesheet" href="styles/print.css" type="text/css" media="print"/>
+<link rel="stylesheet" type="text/css" href="https://www.eia.gov/kids/shadowbox/shadowbox.css">
+<script type="text/javascript" src="https://www.eia.gov/styles/eia_header.js"></script>
+<script language="JavaScript" src="https://www.eia.gov/styles/eia_footer.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.eia.gov/kids/shadowbox/shadowbox.js"></script>
+
+<script src="js/jquery.treeview.js" type="text/javascript"></script>
+<script src="js/demom.js" type="text/javascript"></script>
+<script src="js/rating_style.js" type="text/javascript"></script>
+
+<title>Where Our Oil Comes From - Energy Explained, Your Guide To Understanding Energy - Energy Information Administration</title>
+
+<script language="javascript">
+var selectedTab = "basics-k";
+
+	
+	function showPanel(tab, name)
+	{
+		if (selectedTab)
+		{
+			document.getElementById('tab' + selectedTab).className = 'tabinactive';
+			document.getElementById(selectedTab).className = 'panelinactive';
+		}
+		selectedTab = name;
+		document.getElementById('tab' + selectedTab).className = 'tabactive';
+		document.getElementById(selectedTab).className = 'panelactive';
+		getPrintPage();
+		return false;
+	}
+
+function getPrintPage()
+{
+	var x = location.href.search(/index/);
+	if(x == "-1")
+	{
+		document.getElementById('printTab').href = location.href.replace(/\?page/,"print.cfm?page");
+	}
+	else
+	{
+		document.getElementById('printTab').href = location.href.replace(/index/,"print");
+	}
+}
+
+var the_tab=0;
+
+function checkURL()
+{
+	var all_tabs=document.getElementById("tabs").getElementsByTagName("li");
+	the_tab=location.hash.substring(4);
+	if (the_tab > 0)
+	{
+		the_tab=the_tab - 1;
+	}
+	else
+	{
+		the_tab=0;
+	}
+
+	if (the_tab != "")
+	{
+		showPanel(all_tabs[the_tab].firstChild.href, all_tabs[the_tab].id.substring(3));
+	}
+}
+
+	
+	function emailPage()
+{
+	var browser=navigator.appName;
+	var SubjectLine='Take a look at this web page from the Energy Information Administration! ';
+	var BodyText='You can find the web page at: '+top.location.href;
+	var Message='mailto:?SUBJECT='+escape(SubjectLine)+'&BODY='+escape(BodyText);
+	var MessageIE='mailto:?SUBJECT='+(SubjectLine)+'&BODY='+(BodyText);
+	if(browser=="Microsoft Internet Explorer")
+		{
+			document.getElementById("email-this").href=MessageIE;
+		}
+	else
+		{
+			document.getElementById("email-this").href=Message;
+		}
+
+}
+
+	
+
+function showplace() {
+	var whichpage = location.search;
+	var endurl = whichpage.indexOf("?", 1);
+	if (endurl != -1)
+	{
+		whichpage = "im" + whichpage.substring(6, endurl);
+	}
+	else
+	{
+		whichpage = "im" + whichpage.substring(6);
+	}
+
+//		alert(document.getElementById(whichpage).id);
+
+	if (document.getElementById(whichpage) != null && document.getElementById(whichpage).id == whichpage)
+	{
+		document.getElementById(whichpage).style.display = "inline";
+	}
+
+}
+
+Shadowbox.init({
+    language: 'en',
+    players:  ['img', 'iframe'],
+	handleOversize: "resize"
+});
+
+window.onload = function(){
+
+	emailPage();
+	showplace();
+	checkURL();
+	$('.selected').focus();
+};
+
+</script>
+
+
+                    <script type="text/javascript">
+                      var w=window;
+                      if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document,AKSB=AKSB||{};AKSB.q=[];AKSB.mark=function(a,b){AKSB.q.push(["mark",a,b||(new Date).getTime()])};AKSB.measure=function(a,b,c){AKSB.q.push(["measure",a,b,c||(new Date).getTime()])};AKSB.done=function(a){AKSB.q.push(["done",a])};AKSB.mark("firstbyte",(new Date).getTime());AKSB.prof={custid:"421524",ustr:"ECDHE-RSA-AES256-GCM-SHA384",originlat:0,clientrtt:1,ghostip:"23.15.7.199",
+                      ipv6:false,pct:10,clientip:"54.235.22.24",requestid:"30537af9",protocol:"",blver:10,akM:"dscb",akN:"ae",akTT:"O",akTX:"1",akTI:"30537af9",ai:"269977",ra:"",pmgn:"",pmgi:"",pmp:""};(function(a){var b=
+                      d.createElement("script");b.async="async";b.src=a;a=d.getElementsByTagName("script");a=a[a.length-1];a.parentNode.insertBefore(b,a)})(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")};
+                    </script>
+                    </head>
+<body class="home">
+<div id="print-hed"><img src="images/style-images/e-explained_150x75.jpg" alt="Energy Explained"></div>
+   <table width="100%" border="0" align="center" cellpadding="3" id="content">
+
+
+
+
+      <tr>
+         <td colspan="2" style="padding-bottom: 0px;">
+
+			<script language="JavaScript">InsertEIAHeaderCode();</script>
+
+
+<!--
+       <div id="eialogo"><a href="http://www.eia.gov/"><img src="images/style-images/eia-logo.jpg" width="410" height="55" border="0" alt="oxy/eia logo" align="left"></a>
+         </div>
+         <div id="search" style="margin-bottom: -20px;">
+         
+<form method="get" action="http://usasearch.gov/search" class="search">
+<input type="hidden" name="affiliate" value="eia.doe.gov">
+<input type="hidden" name="v:project" value="firstgov">
+
+<input type="text" name="query" size="28" maxlength="256" title="enter the information you are searching for" />
+
+<input type="button" name="search" alt="enter terms to search" align="absmiddle" value="Search" title="click to search EIA">
+		<p style="margin-right: 200px;"><a href="http://www.eia.gov/glossary/index.html">Glossary</a></p>
+</form></fieldset>
+
+         </div>
+   -->
+
+         <div id="breadcrumbs">
+            <p><a href='../index.html'>Home</a> > <a href='index.cfm@page=propane_factors_affecting_prices.html'>Energy Explained</a> > <a href='index.cfm@page=nonrenewable_home.html'><b>Nonrenewable Sources</b></a> > <a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_home'>Oil and Petroleum Products</a> > Where Our Oil Comes From</p>
+         </div>
+         </td>
+      </tr>
+
+      <tr>
+         <td id="donotprint">
+         
+         <div class='home-link'><a href='index.cfm@page=propane_factors_affecting_prices.html'><img src='images/style-images/e-explained-home.jpg' width='220' height='37' alt='Energy Explained - Home'></a></div><div class='menu' id='main'><ul><ul id='navigation'> <li><img src='images/style-images/acpage.png' id='imabout_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_home'>What Is Energy?</a> <ul> <li><img src='images/style-images/acpage.png' id='imabout_forms_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_forms_of_energy.html'>Forms of Energy</a> <li><img src='images/style-images/acpage.png' id='imabout_sources_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_sources_of_energy.html'>Sources of Energy</a> <li><img src='images/style-images/acpage.png' id='imabout_laws_of_energy' class='activepage' style='display:none;' /><a href='index.cfm@page=about_laws_of_energy.html'>Laws of Energy</a> </ul> <li><img src='images/style-images/acpage.png' id='imabout_energy_units' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units'>Units and Calculators</a> <ul> <li><img src='images/style-images/acpage.png' id='imabout_energy_conversion_calculator' class='activepage' style='display:none;' /><a href='index.cfm@page=about_energy_conversion_calculator.html'>Energy Conversion Calculators</a> <li><img src='images/style-images/acpage.png' id='imabout_btu' class='activepage' style='display:none;' /><a href='index.cfm@page=about_btu.html'>British Thermal Units (Btu)</a> <li><img src='images/style-images/acpage.png' id='imabout_degree_days' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_degree_days'>Degree-Days</a> </ul> <li><img src='images/style-images/acpage.png' id='imus_energy_home' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_home.html'>U.S. Energy Facts</a> <ul> <li><img src='images/style-images/acpage.png' id='imus_energy_state' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_state.html'>State and U.S. Territory Data</a> </ul> <li><img src='images/style-images/acpage.png' id='imus_energy_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use'>Use of Energy</a> <ul> <li><img src='images/style-images/acpage.png' id='imus_energy_industry' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_industry.html'>In Industry</a> <li><img src='images/style-images/acpage.png' id='imus_energy_transportation' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_transportation.html'>For Transportation</a> <li><img src='images/style-images/acpage.png' id='imus_energy_homes' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_homes.html'>In Homes</a> <li><img src='images/style-images/acpage.png' id='imus_energy_commercial' class='activepage' style='display:none;' /><a href='index.cfm@page=us_energy_commercial.html'>In Commercial Buildings</a> <li><img src='images/style-images/acpage.png' id='imabout_energy_efficiency' class='activepage' style='display:none;' /><a href='index.cfm@page=about_energy_efficiency.html'>Efficiency and Conservation</a> </ul> <li><img src='images/style-images/acpage.png' id='imenvironment_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_home'>Energy and the Environment</a> <ul> <li><img src='images/style-images/acpage.png' id='imenvironment_about_ghg' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_about_ghg.html'>Greenhouse Gases</a> <li><img src='images/style-images/acpage.png' id='imenvironment_how_ghg_affect_climate' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_how_ghg_affect_climate.html'>Effect on the Climate</a> <li><img src='images/style-images/acpage.png' id='imenvironment_where_ghg_come_from' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_where_ghg_come_from.html'>Where Greenhouse Gases Come From</a> <li><img src='images/style-images/acpage.png' id='imenvironment_outlook_for_emissions' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_outlook_for_emissions.html'>Outlook for Future Emissions</a> <li><img src='images/style-images/acpage.png' id='imenvironment_recycling' class='activepage' style='display:none;' /><a href='index.cfm@page=environment_recycling.html'>Recycling and Energy</a> </ul> <li class='rightnav-split open'><img src='images/style-images/acpage.png' id='imnonrenewable_home' class='activepage' style='display:none;' /><a href='index.cfm@page=nonrenewable_home.html'><b>Nonrenewable Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imoil_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_home'>Oil and Petroleum Products</a> <ul> <li><img src='images/style-images/acpage.png' id='imoil_refining' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_refining.html'>Refining Crude Oil</a> <li><img src='images/style-images/acpage.png' id='imoil_where' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_where.html'>Where Our Oil Comes From</a> <li><img src='images/style-images/acpage.png' id='imoil_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_imports.html'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imoil_offshore' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_offshore.html'> &nbsp;&nbsp;&nbsp;&nbsp;Offshore Oil and Gas</a> <li><img src='images/style-images/acpage.png' id='imoil_use' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_use.html'>Use of Oil</a> <li><img src='images/style-images/acpage.png' id='imoil_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_prices.html'>Prices and Outlook</a> <li><img src='images/style-images/acpage.png' id='imoil_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=oil_environment.html'>Oil and the Environment</a> </ul> </ul><ul> <ul><li style='display:block; position: relative; left:16px; max-width:150px;width:150px; margin-top:-6px;//display:inline-block; //margin-top:-9px;'><img src='images/style-images/acpage.png' id='imgasoline_home' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_home.html'>Gasoline</a> <ul> <li><img src='images/style-images/acpage.png' id='imgasoline_where' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_where.html'>Where Our Gasoline Comes From</a> <li><img src='images/style-images/acpage.png' id='imgasoline_use' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_use.html'>Use of Gasoline</a> <li><img src='images/style-images/acpage.png' id='imgasoline_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_prices'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imgasoline_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_factors_affecting_prices.html'>Factors Affecting Gasoline Prices</a> <li><img src='images/style-images/acpage.png' id='imgasoline_regional' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_regional.html'>Regional Price Differences</a> <li><img src='images/style-images/acpage.png' id='imgasoline_fluctuations' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_fluctuations.html'>Price Fluctuations</a> </ul> <li><img src='images/style-images/acpage.png' id='imgasoline_history' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_history.html'>History of Gasoline</a> <li><img src='images/style-images/acpage.png' id='imgasoline_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=gasoline_environment.html'>Gasoline &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='images/style-images/acpage.png' id='imdiesel_home' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_home.html'>Diesel Fuel</a> <ul> <li><img src='images/style-images/acpage.png' id='imdiesel_where' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_where.html'>Where Our Diesel Comes From</a> <li><img src='images/style-images/acpage.png' id='imdiesel_use' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_use.html'>Use of Diesel</a> <li><img src='images/style-images/acpage.png' id='imdiesel_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_prices'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imdiesel_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_factors_affecting_prices.html'>Factors Affecting Diesel Prices</a> <li><img src='images/style-images/acpage.png' id='imdiesel_surcharges' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_surcharges.html'>Diesel Fuel Surcharges</a> </ul> <li><img src='images/style-images/acpage.png' id='imdiesel_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=diesel_environment.html'>Diesel &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='images/style-images/acpage.png' id='imheating_oil_home' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_home.html'>Heating Oil</a> <ul> <li><img src='images/style-images/acpage.png' id='imheating_oil_where' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_where.html'>Where Our Heating Oil Comes From</a> <li><img src='images/style-images/acpage.png' id='imheating_oil_use' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_use.html'>Use of Heating Oil</a> <li><img src='images/style-images/acpage.png' id='imheating_oil_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_prices.html'>Prices and Outlook</a> <ul> <li><img src='images/style-images/acpage.png' id='imheating_oil_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=heating_oil_factors_affecting_prices.html'>Factors Affecting Heating Oil Prices</a> </ul> </ul> </ul> </ul> <ul> <li><img src='images/style-images/acpage.png' id='imhgls_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_home'>Hydrocarbon Gas Liquids</a> <ul> <li><img src='images/style-images/acpage.png' id='imhgls_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_where'>Where do Hydrocarbon Gas Liquids Come From?</a> <li><img src='images/style-images/acpage.png' id='imhgls_transporting_storing' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_transporting_storing.html'>Transporting and Storing</a> <li><img src='images/style-images/acpage.png' id='imhgls_uses' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_uses'>Uses of Hydrocarbon Gas Liquids</a> <li><img src='images/style-images/acpage.png' id='imhgls_imports_exports' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_imports_exports.html'>Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imhgls_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=hgls_prices.html'>Prices</a> </ul> </ul> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home'>Natural Gas</a> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_delivery' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_delivery.html'>Delivery and Storage</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_pipelines' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_pipelines.html'> &nbsp;&nbsp;&nbsp;&nbsp;Natural Gas Pipelines</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_lng' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_lng.html'> &nbsp;&nbsp;&nbsp;&nbsp;Liquefied Natural Gas</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_where' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_where.html'>Where Our Natural Gas Comes From</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_imports.html'>&nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a><br>&nbsp;&nbsp;&nbsp;&nbsp;<em style='line-height:16px;'>Offshore: See Oil</em> <li><img src='images/style-images/acpage.png' id='imnatural_gas_reserves' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_reserves.html'>How Much Gas Is Left</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_use' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_use.html'>Use of Natural Gas</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_prices.html'>Prices</a> <ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_factors_affecting_prices.html'>Factors Affecting Natural Gas Prices</a> </ul> <li><img src='images/style-images/acpage.png' id='imnatural_gas_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_environment.html'>Natural Gas &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imnatural_gas_customer_choice' class='activepage' style='display:none;' /><a href='index.cfm@page=natural_gas_customer_choice.html'>Customer Choice Programs</a> </ul> <li><img src='images/style-images/acpage.png' id='imcoal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_home'>Coal</a> <ul> <li><img src='images/style-images/acpage.png' id='imcoal_mining' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_mining.html'>Mining and Transportation</a> <li><img src='images/style-images/acpage.png' id='imcoal_where' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_where.html'>Where Our Coal Comes From</a> <li><img src='images/style-images/acpage.png' id='imcoal_imports' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_imports.html'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='images/style-images/acpage.png' id='imcoal_reserves' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_reserves.html'>How Much Coal Is Left</a> <li><img src='images/style-images/acpage.png' id='imcoal_use' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_use.html'>Use of Coal</a> <li><img src='images/style-images/acpage.png' id='imcoal_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_prices.html'>Prices and Outlook</a> <li><img src='images/style-images/acpage.png' id='imcoal_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=coal_environment.html'>Coal &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imnuclear_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home'>Nuclear</a> <ul> <li><img src='images/style-images/acpage.png' id='imnuclear_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_power_plants.html'>Nuclear Power Plants</a> <li><img src='images/style-images/acpage.png' id='imnuclear_fuel_cycle' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_fuel_cycle'>The Nuclear Fuel Cycle</a> <li><img src='images/style-images/acpage.png' id='imnuclear_where' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_where.html'>Where Our Uranium Comes From</a> <li><img src='images/style-images/acpage.png' id='imnuclear_use' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_use.html'>U.S. Nuclear Industry</a> <li><img src='images/style-images/acpage.png' id='imnuclear_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=nuclear_environment.html'>Nuclear Power &amp; the Environment</a> </ul> </ul> <li class='open'><img src='images/style-images/acpage.png' id='imrenewable_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=renewable_home'><b>Renewable Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imhydropower_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home'>Hydropower</a> <ul> <li><img src='images/style-images/acpage.png' id='imhydropower_where' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_where.html'>Where Hydropower Is Generated</a> <li><img src='images/style-images/acpage.png' id='imhydropower_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_environment.html'>Hydropower &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imhydropower_tidal' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_tidal.html'>Tidal Power</a> <li><img src='images/style-images/acpage.png' id='imhydropower_wave' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_wave.html'>Wave Power</a> <li><img src='images/style-images/acpage.png' id='imhydropower_ocean_thermal_energy_conversion' class='activepage' style='display:none;' /><a href='index.cfm@page=hydropower_ocean_thermal_energy_conversion.html'>Ocean Thermal Energy Conversion</a> </ul> <li><img src='images/style-images/acpage.png' id='imbiomass_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_home'>Biomass</a> <ul> <li><img src='images/style-images/acpage.png' id='imbiomass_wood' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_wood'>Wood and Wood Waste</a> <li><img src='images/style-images/acpage.png' id='imbiomass_waste_to_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_waste_to_energy'>Waste-to-Energy (MSW)</a> <li><img src='images/style-images/acpage.png' id='imbiomass_biogas' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_biogas'>Landfill Gas and Biogas</a> <li><img src='images/style-images/acpage.png' id='imbiomass_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biomass_environment.html'>Biomass &amp; the Environment</a><br><em style='line-height:16px;'>See also: Biofuels</em> </ul> <li><img src='images/style-images/acpage.png' id='imbiofuel_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home'>Biofuels: Ethanol &amp; Biodiesel</a> <ul> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_ethanol_home.html'>Ethanol</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_use'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Ethanol</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_ethanol_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_ethanol_environment.html'> &nbsp;&nbsp;&nbsp;&nbsp;Ethanol &amp; the Environment</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_home' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_home.html'>Biodiesel</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_use' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_use.html'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Biodiesel</a> <li><img src='images/style-images/acpage.png' id='imbiofuel_biodiesel_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=biofuel_biodiesel_environment.html'> &nbsp;&nbsp;&nbsp;&nbsp;Biodiesel &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imwind_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_home'>Wind</a> <ul> <li><img src='images/style-images/acpage.png' id='imwind_electricity_generation' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_electricity_generation.html'>Electricity Generation from Wind</a> <li><img src='images/style-images/acpage.png' id='imwind_where' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_where.html'>Where Wind Power Is Harnessed</a> <li><img src='images/style-images/acpage.png' id='imwind_types_of_turbines' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_types_of_turbines.html'>Types of Wind Turbines</a> <li><img src='images/style-images/acpage.png' id='imwind_history' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_history.html'>History of Wind Power</a> <li><img src='images/style-images/acpage.png' id='imwind_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=wind_environment.html'>Wind Energy &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imgeothermal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home'>Geothermal</a> <ul> <li><img src='images/style-images/acpage.png' id='imgeothermal_where' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_where.html'>Where Geothermal Energy Is Found</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_use' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_use.html'>Use of Geothermal Energy</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_power_plants.html'>Geothermal Power Plants</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_heat_pumps' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_heat_pumps.html'>Geothermal Heat Pumps</a> <li><img src='images/style-images/acpage.png' id='imgeothermal_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=geothermal_environment.html'>Geothermal Energy &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imsolar_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_home'>Solar</a> <ul> <li><img src='images/style-images/acpage.png' id='imsolar_photovoltaics' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_photovoltaics.html'>Photovoltaics and Electricity</a> <li><img src='images/style-images/acpage.png' id='imsolar_where' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_where.html'>Where Solar Is Found</a> <li><img src='images/style-images/acpage.png' id='imsolar_thermal_power_plants' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_thermal_power_plants.html'>Solar Thermal Power Plants</a> <li><img src='images/style-images/acpage.png' id='imsolar_thermal_collectors' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_thermal_collectors.html'>Solar Thermal Collectors</a> <li><img src='images/style-images/acpage.png' id='imsolar_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=solar_environment.html'>Solar Energy and the Environment</a> </ul> </ul> <li class='open'><img src='images/style-images/acpage.png' id='imsecondary_home' class='activepage' style='display:none;' /><a href='index.cfm@page=secondary_home.html'><b>Secondary Sources</b></a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_home'>Electricity</a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_science' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_science'>The Science of Electricity</a> <ul> <li><img src='images/style-images/acpage.png' id='imelectricity_magnets' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_magnets.html'>Magnets and Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_batteries' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_batteries.html'>Batteries, Circuits, &amp; Transformers</a> <li><img src='images/style-images/acpage.png' id='imelectricity_measuring' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_measuring.html'>Measuring Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_generating' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_generating.html'>How Electricity Is Generated</a> </ul> <li><img src='images/style-images/acpage.png' id='imelectricity_in_the_united_states' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_in_the_united_states'>Electricity in the U.S.</a> <li><img src='images/style-images/acpage.png' id='imelectricity_delivery' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_delivery'>Delivery To Consumers</a> <li><img src='images/style-images/acpage.png' id='imelectricity_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_use'>Use of Electricity</a> <li><img src='images/style-images/acpage.png' id='imelectricity_factors_affecting_prices' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_factors_affecting_prices.html'>Prices and Factors Affecting Prices</a> <li><img src='images/style-images/acpage.png' id='imelectricity_environment' class='activepage' style='display:none;' /><a href='index.cfm@page=electricity_environment.html'>Electricity &amp; the Environment</a> </ul> <li><img src='images/style-images/acpage.png' id='imhydrogen_home' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_home.html'>Hydrogen</a> <ul> <li><img src='images/style-images/acpage.png' id='imhydrogen_production' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_production.html'>Production of Hydrogen</a> <li><img src='images/style-images/acpage.png' id='imhydrogen_use' class='activepage' style='display:none;' /><a href='index.cfm@page=hydrogen_use.html'>Use of Hydrogen</a> </ul></ul></ul></ul></div> 
+         
+
+             <div id="outreach-image">
+             <a href="../todayinenergy.1.html"><img src="../todayinenergy/badges/smt1.png" /></a><br><br>
+             <a href="outreach.cfm.html" ><img src="images/style-images/outreach.jpg" border="0" alt="Help promote Energy Explained with the outreach toolkit" ></a>
+             </div>
+             
+             
+
+         </td>
+         <td width="735" >
+
+         <div id="page-frame" >
+         
+            <h1 id="pagetitle" style="background-image:url(images/section-headings/oil.jpg);" >
+            <div class="pgtitle">Where Our Oil Comes From</div>
+            </h1>
+         
+              <div class="main">
+
+                  <ul id="tabs">
+                  
+                     
+                              <li class='tabactive' id='tabbasics-k'><a href='index.cfm@page=oil_where.html#tab1' onMouseDown="return event.returnValue = showPanel(this, 'basics-k');" ><span><b>Basics</b></span></a></li>
+						   
+                              <li class='tabinactive' id='tabindepth'><a href='index.cfm@page=oil_where.html#tab2' onMouseDown="return event.returnValue = showPanel(this, 'indepth');" ><span><b>In Depth</b></span></a></li>
+						   
+                  
+                  </ul>
+                  
+                  <div class="print-email-share" align="right">
+                       
+                       <a href="index.cfm@page=oil_where.html##" id="printTab" title="Print this page" target="_blank" onMouseOver="getPrintPage();">
+                       <img src="images/style-images/print-this.png" id="print-icon" alt="Print this page icon" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('print-icon').src='images/style-images/print-this-over.png';" onMouseOut="document.getElementById('print-icon').src='images/style-images/print-this.png';" title="Print this page" style="cursor: pointer;"/></a>
+                       |&nbsp;
+                       <a href="index.cfm@page=oil_where.html##" title="Email someone about this page" id="email-this">
+                       <img src="images/style-images/email-this.png" id="email-icon" alt="Email this page" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('email-icon').src='images/style-images/email-this-over.png';" onMouseOut="document.getElementById('email-icon').src='images/style-images/email-this.png';"/></a>
+                       <noscript>
+                       <a href="mailto:?SUBJECT=Take%20a%20look%20at%20this%20article%20from%20the%20Energy%20Information%20Administration%21" title="Email someone about this page"><img src="images/style-images/email-this.png" alt="Email this page" width="73" height="28" border="0" align="absmiddle"/></a>
+                       </noscript>
+                       &nbsp;|&nbsp;
+                       					<!-- AddThis Bookmark Button BEGIN -->
+					<script type="text/javascript">
+                    addthis_url = location.href;
+                    addthis_title = document.title;                    
+                    addthis_logo_background = 'EFEFFF';
+                    addthis_logo_color      = '666699';
+                    addthis_options         = 'favorites, facebook, delicious, digg, myspace, google, live, furl, stumbleupon';
+                    
+                    </script>
+                    
+					<script type="text/javascript">var addthis_pub = 'Energy Information Administration';</script><script type="text/javascript" src="js/bookmarks.js"></script>  
+					<!-- AddThis Bookmark Button END -->
+                       <a href="http://www.addthis.com/bookmark.php" onClick="return addthis_sendto()" title="Share this page">
+                       <img src="images/style-images/share-this2.png" id="share-icon" alt="Share this page" width="140" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('share-icon').src='images/style-images/share-this-over2.png';" onMouseOut="document.getElementById('share-icon').src='images/style-images/share-this2.png';"/></a>
+                  </div>
+                  
+                  
+                  
+                     
+                  
+                  <div class='panelactive' id="basics-k">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+
+<div class="image right">
+   <a href="https://www.eia.gov/energyexplained/images/charts/top_5_petroleum_states-large.jpg" class="lightbox"><img width="265" src="https://www.eia.gov/energyexplained/images/charts/top_5_petroleum_states-small.jpg"  alt="Map of the states, identifying the top petroleum producing states."><div class="image-enlarge">Click to enlarge &raquo;</div></a><br/>
+   <div class="image-enlarge"><a href="../dnav/pet/pet_crd_crpdn_adc_mbblpd_a.htm">More data &raquo;</a></div>
+ </div>
+
+<div class="image right">
+  <a href="https://www.eia.gov/energyexplained/images/charts/top_petroleum_producing_countries-large.jpg" class="lightbox"><img width="265" src="https://www.eia.gov/energyexplained/images/charts/top_petroleum_producing_countries-small.jpg"  alt="Line graph "><div class="image-enlarge">Click to enlarge &raquo;</div></a><br/>
+  <div class="image-enlarge"><a href="http://www.eia.gov/cfapps/ipdbproject/iedindex3.cfm?tid=5&pid=57&aid=1&cid=regions&syid=2009&eyid=2013&unit=TBPD">More data &raquo;</a></div>
+</div> 
+
+<div class="did-you-know">
+<h4>Did you know?</h4>
+<div class="callout-content">
+<p>OPEC and Persian Gulf countries are not the same.</p>
+<p>The  Organization of the Petroleum Exporting Countries (OPEC) was organized in 1960 to negotiate with oil companies on matters of oil production,  prices, and future concession rights. Of the 12 countries in OPEC in 2015, only 6 of them are in the Persian Gulf.</p>
+<table width="100%" border="1">
+  <tr>
+    <th><strong>OPEC countries</strong></th>
+    <th><strong>Persian Gulf countries</strong></th>
+  </tr>
+  <tr>
+    <td><ul>
+    		<li><strong>Iran</strong></li>
+			<li><strong>Iraq</strong></li>
+            <li><strong>Kuwait</strong></li>
+            <li><strong>Saudi Arabia</strong></li>
+            <li><strong>Qatar</strong></li>
+            <li><strong>United Arab Emirates</strong></li>
+            <li>Algeria</li>
+            <li>Angola</li>
+            <li>Ecuador</li>
+            <li>Libya</li>
+            <li>Nigeria</li>           
+            <li>Venezuela</li>
+		</ul>
+    </td>
+    <td>
+		<ul>
+    		<li><strong>Iran</strong></li>
+			<li><strong>Iraq</strong></li>
+            <li><strong>Kuwait</strong></li>
+            <li><strong>Saudi Arabia</strong></li>
+            <li><strong>Qatar</strong></li>
+            <li><strong>United Arab Emirates</strong></li>
+            <li>Bahrain</li>
+            <li>Oman</li>
+		</ul></td>
+  </tr>   
+</table>
+</div></div>
+
+
+<p>U.S. refineries obtain crude oil produced in the United States and in other countries. Different types of companies supply crude oil to the world market.</p>
+
+<h2>Where is U.S. crude oil produced?</h2>
+<br />
+<p>Crude oil is produced in 31 U.S. states and in U.S. coastal waters. In 2015, about 65% of U.S. crude oil production came from five states:</p>
+<ul>
+  <li>Texas&mdash;37%</li>
+      <li>North Dakota&mdash;12%</li> 
+      <li>California&mdash;6%</li>
+      <li>Alaska&mdash;5%</li>          
+      <li>Oklahoma&mdash;5%</li>
+    </ul><br />
+    <p>In 2015, about 16% of U.S. crude oil was produced from wells located offshore in the federally administered waters of the Gulf of Mexico.</p>
+<p>Although total U.S. crude oil  production generally declined between 1985 and 2008, annual production increased from 2009 to 2015. More cost-effective drilling technology helped to boost production, especially in Texas, North Dakota, Oklahoma, New Mexico, and Colorado. </p>
+
+<h2>Many countries produce crude oil</h2>
+       <p>About 100 countries produce  crude oil. In 2014, 47% of the world's total crude oil production  came from five countries:</p>
+      
+<ul>
+  <li>Russia&mdash;13%</li>
+  <li>Saudi Arabia&mdash;13%</li>
+     <li>United States&mdash;11%</li>
+     <li>China&mdash;5%</li>
+     <li>Canada&mdash;4%</li>
+    </ul>
+     <br />
+     
+<h2>Different types of oil companies supply crude oil</h2>    
+     
+<p>The world oil market is complex. Governments and private companies play various roles in moving oil from producers to consumers.</p>
+     
+<p>In the United States, companies produce crude oil on private and public land and offshore waters. The majority of these companies are <em>independent producers</em>, and they usually operate only in the United States. The other companies, often referred to as <em>major oil companies</em>, may have hundreds or thousands of employees and operate in many countries.  Examples of major U.S. oil companies are Chevron and ExxonMobil.</p>
+
+<p>Three types of companies supply crude oil to the global oil market. Each type of company has different operational strategies and production-related goals.</p>
+
+<h3>International oil companies (IOCs)</h3> 
+<p>These companies, which include ExxonMobil, BP, and Royal Dutch Shell, are entirely investor owned and are primarily interested in increasing their shareholder value. As a result, IOCs tend to make investment decisions based on economic factors. These companies typically move quickly to develop and produce the oil resources available to them and sell their output in the global market. Although these producers must follow the laws of the countries in which they produce oil, all of their decisions are ultimately made in the interest of the company and its shareholders, not in the interest of a government.</p>
+
+<h3>National oil companies (NOCs)</h3> 
+<p>These companies operate as extensions of a government or a government agency, and they include companies such as Saudi Aramco (Saudi Arabia), Pemex (Mexico), the China National Petroleum Corporation (CNPC), and Petroleos de Venezuela S.A. (PdVSA). These companies financially support government programs and sometimes provide strategic support. The NOCs often provide fuels to their domestic consumers at a lower price than the fuels they provide to the international market. They do not always have the incentive, means, or intention to develop their reserves at the same pace as investor-owned international oil companies. Because of the diverse objectives of their supporting governments, the NOCs pursue goals that are not necessarily market oriented. The goals of the NOCs often include employing citizens, furthering a government's domestic or foreign policies, generating long-term revenue to pay for government programs, and supplying inexpensive domestic energy. All NOCs that belong to members of the Organization of the Petroleum Exporting Countries (OPEC) fall into this category.</p>
+
+<h3>NOCs with strategic and operational autonomy</h3> 
+<p>The NOCs in this category function as corporate entities and do not operate as extensions of their countries' governments. This category includes Petrobras (Brazil) and Statoil (Norway). These companies often balance profit-oriented concerns and the objectives of their countries with the development of their corporate strategies. Although these companies are driven by commercial concerns, they may also take into account their nations' goals when making investment or other strategic decisions. </p>
+
+  
+
+
+<h2>OPEC members have a large share of world oil supplies</h2>
+<p>The Organization of Petroleum Exporting Countries (OPEC) is a group that includes some of the world's most oil-rich countries (see list of OPEC member countries in the <em>Did you know?</em> box). Together, these countries control about 73% of the world's total proved crude oil reserves, and in 2015 they produced 43% of total world crude oil. Each OPEC country has at least one NOC, but most also allow international oil companies to operate within their borders.</p>
+
+
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='index.cfm@page=oil_where.html'>Where Our Oil Comes From</a></li><li><a href='index.cfm@page=oil_offshore.html'>Offshore Oil and Gas</a></li><li><a href='index.cfm@page=oil_refining.html'>Refining Crude Oil</a></li><li><a href='index.cfm@page=us_energy_transportation.html'>Energy Use for Transportation</a></li><li><a href='index.cfm@page=us_energy_commercial.html'>Energy Use in Commercial Buildings</a></li></ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=268&t=6'>How much of the oil produced in the United States is consumed in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=268&t=6</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=32&t=6'>How much oil consumed by the United States comes from foreign countries?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=32&t=6</span></li><li><a href='../tools/faqs/faq.cfm@id=38&amp;t=6.html'>Does the world have enough oil worldwide to meet our future needs?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=38&t=6</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='http://www.eia.gov/dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm'>Crude Oil Production (U.S.)</a><span class='printonly'> &mdash; http://www.eia.gov/dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm</span></li><li><a href='http://www.eia.gov/beta/international/data/browser/#/?pa=00000000000000000000000000000000002&c=ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvvvuvo&ct=0&tl_id=5-A&vs=INTL.57-1-AFG-TBPD.A<<INTL.57-1-ALB-TBPD.A<<INTL.57-1-DZA-TBPD.A<<INTL.57-1-ASM-TBPD.A<<INTL.57-1-AGO-TBPD.A<<INTL.57-1-ATA-TBPD.A<<INTL.57-1-ATG-TBPD.A<<INTL.57-1-ARG-TBPD.A<<INTL.57-1-ARM-TBPD.A<<INTL.57-1-ABW-TBPD.A<<INTL.57-1-AUS-TBPD.A<<INTL.57-1-AUT-TBPD.A<<INTL.57-1-AZE-TBPD.A<<INTL.57-1-BHS-TBPD.A<<INTL.57-1-BHR-TBPD.A<<INTL.57-1-BGD-TBPD.A<<INTL.57-1-BRB-TBPD.A<<INTL.57-1-BLR-TBPD.A<<INTL.57-1-BEL-TBPD.A<<INTL.57-1-BLZ-TBPD.A<<INTL.57-1-BEN-TBPD.A<<INTL.57-1-BMU-TBPD.A<<INTL.57-1-BTN-TBPD.A<<INTL.57-1-BOL-TBPD.A<<INTL.57-1-BIH-TBPD.A<<INTL.57-1-BWA-TBPD.A<<INTL.57-1-BRA-TBPD.A<<INTL.57-1-BRN-TBPD.A<<INTL.57-1-BGR-TBPD.A<<INTL.57-1-BFA-TBPD.A<<INTL.57-1-MMR-TBPD.A<<INTL.57-1-BDI-TBPD.A<<INTL.57-1-KHM-TBPD.A<<INTL.57-1-CMR-TBPD.A<<INTL.57-1-CAN-TBPD.A<<INTL.57-1-CPV-TBPD.A<<INTL.57-1-CYM-TBPD.A<<INTL.57-1-CAF-TBPD.A<<INTL.57-1-TCD-TBPD.A<<INTL.57-1-CHL-TBPD.A<<INTL.57-1-CHN-TBPD.A<<INTL.57-1-COL-TBPD.A<<INTL.57-1-COM-TBPD.A<<INTL.57-1-COG-TBPD.A<<INTL.57-1-COD-TBPD.A<<INTL.57-1-COK-TBPD.A<<INTL.57-1-CRI-TBPD.A<<INTL.57-1-CIV-TBPD.A<<INTL.57-1-HRV-TBPD.A<<INTL.57-1-CUB-TBPD.A<<INTL.57-1-CYP-TBPD.A<<INTL.57-1-CZE-TBPD.A<<INTL.57-1-DNK-TBPD.A<<INTL.57-1-DJI-TBPD.A<<INTL.57-1-DMA-TBPD.A<<INTL.57-1-DOM-TBPD.A<<INTL.57-1-ECU-TBPD.A<<INTL.57-1-EGY-TBPD.A<<INTL.57-1-SLV-TBPD.A<<INTL.57-1-GNQ-TBPD.A<<INTL.57-1-ERI-TBPD.A<<INTL.57-1-EST-TBPD.A<<INTL.57-1-ETH-TBPD.A<<INTL.57-1-FLK-TBPD.A<<INTL.57-1-FRO-TBPD.A<<INTL.57-1-FJI-TBPD.A<<INTL.57-1-FIN-TBPD.A<<INTL.57-1-CSK-TBPD.A<<INTL.57-1-SCG-TBPD.A<<INTL.57-1-SUN-TBPD.A<<INTL.57-1-YUG-TBPD.A<<INTL.57-1-FRA-TBPD.A<<INTL.57-1-GUF-TBPD.A<<INTL.57-1-PYF-TBPD.A<<INTL.57-1-GAB-TBPD.A<<INTL.57-1-GMB-TBPD.A<<INTL.57-1-GEO-TBPD.A<<INTL.57-1-DEU-TBPD.A<<INTL.57-1-DDR-TBPD.A<<INTL.57-1-DEUW-TBPD.A<<INTL.57-1-GHA-TBPD.A<<INTL.57-1-GIB-TBPD.A<<INTL.57-1-GRC-TBPD.A<<INTL.57-1-GRL-TBPD.A<<INTL.57-1-GRD-TBPD.A<<INTL.57-1-GLP-TBPD.A<<INTL.57-1-GUM-TBPD.A<<INTL.57-1-GTM-TBPD.A<<INTL.57-1-GIN-TBPD.A<<INTL.57-1-GNB-TBPD.A<<INTL.57-1-GUY-TBPD.A<<INTL.57-1-HTI-TBPD.A<<INTL.57-1-HITZ-TBPD.A<<INTL.57-1-HND-TBPD.A<<INTL.57-1-HKG-TBPD.A<<INTL.57-1-HUN-TBPD.A<<INTL.57-1-ISL-TBPD.A<<INTL.57-1-IND-TBPD.A<<INTL.57-1-IDN-TBPD.A<<INTL.57-1-IRN-TBPD.A<<INTL.57-1-IRQ-TBPD.A<<INTL.57-1-IRL-TBPD.A<<INTL.57-1-ISR-TBPD.A<<INTL.57-1-ITA-TBPD.A<<INTL.57-1-JAM-TBPD.A<<INTL.57-1-JPN-TBPD.A<<INTL.57-1-JOR-TBPD.A<<INTL.57-1-KAZ-TBPD.A<<INTL.57-1-KEN-TBPD.A<<INTL.57-1-KIR-TBPD.A<<INTL.57-1-PRK-TBPD.A<<INTL.57-1-KOR-TBPD.A<<INTL.57-1-UNK-TBPD.A<<INTL.57-1-KWT-TBPD.A<<INTL.57-1-KGZ-TBPD.A<<INTL.57-1-LAO-TBPD.A<<INTL.57-1-LVA-TBPD.A<<INTL.57-1-LBN-TBPD.A<<INTL.57-1-LSO-TBPD.A<<INTL.57-1-LBR-TBPD.A<<INTL.57-1-LBY-TBPD.A<<INTL.57-1-LTU-TBPD.A<<INTL.57-1-LUX-TBPD.A<<INTL.57-1-MAC-TBPD.A<<INTL.57-1-MKD-TBPD.A<<INTL.57-1-MDG-TBPD.A<<INTL.57-1-MWI-TBPD.A<<INTL.57-1-MYS-TBPD.A<<INTL.57-1-MDV-TBPD.A<<INTL.57-1-MLI-TBPD.A<<INTL.57-1-MLT-TBPD.A<<INTL.57-1-MTQ-TBPD.A<<INTL.57-1-MRT-TBPD.A<<INTL.57-1-MUS-TBPD.A<<INTL.57-1-MEX-TBPD.A<<INTL.57-1-FSM-TBPD.A<<INTL.57-1-MDA-TBPD.A<<INTL.57-1-MNG-TBPD.A<<INTL.57-1-MNE-TBPD.A<<INTL.57-1-MSR-TBPD.A<<INTL.57-1-MAR-TBPD.A<<INTL.57-1-MOZ-TBPD.A<<INTL.57-1-NAM-TBPD.A<<INTL.57-1-NRU-TBPD.A<<INTL.57-1-NPL-TBPD.A<<INTL.57-1-NLD-TBPD.A<<INTL.57-1-NLDA-TBPD.A<<INTL.57-1-NCL-TBPD.A<<INTL.57-1-NZL-TBPD.A<<INTL.57-1-NIC-TBPD.A<<INTL.57-1-NER-TBPD.A<<INTL.57-1-NGA-TBPD.A<<INTL.57-1-NIU-TBPD.A<<INTL.57-1-MNP-TBPD.A<<INTL.57-1-NOR-TBPD.A<<INTL.57-1-OMN-TBPD.A<<INTL.57-1-PAK-TBPD.A<<INTL.57-1-PSE-TBPD.A<<INTL.57-1-PAN-TBPD.A<<INTL.57-1-PNG-TBPD.A<<INTL.57-1-PRY-TBPD.A<<INTL.57-1-PER-TBPD.A<<INTL.57-1-PHL-TBPD.A<<INTL.57-1-POL-TBPD.A<<INTL.57-1-PRT-TBPD.A<<INTL.57-1-PRI-TBPD.A<<INTL.57-1-QAT-TBPD.A<<INTL.57-1-REU-TBPD.A<<INTL.57-1-ROU-TBPD.A<<INTL.57-1-RUS-TBPD.A<<INTL.57-1-RWA-TBPD.A<<INTL.57-1-SHN-TBPD.A<<INTL.57-1-KNA-TBPD.A<<INTL.57-1-LCA-TBPD.A<<INTL.57-1-SPM-TBPD.A<<INTL.57-1-VCT-TBPD.A<<INTL.57-1-WSM-TBPD.A<<INTL.57-1-STP-TBPD.A<<INTL.57-1-SAU-TBPD.A<<INTL.57-1-SEN-TBPD.A<<INTL.57-1-SRB-TBPD.A<<INTL.57-1-SYC-TBPD.A<<INTL.57-1-SLE-TBPD.A<<INTL.57-1-SGP-TBPD.A<<INTL.57-1-SVK-TBPD.A<<INTL.57-1-SVN-TBPD.A<<INTL.57-1-SLB-TBPD.A<<INTL.57-1-SOM-TBPD.A<<INTL.57-1-ZAF-TBPD.A<<INTL.57-1-ESP-TBPD.A<<INTL.57-1-LKA-TBPD.A<<INTL.57-1-SDN-TBPD.A<<INTL.57-1-SUR-TBPD.A<<INTL.57-1-SWZ-TBPD.A<<INTL.57-1-SWE-TBPD.A<<INTL.57-1-CHE-TBPD.A<<INTL.57-1-SYR-TBPD.A<<INTL.57-1-TWN-TBPD.A<<INTL.57-1-TJK-TBPD.A<<INTL.57-1-TZA-TBPD.A<<INTL.57-1-THA-TBPD.A<<INTL.57-1-TLS-TBPD.A<<INTL.57-1-TGO-TBPD.A<<INTL.57-1-TON-TBPD.A<<INTL.57-1-TTO-TBPD.A<<INTL.57-1-TUN-TBPD.A<<INTL.57-1-TUR-TBPD.A<<INTL.57-1-TKM-TBPD.A<<INTL.57-1-TCA-TBPD.A<<INTL.57-1-TUV-TBPD.A<<INTL.57-1-USIQ-TBPD.A<<INTL.57-1-USOH-TBPD.A<<INTL.57-1-UGA-TBPD.A<<INTL.57-1-UKR-TBPD.A<<INTL.57-1-ARE-TBPD.A<<INTL.57-1-GBR-TBPD.A<<INTL.57-1-USA-TBPD.A<<INTL.57-1-URY-TBPD.A<<INTL.57-1-UZB-TBPD.A<<INTL.57-1-VUT-TBPD.A<<INTL.57-1-VEN-TBPD.A<<INTL.57-1-VNM-TBPD.A<<INTL.57-1-VIR-TBPD.A<<INTL.57-1-VGB-TBPD.A<<INTL.57-1-WAK-TBPD.A<<INTL.57-1-ESH-TBPD.A<<INTL.57-1-YEM-TBPD.A<<INTL.57-1-ZMB-TBPD.A<<INTL.57-1-ZWE-TBPD.A&ord=SA&cy=2014&vo=0&v=H&start=1980&end=2014'>Production of Crude Oil, including Lease Condensate (international data)</a><span class='printonly'> &mdash; http://www.eia.gov/beta/international/data/browser/#/?pa=00000000000000000000000000000000002&c=ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvvvuvo&ct=0&tl_id=5-A&vs=INTL.57-1-AFG-TBPD.A<<INTL.57-1-ALB-TBPD.A<<INTL.57-1-DZA-TBPD.A<<INTL.57-1-ASM-TBPD.A<<INTL.57-1-AGO-TBPD.A<<INTL.57-1-ATA-TBPD.A<<INTL.57-1-ATG-TBPD.A<<INTL.57-1-ARG-TBPD.A<<INTL.57-1-ARM-TBPD.A<<INTL.57-1-ABW-TBPD.A<<INTL.57-1-AUS-TBPD.A<<INTL.57-1-AUT-TBPD.A<<INTL.57-1-AZE-TBPD.A<<INTL.57-1-BHS-TBPD.A<<INTL.57-1-BHR-TBPD.A<<INTL.57-1-BGD-TBPD.A<<INTL.57-1-BRB-TBPD.A<<INTL.57-1-BLR-TBPD.A<<INTL.57-1-BEL-TBPD.A<<INTL.57-1-BLZ-TBPD.A<<INTL.57-1-BEN-TBPD.A<<INTL.57-1-BMU-TBPD.A<<INTL.57-1-BTN-TBPD.A<<INTL.57-1-BOL-TBPD.A<<INTL.57-1-BIH-TBPD.A<<INTL.57-1-BWA-TBPD.A<<INTL.57-1-BRA-TBPD.A<<INTL.57-1-BRN-TBPD.A<<INTL.57-1-BGR-TBPD.A<<INTL.57-1-BFA-TBPD.A<<INTL.57-1-MMR-TBPD.A<<INTL.57-1-BDI-TBPD.A<<INTL.57-1-KHM-TBPD.A<<INTL.57-1-CMR-TBPD.A<<INTL.57-1-CAN-TBPD.A<<INTL.57-1-CPV-TBPD.A<<INTL.57-1-CYM-TBPD.A<<INTL.57-1-CAF-TBPD.A<<INTL.57-1-TCD-TBPD.A<<INTL.57-1-CHL-TBPD.A<<INTL.57-1-CHN-TBPD.A<<INTL.57-1-COL-TBPD.A<<INTL.57-1-COM-TBPD.A<<INTL.57-1-COG-TBPD.A<<INTL.57-1-COD-TBPD.A<<INTL.57-1-COK-TBPD.A<<INTL.57-1-CRI-TBPD.A<<INTL.57-1-CIV-TBPD.A<<INTL.57-1-HRV-TBPD.A<<INTL.57-1-CUB-TBPD.A<<INTL.57-1-CYP-TBPD.A<<INTL.57-1-CZE-TBPD.A<<INTL.57-1-DNK-TBPD.A<<INTL.57-1-DJI-TBPD.A<<INTL.57-1-DMA-TBPD.A<<INTL.57-1-DOM-TBPD.A<<INTL.57-1-ECU-TBPD.A<<INTL.57-1-EGY-TBPD.A<<INTL.57-1-SLV-TBPD.A<<INTL.57-1-GNQ-TBPD.A<<INTL.57-1-ERI-TBPD.A<<INTL.57-1-EST-TBPD.A<<INTL.57-1-ETH-TBPD.A<<INTL.57-1-FLK-TBPD.A<<INTL.57-1-FRO-TBPD.A<<INTL.57-1-FJI-TBPD.A<<INTL.57-1-FIN-TBPD.A<<INTL.57-1-CSK-TBPD.A<<INTL.57-1-SCG-TBPD.A<<INTL.57-1-SUN-TBPD.A<<INTL.57-1-YUG-TBPD.A<<INTL.57-1-FRA-TBPD.A<<INTL.57-1-GUF-TBPD.A<<INTL.57-1-PYF-TBPD.A<<INTL.57-1-GAB-TBPD.A<<INTL.57-1-GMB-TBPD.A<<INTL.57-1-GEO-TBPD.A<<INTL.57-1-DEU-TBPD.A<<INTL.57-1-DDR-TBPD.A<<INTL.57-1-DEUW-TBPD.A<<INTL.57-1-GHA-TBPD.A<<INTL.57-1-GIB-TBPD.A<<INTL.57-1-GRC-TBPD.A<<INTL.57-1-GRL-TBPD.A<<INTL.57-1-GRD-TBPD.A<<INTL.57-1-GLP-TBPD.A<<INTL.57-1-GUM-TBPD.A<<INTL.57-1-GTM-TBPD.A<<INTL.57-1-GIN-TBPD.A<<INTL.57-1-GNB-TBPD.A<<INTL.57-1-GUY-TBPD.A<<INTL.57-1-HTI-TBPD.A<<INTL.57-1-HITZ-TBPD.A<<INTL.57-1-HND-TBPD.A<<INTL.57-1-HKG-TBPD.A<<INTL.57-1-HUN-TBPD.A<<INTL.57-1-ISL-TBPD.A<<INTL.57-1-IND-TBPD.A<<INTL.57-1-IDN-TBPD.A<<INTL.57-1-IRN-TBPD.A<<INTL.57-1-IRQ-TBPD.A<<INTL.57-1-IRL-TBPD.A<<INTL.57-1-ISR-TBPD.A<<INTL.57-1-ITA-TBPD.A<<INTL.57-1-JAM-TBPD.A<<INTL.57-1-JPN-TBPD.A<<INTL.57-1-JOR-TBPD.A<<INTL.57-1-KAZ-TBPD.A<<INTL.57-1-KEN-TBPD.A<<INTL.57-1-KIR-TBPD.A<<INTL.57-1-PRK-TBPD.A<<INTL.57-1-KOR-TBPD.A<<INTL.57-1-UNK-TBPD.A<<INTL.57-1-KWT-TBPD.A<<INTL.57-1-KGZ-TBPD.A<<INTL.57-1-LAO-TBPD.A<<INTL.57-1-LVA-TBPD.A<<INTL.57-1-LBN-TBPD.A<<INTL.57-1-LSO-TBPD.A<<INTL.57-1-LBR-TBPD.A<<INTL.57-1-LBY-TBPD.A<<INTL.57-1-LTU-TBPD.A<<INTL.57-1-LUX-TBPD.A<<INTL.57-1-MAC-TBPD.A<<INTL.57-1-MKD-TBPD.A<<INTL.57-1-MDG-TBPD.A<<INTL.57-1-MWI-TBPD.A<<INTL.57-1-MYS-TBPD.A<<INTL.57-1-MDV-TBPD.A<<INTL.57-1-MLI-TBPD.A<<INTL.57-1-MLT-TBPD.A<<INTL.57-1-MTQ-TBPD.A<<INTL.57-1-MRT-TBPD.A<<INTL.57-1-MUS-TBPD.A<<INTL.57-1-MEX-TBPD.A<<INTL.57-1-FSM-TBPD.A<<INTL.57-1-MDA-TBPD.A<<INTL.57-1-MNG-TBPD.A<<INTL.57-1-MNE-TBPD.A<<INTL.57-1-MSR-TBPD.A<<INTL.57-1-MAR-TBPD.A<<INTL.57-1-MOZ-TBPD.A<<INTL.57-1-NAM-TBPD.A<<INTL.57-1-NRU-TBPD.A<<INTL.57-1-NPL-TBPD.A<<INTL.57-1-NLD-TBPD.A<<INTL.57-1-NLDA-TBPD.A<<INTL.57-1-NCL-TBPD.A<<INTL.57-1-NZL-TBPD.A<<INTL.57-1-NIC-TBPD.A<<INTL.57-1-NER-TBPD.A<<INTL.57-1-NGA-TBPD.A<<INTL.57-1-NIU-TBPD.A<<INTL.57-1-MNP-TBPD.A<<INTL.57-1-NOR-TBPD.A<<INTL.57-1-OMN-TBPD.A<<INTL.57-1-PAK-TBPD.A<<INTL.57-1-PSE-TBPD.A<<INTL.57-1-PAN-TBPD.A<<INTL.57-1-PNG-TBPD.A<<INTL.57-1-PRY-TBPD.A<<INTL.57-1-PER-TBPD.A<<INTL.57-1-PHL-TBPD.A<<INTL.57-1-POL-TBPD.A<<INTL.57-1-PRT-TBPD.A<<INTL.57-1-PRI-TBPD.A<<INTL.57-1-QAT-TBPD.A<<INTL.57-1-REU-TBPD.A<<INTL.57-1-ROU-TBPD.A<<INTL.57-1-RUS-TBPD.A<<INTL.57-1-RWA-TBPD.A<<INTL.57-1-SHN-TBPD.A<<INTL.57-1-KNA-TBPD.A<<INTL.57-1-LCA-TBPD.A<<INTL.57-1-SPM-TBPD.A<<INTL.57-1-VCT-TBPD.A<<INTL.57-1-WSM-TBPD.A<<INTL.57-1-STP-TBPD.A<<INTL.57-1-SAU-TBPD.A<<INTL.57-1-SEN-TBPD.A<<INTL.57-1-SRB-TBPD.A<<INTL.57-1-SYC-TBPD.A<<INTL.57-1-SLE-TBPD.A<<INTL.57-1-SGP-TBPD.A<<INTL.57-1-SVK-TBPD.A<<INTL.57-1-SVN-TBPD.A<<INTL.57-1-SLB-TBPD.A<<INTL.57-1-SOM-TBPD.A<<INTL.57-1-ZAF-TBPD.A<<INTL.57-1-ESP-TBPD.A<<INTL.57-1-LKA-TBPD.A<<INTL.57-1-SDN-TBPD.A<<INTL.57-1-SUR-TBPD.A<<INTL.57-1-SWZ-TBPD.A<<INTL.57-1-SWE-TBPD.A<<INTL.57-1-CHE-TBPD.A<<INTL.57-1-SYR-TBPD.A<<INTL.57-1-TWN-TBPD.A<<INTL.57-1-TJK-TBPD.A<<INTL.57-1-TZA-TBPD.A<<INTL.57-1-THA-TBPD.A<<INTL.57-1-TLS-TBPD.A<<INTL.57-1-TGO-TBPD.A<<INTL.57-1-TON-TBPD.A<<INTL.57-1-TTO-TBPD.A<<INTL.57-1-TUN-TBPD.A<<INTL.57-1-TUR-TBPD.A<<INTL.57-1-TKM-TBPD.A<<INTL.57-1-TCA-TBPD.A<<INTL.57-1-TUV-TBPD.A<<INTL.57-1-USIQ-TBPD.A<<INTL.57-1-USOH-TBPD.A<<INTL.57-1-UGA-TBPD.A<<INTL.57-1-UKR-TBPD.A<<INTL.57-1-ARE-TBPD.A<<INTL.57-1-GBR-TBPD.A<<INTL.57-1-USA-TBPD.A<<INTL.57-1-URY-TBPD.A<<INTL.57-1-UZB-TBPD.A<<INTL.57-1-VUT-TBPD.A<<INTL.57-1-VEN-TBPD.A<<INTL.57-1-VNM-TBPD.A<<INTL.57-1-VIR-TBPD.A<<INTL.57-1-VGB-TBPD.A<<INTL.57-1-WAK-TBPD.A<<INTL.57-1-ESH-TBPD.A<<INTL.57-1-YEM-TBPD.A<<INTL.57-1-ZMB-TBPD.A<<INTL.57-1-ZWE-TBPD.A&ord=SA&cy=2014&vo=0&v=H&start=1980&end=2014</span></li><li><a href='http://www.fossil.energy.gov/education/energylessons/index.html'>Learning About Fossil Fuels--For Younger Students</a><span class='printonly'> &mdash; http://www.fossil.energy.gov/education/energylessons/index.html</span></li><li><a href='http://energy.usgs.gov/'>United States Geological Survey-Resources Program</a><span class='printonly'> &mdash; http://energy.usgs.gov/</span></li><li><a href='http://www.eia.gov/maps/maps.htm'>Maps of shale gas and oil plays</a><span class='printonly'> &mdash; http://www.eia.gov/maps/maps.htm</span></li><li><a href='http://www.eia.gov/todayinenergy/index.cfm?tg=%20production'>Articles on oil production</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/index.cfm?tg=%20production</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last updated: December 19, 2016</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+                  <div class='panelinactive' id="indepth">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+<h3>How is crude oil found and produced?</h3>
+
+<div class="image right">
+  <div class="image-title">
+    <p>Geologists preparing a hole for the explosive charges  used in seismic exploration</p>
+  </div>
+  <img width="265" alt="Geologists preparing a hole for the explosive charges used in seismic exploration" src="https://www.eia.gov/energyexplained/images/stock/geoligist_hole.jpg"/>
+  <div class="image-caption">
+    <p class="footnote-or-source">Source: Stock photography (copyrighted)</p>
+  </div>
+</div>
+
+
+
+
+<div class="image right">
+<div class="image-title">
+  <p>Schematic of different types of oil and natural gas wells</p></div>
+
+<img width="265" alt="Oil and gas wells image" src="https://www.eia.gov/energyexplained/images/oil_gas_wells.jpg"/>
+<div class="image-caption"><p class="footnote-or-source">Source: Wyoming State Geological Survey (public domain)</p>
+</div>
+</div>
+<div class="image right">
+<div class="image-title">
+  <p>Schematic of the basic types of oil and natural gas deposits</p></div>
+
+<img width="265" alt="Diatom image: Group of cleaned frustules" src="https://www.eia.gov/energyexplained/images/stock/reservoir_types.jpg"/>
+<div class="image-caption">
+  <p class="footnote-or-source">Source: Wyoming State Geological Survey (public domain)</p>
+</div></div>
+<p>The search for crude oil begins with geologists who study the structure and history of rock layers below the earth's surface to locate areas that may contain deposits of oil and natural gas.  </p>
+<p>Geologists often use seismic surveys on land and in the ocean to find the right places to drill wells. Seismic surveys on land use echoes from a vibration  source at the surface of the earth, usually a vibrating pad under a special type of truck. Geologists can also use small amounts of explosives as a vibration source. Seismic surveys conducted in the ocean rely on blasts of  sound that create sonic waves to explore the geology beneath the ocean floor.</p>
+<p>If a site seems promising, an <a href="https://www.eia.gov/tools/glossary/index.cfm?id=Exploratory%20well">exploratory well</a> is  drilled and tested. If enough oil is found to make it financially worthwhile to pursue, <a href="https://www.eia.gov/tools/glossary/index.cfm?id=Development%20well">development wells</a> are  drilled. The type of well that is drilled depends on the location,  geology, and oil resource.</p>
+<h3>Advances in drilling and production technologies have increased U.S. oil production</h3>
+<p>In the past, a drilling rig drilled a single vertical well. Now, many directional or horizontal wells can be drilled from one location, or <em>well pad</em>, to access greater areas of oil- and natural gas-bearing rock. </p>
+<p>Oil may flow to the earth's surface from natural pressure in the rock formation, or it may have to be forced out of the ground and up through a well. The type of geologic formation where the oil is located determines the technologies used to start the flow of oil and natural gas from the reservoir or resource-bearing rock into the wells. </p>
+
+<p>Hydraulic fracturing is used to access the oil and natural gas contained in tiny pores of rock formations composed of shale, sandstone, and carbonate (limestone). Hydraulic fracturing breaks up the rock in the formations and creates pathways that allow oil and natural gas to escape from the rock layers. Hydraulic fracturing  involves forcing water, chemicals, and sand or other proppants (materials used to keep the pathways open) under high pressure into the wells. Steam, water, or carbon dioxide (CO2) can also be injected into a rock layer to help oil flow more easily into production wells. </p>
+
+<p>Once the oil has been collected from wells in a  production field, the oil is  transported by pipelines, barges, trains, or trucks to refineries or to ports for transport on oil tankers to other countries.</p>
+
+<h3>Conventional  and unconventional production</h3>
+
+<p>Production of crude oil and natural gas is  sometimes called <em><a href="https://www.eia.gov/tools/glossary/index.cfm?id=Conventional%20oil%20and%20natural%20gas%20production">conventional</a></em> production or <em><a href="https://www.eia.gov/tools/glossary/index.cfm?id=Unconventional%20oil%20and%20natural%20gas%20production">unconventional</a></em> production. Conventional production generally means that crude oil and natural gas flow to and up a well under the natural pressure of the earth. Unconventional production requires techniques and technologies to increase or enable oil and natural gas production beyond what might occur using conventional production techniques. In the United States, most of the new oil and natural gas production activities on land use unconventional production technologies.</p>
+
+<h3>Tight oil production</h3>
+
+<p>The U.S. oil and natural gas industry uses the term <em>tight oil</em> to mean the different geologic formations producing oil at a specific well. Tight oil is produced from low-permeability sandstones, carbonates (for example, limestone), and shale formations. The U.S. Energy Information Administration (EIA) uses the term tight oil to refer to all resources, reserves, and production associated with low-permeability formations that produce oil, including shale formations. </p>
+
+<p>Notable tight oil formations include, but are not confined to:</p>
+<ul>
+  <li>Bakken and Three Forks formations in the Williston Basin</li>
+      <li>Eagle Ford, Austin Chalk, Buda, and Woodbine formations along the Gulf Coast</li> 
+      <li>Spraberry, Wolfcamp, Bone Spring, Delaware, Glorieta, and Yeso formations in the Permian Basin</li>
+      <li>Niobrara formation in the Denver-Julesburg Basin</li>          
+     </ul><br/>
+
+
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='index.cfm@page=oil_where.html'>Where Our Oil Comes From</a></li><li><a href='index.cfm@page=oil_offshore.html'>Offshore Oil and Gas</a></li><li><a href='index.cfm@page=oil_refining.html'>Refining Crude Oil</a></li><li><a href='index.cfm@page=us_energy_transportation.html'>Energy Use for Transportation</a></li><li><a href='index.cfm@page=us_energy_commercial.html'>Energy Use in Commercial Buildings</a></li></ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=268&t=6'>How much of the oil produced in the United States is consumed in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=268&t=6</span></li><li><a href='http://www.eia.gov/tools/faqs/faq.cfm?id=32&t=6'>How much oil consumed by the United States comes from foreign countries?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=32&t=6</span></li><li><a href='../tools/faqs/faq.cfm@id=38&amp;t=6.html'>Does the world have enough oil worldwide to meet our future needs?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=38&t=6</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='http://www.eia.gov/dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm'>Crude Oil Production (U.S.)</a><span class='printonly'> &mdash; http://www.eia.gov/dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm</span></li><li><a href='http://www.eia.gov/beta/international/data/browser/#/?pa=00000000000000000000000000000000002&c=ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvvvuvo&ct=0&tl_id=5-A&vs=INTL.57-1-AFG-TBPD.A<<INTL.57-1-ALB-TBPD.A<<INTL.57-1-DZA-TBPD.A<<INTL.57-1-ASM-TBPD.A<<INTL.57-1-AGO-TBPD.A<<INTL.57-1-ATA-TBPD.A<<INTL.57-1-ATG-TBPD.A<<INTL.57-1-ARG-TBPD.A<<INTL.57-1-ARM-TBPD.A<<INTL.57-1-ABW-TBPD.A<<INTL.57-1-AUS-TBPD.A<<INTL.57-1-AUT-TBPD.A<<INTL.57-1-AZE-TBPD.A<<INTL.57-1-BHS-TBPD.A<<INTL.57-1-BHR-TBPD.A<<INTL.57-1-BGD-TBPD.A<<INTL.57-1-BRB-TBPD.A<<INTL.57-1-BLR-TBPD.A<<INTL.57-1-BEL-TBPD.A<<INTL.57-1-BLZ-TBPD.A<<INTL.57-1-BEN-TBPD.A<<INTL.57-1-BMU-TBPD.A<<INTL.57-1-BTN-TBPD.A<<INTL.57-1-BOL-TBPD.A<<INTL.57-1-BIH-TBPD.A<<INTL.57-1-BWA-TBPD.A<<INTL.57-1-BRA-TBPD.A<<INTL.57-1-BRN-TBPD.A<<INTL.57-1-BGR-TBPD.A<<INTL.57-1-BFA-TBPD.A<<INTL.57-1-MMR-TBPD.A<<INTL.57-1-BDI-TBPD.A<<INTL.57-1-KHM-TBPD.A<<INTL.57-1-CMR-TBPD.A<<INTL.57-1-CAN-TBPD.A<<INTL.57-1-CPV-TBPD.A<<INTL.57-1-CYM-TBPD.A<<INTL.57-1-CAF-TBPD.A<<INTL.57-1-TCD-TBPD.A<<INTL.57-1-CHL-TBPD.A<<INTL.57-1-CHN-TBPD.A<<INTL.57-1-COL-TBPD.A<<INTL.57-1-COM-TBPD.A<<INTL.57-1-COG-TBPD.A<<INTL.57-1-COD-TBPD.A<<INTL.57-1-COK-TBPD.A<<INTL.57-1-CRI-TBPD.A<<INTL.57-1-CIV-TBPD.A<<INTL.57-1-HRV-TBPD.A<<INTL.57-1-CUB-TBPD.A<<INTL.57-1-CYP-TBPD.A<<INTL.57-1-CZE-TBPD.A<<INTL.57-1-DNK-TBPD.A<<INTL.57-1-DJI-TBPD.A<<INTL.57-1-DMA-TBPD.A<<INTL.57-1-DOM-TBPD.A<<INTL.57-1-ECU-TBPD.A<<INTL.57-1-EGY-TBPD.A<<INTL.57-1-SLV-TBPD.A<<INTL.57-1-GNQ-TBPD.A<<INTL.57-1-ERI-TBPD.A<<INTL.57-1-EST-TBPD.A<<INTL.57-1-ETH-TBPD.A<<INTL.57-1-FLK-TBPD.A<<INTL.57-1-FRO-TBPD.A<<INTL.57-1-FJI-TBPD.A<<INTL.57-1-FIN-TBPD.A<<INTL.57-1-CSK-TBPD.A<<INTL.57-1-SCG-TBPD.A<<INTL.57-1-SUN-TBPD.A<<INTL.57-1-YUG-TBPD.A<<INTL.57-1-FRA-TBPD.A<<INTL.57-1-GUF-TBPD.A<<INTL.57-1-PYF-TBPD.A<<INTL.57-1-GAB-TBPD.A<<INTL.57-1-GMB-TBPD.A<<INTL.57-1-GEO-TBPD.A<<INTL.57-1-DEU-TBPD.A<<INTL.57-1-DDR-TBPD.A<<INTL.57-1-DEUW-TBPD.A<<INTL.57-1-GHA-TBPD.A<<INTL.57-1-GIB-TBPD.A<<INTL.57-1-GRC-TBPD.A<<INTL.57-1-GRL-TBPD.A<<INTL.57-1-GRD-TBPD.A<<INTL.57-1-GLP-TBPD.A<<INTL.57-1-GUM-TBPD.A<<INTL.57-1-GTM-TBPD.A<<INTL.57-1-GIN-TBPD.A<<INTL.57-1-GNB-TBPD.A<<INTL.57-1-GUY-TBPD.A<<INTL.57-1-HTI-TBPD.A<<INTL.57-1-HITZ-TBPD.A<<INTL.57-1-HND-TBPD.A<<INTL.57-1-HKG-TBPD.A<<INTL.57-1-HUN-TBPD.A<<INTL.57-1-ISL-TBPD.A<<INTL.57-1-IND-TBPD.A<<INTL.57-1-IDN-TBPD.A<<INTL.57-1-IRN-TBPD.A<<INTL.57-1-IRQ-TBPD.A<<INTL.57-1-IRL-TBPD.A<<INTL.57-1-ISR-TBPD.A<<INTL.57-1-ITA-TBPD.A<<INTL.57-1-JAM-TBPD.A<<INTL.57-1-JPN-TBPD.A<<INTL.57-1-JOR-TBPD.A<<INTL.57-1-KAZ-TBPD.A<<INTL.57-1-KEN-TBPD.A<<INTL.57-1-KIR-TBPD.A<<INTL.57-1-PRK-TBPD.A<<INTL.57-1-KOR-TBPD.A<<INTL.57-1-UNK-TBPD.A<<INTL.57-1-KWT-TBPD.A<<INTL.57-1-KGZ-TBPD.A<<INTL.57-1-LAO-TBPD.A<<INTL.57-1-LVA-TBPD.A<<INTL.57-1-LBN-TBPD.A<<INTL.57-1-LSO-TBPD.A<<INTL.57-1-LBR-TBPD.A<<INTL.57-1-LBY-TBPD.A<<INTL.57-1-LTU-TBPD.A<<INTL.57-1-LUX-TBPD.A<<INTL.57-1-MAC-TBPD.A<<INTL.57-1-MKD-TBPD.A<<INTL.57-1-MDG-TBPD.A<<INTL.57-1-MWI-TBPD.A<<INTL.57-1-MYS-TBPD.A<<INTL.57-1-MDV-TBPD.A<<INTL.57-1-MLI-TBPD.A<<INTL.57-1-MLT-TBPD.A<<INTL.57-1-MTQ-TBPD.A<<INTL.57-1-MRT-TBPD.A<<INTL.57-1-MUS-TBPD.A<<INTL.57-1-MEX-TBPD.A<<INTL.57-1-FSM-TBPD.A<<INTL.57-1-MDA-TBPD.A<<INTL.57-1-MNG-TBPD.A<<INTL.57-1-MNE-TBPD.A<<INTL.57-1-MSR-TBPD.A<<INTL.57-1-MAR-TBPD.A<<INTL.57-1-MOZ-TBPD.A<<INTL.57-1-NAM-TBPD.A<<INTL.57-1-NRU-TBPD.A<<INTL.57-1-NPL-TBPD.A<<INTL.57-1-NLD-TBPD.A<<INTL.57-1-NLDA-TBPD.A<<INTL.57-1-NCL-TBPD.A<<INTL.57-1-NZL-TBPD.A<<INTL.57-1-NIC-TBPD.A<<INTL.57-1-NER-TBPD.A<<INTL.57-1-NGA-TBPD.A<<INTL.57-1-NIU-TBPD.A<<INTL.57-1-MNP-TBPD.A<<INTL.57-1-NOR-TBPD.A<<INTL.57-1-OMN-TBPD.A<<INTL.57-1-PAK-TBPD.A<<INTL.57-1-PSE-TBPD.A<<INTL.57-1-PAN-TBPD.A<<INTL.57-1-PNG-TBPD.A<<INTL.57-1-PRY-TBPD.A<<INTL.57-1-PER-TBPD.A<<INTL.57-1-PHL-TBPD.A<<INTL.57-1-POL-TBPD.A<<INTL.57-1-PRT-TBPD.A<<INTL.57-1-PRI-TBPD.A<<INTL.57-1-QAT-TBPD.A<<INTL.57-1-REU-TBPD.A<<INTL.57-1-ROU-TBPD.A<<INTL.57-1-RUS-TBPD.A<<INTL.57-1-RWA-TBPD.A<<INTL.57-1-SHN-TBPD.A<<INTL.57-1-KNA-TBPD.A<<INTL.57-1-LCA-TBPD.A<<INTL.57-1-SPM-TBPD.A<<INTL.57-1-VCT-TBPD.A<<INTL.57-1-WSM-TBPD.A<<INTL.57-1-STP-TBPD.A<<INTL.57-1-SAU-TBPD.A<<INTL.57-1-SEN-TBPD.A<<INTL.57-1-SRB-TBPD.A<<INTL.57-1-SYC-TBPD.A<<INTL.57-1-SLE-TBPD.A<<INTL.57-1-SGP-TBPD.A<<INTL.57-1-SVK-TBPD.A<<INTL.57-1-SVN-TBPD.A<<INTL.57-1-SLB-TBPD.A<<INTL.57-1-SOM-TBPD.A<<INTL.57-1-ZAF-TBPD.A<<INTL.57-1-ESP-TBPD.A<<INTL.57-1-LKA-TBPD.A<<INTL.57-1-SDN-TBPD.A<<INTL.57-1-SUR-TBPD.A<<INTL.57-1-SWZ-TBPD.A<<INTL.57-1-SWE-TBPD.A<<INTL.57-1-CHE-TBPD.A<<INTL.57-1-SYR-TBPD.A<<INTL.57-1-TWN-TBPD.A<<INTL.57-1-TJK-TBPD.A<<INTL.57-1-TZA-TBPD.A<<INTL.57-1-THA-TBPD.A<<INTL.57-1-TLS-TBPD.A<<INTL.57-1-TGO-TBPD.A<<INTL.57-1-TON-TBPD.A<<INTL.57-1-TTO-TBPD.A<<INTL.57-1-TUN-TBPD.A<<INTL.57-1-TUR-TBPD.A<<INTL.57-1-TKM-TBPD.A<<INTL.57-1-TCA-TBPD.A<<INTL.57-1-TUV-TBPD.A<<INTL.57-1-USIQ-TBPD.A<<INTL.57-1-USOH-TBPD.A<<INTL.57-1-UGA-TBPD.A<<INTL.57-1-UKR-TBPD.A<<INTL.57-1-ARE-TBPD.A<<INTL.57-1-GBR-TBPD.A<<INTL.57-1-USA-TBPD.A<<INTL.57-1-URY-TBPD.A<<INTL.57-1-UZB-TBPD.A<<INTL.57-1-VUT-TBPD.A<<INTL.57-1-VEN-TBPD.A<<INTL.57-1-VNM-TBPD.A<<INTL.57-1-VIR-TBPD.A<<INTL.57-1-VGB-TBPD.A<<INTL.57-1-WAK-TBPD.A<<INTL.57-1-ESH-TBPD.A<<INTL.57-1-YEM-TBPD.A<<INTL.57-1-ZMB-TBPD.A<<INTL.57-1-ZWE-TBPD.A&ord=SA&cy=2014&vo=0&v=H&start=1980&end=2014'>Production of Crude Oil, including Lease Condensate (international data)</a><span class='printonly'> &mdash; http://www.eia.gov/beta/international/data/browser/#/?pa=00000000000000000000000000000000002&c=ruvvvvvfvtvnvv1vrvvvvfvvvvvvfvvvou20evvvvvvvvvvvvuvo&ct=0&tl_id=5-A&vs=INTL.57-1-AFG-TBPD.A<<INTL.57-1-ALB-TBPD.A<<INTL.57-1-DZA-TBPD.A<<INTL.57-1-ASM-TBPD.A<<INTL.57-1-AGO-TBPD.A<<INTL.57-1-ATA-TBPD.A<<INTL.57-1-ATG-TBPD.A<<INTL.57-1-ARG-TBPD.A<<INTL.57-1-ARM-TBPD.A<<INTL.57-1-ABW-TBPD.A<<INTL.57-1-AUS-TBPD.A<<INTL.57-1-AUT-TBPD.A<<INTL.57-1-AZE-TBPD.A<<INTL.57-1-BHS-TBPD.A<<INTL.57-1-BHR-TBPD.A<<INTL.57-1-BGD-TBPD.A<<INTL.57-1-BRB-TBPD.A<<INTL.57-1-BLR-TBPD.A<<INTL.57-1-BEL-TBPD.A<<INTL.57-1-BLZ-TBPD.A<<INTL.57-1-BEN-TBPD.A<<INTL.57-1-BMU-TBPD.A<<INTL.57-1-BTN-TBPD.A<<INTL.57-1-BOL-TBPD.A<<INTL.57-1-BIH-TBPD.A<<INTL.57-1-BWA-TBPD.A<<INTL.57-1-BRA-TBPD.A<<INTL.57-1-BRN-TBPD.A<<INTL.57-1-BGR-TBPD.A<<INTL.57-1-BFA-TBPD.A<<INTL.57-1-MMR-TBPD.A<<INTL.57-1-BDI-TBPD.A<<INTL.57-1-KHM-TBPD.A<<INTL.57-1-CMR-TBPD.A<<INTL.57-1-CAN-TBPD.A<<INTL.57-1-CPV-TBPD.A<<INTL.57-1-CYM-TBPD.A<<INTL.57-1-CAF-TBPD.A<<INTL.57-1-TCD-TBPD.A<<INTL.57-1-CHL-TBPD.A<<INTL.57-1-CHN-TBPD.A<<INTL.57-1-COL-TBPD.A<<INTL.57-1-COM-TBPD.A<<INTL.57-1-COG-TBPD.A<<INTL.57-1-COD-TBPD.A<<INTL.57-1-COK-TBPD.A<<INTL.57-1-CRI-TBPD.A<<INTL.57-1-CIV-TBPD.A<<INTL.57-1-HRV-TBPD.A<<INTL.57-1-CUB-TBPD.A<<INTL.57-1-CYP-TBPD.A<<INTL.57-1-CZE-TBPD.A<<INTL.57-1-DNK-TBPD.A<<INTL.57-1-DJI-TBPD.A<<INTL.57-1-DMA-TBPD.A<<INTL.57-1-DOM-TBPD.A<<INTL.57-1-ECU-TBPD.A<<INTL.57-1-EGY-TBPD.A<<INTL.57-1-SLV-TBPD.A<<INTL.57-1-GNQ-TBPD.A<<INTL.57-1-ERI-TBPD.A<<INTL.57-1-EST-TBPD.A<<INTL.57-1-ETH-TBPD.A<<INTL.57-1-FLK-TBPD.A<<INTL.57-1-FRO-TBPD.A<<INTL.57-1-FJI-TBPD.A<<INTL.57-1-FIN-TBPD.A<<INTL.57-1-CSK-TBPD.A<<INTL.57-1-SCG-TBPD.A<<INTL.57-1-SUN-TBPD.A<<INTL.57-1-YUG-TBPD.A<<INTL.57-1-FRA-TBPD.A<<INTL.57-1-GUF-TBPD.A<<INTL.57-1-PYF-TBPD.A<<INTL.57-1-GAB-TBPD.A<<INTL.57-1-GMB-TBPD.A<<INTL.57-1-GEO-TBPD.A<<INTL.57-1-DEU-TBPD.A<<INTL.57-1-DDR-TBPD.A<<INTL.57-1-DEUW-TBPD.A<<INTL.57-1-GHA-TBPD.A<<INTL.57-1-GIB-TBPD.A<<INTL.57-1-GRC-TBPD.A<<INTL.57-1-GRL-TBPD.A<<INTL.57-1-GRD-TBPD.A<<INTL.57-1-GLP-TBPD.A<<INTL.57-1-GUM-TBPD.A<<INTL.57-1-GTM-TBPD.A<<INTL.57-1-GIN-TBPD.A<<INTL.57-1-GNB-TBPD.A<<INTL.57-1-GUY-TBPD.A<<INTL.57-1-HTI-TBPD.A<<INTL.57-1-HITZ-TBPD.A<<INTL.57-1-HND-TBPD.A<<INTL.57-1-HKG-TBPD.A<<INTL.57-1-HUN-TBPD.A<<INTL.57-1-ISL-TBPD.A<<INTL.57-1-IND-TBPD.A<<INTL.57-1-IDN-TBPD.A<<INTL.57-1-IRN-TBPD.A<<INTL.57-1-IRQ-TBPD.A<<INTL.57-1-IRL-TBPD.A<<INTL.57-1-ISR-TBPD.A<<INTL.57-1-ITA-TBPD.A<<INTL.57-1-JAM-TBPD.A<<INTL.57-1-JPN-TBPD.A<<INTL.57-1-JOR-TBPD.A<<INTL.57-1-KAZ-TBPD.A<<INTL.57-1-KEN-TBPD.A<<INTL.57-1-KIR-TBPD.A<<INTL.57-1-PRK-TBPD.A<<INTL.57-1-KOR-TBPD.A<<INTL.57-1-UNK-TBPD.A<<INTL.57-1-KWT-TBPD.A<<INTL.57-1-KGZ-TBPD.A<<INTL.57-1-LAO-TBPD.A<<INTL.57-1-LVA-TBPD.A<<INTL.57-1-LBN-TBPD.A<<INTL.57-1-LSO-TBPD.A<<INTL.57-1-LBR-TBPD.A<<INTL.57-1-LBY-TBPD.A<<INTL.57-1-LTU-TBPD.A<<INTL.57-1-LUX-TBPD.A<<INTL.57-1-MAC-TBPD.A<<INTL.57-1-MKD-TBPD.A<<INTL.57-1-MDG-TBPD.A<<INTL.57-1-MWI-TBPD.A<<INTL.57-1-MYS-TBPD.A<<INTL.57-1-MDV-TBPD.A<<INTL.57-1-MLI-TBPD.A<<INTL.57-1-MLT-TBPD.A<<INTL.57-1-MTQ-TBPD.A<<INTL.57-1-MRT-TBPD.A<<INTL.57-1-MUS-TBPD.A<<INTL.57-1-MEX-TBPD.A<<INTL.57-1-FSM-TBPD.A<<INTL.57-1-MDA-TBPD.A<<INTL.57-1-MNG-TBPD.A<<INTL.57-1-MNE-TBPD.A<<INTL.57-1-MSR-TBPD.A<<INTL.57-1-MAR-TBPD.A<<INTL.57-1-MOZ-TBPD.A<<INTL.57-1-NAM-TBPD.A<<INTL.57-1-NRU-TBPD.A<<INTL.57-1-NPL-TBPD.A<<INTL.57-1-NLD-TBPD.A<<INTL.57-1-NLDA-TBPD.A<<INTL.57-1-NCL-TBPD.A<<INTL.57-1-NZL-TBPD.A<<INTL.57-1-NIC-TBPD.A<<INTL.57-1-NER-TBPD.A<<INTL.57-1-NGA-TBPD.A<<INTL.57-1-NIU-TBPD.A<<INTL.57-1-MNP-TBPD.A<<INTL.57-1-NOR-TBPD.A<<INTL.57-1-OMN-TBPD.A<<INTL.57-1-PAK-TBPD.A<<INTL.57-1-PSE-TBPD.A<<INTL.57-1-PAN-TBPD.A<<INTL.57-1-PNG-TBPD.A<<INTL.57-1-PRY-TBPD.A<<INTL.57-1-PER-TBPD.A<<INTL.57-1-PHL-TBPD.A<<INTL.57-1-POL-TBPD.A<<INTL.57-1-PRT-TBPD.A<<INTL.57-1-PRI-TBPD.A<<INTL.57-1-QAT-TBPD.A<<INTL.57-1-REU-TBPD.A<<INTL.57-1-ROU-TBPD.A<<INTL.57-1-RUS-TBPD.A<<INTL.57-1-RWA-TBPD.A<<INTL.57-1-SHN-TBPD.A<<INTL.57-1-KNA-TBPD.A<<INTL.57-1-LCA-TBPD.A<<INTL.57-1-SPM-TBPD.A<<INTL.57-1-VCT-TBPD.A<<INTL.57-1-WSM-TBPD.A<<INTL.57-1-STP-TBPD.A<<INTL.57-1-SAU-TBPD.A<<INTL.57-1-SEN-TBPD.A<<INTL.57-1-SRB-TBPD.A<<INTL.57-1-SYC-TBPD.A<<INTL.57-1-SLE-TBPD.A<<INTL.57-1-SGP-TBPD.A<<INTL.57-1-SVK-TBPD.A<<INTL.57-1-SVN-TBPD.A<<INTL.57-1-SLB-TBPD.A<<INTL.57-1-SOM-TBPD.A<<INTL.57-1-ZAF-TBPD.A<<INTL.57-1-ESP-TBPD.A<<INTL.57-1-LKA-TBPD.A<<INTL.57-1-SDN-TBPD.A<<INTL.57-1-SUR-TBPD.A<<INTL.57-1-SWZ-TBPD.A<<INTL.57-1-SWE-TBPD.A<<INTL.57-1-CHE-TBPD.A<<INTL.57-1-SYR-TBPD.A<<INTL.57-1-TWN-TBPD.A<<INTL.57-1-TJK-TBPD.A<<INTL.57-1-TZA-TBPD.A<<INTL.57-1-THA-TBPD.A<<INTL.57-1-TLS-TBPD.A<<INTL.57-1-TGO-TBPD.A<<INTL.57-1-TON-TBPD.A<<INTL.57-1-TTO-TBPD.A<<INTL.57-1-TUN-TBPD.A<<INTL.57-1-TUR-TBPD.A<<INTL.57-1-TKM-TBPD.A<<INTL.57-1-TCA-TBPD.A<<INTL.57-1-TUV-TBPD.A<<INTL.57-1-USIQ-TBPD.A<<INTL.57-1-USOH-TBPD.A<<INTL.57-1-UGA-TBPD.A<<INTL.57-1-UKR-TBPD.A<<INTL.57-1-ARE-TBPD.A<<INTL.57-1-GBR-TBPD.A<<INTL.57-1-USA-TBPD.A<<INTL.57-1-URY-TBPD.A<<INTL.57-1-UZB-TBPD.A<<INTL.57-1-VUT-TBPD.A<<INTL.57-1-VEN-TBPD.A<<INTL.57-1-VNM-TBPD.A<<INTL.57-1-VIR-TBPD.A<<INTL.57-1-VGB-TBPD.A<<INTL.57-1-WAK-TBPD.A<<INTL.57-1-ESH-TBPD.A<<INTL.57-1-YEM-TBPD.A<<INTL.57-1-ZMB-TBPD.A<<INTL.57-1-ZWE-TBPD.A&ord=SA&cy=2014&vo=0&v=H&start=1980&end=2014</span></li><li><a href='http://www.fossil.energy.gov/education/energylessons/index.html'>Learning About Fossil Fuels--For Younger Students</a><span class='printonly'> &mdash; http://www.fossil.energy.gov/education/energylessons/index.html</span></li><li><a href='http://energy.usgs.gov/'>United States Geological Survey-Resources Program</a><span class='printonly'> &mdash; http://energy.usgs.gov/</span></li><li><a href='http://www.eia.gov/maps/maps.htm'>Maps of shale gas and oil plays</a><span class='printonly'> &mdash; http://www.eia.gov/maps/maps.htm</span></li><li><a href='http://www.eia.gov/todayinenergy/index.cfm?tg=%20production'>Articles on oil production</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/index.cfm?tg=%20production</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last updated: November 21, 2016</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+
+              </div>
+
+           
+         </div>
+         
+
+
+                         
+
+                          <div id="forwardBackwardLinks">
+						     
+                             <table width="100%">
+                                <tr>
+                                   <td class="upward-links"><a class="backward-link" href="index.cfm@page=oil_refining.html">&laquo; Refining Crude Oil</a></td>
+                                   <td class="downward-links"><a class="forward-link" href="index.cfm@page=oil_imports.html">Oil Imports and Exports &raquo;</a></td>
+                                </tr>
+                             </table>
+							 
+                          </div>
+
+         </td>
+      </tr>
+      <tr><td colspan="2" valign="top">
+      <script language="JavaScript" type="text/javascript">InsertEIAFooterCode();</script>
+      </td>
+      </tr>
+   </table>
+   <br><br><br><br><br>
+</body>
+</html>

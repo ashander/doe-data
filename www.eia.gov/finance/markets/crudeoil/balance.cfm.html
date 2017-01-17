@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="http://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="http://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="http://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="http://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/eia-theme-module.min.js"></script>
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/captions.min.js"></script>
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="../../../favicon.ico" />
+<link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="http://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+         
+        <link rel="stylesheet" href="includes/efmi.css" type="text/css">
+      
+        <script type="text/javascript" src="../includes/efmi.js"></script>
+        <script>
+            $(function() {
+                $('#efmi_ui').show();
+            });
+        </script>
+			<title>Energy & Financial Markets - Crudeoil - U.S. Energy Information Administration (EIA)</title>
+        </head>
+    <body>
+            <div id="outerX">
+            
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="http://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="../../../index.html"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="../../../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../coal/index.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="../../../renewable/index.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../fuelnuclear.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="../../../totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../petroleum/weekly/index.html">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="../../../naturalgas/weekly/index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="../../../electricity/monthly.1.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="../../../cneaf/coal/quarterly/html/t33p01p1.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="../../../emeu/recs/recs97_additions/recs_changes.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="../../../analysis/index.html"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="../../index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../environment.1.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../forecasts/steo/xls/Probability_HH.xls.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../forecasts/aeo/er/early_elecgen.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../special/disruptions/index.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../forecasts/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../emeu/international/contents.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../state/seds/index.html">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="../../../special/gulf_of_mexico/index.html">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="../../../state/maps.cfm.html">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="../../../tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="../../../tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="../../../survey.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="../../../listserv_signup.html" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="../../../tools/rssfeeds/index.html" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../todayinenergy.1.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="../../../tools/faqs/index.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="../../../tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../energyexplained.1.html">Energy Explained</a></h3>
+                <p class="width152"><a href="../../../energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=environment_home.html">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="../../../energyexplained/index.cfm@page=oil_home.html">Petroleum&nbsp;&rsaquo;</a>
+                <a href="../../../energyexplained/index.cfm@page=hgls_home.html">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=natural_gas_home.html">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=coal_home.html">Coal&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=nuclear_home.html">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="../../../energyexplained/index.cfm@page=hydropower_home.html">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=biofuel_home.html">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=wind_home.html">Wind&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="../../../energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../energy_in_brief.1.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="../../../energy_in_brief/article/renewable_electricity.cfm.html">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="../../../energy_in_brief/article/shale_in_the_united_states.cfm.html">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../energy_in_brief/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../energy_in_brief/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="../../../about/new/index.html">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="../../../pressroom/index.html" style="color:#fff !important;">Press Room</a></h3>
+              <a href="../../../pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
+              <a href="../../../pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
+              <a href="../../../pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="../../../radio/index.html">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="http://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="../../../tools/a-z/index.html">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="../../../tools/a-z/index.html">A-Z Index</a></h3>
+          <a href="../../../tools/a-z/index.cfm@id=a.html">A</a>
+          <a href="../../../tools/a-z/index.cfm@id=b.html">B</a>
+          <a href="../../../tools/a-z/index.cfm@id=c.html">C</a>
+          <a href="../../../tools/a-z/index.cfm@id=d.html">D</a>
+          <a href="../../../tools/a-z/index.cfm@id=e.html">E</a>
+          <a href="../../../tools/a-z/index.cfm@id=f.html">F</a>
+          <a href="../../../tools/a-z/index.cfm@id=g.html">G</a>
+          <a href="../../../tools/a-z/index.cfm@id=h.html">H</a>
+          <a href="../../../tools/a-z/index.cfm@id=i.html">I</a>
+          <a href="../../../tools/a-z/index.cfm@id=j.html">J</a>
+          <a href="../../../tools/a-z/index.cfm@id=k.html">K</a>
+          <a href="../../../tools/a-z/index.cfm@id=l.html">L</a>
+          <a href="../../../tools/a-z/index.cfm@id=m.html">M</a>
+          <a href="../../../tools/a-z/index.cfm@id=n.html">N</a>
+          <a href="../../../tools/a-z/index.cfm@id=o.html">O</a>
+          <a href="../../../tools/a-z/index.cfm@id=p.html">P</a>
+          <a href="../../../tools/a-z/index.cfm@id=q.html">Q</a>
+          <a href="../../../tools/a-z/index.cfm@id=r.html">R</a>
+          <a href="../../../tools/a-z/index.cfm@id=s.html">S</a>
+          <a href="../../../tools/a-z/index.cfm@id=t.html">T</a>
+          <a href="../../../tools/a-z/index.cfm@id=u.html">U</a>
+          <a href="../../../tools/a-z/index.cfm@id=v.html">V</a>
+          <a href="../../../tools/a-z/index.cfm@id=w.html">W</a>
+          <a href="../../../tools/a-z/index.cfm@id=xyz.html">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+
+<div class="pub_title bg_pub_default">	<h3>Energy & Financial Markets</h3>
+	<h1 style="padding-top:0px;">WHAT DRIVES CRUDE OIL PRICES?</h1>
+	<p style="font-size:14px;margin-top:-6px;">An analysis of 7 factors that influence oil markets, with chart data updated monthly and quarterly</p>
+</div><div class="subnav">		<ul>
+		<li class="active"><a href="../crudeoil.1.html">Crude Oil</a></li>
+		<li><a href="../products.1.html">Petroleum Products</a></li>
+	</ul>
+</div>
+
+<div class="efmi_ui" id="efmi_ui">
+	<div class="efmi_ui_container2 left">
+				<ul id="bubble2">
+			<li>
+				<a href="supply-nonopec.cfm.html">
+					<img class="small" src="images/ui/supply_non_oecd_off.png" alt="Supply non-OECD"/>
+					<img class="large" src="images/ui/supply_non_oecd_on.png" alt="Supply non-OECD"/>
+				</a>
+			</li>
+			<li>&nbsp;</li>
+			<li>&nbsp;</li>
+			<li>&nbsp;</li>
+			<li>
+				<a href="demand-nonoecd.cfm.html">
+					<img class="small" src="images/ui/demand_non_oecd_off.png" alt="Demand non-OECD"/>
+					<img class="large" src="images/ui/demand_non_oecd_on.png" alt="Demand non-OECD"/>
+				</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+				<ul id="bubble2">
+			<li>
+				<a href="supply-opec.cfm.html">
+					<img class="small" src="images/ui/supply_oecd_off.png" alt="Supply OECD"/>
+					<img class="large" src="images/ui/supply_oecd_on.png" alt="Supply OECD"/>
+				</a>
+			</li>
+			<li class="mid-adjust">
+				<a href="balance.cfm.html">
+					<img class="small" src="images/ui/balance_off.png" alt="Balance"/>
+					<img class="large" src="images/ui/balance_on.png" alt="Balance"/>
+				</a>
+			</li>
+			<li class="mid-adjust">
+				<a href="spot_prices.cfm.html">
+					<img class="small" src="images/ui/spot_prices_off.png" alt="Spot Prices"/>
+					<img class="large" src="images/ui/spot_prices_on.png" alt="Spot Prices"/>
+				</a>
+			</li>
+			<li class="mid-adjust">
+				<a href="financial_markets.cfm.html">
+					<img class="small" src="images/ui/financial_markets_off.png" alt="Financial Markets"/>
+					<img class="large" src="images/ui/financial_markets_on.png" alt="Financial Markets"/>
+				</a>
+			</li>
+			<li>
+				<a href="demand-oecd.cfm.html">
+					<img class="small" src="images/ui/demand_oecd_off.png" alt="Demand OECD"/>
+					<img class="large" src="images/ui/demand_oecd_on.png" alt="Demand OECD"/>
+				</a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+		<div>
+			<a href="spot_prices.cfm.html">Spot Prices</a> &nbsp;|&nbsp;
+			<a href="supply-nonopec.cfm.html">Supply Non-OPEC</a> &nbsp;|&nbsp;
+			<a href="supply-opec.cfm.html">Supply OPEC</a> &nbsp;|&nbsp;
+			<a href="balance.cfm.html">Balance</a> &nbsp;|&nbsp;
+			<a href="financial_markets.cfm.html">Financial Markets</a> &nbsp;|&nbsp;
+			<a href="demand-nonoecd.cfm.html">Demand Non-OECD</a> &nbsp;|&nbsp;
+			<a href="demand-oecd.cfm.html">Demand OECD</a>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+</div>            <div class="blue_top"><a class="right " style="cursor:pointer;">&nbsp;</a></div>
+            <div class="clear"></div>
+                        <div class="pagecontent mr_temp4">
+                                <div class="main_col" style="margin-top:-20px;">
+                    <h1>What drives crude oil prices: Balance</h1>
+                    <p>Inventories act as the balancing point between supply and demand. During periods when production exceeds consumption, crude oil and petroleum products can be stored for expected future use. In the economic downturn of late 2008 and early 2009, for example, the unexpected drop in world demand led to record crude oil inventories in the United States and other OECD countries. In contrast, when consumption outstrips current production, supplies can be supplemented by draws on inventories to satisfy the needs of consumers. Given the uncertainty of supply and demand, petroleum inventories are often seen as a precautionary measure.
+                        <div class="chart_r">
+                            <div class="chart_h">Inventory builds tend to go hand-in-hand with increases in future oil prices relative to current prices (and vice versa)</div>
+                            <script type="text/javascript">
+var chart,
+    opts_inventory =
+		{
+        "chart": {
+                        "renderTo": "inventory",
+            "zoomType" : "x",
+            "marginTop" : 75,
+            "marginLeft" : 40,
+            "marginBottom" : 105,
+            "height": "490"
+            ,"marginRight" : 40
+        },
+        "credits" : {
+                        "text": "Source: U.S. Energy Information Administration, Thomson Reuters",
+            "href": "",
+            "position" : {
+                "align" : "left",
+                "verticalAlign" : "bottom",
+                "x" : 50,
+                "y": -10,
+            },
+            "style": {
+                "color": "black",
+                "fontSize": "10px",
+                "fontFamily": "Arial"
+            }
+                    },
+                "title": {
+            "text": "OECD liquid fuels inventories and WTI futures spread",
+            "align": "left",
+            "x": 5,
+            "y": 20,
+            "style":  {
+                "color": "black",
+                "fontWeight": "bold",
+                "fontSize": "16px",
+                "fontFamily": "Arial"
+            }
+        },
+                "xAxis": {
+            "type": "datetime",
+            "tickInterval": 31536000000,
+            "lineColor": "#a8a9a9",
+            "labels": {
+                "y": 20,
+                "style": {
+                    "color": "black",
+					"fontFamily": "Arial"
+                }
+            }
+        },
+                "legend": {
+            "enabled": true,
+            "layout": "horizontal",
+            "align": "center",
+            "verticalAlign": "bottom",
+            "x": 0,
+            "y" : 10,
+            "borderWidth": 0,
+            "symbolPadding": 5,
+            "itemStyle": {
+                "fontFamily": "Arial",
+				"color": "#189bd7",
+				"textDecoration": "none"
+            },
+            "itemHoverStyle": {
+                "fontFamily": "Arial",
+				"color": "#189bd7",
+				"textDecoration": "underline"
+            }
+        },
+                "tooltip": {
+            "style": {
+                "padding": 5,
+                "fontFamily": "Arial"
+            },
+            "formatter": function() {
+                var val = {
+                    'OECD liquid fuels inventory': Math.abs(this.y.toFixed(0)) + ' Million barrels',
+                    'WTI crude 12th - 1st futures price spread': '$' + Math.abs(this.y.toFixed(2)) + '  per barrel'
+                }[this.series.name],
+
+                d = new Date(this.x),
+                quarter = Math.ceil(( d.getMonth() / 3)) + 1 < 5 ? Math.ceil(( d.getMonth() / 3)) + 1: 1,
+                year = Math.ceil(( d.getMonth() / 3)) + 1 < 5 ? d.getFullYear(): d.getFullYear()+1;
+                if(this.y < 0) val = '-' + val; //add negative sign in front of value
+
+                return '<b>' + this.series.name + '</b><br/>' + year + ', quarter ' + quarter + '<br/>' + val;
+            }
+        },
+                "yAxis": [{
+                        "title": {
+                "text": "million barrels change (year-on-year)",
+                "rotation": 0,
+                "style":  {
+                    "color": "black",
+                    "fontWeight" : "normal",
+                    "fontSize" : "12px",
+                    "fontFamily": "Arial"
+                }
+            },
+                        "max":350,
+            "min": -200,
+            "tickInterval": 50,
+            "plotLines": [{
+                "color": "black",
+                "width": 2,
+                "value": 0
+            }],
+            "labels": {
+                "style":{
+                    "color": "rgb(0, 0, 0)",
+                    "fontFamily": "Arial"
+                }
+            }
+        }, {
+                    "title": {
+                "text":  " $/bbl change (year-on-year)",
+                "rotation": 0,
+                "style":  {
+                    "color": "black",
+                    "fontWeight" : "normal",
+                    "fontSize" : "12px",
+                    "fontFamily": "Arial"
+                }
+            },
+                    "opposite": true,
+            "min": -20,
+            "max": 25,
+            "tickInterval": 5,
+            "labels": {
+                "style":{
+                    "color":   "#0096d7",
+                    "fontFamily": "Arial"
+                }
+            }
+        }],
+        "plotOptions": {
+            "column": {
+                "shadow":0,
+                "borderWidth":0
+            },
+            "line": {
+                "shadow":0,
+                "lineWidth": 2,
+                "marker": {
+                    "enabled": false,
+                    "states": {
+                        "hover": {
+                            "enabled": true,
+                            "radius": 4
+                        }
+                    }
+                },
+                "states": {
+                    "hover": {
+                        "lineWidth": 2,
+                        "marker": {
+                            "radius": 1
+                        }
+                    }
+                }
+            },
+            "series" : {
+                            }
+        },
+                "exporting": {
+            "buttons": {
+                "contextButton": {
+                    "text": 'DOWNLOAD',
+                    "menuItems": [
+                        {
+                            text: 'Print Chart',
+                            onclick : function() {
+                                this.print();
+                            }
+                        },
+                        {
+                            separator: true
+                        },
+                        {
+                            "text": 'Download Image',
+                            "onclick": function(){
+                                var options =
+                                {
+                                    url : '/global/scripts/jquery/highcharts/exporting-server/index.cfm',
+                                    width : 870
+                                }
+                                this.exportChart({filename: 'balance'},options)
+                            }
+                        },
+                        {
+                            "text": 'Download PDF',
+                            "onclick": function(){
+                                var options =
+                                {
+                                    url : '/global/scripts/jquery/highcharts/exporting-server/index.cfm',
+                                    type: 'application/pdf',
+                                    width : 1270
+                                }
+                                this.exportChart(options)
+                            }
+                        },
+                        {
+                            "text": "Download Data in CSV",
+                            "onclick": function() {
+                                window.open('./EFMI_generated_files/csv/balance.csv'); }
+                        },
+                        null,
+                        null
+                    ]}
+            }
+        },
+        "navigation": {
+            "buttonOptions": {
+                "y": 0,
+                    theme: {
+                    style: {
+                        fontSize: '12px',
+                            textTransform: 'uppercase',
+                            color: "#00000"
+                    }
+                }
+            }
+        },
+                "colors":[
+            "#5D9732",
+            "#0096d7",
+            "#003953",
+            "#a33340",
+            "#bd732a",
+            "#103203",
+            "#ffc702"
+        ],
+	    "series": [{
+            "data": [
+                [978307200000, 110.2719991], [986083200000, 91.7689986], [993945600000, 125.6099979], [1001894400000, 101.3089975], [1009843200000, 78.5029973], [1017619200000, 51.8320009], [1025481600000, -88.9759997], [1033430400000, -160.0109982], [1041379200000, -186.0229965], [1049155200000, -109.7879994], [1057017600000, 15.4539989], [1064966400000, 38.1059995], [1072915200000, 34.5319983], [1080777600000, -9.3390008], [1088640000000, -26.6349985], [1096588800000, 24.4549996], [1104537600000, 57.08], [1112313600000, 55.086], [1120176000000, 39.068], [1128124800000, 32.884], [1136073600000, 48.672], [1143849600000, 38.038], [1151712000000, 134.738], [1159660800000, 79.361], [1167609600000, -3.447], [1175385600000, -4.354], [1183248000000, -129.253], [1191196800000, -112.546], [1199145600000, -35.311], [1207008000000, -67.651], [1214870400000, -1.554], [1222819200000, 113.407], [1230768000000, 172.055], [1238544000000, 155.25], [1246406400000, 122.526], [1254355200000, -35.927], [1262304000000, -65.505], [1270080000000, 0.712], [1277942400000, -31.23], [1285891200000, 16.24], [1293840000000, -37.911377], [1301616000000, -81.704419], [1309478400000, -86.04457], [1317427200000, -76.823379], [1325376000000, 5.363822], [1333238400000, -2.065687], [1341100800000, 57.037083], [1349049600000, 52.876734], [1356998400000, 3.84741], [1364774400000, -31.690029], [1372636800000, -37.846522], [1380585600000, -94.358646], [1388534400000, -74.193667], [1396310400000, 1.611444], [1404172800000, 34.238294], [1412121600000, 145.084942], [1420070400000, 208.603833], [1427846400000, 225.797482], [1435708800000, 231.271196], [1443657600000, 280.377647], [1451606400000, 225.748779], [1459468800000, 174.785765], [1467331200000, 119.654394], [1475280000000, 131.9965576]
+            ],
+			"type": "column",
+			"color": "rgba(0, 150, 215, 1.0)",
+			"name": "OECD liquid fuels inventory"
+		},{
+            "data": [
+                [978307200000, 2.26], [986083200000, 5.3], [993945600000, 2.59], [1001894400000, 3.9], [1009843200000, -0.7], [1017619200000, -0.95], [1025481600000, -5.42], [1033430400000, -7.74], [1041379200000, -3.78], [1049155200000, -1.92], [1057017600000, 2.63], [1064966400000, 2.74], [1072915200000, 1.52], [1080777600000, 2.2], [1088640000000, -3.32], [1096588800000, 2.09], [1104537600000, 4.41], [1112313600000, 4.42], [1120176000000, 6.84], [1128124800000, 5.01], [1136073600000, 3.03], [1143849600000, -0.16], [1151712000000, 5.4], [1159660800000, 2.93], [1167609600000, 0.89], [1175385600000, -0.54], [1183248000000, -11.99], [1191196800000, -11.4], [1199145600000, -8.84], [1207008000000, -0.85], [1214870400000, 8.56], [1222819200000, 20.35], [1230768000000, 15.65], [1238544000000, 4.38], [1246406400000, 2.24], [1254355200000, -9.83], [1262304000000, -8.79], [1270080000000, -1.25], [1277942400000, 0.89], [1285891200000, -2.03], [1293840000000, -1.32], [1301616000000, 0.75], [1309478400000, -3.15], [1317427200000, -4.09], [1325376000000, 1.1], [1333238400000, -1], [1341100800000, -0.99], [1349049600000, 2.41], [1356998400000, -5.12], [1364774400000, -10.05], [1372636800000, -10.13], [1380585600000, -7.85], [1388534400000, -6.3], [1396310400000, -2.05], [1404172800000, 4.7], [1412121600000, 13.18], [1420070400000, 18.82], [1427846400000, 10.87], [1435708800000, 8.9], [1443657600000, 0.47], [1451606400000, -3.57], [1459468800000, 1.46], [1467331200000, -0.96], [1475280000000, -3.9]
+            ],
+			"type": "line",
+			"color": "rgba(189, 115, 42, 1.0)",
+			"name": "WTI crude 12th - 1st futures price spread",
+			"yAxis": 1
+	}]
+}
+;
+
+
+$(document).ready(function() {
+    var chart = new Highcharts.Chart(opts_inventory);
+        chart.yAxis[0].update({title:{"x" : 15}});
+    	});
+</script>
+
+<div id="inventory"></div>
+<div id="update_date">
+    <div class="update">
+        Updated: Quarterly | Last Updated: 12/31/2016    </div>
+</div>
+                            <div class="clear"></div>
+                            
+                            <div class="chart_desc">In this chart, the price of the next (prompt) month's oil futures contract is subtracted from the price of the oil futures contract 12 months ahead. The change in this spread is then plotted over time. This difference is compared to the change in OECD petroleum inventories. The more positive the spread between the near term and longer term contracts, the greater the incentive to build inventories. Also, declining inventories tend to go hand-in-hand with increases in near term prices relative to prices further into the future.</div>
+                        </div>
+                    </p>
+                    <p>Refineries and storage terminals can store crude oil and/or finished products like motor gasoline, heating oil, and diesel to prepare for seasonal fluctuations, refinery maintenance, or unexpected weather. Some petroleum products, such as heating oil and gasoline, have pronounced seasonal demand variance; inventories rise when consumption is lower and are drawn down when consumption increases. For this reason, inventory levels are most usefully assessed in relation to prior year levels for the same calendar quarter.</p>
+                    <p> Because inventories can satisfy either current or future demand, their level is sensitive to the relationship between the current price of oil and expectations of future prices. If market expectations indicate a change toward relatively stronger future demand or lower future supply, prices for futures contracts will tend to increase, encouraging inventory builds to satisfy the otherwise tightening future balance. On the other hand, a sharp loss of current production or unexpected increase in current consumption will tend to push up spot prices relative to futures prices and encourage inventory draw downs to meet the current demand.</p>
+                    <p>The relationship between prices and inventories allows for effects in either direction. If futures prices rise relative to the current spot level, incentives to store oil (and wait to sell at the higher expected price) will strengthen. Conversely, if market participants notice an increase in crude oil storage, this increase can indicate that current production surpasses current consumption at the prevailing price. Spot prices will likely drop to rebalance demand and supply. This balancing between current and future prices and between supply and demand through inventories is one of the main connections between financial market participants and commercial companies with a physical interest in oil, both of whom engage in futures trading. Physical inventory levels and price spreads over time act as a signals between current market participants and those with longer-term exposures.</p>
+                    <p>The U.S. Energy Information Administration publishes weekly, monthly, and annual inventory statistics for crude oil and its related products. Industrialized countries that belong to the Organization of Economic Cooperation and Development (OECD) countries usually publish inventory statistics on a regular basis. However, inventory data for other countries&mdash;including key developing countries with rapidly growing oil consumption as well as major producing countries&mdash;is sometimes available on a less timely basis, or in some cases, not available at all. In addition, oil is often stored on ships at sea. The lack of complete information on inventories creates additional uncertainty in oil markets, which can also influence oil prices.</p>
+                    <p>Finally, in addition to the commercial inventories discussed above, the United States and other countries maintain strategic reserves of oil. The U.S. Strategic Petroleum Reserve, which is maintained by the Department of Energy, currently holds more than 700 million barrels of oil that can be drawn upon by order of the President in the event of a supply disruption that meets specific statutory criteria. Members of the International Energy Agency, including the United States, collectively hold about 1.6 billion barrels of publically-owned petroleum stocks for emergency response.</p>
+                </div>
+                <div class="clear"></div>
+                            </div>
+                        	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="addbar">
+						<a href="../../../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../../../abouteia/index.html">About EIA</a></h3>
+			<h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="../../../pressroom/index.html">Press Room</a></h3>
+			<h3><a href="../../../about/careers.1.html">Careers</a></h3>
+						<h3><a href="../../../contactus.html">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="../../../petroleum/index.html">Petroleum</a><br/>
+				<a href="../../../coal/index.html">Coal</a><br/>
+				<a href="../../../naturalgas/index.html">Natural Gas</a><br/>
+				<a href="../../../renewable/index.html">Renewable</a><br/>
+				<a href="../../../fuelnuclear.html">Nuclear</a><br/>
+				<a href="../../../electricity/data/browser/css/images/minusplus.png.html">Electricity</a><br/>
+				<a href="../../../consumption/residential/methodology/index.cfm.html">Consumption</a><br/>
+				<a href="../../../totalenergy/index.html">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="../../../analysis/index.html">Analysis & Projections</a><br/>
+				<a href="../../../environment.1.html">Environment</a><br/>
+				<a href="../../index.html">Markets & Finance</a><br/>
+				<a href="../../../todayinenergy.1.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../../state.1.html">States</a><br/>
+				<a href="../../../emeu/international/gasconsumption.html">Countries</a><br/>
+				<a href="../../../maps.1.html">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="../../../tools/a-z/index.html">A-Z Index</a><br />
+				<a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="../../../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="../../../survey.html">EIA Survey Forms</a><br />
+				<a href="http://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="../../../about/privacy_security_policy.cfm.html">Privacy/Security</a><br/>
+				<a href="../../../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br/>
+				<a href="../../../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="../../../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="../../../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+        </div>
+            </body>
+</html>
