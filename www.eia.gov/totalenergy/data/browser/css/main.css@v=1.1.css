@@ -1,0 +1,437 @@
+.pagecontent > div{
+	margin-left: 22px;
+	margin-right: 22px;
+}
+
+#tableContainer {
+	position: relative;
+	white-space:nowrap;
+	max-height:600px;
+	height: auto;
+	clear:left;
+}
+
+#tableContainer.loading {
+	background-image: url(https://www.eia.gov/global/scripts/jQuery/tabs/loading.gif);
+	background-position: center;
+	background-repeat:no-repeat;
+}
+
+#selection_container {
+	border-bottom: 1px solid #CCC;
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 5px 10px 10px 10px;
+}
+
+#timeSliderContainer {
+	position: relative;
+	width:auto;
+	height: auto;
+	display: inline-block;
+	float:left;
+	padding:0.75em 0 0.75em 0;
+	vertical-align: middle;
+	font-size: 12.8px;
+	width: 300px;
+}
+#timeSliderContainer .labelContainer {
+	float:left;
+	width:auto;
+	margin-right:1em;	
+	text-transform: uppercase;
+}
+
+/**
+ * Table Classes
+ **/
+.inner-slickgrid-container {
+	width:100%;
+	height:100%;
+}
+.basic_table table{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.basic_table td:first-child, .basic_table th:first-child{
+	text-align:right;
+}
+#termsTables .basic_table td, #termsTables .basic_table th, #detailTermsTables .basic_table td, #detailTermsTables .basic_table th{
+	text-align:left !important;
+}
+#detailTermsTables.pagecontent, #termsTables.pagecontent {
+	padding: 1.2em 1.2em !important;
+	margin:0px !important;
+	width: auto !important;
+}
+#detailTermsTables .basic_table thead [rowspan] {
+	border-bottom: 2px solid #189bd7 !important;
+}
+td.description{
+	border-top:none !important;
+	border-bottom:none !important;
+	background-color:transparent !important;
+	overflow:hidden;
+}
+
+td.description span{
+	text-align:left;
+	text-indent:0 !important;
+}
+.description_wrapper{
+	position: relative;
+	display: inline-block;
+	overflow:hidden;
+	white-space: nowrap;
+	top: -3px;
+}
+.description_text_wrapper{
+	position: relative;
+	display: inline-block;
+	white-space: nowrap;
+	vertical-align: top;
+	padding-top: 3px;
+}
+
+.description_text_wrapper.bold{
+	font-weight: bold;
+}
+
+.description_spacer{
+	position: relative;
+	display: inline-block;
+	background:url(https://www.eia.gov/global/scripts/modules/dist/css/images/treeview-default-line.gif);
+	background-repeat:no-repeat;
+	height:29px;
+	width:28px;
+}
+.description_spacer.blank{
+	background-image:none;
+}
+.description_spacer.pre{
+	background-position:0 -1000px;
+}
+.description_spacer.intermediate{
+	background-position: 0 0;
+}
+.description_spacer.last{
+	background-position: 0 -1766px;
+}
+.slick-pane .slick-header-column, .slick-pane .ui-state-default  {
+	background-image: none;
+	background-color: transparent;
+	border: none;
+	border-width: 0px;
+	font-size: 12.8px;
+}
+.slick-header-columns-right, .grid-canvas-right .slick-cell{
+	text-align: right;
+}
+.slick-row.highlight .slick-cell {
+	background-color: rgb(255,255,150);
+}
+
+.slick-cell {
+	border-color: transparent transparent #cccccc transparent;
+  border-style: none none dashed none;
+  border-width: 1px;
+  padding-top: 3px;
+  padding-left: 4px;
+	font-size: 12.8px;
+}
+.slick-cell .link_cell {
+	color: #189bd7;
+}
+.slick-cell:hover .link_cell {
+	text-decoration: underline;
+	cursor: pointer;
+}
+.slick-cell:empty:hover .link_cell{
+	cursor: default;
+}
+.slick-pane-right {
+	border-left: solid 1px #189BD7 !important;
+}
+.slick-pane-left, .slick-pane-right, .slick-viewport, .slick-viewport-top, .slick-viewport-left, .slick-viewport-right, .grid-canvas, .grid-canvas-top, .grid-canvas-left, .grid-canvas-right  {
+	overflow: hidden;
+}
+.slick-pane a {
+	color: #189BD7;
+}
+.slick-row.level_0 {
+	font-weight: bold;
+	border-top: 1px solid #189BD7;
+}
+:first-child.level_0{
+	border-top: none;
+}
+.END_ROW .slick-cell{
+	border-bottom: none;
+}
+.slick-sort-indicator {
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat scroll -212px -2px transparent;
+	width: 15px;
+	height: 15px;
+}
+.slick-sort-indicator.slick-sort-indicator-asc {
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat scroll -97px -6px transparent;
+}
+.slick-sort-indicator.slick-sort-indicator-desc {
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat scroll -2px -86px transparent;
+}
+#tableContainer .ui-slider.ui-disabled {
+	display: none;
+}
+/* Chart COlumns image Styles */
+.ico {
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites2.png") no-repeat;
+	width: 30px;
+	height: 15px;
+	display: inline-block;
+	cursor: pointer;
+}
+.ico.linechart {
+	background-position: -58px -65px;
+}
+.ico.linechart.selected {
+	background-position: 2px -65px;
+}
+.chart_column .ico.linechart:hover, a:hover > .ico.linechart {
+	background-position: -28px -65px;
+}
+.ico.parent.linechart {
+	background-position: -66px -93px;
+}
+.ico.parent.linechart.selected{
+	background-position: -6px -93px;
+}
+.chart_column .ico.parent.linechart:hover, a:hover > .ico.parent.linechart {
+	background-position: -36px -93px;
+}
+.ico.sourcekey {
+	background-position: -60px -140px;
+}
+.ico.sourcekey.selected {
+	background-position: 0px -140px;
+}
+.sourcekey_column .ico.sourcekey:hover, a:hover > .ico.linechart {
+	background-position: -30px -140px;
+}
+
+/*
+ * Frequency Selector styles
+ */
+ 
+#frequencySelectorContainer .ui-button {
+	display: inline-block;
+	margin: 0 0 0 -4px;
+	padding: 4px 8px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-top: none;
+	border-bottom: none;
+}
+
+#frequencySelectorContainer.ui-buttonset .ui-button {
+	cursor: pointer;
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/bg-sprites.png") repeat-x 0px -1px;
+	border: 1px solid #cecece;
+}
+
+#frequencySelectorContainer .ui-state-active.ui-button  {
+	border: 1px solid #0072a3;
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/bg-shade.png") repeat-x 0px -3px #189bd7;
+	color: #ffffff;
+}
+
+#frequencySelectorContainer.ui-buttonset .ui-button:hover {
+	background: url("https://www.eia.gov/global/scripts/modules/dist/css/images/bg-shade2.png") repeat-x 0px 0px #76d5ff; 
+	border: 1px solid #5eabcc;
+}
+
+#frequencySelectorContainer {
+	position: relative;
+	width:auto;
+	height: auto;
+	display: inline-block;
+	float:left;
+	padding:0.75em 0 0.75em 0;
+	vertical-align: middle;
+	font-size: 12.8px;
+	min-width: 194px;
+	padding: 0 0 0 4px;
+}
+
+#frequencySelectorContainer .labelContainer  {
+	float:left;
+	width:auto;
+	margin-right:4px;
+	text-transform: uppercase;
+}
+
+#frequencySelectorContainer label {
+	vertical-align: top;
+}
+
+/*
+ * Time Slider styles
+ */
+ 
+ 
+/*
+ * Download button styles
+ */
+.download_button {
+	padding:0.25em;
+	display:inline-block;
+	height:2em;
+	border:1px solid #cccccc;
+	font-size: 12.8px;
+	background:url("https://www.eia.gov/global/scripts/modules/dist/css/images/bg-sprites.png") repeat-x 0px 1px;
+}
+ 
+.download_button .download_button_text {
+	display: inline-block;
+	padding: 0.25em 1.75em 0em 0.25em;
+	color: #189BD7;
+	background:url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat;
+	text-transform: uppercase;
+}
+
+.download_button .download_button_text {
+	display: inline-block;
+	padding: 0.25em 1.75em 0em 0.25em;
+	color: #189BD7;
+	background:url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat;
+	text-transform: uppercase;
+}
+.download_button:hover .download_button_text {
+	text-decoration: underline;
+}
+.download_button:hover {
+	cursor: pointer;
+}
+.download_icon {
+	display: inline-block;
+	background-position: 0 -66px;
+    width: 30px;
+	background:url("https://www.eia.gov/global/scripts/modules/dist/css/images/icon-sprites.png") no-repeat;
+}
+.download_button.selected {
+	width:auto;
+	border:1px solid #189BD7;
+	background: #189BD7;
+}
+.download_button.selected .download_button_text  {
+	color: #003975;
+}
+#overlay_download_button:hover .download_button_text {
+	text-decoration: none;
+}
+#overlay_download_button:hover  {
+	cursor: default;
+}
+.download_button .download_button_text {
+	background-position: 78px -86px;
+}
+.download_icon {
+	width: 30px;
+	background-position: 0px -66px;
+}
+.download_button.selected .download_icon {
+	background-position: -30px -66px;
+}
+.download_button.selected .download_button_text {
+	background-position: -132px -86px;
+}
+dl.download_menu {
+	margin-bottom: 0px;
+}
+.download_menu dt {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	border-bottom: solid 1px #DADADA;
+	padding-bottom: 6px;
+	padding-top: 10px;
+	margin-bottom: 4px;
+	text-transform: uppercase;
+	clear: both;
+}
+.download_menu dt.clear {
+	margin-top: -20px;
+	border-bottom: none;
+}
+.download_menu dd {
+	margin-left: 0px;
+}
+#main_download_button {
+	float: right;
+	margin-left:1.0em;
+	display: inline-block;
+}
+#download_dialog > div {
+	border-top: 3px solid #189BD7;
+}
+#download_dialog > div {
+	padding: 1.2em 2.1em 1.8em 2.1em;
+}
+#download_dialog_wrap {
+	display:none;
+}
+
+#download_dialog{
+	background:#fff !important;
+	height:auto;
+/*	width:auto;*/
+	position: relative;
+	top:33px;
+}
+
+ul.download_menu {
+	display:block;
+	position : relative;
+	background-color: #FFFFFF !important;
+	list-style-type: bullet;
+	padding-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+ul.download_menu > li a {
+	display: inline-block;
+	cursor: pointer;
+	white-space: nowrap;
+}
+ul.download_menu > li 
+	background-color: #FFFFFF !important;
+	display : block;
+	position : relative;
+	padding : 0.4em 0em 0.4em 0em;
+	margin-left: 4px;
+	margin-right:4px;
+	margin-left: 12px;
+}
+ul.download_menu > .clear {
+	display : block;
+	position : relative;
+	float : none;
+	clear : both;
+}
+ul.download_menu > li.disabled {
+	enabled: false;
+}
+
+#simplemodal-overlay{
+	background-color:#777;
+	opacity:0.8;
+	-moz-opacity:80%;
+	filter: alpha(opacity=80);
+}
+span.slick-column-name{
+	float: right;
+}
+a.download_option{
+	cursor: pointer;
+}

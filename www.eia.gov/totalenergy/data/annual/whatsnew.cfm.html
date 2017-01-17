@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/custom/search_landing_highlight.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>U.S. Energy Information Administration (EIA) - Data</title>
+    </head>
+<body>
+<div id="outerX">
+
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../consumption/index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../energyexplained/index.html">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+
+<script>
+$(document).ready(function(){
+    $('.dropdown').dd();
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+<div class="title bg_allsources">
+  <h1>Total Energy</h1>
+</div>
+
+<div class="subnav">  <span class="right"><a href="https://www.eia.gov/tools/glossary/">Glossary &rsaquo;</a> <a href="https://www.eia.gov/tools/faqs/">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="https://www.eia.gov/totalenergy/">Overview</a></li>
+    <li class="dropdown active"><a href="https://www.eia.gov/totalenergy/">Data</a></li>
+        <div class="dat_block">
+        <ul>
+          <li><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm">Monthly</a></li>
+          <li><a href="https://www.eia.gov/totalenergy/data/annual/index.cfm" class="no-border">Annual</a></li>
+        </ul>
+    </div>
+      
+    <li class="dropdown "><a href="../../reports.cfm.html">Analysis & Projections</a></li>
+
+        <div id="analysis-projections" class="dat_block dat_links" style="width:600px;">
+
+            <div style="float:left; width:400px;">
+        <h4 style="margin: 12px 20px 6px 20px;border-bottom:1px solid #CCC;padding-bottom:2px;">Major Topics</h4>
+        <ul class="split_2columns" style="margin-bottom:16px;">
+                        <li><a href="../../reports.cfm.html#/T214">Most popular</a></li>
+    <li><a href="../../reports.cfm.html#/T182">Annual</a></li>
+    <li><a href="../../reports.cfm.html#/T198">Monthly</a></li>
+    <li><a href="../../reports.cfm.html#/T186">Projections</a></li>
+    <li><a href="../../reports.cfm.html#/T214">Recurring</a></li>
+    <li><a href="../../reports.cfm.html#/T188">U.S. States</a></li>
+    <li class="no-border" style="padding-bottom:0px;"><a href="../../reports.cfm.html">All reports</a></li>
+        </ul>
+      </div>
+
+            <div class="listContainer2" style="width:200px; float:right">
+        <h4 style="margin: 12px 20px 6px 20px; border-bottom:1px solid #ccc; padding-bottom:2px;">Browse by Tag</h4>
+        <ul>
+          <li><a href="../../browsebytag.cfm.html">Alphabetical</a></li>
+          <li><a href="../../browsebytag.cfm@frequency.html">Frequency</a></li>
+          <li><a href="../../browsebytag.cfm@tagcloud.html">Tag Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+      </ul>
+</div>            <div class="report_header">
+<span class="left rtitle">
+    <h2>Annual Energy Review</h2>
+    <p> Superseded -- see MER for key annual tables</p>
+</span>
+<span  class="left rtitle_form do-not-print">
+	  <h4>Annual Energy Review archives</h4>
+  <p><span class="rtitle_form_a">
+  <form name="form" id="form">
+<label style="color:#000">for data year:&nbsp;</label>
+<select name="jumpMenu" size="1" id="jumpMenu" style="width:80px">
+
+<option value="/totalenergy/data/annual/archive/038411.pdf" selected="selected">2011</option>
+<option value="/totalenergy/data/annual/archive/038410.pdf">2010</option>
+<option value="/totalenergy/data/annual/archive/038409.pdf">2009</option>
+<option value="/totalenergy/data/annual/archive/038408.pdf">2008</option>
+<option value="/totalenergy/data/annual/archive/">all archives</option>
+                 </select>
+					 
+<input type="button" name="go_button" class="arrow_go" align="absmiddle" id= "go_button" value="Go" onclick="MM_jumpMenuGo('jumpMenu','parent',1)" />
+                   </form>
+  
+  
+  </span> </p>
+         
+</span>
+</div>
+          <div class="pagecontent mr_temp3">
+	        <div class="main_col">
+	      <p><h3>CONTENT CHANGES</h3></p>
+<span class="condaterange"><a class="no-border expandall">+ EXPAND ALL</a></span>
+<table class="contable">
+<thead id="2011">
+<tr>
+<th><a name="2011"></a><b>Changes in Annual Energy Review 2011</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2011 Release: September 27, 2012</h4><br /><br />
+<p>1.&nbsp;&nbsp;<a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec1_13.pdf">Energy Consumption, Expenditures, and Emissions Indicators Estimates</a> (Table 1.5) has been modified to include columns for Gross Output and Energy Expenditures as Share of Gross Output and remove Greenhouse Gas Emissions per Real Dollar of Gross Domestic Product.</p>
+<p>2.&nbsp;&nbsp;<a href="pdf/sec1_31.pdf">Sales of Fossil Fuels Produced on Federal and American Indian Lands</a> (Table 1.14) was previously titled "Fossil Fuel Production on Federally Administered Lands."  It has been redesigned and now provides data on sales of fossil fuels from Federal and American Indian lands for fiscal years 2003 through 2011.</p>
+<p>3.&nbsp;&nbsp;<a href="pdf/sec1_33.pdf">Non-Combustion Use of Fossil Fuels</a> (Table 1.15) was previously titled "Fossil Fuel Consumption for Nonfuel Use Estimates."</p>
+<p>4.&nbsp;&nbsp;<a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec2_9.pdf">Industrial Sector Energy Consumption Estimates</a> (Table 2.1d), <a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec10_7.pdf">Renewable Energy Consumption: Industrial and Transportation Sectors</a> (Table 10.2b), <a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec8_11.pdf">Electricity Net Generation: Commercial and Industrial Sectors</a>, (Table 8.2d), and <a href="pdf/sec8_19.pdf">Consumption for Electricity Generation by Energy Source: Commercial and Industrial Sectors</a> (Table 8.4c) have been modified to include industrial wind consumption.</p>
+<p>5.&nbsp;&nbsp;<a href="pdf/sec2_19.pdf">Household Energy Consumption and Expenditures by End Use and Energy Source</a> (Table 2.5) has been modified to remove columns showing total consumption and expenditures by energy source.</p>
+<p>6.&nbsp;&nbsp;<a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec2_25.pdf">Motor Vehicle Mileage, Fuel Consumption, and Fuel Economy</a> (Table 2.8) has been modified to incorporate the Federal Highway Administration's revised vehicle classifications.  Data are now provided for Light-Duty Vehicles, Short Wheelbase; Light-Duty Vehicles, Long Wheelbase; and Heavy-Duty Trucks.</p>
+<p>7.&nbsp;&nbsp;Information related to the major U.S. energy companies' activities (previously Tables 3.10-3.13 and 4.10) has been removed. EIA is currently considering revisions to its Financial Reporting System database.</p>
+<p>8.&nbsp;&nbsp;<a href="pdf/sec4_5.pdf">Crude Oil and Natural Gas Cumulative Production, and Proved Reserves</a> (Table 4.2) has been modified to remove columns on estimated ultimate recovery.</p>
+<p>9.&nbsp;&nbsp;<a href="pdf/sec4_21.pdf">Uranium Reserves</a> (Table 4.10) has been modified to remove data on potential resources.</p>
+<p>10.&nbsp;&nbsp;<a href="pdf/sec5_6.pdf">Petroleum and Other Liquids Overview</a> (Table 5.1a), <a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec5_7.pdf">Petroleum Overview</a> (Table 5.1b), and <a href="pdf/sec5_9.pdf">Crude Oil Production and Crude Oil Well Productivity</a> (Table 5.2) have been modified to incorporate revisions to crude oil production, total field production, and adjustments in coordination with the Petroleum Supply Monthly (PSM). For more details on the new revision policy, see Appendix B of the PSM at http://www.eia.gov/petroleum/supply/monthly/.</p>
+<p>11.&nbsp;&nbsp;<a href="pdf/sec5_9.pdf">Crude Oil Production and Crude Oil Well Productivity</a> (Table 5.2) has been modified to include data on Federal and State offshore crude oil production.</p>
+<p>12.&nbsp;&nbsp;<a href="pdf/sec8_48.pdf">Electric Noncoincident Peak Load and Capacity Margin: Summer Peak Period</a> (Table 8.12a) and <a href="pdf/sec8_49.pdf">Electric Noncoincident Peak Load and Capacity Margin: Winter Peak Period</a> (Table 8.12b) are new tables derived from the data previously captured in "Electric Noncoincident Peak Load and Capacity Margin" (previously Table 8.12).</p>
+<p>13.&nbsp;&nbsp;<a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec10_13.pdf">Biodiesel Overview</a> (Table 10.4) now incorporates annual biodiesel production data for 2009 forward from Form EIA-22M, "Monthly Biodiesel Production Survey."</p>
+<p>14.&nbsp;&nbsp;<a href="pdf/sec10_21.pdf">Photovoltaic Cell and Module Shipments by Type, Trade, and Prices</a> (Table 10.8) has been modified to include data on both "cells and modules" and "modules only" for shipments and trade.</p>
+<p>15.&nbsp;&nbsp;<a href="pdf/sec10_23.pdf">Photovoltaic Cell and Module Shipments by Sector and End Use</a> (Table 10.9) has been modified to show shipments by the Residential, Commercial, Industrial, Electric Power, and Other Sectors; and by Grid-Connected and Off-Grid end uses.  In addition, beginning in 2010, data are for U.S. shipments of photovoltaic modules only.</p>
+<p>16.&nbsp;&nbsp;<a href="https://www.eia.gov/totalenergy/data/annual/pdf/sec12_6.pdf">Approximate Heat Rates for Electricity, and Heat Content of Electricity</a> (Table A6) has been reconfigured to display columns for "Coal," "Petroleum," "Natural Gas," and "Noncombustible Renewable Energy" and to delete the "Geothermal" column.</p>
+<p><b>The following tables are deleted:</b></p>
+<p>"Major U.S. Energy Companies' Domestic Production and Refining" (previously Table 3.10)</p>
+<p>"Major U.S. Energy Companies' Net Income" (previously Table 3.11)</p>
+<p>"Major U.S. Energy Companies' Profitability" (previously Table 3.12)</p>
+<p>"U.S. Energy Activities by Foreign Affiliated Companies" (previously Table 3.13)</p>
+<p>"Costs of Crude Oil and Natural Gas Wells Drilled" (previously Table 4.8)</p>
+<p>"Crude Oil, Natural Gas, and Natural Gas Liquids Gross Additions to Proved Reserves, and Exploration and Development Expenditures" (previously Table 4.9)</p>
+<p>"Major U.S. Energy Companies' Expenditures for Crude Oil and Natural Gas Exploration and Development by Region" (previously Table 4.10)</p>
+<p>"Emissions of Greenhouse Gases" (previously Table 11.1)</p>
+<p><b>The following tables are renumbered:</b></p>
+<p>
+<b>AER 2010</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2011</b><br />
+&nbsp;&nbsp;4.11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.8<br />
+&nbsp;&nbsp;4.12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.9<br />
+&nbsp;&nbsp;4.13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.10<br />
+&nbsp;&nbsp;4.14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.11<br />
+&nbsp;&nbsp;4.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.12<br />
+&nbsp;&nbsp;4.16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.13<br />
+&nbsp;&nbsp;4.17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.14<br />
+&nbsp;&nbsp;4.18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.15<br />
+&nbsp;&nbsp;4.19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.16<br />
+&nbsp;&nbsp;11.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.1<br />
+&nbsp;&nbsp;11.3a-11.3e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.2a-11.2e<br />
+&nbsp;&nbsp;11.4
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.3<br />
+&nbsp;&nbsp;11.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.4<br />
+&nbsp;&nbsp;11.6a-11.6c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.5a-11.5c<br />
+&nbsp;&nbsp;11.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.6<br />
+</p>
+</td>
+</tr>
+<thead id="2010">
+<tr>
+<th><a name="2010"></a><b>Changes in Annual Energy Review 2010</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2010 Release: October 19, 2011</h4><p></p>
+<p>
+<b>Energy Perspectives:</b><br />&nbsp;&mdash;&nbsp;Removed from the print edition of the AER.  The Energy Perspectives are now a stand-alone web product available at http://www.eia.gov/totalenergy/data/annual/perspectives.cfm.
+</p>
+<p>
+Primary Energy Consumption by Source (Table 1.3):</b><br />&nbsp;&mdash;&nbsp;Reconfigured to display noncombustible renewable energy (hydroelectric power, geothermal, solar thermal and photovoltaic, and wind) broken into three columns:<br />
+&nbsp;&mdash;&nbsp;Captured Energy<br />&nbsp;&mdash;&nbsp;Adjustment for Fossil-Fuel-Equivalence<br />&nbsp;&mdash;&nbsp;Primary Energy Total<br /><br />
+See Note 1 at the end of Section 1 and Appendix F for more information.
+</p>
+<p>
+Heat Content of Petroleum Products Supplied (Table 5.12):</b><br />&nbsp;&mdash;&nbsp;Liquefied Petroleum Gases (LPG), Other Petroleum Products, and Total Petroleum estimates for all years revised due to new estimation methodologies. These changes affect data series in Energy Consumption Estimates by Sector (Table 2.1a), Residential Sector Energy Consumption Estimates (Table 2.1b), Commercial Sector Energy Consumption Estimates (Table 2.1c), Industrial Sector Energy Consumption Estimates (Table 2.1d), Transportation Section Energy Consumption Estimates (Table 2.1e), Heat Content of Petroleum Estimates: Residential and Commercial Sectors (Table 5.14a), Heat Content of Petroleum Estimates: Industrial Sector (Table 5.14b), Heat Content of Petroleum Estimates: Transportation and Electric Power Sectors (Table 5.14c), and Approximate Heat Content of Petroleum Consumption and Biofuels Production (Table A3).
+</p>
+<p>
+Consumption for Electricity Generation by Energy Source: Electric Power Sector (Table 8.4b):<br />&nbsp;&mdash;&nbsp;Modified to use the fossil-fuels heat rate as the conversion factor for geothermal electricity net generation.  This change affects data series in Primary Energy Overview (Table 1.1), Primary Energy Production by Source (Table 1.2), Primary Energy Consumption by Source (Table 1.3), Electric Power Sector Energy Consumption (Table 2.1f), Consumption for Electricity Generation by Energy Source: Total (All Sectors) (Table 8.4a), Renewable Energy Production and Consumption by Source (Table 10.1), and Renewable Energy Consumption: Electric Power Sector (Table 10.2c). See Appendix F for more information.
+</p>
+<p>
+International Energy (Section 11):</b><br />&nbsp;&mdash;&nbsp;Deleted from AER 2010.  For international energy statistics, see http://www.eia.gov/countries/data.cfm.
+</p>
+<p>
+&nbsp;&mdash;&nbsp;"Carbon Dioxide Emissions From Energy Consumption: End-Use Sectors" (previously Table 12.3): Reconfigured into five new tables that include estimates of emissions from biomass energy consumption:<br />
+&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Residential Sector (Table 11.3a)<br />
+&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Commercial Sector (Table 11.3b)<br />
+&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Industrial Sector (Table 11.3c)<br />
+&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Transportation Sector (Table 11.3d)<br />
+&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Electric Power Sector (Table 11.3e)
+</p>
+<p>
+Appendix F:<br />&nbsp;&mdash;&nbsp;Added to include an explanation of alternatives for estimating energy consumption and energy transformation. See Appendix F for more information.
+</p>
+<p>
+The following figures are added:<br />
+Figure 4.14: Concentrating Solar Resources<br />
+Figure 4.15: Photovoltaic Solar Resources<br />
+Figure 4.16: Onshore Wind Resources<br />
+Figure 4.17: Offshore Wind Resources<br />
+Figure 4.18: Geothermal Resources<br />
+Figure 4.19: Biomass Resources<br />
+</p>
+<p>
+The following tables are added:<br />
+&nbsp;&mdash;&nbsp;Petroleum and Other Liquids Overview (Table 5.1a)<br />
+&nbsp;&mdash;&nbsp;Coal Imports by Country of Origin (Table 7.4)
+</p>
+<p>
+The following table is deleted:
+</p>
+<p>
+"Carbon Dioxide Emissions From Consumption of Energy for All Purposes in the Manufacturing Sector, 2002" (previously Table 12.4).
+</p>
+<p>The following tables are renumbered:</p>
+<p>
+<b>AER 2009</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2010</b><br />
+&nbsp; &nbsp;5.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.1b<br />
+&nbsp; &nbsp;7.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.5<br />
+&nbsp; &nbsp;7.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.6<br />
+&nbsp; &nbsp;7.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.7<br />
+&nbsp; &nbsp;7.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.8<br />
+&nbsp; &nbsp;7.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.9<br />
+&nbsp;&nbsp;12.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.1<br />
+&nbsp;&nbsp;12.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.2<br />
+&nbsp;&nbsp;12.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.3a-11.3e<br />
+&nbsp;&nbsp;12.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.4<br />
+&nbsp;&nbsp;12.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.5<br />
+&nbsp;&nbsp;12.7a-12.7c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.6a-11.6c<br />
+&nbsp;&nbsp;12.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11.7<br />
+</p>
+</td>
+</tr>
+<thead id="2009">
+<tr>
+<th><a name="2009"></a><b>Changes in Annual Energy Review 2009</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2009 Release: August 19, 2010</h4><p></p>
+<p><b>Table 2.1c:</b><br />&nbsp;&mdash;&nbsp;Commercial Sector Energy Consumption: Modified to include a column for "Commercial Sector Solar/PV."</p>
+<p><b>Table 10.2a:</b><br />&nbsp;&mdash;&nbsp;Renewable Energy Consumption: Residential and Commercial Sectors: Modified to include a column for "Commercial Sector Solar/PV."</p>
+<p><b>Table 10.3:</b><br />&nbsp;&mdash;&nbsp;Fuel Ethanol Overview: Modified to include columns for "Denaturant" and "Consumption Minus Denaturant."</p>
+<p><b>Table 10.4:</b><br />&nbsp;&mdash;&nbsp;Biodiesel Overview: Expanded to include a "Balancing Item" column.</p>
+<p><b>Table 12.1:</b><br />&nbsp;&mdash;&nbsp;Emissions of Greenhouse Gases: Expanded to include columns for carbon dioxide emissions for "Energy Related," "U.S. Territories," "Bunker Fuels," and "Other Sources."</p>
+<p><b>Table 12.2:</b><br />&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: Total (All Sectors) and Electric Power Sector&nbsp;(previously called "Carbon Dioxide Emissions From Energy Consumption by Sector"):  Reconfigured to include columns for carbon dioxide from energy consumption by source for "Total (All Sectors)" and "Electric Power Sector" with data beginning in 1949.</p>
+<p><b>Table 12.3:</b><br />&nbsp;&mdash;&nbsp;Carbon Dioxide Emissions From Energy Consumption: End-Use Sectors&nbsp;(previously called "Carbon Dioxide Emissions From Energy Consumption by Sector by Energy Source"):  Reconfigured to include columns for carbon dioxide emissions from energy consumption by source for "Residential," "Commercial," "Industrial," and "Transportation" with data beginning in 1949.</p>
+<p><b>Table A3:</b><br />&nbsp;&mdash;&nbsp;Approximate Heat Content of Petroleum Consumption and Biofuels Production: Fuel ethanol heat contents for all years revised to include denaturant; fuel ethanol heat content factors for 2003-2009 revised to incorporate a newly obtained 2009 observed ethanol yield.</p>
+</td>
+</tr>
+<thead id="2008">
+<tr>
+<th><a name="2008"></a><b>Changes in Annual Energy Review 2008</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2008 Release: June 26, 2009</h4><p></p>
+<p>
+<p>The following table was added:</p>
+<p><b>Table 2.11:</b><br />&nbsp;&mdash;&nbsp;Commercial Building Electricity Consumption by End Use, 2003&nbsp;(Last shown in the <i>Annual Energy Review 2005</i>)</p>
+<p>The following figure was added:</p>
+<p><b>Figure 2.0:</b><br />&nbsp;&mdash;&nbsp;Energy Consumption by Source and Sector, 2008</p>
+<p>The following tables are reordered:</p>
+<p>
+<b>AER 2007</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2008</b><br />
+&nbsp; &nbsp;10.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Split into 10.3 (fuel ethanol) and 10.4 (biodiesel)<br />
+&nbsp; &nbsp;10.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.5<br />
+&nbsp; &nbsp;10.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.6<br />
+&nbsp; &nbsp;10.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.7<br />
+&nbsp; &nbsp;10.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.8<br />
+&nbsp; &nbsp;10.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.9<br />
+<p><b>Table 10.4:</b><br />&nbsp;&mdash;&nbsp;Biodiesel Overview&nbsp;(previously part of Table 10.3): Expanded to include trade and consumption data.</p>
+<p><b>Table 10.7:</b><br />&nbsp;&mdash;&nbsp;Solar Thermal Collector Shipments by Market Sector, End Use, and Type&nbsp;(previously Table 10.6): Reconfigured from showing one year's data to showing a range of data (2000-2007).</p>
+<p><b>Table 12.7a-c:</b><br />&nbsp;&mdash;&nbsp;Emissions From Energy Consumption for Electricity Generation and Useful Thermal Output: Units changed to thousand metric tons of gas for all series.</p>
+</td>
+</tr>
+<thead id="2007">
+<tr>
+<th><a name="2007"></a><b>Changes in Annual Energy Review 2007</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<p>
+<h4>Annual Energy Review 2007 Release: June 23, 2008</h4><p></p>
+<p><b>Table 1.13:</b><br />&nbsp;&mdash;&nbsp;U.S. Government Energy Consumption by Agency and Source: Reconfigured to cover three years of data---2003, 2006, and 2007.</p>
+<p><b>Table 4.1:</b><br />&nbsp;&mdash;&nbsp;Technically Recoverable Crude Oil, Natural Gas, and Natural Gas Liquids Resource Estimates: Data broken out by "Federal Lands" and "Non-Federal Lands" are no longer available for this table.</p>
+<p><b>Table 10.3:</b><br />&nbsp;&mdash;&nbsp;Fuel Ethanol and Biodiesel Overview: Biodiesel 2001-2005 data in British thermal units (Btu) are revised because of the application of gross heat content (higher heating value) in place of net heat content (lower heating value); 2006 and 2007 biodiesel data are added; and fuel ethanol production and biodiesel production now include data displayed in million gallons as well as thousand barrels and trillion Btu.</p>
+<p><b>Table A3:</b><br />&nbsp;&mdash;&nbsp;Approximate Heat Content of Petroleum Consumption and Biofuels Production: Approximate Heat Content of Petroleum Consumption and Biofuels Production.</p>
+<p><b>Table D1:</b><br />&nbsp;&mdash;&nbsp;Population, U.S. Gross Domestic Product, and Implicit Price Deflator: U.S. population data in decennial years (i.e., years ending in 0) are revised from April 1<sup>st</sup> counts to July 1<sup>st</sup> counts so that all population data are now July 1<sup>st</sup> counts.  The change affects per person data in <b>Table 1.5</b>,&nbsp;Energy Consumption, Expenditures, and Emissions Indicators.</p>
+</p>
+</td>
+</tr>
+<thead id="2006">
+<tr>
+<th><a name="2006"></a><b>Changes in Annual Energy Review 2006</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2006 Release: June 27, 2007</h4><p></p>
+<p>
+<p>The following AER 2005 table was deleted in AER 2006:</p>
+<p><b>Table 2.11:</b><br />&nbsp;&mdash;&nbsp;"Commercial Buildings Electricity Consumption by End Use, 1999."</b></p>
+<p>The following table was added:</p>
+<p><b>Table 10.3:</b><br />&nbsp;&mdash;&nbsp;"Ethanol and Biodiesel Overview, 1981-2006."</b></p>
+<p>The following AER 2005 tables were renumbered in the AER 2006:</p>
+<p>
+<b>AER 2005</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2006</b><br />
+&nbsp; &nbsp;10.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.5<br />
+&nbsp; &nbsp;10.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.6<br />
+&nbsp; &nbsp;10.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.7<br />
+&nbsp; &nbsp;10.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.8<br />
+&nbsp; &nbsp;10.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10.4<br />
+<p>Other changes in this year's report include:</p>
+<p>
+<b>Table 1.2:</b><br />&nbsp;&mdash;&nbsp;Beginning in 1989, "Coal" is revised to include "Waste Coal Supplied."  See related Table 7.1.<br />&nbsp;&mdash;&nbsp;Beginning in 1981, "Biomass" is revised to include biomass inputs to the production of ethanol and biodiesel.<br />&nbsp;&mdash;&nbsp;Beginning in 2001, "Biomass" is revised to remove non-renewable waste (municipal solid waste from non-biogenic sources, and tire-derived fuels).  Because this portion is mostly derived from fossil fuels, which are already accounted for, it is also removed from total energy to eliminate the previous double counting.
+</p>
+<p>
+<b>Table 1.3:</b><br />&nbsp;&mdash;&nbsp;Beginning in 1980, "Natural Gas" is revised to remove "Supplemental Gaseous Fuels."  See related Table 6.1.<br />&nbsp;&mdash;&nbsp;Beginning in 1993, "Petroleum" is revised to remove the ethanol portion of motor gasoline.  Ethanol is accounted for in "Biomass."<br />&nbsp;&mdash;&nbsp;Beginning in 1981, "Biomass" is revised to include biomass inputs to the production of ethanol and biodiesel.<br />&nbsp;&mdash;&nbsp;Beginning in 2001, "Biomass" is revised to remove non-renewable waste (municipal solid waste from non-biogenic sources, and tire-derived fuels). Because this portion is mostly derived from fossil fuels, which are already accounted for, it is also removed from total energy to eliminate the previous double counting.<br />&nbsp;&mdash;&nbsp;From 2001-2005, "Biomass" is revised to include biodiesel and losses and co-products from the production of biodiesel.
+</p>
+<p><b>Table 2.1c-2.1f:</b><br />&nbsp;&mdash;&nbsp;Beginning in 1980, "Natural Gas" is revised to remove "Supplemental Gaseous Fuels."</p>
+<p><b>Table 2.1d and 2.1e:</b><br />&nbsp;&mdash;&nbsp;Beginning in 1993, "Petroleum" is revised to exclude the ethanol portion of motor gasoline. Ethanol is included in "Biomass."
+</p>
+<p><b>Table 7.4:</b><br />&nbsp;&mdash;&nbsp;U.S. coal exports to Turkey are removed from "Other" and shown in a separate column.</p>
+<p><b>Table 8.2a-8.2d; 8.3a-8.3c; 8.4a-8.4c; 8.5a-8.5d; 8.6a-8.6c; and 8.7a-8.7c:</b><br />&nbsp;&mdash;&nbsp;Beginning in 2001, "Waste" is revised to remove non-renewable waste (municipal solid waste from non-biogenic sources, and tire-derived fuels).  The removed quantity is added to "Other."  See article, "Methodology for Allocating Municipal Solid Waste to Biogenic and Non-Biogenic Energy,".</p>
+<p><b>Table 8.11a-d:</b><br />&nbsp;&mdash;&nbsp;"Dual-fired" column is deleted.  The data are assigned to appropriate primary fuel categories.</p>
+<p><b>Table 9.1:</b><br />&nbsp;&mdash;&nbsp;Redesigned to categorize nuclear generating units by Nuclear Regulatory Commission regulation 10 CRF Part 50 and regulation 10 CFR Part 52.</p>
+<p><b>Table 10.1:</b><br />&nbsp;&mdash;&nbsp;"Biomass" and "Total Renewable Energy" production are added to the table.<br />&nbsp;&mdash;&nbsp;"Biofuels" consumption (i.e., fuel ethanol and biodiesel, plus losses and co-products from the production of fuel ethanol and biodiesel) replaces "Alcohol Fuels" consumption.<br />&nbsp;&mdash;&nbsp;Beginning in 2001, "Waste" is revised to remove non-renewable waste (municipal solid waste from non-biogenic sources, and tire-derived fuels).  See article, "Methodology for Allocating Municipal Solid Waste to Biogenic and Non-Biogenic Energy,".
+</p>
+<p><b>Table 10.2a-c:</b><br />&nbsp;&mdash;&nbsp;"Industrial Sector" data are moved from Table 10.2a to Table 10.2b; "Ethanol" and "Biomass Losses and Co-products" are added to "Industrial Sector."<br />&nbsp;&mdash;&nbsp;"Electric Power Sector" data are moved from Table 10.2b to new Table 10.2c.<br />&nbsp;&mdash;&nbsp;"Ethanol" is added to "Commercial Sector" in Table 10.2a.<br />&nbsp;&mdash;&nbsp;"Alcohol Fuels" is renamed "Ethanol"; and "Biodiesel" is added to "Transportation Sector" in Table 10.2b.<br />&nbsp;&mdash;&nbsp;Beginning in 2001, "Waste" is revised to remove non-renewable waste (municipal solid waste from non-biogenic sources, and tire-derived fuels).  See article, "Methodology for Allocating Municipal Solid Waste to Biogenic and Non-Biogenic Energy,".
+</p>
+<p><b>Table A3:</b><br />&nbsp;&mdash;&nbsp;Approximate heat content data for "Fuel Ethanol," Ethanol Feedstock," "Biodiesel," and "Biodiesel Feedstock" are added.
+</p>
+<p><p><b>Table A5:</b><br />&nbsp;&mdash;&nbsp;Approximate heat content data for "Waste Coal Supplied" are added.
+</p>
+</p>
+</td>
+</tr>
+<thead id="2005">
+<tr>
+<th><a name="2005"></a><b>Changes in Annual Energy Review 2005</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2005 Release: July 27, 2006</h4><p></p>
+<p>
+<p><b>Table 1.14:</b><br />&nbsp;&mdash;&nbsp;Data for 2001 forward are switched from calendar year to fiscal year.</p>
+<p><b>Table 6.6:</b><br />&nbsp;&mdash;&nbsp;A column for natural gas underground storage capacity is added.</p>
+<p><b>Table 10.2a:</b><br />&nbsp;&mdash;&nbsp;Residential wood data from 1980 forward and commercial wood data from 1989 forward are revised.</p>
+<p><b>Section 11:</b><br />&nbsp;&mdash;&nbsp;"Western Europe" and "Eastern Europe and Former U.S.S.R." are replaced with the new groupings "Europe" and "Eurasia."</p>
+</p>
+</td>
+</tr>
+<thead id="2004">
+<tr>
+<th><a name="2004"></a><b>Changes in Annual Energy Review 2004</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2004 Release: August 19, 2005</h4><p></p>
+<p>
+<p><b>Hydroelectric Pumped Storage:</b><br />&nbsp;&mdash;&nbsp;Tables 1.2, 1.3, 2.1f, 8.4a, and 8.4b no longer include the energy consumed by hydroelectric pumped storage plants.  The change was made because most of the electricity used to pump water into elevated storage reservoirs is generated by plants other than pumped-storage plants; thus, the associated energy is already accounted for in other data columns in the tables (such as conventional hydroelectric power, coal, and natural gas).  Because the quantities removed were negative values (derived as pumped-storage facility production minus energy used for pumping, where energy used for pumping is usually larger), the overall effect of the change is to raise U.S. total energy consumption slightly from 1990 forward.</p>
+<p><b>Electricity End Use:</b><br />&nbsp;&mdash;&nbsp;The "Commercial" and "Other" columns previously shown under "Retail Sales" in Table 8.9 are replaced by revised "Commercial" and new "Transportation" columns.</p>
+<p><b>Average Retail Prices of Electricity:</b><br />&nbsp;&mdash;&nbsp;Beginning in 2003, the "Commercial," "Industrial" and "Other" columns previously shown in Table 8.10 are replaced by redefined "Commercial" and "Industrial" and new "Transportation" columns.</p>
+<p>The following tables are new in the <b>AER 2004</b>:</p>
+<p><b>Table 3.4:</b><br />&nbsp;&mdash;&nbsp;Consumer Price Estimates for Energy by End-Use Sector, 1970-2001</p>
+<p><b>Table 3.6:</b><br />&nbsp;&mdash;&nbsp;Consumer Expenditure Estimates for Energy by End-Use Sector, 1970-2001</p>
+<p>The following <b>AER 2003</b> tables are reordered in the <b>AER 2004</b>:</p>
+<p>
+<b>AER 2003</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2004</b><br />
+&nbsp; &nbsp;3.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5<br />
+&nbsp; &nbsp;3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.7<br />
+&nbsp; &nbsp;3.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.8<br />
+&nbsp; &nbsp;3.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.9<br />
+&nbsp; &nbsp;3.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.10<br />
+&nbsp; &nbsp;3.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.11<br />
+&nbsp; &nbsp;3.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.12<br />
+&nbsp; &nbsp;3.11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.13<br />
+&nbsp; &nbsp;3.12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.14<br />
+&nbsp; &nbsp;4.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.4<br />
+&nbsp; &nbsp;4.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.5<br />
+&nbsp; &nbsp;4.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.7<br />
+&nbsp; &nbsp;4.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.8<br />
+&nbsp; &nbsp;4.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.10<br />
+&nbsp; &nbsp;4.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.3<br />
+</p>
+</p>
+</td>
+</tr>
+<thead id="2003">
+<tr>
+<th><a name="2003"></a><b>Changes in Annual Energy Review 2003</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2003 Release: September 13, 2004</h4><p></p>
+<p>
+<p><b>Table 2.11:</b><br />&nbsp;&mdash;&nbsp;Estimated Commercial Building Electricity Consumption by End Use, 1999</p>
+<p><b>Table 5.12:</b><br />&nbsp;&mdash;&nbsp;Heat Content of Petroleum Products Supplied, Selected Years, 1949-2003</p>
+<p><b>Table 5.14a:</b><br />&nbsp;&mdash;&nbsp;Heat Content of Petroleum Consumption: Residential and Commercial Sectors, Selected Years, 1949-2003</p>
+<p><b>Table 5.14b:</b><br />&nbsp;&mdash;&nbsp;Heat Content of Petroleum Consumption: Industrial Sector, Selected Years, 1949-2003</p>
+<p><b>Table 5.14c:</b><br />&nbsp;&mdash;&nbsp;Heat Content of Petroleum Consumption: Transportation and Electric Power Sectors, Selected Years, 1949-2003</p>
+<p><b>Table 8.2b:</b><br />&nbsp;&mdash;&nbsp;Electricity Net Generation: Electric Power Sector, Selected Years, 1949-2003</p>
+<p><b>Table 8.3a:</b><br />&nbsp;&mdash;&nbsp;Useful Thermal Output at Combined-Heat-and-Power Plants: Total (All Sectors), 1989-2003</p>
+<p><b>Table 8.5b:</b><br />&nbsp;&mdash;&nbsp;Consumption of Combustible Fuels for Electricity Generation:  Electric Power Sector, Selected Years, 1949-2003</p>
+<p><b>Table 8.6a:</b><br />&nbsp;&mdash;&nbsp;Estimated Consumption of Combustible Fuels for Useful Thermal Output at Combined-Heat-and-Power Plants: Total (All Sectors), 1989-2003</p>
+<p><b>Table 8.11b:</b><br />&nbsp;&mdash;&nbsp;Electric Net Summer Capacity: Electric Power Sector, Selected Years, 1949-2003</p>
+<p><b>Table 12.6:</b><br />&nbsp;&mdash;&nbsp;Nitrous Oxide Emissions, 1980-2002</p>
+<p>The following <b>AER 2002</b> tables are reordered in the <b>AER 2003</b>:</p>
+<p>
+<b>AER 2002</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2003</b><br />
+&nbsp;&nbsp;2.2a-c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.4a-c<br />
+&nbsp;&nbsp;2.3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2<br />
+&nbsp;&nbsp;2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3<br />
+&nbsp;&nbsp;2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4<br />
+&nbsp;&nbsp;2.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.5<br />
+&nbsp;&nbsp;2.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.6<br />
+&nbsp;&nbsp;2.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.7<br />
+&nbsp;&nbsp;2.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.8<br />
+&nbsp;&nbsp;2.10&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.9<br />
+&nbsp;&nbsp;2.11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.10<br />
+&nbsp;&nbsp;5.12a-d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.13a-d<br />
+&nbsp;&nbsp;5.13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.15<br />
+&nbsp;&nbsp;5.14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.16<br />
+&nbsp;&nbsp;5.15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.17<br />
+&nbsp;&nbsp;5.17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.19<br />
+&nbsp;&nbsp;5.18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.20<br />
+&nbsp;&nbsp;5.19&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.21<br />
+&nbsp;&nbsp;5.20&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.22<br />
+&nbsp;&nbsp;5.21&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.23<br />
+&nbsp;&nbsp;5.22&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.24<br />
+&nbsp;&nbsp;8.2b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.2c<br />
+&nbsp;&nbsp;8.2c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.2c and 8.2d<br />
+&nbsp;&nbsp;8.2d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3b and 8.3c<br />
+&nbsp;&nbsp;8.3a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.7a<br />
+&nbsp;&nbsp;8.3b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.7b and 8.7c<br />
+&nbsp;&nbsp;8.3c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.5a<br />
+&nbsp;&nbsp;8.3d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.5c<br />
+&nbsp;&nbsp;8.3e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.5c&nbsp;and&nbsp;8.5d<br />
+&nbsp;&nbsp;8.3f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.6b&nbsp;and&nbsp;8.6c<br />
+&nbsp;&nbsp;8.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.8<br />
+&nbsp;&nbsp;8.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.9<br />
+&nbsp;&nbsp;8.6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.10<br />
+&nbsp;&nbsp;8.7a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.11a<br />
+&nbsp;&nbsp;8.7b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.11c<br />
+&nbsp;&nbsp;8.7c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.11c&nbsp;and&nbsp;8.11d<br />
+&nbsp;&nbsp;8.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.12<br />
+&nbsp;&nbsp;8.9&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.13<br />
+</p>
+</p>
+</td>
+</tr>
+<thead id="2002">
+<tr>
+<th><a name="2002"></a><b>Changes in Annual Energy Review 2002</b></th>
+</tr>
+</thead>
+<tr>
+<td bgcolor="#FFFFFF">
+<h4>Annual Energy Review 2002 Release: October 24, 2003</h4><p></p>
+<p>
+<p><b>Table 1.3</b>, "Energy Consumption by Source, 1949-2002" and Table 2.1f "Electric Power Sector Energy Consumption, 1949-2002" have been modified by combining electricity net imports derived from fossil fuels and renewable sources into one category with their sources unspecified. EIA previously estimated the proportions of traded electricity from fossil fuels and hydropower (and applied the fossil-fuel steam-electric-plant heat rate to convert from kilowatthours to Btu) and from geothermal (and applied the heat rate for geothermal energy plants). EIA no longer has adequate data to estimate the proportions by source and is now applying an overall rate of 3,412 Btu per kilowatthour to all traded electricity.<br />See Note 1 at the end of Section 1.</p>
+<p><b>Table 1.5</b>, "Energy Consumption, Expenditures, and Emissions Indicators, 1949- 2002" has been modified by the addition of emissions indicators.</p>
+<p>Table 10.2b "Renewable Energy Consumption: Electric Power Sector and Total, 1949-2002" has been modified by taking electricity net imports that are derived from hydroelectric power and geothermal energy out of the renewable energy consumption total. Those quantities continue to be included in total U.S. energy consumption as components of electricity net imports, with fuel sources unspecified. The change results in a 0.0-to-0.5  quadrillion Btu drop in total renewable energy consumption from 1949 forward.</p>
+<p><b>These tables have been added this year:</b></p>
+<p><b>Table 8.3a</b>, "Consumption of Combustible Fuels for Electricity Generation and Useful Thermal Output at Electricity-Only and Combined-Heat-and-Power Plants: Total (All Sectors), 1989-2002."</p>
+<p><b>Table 12.7</b>, "Emissions From Energy Consumption for Electricity and Useful  Thermal Output at Electricity-Only and Combined-Heat-and-Power Plants, 1989-2001."</p>
+<p>These <b>AER 2001</b> tables are reordered in the <b>AER 2002</b>:</p>
+<p>
+<b>AER 2001</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AER 2002</b><br />
+&nbsp;&nbsp;8.3a&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3c<br />
+&nbsp;&nbsp;8.3b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3d<br />
+&nbsp;&nbsp;8.3c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3e<br />
+&nbsp;&nbsp;8.3d&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3f<br />
+&nbsp;&nbsp;8.3e&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3b<br />
+&nbsp;&nbsp;&ndash;&ndash;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8.3a (New)<br />
+&nbsp;&nbsp;&ndash;&ndash;&ndash;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.7 (New)<br />
+&nbsp;&nbsp;12.7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12.8<br />
+</p>
+</td>
+</tr>
+</table>
+	
+<p></p>
+<p>
+<b><a href="../../../about/contact/totalenergy.cfm.html">Total Energy Experts</a></b>
+</p>
+	
+</div>
+<div class="side_col right">
+                                                  <span class="grey_side blue_top side_list_nocolumn">
+                      <h4>Changes to the  AER</h4>
+            <ul>
+				<li>Tables with grayed-out numbers go to the MER (the most recent data).  The remaining tables still go to the AER 2011 (data through 2011).  In some cases the table numbering of the AER differs from that of the MER.
+				</li>
+								<li>Explanatory notes for the most recent  AER can be found in archived AER 2011 (data year dropdown above).  MER notes and sources are linked at the bottom of the interactive tables.
+				</li>
+								<li>
+					<a href="whatsnew.cfm.html">See a full list of content changes to all AER reports by year.&nbsp;&gt;</a>
+				</li>
+			</ul>
+                      <p class="no_btm_border"></p>
+          </span>
+                                        </div>
+</div>
+	
+	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="addbar">
+						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../../../about/index.html">About EIA</a></h3>
+			<h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+			<h3><a href="../../../about/careers/index.html">Careers</a></h3>
+						<h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="https://www.eia.gov/petroleum/">Petroleum</a><br/>
+				<a href="https://www.eia.gov/coal/">Coal</a><br/>
+				<a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br/>
+				<a href="https://www.eia.gov/renewable/">Renewable</a><br/>
+				<a href="../../../nuclear/index.html">Nuclear</a><br/>
+				<a href="../../../electricity/index.html">Electricity</a><br/>
+				<a href="../../../consumption/index.html">Consumption</a><br/>
+				<a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br/>
+				<a href="../../../environment.1.html">Environment</a><br/>
+				<a href="https://www.eia.gov/finance/">Markets & Finance</a><br/>
+				<a href="../../../todayinenergy/index.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../../state/index.html">States</a><br/>
+				<a href="../../../countries/index.html">Countries</a><br/>
+				<a href="https://www.eia.gov/maps/">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+				<a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+				<a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br/>
+				<a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br/>
+				<a href="../../../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+	
+</div>
+</body>
+</html>
