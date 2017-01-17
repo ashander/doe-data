@@ -1,0 +1,717 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>The Effect of Income on Appliances in U.S. Households</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="https://www.eia.gov/global/scripts/JQuery/tablesorter/themes/blue/eia_style.css" type="text/css" media="print, projection, screen" />
+<title>U.S. Energy Information Administration (EIA)</title>
+    </head>
+<body>
+<div id="outerX"> 
+    
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../../index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../../energyexplained/index.html">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+  
+    <div class="pagecontent mr_temp2">
+    <div class="main_col">
+      <table width="600" align="left" cellpadding="10">
+        <tr>
+          <td><h2 align="center"><font face="Arial, Helvetica, sans-serif">The 
+          Effect of Income on Appliances in U.S. Households</font> </font></h2></td>
+        </tr>
+        <tr>
+          <td><p align="left" class="MsoNormal"><font size="2" face="Arial">Looking across 
+            the country at how people live, the factors that cause the most differences 
+            in home  lifestyle, including energy use, are: </font></p>
+            <ol>
+              <li>
+                <div align="left"><font size="2" face="Arial">Geographic Location</font></div>
+              </li>
+              <li>
+                <div align="left"><font size="2" face="Arial">Socioeconomics</font></div>
+              </li>
+              <li>
+                <div align="left"><font size="2" face="Arial">Household Income</font></div>
+              </li>
+            </ol>
+            <p align="justify"><font size="2" face="Arial">Geographic location determines what 
+              climate people live in, what appliances they have, and what types of energy 
+              they use in their home. Socioeconomic differences may show how differences 
+              vary based on race, gender, or the number and relationships of the persons 
+              in a household. Household income can affect the number and cost-related 
+              attributes and types of appliances, like televisions, that most households 
+              have. This document looks at the relationships of these factors to home 
+              appliance ownership, based on information from the 2001 Residential Energy 
+          Consumption Survey (RECS), conducted by the Energy Information Administration.</font></p></td>
+        </tr>
+        <tr>
+          <td><h4 align="center" class="MsoNormal"><strong><font face="Arial">National Household 
+          Income</font></strong></h4>
+          <p><font size="2" face="Arial">The overall picture of 
+              household income on a national scale (Figure 1) follows a classic &quot;bell-shaped&quot; 
+              curve. The highest percentage of households is in the $30,000 to $49,999 
+          range.</font></p>
+          <p class="MsoNormal" align="center" style='text-align:center'><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image001.gif" alt="Figure 1: Percent of Housing Units by Household Income" width="468" height="310" border="1" /><br />
+          </p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><h4 align="center"><strong></strong><font face="Arial">Common Household 
+          Appliances</font></h4>
+          <p><font size="2" face="Arial">There are some appliances that are commonplace 
+              in the home regardless of income level. These appliances are refrigerators, 
+              cooking appliances (which includes the standard oven with stove-top burners, 
+            separate stove and ovens, and toaster ovens), and color televisions. The percent of households that have them are as follows:</font></p>
+          <ul>
+            <li><font size="2" face="Arial">Refrigerator 99.9% </font></li>
+            <li><font size="2" face="Arial">Cooking appliance 99.7%</font></li>
+            <li><font size="2" face="Arial">Color television 98.9%</font></li>
+          </ul>
+          <p align="justify"><em><font size="2">Source: Energy Information Administration; 
+            2001 Residential Energy Consumption Survey.</font></em></p>
+          <p align="justify"><font size="2" face="Arial">For many other home 
+            appliances, presence vary by income level. Having more income in a household usually equates with 
+            more spending power. As a result, households with more income will usually 
+            have appliances that some may consider a luxury or unnecessary item that 
+            they can do without. For some appliances that appear in the majority 
+            of households, the economic differences are apparent in quality, size, 
+            quantity, or high-tech features that come with the appliance.<br />
+          </font></p>
+          <h5><strong><font face="Arial">Home Entertainment</font></strong></h5>
+          <p align="justify"><font size="2" face="Arial">Having home entertainment 
+            is important to many households. As mentioned previously, about 99 percent 
+            of the households have a color television. Even in the lowest income 
+            bracket, more than half the households have cable or satellite television, 
+            a stereo system, or a VCR. Large screen televisions are the only item 
+            that does not exceed 50 percent for the lowest income level. One possible 
+            factor is that in the 2001 RECS survey, the question about having a large 
+            screen television is a qualitative yes or no question based on the opinion 
+            of the respondent and not a quantitative question that asked for a measurement 
+            of the television screen size.</font><br />
+          </p>
+          <h5><font face="Arial">Large Screen Televisions</font></h5>
+          <p align="justify" class="MsoNormal"><font size="2" face="Arial">In 
+            Figure 2, the percent of households with a large screen television increased 
+            from about 25 percent for the lowest income bracket to 43 percent for 
+          the highest income bracket.</font></p>
+          <p align="center" class="MsoNormal"  style='text-align:center'><font size="2" face="Arial"> &nbsp; <img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image002.gif" alt="Figure 2: Percent of Housing Units Having Large Screen Televisions by Household Income" width="479" height="305" border="1" /></font></p>
+          <p align="justify" class="MsoNormal">&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><h5 align="justify"><font face="Arial">Cable or Satellite System</font></h5>
+          <p align="justify"><font size="2" face="Arial">The 2001 
+              RECS survey also shows an increase by income in whether the televisions 
+              are connected to a cable or satellite system (Figure 3). Even for the 
+              lowest income bracket, the percent of households with cable or satellite 
+              television is 64 percent. This increases to 87 percent for the highest 
+          income level.</font></p>
+          <p align="center" class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image003.gif" alt="Figure 3: Percent of Housing Units Connected to Cable or Satellite Television Systems by Household Income" width="480" height="306" border="1" /></p>
+          <p align="justify">&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><h5><font face="Arial, Helvetica, sans-serif">Video Cassette Recorders (VCR)</font></h5>
+          <p><span class="MsoNormal"><font size="2" face="Arial">Figure 
+              4 illustrates that when a household's income is in the lowest bracket, 
+              26 percent of the households do not have a VCR, and an almost equal percentage 
+              of households (21 percent) have two VCR's. As household income increases, 
+              the number of households with more than one VCR increases from 21 percent 
+              to 62 percent. At the same time, the percent of households without a 
+          VCR decreases from 26 percent down to 4 percent.</font></span></p>
+          <p><font size="2" face="Arial"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image004.gif" alt="Figure 4: Percent of Housing Units Having VCRs by Household Income" width="481" height="307" border="1" /><br />
+          </font></p></td>
+        </tr>
+        <tr>
+          <td><h5 align="justify"><font face="Arial">Stereo 
+          Systems</font></h5>
+          <p><font size="2" face="Arial">Another 
+              part of a household's home entertainment area is a stereo system. In 
+              the RECS, stereo systems include portable stereo systems (commonly referred 
+              to as boom boxes), component stereo systems, and compact stereo systems, 
+              but not headset radios or kitchen/clock radios. In the lowest income level, 
+              54 percent of the housing units have a stereo. The percentage increases 
+          to 90 percent in the highest income category (Figure 5).</font></p>
+          <p align="center" class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image005.gif" alt="Figure 5: Percent of Housing Units Having Stereo Systems by Household Income" width="481" height="306" border="1" /></p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><h5 align="justify"><font face="Arial">Cell Phones and Answering Machines</font></h5>
+          <p>&nbsp;</p>
+          <p align="justify" class="MsoNormal"><font size="2" face="Arial">Being able 
+            to communicate with others at any time and place is becoming more important 
+            in our society. Ways to accomplish this are through pagers, email, cell 
+            phones, and answering machines. Cell phones and answering machines are 
+            more commonplace as household income increases.</font></p>
+          <p align="justify" class="MsoNormal"><font size="2" face="Arial">In Figure 
+            6, as income increases, percent of households with cell phones increases 
+            from 23 percent to 82 percent. In Figure 7, answering machines in the 
+            home increase from 37 percent for the lowest income levels up to 76 percent 
+            at the highest income level. At the higher income levels, the percentage 
+            appears to flatten off. Excluded from the answering machine statistic 
+            is the percent of households that use a voice mail service on either the 
+            regular phone line or on a cell phone instead of having an answering machine. If a household has a cell phone and an answering machine (Figure 8), an 
+            interesting pattern in the data occurs. Having both increases with income, 
+            and having neither item decreases with income. Above an income level 
+            of $75,000, only 5 percent of the households do not have either a cell 
+          phone or an answering machine.</font></p>
+          <p align="center" class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image006.gif" alt="Figure 6: Percent of Housing Units Having Cell Phones by Household Income" width="480" height="307" border="1" /></p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><p align="center" class="MsoNormal"><font size="2" face="Arial"> <img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image007.gif" alt="Figure 7: Percent of Housing Units Having Answering Machines by Household Income" width="478" height="327" border="1" /></font></p></td>
+        </tr>
+        <tr>
+          <td><p align="center"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image008.gif" alt="Figure 8: Percent of Housing Units Having Cell Phones and Answering Machines by Household Income" width="487" height="324" border="1" /></p></td>
+        </tr>
+        <tr>
+          <td><h5><font face="Arial">Clothes Washers and Dryers</font></h5>
+          <p><font size="2" face="Arial, Helvetica, sans-serif">Two items most households eventually 
+              would like to own are clothes washers and dryers. In Figure 9, the percent 
+              of housing units with clothes washers increases from 57 percent for the 
+              lowest income level to 94 percent for the highest income level. For clothes 
+              dryers (Figure 10), the percent of households is 45 percent for the lowest 
+          income level and about doubles to 92 percent for the highest income level.</font></p>
+          <p align="center" class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image009.gif" alt="Figure 9: Percent of Housing Units Having a Clothes Washer by Household Income" width="480" height="307" border="1" /></p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p align="center" class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image010.gif" alt="Figure 10: Percent of Housing Units Having a Clothes Dryer by Household Income" width="479" height="323" border="1" /></p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><p><font size="2" face="Arial">The percent of households that have a clothes washer and a clothes dryer 
+            increases from 45 percent for the lowest income level to 92 percent for 
+            the highest income level (Figure 11). These percentages are identical 
+            to the percentages of households that have only a clothes dryer. The 
+            reason for this is because the percentage of housing units that have a 
+            clothes dryer and not a clothes washer are less than one percent. Also 
+            in Figure 11, there is a small percentage of housing units, which decreases 
+            with increasing income level, that have a clothes washer but do not have 
+          a clothes dryer.</font></p>
+            <p align="center" class="MsoNormal"><font size="2" face="Arial"> <img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image011.gif" alt="Figure 11: Percent of Housing Units Having a Clothes Washer and Dryer by Household Income" width="482" height="326" border="1" /></font></p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><p><font size="2" face="Arial">Having both a washer and dryer is also related to the type of housing 
+            unit the respondent lives in. In Figure 12, the highest percentage having 
+            both is in single-family, detached homes, with 91 percent. The lowest 
+            percentage is in large apartment buildings (5 or more rental units) where 
+          only 19 percent have both a washer and a dryer.</font></p>
+          <p>&nbsp;</p>
+          <p align="center" class="MsoNormal"><font size="2" face="Arial"> <img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image012.gif" alt="Figure 12: Percent of Housing Units Having a Clothes Washer and Dryer by Type of Housing" width="485" height="322" border="1" /></font></p></td>
+        </tr>
+        <tr>
+          <td><p align="center" class="MsoNormal"><br />
+          <font face="Arial"><strong>Kitchen Appliances</strong></font><strong> </strong></p>
+            <h5 align="justify"><br />
+              <font face="Arial">Dishwashers and Refrigerators</font></h5>
+            <p><font size="2" face="Arial">One major 
+              home appliance that is not found in all households and traditionally occurs 
+              more frequently in higher income households is a dishwasher. In Figure 
+              13, the percent of households with dishwashers increases from 18 percent 
+              for the lowest income level to 83 percent for the highest income level. While almost every household has a refrigerator, the differences are in 
+              the quantity, size, and if it has an ice/water dispenser. In Figure 14, 
+              the percent of housing units with two or more refrigerators increases 
+              from 6 percent to 31 percent as income level increases. Between 85 and 
+              90 percent of the housing units have either a medium size (15-18 cubic 
+              feet) or large size (19-22 cubic feet) refrigerator. For household incomes 
+              above $15,000, almost an inverse relationship between medium and large 
+              sizes occur. As income increases, the percent of households with large 
+              size refrigerators also increases. At the same time, the percent of households 
+              with medium size refrigerators decreases Figure 15). The percent of households 
+              that have refrigerators with an ice/water dispenser increases from 6 percent 
+          to 40 percent as the household income increases Figure 16).</font></p></td>
+        </tr>
+        <tr>
+          <td><p><font size="2" face="Arial"> <img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image013.gif" alt="Figure 13: Percent of Housing Units Having Dishwashers by Household Income" width="478" height="323" border="1" /></font></p>
+          <p>&nbsp;</p></td>
+        </tr>
+        <tr>
+          <td><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image014.gif" alt="Figure 14 Percent of Housing Units Having Two or More Refrigerators by Household Income" width="478" height="287" border="1" /></td>
+        </tr>
+        <tr>
+          <td><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image015.gif" alt="Figure 15: Percent of Housing Units Having Specific Size Refrigerators by Household Income" width="481" height="326" border="1" /></td>
+        </tr>
+        <tr>
+          <td><span class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image016.gif" alt="Figure 16: Percent of Housing Units Having an Ice/Water Dispenser on Refrigerators by Household Income" width="479" height="321" border="1" /></span></td>
+        </tr>
+        <tr>
+          <td><h5 align="justify"><font face="Arial"><br />
+          Separate Freezers</font></h5>
+          <p><font size="2" face="Arial">For 
+              households with separate freezers, the pattern does not follow income, 
+              but instead where the housing unit is located geographically by Census 
+              division and whether the housing unit is in a city, a town, a suburb, 
+              or in a rural area. A Census map is located at <a href="../../../../commercial/census-maps.cfm.html">http://www.eia.gov/consumption/commercial/census-maps.cfm</a> that shows the nine Census divisions and four Census regions clearly. In Figure 17, the percent of households that have a separate freezer is 
+              highest in the West North Central (48 percent) and in the East South Central 
+              Division (42 percent), and lowest in the New England and Pacific Divisions 
+              (23 percent). Housing units located in rural parts of the country have, 
+              by far, the highest percentage of housing units with separate freezers 
+          at 54 percent (Figure 18).</font></p>
+          <p><span class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image017.gif" alt="Figure 17: Percent of Housing Units Having a Separate Freezer by Census Division" width="488" height="324" border="1" /></span></p></td>
+        </tr>
+        <tr>
+          <td><font size="2" face="Arial"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image018.gif" alt="Figure 18: Percent of Housing Units Having a Separate Freezer by Housing Unit Location" width="482" height="305" border="1" /></font></td>
+        </tr>
+        <tr>
+          <td><h5 align="justify"><font face="Arial"><br />
+          Electric Coffee Makers</b></font></h5>
+          <p><font size="2" face="Arial">An appliance that one may 
+              intuitively think almost every household would have, or would have percentage 
+              equivalence across income levels would be the electric coffee maker. But surprisingly, it is not. Instead, the percentage increases with income 
+              level from 46 percent to 79 percent (Figure 19). The percent of housing units that use the electric coffee maker between 
+          one time per day to a few times per week is roughly equal across household types(Figure 20).</font></p>
+          <p><font size="2" face="Arial"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image019.gif" alt="Figure 19: Percent of Housing Units Having an Electric Coffee Maker by Household Income" width="481" height="323" border="1" /></font></p>
+          <p>&nbsp;</p>
+          <p><font size="2" face="Arial"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image020.gif" alt="Figure 20: Percent of Housing Units that Use the Electric Coffee Maker between One Time per Day and a Few Times per Week by Type of Household" width="480" height="322" border="1" /></font></p></td>
+        </tr>
+        <tr>
+          <td><h1 align="justify"><font size="2" face="Arial"><br />
+          Microwave Ovens</font></h1>
+          <p><font size="2" face="Arial">For microwave 
+              ovens (Figure 21), there are a high percentage of households (75 percent) 
+              that own a microwave in the lowest income level. The percentages gradually 
+              increase from 75 percent to 93 percent for the highest income level. In Figure 22, the percent that use a microwave for more than half of their 
+              cooking is highest in single-person households at 40 percent and lowest 
+          in couple only households at 23 percent.</font></p>
+          <p><font size="2" face="Arial"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image021.gif" alt="Figure 21: Percent of Housing Units Having a Microwave by Household Income" width="485" height="323" border="1" /></font></p>
+          <p>&nbsp;</p>
+          <p><span class="MsoNormal"><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image022.gif" alt="Figure 22: Percent of Housing Units for Microwave Usage by Type of Household" width="487" height="324" border="1" /></span></p></td>
+        </tr>
+        <tr>
+          <td><p><font size="2" face="Arial">The &quot;couple&quot; household has the highest percentage of types of households 
+            (76 percent) that use the conventional oven between once per day and once 
+            per week. The percentages are between 68 and 76 percent for all types 
+            of households except for <span style='color:black'>the</span> &quot;single-person&quot; 
+            household, which has only 48 percent <span style='color:black'>(Figure 
+              23).</span> The single-person household also has the lowest percentage 
+            of housing units that has between one and two hot meals per day cooked 
+            in their home (Figure 24) at 55 percent. Couples with others living with 
+            them have the highest at 73 percent. But the single-person household 
+            has the highest percentage of housing units that have a few hot meals 
+            per week cooked in their home at 27 percent. If both numbers in Figure 
+            24 are summed together, the lowest is the single-person at 82 percent 
+            and the highest is the couple at 91 percent. The single-person household 
+            is making hot meals, but just not as often. A possible explanation for 
+            this difference is the single-person household tends to go out to eat 
+          more often than other types of households.</font></p>
+          <p><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image023.gif" alt="Figure 23: Percent of Housing Units Whose Oven Usage is Between Once per Day and Once per Week by Type of Household" width="480" height="325" border="1" /></p>
+          <p>&nbsp;</p>
+          <p><strong><img src="https://www.eia.gov/consumption/residential/data/2001/appliances/image024.gif" alt="Figure 24: Percent of Housing Units Having Home Cooked Hot Meals by Type of Household" width="482" height="322" border="1" /></strong></p></td>
+        </tr>
+         <tr> <td width="562" bgcolor="#FFFFFF">
+           <p><font size="2" face="Arial, Helvetica, sans-serif">Contact:<br />
+             Mailto:<a href="mailto:James.Berry@eia.gov">James.Berry@eia.gov </a><br />
+             Phone: (202) 586-5543<br />
+             Fax: (202) 586-0018 </font></p>
+           <p><font size="2" face="Arial, Helvetica, sans-serif"> 
+             <script language="JavaScript" type="text/javascript"><!--
+document.write("Page last modified on " + document.lastModified);
+
+
+
+
+//-->
+
+
+
+
+            </script> 
+            </font><font size="2" face="Arial, Helvetica, sans-serif">If you have any technical 
+            problems with this site, please contact the EIA Webmaster at <a href="mailto:wmaster@eia.doe.gov">wmaster@eia.doe.gov </a>Phone: (202) 586-8959</font></p></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+    	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="addbar">
+						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../../../../../about/index.html">About EIA</a></h3>
+			<h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+			<h3><a href="../../../../../about/careers/index.html">Careers</a></h3>
+						<h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="https://www.eia.gov/petroleum/">Petroleum</a><br/>
+				<a href="https://www.eia.gov/coal/">Coal</a><br/>
+				<a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br/>
+				<a href="https://www.eia.gov/renewable/">Renewable</a><br/>
+				<a href="../../../../../nuclear/index.html">Nuclear</a><br/>
+				<a href="../../../../../electricity/index.html">Electricity</a><br/>
+				<a href="../../../../index.html">Consumption</a><br/>
+				<a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br/>
+				<a href="../../../../../environment.1.html">Environment</a><br/>
+				<a href="https://www.eia.gov/finance/">Markets & Finance</a><br/>
+				<a href="../../../../../todayinenergy/index.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../../../../state/index.html">States</a><br/>
+				<a href="../../../../../countries/index.html">Countries</a><br/>
+				<a href="https://www.eia.gov/maps/">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+				<a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+				<a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br/>
+				<a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br/>
+				<a href="../../../../../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+</div>
+</body>
+</html>

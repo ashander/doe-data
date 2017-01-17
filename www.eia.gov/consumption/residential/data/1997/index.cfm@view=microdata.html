@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/custom/search_landing_highlight.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>Residential Energy Consumption Survey (RECS) - Data - U.S. Energy Information Administration (EIA)</title>
+    </head>
+<body>
+<div id="outerX">
+  
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../energyexplained/index.html">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+      <script>
+	$(function(){
+		$('.dropdown').dd();
+	});
+	
+$(document).ready(function(){
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+<div class="title bg_residential"> 
+   
+  <a href="../../../../consumption.1.html">&#8249; Consumption &amp; Efficiency</a>
+  <h1 style="font-size:27px">
+    Residential Energy Consumption Survey (RECS)    
+  </h1>
+</div>
+<div class="subnav"> 
+   
+  <span class="right"><a href="../../../../tools/glossary/index.html@id=consumption.html">Glossary &rsaquo;</a> <a href="https://www.eia.gov/tools/faqs/">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="../../index.cfm.html">Overview</a></li>
+    <li class="dropdown active"><a href="../2009.html">Data</a></li>
+    <div class="dat_block">
+      <ul>
+        <li ><a href="../2009/index.html">2009</a></li>
+        <li><a href="../2005/index.html">2005</a></li>
+        <li><a href="../2001/index.html">2001</a></li>
+        <li><a href="index.html">1997</a></li>
+        <li><a href="../1993/index.html">1993</a></li>
+        <li><a href="../previous.cfm.html">Previous</a></li>
+              </ul>
+      
+    </div>
+        <li ><a href="../../reports.cfm.html">Analysis &amp; Projections</a></li>
+      </ul>
+</div>
+ 
+            <div class="pagecontent mr_temp2"> 
+                <div class="main_col">
+          <h1>1997 RECS Survey Data <span class="right"><b><a href="../2009/index.html" id="2009">2009</a> | <a href="../2005/index.html" id="2005">2005</a> | <a href="../2001/index.html" id="2001">2001</a> | <a href="index.html" id="1997">1997</a> | <a href="../1993/index.html" id="1993">1993</a> | <a href="../previous.cfm.html" id="Previous">Previous</a></b></span></h1>
+<script>
+$(document).ready(function(){
+	$('a#1997').replaceWith("1997");
+	});
+</script> 
+                     
+<div id="tab-container" class="no_print">
+      <ul>
+      <a href="https://www.eia.gov/consumption/residential/data/1997/index.cfm?view=characteristics">
+      <li class="tab-unselected">Housing characteristics</li>
+      </a> <a href="index.cfm@view=consumption.html">
+      <li class="tab-unselected">Consumption &amp; expenditures</li>
+      </a>
+      <li class="tab-selected">Microdata</li>
+            <a href="index.cfm@view=methodology.html">
+      <li class="tab-unselected">Methodology </li>
+      </a>
+          </ul>
+  </div>
+          <div class="tab-contentbox">
+                          <div id="microdata">
+                <p><strong>Choose which format you would prefer to download:</strong></p>
+<ul>
+  <li><a href="index.cfm@view=microdata.html#ascii">ASCII Format</a></li>
+  <li><a href="index.cfm@view=microdata.html#mdb">MDB Format</a></li>
+</ul>
+<h2><a name="ascii" id="ascii"></a>1997 PUBLIC USE DATA FILES (ASCII FORMAT)</h2>
+<h3>WHAT IS RECS?</h3>
+<p>The Residential Energy Consumption Survey (RECS) is a national sample survey of housing units. The survey collects statistical information on the consumption of and expenditures for energy in housing units along with data on energy-related characteristics of the housing units and occupants. The survey is restricted to housing units that are the primary residence of the occupants; the RECS does not cover vacant housing units, second homes, or vacation units. RECS is conducted by the Energy Information Administration of the U.S. Department of Energy. The RECS was conducted in 1978, 1979, 1980, 1981, 1982, 1984, 1987, 1990, 1993, and 1997. For the 1997 RECS, data were obtained for 5,900 housing units. Energy-related characteristics of the housing units and occupants are obtained in an on-site personal interview with the occupants. Energy consumption and expenditures information are obtained from the energy suppliers to the responding households during the Energy Suppliers Survey that follows the household personal interview.</p>
+<h3>WHAT ARE THE RECS PUBLIC USE FILES?</h3>
+<p>The 1997 RECS Public Use Files are microdata files that contain 5,900 records, representing housing units from the 50 States and the District of Columbia. Each record corresponds to a single responding, in-scope sampled housing unit and contains information for that unit about the size, year constructed, types of energy used, energy-using equipment, conservation features, energy consumption and expenditures (electricity, natural gas, fuel oil, kerosene, and LPG), and the amount of energy used for five end uses: space heating, air-conditioning, water heating, refrigeration, and other.</p>
+<h3>WHAT IS THE GEOGRAPHIC LEVEL OF DATA AVAILABLE?</h3>
+<p>RECS data are available for the four Census regions and nine Census divisions. State-level data are available for the four most populated States (California, Texas New York, and Florida).</p>
+<h3>WHAT IS THE FORMAT OF THE PUBLIC USE FILES?</h3>
+<p>The Public Use Files are constructed in two formats&mdash;ASCII and Microsoft <a href="index.cfm@view=microdata.html#downloads">ACCESS97</a>. Both formats contain the same detail of information, with the notable exception that the ACCESS97 database has replaced all alphanumeric coding with English labeling. In ASCII files all records are comma-delimited with fixed column positions. The creation of comma-delimited ASCII files enables use of EIA's public-use files by a wide spectrum of data users. However, EIA realizes that some users are well versed in the use and manipulation of common database systems. Unfortunately, EIA does not have the resources to provide public-use files in multiple database formats. However, EIA has created an ACCESS97 version of the 1997 RECS because of the internal use of the Microsoft ACCESS97 software. The continuation of multiple format releases is highly dependent upon the use and feedback from our data users. Let us <a href="mailto:Stephanie.Battles@eia.doe.gov">know</a> if you find the ACCESS97 file helpful.</p>
+<h3>HOW ARE THE PUBLIC USE FILES ORGANIZED?</h3>
+<p>Because of the size of the RECS database, the variables were grouped into 12 files by section of Household Questionnaire:</p>
+<ol>
+  <li>Section A: Housing Unit Characteristics</li>
+  <li>Section B: Kitchen Appliances</li>
+  <li>Section C: Other Appliances</li>
+  <li>Section D: Space heating</li>
+  <li>Section E: Water heating,<br>
+    Section F: Air conditioning,<br>
+    Section G: lights, doors, windows, and insulation</li>
+  <li>Section H: Fuels Used and Fuels Payment Method</li>
+  <li>Section I: Fuel Bill and Non-Residential Uses on Bill</li>
+  <li>Section J: Household Characteristics</li>
+  <li>Section K: Energy Assistance,<br>
+    Section L: EPA Energy Star Program</li>
+  <li>Characteristic of Energy Supplier Data</li>
+  <li>Energy Consumption</li>
+  <li>Energy Expenditures</li>
+</ol>
+<h3>VARIABLES ON EVERY FILE</h3>
+<p>Several variables are frequently used in the analysis of residential energy data. These include the type of housing unit, the geographic location of the unit, and weather data for the location of the unit. The nine variables on all 12 files are:</p>
+<ol>
+  <li>DOEID (unique housing unit identifier)</li>
+  <li>NWEIGHT (household weight)</li>
+  <li>MQRESULT (mail questionnaire identifier)</li>
+  <li>TYPEHUQ (type of housing unit)</li>
+  <li>REGIONC (Census region)</li>
+  <li>DIVISION (Census division)</li>
+  <li>LRGSTATE (indicator for California, Texas, New York, and Florida)</li>
+  <li>HDD65 (heating degree-days to 65 degrees for 1997)</li>
+  <li>CDD65 (cooling degree-days to 65 degrees for 1997)</li>
+</ol>
+<h3>HOW TO MERGE FILES</h3>
+<p>Each of these 12 files can be used by itself or be merged with other files. By merging files together, a new file can be created that contains, for each respondent, variables from two or more files. The variable DOEID can be used to link the files.</p>
+<h3>HOW TO USE WEIGHTS</h3>
+<p>The RECS sample was designed so that survey responses could be used to estimate characteristics of the national stock of occupied housing units. In order to arrive at national estimates from the RECS sample, base sampling weights for each housing unit, which were the reciprocal of the probability of that building being selected into the sample, were calculated. Therefore, a housing unit with a base weight of 10,000 represents itself and 9,999 similar, but unsampled housing units in the total stock of occupied residential housing units. The base weight is further adjusted to account for nonresponse bias. Finally, ratio adjustments were used to ensure that the RECS weights add up to Current Population Survey estimates of the number of households. The variable NWEIGHT in the data file is the final weight.</p>
+<dl>
+  <dt>EXAMPLE 1: SINGLE RESPONSE</dt>
+  <dd>The respondent with DOEID = 5198 has NWEIGHT = 8,064. Hence this respondent represents a total of 8,064 households. The respondent used 820 gallons (GALLONFO = 820) of fuel oil. Hence, the respondent contributed 820 times 8,064 = 6,600,000 gallons to the estimated national total fuel oil consumption.</dd>
+  <dt>EXAMPLE 2: USING NWEIGHT TO ESTIMATE NUMBER OF HOUSEHOLDS</dt>
+  <dd>There were 710, out of the 5,900 RECS respondents, that used fuel oil in their homes (USEFO = 1). Most, but not all, of these households use fuel oil for space heating. The sum of NWEIGHT over these 710 cases is 9,957,479. Hence, the estimated number of households that use fuel oil is 10,000,000.</dd>
+  <dt>EXAMPLE 3: USING NWEIGHT TO ESTIMATE PERCENTAGE OF HOUSEHOLDS</dt>
+  <dd>The sum of NWEIGHT over all 5,900 cases is 101,481,171. This is also an estimate of the total number of households as of July 1997. Hence, the estimated percent of households that use fuel oil (for any use in the home) is (9,957,479/101,481,171) times 100 equals 9.8 percent.</dd>
+  <dt>EXAMPLE 4: USING NWEIGHT TO ESTIMATE TOTAL CONSUMPTION</dt>
+  <dd>To estimate the total fuel oil consumption, multiply NWEIGHT times GALLONFO for the 710 cases where fuel oil is used in the home (USEFO = 1), then sum the product over the cases where USEFO = 1. The resulting estimate is 7,273,294,433 gallons. This should be rounded to 7.3 billion gallons or 7,273 million gallons.</dd>
+  <dt>EXAMPLE 5: USING NWEIGHT TO ESTIMATE AVERAGE CONSUMPTION</dt>
+  <dd>The sum of NWEIGHT over cases where USEFO =1 is 9,957,479. Hence the estimated average fuel oil consumption, in homes that use fuel oil, is 7,273,294,433/9,957,479 = 730 gallons.</dd>
+</dl>
+<h3>MAIL RESPONSES</h3>
+<p>If the field interviewers were not successful in obtaining a personal interview, a short mail questionnaire was mailed to the housing unit. Variables not on the mail questionnaire were then imputed for the housing unit using a hot deck procedure. There were 181 observations obtained via a mail questionnaire. These 181 records can be identified using the variable MQRESULT.</p>
+<h3>FUEL USAGE INDICATORS</h3>
+<p>The variables USEEL, USEFO, USEKERO, USELP, and USENG are indicator variables for the use electricity, fuel oil, kerosene, LPG, and natural gas in the housing unit. They are on three files. They were obtained using section H of the questionnaire and they are indicator variables that equal 1 if the households uses the corresponding fuel and 0 otherwise. In addition to being placed on the file with other section H data, they were also placed on the consumption data file and the expenditures data file.</p>
+<h3>HOW ARE THE VARIABLES THAT BEGIN WITH A Z DIFFERENT FROM THE NON-Z VARIABLES?</h3>
+<p>The "Z variables" are also referred to as "imputation flags." Imputation is a statistical procedure used to fill in missing values for respondents that are otherwise considered to be complete. Missing values for many, but not all, of the variables were imputed in 1997. The imputation flag indicates whether the corresponding non-Z variable was based upon reported data (Z variable = 0) or was imputed (Z variable = 1). There are no corresponding "Z variables" for variables from the RECS questionnaire that were not imputed, variables where there was no missing data, and variables that are not from the questionnaire. The missing data codes for the consumption and expenditure data are contained in the "Characteristics of Energy Supplier Data" file.</p>
+<h3>HOW IS THE SURVEY RESPONDENT'S CONFIDENTIALITY PROTECTED?</h3>
+<p>There are no respondent names and address on these files. EIA does not receive nor take possession of the names or addresses of individual respondents or any other individually identifiable energy data that could be specifically linked with a housing unit. Local geographic identifiers and National Oceanic and Atmospheric Administration Weather Division identifiers are not included on these data files.</p>
+<p>In addition, values for HDD65, CDD65, ELECRATE, and UGASRATE were altered slightly to mask the exact geographic location of the housing unit.</p>
+<h3>LlNKS TO EACH DATA FILE AND SUPPORTING DOCUMENTATION</h3>
+<p>For each data file, a codebook is provided (both files are in <strong>ASCII format</strong>). For files based upon the Household Questionnaire, the corresponding section of the questionnaire is provided (<strong>PDF format</strong>). <strong>To view and/or print PDF files (requires Adobe Acrobat Reader) <a href="http://www.adobe.com/acrobat/readstep.html"><strong><em>Download Adobe Acrobat Reader</em></strong></a> .</strong></p>
+<p><strong>Note: To DOWNLOAD</strong> one of the Text or PDF files below, click on the file of your choice to open it, then select <strong>FILE</strong> and <strong>SAVE AS</strong>, save file to your hard drive or a disk.</p>
+<table class="zebra" width="100%">
+  <thead>
+    <tr>
+      <th colspan="5" class="auto_open"><b>Microdata Files</b></th>
+    </tr>
+  </thead>
+  <tr class="white_first">
+    <td width="25%"><b>by Topic</b></td>
+    <td><b>Data Files</b></td>
+    <td><b>Codebooks</b></td>
+    <td><b>Questionnaire</b></td>
+    <td><b>Release Date</b></td>
+  </tr>
+  <tr>
+    <td><strong> File 1: </strong> Housing Unit Characteristics </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file1os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file1cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_b.pdf" class="ico_pdf">Section A</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 2:</strong> Kitchen Appliances </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file2os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file2cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_b.pdf" class="ico_pdf">Section B</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 3:</strong> Other Appliances </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file3os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file3cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_c.pdf" class="ico_pdf">Section C</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 4:</strong> Space Heating </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file4os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file4cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_d.pdf" class="ico_pdf">Section D</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 5:</strong> Water Heating, A/C, and Miscellaneous </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file5os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file5cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_e.pdf" class="ico_pdf">Sections E, F and G</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 6:</strong> Fuels Used and Fuel Payment </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file6os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file6cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_h.pdf" class="ico_pdf">Section H</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 7:</strong> Fuel Bills and Non-Residential Uses </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file7os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file7cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_i.pdf" class="ico_pdf">Section I</a></td>
+    <td>11/22/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 8:</strong> Household Characteristics </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file8os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file8cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_j.pdf" class="ico_pdf">Section J</a></td>
+    <td>12/20/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 9:</strong> Energy Assistance and Housing Unit Square Footage </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file9os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file9cdb.txt">TXT</a></td>
+    <td><a href="https://www.eia.gov/consumption/residential/data/1997/pdf/puquex_k.pdf" class="ico_pdf">Section K and L</a></td>
+    <td>12/20/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 10:</strong> Characteristics of Energy Supplier Data </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file10os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file10cdb.txt">TXT</a></td>
+    <td></td>
+    <td>12/20/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 11:</strong> Energy Consumption </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file11os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file11cdb.txt">TXT</a></td>
+    <td></td>
+    <td>12/20/2009</td>
+  </tr>
+  <tr>
+    <td><strong>File 12:</strong> Energy Expenditures </td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file12os.txt">TXT</a></td>
+    <td><a class="ico_csv" href="https://www.eia.gov/consumption/residential/data/1997/txt/file12cdb.txt">TXT</a></td>
+    <td></td>
+    <td>1/10/2000</td>
+  </tr>
+</table>
+
+<hr />
+<h2><a name="mdb" id="mdb"></a>1997 PUBLIC USE DATA FILES IN <a href="index.cfm@view=microdata.html#WHAT IS THE FORMAT OF THE PUBLIC USE FILES">ACCESS</a> MDB FORMAT</h2>
+<h3>WHAT IS RECS?</h3>
+<p>The Residential Energy Consumption Survey (RECS) is a national sample survey of housing units. The survey collects statistical information on the consumption of and expenditures for energy in housing units along with data on energy-related characteristics of the housing units and occupants. The survey is restricted to housing units that are the primary residence of the occupants; the RECS does not cover vacant housing units, second homes, or vacation units. RECS is conducted by the Energy Information Administration of the U.S. Department of Energy. The RECS was conducted in 1978, 1979, 1980, 1981, 1982, 1984, 1987, 1990, 1993, and 1997. For the 1997 RECS, data were obtained for 5,900 housing units. Energy-related characteristics of the housing units and occupants are obtained in an on-site personal interview with the occupants. Energy consumption and expenditures information are obtained from the energy suppliers to the responding households during the Energy Suppliers Survey that follows the household personal interview.</p>
+<h3>WHAT ARE THE RECS PUBLIC USE FILES?</h3>
+<p>The 1997 RECS Public Use Files are microdata files that contain 5,900 records, representing housing units from the 50 States and the District of Columbia. Each record corresponds to a single responding, in-scope sampled housing unit and contains information for that unit about the size, year constructed, types of energy used, energy-using equipment, conservation features, energy consumption and expenditures (electricity, natural gas, fuel oil, kerosene, and LPG), and the amount of energy used for five end uses: space heating, air-conditioning, water heating, refrigeration, and other.</p>
+<h3>WHAT IS THE GEOGRAPHIC LEVEL OF DATA AVAILABLE?</h3>
+<p>RECS data are available for the four Census regions and nine Census divisions. State-level data are available for the four most populated States (California, Texas New York, and Florida).</p>
+<h3><a name="WHAT IS THE FORMAT OF THE PUBLIC USE FILES">WHAT IS THE FORMAT OF THE PUBLIC USE FILES</a>?</h3>
+<p>The Public Use Files are constructed in two formats&mdash;ASCII and Microsoft ACCESS97. Both formats contain the same detail of information, with the notable exception that the ACCESS97 database has replaced all alphanumeric coding with English labeling. In ASCII files all records are comma-delimited with fixed column positions. The creation of comma-delimited ASCII files enables use of EIA's public-use files by a wide spectrum of data users. However, EIA realizes that some users are well versed in the use and manipulation of common database systems. Unfortunately, EIA does not have the resources to provide public-use files in multiple database formats. However, EIA has created an ACCESS97 version of the 1997 RECS because of the internal use of the Microsoft ACCESS97 software. <strong>The continuation of multiple format releases is highly dependent upon the use and feedback from our data users</strong>. Let us <a href="mailto:Chip.Berry@eia.gov">know</a> if you find the ACCESS97 file helpful. </p>
+<h3>HOW ARE THE PUBLIC USE ACCESS97 TABLES ORGANIZED?</h3>
+<p>Because of the size of the RECS database, the fieldnames (581 unique names) were grouped into 26 tables by logical relationships within the RECS questionnaire:</p>
+<ol>
+  <li>Air Conditioning Characteristics &ndash;</li>
+  <li>Auxiliary Fuels Used &ndash;</li>
+  <li>Bottled Gas Usage Characteristics &ndash;</li>
+  <li>Electricity Usage Characteristics &ndash;</li>
+  <li>Energy Assistance</li>
+  <li>Energy Labels</li>
+  <li>Final Sample Weights</li>
+  <li>Fuel Billing Dates</li>
+  <li>Fuel Oil Usage Characteristics &ndash;</li>
+  <li>Household Characteristics</li>
+  <li>Housing Structure</li>
+  <li>Imputation Flags</li>
+  <li>Interviewer Observations</li>
+  <li>Kerosene Usage Characteristics &ndash;</li>
+  <li>Kitchen Appliances</li>
+  <li>Lights Windows and Insulation</li>
+  <li>Location and Weather</li>
+  <li>Natural Gas Usage Characteristics &ndash;</li>
+  <li>Other Appliances</li>
+  <li>Other Usage Characteristics</li>
+  <li>Solar Usage Characteristics &ndash;</li>
+  <li>Space Heating</li>
+  <li>Survey Management</li>
+  <li>Water Heating</li>
+  <li>Wood Usage Characteristics &ndash;</li>
+  <li>Pub Use Xwalk</li>
+</ol>
+<p>Because we have renamed and reorganized the public use files into two formats, the historical user of RECS data may require further documentation on how the two formats link. The table named <em>Pub Use Xwalk</em> in the ACCESS97 file provides such linking; however, a detailed <a href="index.cfm@view=microdata.html#pufn">listing</a> has been made available. <strong>Note</strong>: A "&ndash;" sign following a table name (i.e., a suffix) denotes a table with a record number of less than 5,900 housing units. A subset of the records are presented because the eliminated records are not applicable for the table. For example, <strong>only</strong> households that use the fuel kerosene are include in the<em>Kerosene Usage Characteristics</em> table. Such modifications minimize the size of the ACCESS97 file while maintaining the analytical content of the RECS data. Field values that are blank are considered not applicable for that field name. Iin the case where a second refrigerator is not applicable to the household, for example, blank values have been place into the corresponding second refrigerator field name values.</p>
+<h3>FIELDNAMES and PRIMARY KEYS</h3>
+<p>Only one fieldname is common to each table: <em>EIAEIAIDNum</em>. This primary key fieldname represents the <em>unique 4-digit identification number</em> that EIA uses to identify a household record. Every attempt has been made to ensure an easy transition to the use of an ACCESS97-based public use file. Fieldnames have been renamed in "English" to guide the data user. In addition, captions for all fieldnames are available in the ACCESS97 file. These captions represent a 40-character definition of the fieldname. If this guidance is not sufficient for your data needs, then it is suggested that you employ the ASCII version of the public use files, along with the specified codebooks.</p>
+<h3>HOW TO USE WEIGHTS</h3>
+<p>The RECS sample was designed so that survey responses could be used to estimate characteristics of the national stock of occupied housing units. In order to arrive at national estimates from the RECS sample, base sampling weights for each housing unit, which were the reciprocal of the probability of that building being selected into the sample, were calculated. Therefore, a housing unit with a base weight of 10,000 represents itself and 9,999 similar, but unsampled housing units in the total stock of occupied residential housing units. The base weight is further adjusted to account for nonresponse bias. Finally, ratio adjustments were used to ensure that the RECS weights add up to Current Population Survey estimates of the number of households. The fieldname <em>FinalWeight</em> in the data file is the final weight.</p>
+<dl>
+  <dt>EXAMPLE 1: SINGLE RESPONSE</dt>
+  <dd>The respondent with <em>EIAEIAIDNum</em> = 5198 has FinalWeight = 8,064. Hence this respondent represents a total of 8,064 households. The respondent used 820 gallons (<em>EstFOPurGal</em> = 820) of fuel oil. Hence, the respondent contributed 820 times 8,064 = 6,600,000 gallons to the estimated national total fuel oil consumption.</dd>
+  <dt>EXAMPLE 2: USING <em>FinalWeight</em> TO ESTIMATE NUMBER OF HOUSEHOLDS</dt>
+  <dd>There were 710, out of the 5,900 RECS respondents, that used fuel oil in their homes (<em>UseFOinHome</em> = Yes). Most, but not all, of these households use fuel oil for space heating. The sum of <em>FinalWeight</em>over these 710 cases is 9,957,479. Hence, the estimated number of households that use fuel oil is 10,000,000.</dd>
+  <dt>EXAMPLE 3: USING <em>FinalWeight</em> TO ESTIMATE PERCENTAGE OF HOUSEHOLDS</dt>
+  <dd>The sum of <em>FinalWeight</em> over all 5,900 cases is 101,481,171. This is also an estimate of the total number of households as of July 1997. Hence, the estimated percent of households that use fuel oil (for any use in the home) is (9,957,479/101,481,171) times 100 equals 9.8 percent.</dd>
+  <dt>EXAMPLE 4: USING <em>FinalWeight</em> TO ESTIMATE TOTAL CONSUMPTION</dt>
+  <dd>To estimate the total fuel oil consumption, multiply <em>FinalWeight</em> times <em>EstFOPurGal</em> for the 710 cases where fuel oil is used in the home (<em>UseFOinHome</em> = 1), then sum the product over the cases where<em>UseFOinHome</em> = Yes. The resulting estimate is 7,273,294,433 gallons. This should be rounded to 7.3 billion gallons or 7,273 million gallons.</dd>
+  <dt>EXAMPLE 5: USING <em>FinalWeight</em> TO ESTIMATE AVERAGE CONSUMPTION</dt>
+  <dd>The sum of <em>FinalWeight</em> over cases where <em>UseFOinHome</em> = Yes is 9,957,479. Hence the estimated average fuel oil consumption, in homes that use fuel oil, is 7,273,294,433/9,957,479 = 730 gallons.</dd>
+</dl>
+<h3>MAIL RESPONSES</h3>
+<p>If the field interviewers were not successful in obtaining a personal interview, a short mail questionnaire was mailed to the housing unit. Fieldnames not on the mail questionnaire were then imputed for the housing unit using a hot deck procedure. There were 181 observations obtained via a mail questionnaire. These 181 records can be identified using the fieldname <em>MailCodes</em>.</p>
+<h3>FUEL USAGE INDICATORS</h3>
+<p>The fieldnames <em>UseELinHome</em>, <em>UseFOinHome</em>, <em>UseKeroinHome</em>, <em>UseLPGinHome</em>, and <em>UseUgasinHome</em> are indicator variables for the use electricity, fuel oil, kerosene, LPG, and natural gas in the housing unit. They are on three files. They were obtained using section H of the questionnaire and they are indicator variables that equal <strong>Yes</strong> if the households uses the corresponding fuel and <strong>No</strong> otherwise. These indicator values are used to remove the household records from the ACCESS97 file. <strong>Note</strong>: A "&ndash;" sign following a table name (i.e., a suffix) denotes a table with a record number of less than 5,900 housing units. A subset of the records are presented because the eliminated records are not applicable for the table. For example, <strong>only</strong> households that use the fuel kerosene are include in the <em>Kerosene Usage Characteristics</em>table. Such modifications minimize the size of the ACCESS97 file while maintaining the analytical content of the RECS data. Field values tha are blank are considered not applicable for that field name. Iin the case where a second refrigerator is not applicable to the household, for example, blank values have been place into the corresponding second refrigerator field name values.</p>
+<h3>HOW ARE THE FIELDNAMES THAT BEGIN WITH A <em>FlagforZ</em> DIFFERENT FROM THE NON-<em>FlagforZ</em> VARIABLES?</h3>
+<p>The "<em>FlagforZ</em> fieldnames" are also referred to as "imputation flags." Imputation is a statistical procedure used to fill in missing values for respondents that are otherwise considered to be complete. Missing values for many, but not all, of the fieldnames were imputed in 1997. The imputation flag indicates whether the corresponding non-Z fieldname was based upon reported data (<em>FlagforZ</em> fieldname = No) or was imputed (<em>FlagforZ</em> fieldname = Yes). There are no corresponding "Z fieldnames" for fieldnames from the RECS questionnaire that were not imputed, fieldnames where there was no missing data, and fieldnames that are not from the questionnaire.</p>
+<h3>HOW IS THE SURVEY RESPONDENT'S CONFIDENTIALITY PROTECTED?</h3>
+<p>There are no respondent names and address on these files. EIA does not receive nor take possession of the names or addresses of individual respondents or any other individually identifiable energy data that could be specifically linked with a housing unit. Local geographic identifiers and National Oceanic and Atmospheric Administration Weather Division identifiers are not included on these data files.</p>
+<p>In addition, values for <em>HDDtobase651-97to12-97</em>, <em>CDDtobase651-97to12-97</em>, <em>ELRatelocal</em>, and <em>UgasRate</em> were altered slightly to mask the exact geographic location of the housing unit.</p>
+<a name="downloads"></a>
+<table width="100%"class="zebra">
+  <thead>
+    <tr>
+      <th><strong>DOWNLOAD THE ACCESS OFFICE 97 OR OFFICE 2000 FILES</strong></th>
+    </tr>
+  </thead>
+  <tr>
+    <td><strong><a href="https://www.eia.gov/consumption/residential/data/1997/zip/recs97.zip" class="ico_zip">Zipped ACCESS97 File (5 Megs)</a></strong></td>
+  </tr>
+  <tr>
+    <td><strong><a href="https://www.eia.gov/consumption/residential/data/1997/zip/recs97_converted.zip" class="ico_zip">Zipped ACCESS 2000 File (5 Megs)</a></strong></td>
+  </tr>
+</table>
+                <hr>
+<p>Specific questions on this product may be directed to:</p>
+<blockquote>
+  <p>Chip Berry<br />
+  <a href="mailto:James.Berry@eia.gov">James.Berry@eia.gov</a><br />
+    RECS Survey Manager<br />
+    Phone: (202) 586-5543<br />
+    Fax: (202) 586-0018<br />
+  </p>
+</blockquote>
+
+              </div>
+                      </div>
+                  </div>
+         
+                <div class="side_col right">
+           <span class="grey_side green_top">
+  <p><a href="../../about.cfm.html">About the RECS</a></p>
+  <p><a href="https://www.eia.gov/survey/#eia-457">RECS Survey Forms</a></p>
+  <p><a href="https://www.eia.gov/consumption/residential/maps.cfm">RECS Maps</a></p>
+  <p><a href="../../terminology.cfm.html">RECS Terminology</a></p>
+  <p class="no-border"><a href="../archive/index.html">Archived Reports</a></p></span>
+
+<div class="clear"></div>
+
+   
+ <span class="blue_side">
+  <h4 class="q_side"><a href="../../reports/2015/home-selected.cfm.html">Has your home been selected for the RECS?</a></h4>
+    </span> 
+ 
+  <span class="grey_side blue_top">
+  <h4>State fact sheets</h4>
+  
+  <a href="../../reports/2009/state_briefs/index.html"><img src= "../../../images/images_recs/state-promo.jpg" alt="Arizona household graph" height="85" border="0" /></a><p><a href="../../reports/2009/state_briefs/index.html">See state fact sheets &rsaquo;</a> </p> </span>
+
+        <span class="grey_side blue_top">
+    <h4>2009 RECS Features</h4>
+    <p><a href="../../../../todayinenergy/detail.cfm@id=10271.html">Heating and cooling no longer majority of U.S. home energy use</a><br />
+      <em>March 7, 2013</em>
+    <p><a href="../../../../todayinenergy/detail.cfm@id=9951.html">Newer U.S. homes are 30% larger but consume about as much energy as older homes</a><br />
+      <em>February 12, 2013</em> </p>
+    <p><a href="../../reports/2009/methodology-square-footage.cfm.html">Where does RECS square footage data come from?</a><br />
+      <em>July 11, 2012</em>
+    <p><a href="../../reports/2009/consumption-down.cfm.html">RECS data show decreased energy consumption per household</a><br />
+      <em>June 6, 2012</em>
+    <p><a href="../../reports/2009/square-footage.cfm.html">The impact of increasing home size on energy demand</a><br />
+      <em>April 19, 2012</em>
+    <p><a href="../../reports/2009/air-conditioning.cfm.html">Did you know that air conditioning is in nearly 100 million U.S. homes?</a><br />
+      <em>August 19, 2011</em> </p>
+        <p class="no-border"><strong><a href="../../reports.cfm.html">See more ></a></strong></p>
+    </span>
+    
+ <span class="dblue_side_top blue_top ">
+  <a href="../../../../todayinenergy/index.html"><img src="https://www.eia.gov/global/images/sprites/tie_w_title.png"/></a>
+</span>
+<span class="white_box">
+  <div id="eiatie">
+    <a href="../../../../todayinenergy/detail.cfm@id=29112.html"></a>
+  <p><strong><a href="../../../../todayinenergy/detail.cfm@id=29112.html">Winter residential electricity consumption expected to increase from last winter</a></strong><br />
+    <em>December 12, 2016</em></p>
+
+<p><strong><a href="../../../../todayinenergy/detail.cfm@id=29012.html">Thanksgiving holiday causes unique electricity usage patterns across the country</a></strong><br />
+<em>December 5, 2016</em> </p>
+<p><strong><a href="../../../../todayinenergy/detail.cfm@id=28812.html">Residential heating oil and propane prices at levels similar to last winter’s low prices</a></strong><br />
+<em>November 17, 2016</em> </p>
+<p class="no_btm_border"><a href="../../../../todayinenergy/index.cfm@tg=residential.html"><b>All 74 related articles &rsaquo;</b></a></p>
+  </div>
+</span>
+<br />
+
+
+   
+  <span class="grey_side blue_top">
+  <h4>Other End Use Surveys</h4>
+  <p><a href="https://www.eia.gov/consumption/commercial/">Commercial Buildings - CBECS</a></p>
+  <p><a href="https://www.eia.gov/consumption/manufacturing/">Manufacturing - MECS</a> </p>
+  <p class="no-border"><a href="../../../../emeu/rtecs/contents.html">Transportation</a></p>
+  </span> 
+   
+        </div>
+         
+      </div>
+            	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
+						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
+						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
+					</p>
+				</form>
+			</div>
+		</div>
+		<div id="addbar">
+						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../../../../about/index.html">About EIA</a></h3>
+			<h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+			<h3><a href="../../../../about/careers/index.html">Careers</a></h3>
+						<h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="https://www.eia.gov/petroleum/">Petroleum</a><br/>
+				<a href="https://www.eia.gov/coal/">Coal</a><br/>
+				<a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br/>
+				<a href="https://www.eia.gov/renewable/">Renewable</a><br/>
+				<a href="../../../../nuclear/index.html">Nuclear</a><br/>
+				<a href="../../../../electricity/index.html">Electricity</a><br/>
+				<a href="../../../index.html">Consumption</a><br/>
+				<a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br/>
+				<a href="../../../../environment.1.html">Environment</a><br/>
+				<a href="https://www.eia.gov/finance/">Markets & Finance</a><br/>
+				<a href="../../../../todayinenergy/index.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../../../state/index.html">States</a><br/>
+				<a href="../../../../countries/index.html">Countries</a><br/>
+				<a href="https://www.eia.gov/maps/">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+				<a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+				<a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br/>
+				<a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br/>
+				<a href="../../../../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+</div>
+ 
+<script type="text/javascript">
+$(document).ready(function() {
+		$('a.hidden_link').fancybox({
+			//maxWidth	: 633,
+			//maxHeight	: 600,
+			//fitToView	: false,
+			//width: '633px',
+			//height: '70%',
+			//autoSize: false,
+			//closeClick	: false,
+			//openEffect	: 'none',
+			//closeEffect	: 'none'
+			})
+		});
+		$('.hidden div').append('<p><strong>Source:</strong> 1997 Residential Energy Consumption Survey.</p><p><a href="javascript:$.fancybox.close();">Close</a></p>')
+		$('.hidden div img').css('border', '1px solid #000')
+		$('.hidden div').css('width', '640px')
+</script>
+</body>
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/custom/search_landing_highlight.js"></script>
+	<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>Residential Energy Consumption Survey (RECS) - Data - U.S. Energy Information Administration (EIA)</title>
+    </head>
+<body>
+<div id="outerX">
+  
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../electricity/index.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../index.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../outlooks/steo/index.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../outlooks/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../state/index.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../energyexplained/index.html">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col9">
+              <h3><a href="../../../../energy_in_brief/index.html">Energy in Brief</a></h3>
+				<p class="no-border global_menu_col10"><a href="https://www.eia.gov/energy_in_brief/article/renewable_electricity.cfm">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
+				<a href="https://www.eia.gov/energy_in_brief/article/shale_in_the_united_states.cfm">Shale in the United States&nbsp;&rsaquo;</a></p>
+				<p class="no-border global_menu_col10"><a href="../../../../energy_in_brief/article/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
+				<a href="../../../../energy_in_brief/article/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+      <script>
+	$(function(){
+		$('.dropdown').dd();
+	});
+	
+$(document).ready(function(){
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+<div class="title bg_residential"> 
+   
+  <a href="../../../../consumption.1.html">&#8249; Consumption &amp; Efficiency</a>
+  <h1 style="font-size:27px">
+    Residential Energy Consumption Survey (RECS)    
+  </h1>
+</div>
+<div class="subnav"> 
+   
+  <span class="right"><a href="../../../../tools/glossary/index.html@id=consumption.html">Glossary &rsaquo;</a> <a href="https://www.eia.gov/tools/faqs/">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="../../index.cfm.html">Overview</a></li>
+    <li class="dropdown active"><a href="../2009.html">Data</a></li>
+    <div class="dat_block">
+      <ul>
+        <li ><a href="../2009/index.html">2009</a></li>
+        <li><a href="../2005/index.html">2005</a></li>
+        <li><a href="../2001/index.html">2001</a></li>
+        <li><a href="index.html">1997</a></li>
+        <li><a href="../1993/index.html">1993</a></li>
+        <li><a href="../previous.cfm.html">Previous</a></li>
+              </ul>
+      
+    </div>
+        <li ><a href="../../reports.cfm.html">Analysis &amp; Projections</a></li>
+      </ul>
+</div>
+ 
+            <div class="pagecontent mr_temp2"> 
+                <div class="main_col">
+          <h1>1997 RECS Survey Data <span class="right"><b><a href="../2009/index.html" id="2009">2009</a> | <a href="../2005/index.html" id="2005">2005</a> | <a href="../2001/index.html" id="2001">2001</a> | <a href="index.html" id="1997">1997</a> | <a href="../1993/index.html" id="1993">1993</a> | <a href="../previous.cfm.html" id="Previous">Previous</a></b></span></h1>
+<script>
+$(document).ready(function(){
+	$('a#1997').replaceWith("1997");
+	});
+</script> 
+                     
+<div id="tab-container" class="no_print">
+      <ul>
+      <a href="https://www.eia.gov/consumption/residential/data/1997/index.cfm?view=characteristics">
+      <li class="tab-unselected">Housing characteristics</li>
+      </a> <a href="index.cfm@view=consumption.html">
+      <li class="tab-unselected">Consumption &amp; expenditures</li>
+      </a> <a href="index.cfm@view=microdata.html">
+      <li class="tab-unselected">Microdata</li>
+      </a>
+      <li class="tab-selected">Methodology</li>
+    </ul>
+    </div>
+          <div class="tab-contentbox">
+                          <div id="methodology">
+                <p><strong>Jump Menu</strong></p>
+<ul>
+  <li><a href="index.cfm@view=methodology.html#methodology_jump">Methodology</a></li>
+  <li><a href="index.cfm@view=methodology.html#data-quality">Data Quality</a></li>
+</ul>
+<h2><a name="methodology_jump" id="methodology_jump"></a>1997 Survey Methods</h2>
+<p>The Residential Energy Consumption Survey (RECS) was designed by the Energy Information Administration (EIA) to provide information about energy consumption within the residential sector. The RECS is conducted in two major parts: the Household Survey and the Energy Suppliers Survey. The Household Survey collects information about the housing unit through personal interviews with a representative national sample of households. The Rental-Agent Survey is an adjunct to the Household Survey and is used to verify information provided by renters in the Household Survey. In the Energy Suppliers Survey, data concerning actual energy consumption are obtained from household billing records maintained by the energy suppliers. The data are collected by questionnaires mailed to all the suppliers for the households in the Household Survey. This electronic report is based on the results of the Household Survey. A later report, Household Energy Consumption and Expenditures 1997, will present the results of the Energy Suppliers Survey. A subcontractor to EIA was used to collect and process the 1997 RECS. Click for copies of the data collection forms for the <a href="http://www.eia.gov/emeu/recs/recs97/97forma.pdf">Household Survey</a> and the adjunct <a href="http://www.eia.gov/emeu/recs/recs97/97formc.pdf">Rental-Agent Survey</a>.</p>
+<p>This appendix contains detailed information about the sample design, Household Survey, its adjunct Rental Agent Survey, and confidentiality of the survey information.</p>
+<h4 align="center">Sample Design</h4>
+<p>The sample design for the 1997 RECS was based on the design used for the 1993 RECS. The universe for this sample design includes all housing units occupied as the primary residence in the 50 States and the District of Columbia. The RECS does not cover vacant housing units, seasonal units, nor second homes. Households on military installations are included. The definition of <em>household</em> is the same as that used by the U. S. Bureau of the Census. In RECS, by definition, the number of households is the same as the number of occupied primary housing units and these terms are used interchangeably. The universe was estimated to contain 101,481,000 households based on extrapolations from Current Population Survey (CPS) estimates at the time of the 1997 RECS (July 1997). This definition excludes group quarters such as military barracks, dormitories, and nursing homes, which are considered to be out-of-scope. It should be noted that the separation time between the estimates for 1993 and 1997 was 4 years, instead of the 2-2/3 years between the 1990 and 1993 estimates. Estimates of annual change need to take this difference into account.</p>
+<p>The overall plan for the 1997 RECS included a basic sample of approximately 5,000 completed household interviews, plus a supplemental sample totaling approximately 800 completed interviews. The basic sample was designed to represent the total population of households in the United States, with specified levels of precision for each of the nine geographically defined Census divisions. The supplemental sample, included in the plan to meet special analytical needs, was designed to provide disproportionately large samples of households living below the poverty level, particularly those using electricity, fuel oil, or kerosene as the main space-heating fuel.</p>
+<h4 align="center">Multistage Area Probability Sample</h4>
+<p>In a multistage area probability sample design, the universe is broken up into successively smaller, statistically selected areas. The process starts with the selection of primary sampling units (PSUs) and ends with the selection of individual households.</p>
+<h5 align="left">Primary Sampling Units (PSUs)</h5>
+<p>PSUs are either metropolitan areas containing a central city of 50,000 or larger population, or they are counties or groups of counties containing small cities and rural areas. In the sample design used for the 1997 RECS, the total land area of the 50 States and the District of Columbia was divided into 1,786 PSUs. These PSUs were based on county and independent city boundaries and on Metropolitan Statistical Areas (MSAs) as defined in June 1990.</p>
+<p>The primary mode of stratification of PSUs was by the nine Census divisions. Strata were separately defined within Census divisions for four populous States (California, Florida, New York, and Texas) and for two States with unique weather conditions (Alaska and Hawaii). Stratification was also based on MSA or nonMSA status of PSUs and, to the extent feasible, on dominant residential space-heating fuel and weather conditions. PSUs were grouped into 116 strata with one PSU selected from each strata. The PSUs that were selected for the 1993 RECS were also used for the 1997 RECS.</p>
+<h5 align="left">Secondary Sampling Units (SSUs)</h5>
+<p>A number of SSUs, usually eight or more, were selected in each PSU. SSUs consisted of one or more Census blocks, selected directly from Census statistics. Blocks were combined, as necessary, to create SSUs that contained at least 50 housing units.</p>
+<p>The 1997 RECS sample design completed the redesign effort that started with the 1993 RECS. The SSUs used for the 1997 RECS were either the SSUs selected in the redesign effort or were SSUs selected as part of a new construction update procedure.</p>
+<p>The starting point for the SSU new construction update procedure was the set of SSUs selected for the 1993 RECS. The first step was to expand the 1993 SSUs. A new construction update procedure was used to determine if significant new construction--defined as groups of 50 or more housing units--had occurred within the expanded SSUs since 1993. This was based on a canvass, primarily by telephone, of local sources of information, such as building-permit-issuing agencies, zoning boards, and tax offices. If no significant new construction had occurred, the SSU selected for the 1993 RECS was used for the 1997 RECS. If significant new construction had occurred, rough counts of the number of housing units by block were obtained for the expanded SSU, the expanded SSU was divided into segments, and a segment was selected. The selected segment was then used as the SSU for the 1997 RECS.</p>
+<p>The detailed field listings of all housing units in the 1997 RECS SSUs were either carried over from the 1993 RECS or were created by field workers who visited the SSUs and identified each housing unit by street address, apartment number, or other obvious features. New field listings were necessary for SSUs in PSUs where the redesign effort was not completed for the 1993 RECS and for SSUs where significant new construction was found in the corresponding expanded SSU. A penultimate cluster of approximately 50 housing units was selected from each SSU.</p>
+<p align="left">Addresses of these housing units were placed in a database used for actual sample selection.</p>
+<h5 align="left">Sample Selection--Ultimate Clusters</h5>
+<p>Specific addresses chosen from each of the field listings comprised the ultimate clusters of the 1997 RECS sample. An ultimate cluster of housing units to be contacted for interview (averaging 5.6 housing units for the 1997 RECS) was randomly selected by computer from the penultimate cluster; these housing units constituted the assignments given to interviewers.</p>
+<h5 align="left">Population of Special Interest</h5>
+<p>The 1997 survey featured a supplemental sample of low-income households designed to be merged with the main RECS sample and to meet special analytical needs of the Office of Family Assistance, Family Support Administration (FSA), U.S. Department of Health and Human Services. The FSA is interested in households living below the poverty level.</p>
+<p>Procedures for over-sampling this population were based on interviewer observations during the field listing of SSUs. Interviewers were instructed to rate the general income level of each block in the listing segment based on their observations and their general knowledge of the area. Interviewers placed each listing segment into one of four groups: Wealthy (highest 25 percent); Upper-Middle Class (second quartile); Lower-Middle Class (third quartile); or Poor or Near Poor (lowest 25 percent). Whenever possible, interviewers also recorded main heating fuel for each listing segment. Households in the Lower-Middle Class and Poor or Near Poor categories were sampled at a higher rate.</p>
+<p>It is not possible to divide the sample into the main sample and supplemental sample, but it is possible to estimate how many observations of various types were added as a result of the supplemental low-income sample.</p>
+<p>An estimated 808 interviews were completed in the households selected as part of the low-income supplement. Some 31.8 percent of completed interviews in the supplemental sample were with households living below the poverty level, compared with 14.5 percent of completed interviews in the main sample. The number of households below the Low-Income Home Energy Assistance Program (LIHEAP) level were 57.3 percent of the supplemental sample and 34.1 percent of the main sample.</p>
+<h4>Household Survey</h4>
+<p>A complete RECS interview consists of data for a completed household questionnaire and a signed Authorization Form. The large majority of interviews were completed via a Computer Assisted Personal Interviewing (CAPI) system. The survey instrument was programmed by EIA personnel using the BLAISE software system. The paper version of the survey instrument can be found in Form EIA-457A, &quot;Household Questionnaire.&quot; Because of early technical problems, some of the initial interviews had to be completed using the paper version of the questionnaire. At the end of each interview, the household respondent was asked to sign an Authorization Form. The signed Authorization Form gave permission for EIA's subcontractor to obtain the housing unit's energy bills from each supplier of energy.</p>
+<p>A total of 8,310 housing units were selected to participate in the 1997 RECS. Of these 8,310 households, 7,285 were determined to be eligible to participate. Completed interviews were obtained for 5,902 (81.0 percent) of these eligible households. This section describes the procedures involved in collecting the completed interviews.</p>
+<h4>Conducting the Interviews</h4>
+<h5 align="left">Interviewer Training</h5>
+<p>In April 1997, two separate three-day training sessions were held in Washington, DC. These sessions were attended by approximately 220 interviewers. Each session was led by a group of trainers who had attended a four-day trainers' workshop in Rockville, MD. All training sessions were monitored by Department of Energy staff.</p>
+<h5 align="left">The Interviewers</h5>
+<p>A total of 214 interviewers completed one or more personal interviews for this study. Seventy-five interviewers (35 percent) had completed interviews during a prior RECS. The remainder were conducting their first RECS but had prior interviewing experience, either with other survey research organizations or with the U.S. Bureau of the Census.</p>
+<p>Interviewers conducted an average of 27 interviews. Four interviewers completed fewer than seven interviews each, with an average of three per interviewer. Fifteen interviewers completed 50 or more interviews each, with an average of 58 per interviewer. Twenty percent of the personal interviews were verified by telephone or mail to ensure that interviews were conducted as intended.</p>
+<h5 align="left">The Interview</h5>
+<p>Household interviews were conducted with the householder or the householder's spouse and, on average, lasted 29 minutes; nearly 80 percent of the interviews lasted between 15 and 45 minutes. The questions covered energy-related features of the household, such as the type of heating and cooling systems, the fuels used for heating and cooling, household appliances and their usage, the receipt of government assistance for the cost of heating, and demographic data on household members.</p>
+<h5 align="left">Data Collection Dates</h5>
+<p>Approximately three-quarters of the personal interviews were completed between the middle of April and the middle of June 1997. Ninety-nine percent of the entire sample was completed by mid-August. In a few sample locations with low response rates, interviewing continued through August. In late August, an abbreviated, self-administered version of the household questionnaire was mailed to 1,421 sample households who still had not completed a personal interview. A total of 181 usable mail questionnaires were returned by the end of September 1997. A mail questionnaire was considered usable if the respondent had completed the majority of the questionnaire and the Authorization Form was signed. A follow-up contact was made with all respondents who completed a personal interview and reported paying for at least one fuel but did not complete an authorization form. Attempts were made to secure signed authorization forms from approximately 570 respondents. This follow-up continued through January 1998 and resulted in an additional 95 signed authorization forms.</p>
+<h5 align="left">Data Collection Procedures</h5>
+<p>In an effort to minimize nonresponse and, therefore, maximize the validity of the survey data, a multiwave, multicontact approach was employed. Before the initial personal contacts, a letter stressing the purpose and importance of the survey was sent to each household with a street address. Beginning in April 1997, interviewers made several callbacks at different times of the day, throughout the week, in an effort to minimize the number of uncontacted households. The interviewers also queried neighbors regarding the most opportune times to contact the prospective respondent.</p>
+<p>After initial attempts to complete interviews at the selected housing units were exhausted, field supervisors determined which cases would be reassigned to another interviewer. Types of noninterview households that were reassigned included cases where the householder refused to participate and cases where the householder was not available or not at home. Types of noninterview households that were not reassigned included cases where the householder would be unable to complete an interview during the field period due to absence or illness and cases where the household had moved after the initial contact. Reassignments continued throughout the field period.</p>
+<p>Mail follow-up attempts were made at households that had not completed a personal interview. An abbreviated, self-administered version of the questionnaire was mailed to these households with a letter asking that they return the completed questionnaire in the business reply envelope provided. The mailing also included a copy of the Authorization Form for the respondents to fill out and sign. A pen was included with the mailing as an incentive.</p>
+<p>After all data collection attempts (both personal interview and the mailed questionnaire), 1,383 households or 19.0 percent of all eligible housing units had not responded.</p>
+<p align="left">Table A1 provides a summary of the data collection activities.</p>
+<dir><dir>
+<p><strong>Table A1. Data Collection Response Summary for the 1997 RECS</strong></p>
+</dir></dir>
+<center>
+  <table class="zebra" width="100%">
+    <thead>
+      <tr>
+        <th><strong>Units</strong></th>
+        <th><strong>Mathematical Operand</strong></th>
+        <th><strong>Subtotals</strong></th>
+        <th><strong>Totals</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Selected Sample Units</strong></td>
+        <td></td>
+        <td></td>
+        <td>8,310</td>
+      </tr>
+      <tr>
+        <td><strong>Out-of-Scope Units</strong></td>
+        <td>minus (-)</td>
+        <td></td>
+        <td>135</td>
+      </tr>
+      <tr>
+        <td><strong>Housing Units</strong></td>
+        <td>equals (=)</td>
+        <td></td>
+        <td>8,175</td>
+      </tr>
+      <tr>
+        <td><strong>Ineligible Units</strong></td>
+        <td>minus (-)</td>
+        <td></td>
+        <td>890</td>
+      </tr>
+      <tr>
+        <td><strong>Eligible Units (or number contacted)</strong></td>
+        <td>equals (=)</td>
+        <td></td>
+        <td>7,285</td>
+      </tr>
+      <tr>
+        <td><strong>Not Completed:</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>No One Home</td>
+        <td></td>
+        <td>360</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Refused</td>
+        <td></td>
+        <td>951</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Other</td>
+        <td></td>
+        <td>253</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><strong>Subtotal Not Completed</strong></td>
+        <td>minus (-)</td>
+        <td></td>
+        <td>1,564</td>
+      </tr>
+      <tr>
+        <td><strong>Total Interviews Completed</strong></td>
+        <td>equals (=)</td>
+        <td></td>
+        <td>5,721</td>
+      </tr>
+      <tr>
+        <td><strong>Mail Questionnaires Completed</strong></td>
+        <td>plus (+)</td>
+        <td></td>
+        <td>181</td>
+      </tr>
+      <tr>
+        <td><strong>Total Responses</strong></td>
+        <td>equals (=)</td>
+        <td></td>
+        <td>5,902</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4"> Sources:  Energy Information Administration, 1997 Residential Energy Consumption Survey (RECS).</td>
+      </tr>
+    </tfoot>
+  </table>
+</center>
+<center>
+</center>
+<div align="left">
+  <h5>Response Rates and Household Characteristics</h5>
+</div>
+<p>Various response and nonresponse rates were compared across Census region, urban status, and housing structure type. Personal interviewers were most successful in the South (81.1 percent) and the Midwest (80.2 percent), in rural areas (85.0 percent), and in single-family and mobile homes (80.5 percent). Conversely, the interviewers had their lowest success rates in the Northeast (73.1 percent), in urban and suburban areas (76.4 percent combined), and in buildings with five or more residential units (72.1 percent). However, when comparing these groups, it is important to remember that their characteristics are not necessarily independent. For example, apartment buildings are concentrated in urban areas.</p>
+<p>The total response-rate patterns generally were not affected by including the mailed-questionnaire responses. However, response rates for the mail efforts tended to be higher where the refusal rate to the personal interview was higher.</p>
+<h5 align="left">Data Editing</h5>
+<p align="left">Data for completed interviews were transferred to the main server at the survey contractor's headquarters via modem. The data were then sent to the survey subcontractor's headquarters for further processing. All paperwork was mailed to the survey subcontractor's headquarters. The paperwork, including the Housing Unit Record Sheet (HURS), the Authorization Form, and the Housing Unit Address Lists were reviewed to ensure that all forms had been completed correctly and that the correct housing unit had been interviewed.</p>
+<p align="left">Edits were programmed into the Household Questionnaire and this resulted in far fewer missing data items than in previous surveys. See Appendix B, &quot;Survey Estimates and Data Quality,&quot; for more information on this topic.</p>
+<p align="left">The subcontractor attempted to resolve inconsistencies or ambiguities in the data by referencing interviewer notes and other parts of the questionnaire. When these efforts failed to resolve important problems, particularly those involving heating fuels or heating equipment and/or relationships between questionnaire responses, the subcontractor made a follow-up telephone contact with the rental agent or with a member of the household in question.</p>
+<h4 align="center">Rental-Agent Survey</h4>
+<p align="left">The Rental-Agent Survey is an adjunct to the Household Survey and is used to verify information furnished by certain RECS households on fuels used, main heating equipment, how fuels are paid for, and other energy-related topics. Telephone interviews were conducted using Form EIA-457C, &quot;Rental Agents, Landlords, and Apartment Managers Telephone Survey,&quot; with the rental agents and landlords of the following types of RECS households: households that did not pay for their fuels, households who paid a third party for their fuel <em>and</em> who rent their living quarters or own and occupy living quarters in a multiunit building.</p>
+<p align="left">The interviews with rentals agents or their representatives were conducted in early fall 1997. Altogether, 186 landlords or rental agents were interviewed; these interviews covered 382 households. These 382 households represented 59 percent of the 650 total households who were eligible for inclusion in the Rental Agent Survey.</p>
+<p align="left">Comparisons were made between rental agents' and household respondents' reports on their building's year of construction; main space-heating and water-heating fuels; main space-heating equipment; fuel for cooking range; central air-conditioning information; and how the fuels for all of these uses are paid for. Each discrepancy was examined and changes were made to the household data whenever it was judged that the rental agent was more knowledgeable than the household respondent on the different items of information.</p>
+<p align="left">Generally, the person who paid for a specific fuel for a specific use was deemed the more knowledgeable person. However, error resolutions were made only after careful examination and consideration of all available sources of information including the rental-agent questionnaire, the household questionnaire, and questionnaires of other households located in the same building. Landlords and rental agents were usually judged more knowledgeable about the year the building was built and the type of main heating equipment; household respondents were typically deemed more reliable sources concerning central air-conditioning and fuel for cooking range.</p>
+<h4 align="center">Confidentiality of Information</h4>
+<p align="left">EIA does not receive nor take possession of the names or addresses of individual respondents or any other individually identifiable energy data that could be specifically linked with a household respondent; the data are collected for statistical purposes only. All names and addresses and identifiable information are maintained by the survey subcontractor for verification purposes only. The household records that are placed on the public-use data file do not have name or address information. Additional measures have been taken to mask the data for further confidentiality protection. Unlike other EIA surveys, the consumption surveys pledge confidentiality to their respondents.</p>
+<h2><a name="data-quality" id="data-quality"></a>1997 Data Quality</h2>
+<p>All the statistics published in this report are estimates of population values, such as the number of households using natural gas. These estimates are based on a randomly chosen subset of the entire population of households. The universe includes all households in the 50 States and the District of Columbia, including households on military installations.</p>
+<p>The two major types of nonresponse are unit nonresponse and item nonresponse. Unit nonresponse occurs when a sampled household does not participate in the survey. Item nonresponse occurs when a particular item of interest is missing from a completed questionnaire. The next two sections provide details on the procedures followed for each type of nonresponse.</p>
+<p><strong>Adjustments for Unit Nonresponse</strong></p>
+<p>Weight adjustment was used to reduce unit nonresponse bias in the survey statistics. Weights were calculated for each sample household. The household weight reflected the selection probability for that household and additional adjustments. These adjustments included correcting for potential biases arising from the failure to list all housing units in the sample area and failure to contact all sample housing units. Contacts were unsuccessful with 19.0 percent of the eligible units.</p>
+<p>Six factors are used in the processing of Residential Energy Consumption Survey (RECS) results to develop an overall weight for each household for which a completed questionnaire, either a personal interview or mailed questionnaire, is obtained. The factors are the basic weight, a noninterview adjustment, a first-stage ratio estimate, and three second-stage ratio adjustments. The overall household weight is the product of these six factors.</p>
+<p><br wp="BR2" />
+  <strong>The Basic Weight</strong></p>
+<p>The basic weight is calculated and applied to households at the Secondary Sampling Unit (SSU) level.</p>
+<p>Basic Weight = 1/ (Probability of Selection)</p>
+<p>For the 1997 RECS, all households in the same SSU had the same probability of selection and hence the same basic weight.</p>
+<p><strong>The Noninterview Adjustment</strong></p>
+<p>The noninterview adjustment factor (NIAF) compensates for nonresponse households and for nonhousehold units that were identified during the survey. Basically, this adjustment reflects the ratio of the number of completed and uncompleted responses among those selected to the number of completed responses. Since the probabilities of selection are constant within an SSU for 1997, these adjustments were applied at the SSU level.</p>
+<p>The NIAF is computed at the SSU and is equal to:</p>
+<p>(Total Completed Plus Uncompleted Responses in the SSU / (Completed Responses in the SSU)</p>
+<p>If the ratio exceeds 2.0, then the NIAF is set equal to 2.0 and the NIAFs for SSUs in the same Primary Sampling Unit (PSU) and with the same metropolitan status are increased.</p>
+<p><br />
+  <strong>The First-Stage Ratio Adjustment Factors</strong></p>
+<p>The primary purpose of the first-stage adjustment factor is to reduce the sampling variation in the estimates of the number of housing units by main space-heating fuel resulting from sampling of PSUs during the first stage of the sample design. The correlation between main space-heating fuel and other important energy-related characteristics implies that this adjustment will also reduce the sampling variation for many important variables collected for the RECS.</p>
+<p>In some cases, a single PSU comprising all or part of a large metropolitan area was large enough in population to be a stratum by itself. PSUs of this type are called Self-Representing (SR) PSUs because the sample from each SR PSU represents only that PSU. The first-stage ratio adjustment factor was 1.0 for all observations in SR PSUs.</p>
+<p>In other strata, one PSU was selected from among two or more PSUs in the stratum. Each of the PSUs selected from these strata is called a Non-Self-Representing (NSR) PSU because each such PSU represents not only itself; it also represents the unselected PSUs in the stratum.</p>
+<p>The 1990 Census data were used to determine the difference between the distribution of the main space-heating fuel in the set of selected NSR PSUs and the distribution in the set of all PSUs (selected and unselected) in the strata from which the NSR PSUs are selected. Fuels are under-represented if the percentage of households using the fuel is lower in the selected NSR PSUs than the percentage in the set of all PSUs in the NSR strata. Fuels are over-represented if the opposite occurs. The weights for the responding households in NSR PSUs are adjusted upward when their main space-heating fuel is under-represented and the weights are adjusted downward when it is over-represented.</p>
+<p><strong>The Second-Stage Ratio Adjustments</strong></p>
+<p>The second-stage ratio adjustments are used to improve the accuracy of the estimates of the number of households using data obtained from the Bureau of the Census as control totals. The RECS can be used to produce an estimate of the number of households in the country, but the Bureau of the Census produces much more accurate estimates. Improving the accuracy of the data on the number of households also improves the accuracy of almost all other estimates obtained from the RECS. The first priority is the accuracy of estimates for the number of households for the nine Census divisions and for the four largest States. The second priority is the accuracy of estimates for the number of households for three demographic cells (multiperson households, single-member female households, and single-member male households).</p>
+<p>The ratio adjustment process was carried out in three steps. In step one, the population was divided into 15 geographical cells. (Hawaii and Alaska were treated as separate cells because their climate is different than the rest of the country.) Control totals giving the number of households in each cell were derived from Current Population Survey results. A ratio adjustment equal to the control total divided by the weighted count using the weights after the first-stage ratio adjustment was created. Multiplying the weights after the first-stage ratio adjustment by the ratio yields the new weights which, when summed, equal the control totals for the 15 cells. This calculation yielded a weighted total number of households equal to 101,481,000. Refer to Table B1 for estimates for each of the 15 geographical areas.</p>
+<p>The third step is the same as the first step except that the input weights are those resulting from the second step. This produced a set of weights whose sum reproduced the 15 geographic cell control totals and yielded estimates that are quite close to the control totals for the three demographic cells.</p>
+<table width="100%" class="zebra">
+  <tbody>
+  <caption>
+  <strong>Table B1. Control Totals for Ratio Adjustment of Sampling in the 1997 RECS</strong>
+  </caption>
+    </tr>
+  
+  <thead>
+    <tr>
+      <th width="50"><div><strong>Location</strong></div></th>
+      <th width="20"><div><strong>Thousands of Households</strong></div></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><div>New England</div></td>
+      <td><div>5,310</div></td>
+    </tr>
+    <tr>
+      <td><div>Middle Atlantic (minus New York State)</div></td>
+      <td><div>7,597</div></td>
+    </tr>
+    <tr>
+      <td><div>East North Central</div></td>
+      <td><div>16,907</div></td>
+    </tr>
+    <tr>
+      <td><div>West North Central</div></td>
+      <td><div>7,153</div></td>
+    </tr>
+    <tr>
+      <td><div>South Atlantic (minus Florida)</div></td>
+      <td><div>12,764</div></td>
+    </tr>
+    <tr>
+      <td><div>East South Central</div></td>
+      <td><div>6,344</div></td>
+    </tr>
+    <tr>
+      <td><div>West South Central (minus Texas)</div></td>
+      <td><div>3,876</div></td>
+    </tr>
+    <tr>
+      <td><div>Mountain</div></td>
+      <td><div>6,179</div></td>
+    </tr>
+    <tr>
+      <td><div>Pacific (minus Alaska, California, and Hawaii)</div></td>
+      <td><div>3, 532</div></td>
+    </tr>
+    <tr>
+      <td><div>New York</div></td>
+      <td><div>6,827</div></td>
+    </tr>
+    <tr>
+      <td><div>Florida</div></td>
+      <td><div>5,929</div></td>
+    </tr>
+    <tr>
+      <td><div>Texas</div></td>
+      <td><div>6,964</div></td>
+    </tr>
+    <tr>
+      <td><div>California</div></td>
+      <td><div>11,484</div></td>
+    </tr>
+    <tr>
+      <td><div>Alaska</div></td>
+      <td><div>229</div></td>
+    </tr>
+    <tr>
+      <td><div>Hawaii</div></td>
+      <td><div>386</div></td>
+    </tr>
+    <tr>
+      <td><div><strong>Total United States</strong></div></td>
+      <td><div><strong>101,481</strong></div></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"><div> Source: EIA's linear extrapolation from U.S. Bureau of the Census, 1996 and 1997 Current Population Survey.</div></td>
+    </tr>
+  </tfoot>
+    </tbody>
+  
+</table>
+<p><strong>Adjustments for Item Nonresponse</strong></p>
+<p>Item nonresponse occurs when respondents do not know the answer or refuse to answer a question, or when an interviewer does not ask a question or does not record an answer. The incidence of the latter, the interviewer not asking and/or not recording the answer, was greatly reduced by the use of Computer Assisted Personal Interviewing (CAPI). The majority of nonresponse was due to interviewers recording answers of &quot;Don't Know&quot; and &quot;Refused.&quot; Some item nonresponse was due to programming problems in the questionnaire. Table B2 lists the most frequently imputed items in the 1997 RECS.</p>
+<p>The number of item imputations for the 181 households receiving mail questionnaires was considerable, since these questionnaires contained only a small subset of questions from the household interview. For the mail questionnaires, a modified hot-deck imputation method was used. A hot-deck matrix was created for mail questionnaires and personal-interview households using Census region, type of housing unit structure, space-heating fuel, water-heating fuel, and presence and type of air-conditioning. Whenever possible, a donor personal-interview household was chosen for each mail questionnaire household from the same cell of the hot-deck matrix. For 90 percent of the mail questionnaires, donors matched on all hot-deck variables.</p>
+<table width="100%" class="zebra">
+  <caption>
+  <strong>Table B2. Household Questionnaire Items Most Frequently Imputed in the 1997 RECS</strong>
+  </caption>
+  <thead>
+    <tr>
+      <th width="238"><strong>Imputed Item</strong></th>
+      <th width="64"><strong>Cases Imputed</strong></th>
+      <th width="94"><strong>Percentage of Total Samplea<br />
+        (5,721)</strong></th>
+      <th width="86"><strong>Method of Imputing</strong></th>
+      <th width="101"><strong>Question Number on Questionnaire</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td width="238">Income in past 12 months</td>
+      <td width="64">1,016</td>
+      <td width="94">17.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">J-14a</td>
+    </tr>
+    <tr>
+      <td width="238">Year home was built</td>
+      <td width="64">395</td>
+      <td width="94">6.9</td>
+      <td width="86">Hot deck</td>
+      <td width="101">A-15a</td>
+    </tr>
+    <tr>
+      <td width="238">Age of water-heating equipment</td>
+      <td width="64">348</td>
+      <td width="94">6.1</td>
+      <td width="86">Deductive/Hot deck</td>
+      <td width="101">E-4</td>
+    </tr>
+    <tr>
+      <td width="238">Way household used central AC equipment</td>
+      <td width="64">297</td>
+      <td width="94">5.2</td>
+      <td width="86">Hot deck</td>
+      <td width="101">F-6a</td>
+    </tr>
+    <tr>
+      <td width="238">Number of children between the ages of 1 and 12</td>
+      <td width="64">250</td>
+      <td width="94">4.4</td>
+      <td width="86">Hot deck</td>
+      <td width="101">J-1e</td>
+    </tr>
+    <tr>
+      <td width="238">Number of infants under the age of 1</td>
+      <td width="64">238</td>
+      <td width="94">4.2</td>
+      <td width="86">Hot deck</td>
+      <td width="101">J-1d</td>
+    </tr>
+    <tr>
+      <td width="238">Way household used Window/Wall AC equipment</td>
+      <td width="64">149</td>
+      <td width="94">2.6</td>
+      <td width="86">Hot deck</td>
+      <td width="101">F-11</td>
+    </tr>
+    <tr>
+      <td width="238">Use programmable or manual features of thermostat</td>
+      <td width="64">126</td>
+      <td width="94">2.2</td>
+      <td width="86">Hot deck</td>
+      <td width="101">F-6b</td>
+    </tr>
+    <tr>
+      <td width="238">Fuel used to heat hot water</td>
+      <td width="64">122</td>
+      <td width="94">2.1</td>
+      <td width="86">Hot deck</td>
+      <td width="101">E-1</td>
+    </tr>
+    <tr>
+      <td width="238">Electricity shut off because bill was not paid</td>
+      <td width="64">120</td>
+      <td width="94">2.1</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-4</td>
+    </tr>
+    <tr>
+      <td width="238">Could not use heat because ran out of bulk fuel</td>
+      <td width="64">120</td>
+      <td width="94">2.1</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-5a</td>
+    </tr>
+    <tr>
+      <td width="238">Could not use heat because utility fuel shut off</td>
+      <td width="64">199</td>
+      <td width="94">2.1</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-5b</td>
+    </tr>
+    <tr>
+      <td width="238">Could not use heat because equipment broken</td>
+      <td width="64">119</td>
+      <td width="94">2.1</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-5c</td>
+    </tr>
+    <tr>
+      <td width="238">Amount of heat provided by main heating equipment</td>
+      <td width="64">108</td>
+      <td width="94">1.9</td>
+      <td width="86">Hot deck</td>
+      <td width="101">D-6</td>
+    </tr>
+    <tr>
+      <td width="238">Type of self-cleaning oven</td>
+      <td width="64">104</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">B-3</td>
+    </tr>
+    <tr>
+      <td width="238">Received employment income in last 12 months</td>
+      <td width="64">103</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-1a</td>
+    </tr>
+    <tr>
+      <td width="238">Received retirement income in last 12 months</td>
+      <td width="64">103</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-1b</td>
+    </tr>
+    <tr>
+      <td width="238">Received cash benefits in last 12 months</td>
+      <td width="64">103</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-1c</td>
+    </tr>
+    <tr>
+      <td width="238">Received non-cash benefits in last 12 months</td>
+      <td width="64">103</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-1d</td>
+    </tr>
+    <tr>
+      <td width="238">Government help in paying home heating costs</td>
+      <td width="64">102</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-2a</td>
+    </tr>
+    <tr>
+      <td width="238">Government help in paying home cooling costs</td>
+      <td width="64">102</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-2b</td>
+    </tr>
+    <tr>
+      <td width="238">Government help in paying other home energy costs</td>
+      <td width="64">102</td>
+      <td width="94">1.8</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-2c</td>
+    </tr>
+    <tr>
+      <td width="238">Amount of wood burning in past 12 months</td>
+      <td width="64">97</td>
+      <td width="94">1.7</td>
+      <td width="86">Hot deck</td>
+      <td width="101">H-7d</td>
+    </tr>
+    <tr>
+      <td width="238">Age of householder</td>
+      <td width="64">93</td>
+      <td width="94">1.6</td>
+      <td width="86">Allocative</td>
+      <td width="101">J-9</td>
+    </tr>
+    <tr>
+      <td width="238">Amount of heating assistance received</td>
+      <td width="64">82</td>
+      <td width="94">1.4</td>
+      <td width="86">Hot deck</td>
+      <td width="101">K-3d</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="5">Mailed interviews are not included in the percentage. To account for these, add 3 percentage points to the percentage points given. <br />
+        Source: Energy Information Administration, Office of Energy Markets and End Use, Form EIA-457 A of the 1997 Residential Energy Consumption Survey (RECS). RECS Public Use Data Files.</td>
+    </tr>
+  </tfoot>
+</table>
+</p>
+<p>The use of CAPI techniques allowed EIA to program skip patterns, edit checks, and range checks into the questionnaire. As a result, the quality of the data collected during the interview improved and the amount of time needed to edit and clean the data was reduced. Some of this improvement can be attributed to the fact that the 1997 RECS questionnaire was shorter than the 1993 RECS questionnaire. But the switch to CAPI did result in cleaner data. For example, the data collected during the paper and pencil interviews for the 1993 RECS resulted in 40 variables with more than 100 cases where there were missing data. On the other hand, the data collected during the CAPI interviews for the 1997 RECS resulted in only 22 variables with more than 100 cases where there were missing data.</p>
+<p>The questions on both income and year home was built have resulted in a substantial amount of missing data for each RECS. The 1997 RECS was no exception. The large amount of missing data for the age of the water-heating equipment, the number of children, and the number of infants was caused by errors in the skip patterns in the CAPI questionnaire. The plans the 1997 RECS questionnaire included a question concerning the use of evaporative or swamp coolers in housing units located in hot, dry areas of the country and a question concerning the use of automobile block heaters in cold areas of the country, but errors in the skip patterns forced the CAPI instrument to skip these questions for all households.</p>
+<p> </p>
+<p><strong>Quality of Specific Data Items</strong> <br />
+</p>
+<p><strong>Housing Unit Type</strong></p>
+<p>There is a fine line between the definitions of various types of housing units. The distinction between a single-family attached unit and a unit in an apartment building is particularly complex. The collection and editing of the data on housing type changed from the paper-and-pencil questionnaire for the 1993 RECS to the CAPI questionnaire for the 1997 RECS. The change in the data collection and editing procedures may have contributed to changes in the survey results. For example, the estimated number of occupied single-family attached units increased from 7.3 million for the 1993 RECS to 10.0 million for the 1997 RECS. Conversely, the number of occupied housing units in buildings with two to four units decreased from 8.0 million for the 1993 RECS to 5.6 million for the 1997 RECS.</p>
+<p><br />
+  <strong>Programmable (Set-Back or Clock) Thermostats</strong></p>
+<p>The 1993 and 1997 RECS both contained questions on the presence of a programmable thermostat. In both surveys, the thermostats were referred to as &quot;set-back or clock thermostats,&quot; but not programmable thermostats. For the 1993 RECS, the question was placed in the section on conservation measures and usage (following questions on insulation, weather stripping, and caulking). For the 1997 RECS, it was placed in the space-heating section, immediately following the question on the presence of a thermostat. The 1997 RECS also included a question that asked respondents if they programmed the thermostat or used the manual features. Based on the 1993 RECS, an estimated 10.8 million households had programmable thermostats in 1993. Based on the 1997 RECS, an estimated 33.1 million households had programmable thermostats in 1997. Of these 33.1 million, an estimated 10.2 million programmed their thermostats and an estimated 22.9 million used the manual features.</p>
+<p>The large increase in the number of housing units with programmable thermostats from 1993 to 1997 is questionable. The change in the placement of the question may have contributed to the large change in the survey results. In addition, the question concerning programmed versus manual use of the thermostats may have changed how the interviewers coded the question on the presence of a programmable thermostat.</p>
+<p><strong>Estimation of Sampling Error</strong></p>
+<p>Sampling error is the random difference between a survey estimate and an actual population value. It occurs because the survey estimate is calculated from a randomly chosen subset of the entire population. The sampling error averaged over all possible samples would be zero, but there is only one sample for the 1997 RECS. Therefore, the sampling error is not zero and is unknown for the 1997 RECS sample. However, the sample design permits sampling errors to be estimated. This section describes how the sampling errors were estimated and how they were made available to readers of this report who are interested in the precision of the estimates in this report.</p>
+<p>Throughout this report, standard errors are given as percents of their estimated values; that is, as relative standard errors (RSE). The RSE is also known as the coefficient of variation.</p>
+<p>For a given population parameter Y that is estimated by the survey statistic Y, the relative standard error of Y, RSE(Y), and standard error of Y, S(Y), are given by:</p>
+<div align="center">
+  <pre>RSE(Y) = [S(Y)/Y] &times; 100.</pre>
+  <pre>S(Y) = [RSE(Y)/100] &times; Y.</pre>
+</div>
+<p>For some surveys, a convenient algebraic formula for computing variances can be obtained. However, the RECS used a multistage area sample design of such complexity (see Appendix A, &quot;How the Survey Was Conducted&quot;) that it is virtually impossible to construct an exact algebraic expression for estimating variances. In particular, convenient formulas based on an assumption of simple random sampling, typical of most standard statistical packages, are inappropriate for the RECS estimates. Such formulas tend to give low values for standard errors, making the estimates appear much more accurate than is the case. Instead, the method used to estimate sampling variances for this survey was balanced half-sample replication. The balanced half-sample replication method involves calculating the value for a statistic using the full sample and calculating the value for each of a systematic set of half samples. (Each half sample contains approximately one-half of the observations contained in the full sample.) The variance is estimated using the differences between the value of the statistic calculated using the full sample and the values of the statistic calculated using each of the half samples.</p>
+<p><strong>Generalized Variances</strong></p>
+<p>For every estimate in this report, the RSE was computed by the balanced half-sample replication method. This RSE was used for any statistical tests or confidence intervals given in the text, or to determine if the estimate was too inaccurate to publish (RSE greater than 50 percent).</p>
+<p>Space limitations prevent publishing the complete set of RSEs with this document. Instead, a generalized variance technique is provided, by which the reader can compute an approximate RSE for each of the estimates in the detailed tables. For the statistic in the ith row and jth column of a particular table, the approximate RSE is given by:</p>
+<div align="center">
+  <pre>
+  RSE(i,j) = R(i) &times; C(j)</pre>
+</div>
+<p>where R(i) is the RSE row factor given in the last column of row i, and C(j) is the RSE column factor given at the top of column j. This value for the relative standard error can be used to construct confidence intervals and to perform hypothesis tests by standard statistical methods. However, because the generalized variance procedure gives only approximate RSEs, such confidence intervals and statistical tests must also be regarded as only approximate.</p>
+                <hr>
+<p>Specific questions on this product may be directed to:</p>
+<blockquote>
+  <p>Chip Berry<br />
+  <a href="mailto:James.Berry@eia.gov">James.Berry@eia.gov</a><br />
+    RECS Survey Manager<br />
+    Phone: (202) 586-5543<br />
+    Fax: (202) 586-0018<br />
+  </p>
+</blockquote>
+
+              </div>
+                        </div>
+                  </div>
+         
+                <div class="side_col right">
+           <span class="grey_side green_top">
+  <p><a href="../../about.cfm.html">About the RECS</a></p>
+  <p><a href="https://www.eia.gov/survey/#eia-457">RECS Survey Forms</a></p>
+  <p><a href="https://www.eia.gov/consumption/residential/maps.cfm">RECS Maps</a></p>
+  <p><a href="../../terminology.cfm.html">RECS Terminology</a></p>
+  <p class="no-border"><a href="../archive/index.html">Archived Reports</a></p></span>
+
+<div class="clear"></div>
+
+   
+ <span class="blue_side">
+  <h4 class="q_side"><a href="../../reports/2015/home-selected.cfm.html">Has your home been selected for the RECS?</a></h4>
+    </span> 
+ 
+  <span class="grey_side blue_top">
+  <h4>State fact sheets</h4>
+  
+  <a href="../../reports/2009/state_briefs/index.html"><img src= "../../../images/images_recs/state-promo.jpg" alt="Arizona household graph" height="85" border="0" /></a><p><a href="../../reports/2009/state_briefs/index.html">See state fact sheets &rsaquo;</a> </p> </span>
+
+        <span class="grey_side blue_top">
+    <h4>2009 RECS Features</h4>
+    <p><a href="../../../../todayinenergy/detail.cfm@id=10271.html">Heating and cooling no longer majority of U.S. home energy use</a><br />
+      <em>March 7, 2013</em>
+    <p><a href="../../../../todayinenergy/detail.cfm@id=9951.html">Newer U.S. homes are 30% larger but consume about as much energy as older homes</a><br />
+      <em>February 12, 2013</em> </p>
+    <p><a href="../../reports/2009/methodology-square-footage.cfm.html">Where does RECS square footage data come from?</a><br />
+      <em>July 11, 2012</em>
+    <p><a href="../../reports/2009/consumption-down.cfm.html">RECS data show decreased energy consumption per household</a><br />
+      <em>June 6, 2012</em>
+    <p><a href="../../reports/2009/square-footage.cfm.html">The impact of increasing home size on energy demand</a><br />
+      <em>April 19, 2012</em>
+    <p><a href="../../reports/2009/air-conditioning.cfm.html">Did you know that air conditioning is in nearly 100 million U.S. homes?</a><br />
+      <em>August 19, 2011</em> </p>
+        <p class="no-border"><strong><a href="../../reports.cfm.html">See more ></a></strong></p>
+    </span>
+    
+ <span class="dblue_side_top blue_top ">
+  <a href="../../../../todayinenergy/index.html"><img src="https://www.eia.gov/global/images/sprites/tie_w_title.png"/></a>
+</span>
+<span class="white_box">
+  <div id="eiatie">
+    <a href="../../../../todayinenergy/detail.cfm@id=29112.html"></a>
+  <p><strong><a href="../../../../todayinenergy/detail.cfm@id=29112.html">Winter residential electricity consumption expected to increase from last winter</a></strong><br />
+    <em>December 12, 2016</em></p>
+
+<p><strong><a href="../../../../todayinenergy/detail.cfm@id=29012.html">Thanksgiving holiday causes unique electricity usage patterns across the country</a></strong><br />
+<em>December 5, 2016</em> </p>
+<p><strong><a href="../../../../todayinenergy/detail.cfm@id=28812.html">Residential heating oil and propane prices at levels similar to last winter’s low prices</a></strong><br />
+<em>November 17, 2016</em> </p>
+<p class="no_btm_border"><a href="../../../../todayinenergy/index.cfm@tg=residential.html"><b>All 74 related articles &rsaquo;</b></a></p>
+  </div>
+</span>
+<br />
+
+
+   
+  <span class="grey_side blue_top">
+  <h4>Other End Use Surveys</h4>
+  <p><a href="https://www.eia.gov/consumption/commercial/">Commercial Buildings - CBECS</a></p>
+  <p><a href="https://www.eia.gov/consumption/manufacturing/">Manufacturing - MECS</a> </p>
+  <p class="no-border"><a href="../../../../emeu/rtecs/contents.html">Transportation</a></p>
+  </span> 
+   
+        </div>
+         
+      </div>
+            	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+			<div class="rs_comments">
+								<form>
+					<p><b>Thank You.</b> 
