@@ -132,7 +132,7 @@ var _gaq = _gaq || [];
             <span class="global_menu_col1">
               <a href="../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="../../../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="../../../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
               <a href="../../../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -175,7 +175,7 @@ var _gaq = _gaq || [];
         <li class="global-geo"><a>Geography</a></li>
         <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="../../../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../state/seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -922,4 +922,711 @@ $(window).load(function() {
 [Date.UTC(2014, 6, 1), 8.334],
 [Date.UTC(2014, 9, 1), 7.758],
 [Date.UTC(2015, 0, 1), 8.463],
-[Da
+[Date.UTC(2015, 3, 1), 7.036], 
+[Date.UTC(2015, 6, 1), 6.601],
+[Date.UTC(2015, 9, 1), 5.851],
+[Date.UTC(2016, 0, 1), 4.0],
+[Date.UTC(2016, 3, 1), 4.162],
+[Date.UTC(2016, 6, 1), 3.476]
+
+
+      ]}
+      ]
+    });
+  
+
+  });
+ 
+	</script>
+
+				
+	
+
+</head>
+
+
+<body>
+<div id="met_steam_exports" style="width: 550px; height: 400px; margin:10px;"></div>
+
+</body>
+</html></p>
+          <br /> <br />
+
+                <p>
+        </p>
+
+        <p> <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Quarterly Coal Stocks</title>
+
+<script type="text/javascript">
+
+$(window).load(function() {
+  var chart_20110401 = new Highcharts.Chart({   // yyyymmdd = TIE publication date 
+    chart: {
+      renderTo: 'met_steam_price',    // yyyymmdd = TIE publication date  **also change below
+      zoomType: 'x',
+      defaultSeriesType: 'line',
+	  marginLeft: 40
+ 
+    },
+   
+	title: {
+      text: 'Average price of U.S. steam and metallurgical coal exports, 2010 - 16'  // only first letter and proper names in caps
+         
+    },
+	
+	    credits: {
+      text: 'Source: U.S. Energy Information Administration:  "Quarterly Coal Report."',
+	  href: '/coal/production/quarterly/index.cfm'
+	  },
+	 // only first letter and proper names in caps thousand short tons
+      
+	  legend: {						//legend: {
+		layout: 'vertical',
+		//layout: 'horizontal',
+            align: 'center',
+            verticalAlign: 'top',
+            y: 30,
+            padding: 3,
+            itemMarginTop: 5,
+            itemMarginBottom: 5,
+            itemStyle: {
+            	lineHeight: '12px'
+            }
+        },
+
+	   
+	  
+    xAxis: {
+		endOnTick: false,
+        startOnTick: false,
+	  type: 'datetime',
+	  tickColor: 'black',
+	  //tickPixelInterval: 35,
+	  //maxZoom: 3600000*24*365*2,
+      tickInterval: 3600000*24*365*1, // 1 year
+      lineColor: '#000000',
+	    title: {
+			 text: ' quarter - year '	
+		 },
+      labels: {
+		step: 2,
+        y: 20,
+        style: {
+          color: 'black',
+          fontFamily: 'Arial'
+        }
+      }
+    },
+   
+        yAxis: [{
+		title:{
+		text: 'dollars/short tons'
+		},
+	labels: {
+        formatter: function() {
+            return'$'+ Highcharts.numberFormat(this.value);
+        }
+    },
+	}],		
+	     
+    tooltip: {
+      style: { 
+        padding: 5,
+		//fontWeight: 'bold',
+        fontFamily: 'Arial'
+		      },
+      formatter: function() {
+			 if(Highcharts.dateFormat('%b',this.x) =="Jan")
+			 {
+           return '<b>' + this.series.name + '</b><br>' + 'first quarter ' + Highcharts.dateFormat('%Y', this.x)
+	  + '<br/>'  + Highcharts.numberFormat(this.y, 2) +' dollars/short tons';
+			 }
+			 
+			 else if (Highcharts.dateFormat('%b',this.x) =="Apr")
+			 {
+			 return '<b>' + this.series.name + '</b><br>' + 'second quarter '+ Highcharts.dateFormat('%Y', this.x)
+	  + '<br/>'  + Highcharts.numberFormat(this.y, 2) +' dollars/short tons';
+			 }
+			 
+			 else if (Highcharts.dateFormat('%b',this.x) =="Jul")
+			 {
+			 return '<b>' + this.series.name + '</b><br>' + 'third quarter '+ Highcharts.dateFormat('%Y', this.x)
+	  + '<br/>'  + Highcharts.numberFormat(this.y, 2) +' dollars/short tons';
+			 }
+			 
+			 else
+			 {
+						  
+	      return '<b>' + this.series.name + '</b><br>' + 'fourth quarter ' + Highcharts.dateFormat('%Y', this.x)
+	  + '<br/>'  + Highcharts.numberFormat(this.y, 2) +' dollars/short tons';
+			 }
+		 
+		 }
+      },
+    /*  },
+      formatter: function() {return '<b>' + this.series.name + '</b><br>' + 'Date: ' + Highcharts.dateFormat('%b %e, %Y', this.x)
+	  + '<br/>'  + Highcharts.numberFormat(this.y, 1) +' million short tons';
+	  }
+    },*/
+     	     exporting: {
+		 
+	 
+            filename: 'coal-met_steam_price',
+			 
+        },		
+     
+ navigation: {
+            buttonOptions: {
+                align: 'right',
+				verticalAlign: 'top',
+                y: 20
+            }
+        },
+        plotOptions: {
+        series: {
+            shadow: false,
+			markers: false,
+			
+		}
+        },
+	  
+      series: [ {
+      name: 'metallurgical export price',
+    //  color: 'rgba(64, 50, 3, 1.0)', //'rgba(0, 150, 215, 1.0)',
+      selected: true,
+      data: [
+
+/*[Date.UTC(2008, 0, 1), 98.9],    
+[Date.UTC(2008, 3, 1), 129.91],  
+[Date.UTC(2008, 6, 1), 149.3],   
+[Date.UTC(2008, 9, 1), 156.65],
+[Date.UTC(2009, 0, 1), 133.86],  
+[Date.UTC(2009, 3, 1), 115.25],  
+[Date.UTC(2009, 6, 1), 111.64],  
+[Date.UTC(2009, 9, 1), 112.91],*/  
+[Date.UTC(2010, 0, 1), 117.36],  
+[Date.UTC(2010, 3, 1), 143.73],  
+[Date.UTC(2010, 6, 1), 162.54],  
+[Date.UTC(2010, 9, 1), 160.63],  
+[Date.UTC(2011, 0, 1), 170.36],  
+[Date.UTC(2011, 3, 1), 191.24],  
+[Date.UTC(2011, 6, 1), 201.59],  
+[Date.UTC(2011, 9, 1), 181.41],  
+[Date.UTC(2012, 0, 1), 168.96],  
+[Date.UTC(2012, 3, 1), 157.16],  
+[Date.UTC(2012, 6, 1), 148.01],  
+[Date.UTC(2012, 9, 1), 131.09],  
+[Date.UTC(2013, 0, 1), 119.40],   
+[Date.UTC(2013, 3, 1), 119.23],  
+[Date.UTC(2013, 6, 1), 111.92],  
+[Date.UTC(2013, 9, 1), 110.67],  
+[Date.UTC(2014, 0, 1), 107.06],   
+[Date.UTC(2014, 3, 1), 97.26],   
+[Date.UTC(2014, 6, 1), 97.48],  
+[Date.UTC(2014, 9, 1), 95.47],
+[Date.UTC(2015, 0, 1), 94.83],
+[Date.UTC(2015, 3, 1), 92.95],  
+[Date.UTC(2015, 6, 1), 85.65],
+[Date.UTC(2015, 9, 1), 80.51],
+[Date.UTC(2016, 0, 1), 68.36],
+[Date.UTC(2016, 3, 1), 69.31],
+[Date.UTC(2016, 6, 1), 76.25]
+
+
+ ]},
+ {
+    name: 'steam export price',
+   //  color: 'rgba(64, 50, 3, 1.0)', //'rgba(0, 150, 215, 1.0)',
+      selected: true,
+      data: [
+
+/*[Date.UTC(2008, 0, 1), 58.75],  
+[Date.UTC(2008, 3, 1), 58.2],   
+[Date.UTC(2008, 6, 1), 51.9],   
+[Date.UTC(2008, 9, 1), 60.26],
+[Date.UTC(2009, 0, 1), 76.99],  
+[Date.UTC(2009, 3, 1), 70.81],  
+[Date.UTC(2009, 6, 1), 70.62],  
+[Date.UTC(2009, 9, 1), 76.43],*/  
+[Date.UTC(2010, 0, 1), 64.15],  
+[Date.UTC(2010, 3, 1), 66.38],  
+[Date.UTC(2010, 6, 1), 65.17],  
+[Date.UTC(2010, 9, 1), 65.88],  
+[Date.UTC(2011, 0, 1), 82.99],  
+[Date.UTC(2011, 3, 1), 78.31],  
+[Date.UTC(2011, 6, 1), 76.53],  
+[Date.UTC(2011, 9, 1), 83.75],  
+[Date.UTC(2012, 0, 1), 81.13],  
+[Date.UTC(2012, 3, 1), 74.56],  
+[Date.UTC(2012, 6, 1), 76.81],  
+[Date.UTC(2012, 9, 1), 73.26],  
+[Date.UTC(2013, 0, 1), 73.43],  
+[Date.UTC(2013, 3, 1), 69.47],  
+[Date.UTC(2013, 6, 1), 66.10],   
+[Date.UTC(2013, 9, 1), 67.54],  
+[Date.UTC(2014, 0, 1), 68.27],   
+[Date.UTC(2014, 3, 1), 68.56],  
+[Date.UTC(2014, 6, 1), 65.32],   
+[Date.UTC(2014, 9, 1), 65.24],
+[Date.UTC(2015, 0, 1), 62.31],
+[Date.UTC(2015, 3, 1), 56.98], 
+[Date.UTC(2015, 6, 1), 54.57],
+[Date.UTC(2015, 9, 1), 49.40],
+[Date.UTC(2016, 0, 1), 43.78],
+[Date.UTC(2016, 3, 1), 57.26],
+[Date.UTC(2016, 6, 1), 43.72]
+
+
+
+
+      ]}
+      ]
+    });
+  
+
+  });
+ 
+	</script>
+
+				
+	
+
+</head>
+
+
+<body>
+<div id="met_steam_price" style="width: 570px; height: 400px; margin:10px;"></div>
+
+</body>
+</html></p>
+
+
+        <!--<p class="bodypara"align="left"> <br>
+
+          <b>Contact:</b>
+          <script language="JavaScript" type="text/JavaScript" src="/coal/contacts/quarterly_data_only.txt"></script></p>-->
+
+        <h3>&nbsp;&nbsp; </h3>
+
+              </div>
+      <div class="side_col pub_side right">
+                
+<!--       press --->
+<table class="zebra">
+      <tr>
+
+            <td colspan="2"><b>Data Tables</b></td><td><b> Formats</b></td>
+      </tr>
+      <tr>
+
+            <th colspan="3">Summary</th>
+                  </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">ES1 U.S. Coal Summary Statistics</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr class="SubSectionSHD">
+            <td style="color:#999">ES2 U.S. Coke Summary Statistics</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr class="SubSectionSHD">
+            <td style="color:#999">ES3 Summary Statistics for Coal Refining Plants</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <th colspan="3">Production </th>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <td>1 U.S. Coal Production</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t1p01p1.pdf" class="ico_pdf">PDF</td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t1p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>2 Coal Production by State</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t2p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t2p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">3 Coke and Breeze Production at Coke Plants</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <th colspan="3" >Export and Imports  &nbsp;</th>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <td>4 U.S. Coal Exports and Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t4p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t4p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>5 Average Price of U.S. Coal Exports and Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t5p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t5p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>6 Quantity and Average Price of U.S. Coal Imports by Origin</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t6p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t6p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>7 U.S. Coal Exports</td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t7p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t7p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>8 Average Price of U.S. Coal Exports</td>
+
+            <td ><a href="http://www.eia.gov/coal/production/quarterly/pdf/t8p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td ><a href="http://www.eia.gov/coal/production/quarterly/xls/t8p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>9 U.S. Steam Coal Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t9p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t9p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>10 Average Price of U.S. Steam Coal Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t10p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t10p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>11 U.S. Metallurgical Coal Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t11p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t11p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>12 Average Price of U.S. Metallurgical Coal Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t12p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t12p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>13 Coal Exports by Customs District</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t13p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t13p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>14 Steam Coal Exports by Customs District</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t14p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t14p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>15 Metallurgical Coal Exports by Customs District</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t15p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t15p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>16 U.S. Coke Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t16p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t16p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>17 Average Price of U.S. Coke Exports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t17p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t17p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>18 U.S. Coal Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t18p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t18p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>19 Average Price of U.S. Coal Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t19p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t19p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>20 Coal Imports by Customs District</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t20p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t20p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td>21 U.S. Coke Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t21p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t21p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td>22 Average Price of U.S. Coke Imports</td>
+
+            <td><a href="http://www.eia.gov/coal/production/quarterly/pdf/t22p01p1.pdf" class="ico_pdf">PDF</a></td>
+            <td><a href="http://www.eia.gov/coal/production/quarterly/xls/t22p01p1.xls" class="ico_xls">XLS</a></td>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <th  colspan="3">Receipts and Prices &nbsp; </th>
+      </tr>
+
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">23 Coal Receipts at Coke Plants by Census Division</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">24 Average Price of Coal Receipts at Coke Plants by Census Division</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">25 Open Market Sales and Average Price of Coke and Breeze</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">26 Coal Receipts at Other Industrial Plants by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">27 Average Price of Coal Receipts at Other Industrial Plants by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">28 U.S. Coal Receipts at Manufacturing Plants by North American Industry Classification System (NAICS) Code</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">29 Average Price of U.S. Coal Receipts at Manufacturing Plants by North American Industry Classification System (NAICS) Code</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">30 Coal Receipts at Commercial and Institutional Users by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">31 Average Price of Coal Receipts at Commercial and Institutional Users by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <th colspan="3" >Consumption &nbsp; </th>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">32 U.S. Coal Consumption by End-Use Sector</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">33 Coal Carbonized at Coke Plants by Census Division</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">34 Coal Consumption at Other Industrial Plants by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">35 U.S. Coal Consumption at Manufacturing Plants by North American Industry Classification System (NAICS) Code</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">36 Coal Consumption at Commercial and Institutional Users by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <th colspan="3" >Stocks &nbsp;</th>
+
+
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">37 U.S. Coal Stocks</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">38 Coal Stocks at Coke Plants by Census Division</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">39 Coal Stocks at Other Industrial Plants by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">40 U.S. Coal Stocks at Manufacturing Plants by North American Industry Classification System (NAICS) Code</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">41 Coke and Breeze Stocks at Coke Plants by Census Division</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">42 Coal Stocks at Commercial and Institutional Users by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+
+      <tr valign="top" class="SubSection">
+            <th colspan="3">Quality &nbsp;</th>
+      </tr>
+      <tr valign="top" class="SubSection">
+            <td style="color:#999">43 Average Quality of Coal Received at Manufacturing and Coke Plants by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+      <tr valign="top" class="SubSectionSHD">
+            <td style="color:#999">44 Average Quality of Coal Received at Commercial and Institutional Users by Census Division and State</td>
+
+            <td></td>
+            <td></td>
+      </tr>
+</table>
+
+
+
+
+<span class="grey_side blue_top">
+                  <p><a title="HTML format: Coal News and Markets Report" href="../../nymex/index.html">Coal Markets Report</a>.</p>
+                                <p><a title="HTML FORMAT: Quarterly Coal Distribution Report (QCDR)" href="../../distribution/quarterly/index.html">Quarterly Coal Distribution Report</a>.</p>
+              <p> <a title="HTML format: Annual Coal Report" href="../../annual/index.html">Annual Coal Report</a>.</p>
+              <p> <a title="Pdf format: Annual Coal Production Revisions" href="http://www.eia.gov/survey/changes/coal/policies/coal_data_revision_policy.pdf">Coal Data Publication Revision Policy</a></p>
+             </span>
+
+<hr class="novis"/>
+
+
+
+
+
+</span>        
+                </div>
+      </div>
+	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+		</div>
+		<div id="addbar">
+						<a href="../../../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="../../../abouteia/index.html">About EIA</a></h3>
+			<h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="../../../pressroom/index.html">Press Room</a></h3>
+			<h3><a href="../../../about/careers.1.html">Careers</a></h3>
+						<h3><a href="../../../contactus.html">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="../../../petroleum/index.html">Petroleum</a><br/>
+				<a href="../../index.html">Coal</a><br/>
+				<a href="../../../naturalgas/index.html">Natural Gas</a><br/>
+				<a href="../../../renewable/index.html">Renewable</a><br/>
+				<a href="../../../fuelnuclear.html">Nuclear</a><br/>
+				<a href="../../../electricity.1.html">Electricity</a><br/>
+				<a href="../../../consumption/residential/methodology/index.cfm.html">Consumption</a><br/>
+				<a href="../../../totalenergy/index.html">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="../../../analysis/index.html">Analysis & Projections</a><br/>
+				<a href="../../../environment.1.html">Environment</a><br/>
+				<a href="../../../finance/index.html">Markets & Finance</a><br/>
+				<a href="../../../todayinenergy.1.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../../state/seds/sep_prod/xls/P2.xls.html">States</a><br/>
+				<a href="../../../emeu/international/gasconsumption.html">Countries</a><br/>
+				<a href="../../../maps.1.html">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="../../../tools/a-z/index.html">A-Z Index</a><br />
+				<a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="../../../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="../../../survey.html">EIA Survey Forms</a><br />
+				<a href="http://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="../../../about/privacy_security_policy.cfm.html">Privacy/Security</a><br/>
+				<a href="../../../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br/>
+				<a href="../../../about/accessability.cfm.html">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="../../../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="../../../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+  </div>
+</body>
+</html>

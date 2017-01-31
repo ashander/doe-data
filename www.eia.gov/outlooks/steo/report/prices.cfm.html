@@ -150,7 +150,7 @@ $(document).ready(function() {
             <span class="global_menu_col1">
               <a href="../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="../../../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="../../../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
               <a href="../../../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -194,7 +194,7 @@ $(document).ready(function() {
         <li class="global-geo"><a>Geography</a></li>
           <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="../../../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../state/seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -409,10 +409,10 @@ $(document).ready(function() {
 						<a href="../../../forecasts/steo/report/natgas.cfm.html">Natural Gas</a>
 					</li>
 					<li>
-						<a href="../../../forecasts/steo/report/coal.cfm.html">Coal</a>
+						<a href="coal.cfm.html">Coal</a>
 					</li>
 					<li>
-						<a href="../../../forecasts/steo/report/electricity.cfm.html">Electricity</a>
+						<a href="electricity.cfm.html">Electricity</a>
 					</li>
 					<li>
 						<a href="../../../forecasts/steo/report/renew_co2.cfm.html">Renewables and Carbon Dioxide Emissions</a>
@@ -1884,7 +1884,1208 @@ $(document).ready(function () {
 				title: {
 					text: 'dollars per million Btu',
 					align: 'above',
-					"../../../forecasts/steo/query/index.html">STEO Custom Table Builder &rsaquo;</a><br />
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 1,
+				max: 8,
+				tickInterval: 1,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, false);
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Historical spot price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 5,
+				color: '#0096d7',
+				data: [
+				
+						[Date.UTC(2016,0, 1), 2.283], 
+						[Date.UTC(2016,1, 1), 1.989], 
+						[Date.UTC(2016,2, 1), 1.729], 
+						[Date.UTC(2016,3, 1), 1.917], 
+						[Date.UTC(2016,4, 1), 1.922], 
+						[Date.UTC(2016,5, 1), 2.587], 
+						[Date.UTC(2016,6, 1), 2.822], 
+						[Date.UTC(2016,7, 1), 2.822], 
+						[Date.UTC(2016,8, 1), 2.992], 
+						[Date.UTC(2016,9, 1), 2.977], 
+						[Date.UTC(2016,10, 1), 2.548], 
+						[Date.UTC(2016,11, 1), 3.591] 
+				]
+			}, {
+				name: 'STEO forecast price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 4,
+				color: '#a33340',
+				data: [
+				
+							[Date.UTC(2016,11, 1), 3.591], 
+							[Date.UTC(2017,0, 1), 3.6], 
+							[Date.UTC(2017,1, 1), 3.696587], 
+							[Date.UTC(2017,2, 1), 3.64572], 
+							[Date.UTC(2017,3, 1), 3.547893], 
+							[Date.UTC(2017,4, 1), 3.482358], 
+							[Date.UTC(2017,5, 1), 3.485832], 
+							[Date.UTC(2017,6, 1), 3.491064], 
+							[Date.UTC(2017,7, 1), 3.465944], 
+							[Date.UTC(2017,8, 1), 3.449159], 
+							[Date.UTC(2017,9, 1), 3.472851], 
+							[Date.UTC(2017,10, 1), 3.576984], 
+							[Date.UTC(2017,11, 1), 3.732842], 
+							[Date.UTC(2018,0, 1), 3.794321], 
+							[Date.UTC(2018,1, 1), 3.809222], 
+							[Date.UTC(2018,2, 1), 3.777278], 
+							[Date.UTC(2018,3, 1), 3.744936], 
+							[Date.UTC(2018,4, 1), 3.685594], 
+							[Date.UTC(2018,5, 1), 3.687252], 
+							[Date.UTC(2018,6, 1), 3.684827], 
+							[Date.UTC(2018,7, 1), 3.650195], 
+							[Date.UTC(2018,8, 1), 3.62558], 
+							[Date.UTC(2018,9, 1), 3.641235], 
+							[Date.UTC(2018,10, 1), 3.738774], 
+							[Date.UTC(2018,11, 1), 3.889753] 
+				]
+			}, {
+				name: 'NYMEX futures price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: '#5D9732',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 3.4786], 
+							[Date.UTC(2017,2, 1), 3.4544], 
+							[Date.UTC(2017,3, 1), 3.3778], 
+							[Date.UTC(2017,4, 1), 3.365], 
+							[Date.UTC(2017,5, 1), 3.3884], 
+							[Date.UTC(2017,6, 1), 3.4164], 
+							[Date.UTC(2017,7, 1), 3.4094], 
+							[Date.UTC(2017,8, 1), 3.3882], 
+							[Date.UTC(2017,9, 1), 3.407], 
+							[Date.UTC(2017,10, 1), 3.4468], 
+							[Date.UTC(2017,11, 1), 3.5528], 
+							[Date.UTC(2018,0, 1), 3.6348], 
+							[Date.UTC(2018,1, 1), 3.5902], 
+							[Date.UTC(2018,2, 1), 3.4912], 
+							[Date.UTC(2018,3, 1), 2.9328], 
+							[Date.UTC(2018,4, 1), 2.8724], 
+							[Date.UTC(2018,5, 1), 2.8902], 
+							[Date.UTC(2018,6, 1), 2.9096], 
+							[Date.UTC(2018,7, 1), 2.902], 
+							[Date.UTC(2018,8, 1), 2.8796], 
+							[Date.UTC(2018,9, 1), 2.8972], 
+							[Date.UTC(2018,10, 1), 2.9422], 
+							[Date.UTC(2018,11, 1), 3.0684] 
+				]
+			}, {
+				name: '95% NYMEX futures lower confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 1,
+				color: '#5D9732',dashStyle: 'ShortDash',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 2.7722178214], 
+							[Date.UTC(2017,2, 1), 2.4846151162], 
+							[Date.UTC(2017,3, 1), 2.3900205334], 
+							[Date.UTC(2017,4, 1), 2.3245041726], 
+							[Date.UTC(2017,5, 1), 2.258209662], 
+							[Date.UTC(2017,6, 1), 2.2156439628], 
+							[Date.UTC(2017,7, 1), 2.1527250237], 
+							[Date.UTC(2017,8, 1), 2.0634886953], 
+							[Date.UTC(2017,9, 1), 2.0235690432], 
+							[Date.UTC(2017,10, 1), 1.9767646237], 
+							[Date.UTC(2017,11, 1), 1.9664734616], 
+							[Date.UTC(2018,0, 1), 1.9175227418], 
+							[Date.UTC(2018,1, 1), 1.7848346024], 
+							[Date.UTC(2018,2, 1), 1.6647938206], 
+							[Date.UTC(2018,3, 1), 1.6838287407], 
+							[Date.UTC(2018,4, 1), 1.6745804092], 
+							[Date.UTC(2018,5, 1), 1.6679241273], 
+							[Date.UTC(2018,6, 1), 1.6616984128], 
+							[Date.UTC(2018,7, 1), 1.635667536], 
+							[Date.UTC(2018,8, 1), 1.5954422184], 
+							[Date.UTC(2018,9, 1), 1.5822474682], 
+							[Date.UTC(2018,10, 1), 1.5964963765], 
+							[Date.UTC(2018,11, 1), 1.6581785049] 
+				]
+			}, {
+				name: '95% NYMEX futures upper confidence interval',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				color: '#5D9732',dashStyle: 'ShortDash',
+				data: [
+				
+							[Date.UTC(2017,1, 1), 4.3649737284], 
+							[Date.UTC(2017,2, 1), 4.8027073821], 
+							[Date.UTC(2017,3, 1), 4.7738220993], 
+							[Date.UTC(2017,4, 1), 4.871243138], 
+							[Date.UTC(2017,5, 1), 5.0842287822], 
+							[Date.UTC(2017,6, 1), 5.2678991553], 
+							[Date.UTC(2017,7, 1), 5.3996716869], 
+							[Date.UTC(2017,8, 1), 5.5633448664], 
+							[Date.UTC(2017,9, 1), 5.7362258228], 
+							[Date.UTC(2017,10, 1), 6.0100378656], 
+							[Date.UTC(2017,11, 1), 6.4187938899], 
+							[Date.UTC(2018,0, 1), 6.8900205207], 
+							[Date.UTC(2018,1, 1), 7.2216977542], 
+							[Date.UTC(2018,2, 1), 7.32131348], 
+							[Date.UTC(2018,3, 1), 5.108189231], 
+							[Date.UTC(2018,4, 1), 4.927014382], 
+							[Date.UTC(2018,5, 1), 5.0081750742], 
+							[Date.UTC(2018,6, 1), 5.0946502053], 
+							[Date.UTC(2018,7, 1), 5.1487260182], 
+							[Date.UTC(2018,8, 1), 5.1973653853], 
+							[Date.UTC(2018,9, 1), 5.3049652529], 
+							[Date.UTC(2018,10, 1), 5.4222113922], 
+							[Date.UTC(2018,11, 1), 5.6779644244] 
+				]
+			}],
+			captions: {
+				items: [{
+					text: 'Note: Confidence interval derived from options market information for the 5 trading days ending Jan. 5 2017.  Intervals not calculated for months with sparse trading in near-the-money options contracts.'
+				}, {
+					text: ''
+				}]
+			}
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>
+
+	</DIV>
+	 
+      
+    
+	<noscript>
+	
+	<p align="center">
+		<a href="../../../forecasts/steo/images/Fig5.png" class="lightbox" rel="group">
+			<img src="../../../forecasts/steo/images/Fig5.png" alt="Figure 5: Natural Gas Prices" width="95%"  border="0">
+		</a>
+	</p>
+
+	</noscript>
+	
+	<DIV class="carousel blue_top">
+		
+
+<style>
+#lbFig5
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig5"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig5').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig5',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. natural gas prices'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%b-%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 16),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'dollars per thousand cubic feet',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal'
+					}
+				},
+				min: 0,
+				max: 20,
+				tickInterval: 2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					}
+				},
+				opposite: false
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					var yLabel = formatNumber(this.y, 2, true, false);
+
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				color: Highcharts.eia_blue,
+				name: 'Residential price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				data: [
+				
+						[Date.UTC(2012,0, 1), 9.62], 
+						[Date.UTC(2012,1, 1), 9.47], 
+						[Date.UTC(2012,2, 1), 10.41], 
+						[Date.UTC(2012,3, 1), 10.94], 
+						[Date.UTC(2012,4, 1), 12.61], 
+						[Date.UTC(2012,5, 1), 14.18], 
+						[Date.UTC(2012,6, 1), 15.13], 
+						[Date.UTC(2012,7, 1), 15.82], 
+						[Date.UTC(2012,8, 1), 14.72], 
+						[Date.UTC(2012,9, 1), 11.68], 
+						[Date.UTC(2012,10, 1), 9.99], 
+						[Date.UTC(2012,11, 1), 9.8], 
+						[Date.UTC(2013,0, 1), 9.15], 
+						[Date.UTC(2013,1, 1), 9.23], 
+						[Date.UTC(2013,2, 1), 9.35], 
+						[Date.UTC(2013,3, 1), 10.43], 
+						[Date.UTC(2013,4, 1), 12.61], 
+						[Date.UTC(2013,5, 1), 15.02], 
+						[Date.UTC(2013,6, 1), 16.3], 
+						[Date.UTC(2013,7, 1), 16.43], 
+						[Date.UTC(2013,8, 1), 15.69], 
+						[Date.UTC(2013,9, 1), 12.38], 
+						[Date.UTC(2013,10, 1), 10.04], 
+						[Date.UTC(2013,11, 1), 9.14], 
+						[Date.UTC(2014,0, 1), 9.26], 
+						[Date.UTC(2014,1, 1), 9.77], 
+						[Date.UTC(2014,2, 1), 10.7], 
+						[Date.UTC(2014,3, 1), 11.76], 
+						[Date.UTC(2014,4, 1), 13.6], 
+						[Date.UTC(2014,5, 1), 16.13], 
+						[Date.UTC(2014,6, 1), 17.23], 
+						[Date.UTC(2014,7, 1), 17.41], 
+						[Date.UTC(2014,8, 1), 16.27], 
+						[Date.UTC(2014,9, 1), 13.11], 
+						[Date.UTC(2014,10, 1), 10.19], 
+						[Date.UTC(2014,11, 1), 10.01], 
+						[Date.UTC(2015,0, 1), 9.5], 
+						[Date.UTC(2015,1, 1), 9.08], 
+						[Date.UTC(2015,2, 1), 9.28], 
+						[Date.UTC(2015,3, 1), 10.44], 
+						[Date.UTC(2015,4, 1), 12.73], 
+						[Date.UTC(2015,5, 1), 15.07], 
+						[Date.UTC(2015,6, 1), 16.28], 
+						[Date.UTC(2015,7, 1), 16.89], 
+						[Date.UTC(2015,8, 1), 16.4], 
+						[Date.UTC(2015,9, 1), 12.6], 
+						[Date.UTC(2015,10, 1), 10.02], 
+						[Date.UTC(2015,11, 1), 9.27], 
+						[Date.UTC(2016,0, 1), 8.3], 
+						[Date.UTC(2016,1, 1), 8.38], 
+						[Date.UTC(2016,2, 1), 9.21], 
+						[Date.UTC(2016,3, 1), 9.65], 
+						[Date.UTC(2016,4, 1), 11.61], 
+						[Date.UTC(2016,5, 1), 14.47], 
+						[Date.UTC(2016,6, 1), 16.58], 
+						[Date.UTC(2016,7, 1), 17.63], 
+						[Date.UTC(2016,8, 1), 16.8], 
+						[Date.UTC(2016,9, 1), 13.74], 
+						[Date.UTC(2016,10, 1), 11.36042], 
+						[Date.UTC(2016,11, 1), 10.05382], 
+						[Date.UTC(2017,0, 1), 9.918178], 
+						[Date.UTC(2017,1, 1), 10.02377], 
+						[Date.UTC(2017,2, 1), 10.38676], 
+						[Date.UTC(2017,3, 1), 11.28434], 
+						[Date.UTC(2017,4, 1), 13.21059], 
+						[Date.UTC(2017,5, 1), 15.47472], 
+						[Date.UTC(2017,6, 1), 16.63879], 
+						[Date.UTC(2017,7, 1), 17.5162], 
+						[Date.UTC(2017,8, 1), 16.55344], 
+						[Date.UTC(2017,9, 1), 13.55701], 
+						[Date.UTC(2017,10, 1), 11.1777], 
+						[Date.UTC(2017,11, 1), 10.31897], 
+						[Date.UTC(2018,0, 1), 10.09097], 
+						[Date.UTC(2018,1, 1), 10.17725], 
+						[Date.UTC(2018,2, 1), 10.47777], 
+						[Date.UTC(2018,3, 1), 11.40853], 
+						[Date.UTC(2018,4, 1), 13.35841], 
+						[Date.UTC(2018,5, 1), 15.63327], 
+						[Date.UTC(2018,6, 1), 16.81347], 
+						[Date.UTC(2018,7, 1), 17.69325], 
+						[Date.UTC(2018,8, 1), 16.72761], 
+						[Date.UTC(2018,9, 1), 13.72479], 
+						[Date.UTC(2018,10, 1), 11.33331], 
+						[Date.UTC(2018,11, 1), 10.4698] 
+				]
+			}, {
+				color: Highcharts.eia_red,
+				name: 'Henry Hub spot price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				data: [
+				
+						[Date.UTC(2012,0, 1), 2.737775], 
+						[Date.UTC(2012,1, 1), 2.567625], 
+						[Date.UTC(2012,2, 1), 2.2263], 
+						[Date.UTC(2012,3, 1), 1.993625], 
+						[Date.UTC(2012,4, 1), 2.4928], 
+						[Date.UTC(2012,5, 1), 2.516375], 
+						[Date.UTC(2012,6, 1), 3.026825], 
+						[Date.UTC(2012,7, 1), 2.90895], 
+						[Date.UTC(2012,8, 1), 2.9192], 
+						[Date.UTC(2012,9, 1), 3.399925], 
+						[Date.UTC(2012,10, 1), 3.6285], 
+						[Date.UTC(2012,11, 1), 3.42555], 
+						[Date.UTC(2013,0, 1), 3.422212], 
+						[Date.UTC(2013,1, 1), 3.42324], 
+						[Date.UTC(2013,2, 1), 3.91668], 
+						[Date.UTC(2013,3, 1), 4.282648], 
+						[Date.UTC(2013,4, 1), 4.154148], 
+						[Date.UTC(2013,5, 1), 3.933128], 
+						[Date.UTC(2013,6, 1), 3.724444], 
+						[Date.UTC(2013,7, 1), 3.5209], 
+						[Date.UTC(2013,8, 1), 3.720332], 
+						[Date.UTC(2013,9, 1), 3.779956], 
+						[Date.UTC(2013,10, 1), 3.739864], 
+						[Date.UTC(2013,11, 1), 4.35872], 
+						[Date.UTC(2014,0, 1), 4.863816], 
+						[Date.UTC(2014,1, 1), 6.190968], 
+						[Date.UTC(2014,2, 1), 5.059896], 
+						[Date.UTC(2014,3, 1), 4.807056], 
+						[Date.UTC(2014,4, 1), 4.727592], 
+						[Date.UTC(2014,5, 1), 4.734816], 
+						[Date.UTC(2014,6, 1), 4.178568], 
+						[Date.UTC(2014,7, 1), 4.037184], 
+						[Date.UTC(2014,8, 1), 4.049568], 
+						[Date.UTC(2014,9, 1), 3.901992], 
+						[Date.UTC(2014,10, 1), 4.253904], 
+						[Date.UTC(2014,11, 1), 3.593424], 
+						[Date.UTC(2015,0, 1), 3.089808], 
+						[Date.UTC(2015,1, 1), 2.964936], 
+						[Date.UTC(2015,2, 1), 2.921592], 
+						[Date.UTC(2015,3, 1), 2.69352], 
+						[Date.UTC(2015,4, 1), 2.940168], 
+						[Date.UTC(2015,5, 1), 2.873088], 
+						[Date.UTC(2015,6, 1), 2.929848], 
+						[Date.UTC(2015,7, 1), 2.862768], 
+						[Date.UTC(2015,8, 1), 2.74512], 
+						[Date.UTC(2015,9, 1), 2.415912], 
+						[Date.UTC(2015,10, 1), 2.159976], 
+						[Date.UTC(2015,11, 1), 1.990728], 
+						[Date.UTC(2016,0, 1), 2.356056], 
+						[Date.UTC(2016,1, 1), 2.052648], 
+						[Date.UTC(2016,2, 1), 1.784328], 
+						[Date.UTC(2016,3, 1), 1.978344], 
+						[Date.UTC(2016,4, 1), 1.983504], 
+						[Date.UTC(2016,5, 1), 2.669784], 
+						[Date.UTC(2016,6, 1), 2.912304], 
+						[Date.UTC(2016,7, 1), 2.912304], 
+						[Date.UTC(2016,8, 1), 3.087744], 
+						[Date.UTC(2016,9, 1), 3.072264], 
+						[Date.UTC(2016,10, 1), 2.629536], 
+						[Date.UTC(2016,11, 1), 3.705912], 
+						[Date.UTC(2017,0, 1), 3.7152], 
+						[Date.UTC(2017,1, 1), 3.814878], 
+						[Date.UTC(2017,2, 1), 3.762383], 
+						[Date.UTC(2017,3, 1), 3.661425], 
+						[Date.UTC(2017,4, 1), 3.593794], 
+						[Date.UTC(2017,5, 1), 3.597379], 
+						[Date.UTC(2017,6, 1), 3.602778], 
+						[Date.UTC(2017,7, 1), 3.576855], 
+						[Date.UTC(2017,8, 1), 3.559532], 
+						[Date.UTC(2017,9, 1), 3.583982], 
+						[Date.UTC(2017,10, 1), 3.691448], 
+						[Date.UTC(2017,11, 1), 3.852293], 
+						[Date.UTC(2018,0, 1), 3.915739], 
+						[Date.UTC(2018,1, 1), 3.931117], 
+						[Date.UTC(2018,2, 1), 3.898151], 
+						[Date.UTC(2018,3, 1), 3.864774], 
+						[Date.UTC(2018,4, 1), 3.803533], 
+						[Date.UTC(2018,5, 1), 3.805244], 
+						[Date.UTC(2018,6, 1), 3.802741], 
+						[Date.UTC(2018,7, 1), 3.767002], 
+						[Date.UTC(2018,8, 1), 3.741598], 
+						[Date.UTC(2018,9, 1), 3.757755], 
+						[Date.UTC(2018,10, 1), 3.858415], 
+						[Date.UTC(2018,11, 1), 4.014225] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>
+
+	</DIV>
+		
+	
+  
+
+   
+    <h2>Coal Prices</h2>
+  <p>
+    EIA estimates the delivered coal price averaged $2.13/MMBtu in 2016, a 4% decline from the 2015 price. Coal prices are forecast to increase in 2017 and in 2018 to $2.18/MMBtu and $2.21/MMBtu, respectively.
+  </p>
+
+
+<h2>Electricity Retail Prices</h2>
+  <p>
+    The U.S. residential electricity price averaged 12.5 cents per kilowatthour (kWh) in October 2016. This price is 2.1% lower than the U.S. residential price in October 2015. EIA expects the annual average U.S. residential electricity price to increase by 2.6% in 2017 and by 2.5% in 2018.
+  </p>
+
+
+
+
+   
+    
+    
+	<noscript>
+	
+	<p align="center">
+		<a href="../../../forecasts/steo/images/Fig24.png" class="lightbox" rel="group">
+			<img src="../../../forecasts/steo/images/Fig24.png" alt="Figure 24: U.S. Residential Electricity Price" width="95%"  border="0">
+		</a>
+	</p>
+
+	</noscript>
+	
+	<DIV class="carousel blue_top">
+		
+
+<style>
+#lbFig24
+{
+	display:none;
+}
+</style>
+
+<DIV id="lbFig24"></DIV>
+
+<script>
+$(document).ready(function () {
+	$('#lbFig24').css('display', 'block');
+
+	try {
+		var chartOptions = {
+			chart: {
+				renderTo: 'lbFig24',
+				lineUpAxisZeros: false
+			},
+			lang: {
+				exportButtonTitle: 'Export Data or Image'
+			},
+			credits: {
+				enabled: true,
+				text: 'Source: Short-Term Energy Outlook, January 2017',
+				href: null,
+				style: {
+					cursor: 'default'
+				},
+				position: {
+					align: 'left',
+					verticalAlign: 'bottom',
+					x: 10,
+					y: -5
+				}
+			},
+			title: {
+				text: 'U.S. residential electricity price'
+			},
+			xAxis: {
+				title: {
+					text: ''
+				},
+				type: 'datetime',
+				labels: {
+					formatter: function () {
+						return Highcharts.dateFormat('%Y', this.value);
+					},
+					style: {
+						whiteSpace: 'nowrap',
+						wordWrap: 'normal'
+					},
+					align: 'left',
+					x: 5,
+					y: 20
+				},
+				plotLines: [{
+					color: Highcharts.eia_grey,
+					dashStyle: 'ShortDash',
+					value: Date.UTC(2017, -1, 16),
+					width: 2,
+					label: {
+						text: 'projections',
+						verticalAlign: 'top',
+						y: 15,
+						rotation: 0
+					},
+					zIndex: 2
+				}],
+				startOnTick: false,
+				endOnTick: false,
+				showFirstLabel: true,
+				showLastLabel: false,
+				tickInterval: 365 * 24 * 3600 * 1000
+			},
+			yAxis: [{
+				title: {
+					text: 'cents per kilowatthour',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_green
+					}
+				},
+				min: 0,
+				max: 16,
+				tickInterval: 2,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_green
+					}
+				},
+				opposite: false
+			}, {
+				title: {
+					text: 'percent change from prior year',
+					align: 'above',
+					y: -10,
+					style: {
+						fontWeight: 'normal',
+						color: Highcharts.eia_blue
+					}
+				},
+				min: 0,
+				max: 28,
+				tickInterval: 4,
+				labels: {
+					formatter: function () {
+						return formatNumber(this.value, 0, true, ('percent' == 'percent'));
+					},
+					style: {
+						color: Highcharts.eia_blue
+					}
+				},
+				opposite: true
+			}],
+			tooltip: {
+				formatter: function () {
+					var xLabel, yLabel;
+					var precision, format, frequency;
+					
+					if('Residential electricity price' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Price forecast' == this.series.name)
+					{
+						precision = 2;
+						frequency = 'M'; 
+					}
+					
+					if('Annual growth (right axis)' == this.series.name)
+					{
+						precision = 1;
+						frequency = 'A'; format = 'percent';
+					}
+					
+					var date = new Date(this.x);
+					
+					if(frequency == 'M'){
+					xLabel = Highcharts.dateFormat('%b-%Y', this.x);
+					}
+					else if(frequency == 'Q') {
+					xLabel = 'Q' + (Math.ceil((new Date(this.x).getUTCMonth() + 1)/3)) + ' ' + Highcharts.dateFormat('%Y', this.x);
+					}
+					else {
+						xLabel = Highcharts.dateFormat('%Y', this.x);
+					}		
+					
+					
+					
+					yLabel = this.y;
+					
+					
+					
+					yLabel = formatNumber(yLabel, precision, true, (format == 'percent'));
+						
+					return '<b>' + xLabel + '</b><br/>' + this.series.name + ' : <b>' + yLabel + '</b>';
+
+				}
+			},
+			legend: {
+				layout: 'vertical',
+				align: 'center',
+				verticalAlign: 'bottom',
+				margin: 30,
+				width: 400,
+				borderWidth: 0
+			},
+			series: [{
+				name: 'Residential electricity price',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 3,
+				color: Highcharts.eia_green,
+				data: [
+				
+						[Date.UTC(2003,0, 1), 8], 
+						[Date.UTC(2003,1, 1), 8.02], 
+						[Date.UTC(2003,2, 1), 8.35], 
+						[Date.UTC(2003,3, 1), 8.82], 
+						[Date.UTC(2003,4, 1), 8.99], 
+						[Date.UTC(2003,5, 1), 9.25], 
+						[Date.UTC(2003,6, 1), 9.21], 
+						[Date.UTC(2003,7, 1), 9.22], 
+						[Date.UTC(2003,8, 1), 8.92], 
+						[Date.UTC(2003,9, 1), 8.85], 
+						[Date.UTC(2003,10, 1), 8.72], 
+						[Date.UTC(2003,11, 1), 8.3], 
+						[Date.UTC(2004,0, 1), 8.24], 
+						[Date.UTC(2004,1, 1), 8.33], 
+						[Date.UTC(2004,2, 1), 8.62], 
+						[Date.UTC(2004,3, 1), 8.93], 
+						[Date.UTC(2004,4, 1), 9.07], 
+						[Date.UTC(2004,5, 1), 9.29], 
+						[Date.UTC(2004,6, 1), 9.36], 
+						[Date.UTC(2004,7, 1), 9.5], 
+						[Date.UTC(2004,8, 1), 9.39], 
+						[Date.UTC(2004,9, 1), 9.05], 
+						[Date.UTC(2004,10, 1), 8.96], 
+						[Date.UTC(2004,11, 1), 8.58], 
+						[Date.UTC(2005,0, 1), 8.5], 
+						[Date.UTC(2005,1, 1), 8.74], 
+						[Date.UTC(2005,2, 1), 8.86], 
+						[Date.UTC(2005,3, 1), 9.21], 
+						[Date.UTC(2005,4, 1), 9.55], 
+						[Date.UTC(2005,5, 1), 9.77], 
+						[Date.UTC(2005,6, 1), 9.75], 
+						[Date.UTC(2005,7, 1), 9.91], 
+						[Date.UTC(2005,8, 1), 9.91], 
+						[Date.UTC(2005,9, 1), 9.73], 
+						[Date.UTC(2005,10, 1), 9.74], 
+						[Date.UTC(2005,11, 1), 9.25], 
+						[Date.UTC(2006,0, 1), 9.55], 
+						[Date.UTC(2006,1, 1), 9.8], 
+						[Date.UTC(2006,2, 1), 9.87], 
+						[Date.UTC(2006,3, 1), 10.32], 
+						[Date.UTC(2006,4, 1), 10.61], 
+						[Date.UTC(2006,5, 1), 10.85], 
+						[Date.UTC(2006,6, 1), 10.96], 
+						[Date.UTC(2006,7, 1), 10.94], 
+						[Date.UTC(2006,8, 1), 10.94], 
+						[Date.UTC(2006,9, 1), 10.58], 
+						[Date.UTC(2006,10, 1), 10.18], 
+						[Date.UTC(2006,11, 1), 9.84], 
+						[Date.UTC(2007,0, 1), 10.06], 
+						[Date.UTC(2007,1, 1), 9.89], 
+						[Date.UTC(2007,2, 1), 10.27], 
+						[Date.UTC(2007,3, 1), 10.63], 
+						[Date.UTC(2007,4, 1), 10.77], 
+						[Date.UTC(2007,5, 1), 11.09], 
+						[Date.UTC(2007,6, 1), 11.07], 
+						[Date.UTC(2007,7, 1), 11.07], 
+						[Date.UTC(2007,8, 1), 10.96], 
+						[Date.UTC(2007,9, 1), 10.82], 
+						[Date.UTC(2007,10, 1), 10.7], 
+						[Date.UTC(2007,11, 1), 10.33], 
+						[Date.UTC(2008,0, 1), 10.14], 
+						[Date.UTC(2008,1, 1), 10.16], 
+						[Date.UTC(2008,2, 1), 10.45], 
+						[Date.UTC(2008,3, 1), 10.93], 
+						[Date.UTC(2008,4, 1), 11.4], 
+						[Date.UTC(2008,5, 1), 11.77], 
+						[Date.UTC(2008,6, 1), 12.07], 
+						[Date.UTC(2008,7, 1), 12.09], 
+						[Date.UTC(2008,8, 1), 11.92], 
+						[Date.UTC(2008,9, 1), 11.81], 
+						[Date.UTC(2008,10, 1), 11.42], 
+						[Date.UTC(2008,11, 1), 10.86], 
+						[Date.UTC(2009,0, 1), 10.98], 
+						[Date.UTC(2009,1, 1), 11.18], 
+						[Date.UTC(2009,2, 1), 11.28], 
+						[Date.UTC(2009,3, 1), 11.5], 
+						[Date.UTC(2009,4, 1), 11.78], 
+						[Date.UTC(2009,5, 1), 11.81], 
+						[Date.UTC(2009,6, 1), 11.85], 
+						[Date.UTC(2009,7, 1), 11.94], 
+						[Date.UTC(2009,8, 1), 11.96], 
+						[Date.UTC(2009,9, 1), 11.65], 
+						[Date.UTC(2009,10, 1), 11.26], 
+						[Date.UTC(2009,11, 1), 10.9], 
+						[Date.UTC(2010,0, 1), 10.49], 
+						[Date.UTC(2010,1, 1), 10.89], 
+						[Date.UTC(2010,2, 1), 11.11], 
+						[Date.UTC(2010,3, 1), 11.71], 
+						[Date.UTC(2010,4, 1), 11.91], 
+						[Date.UTC(2010,5, 1), 11.91], 
+						[Date.UTC(2010,6, 1), 12.04], 
+						[Date.UTC(2010,7, 1), 12.03], 
+						[Date.UTC(2010,8, 1), 11.95], 
+						[Date.UTC(2010,9, 1), 11.86], 
+						[Date.UTC(2010,10, 1), 11.62], 
+						[Date.UTC(2010,11, 1), 11.06], 
+						[Date.UTC(2011,0, 1), 10.87], 
+						[Date.UTC(2011,1, 1), 11.06], 
+						[Date.UTC(2011,2, 1), 11.52], 
+						[Date.UTC(2011,3, 1), 11.67], 
+						[Date.UTC(2011,4, 1), 11.93], 
+						[Date.UTC(2011,5, 1), 11.97], 
+						[Date.UTC(2011,6, 1), 12.09], 
+						[Date.UTC(2011,7, 1), 12.09], 
+						[Date.UTC(2011,8, 1), 12.17], 
+						[Date.UTC(2011,9, 1), 12.08], 
+						[Date.UTC(2011,10, 1), 11.78], 
+						[Date.UTC(2011,11, 1), 11.4], 
+						[Date.UTC(2012,0, 1), 11.41], 
+						[Date.UTC(2012,1, 1), 11.51], 
+						[Date.UTC(2012,2, 1), 11.7], 
+						[Date.UTC(2012,3, 1), 11.92], 
+						[Date.UTC(2012,4, 1), 11.9], 
+						[Date.UTC(2012,5, 1), 12.09], 
+						[Date.UTC(2012,6, 1), 12], 
+						[Date.UTC(2012,7, 1), 12.17], 
+						[Date.UTC(2012,8, 1), 12.3], 
+						[Date.UTC(2012,9, 1), 12.03], 
+						[Date.UTC(2012,10, 1), 11.75], 
+						[Date.UTC(2012,11, 1), 11.62], 
+						[Date.UTC(2013,0, 1), 11.46], 
+						[Date.UTC(2013,1, 1), 11.63], 
+						[Date.UTC(2013,2, 1), 11.61], 
+						[Date.UTC(2013,3, 1), 11.93], 
+						[Date.UTC(2013,4, 1), 12.4], 
+						[Date.UTC(2013,5, 1), 12.54], 
+						[Date.UTC(2013,6, 1), 12.65], 
+						[Date.UTC(2013,7, 1), 12.53], 
+						[Date.UTC(2013,8, 1), 12.51], 
+						[Date.UTC(2013,9, 1), 12.36], 
+						[Date.UTC(2013,10, 1), 12.1], 
+						[Date.UTC(2013,11, 1), 11.72], 
+						[Date.UTC(2014,0, 1), 11.65], 
+						[Date.UTC(2014,1, 1), 11.94], 
+						[Date.UTC(2014,2, 1), 12.25], 
+						[Date.UTC(2014,3, 1), 12.31], 
+						[Date.UTC(2014,4, 1), 12.85], 
+						[Date.UTC(2014,5, 1), 12.99], 
+						[Date.UTC(2014,6, 1), 13.09], 
+						[Date.UTC(2014,7, 1), 13.04], 
+						[Date.UTC(2014,8, 1), 12.95], 
+						[Date.UTC(2014,9, 1), 12.6], 
+						[Date.UTC(2014,10, 1), 12.48], 
+						[Date.UTC(2014,11, 1), 12.17], 
+						[Date.UTC(2015,0, 1), 12.1], 
+						[Date.UTC(2015,1, 1), 12.29], 
+						[Date.UTC(2015,2, 1), 12.33], 
+						[Date.UTC(2015,3, 1), 12.62], 
+						[Date.UTC(2015,4, 1), 12.93], 
+						[Date.UTC(2015,5, 1), 12.92], 
+						[Date.UTC(2015,6, 1), 12.94], 
+						[Date.UTC(2015,7, 1), 12.91], 
+						[Date.UTC(2015,8, 1), 13.03], 
+						[Date.UTC(2015,9, 1), 12.72], 
+						[Date.UTC(2015,10, 1), 12.71], 
+						[Date.UTC(2015,11, 1), 12.32], 
+						[Date.UTC(2016,0, 1), 11.98], 
+						[Date.UTC(2016,1, 1), 12.14], 
+						[Date.UTC(2016,2, 1), 12.57], 
+						[Date.UTC(2016,3, 1), 12.43], 
+						[Date.UTC(2016,4, 1), 12.79], 
+						[Date.UTC(2016,5, 1), 12.72], 
+						[Date.UTC(2016,6, 1), 12.68], 
+						[Date.UTC(2016,7, 1), 12.9], 
+						[Date.UTC(2016,8, 1), 12.87], 
+						[Date.UTC(2016,9, 1), 12.45], 
+						[Date.UTC(2016,10, 1), 12.44125], 
+						[Date.UTC(2016,11, 1), 12.02864] 	
+				]
+			}, {
+				name: 'Price forecast',
+				type: 'line',
+				yAxis: 0,
+				zIndex: 2,
+				color: Highcharts.eia_green,
+				dashStyle: 'dash',
+				data: [
+				
+						[Date.UTC(2016,11, 1), 12.02864], 
+						[Date.UTC(2017,0, 1), 12.00226], 
+						[Date.UTC(2017,1, 1), 12.298], 
+						[Date.UTC(2017,2, 1), 12.64004], 
+						[Date.UTC(2017,3, 1), 12.58726], 
+						[Date.UTC(2017,4, 1), 12.99655], 
+						[Date.UTC(2017,5, 1), 13.05063], 
+						[Date.UTC(2017,6, 1), 13.13088], 
+						[Date.UTC(2017,7, 1), 13.38755], 
+						[Date.UTC(2017,8, 1), 13.46998], 
+						[Date.UTC(2017,9, 1), 13.03986], 
+						[Date.UTC(2017,10, 1), 12.89692], 
+						[Date.UTC(2017,11, 1), 12.45821], 
+						[Date.UTC(2018,0, 1), 12.66027], 
+						[Date.UTC(2018,1, 1), 12.89983], 
+						[Date.UTC(2018,2, 1), 13.06776], 
+						[Date.UTC(2018,3, 1), 12.94215], 
+						[Date.UTC(2018,4, 1), 13.29643], 
+						[Date.UTC(2018,5, 1), 13.28729], 
+						[Date.UTC(2018,6, 1), 13.32869], 
+						[Date.UTC(2018,7, 1), 13.56612], 
+						[Date.UTC(2018,8, 1), 13.64257], 
+						[Date.UTC(2018,9, 1), 13.23405], 
+						[Date.UTC(2018,10, 1), 13.11969], 
+						[Date.UTC(2018,11, 1), 12.7191] 	
+				]
+			}, {
+				name: 'Annual growth (right axis)',
+				type: 'column',
+				yAxis: 1,
+				zIndex: 1,
+				color: Highcharts.eia_blue,
+				pointRange: 1000 * 3600 * 24 * 365,
+				data: [
+				
+						[Date.UTC(2003,5, 1), 3.24790834323], 
+						[Date.UTC(2004,5, 1), 2.59150457033], 
+						[Date.UTC(2005,5, 1), 5.38351902972], 
+						[Date.UTC(2006,5, 1), 10.3439718416], 
+						[Date.UTC(2007,5, 1), 2.38695858179], 
+						[Date.UTC(2008,5, 1), 5.74501026], 
+						[Date.UTC(2009,5, 1), 2.17416457585], 
+						[Date.UTC(2010,5, 1), 0.245443241441], 
+						[Date.UTC(2011,5, 1), 1.56707723395], 
+						[Date.UTC(2012,5, 1), 1.37928828385], 
+						[Date.UTC(2013,5, 1), 2.08687388403], 
+						[Date.UTC(2014,5, 1), 3.22919060607], 
+						[Date.UTC(2015,5, 1), 1.06528883637], 
+						[Date.UTC(2016,5, 1), -1.10643459454], 
+						[Date.UTC(2017,5, 1), 2.62952787075], 
+						[Date.UTC(2018,5, 1), 2.46144567819] 
+				]
+			}]
+		};
+		var chart = new Highcharts.Chart(chartOptions);
+	} catch (err) {
+		throw (err);
+	}
+});
+</script>
+
+	</DIV>
+	
+
+
+				</div>
+				 
+				<!-- Column 2 --> 
+				<div class="side_col right">
+					
+
+
+<STYLE>
+.steoPriceSummary 
+{
+	margin-top:0;
+	width: 100%;
+}
+.steoPriceSummary th, .steoPriceSummary td
+{
+	text-align: left !important;
+}
+
+.steoPriceSummary th
+{
+	font-weight:bold !important;
+}
+
+.steoPriceSummary td
+{
+	vertical-align: middle !important;
+}
+
+.steoPriceSummary tr td:first-child
+{
+	text-align: left !important;	
+}
+
+.steoPriceSummary tfoot
+{
+	background-color: #DDF0F9 !important;
+	font-style:normal !important;
+	font-size:.75em !important;
+	
+}
+
+.steoPriceSummary tbody.notFirst tr:first-child td
+{
+	border-top: #e3e5e6 1px solid !important;
+	padding-top: 20px !important;
+}
+
+
+.steoPriceSummary td
+{
+	background-color: white !important;
+}
+
+.indent-1
+{
+	font-weight: bold !important;
+	padding-left: 10px !important;
+}
+
+
+.steoPriceSummary span.subtitle
+{
+	font-weight: normal !important;
+}
+
+
+.steoPriceSummary td.Forecast
+{
+	font-style:italic !important;
+}
+.steoPriceSummary span.hidden
+{
+	display: none !important;
+}
+</STYLE>
+
+
+
+<table class="steoPriceSummary zebra">	
+	<thead>
+		
+			<tr>
+				<th colspan="5"> Prices </th>
+			</tr>
+			<tr>
+				<th>&nbsp;</th>
+				
+				<th> 2015 </th>
+				
+				<th> 2016 </th>
+				
+				<th> 2017 <span class="hidden">projected</span></th>
+				
+				<th> 2018 <span class="hidden">projected</span></th>
+				
+			</tr>
+		
+	</thead>
+	
+			
+	
+	    <tfoot>
+	    	<tr>
+				
+				<td colspan="5"> 
+					
+						 <sup> a </sup> West Texas Intermediate. <br>
+					
+						 <sup> b </sup> Average regular pump price. <br>
+					
+						 <sup> c </sup> On-highway retail. <br>
+					
+						 <sup> d </sup> U.S. Residential average. <br>
+					
+						 <sup> e </sup> Electric power generation fuel cost. <br>
+					
+				</td>
+					
+			</tr>	
+	    </tfoot>
+		
+				<tr>
+					
+						<td class="indent-1">
+							WTI Crude Oil<sup>a</sup>
+								
+							<BR><span class="subtitle">(dollars per barrel)</span>
+						</td>
+						
+						
+						 <td > 48.67 </td>  <td > 43.33 </td>  <td > 52.50 </td>  <td class="Forecast"> 55.18 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Brent Crude Oil<sup></sup>
+								
+							<BR><span class="subtitle">(dollars per barrel)</span>
+						</td>
+						
+						
+						 <td > 52.32 </td>  <td > 43.74 </td>  <td > 53.50 </td>  <td class="Forecast"> 56.18 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Gasoline<sup>b</sup>
+								
+							<BR><span class="subtitle">(dollars per gallon)</span>
+						</td>
+						
+						
+						 <td > 2.43 </td>  <td > 2.15 </td>  <td > 2.38 </td>  <td class="Forecast"> 2.41 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Diesel<sup>c</sup>
+								
+							<BR><span class="subtitle">(dollars per gallon)</span>
+						</td>
+						
+						
+						 <td > 2.71 </td>  <td > 2.31 </td>  <td > 2.73 </td>  <td class="Forecast"> 2.84 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Heating Oil<sup>d</sup>
+								
+							<BR><span class="subtitle">(dollars per gallon)</span>
+						</td>
+						
+						
+						 <td > 2.65 </td>  <td > 2.11 </td>  <td > 2.63 </td>  <td class="Forecast"> 2.73 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Natural Gas<sup>d</sup>
+								
+							<BR><span class="subtitle">(dollars per thousand cubic feet)</span>
+						</td>
+						
+						
+						 <td > 10.36 </td>  <td > 10.29 </td>  <td > 11.25 </td>  <td class="Forecast"> 11.40 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Electricity<sup>d</sup>
+								
+							<BR><span class="subtitle">(cents per kilowatthour)</span>
+						</td>
+						
+						
+						 <td > 12.65 </td>  <td > 12.51 </td>  <td > 12.84 </td>  <td class="Forecast"> 13.16 </td> 
+				</tr>
+				
+				<tr>
+					
+						<td class="indent-1">
+							Coal<sup>e</sup>
+								
+							<BR><span class="subtitle">(dollars per million Btu)</span>
+						</td>
+						
+						
+						 <td > 2.23 </td>  <td > 2.13 </td>  <td > 2.18 </td>  <td class="Forecast"> 2.21 </td> 
+				</tr>
+						
+</table>
+
+<span class="blue_side no_print">
+    <h4 class="d_side">Interactive Data Viewers</h4>
+    
+    <p><em>Provides custom data views of historical and forecast data</em><br />
+    <br />
+    <b>
+    <a href="../../../forecasts/steo/query/index.html">STEO Custom Table Builder &rsaquo;</a><br />
     <a href="../../../forecasts/steo/realprices/index.html">Real Prices Viewer &rsaquo;</a></b>
 	<br /><br />
 	<em>In beta testing:</em><br /><br />
@@ -2150,7 +3351,7 @@ $(document).ready(function () {
 				        <ul class="no-liststyle">
 							
 							<li><a href="../release_schedule.cfm.html">STEO Release Schedule</a></li>
-							<li><a href="../contacts.cfm.html">Contact STEO Experts</a></li>
+							<li><a href="../../../forecasts/steo/contacts.cfm.html">Contact STEO Experts</a></li>
 							<li><a href="http://www.eia.gov/reports/index.cfm?t=Model%20Documentation">Model Documentation</a></li>
 							
 				        </ul>
@@ -2202,14 +3403,6 @@ $(document).ready(function () {
       
         <div id="rs_home"></div>
         
-      <div class="rs_comments">
-        <form>
-        <p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
-            <textarea name="comments" id="comments" style="height:100px;"></textarea><br />
-            <input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
-        </p>
-        </form>
-      </div>
 	  
       </div>
       <div id="addbar">
@@ -2229,7 +3422,7 @@ $(document).ready(function () {
            <a href="../../../naturalgas/index.html">Natural Gas</a><br />
            <a href="../../../renewable/index.html">Renewable</a><br />
            <a href="../../../fuelnuclear.html">Nuclear</a><br />
-           <a href="../../../electricity/data/browser/css/images/minusplus.png.html">Electricity</a><br />
+           <a href="../../../electricity.1.html">Electricity</a><br />
            <a href="../../../consumption/residential/methodology/index.cfm.html">Consumption</a><br />
            <a href="../../../totalenergy/index.html">Total Energy</a></p>
         <p><b>Topics</b><br />
@@ -2238,7 +3431,7 @@ $(document).ready(function () {
            <a href="../../../finance/index.html">Markets & Finance</a><br />
            <a href="../../../todayinenergy.1.html">Today in Energy</a></p>
         <p><b>Geography</b><br />
-           <a href="../../../state.1.html">States</a><br />
+           <a href="../../../state/seds/sep_prod/xls/P2.xls.html">States</a><br />
            <a href="../../../emeu/international/gasconsumption.html">Countries</a><br />
            <a href="../../../maps.1.html">Maps</a><br />
         <p><b>Tools</b><br />
@@ -2260,7 +3453,7 @@ $(document).ready(function () {
            <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
            <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
            <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
-           <a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
            <a href="../../../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
            <a href="../../../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
       </div>

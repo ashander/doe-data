@@ -145,7 +145,7 @@ $(document).ready(function() {
             <span class="global_menu_col1">
               <a href="index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
               <a href="../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -189,7 +189,7 @@ $(document).ready(function() {
         <li class="global-geo"><a>Geography</a></li>
           <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../state/seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -1443,4 +1443,867 @@ $(document).ready(function(){
 					$("div#reports-holder").empty().html(cannedReports);
 				// Otherwise at least one tag is selected
 				} else {
-					// Tell user new tags and reports are currently loading
+					// Tell user new tags and reports are currently loading
+					$("div#reports-holder").empty().append(loadingReportsHtml);
+				}
+			
+			// Remove the number of reports during the Ajax call
+			$("#num-reports").empty().append('Results');
+			*/
+
+			// Tell user the tags are being loaded
+			$("div#tags-holder").empty().append("<em>Loading tags ...</em>");
+			// Remove the number of reports during the Ajax call
+			$("#num-reports").empty().append('Results');
+			// Tell user new tags and reports are currently loading
+			$("div#reports-holder").empty().append('<br><em>Loading reports ...</em><br><br>');
+
+
+			// *************************************************************************
+			// *************************************************************************
+			// CLEAR THE SELECTIZE PLUGIN, AND RECREATE ALL ITEMS
+			// NOTE: THE CODE BELOW IS SOMEWHAT DUPLICATIVE SO THE ITEMS ARE IN A CERTAIN ORDER
+			// (SUBJECT, TAGS, KEYWORDS, AND START/END DATES)
+			// *************************************************************************
+			// *************************************************************************
+
+			// Clear the Selectize plugin of all the tag options
+			selectize.clearOptions();
+			// Prevent an infinite loop
+			ignoreTagAdd = true;
+
+			// Get the hash array
+			hash_array = hasher.getHashAsArray();
+
+			// Clear this item that can only have one value
+			delete useSubject;
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				hashValue = hash_array[oneHash].substring(1);
+				// If an "S" is prepended, this is a subject as a simulated tag
+				if (hashType == "S") {
+					//console.log("hashType= " + hashType + ", hashValue= " + hashValue);
+					// If this is a known subject
+					if (typeof(allAvailableSubjects[hashValue]) != "undefined") {
+						//console.log("Creating subject ID= " + hashValue);
+						createTag("Subject: " + allAvailableSubjects[hashValue], "S" + hashValue);
+						// Add the existing tag
+						addTag(hash_array[oneHash]);
+						useSubject = hashValue;
+					} else {
+						window.console && console.log("WARNING: Unrecognized subject in hash tag. SID=" + hashValue);
+						delete useSubject;
+					}
+				}
+			}
+			// Decide whether to display the subject in the Selectize plugin
+			// Start with the assumption we won't suppress the subject
+			suppressSubject = false;
+			//console.log("suppressSubject = " + suppressSubject);
+			// If this is a subject-specific page (e.g. Coal), see if we should add a simulated tag for it, or suppress it
+			
+				// Iterate through the tags in hasher
+				for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+					// Get the first character to determine the hash type
+					hashType = hash_array[oneHash].substring(0, 1);
+					// If a "Z" parameter was passed in, suppress the subject
+					if (hashType == "Z") {
+						suppressSubject = true;
+						break;
+					}
+				}
+				// If the parameter "Z" was not passed in (see above) to suppress the subject, go ahead and include it
+				if (!suppressSubject) {
+					createTag('Subject: Petroleum & Other Liquids', 'subject');
+					addTag('subject');
+				}
+			
+
+			// This could have multiple values, so we need a defined, empty string
+			realTags = '';
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				hashValue = hash_array[oneHash].substring(1);
+				// If a "T" is prepended, this is a real tag
+				if (hashType == "T") {
+					// Create and add tags in the Selectize plugin for each one in hasher so the already selected tags can be displayed (additional tags will be created but not added below)
+					createTag(allAvailableTags[hashValue], "T" + hashValue);
+					// Add the existing tag
+					addTag(hash_array[oneHash]);
+					// Append this tag to the list
+					realTags += hashValue + ",";
+				}
+			}
+
+			// This could have multiple values, so we need a defined, empty string
+			useKeywords = '';
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				hashValue = hash_array[oneHash].substring(1);
+				// If an "K" is prepended, this is/these are KEYWORDS
+				if (hashType == "K") {
+					// Decoding gets done automatically by Hasher
+					//useKeywords = decodeURIComponent(hashValue);
+					useKeywords += hashValue + ",";
+					//console.log("Keywords=" + useKeywords);
+					createTag("Keyword: " + hashValue, "K" + hashValue);
+					// Add the existing tag
+					addTag(hash_array[oneHash]);
+				}
+			}
+
+			///window.console && console.log("Clearing start date");
+			// Clear the start date input field
+			$("input#start-date").val("");
+			// Clear this item that can only have one value
+			delete useStartDate;
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				hashValue = hash_array[oneHash].substring(1);
+				// If an "B" is prepended, this is a START DATE
+				if (hashType == "B") {
+					useStartDate = hashValue;
+					createTag("Start date: " + hashValue, "B" + hashValue);
+					// Add the existing tag
+					addTag(hash_array[oneHash]);
+					// Populate the start date input field
+					//console.log("Setting start date= " + hashValue);
+					$("input#start-date").val(hashValue);
+					//throw new Error();
+				}
+			}
+
+			// Clear the end date input field
+			$("input#end-date").val("");
+			// Clear this item that can only have one value
+			delete useEndDate;
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				hashValue = hash_array[oneHash].substring(1);
+				// If an "B" is prepended, this is an END DATE
+				if (hashType == "E") {
+					useEndDate = hashValue;
+					createTag("End date: " + hashValue, "E" + hashValue);
+					// Add the existing tag
+					addTag(hash_array[oneHash]);
+					// Populate the end date input field
+					$("input#end-date").val(hashValue);
+				}
+			}
+
+			// Iterate through the tags in hasher
+			for (oneHash=0; oneHash < hash_array.length; oneHash++) {
+				// Get the first character to determine the hash type
+				hashType = hash_array[oneHash].substring(0, 1);
+				//hashValue = hash_array[oneHash].substring(1);
+				// If an "K" is prepended, this is/these are KEYWORDS
+				if (hashType != "S" && hashType != "T" && hashType != "B" && hashType != "E" && hashType != "K" && hashType != "Z" && hashType != "") {
+					window.console && console.log("WARNING: Unrecognized hash item: " + hash_array[oneHash]);
+				}
+			}
+
+			ignoreTagAdd = false;
+			// *************************************************************************
+			// *************************************************************************
+			// END: CREATE ALL TAGS AS OPTIONS, AND ADD ONLY THOSE THAT ARE CURRENTLY SELECTED
+			// *************************************************************************
+			// *************************************************************************
+
+			// *************************************************************************
+			// *************************************************************************
+			// MAKE AJAX CALL
+			// *************************************************************************
+			// *************************************************************************
+			useData = { };
+			
+			
+				// If the parameter "Z" was not passed in (see above) to suppress the subject, go ahead and include it
+				if (!suppressSubject) {
+					useData.subjectids = '180';
+				}
+			
+			
+
+			// Ignore if there is only a comma (Does this ever happen anymore? Keep just in case)
+			if (realTags.length > 1) {
+				useData.tags = realTags;
+			}
+			/* WHY???
+			// Always include any keywords
+			useData.keywords = useKeywords;
+			*/
+			if (useKeywords.length) {
+				useData.keywords = useKeywords;
+			}
+
+			// If a START DATE exists, pass it in
+			if (typeof(useStartDate) != "undefined") {
+				useData.startdate = useStartDate;
+			}
+			// If an END DATE exists, pass it in
+			if (typeof(useEndDate) != "undefined") {
+				useData.enddate = useEndDate;
+			}
+
+			// Initiate the Ajax call to the server
+			var jqHXR = $.ajax({
+				url: "/global/includes/bookshelf_ajax.cfm",
+				dataType: 'json',
+				type: 'GET',
+				data: useData
+			})
+			// In case there's anything to do regardless of whether the Ajax call succeeds or fails
+			.always(function() {
+				//  window.console && console.log("complete");
+			})
+			// If the Ajax call failed
+			.fail(function(jqXHR, textStatus, errorThrown) {
+				//console.log(jqXHR);
+				window.console && console.log("error, textStatus= " + textStatus + ", errorThrown= " + errorThrown);
+				// Clear out the tags, and display error message
+				$("div#tags-holder").empty().append('<em>There was an error:</em><br><span style="color:#f00"><strong>' + errorThrown + '</strong></span><br><span style="color:#f00"><strong>' + jqHXR.responseText + '</strong></span>');
+				/* This gets done at the top of ajaxCall() now
+				// Remove the number of reports
+				$("#num-reports").empty().append('Results');
+				*/
+				// Clear out any existing reports
+				$("div#reports-holder").empty();
+			})
+			// If the Ajax call completed successfully
+			.done(function(data, textStatus, jqHXR) {
+				//window.console && console.log("Execution times:");
+				// NOTE: Can't use isDisplayable() here b/c these are in "number" not "string" format
+				if (typeof(data.executiontime[1]) != "undefined") window.console && console.log(getTenths(data.executiontime[1]) + " Reports");
+				if (typeof(data.executiontime[0]) != "undefined") window.console && console.log(getTenths(data.executiontime[0]) + " Tags");
+				if (typeof(data.executiontime[2]) != "undefined") window.console && console.log(getTenths(data.executiontime[2]) + " Archives (get)");
+				if (typeof(data.executiontime[3]) != "undefined") window.console && console.log(getTenths(data.executiontime[3]) + " Archives (link)");
+				//window.console && console.log(getTenths(data.executiontime[4]) + " Subject name");
+				if (typeof(data.executiontime[0]) != "undefined" && typeof(data.executiontime[1]) != "undefined" && typeof(data.executiontime[2]) != "undefined" && typeof(data.executiontime[3]) != "undefined") {
+					window.console && console.log(getTenths(data.executiontime[0] + data.executiontime[1] + data.executiontime[2] + data.executiontime[3]) + " Total");
+				}
+				window.console && console.log(data.executiontime[5] + "s   Script Total");
+				if (data.warnings.length) {
+					window.console && console.log("Warnings:");
+					warningsArray = data.warnings.split("|");
+					//console.log(warningsArray);
+					for (oneWarning=0; oneWarning < warningsArray.length; oneWarning++) {
+						window.console && console.log("  " + warningsArray[oneWarning]);
+					}
+					//window.console && console.log("Warnings: " + data.warnings);
+				}
+
+				var tagsJSON = data.tags;
+			//	console.log(tagsJSON);
+
+				// Clear out any existing TAGS, so we can start over
+				$("div#tags-holder").empty();
+				if (!tagsJSON.length) {
+					$("div#tags-holder").append('<em>No additional tags to display</em>');
+				} else {
+					// Iterate through all the additional TAGS returned by the server
+					for (oneTag=0; oneTag < tagsJSON.length; oneTag++) {
+						// Add the (real or simulated) tag to the Selectize plugin -- NOTE: The reason it does not cause a problem to add the number of instances is because when the user selects a tag from the autocomplete, the Ajax call refreshes everything, and the currently selected tags get created above, without that.
+						tagLabel = "";
+						
+						if (tagsJSON[oneTag].IDENTIFIER.toString().substring(0, 1) != "S") {
+							tagLabel += tagsJSON[oneTag].LABEL;
+							tagLabel += " (" + tagsJSON[oneTag].NUMREPORTS + ")";
+							createTag(tagLabel, tagsJSON[oneTag].IDENTIFIER);
+						}
+					}
+
+					// Scroll the tags DIV to the top so the most common are visible
+					$("div#tags-holder").scrollTop(0);
+
+					// *******************************************************************
+					// ALPHABETICAL DIV
+					// *******************************************************************
+					// Start with empty strings
+					subjectsString = '';
+					displayString = '<div id="alphabetical"><p style="margin-bottom:3px; clear:both;">';
+
+					
+
+					displayString += '<p style="margin-bottom:3px;"><strong>Select a tag to further refine:</strong> (Sort by: <strong>Alphabetical</strong> | <a href="javascript:changeSort(\'frequency\');">Frequency</a>)</p>';
+					displayString += '<ul class="bookshelftags">';
+					// Iterate through all the TAGS returned by the server
+					for (oneTag=0; oneTag < tagsJSON.length; oneTag++) {
+						// If the first character of the IDENTIFIER does not indicate it is a subject, assume it is a regular tag
+						if (tagsJSON[oneTag].IDENTIFIER.toString().substring(0, 1) != "S") {
+							// Add the tag to the "Add more tags" section
+							displayString += '<li class="tag-item"><a href="javascript:addTag(\'' + tagsJSON[oneTag].IDENTIFIER + '\');">';
+							displayString += tagsJSON[oneTag].LABEL + '</a><span class="instances"> (' + tagsJSON[oneTag].NUMREPORTS + ')</span></li>';
+						}
+					}
+					displayString += '</ul>';
+					//displayString += '</div><br clear="all">'; // END of div id="alphabetical"
+					displayString += '</div>'; // END of div id="alphabetical"
+
+					// *******************************************************************
+					// COPY tagsJSON, THEN SORT FOR THE FREQUENCY DIV
+					// *******************************************************************
+					function clone(obj) {
+					    if (null == obj || "object" != typeof obj) return obj;
+					    var copy = obj.constructor();
+					    for (var attr in obj) {
+					        if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+					    }
+					    return copy;
+					}
+					tagsJSON2 = clone(tagsJSON);
+					tagsJSON2.sort(function(a, b){
+						var aNumReports = parseInt(a.NUMREPORTS);
+						var bNumReports = parseInt(b.NUMREPORTS);
+						//console.log(aName);
+						return ((aNumReports > bNumReports) ? -1 : ((aNumReports < bNumReports) ? 1 : 0));
+					}); 
+					/* Sort alphabetically instead of by frequency
+					function SortByName(a, b){
+					  var aName = a.LABEL.toLowerCase();
+					  var bName = b.LABEL.toLowerCase(); 
+					  return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+					}
+					tagsJSON.sort(SortByName); 
+					console.log(tagsJSON);
+					*/
+
+					// *******************************************************************
+					// FREQUENCY DIV
+					// *******************************************************************
+					// Start with empty strings
+					subjectsString = '';
+					displayString += '<div id="frequency" style="display:none;"><p style="margin-bottom:3px;">';
+
+					
+
+					displayString += '<p style="margin-bottom:3px;"><strong>Select a tag to further refine:</strong> (Sort by: <a href="javascript:changeSort(\'alphabetical\');">Alphabetical</a> | <strong>Frequency</strong>)</p>';
+					displayString += '<ul class="bookshelftags">';
+					// Iterate through all the TAGS returned by the server
+					for (oneTag=0; oneTag < tagsJSON2.length; oneTag++) {
+						// If the first character of the IDENTIFIER does not indicate it is a subject, assume it is a regular tag
+						if (tagsJSON2[oneTag].IDENTIFIER.toString().substring(0, 1) != "S") {
+							// Add the tag to the "Add more tags" section
+							displayString += '<li class="tag-item"><a href="javascript:addTag(\'' + tagsJSON2[oneTag].IDENTIFIER + '\');">';
+							displayString += tagsJSON2[oneTag].LABEL + '</a><span class="instances"> (' + tagsJSON2[oneTag].NUMREPORTS + ')</span></li>';
+						}
+					}
+					displayString += '</ul>';
+
+					displayString += '</div>'; // END of div id="alphabetical"
+
+					// Add the entire HTML string to the tags-holder DIV
+					$("div#tags-holder").append(displayString);
+						
+
+				} // END of processing the tags
+
+				// If "reports" did not exist in the JSON (happens on the all reports initial view, since no subject or tags are passed via Ajax)
+				if (typeof(data.reports) == "undefined") {
+				//	console.log("Reports is undefined");
+				//	console.log(cannedReports);
+
+					// Hide the heading DIV
+					$("#reports-heading").hide();
+					// Reinstate the canned reports
+				//	console.log("Replacing canned reports, length= " + cannedReports.length);
+					$("div#reports-holder").empty().html(cannedReports);
+					//$("div#reports-holder").empty().html("testing");
+					// Show the canned reports (hidden on page load in case they won't get displayed)
+					$(".main_col").show();
+
+
+				// Otherwise "reports" exists in the JSON (but could be empty)
+				} else {
+				//	console.log("Reports exists");
+					// Get the reports in JSON format
+					var reportsJSON = data.reports;
+					// Make sure the heading DIV is visible
+					$("#reports-heading").show();
+					// Clear out any existing REPORTS, so we can start over
+					$("div#reports-holder").empty();
+					if (!reportsJSON.length) {
+						$("div#reports-holder").append('<br><em>No reports to display</em><br><br>');
+					} else {
+						var months = [ "January", "February", "March", "April", "May", "June", 
+	               "July", "August", "September", "October", "November", "December" ];
+						htmlString = '<table width="100%" cellspacing="0" cellpadding="0" class="bookshelf_tb" style="margin-top:0;">';
+						// Iterate through all the REPORTS returned by the server
+						for (oneReport=0; oneReport < reportsJSON.length; oneReport++) {
+							//console.log(reportsJSON[oneReport].ID);
+							ID = reportsJSON[oneReport].ID;
+							TITLE = reportsJSON[oneReport].TITLE;
+							LINK_HTML = reportsJSON[oneReport].LINK_HTML;
+							LINK_PDF = reportsJSON[oneReport].LINK_PDF;
+							RELEASE_DATE = reportsJSON[oneReport].RELEASE_DATE;
+							CONTACT_NAME = reportsJSON[oneReport].CONTACT_NAME;
+							SUMMARY_DESCRIPT = reportsJSON[oneReport].SUMMARY_DESCRIPT;
+							HAS_DATA = reportsJSON[oneReport].HAS_DATA;
+							HAS_FORECAST = reportsJSON[oneReport].HAS_FORECAST;
+							HAS_ANALYSIS = reportsJSON[oneReport].HAS_ANALYSIS;
+							REPORT_NUMBER = reportsJSON[oneReport].REPORT_NUMBER;
+							//console.log("HAS_DATA= " + HAS_ANALYSIS);
+							/* Let the server worry about the version-- we can assume all reports received are current
+							VERSION = reportsJSON[oneReport].VERSION;
+							*/
+							// Note these two get converted to upper-case when the query is converted to an array
+							AllTags = reportsJSON[oneReport].ALLTAGS; 
+							Archives = reportsJSON[oneReport].ARCHIVES;
+							//console.log(Archives);
+							/* DEV OUTPUT ONLY - COMMENT OUT AFTERWARD
+	//						window.console && console.log(reportsJSON[oneReport]);
+							window.console && console.log("ID=" + ID);
+							window.console && console.log("  TITLE=" + TITLE);
+							window.console && console.log("  LINK_HTML=" + LINK_HTML);
+							window.console && console.log("  LINK_PDF=" + LINK_PDF);
+							window.console && console.log("  RELEASE_DATE=" + RELEASE_DATE);
+							window.console && console.log("  CONTACT_NAME=" + CONTACT_NAME);
+							window.console && console.log("  SUMMARY_DESCRIPT=" + SUMMARY_DESCRIPT);
+							window.console && console.log("  AllTags=" + AllTags);
+							window.console && console.log("  Archives=" + Archives);
+							END: DEV OUTPUT ONLY */
+							// Exclude archives (but include if Version=Yes/true, even though isDisplayable() would return false)
+							htmlString += '<tr><td class="b_content"><strong>';
+							// Only create a LINK if one exists
+							if (isDisplayable(LINK_HTML)) {
+								htmlString += '<a href="http://www.eia.gov/petroleum/'&#32;+&#32;LINK_HTML&#32;+&#32;'">' + TITLE + '</a>';
+							} else {
+								htmlString += TITLE;
+							}
+							//htmlString += 'Content here';
+							htmlString += '</strong> ';
+							if (isDisplayable(REPORT_NUMBER)) {
+								htmlString += '<em>(' + REPORT_NUMBER + ')</em> ';
+							}
+
+							
+							
+
+							
+
+							// Only display the DATE if it exists, and is not null
+							if (isDisplayable(RELEASE_DATE)) {
+								// ColdFusion provides the date in a format meant for JavaScript's Date() function
+								dateObject = new Date(RELEASE_DATE);
+								// Dates in 2028 are designed to keep the report at the top, but should not be displayed
+								if (dateObject.getFullYear() > 2027) {
+									window.console && console.log("Ignoring ridiculous date: " + dateObject);
+								} else {
+									// Format the date
+									dateString = months[dateObject.getMonth()] + " " + dateObject.getDate() + ", " + dateObject.getFullYear();
+									htmlString += '<p class="dat bookshelf" ><em>Released: ' + dateString + '</em></p>';
+								}
+							}
+							/* Do not include the author
+							// Only display the AUTHOR if it exists, and is not null
+							if (isDisplayable(CONTACT_NAME)) {
+								htmlString += '<p class="author">' + CONTACT_NAME + '</p>';
+							}
+							*/
+							// Only display the DESCRIPTION if it exists, and is not null
+							if (isDisplayable(SUMMARY_DESCRIPT)) {
+								htmlString += '<p class="desc">' + SUMMARY_DESCRIPT + '</p>';
+							}
+							
+
+							// Add icons for Data, Analysis and Projections
+							if ((isDisplayable(HAS_DATA) && HAS_DATA == "Y") || (isDisplayable(HAS_FORECAST) && HAS_FORECAST == "Y") || (isDisplayable(HAS_ANALYSIS) && HAS_ANALYSIS == "Y")) {
+								htmlString += '<span class="report_type">Report type: </span>';
+							}
+							if (isDisplayable(HAS_DATA) && HAS_DATA == "Y") {
+								htmlString += '<span class="report-contents has-data" title="Includes Data">&nbsp;</span>';
+							}
+							if (isDisplayable(HAS_FORECAST) && HAS_FORECAST == "Y") {
+								htmlString += '<span class="report-contents has-projections" title="Includes Projections">&nbsp;</span>';
+							}
+							if (isDisplayable(HAS_ANALYSIS) && HAS_ANALYSIS == "Y") {
+								htmlString += '<span class="report-contents has-analysis" title="Includes Analysis">&nbsp;</span>';
+							}
+							// Only display all the tags associated with this report if at least one exists, and are not null (It's a convenient coincidence that the number 0 (for the tag "All") is considered to have no length)
+							if (isDisplayable(AllTags)) {
+								htmlString += '<div class="tags">tags: ';
+								// Create an array from the list of all tags
+								var allTags_array = AllTags.split(',');
+								// Iterate through all the tags for this report
+								for (oneTag=0; oneTag < allTags_array.length; oneTag++) {
+									/* If this is the tag "All"
+									if (allTags_array[oneTag] == 0) {
+										console.log("IGNORE THIS ONE!");
+									}
+									*/
+									// Ignore the "All" tag (Can this be safely done on the server-side?)
+									if (allTags_array[oneTag] == 0) continue;
+									// Display the tag
+									htmlString += ' <a href="javascript:switchTag(\'T' + allTags_array[oneTag] + '\');">';
+									// Display the tag name
+									if (isDisplayable(allAvailableTags[allTags_array[oneTag]])) {
+										htmlString += allAvailableTags[allTags_array[oneTag]];
+									// If the tag name can't be safely displayed, show the tag ID instead (This should never happen)
+									} else {
+										window.console && console.log("ERROR in jqHXR.done(): TAG NOT DISPLAYABLE, report ID=" + ID + ", TAGID=" + allTags_array[oneTag]);
+										htmlString += allTags_array[oneTag];
+									}
+									htmlString += '</a>';
+									// Only add a comma if this isn't the last tag
+									if (oneTag < allTags_array.length - 1) htmlString += ",";
+								}
+								htmlString += '</div>';
+							}
+							
+							// Only display the PDF link if it exists
+							htmlString += '</td><td class="b_pdf">';
+							if (isDisplayable(LINK_PDF)) {
+								htmlString += '<a href="http://www.eia.gov/petroleum/'&#32;+&#32;LINK_PDF&#32;+&#32;'" class="ico_pdf_link" target="_blank">&nbsp;</a>';
+							}
+
+							// End of the row
+							htmlString += '</td></tr>';
+						}
+						htmlString += '</table>';
+						// Add everything generated above to the DOM
+						$("div#reports-holder").append(htmlString);
+					} // END if (reportsJSON.length)
+					// Update the number of reports
+					$("#num-reports").empty().append('Results (' + reportsJSON.length + ')');
+
+					// Click handler for the newly generated "(archived versions)" links
+					$(".arc").click(function() {
+						$(this).parent().next('.grey_side').toggle();
+					});
+				} // End of processing the reports
+				// Remove the overlay that blocks the user from interacting with anything
+				setUIActive(true);
+			}); // END of jqHXR.done();
+			// *************************************************************************
+			// END: MAKE AJAX CALL
+			// *************************************************************************
+		} // END of ajaxCall()
+
+		// Called by selectize.onItemRemove() and clearAllTags()
+		function removeSubject() {
+			setUIActive(false);
+			window.console && console.log("Transfer this hash to the all-reports page: " + hasher.getHash());
+			// Redirect to the main reports page
+			window.location.href = "/reports/#/" + hasher.getHash();
+		}
+
+		// Called by ajaxCall(), jqHXR.done(), and clearAllTags()
+		function setUIActive(toggle) {
+			if (toggle) {
+				// Remove the cover that prevents the user from interacting with the UI during the Ajax call
+				$("div#cover-everything").remove();
+			} else {
+				// Cover the entire page during Ajax call to prevent user from interacting with the UI
+				$("body").append('<div id="cover-everything" style="position:fixed; top:0; left:0; height: 100%; width: 100%; margin: 0; padding: 0; background: #000000; opacity: .15; filter: alpha(opacity=15); -moz-opacity: .15; z-index: 101;"></div>');
+			}
+
+		}
+
+		// Check whether a variable is defined, not null, and has a length
+		function isDisplayable(theVar) {
+			/* dev
+			if (typeof(theVar) == "undefined") {
+				console.log("It was UNDEFINED");
+			} else if (theVar == null) {
+				console.log("It was NULL");
+			} else if (theVar.length <= 0) {
+				console.log("It was EMPTY!")
+			} else {
+				console.log("ALL GOOD");
+			}
+			*/
+			return typeof(theVar) != "undefined" && theVar != null && theVar.length > 0;
+		} // END of isDisplayable()
+	</script>
+
+	
+	<div class="pagecontent temp_rpt" style="margin-bottom:10px;">
+		
+		<div class="top_search_box" style="border:0px;margin-bottom:0;">
+			<div><strong>Type in tags or keywords to filter your results:</strong> <span id="tags-clear" style="float:right; display:none; font-size:11px;">[<a href="javascript:clearAllTags();">Clear all tags</a>]</span><br>
+				<input type="text" id="input-tags" value="" tabindex="-1" style="display: none;" placeholder="Type in tags or keywords to filter your results">
+			</div>
+		</div>
+		
+		
+		<div id="more-options" style="padding:14px 22px; display:none; background-color: #f3fafd; border-top: 1px solid #189bd7;; overflow:auto;">
+
+			
+			<div id="tags-container" style="float:left; height:225px; width:746px;  border-right:1px dashed rgb(156,156,156); padding-top:5px; margin-right:22px; padding-right:22px;">
+
+				
+
+				
+				<div id="tags-holder" style="height:210px; overflow-y:scroll; padding-bottom:5px; border-top:1px #ddd solid;  border-bottom:1px #ddd solid;"><em>Loading tags ...</em></div>
+
+			</div>
+
+			<div style="float:left; width:122px;  padding-top:5px;">
+				
+				<form id="date-form">
+					<p><strong>Filter by date range:</strong>
+					
+					<br>
+					From:<br>
+					<input id="start-date" type="text" class="datepicker" name="tag_datefrom" placeholder="M/D/YYYY" style="width:120px;">
+					<br>
+					To:
+					<br>
+					<input id="end-date" type="text" class="datepicker" name="tag_dateto" placeholder="M/D/YYYY" style="width:120px;">
+					
+
+
+
+					</p>
+				</form>
+			</div>
+		</div>
+
+		
+		<div style="background-color: #189bd7; padding:2px;"></div>
+		
+		<div id="more-tab" style="width:230px; height:22px; margin:0 auto; margin-top:-4px; padding-top:3px; color: #ffffff; font-size:14px; text-align:center; user-select:none; background-color:#189bd7; border: 1px solid #189bd7; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 4px; "><strong><span id="instructions">SHOW MORE FILTER OPTIONS</span></strong></div>
+		
+	</div><!-- Close div.pagecontent mr_temp1 -->
+
+	
+	<div style="margin:0px 22px 0px 22px;">
+		
+		<div id="reports-heading" class="clearfix" style="padding-top:10px;">
+			
+			<div>
+				<h1 id="num-reports">Results</h1>
+			</div>
+			
+			<div class="legend">
+				<img src="http://www.eia.gov/global/images/icons/bs_d.png" title="Indicates a report includes data" style="vertical-align:text-bottom;"> Data &nbsp;&nbsp;
+				<img src="http://www.eia.gov/global/images/icons/bs_a.png" title="Indicates a report includes analysis" style="vertical-align:text-bottom;"> Analysis &nbsp;&nbsp;
+				<img src="http://www.eia.gov/global/images/icons/bs_p.png" title="Indicates a report includes projections" style="vertical-align:text-bottom;"> Projections &nbsp;&nbsp;
+			</div>
+		</div>
+
+		
+		<div class="pagecontent mr_temp1" style="margin:0; padding:0;">
+			
+			<div id="reports-holder" style="clear:both;">
+				
+				
+<div class="pagecontent temp_rpt" style="margin:0;">
+	
+	<div class="main_col" style="margin:0; display:none;">
+		
+		<h1 class="no-border">Most Popular</h1>
+
+		
+		
+		<span class="main bookshelf">
+			<h3>Petroleum & Other Liquids <span style="font-size:10px; float:right">[<a href="reports.cfm.1.html">view all</a>]</span></h3>
+			<p><b><a href="weekly/index.html">This Week in Petroleum</a></b><br />
+			Weekly prices & analytical summary of the petroleum industry</p>
+			<p><b><a href="supply/weekly/index.html">Weekly Petroleum Status Report</a></b><br />
+			Weekly petroleum prices, production & stocks data</p>
+			<p><b><a href="gasdiesel/index.html">Gasoline and Diesel Fuel Update</a></b><br />
+			Weekly prices & analytical summary of the petroleum industry</p>
+			<p><b><a href="http://www.eia.gov/petroleum/imports/companylevel/">Petroleum Imports</a></b><br />
+			By country and company</p>
+			
+			<h3>Natural Gas <span style="font-size:10px; float:right">[<a href="../naturalgas/reports.cfm.1.html">view all</a>]</span></h3>
+			<p><b><a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage</a></b><br />
+			Working natural gas stocks in underground storage</p>
+			<p><b><a href="../naturalgas/weekly/index.html">Natural Gas Weekly Update</a></b><br />
+			Weekly prices & analytical summary of the natural gas industry</p>
+			
+			
+			<h3>Electricity <span style="font-size:10px; float:right">[<a href="../electricity/reports.cfm.1.html">view all</a>]</span></h3>
+			<p><b><a href="../electricity/monthly.1.html">Electric Power Monthly</a></b><br />
+			Monthly summary of electric power generation and capacity</p>
+            <p><b><a href="../electricity/monthly/update.1.html">Electricity Monthly Update</a></b><br />
+			Provides monthly analysis and highlights of the electric power data</p>
+			
+			
+			<h3>Coal <span style="font-size:10px; float:right">[<a href="../coal/reports.cfm.1.html">view all</a>]</span></h3>
+			
+			<p><b><a href="../cneaf/coal/weekly/weekly_html/wcpweek.html">Weekly Coal Production</a></b><br />
+			Weekly production estimates by region and state</p>
+			<p><b><a href="../cneaf/coal/quarterly/html/t33p01p1.html">Quarterly Coal Report</a></b><br />
+			Production, imports, exports, stocks & consumption data and analysis</p>
+			
+			
+			
+			<h3>Nuclear & Uranium <span style="font-size:10px; float:right">[<a href="http://www.eia.gov/nuclear/reports.cfm">view all</a>]</span></h3>
+			
+            <p><b><a href="../nuclear/outages/index.html">Status  of U.S. Nuclear Outages</a></b><br />
+			Daily statistics on nuclear capacity by plant. </p>
+			<p><b><a href="../uranium/production/quarterly/index.html">Domestic Uranium Production Report - Quarterly</a></b><br />
+			Information on uranium production and the number of producing facilities</p>
+
+			
+			<h3>Consumption & Efficiency <span style="font-size:10px; float:right">[<a href="http://www.eia.gov/consumption/reports.cfm">view all</a>]</span></h3>
+			<p><b><a href="../emeu/recs/recs97_additions/recs_changes.html">Residential Energy Consumption Survey</a></b><br />
+			Household end use consumption of energy and expenditures </p>
+            
+            <p><b><a href="../emeu/cbecs/lit-type.html">Commercial Buildings Energy Consumption Survey</a></b><br />
+			End use consumption of energy and expenditures in commercial buildings</p>
+            
+ <p>&nbsp;</p>       
+
+		</span>
+
+		
+		<span class="side bookshelf">
+			<h3>Analysis & Projections <span style="font-size:10px; float:right">[<a href="../analysis/reports.cfm.1.html">view all</a>]</span></h3>
+			<p><b><a href="../forecasts/steo/xls/Probability_HH.xls.html">Short Term Energy Outlook</a></b><br />
+			Monthly energy projections out to 2016</p>
+			<p><b><a href="../forecasts/aeo/er/early_elecgen.cfm.html">Annual Energy Outlook</a></b><br />
+			Annual energy projections out to 2040</p>
+			
+			<h3>U. S. States & Countries </h3>
+            <p><b><a href="http://www.eia.gov/state/index.cfm?ref=bookshelf">State Energy Profiles</a></b><br />
+			State level data, analysis, and maps</p>
+			<p><b><a href="http://www.eia.gov/beta/international/analysis.cfm">Country Energy Analysis Reports</a></b><br />
+			Includes country level data, charts, and Country Analysis Briefs</p>
+			<p><b><a href="../forecasts/ieo/index.html">International Energy Outlook</a></b><br />
+			International energy projections out to 2040</p>
+			
+			<h3>Markets & Finance <span style="font-size:10px; float:right">[<a href="http://www.eia.gov/finance/reports.cfm">View all</a>]</span></h3>
+			<p><b><a href="../finance/markets/index.html">Energy &amp; Financial Markets: What Drives Crude Oil Prices?</a></b><br />
+			An assessment of the various factors that may influence oil prices </p>
+			<p><b><a href="http://www.eia.gov/outlooks/steo/uncertainty/">Market Prices and Uncertainty Report</a></b><br />
+			This monthly supplement to the Short-Term Energy Outlook addresses price volatility and forecast uncertainty for crude oil and natural gas</p>
+			
+			              
+			
+			
+			<h3>Others</h3>
+			<p><b><a href="http://www.eia.gov/analysis/reports.cfm?t=138">Congressional &amp; other requests</a></b><br />
+			Requested analysis of energy-related issues & proposed legislation</p>
+            <p><b><a href="http://www.eia.gov/totalenergy/data/monthly/?ref=bookshelf">Monthly Energy Review</a></b><br />
+Latest monthly data all in one place</p>
+
+<p><b><a href="../environment/emissions/state/analysis.1.html">State-Level Energy-Related Carbon Dioxide Emissions</a></b><br />
+			An analysis of some of the factors that influence State-level carbon dioxide emissions from the consumption of fossil fuels</p>
+            
+<p><b><a href="../discussionpapers/index.html">Working papers</a></b><br />
+			Preliminary  staff papers for stimulating discussion and critical comment</p>
+            
+			<h3>Basic Energy Information</h3>
+			<ul>
+            <li><a href="../todayinenergy.1.html">Today in Energy</a></li>
+            <li><a href="../energy_in_brief.1.html">Energy in Brief</a></li>
+			<li><a href="../energyexplained.1.html">Energy Explained</a></li>
+			<li><a href="http://www.eia.gov/kids/">Energy Kids</a></li>
+			<li><a href="../tools/faqs/index.html">Frequently Asked Questions</a></li>
+            </ul>
+ <p>&nbsp;</p>       
+			<h5><a href="../calendar/reports.html">See upcoming reports</a></h5>
+		</span>
+
+	</div>
+</div>
+
+			</div>
+		</div>
+
+		
+
+	</div>
+
+	
+
+<br>
+
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+	  
+      </div>
+      <div id="addbar">
+      <a href="../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../abouteia/index.html">About EIA</a></h3>
+        <h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="../pressroom/index.html">Press Room</a></h3>
+        <h3><a href="../about/careers.1.html">Careers</a></h3>
+        
+        <h3><a href="../contactus.html">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="index.html">Petroleum</a><br />
+           <a href="../coal/index.html">Coal</a><br />
+           <a href="../naturalgas/index.html">Natural Gas</a><br />
+           <a href="../renewable/index.html">Renewable</a><br />
+           <a href="../fuelnuclear.html">Nuclear</a><br />
+           <a href="../electricity.1.html">Electricity</a><br />
+           <a href="../consumption/residential/methodology/index.cfm.html">Consumption</a><br />
+           <a href="../totalenergy/index.html">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="../analysis/index.html">Analysis & Projections</a><br />
+           <a href="../environment.1.html">Environment</a><br />
+           <a href="../finance/index.html">Markets & Finance</a><br />
+           <a href="../todayinenergy.1.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../state/seds/sep_prod/xls/P2.xls.html">States</a><br />
+           <a href="../emeu/international/gasconsumption.html">Countries</a><br />
+           <a href="../maps.1.html">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="../tools/a-z/index.html">A-Z Index</a><br />
+           <a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="../survey.html">EIA Survey Forms</a><br />
+           <a href="http://www.eia.gov/beta/">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="../about/privacy_security_policy.cfm.html">Privacy/Security</a><br />
+           <a href="../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br />
+           <a href="../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>

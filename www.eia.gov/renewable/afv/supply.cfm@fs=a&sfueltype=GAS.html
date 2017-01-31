@@ -77,7 +77,7 @@ var _gaq = _gaq || [];
 <link rel="stylesheet" type="text/css" _curl_movable="true" href="https://www.eia.gov/renewable/afv/css/tableTest.css">
 <link rel="stylesheet" type="text/css" _curl_movable="true" href="https://www.eia.gov/renewable/afv/css/slick.grid.css">
 <link rel="stylesheet" type="text/css" _curl_movable="true" href="https://www.eia.gov/renewable/afv/css/tableTest.css">
-<link rel="stylesheet" type="text/css" href="https://www.eia.gov/renewable/afv/css/jquery.multiselect.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.multiselect.css" />
 <link rel="stylesheet" type="text/css" href="https://www.eia.gov/renewable/afv/css/style.css" />
 <link rel="stylesheet" type="text/css" href="https://www.eia.gov/renewable/afv/css/prettify.css" />
 <link rel="stylesheet" type="text/css" href="https://www.eia.gov/global/scripts/jquery/vector-map/jquery.vector-map.css" />
@@ -287,7 +287,528 @@ $(document).ready(function() {
 					}else if (typeof getSupply.totals_by_year.totals_by_year == 'undefined'){
 						displayNoDataMessage();
 						return;
-					}else if (typeof getSupply.totals_by_year_vt.vehicle_type_total_build == 'undefined"https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+					}else if (typeof getSupply.totals_by_year_vt.vehicle_type_total_build == 'undefined'){
+						displayNoDataMessage();
+						return;
+					}else if(typeof getSupply.totals_by_year.totals_by_year == 'undefined'){
+						displayNoDataMessage();
+						return;
+					}else if(typeof getSupply.search_results.search_results == 'undefined'){
+						displayNoDataMessage();
+						return;
+					}
+
+					//Yearly Totals
+					var getDataYear, total_vehicles, maxYear, vtt_link, vehcType, vehicType_regEx, vehicType_final;
+					var yearlyTotal_xAxis = [], yearlyTotal_yAxis = [], vehicleType_xAxis =[], vehicleType_dataAxis = [];
+					var vehicleType_obj = {};
+					var tab_table1 = $('#tabs_charts-1 .basic_table'),  tab_table2 = $('#tabs_charts-2 .basic_table');
+					//create object for Vehicle type
+					for(i = 0;  i < getSupply.totals_by_year_vt.vehicle_type_total.length; i++){ //object is ordered by year in ascending order
+						getDataYear = getSupply.totals_by_year_vt.vehicle_type_total[i].DATAYEAR;
+						vehicType = getSupply.totals_by_year_vt.vehicle_type_total[i].VEHICLE_TYPE;
+						if(typeof vehicleType_obj[getDataYear] === 'undefined'){
+							vehicleType_obj[getDataYear]= {};
+						}
+						vehicleType_obj[getDataYear][vehicType] = getSupply.totals_by_year_vt.vehicle_type_total[i];
+					}
+
+					//Loop will create years column headers
+					j=0; //counter for yearlTotal
+					for(i = getSupply.totals_by_year.totals_by_year.length; i > 0; i--){
+						getDataYear = getSupply.totals_by_year.totals_by_year[i-1].DATAYEAR;
+						total_vehicles = getSupply.totals_by_year.totals_by_year[i-1].YEAR_TOTAL;
+
+						if(i == 1 ){//gets greatest year. Data is ascending order (1994 - 2003)
+							maxYear = getDataYear;
+						}
+						if(form_uyear == '' && getDataYear >= 2003){ //gets default years 2003 -2013
+							yearlyTotal_xAxis[j] = getDataYear; //x axis for Yearly Total chart`
+							yearlyTotal_yAxis[j] = total_vehicles; //y axis for Yearly Total chart
+
+							$('thead > tr', tab_table1).append("<th><a href="https://www.eia.gov/renewable/afv/supply.cfm?fs=a&amp;sfueltype=&quot;" + form_sfueltype + ">" + getDataYear + "</a></th>");
+							$('tbody > tr:nth-child(1)', tab_table1).append("<td>" + Highcharts.numberFormat(total_vehicles) + "</td>");
+							$('thead > tr', tab_table2).append("<th><a href="https://www.eia.gov/renewable/afv/supply.cfm?fs=a&amp;sfueltype=&quot;" + form_sfueltype + ">" + getDataYear + "</a></th>");
+							$('tbody > tr:nth-child(1)', tab_table2).append("<td>" + Highcharts.numberFormat(total_vehicles) + "</td>");
+
+							j++; //increment counter for x axis and y axis for Yearly Total charts
+						}
+						else if(form_uyear != ''){//gets only the year selected
+							yearlyTotal_xAxis[j] = getDataYear;
+							yearlyTotal_yAxis[j] = total_vehicles;
+
+							$('thead > tr', tab_table1).append("<th><a href="https://www.eia.gov/renewable/afv/supply.cfm?fs=a&amp;sfueltype=&quot;" + form_sfueltype + ">" + getDataYear + "</a></th>");
+							$('tbody > tr:nth-child(1)', tab_table1).append("<td>" + Highcharts.numberFormat(total_vehicles) + "</td>");
+							$('thead > tr', tab_table2).append("<th><a href="https://www.eia.gov/renewable/afv/supply.cfm?fs=a&amp;sfueltype=&quot;" + form_sfueltype + ">" + getDataYear + "</a></th>");
+
+							j++;
+						}
+					}
+					//end of column header cretion for tabs_chart-(1-2)and Yearl Totals data grid
+
+					//Vehicle Type row for loop display only the max year
+					j=0; // counter to iterate nth selector
+					var m = 0; //counter for vehicle type chart variables (high charts)
+					for(i = getSupply.totals_by_year_vt.vehicle_type_total_build.length; i > 0; i--){
+						$('tbody', tab_table2).append("<tr></tr>");
+						vehicType =  getSupply.totals_by_year_vt.vehicle_type_total_build[i-1].VEHICLE_TYPE;
+						vehicType_regEx = new RegExp('cargo vans', "ig") //case insensitive regex
+						vehicType = vehicType.replace(vehicType_regEx, 'Cargo');
+						vehicType_final = vehicType.replace('(', '<br />(');
+						vtt_link =  vehicType.replace(' (', '_');
+						vtt_link = vtt_link.replace(')', '');
+						$('tbody > tr:nth-child('+ (j+1) +')', tab_table2).append("<td style=text-align:left;><strong><a href="https://www.eia.gov/renewable/afv/supply.cfm?fs=a&amp;sfueltype=&quot;" +
+																		form_sfueltype + "&uvehcat=" + vtt_link.toLowerCase() + ">" +
+																			vehicType_final + "</a></strong><br />&nbsp;&nbsp;<img src="https://www.eia.gov/renewable/afv/images/green_square.png&quot;" +
+																				" alt=Number of Vehicles />&nbsp;&nbsp;Total Vehicles:</td>");
+						//create the data table
+
+						vehicle_type = getSupply.totals_by_year_vt.vehicle_type_total_build[i-1].VEHICLE_TYPE;
+						for(var k = getSupply.totals_by_year.totals_by_year.length; k > 0; k--){
+							getDataYear = getSupply.totals_by_year.totals_by_year[k-1].DATAYEAR;
+								if(form_uyear == '' && getDataYear >= 2003){ // gets default years 2003 -2013
+									if(typeof vehicleType_obj[getDataYear][vehicle_type] === 'undefined'){
+										total_vehicles = '--';
+									}
+									else{
+										total_vehicles = vehicleType_obj[getDataYear][vehicle_type].YEAR_TOTAL;
+									}
+									if(total_vehicles == '--'){
+										$('tbody > tr:nth-child('+ (j+1) +')', tab_table2).append("<td><br>--</br></td>");
+									}
+									else{
+										$('tbody > tr:nth-child('+ (j+1) +')', tab_table2).append("<td><br>" + Highcharts.numberFormat(total_vehicles) + "</br></td>");
+									}
+								}
+								else if(form_uyear != ''){ //data grid will consist of selected years
+
+									if(typeof vehicleType_obj[getDataYear][vehicle_type] === 'undefined'){
+										total_vehicles = '--'
+									}
+									else{
+										total_vehicles = vehicleType_obj[getDataYear][vehicle_type].YEAR_TOTAL;
+									}
+									if(total_vehicles == '--'){
+										$('tbody > tr:nth-child('+ (j+1) +')', tab_table2).append("<td><br>--</br></td>");
+									}
+									else{
+										$('tbody > tr:nth-child('+ (j+1) +')', tab_table2).append("<td><br>" + Highcharts.numberFormat(total_vehicles) + "</br></td>");
+									}
+								}
+								//creation of data_axis for Vehicle Type chart
+								if(getDataYear == maxYear){
+									vehicleType_xAxis[m] = getSupply.totals_by_year_vt.vehicle_type_total_build[i-1].VEHICLE_TYPE; //x axis for vehcile type chart all vehicle types
+									vehicleType_dataAxis[m]=total_vehicles; //makes up the data axis
+									m++; // increment counter for vehicl Type data grid
+								}
+							} // end of for loop to insert data for Vehicle Type data grid
+							j++; //iterate counter for <tr> nth child selector
+					}// end of vehicle type outer for loop
+
+
+					//high chart for Yearly Totals
+					var tooltipFormatter = {
+						0: function (point) {
+							return '<b>Number of Vehicles</b><br> '+point.y+' Vehicles'
+						},
+						1: function (point) {
+							return '<b>Fuel Consumption</b><br> '+point.y+' (thousand gasoline equivalent gallons)'
+						}
+					}
+
+					var yearlyTotals_chart = {
+						chart: {
+							zoomType:'',
+							renderTo: 'container_col',
+							defaultSeriesType: 'column',
+							logo : Highcharts.logos.none
+						},
+						credits: {
+							text: '',
+							href: ''
+						},
+						legend: {
+							enabled: false
+						},
+						title: {
+							text: 'By Year - ' + form_sfueltype.toUpperCase()
+						},
+						xAxis: {
+							categories: yearlyTotal_xAxis
+						},
+						yAxis: [{
+							title:{
+								text:''
+							}
+						}],
+						tooltip: {
+							formatter: function(){
+								return '<b>' + this.series.name + '</b><br>' + /*this.x + '<br>' + */Highcharts.numberFormat(this.y, 0, ',') + (this.series.name == 'Number of Vehicles' ? ' Vehicles' : ' (thousand geg)' );
+							}
+						},
+						series: [
+							{
+								name: 'Number of Vehicles',
+								selected: true,
+								color: '#5D9732',
+								data: yearlyTotal_yAxis
+							}
+						]
+					};
+					var chart_column1 = new Highcharts.Chart(yearlyTotals_chart);
+					//end of yearl totals chart
+
+					var vehicleType_chart = {
+						chart: {
+							zoomType:'xy',
+							renderTo: 'container_col_vt',
+							defaultSeriesType: 'bar',
+							logo : Highcharts.logos.none
+						},
+						credits: {
+							text: '',
+							href: ''
+						},
+						legend: {
+							enabled: true
+						},
+						title: {
+							text: 'Vehicle Type ' + form_sfueltype.toUpperCase() + '(' + maxYear + ')'
+						},
+						xAxis: {
+							categories: vehicleType_xAxis
+						},
+						yAxis: [{
+							allowDecimals: false,
+							endOnTick: false,
+							title:{
+								text:''
+							}
+						}],
+						tooltip: {
+							formatter: function(){
+								return tooltipFormatter[this.series.index](this);
+							}
+						},
+						series: [
+							{
+								name: 'Number of Vehicles',
+								selected: true,
+								color: '#5D9732',
+								data: vehicleType_dataAxis
+							}
+						]
+					};
+					var chart_column2 = new Highcharts.Chart(vehicleType_chart);
+					// end of Vehicle Type Charts
+
+
+					var search_results_recordocunt = getSupply.search_results.search_results.length;
+					$('#search_container').html("<b>Browse detailed supplier data</b><span class=right>" + search_results_recordocunt + " records returned.</span></div>");
+					//chart creation "Browser detailed supplier data"
+					var columnKeys = [
+						{key:'Year', width: 60, description: 'YEAR'},
+						{key:'Fuel Type', width: 210, description: 'Fuel Type'},
+						{key:'Number of Vehicles', width: 180, description: 'Number_of_Vehicles'},
+						{key:'Weight Class', width: 140, description: 'Weight Class'},
+						{key:'Vehicle Type', width: 200, description: 'Vehicle Type'},
+						{key:'Engine Configuration', width: 140, description: 'Engine Configuration'}
+					]
+					var columns = function(){
+						var ret = [];
+						for(i = 0; i < columnKeys.length; i++){
+							columnKey = columnKeys[i];
+							ret.push({
+								'id' : columnKey.key,
+								'width' : columnKey.width,
+								'name' : columnKey.key,
+								'field' : columnKey.description,
+								'sortable' : true,
+								'headerCssClass' : 'slick-header-column-sortable'
+							})
+						}
+						return ret;
+					}();
+
+
+
+					$(function(){
+						var dataGrid = new DataGrid($('#tableContainer'));
+						dataGrid.update(getSupply.search_results.search_results, columns, {headerHeight:34});
+					});
+					$('.pagecontent').unmask();
+				}// end getSupply success
+			}); // end of ajax call to index.php?method=getSupply
+		}//end of getConfig success
+	});//end of ajax call to index.php?method=getConfig
+
+
+	//Download button
+	$('#downloads .right').on("click", function (){
+	var  URL = '/renewable/afv/data/index.php?method=getUsersDownload' + appendURLparam;
+	window.open(URL);
+	});
+
+
+
+	//Year
+	$(".selectyear").multiselect({
+		selectedList: 3,
+		noneSelectedText: "Year"
+	});
+	//$('.ui-multiselect-menu').eq(0).addClass('twohundo');
+	//Fuel Type
+	$(".selectufueltype").multiselect({
+		selectedList: 1,
+		noneSelectedText: "Fuel Type",
+		selectedText: function(numChecked, numTotal, checkedItems){
+			return numChecked + ' Selected';
+		}
+	});
+	$('.ui-multiselect-menu').eq(1).addClass('threehundo');
+	//Weight
+	$(".selectweight").multiselect({
+		selectedList: 1,
+		noneSelectedText: "Weight Class"
+	});
+	$('.ui-multiselect-menu').eq(2).addClass('twohundo');
+	//Vehicle Type
+	$(".selecttype").multiselect({
+		selectedList: 1,
+		noneSelectedText: "Vehicle Type",
+		selectedText: function(numChecked, numTotal, checkedItems){
+			return numChecked + ' Selected';
+		}
+	});
+	$('.ui-multiselect-menu').eq(3).addClass('threefiftyhundo');
+	//Engine Configuration
+	$(".selectconfig").multiselect({
+		selectedList: 1,
+		noneSelectedText: "Engine Configuration"
+	});
+
+	$( "#submit" ).button({
+		text: true
+	})
+	$( "#reset" ).button({
+		text: true
+	})
+	$( "#download" ).button({
+		text: true
+	})
+	/*
+	* SD 2012-04-25 for RESET to work each multiselect has to be unchecked deliberately
+	*/
+	$('#reset').click(function(){
+		$(".selectyear").multiselect("uncheckAll");
+		$(".selectufueltype").multiselect("uncheckAll");
+		$(".selectweight").multiselect("uncheckAll");
+		$(".selecttype").multiselect("uncheckAll");
+		$(".selectconfig").multiselect("uncheckAll");
+		return false;
+	});
+
+	$(function(){
+		$('#tabs_charts').tabs();
+	});
+}); //end of document ready
+
+
+</script>
+
+
+<style>
+.main_col label {margin-right:20px;}
+.fourhundo {width:400px !important;}
+.threehundo {width:300px !important;}
+.threefiftyhundo {width:350px !important;}
+.twohundo {width:200px !important;}
+.onehundo {height:100px !important;}
+.ui-multiselect, .buttons {margin-top:8px;margin-right:26px;}
+/*.no-rm {margin-right:0px;}*/
+.slick-header-column {height:24px !important;}
+.download_button_text {background: url("https://www.eia.gov/renewable/afv/images/icon-sprites.png") no-repeat 118px -86px !important;}
+.dots {background: url('https://www.eia.gov/renewable/afv/images/bg-sprites.png') repeat-x 0px 8px scroll;}
+#at_a_glance h3 {height:16px;line-height:1.0em;padding-bottom:0px;padding-top:0px;margin-bottom:4px;border-bottom:solid 1px ##000;}
+#at_a_glance span {margin:0px;background-color:#F4F4F4;padding-bottom:1px;}
+#at_a_glance div {height:16px;line-height:1.1em;margin-bottom:5px;}
+#at_a_glance div span{margin:0px;background-color:#F4F4F4;}
+.clear_right {clear:right;}
+.highlighter tbody tr:hover {background-color:#DFF2FB;}
+.ui-button #reset {padding:3px !important;}
+/*.x-grid3-hd-row {height:16px !important;}
+.x-grid3-hd-row td{width:100px !important;}
+.x-grid3-col{width:100px !important;}*/
+.download_button {padding: 3px;}
+#submit, #reset {background: #189BD7 !important; border-color: #189BD7 !important;}
+#submit:hover, #reset:hover {background: #51af01 !important; border-color: #51af01 !important;}
+#submit .ui-button-text, #reset .ui-button-text {color:#FFF;}
+a.ui-multiselect-all span, a.ui-multiselect-none span {color:#FFF;}
+.basic_table th a, .basic_table td a {color:#000;}
+.basic_table th a:hover, .basic_table td a:hover {/*text-decoration:underline;*/color:#189BD7;}
+/*.map_area {width:930px;height:600px;}*/
+/*#mapContainer {width:930px;height:460px;}*/
+.map_inside_container {width:930px !important;height:460px !important;}
+.ltgreen {background-color: #d8e6ce;}
+/*#submit:hover .ui-button-text, #reset:hover .ui-button-text {color:#003954;}*/
+
+div.afv_nav+div.mselect {
+  margin-top: 0px;
+}
+div.afv_nav {
+  text-align: center;
+  width:120px;
+  display: table-cell;
+  padding: 0 10px 6px 10px;
+  border-left: 1px solid #dadada;
+  border-bottom: 20px solid #FFF;
+}
+div.afv_nav.active+div {
+border-left-color: #5d9732;
+}
+div.afv_nav.active {
+border-left-color: #5d9732;
+border-bottom: 10px solid #5d9732;
+}
+div.afv_nav:first-child {
+  border-left: none;
+}
+
+div.afv_nav a {
+  color: #a6a6a6;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 9pt;
+  float: none;
+  position: relative;
+  display: block;
+  margin-top: 0px;
+  margin-bottom:10px;
+}
+div.afv_nav div+div {
+  margin: 0 auto;
+}
+div.afv_nav:hover a, div.afv_nav.active a{
+  color: #5d9732;
+  text-decoration: underline;
+}
+div.afv_nav a div:first-child {
+    background: url(https://www.eia.gov/global/images/icons/afv_icons.png);
+    height: 60px;
+    width: 70px;
+    margin: 0 auto;
+    background-position: 0px 0px;
+}
+
+div.afv_nav.cng a div:first-child {
+    background-position: 0px -80px;
+}
+div.afv_nav.active.cng a div:first-child, div.afv_nav.cng:hover a div:first-child {
+    background-position: 0px -151px;
+}
+
+div.afv_nav.evc a div:first-child {
+    background-position: -142px -79px;
+}
+div.afv_nav.active.evc a div:first-child, div.afv_nav.evc:hover a div:first-child {
+    background-position: -142px -151px;
+}
+div.afv_nav.evc a div+div {
+	width: 100px;
+}
+
+div.afv_nav.dsl a div:first-child {
+    background-position: -442px -79px;
+}
+div.afv_nav.active.dsl a div:first-child, div.afv_nav.dsl:hover a div:first-child {
+    background-position: -442px -151px;
+}
+div.afv_nav.dsl a div+div {
+	width: 100px;
+}
+
+div.afv_nav.gas a div:first-child {
+    background-position: -517px -79px;
+}
+div.afv_nav.active.gas a div:first-child, div.afv_nav.gas:hover a div:first-child {
+    background-position: -517px -151px;
+}
+div.afv_nav.gas a div+div {
+	width: 100px;
+}
+
+div.afv_nav.e85 a div:first-child {
+    background-position: -73px -79px;
+}
+div.afv_nav.active.e85 a div:first-child, div.afv_nav.e85:hover a div:first-child {
+    background-position: -73px -151px;
+}
+
+div.afv_nav.hyd a div:first-child {
+    background-position: -217px -79px;
+}
+div.afv_nav.active.hyd a div:first-child, div.afv_nav.hyd:hover a div:first-child {
+    background-position: -217px -151px;
+}
+div.afv_nav.hyd a div+div {
+	width: 100px;
+}
+div.afv_nav.lng a div:first-child {
+    background-position: -292px -79px;
+}
+div.afv_nav.active.lng a div:first-child, div.afv_nav.lng:hover a div:first-child {
+    background-position: -292px -151px;
+}
+
+div.afv_nav.lpg a div:first-child {
+    background-position: -362px -79px;
+}
+div.afv_nav.active.lpg a div:first-child, div.afv_nav.lpg:hover a div:first-child {
+    background-position: -362px -151px;
+}
+
+div.afv_nav.oth a div:first-child {
+    background-position: 69px -2px;
+}
+div.afv_nav.active.oth a div:first-child, div.afv_nav.oth:hover a div:first-child {
+    background-position: 141px -2px;
+}
+</style>
+<title>Renewable &amp; Alternative Fuels - Supply - U.S. Energy Information Administration (EIA)</title>
+    </head>
+
+<div id="outerX">
+
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
             <div class="link twt">
               <div class="tweet"><a class="addthis_button_tweet"></a></div>
             </div>
@@ -598,14 +1119,6 @@ $(document).ready(function() {
 		<a name="btm"></a>
 		<div class="clear">
 												<div id="rs_home"></div>
-			<div class="rs_comments">
-								<form>
-					<p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
-						<textarea name="comments" id="comments" style="height:100px;"></textarea><br />
-						<input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
-					</p>
-				</form>
-			</div>
 		</div>
 		<div id="addbar">
 						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
@@ -653,7 +1166,7 @@ $(document).ready(function() {
 				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
 				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
 				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
-				<a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
 				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
 				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
 		</div>
