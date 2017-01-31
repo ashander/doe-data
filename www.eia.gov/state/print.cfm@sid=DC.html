@@ -1,0 +1,2992 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>District of Columbia Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>District of Columbia State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>District of Columbia Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Although the District of Columbia uses less total energy than any state but Vermont, its energy use per capita is greater than almost one-third of the states.</li>
+	
+	<li>The District of Columbia leads all U.S. cities in the number of Energy Star-certified buildings, surpassing the much larger city of Los Angeles, California for the first time in 2014.&nbsp;</li>
+	
+	<li>One of the largest solar energy installations in Washington, DC, is located on the roof of the U.S. Department of Energy&rsquo;s Forrestal headquarters building. The installation generates about 230,000 kilowatthours of electricity per year.</li>
+	
+	<li>In 2015, 73% of retail electricity sales in the District of Columbia went to the commercial sector, and only 2% went to the industrial sector, reflecting the District of Columbia&#39;s large concentration of government buildings and museums as well as government-related activity.</li>
+	
+	<li>The District of Columbia has adopted a renewable portfolio standard (RPS) requiring that 50% of its electricity come from renewable sources by 2032, including at least 5% from solar energy. Only four states have set higher RPS requirements.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: August 18, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=DC.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=DC.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=DC.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=DC.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=DC.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'District of Columbia Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'District of Columbia Energy Consumption Estimates',
+		data : [0.0,35.3,12.1,3.7,0.0,0.0,0.0,4.5,0.0,0.0,1.0,0.3,122.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'District of Columbia Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 38.6],['Commercial', 112.3],['Industrial', 7.2],['Transportation', 21.3]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'District of Columbia Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'District of Columbia Energy Production Estimates',
+		data : [0.0,0.0,0.0,0.0,0.0,0.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'District of Columbia Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : [],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'District of Columbia Net Electricity Generation',
+		data : []
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'District of Columbia Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'District of Columbia U.S. Price Differentials',
+		data : [{y:8.43373493976, period: Date.UTC(2016,9,1)},{y:15.0907354346, period: Date.UTC(2016,9,1)},{y:30.3571428571, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					0.7 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.4 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 122.5  billion 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 257  million 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 71,496 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					3,528 million miles 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					
+                            NA
+                          
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					
+                            NA
+                          
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					13.50 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					12.05 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					8.76 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=188">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					21 MW 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>District of Columbia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Benning (Potomac Power Resources) ; Buzzard Point (Potomac Power Resources)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=188">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>District of Columbia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>District of Columbia</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Colonial Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					73 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					0 stations 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					92 stations 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					4 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					10 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					179 trillion Btu 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					271 million Btu 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 2,320  million 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,517 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					39 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					112 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7 trillion Btu 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					21 trillion Btu 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 473  million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,270  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 100  million 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 478  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					3.8 million barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					34.1 billion cu ft 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 553  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 411  million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0 thousand short tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=188">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					57.3 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					2.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					37.9 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					1.0 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.7 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					12 MW 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					5 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					0.7 % 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=DC"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					275 thousand barrels 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					3.0 million metric tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>District of Columbia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=188">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					36 thousand metric tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					0 thousand metric tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					0 thousand metric tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: August 18, 2016<p>
+<h2>Overview </h2>
+<p>The District of Columbia, also known as the city of Washington, is located on the Potomac River between Maryland and Virginia. The city is situated between the Potomac's first rapids in the north and the beginnings of its tidal estuary to the south.<sup><a href='print.cfm@sid=DC.html#1'>1</a></sup> The District's land rises from the banks of the Potomac River and its tributary, the Anacostia River, to low hills in the north and east.<sup><a href='print.cfm@sid=DC.html#2'>2</a></sup> The city's climate is temperate, but summer days can exceed 100°F, and the rivers contribute to high humidity throughout the year.<sup><a href='print.cfm@sid=DC.html#3'>3</a></sup> The capital district was created by an Act of Congress in July 1790. It is under the exclusive jurisdiction of the U.S. Congress and is not a part of any state.<sup><a href='print.cfm@sid=DC.html#4'>4</a></sup> Although the District of Columbia occupies only about 68 square miles, including water,<sup><a href='print.cfm@sid=DC.html#5'>5</a></sup> its population is greater than that of either Wyoming or Vermont, and its population density is greater than that of any U.S. state.<sup><a href='print.cfm@sid=DC.html#6'>6</a></sup></p>
+<div class='pullquote'><p>Most of the energy used in the District of Columbia is consumed by the commercial sector, which includes federal buildings.</p></div><p>The city of Washington has few energy resources.<sup><a href='print.cfm@sid=DC.html#7'>7</a></sup> It is overwhelmingly an energy consumer, not an energy producer. Nevertheless, in total, the city consumes less energy than any state except Vermont. Per capita, the District uses less energy than two-thirds of U.S. states.<sup><a href='print.cfm@sid=DC.html#8'>8</a>,<a href='print.cfm@sid=DC.html#9'>9</a></sup> Nearly two-thirds of the energy used in the District is consumed by the commercial sector, which includes the federal buildings, museums, and universities that contribute to the city's commercial activity.<sup><a href='print.cfm@sid=DC.html#10'>10</a>,<a href='print.cfm@sid=DC.html#11'>11</a></sup> </p>
+<h2>Petroleum</h2>
+<p>The District of Columbia uses less total petroleum and less petroleum per capita than any of the states.<sup><a href='print.cfm@sid=DC.html#12'>12</a>,<a href='print.cfm@sid=DC.html#13'>13</a></sup> The city's only two utility-owned petroleum-fired electricity generating facilities were retired in June 2012.<sup><a href='print.cfm@sid=DC.html#14'>14</a></sup> Three-fourths of the petroleum consumed in the District is used by the transportation sector. Most of the rest is consumed in the small industrial sector, which includes printing and publishing, construction, education, and health care.<sup><a href='print.cfm@sid=DC.html#15'>15</a>,<a href='print.cfm@sid=DC.html#16'>16</a></sup> Fewer than 3% of District households heat with fuel oil.<sup><a href='print.cfm@sid=DC.html#17'>17</a></sup> The General Services Administration's (GSA) Central Heating and Refrigeration Plant, which provides heating and cooling to many federal buildings, uses petroleum only as an emergency fuel source. </p>
+<div class='pullquote'><p>The District of Columbia has more alternative fueling stations than conventional motor gasoline stations.</p></div><p>The District of Columbia does not have any petroleum product pipeline terminals. Petroleum products arrive by pipeline from the Gulf Coast at nearby terminals in Virginia and Maryland and are trucked into the District.<sup><a href='print.cfm@sid=DC.html#18'>18</a>,<a href='print.cfm@sid=DC.html#19'>19</a>,<a href='print.cfm@sid=DC.html#20'>20</a></sup> Motor gasoline sold in the District of Columbia is a reformulated blend containing fuel ethanol.<sup><a href='print.cfm@sid=DC.html#21'>21</a></sup> Washington is among the leading states in registered electric vehicles<sup><a href='print.cfm@sid=DC.html#22'>22</a></sup> and is home to a large number of alternatively fueled vehicles in local and federal government fleets.<sup><a href='print.cfm@sid=DC.html#23'>23</a></sup> To service those vehicles, the District of Columbia has more fueling stations that supply alternative fuels than fueling stations that sell only conventional motor gasoline,<sup><a href='print.cfm@sid=DC.html#24'>24</a></sup> but a number of those alternative fuel stations supply only government or private fleets.<sup><a href='print.cfm@sid=DC.html#25'>25</a></sup></p>
+<h2>Natural gas</h2>
+<p>As with total energy consumption, natural gas consumption in the District of Columbia is higher in the commercial sector than in any other sector in the city.<sup><a href='print.cfm@sid=DC.html#26'>26</a></sup> Natural gas is used to provide heating and cooling for many federal buildings, including the GSA's Central Heating and Refrigeration Plant, which creates steam and chilled cooling water for about 100 federal buildings in the District.<sup><a href='print.cfm@sid=DC.html#27'>27</a>,<a href='print.cfm@sid=DC.html#28'>28</a></sup> Natural gas is also the primary fuel at the Capitol Power Plant, which provides heating and cooling to the U.S. Capitol complex.<sup><a href='print.cfm@sid=DC.html#29'>29</a></sup> The residential sector, where about three-fifths of households use natural gas for home heating, is the second-largest natural gas-consuming sector in the city.<sup><a href='print.cfm@sid=DC.html#30'>30</a>,<a href='print.cfm@sid=DC.html#31'>31</a></sup></p>
+<p>District consumers did not have access to natural gas until 1931. For more than 80 years before that, manufactured gas was locally produced from coal and petroleum.<sup><a href='print.cfm@sid=DC.html#32'>32</a></sup> A mixture of natural and manufactured gas was used from 1931 until 1946.<sup><a href='print.cfm@sid=DC.html#33'>33</a></sup> After that, manufactured gas was produced intermittently during periods of peak gas demand until the mid-1980s. Demolition of the city's last gas-manufacturing plant was completed in 1986.<sup><a href='print.cfm@sid=DC.html#34'>34</a></sup> </p>
+<p>Natural gas is supplied to the District by a single natural gas distribution utility that services the city and some surrounding suburbs in Maryland and Virginia.<sup><a href='print.cfm@sid=DC.html#35'>35</a></sup> No interstate natural gas pipelines enter the District.<sup><a href='print.cfm@sid=DC.html#36'>36</a></sup> The utility's local distribution pipelines bring natural gas into the city from interstate pipelines in Maryland and Virginia.<sup><a href='print.cfm@sid=DC.html#37'>37</a></sup> Historically, most of the natural gas entering the District of Columbia came from the south and west through Virginia, but increasing amounts of natural gas are coming to the District through Maryland from Pennsylvania's Marcellus Shale.<sup><a href='print.cfm@sid=DC.html#38'>38</a>,<a href='print.cfm@sid=DC.html#39'>39</a></sup></p>
+<h2>Coal</h2>
+<p>There is little coal consumed in the District of Columbia.<sup><a href='print.cfm@sid=DC.html#40'>40</a></sup> The Capitol Power Plant, which began generating electricity in 1910, was originally coal-fired.<sup><a href='print.cfm@sid=DC.html#41'>41</a></sup> By the 1950s, the plant stopped generating electricity but continued to provide steam for heating and chilled water for cooling the U.S. Capitol, the House and Senate office buildings, the Supreme Court building, and other buildings in the Capitol complex. Although natural gas is now the primary fuel source at the Capitol Power Plant, coal is kept in reserve in case of natural disaster, a federal emergency, or a fuel shortage.<sup><a href='print.cfm@sid=DC.html#42'>42</a>,<a href='print.cfm@sid=DC.html#43'>43</a></sup></p>
+<h2>Electricity</h2>
+<p>In 2012, the only utility-owned electricity generation facilities in the District were retired from service.<sup><a href='print.cfm@sid=DC.html#44'>44</a></sup> The two small, petroleum-fired power plants had been used for electricity generation only a few hours per year, typically in periods of high demand.<sup><a href='print.cfm@sid=DC.html#45'>45</a></sup> District residents now receive nearly all their electricity from outside the city through the distribution system of the local electric utility, which is part of the PJM regional power grid.<sup><a href='print.cfm@sid=DC.html#46'>46</a>,<a href='print.cfm@sid=DC.html#47'>47</a></sup> In 2015, the only electricity generated within the District came from the GSA's Central Heating and Refrigeration Plant, which is fueled with natural gas,<sup><a href='print.cfm@sid=DC.html#48'>48</a></sup> and from solar photovoltaic (PV) panels on commercial and residential rooftops.<sup><a href='print.cfm@sid=DC.html#49'>49</a></sup> The Capitol Power Plant, which provided electricity to two dozen buildings on Capitol Hill from 1910 until 1951,<sup><a href='print.cfm@sid=DC.html#50'>50</a></sup> has received local permits to construct two natural gas-fired cogeneration units. If built, the new units would allow the plant, which produces steam and chilled water, to produce electricity for on-site use. The new units would use fuel oil as a backup fuel.<sup><a href='print.cfm@sid=DC.html#51'>51</a>,<a href='print.cfm@sid=DC.html#52'>52</a></sup></p>
+<p>More than seven-tenths of retail sales of electricity in the District of Columbia are made to the city's commercial sector. Most of the rest of the city's electricity is consumed by the residential sector. With its small population, the District of Columbia consumes less total electricity than all but five states, but the high commercial sector consumption places the District among the top 10 states in per capita electricity consumption.<sup><a href='print.cfm@sid=DC.html#53'>53</a>,<a href='print.cfm@sid=DC.html#54'>54</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>The District of Columbia leads the nation's cities in the number of Energy Star-certified buildings.</p></div><p>Solar energy is the District of Columbia's primary renewable resource.<sup><a href='print.cfm@sid=DC.html#55'>55</a></sup> The density of city development provides many rooftops that can accommodate solar installations. In February 2009, the District Department of the Environment introduced the Renewable Energy Incentive Program, which offers financial incentives designed to encourage the use of renewable solar generation by both residents and businesses.<sup><a href='print.cfm@sid=DC.html#56'>56</a></sup> By the end of 2015, there were more than 2,100 solar energy systems in the city.<sup><a href='print.cfm@sid=DC.html#57'>57</a></sup> One of the largest solar panel installations in the District of Columbia is located on the roof of the U.S. Department of Energy's Forrestal headquarters building. The panels generate about 230 megawatthours of electricity each year.<sup><a href='print.cfm@sid=DC.html#58'>58</a></sup> </p>
+<p>In 2005, the District of Columbia adopted a renewable portfolio standard (RPS) that has been amended several times since.<sup><a href='print.cfm@sid=DC.html#59'>59</a></sup> A 2016 RPS amendment requires that 50% of all retail electricity sales in the District must come from renewable sources by 2032.<sup><a href='print.cfm@sid=DC.html#60'>60</a></sup> The standard requires that no less than 5% of retail electricity sales under the RPS must be generated from solar resources. To help reach that goal, the city plans to install solar systems on more than 6,000 low-income homes annually.<sup><a href='print.cfm@sid=DC.html#61'>61</a></sup> The standard applies to both the investor-owned electric utility that serves the District of Columbia and to any retail suppliers. Qualifying technologies include solar thermal and PV technologies, landfill gas, wind, biomass, hydroelectric, geothermal electric, municipal solid waste, tidal energy, wave energy, ocean thermal, and fuel cells using renewable fuels.<sup><a href='print.cfm@sid=DC.html#62'>62</a></sup></p>
+<p>Washington leads the nation's cities in its number of Energy Star-certified buildings, surpassing the much larger city of Los Angeles for the first time in 2014.<sup><a href='print.cfm@sid=DC.html#63'>63</a></sup> An Energy Star-certified building meets strict energy performance standards set by the U.S. Environmental Protection Agency and uses less energy, costs less to operate, and produces fewer greenhouse gas emissions than comparable buildings.<sup><a href='print.cfm@sid=DC.html#64'>64</a></sup> Many of Washington's federal buildings are Energy Star-certified.<sup><a href='print.cfm@sid=DC.html#65'>65</a></sup> </p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Fogle, Jeanne Mason, Washington, D.C., Encyclopaedia Britannica, accessed July 25, 2016.<br>
+<a name='2'></a><sup>2</sup> World Atlas, District of Columbia, District of Columbia Geography, accessed July 25, 2016.<br>
+<a name='3'></a><sup>3</sup> Fogle, Jeanne Mason, Washington, D.C., Encyclopaedia Britannica, accessed July 25, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. History, Pre-Columbian to the New Millennium, 20d, A New National Capital: Washington, D. C., accessed July 25, 2016.<br>
+<a name='5'></a><sup>5</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates, accessed July 25, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, District of Columbia, Profile Data, Reserves & Supply, accessed July 25, 2016.<br>
+<a name='8'></a><sup>8</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Data System,Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, State Energy Data System, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014.<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='13'></a><sup>13</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='14'></a><sup>14</sup> Pepco Holdings, “Benning and Buzzard Point Decommissioning,” Press Release, accessed July 25, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014. <br>
+<a name='16'></a><sup>16</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, GDP in current dollars, NAICS, All industries total, District of Columbia, 2015, 2014, 2013.<br>
+<a name='17'></a><sup>17</sup> U.S. Census Bureau, American FactFinder, District of Columbia, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, District of Columbia, Profile Data, Distribution & Marketing, Major Pipelines, accessed July 25, 2016.<br>
+<a name='19'></a><sup>19</sup> Kinder Morgan, Southeast Region, Plantation Pipeline Company, accessed July 25, 2016. <br>
+<a name='20'></a><sup>20</sup> Colonial Pipeline Company, System Map, accessed July 25, 2016.<br>
+<a name='21'></a><sup>21</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Programs, Reformulated Gasoline, accessed July 25, 2016. <br>
+<a name='22'></a><sup>22</sup> Loveday, Eric, “Top 10 and Bottom 10 US States for EV Market Share in 2013,” Inside EVs (February 2014).<br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Alternative Fuel Vehicle Data, Fleet & Fuel Data, State Ranks-CNG, EVC, E85, HYD, LNG, LPG, OTH (2014).<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, District of Columbia, Profile Data, Distribution & Marketing, Fueling Stations, accessed July 25, 2016.<br>
+<a name='25'></a><sup>25</sup> U.S. Department of Energy, Alternative Fuels Data Center, Alternative Fueling Station Locator, accessed July 25, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, State Energy Data System, Table F30, Total Energy Consumption, Price, and Expenditure Estimates, 2014.<br>
+<a name='27'></a><sup>27</sup> “GSA Putting a Lot of Energy Into New D.C. Plant,” Washington Business Journal (October 13, 2003).<br>
+<a name='28'></a><sup>28</sup> Government of the District of Columbia, Department of Energy and Environment, Chapter 2 Technical Memorandum, U.S. General Services Administration (GSA), Central Heating and Refrigeration Plant (CHRP), Permit Numbers 6407-R1 through 6410-R1, Permits to Install and Operate Four (4) Temporary Natural Gas and No. 2 Fuel Oil Fired Rental Boilers (October 28, 2015).<br>
+<a name='29'></a><sup>29</sup> Architect of the Capitol, Capitol Power Plant Cogeneration Project, accessed July 26, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, Natural Gas Consumption by End-Use, District of Columbia, Annual, 2010–15. <br>
+<a name='31'></a><sup>31</sup> U.S. Census Bureau, American FactFinder, District of Columbia, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates. <br>
+<a name='32'></a><sup>32</sup> National Park Service, National Capital Parks-East, District of Columbia, Washington Gas–East Station Site, accessed July 26, 2016. <br>
+<a name='33'></a><sup>33</sup> Hershman, Robert R., and Edward T. Stafford, Growing with Washington, Washington Gas Light Company (1948), p. 58, 65, 67.<br>
+<a name='34'></a><sup>34</sup> National Park Service, National Capital Parks-East, District of Columbia, Washington Gas–East Station Site, accessed July 26, 2016.<br>
+<a name='35'></a><sup>35</sup> Washington Gas, Company Profile, accessed July 26, 2016. <br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, District of Columbia, Profile Data, Distribution & Marketing, Major Pipelines, accessed July 26, 2016.<br>
+<a name='37'></a><sup>37</sup> WGL Holdings, Inc., Energy Answers, 2012 Corporate Financial Report, p. 6, and Financial Statistics Section, p. 7.<br>
+<a name='38'></a><sup>38</sup> WGL Holdings, We Answer, 2015 Corporate Financial Report, p. 1–2 and Part 1, p. 6. <br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, District of Columbia, Annual, 2009–14. <br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 26. U.S. Coal Consumption by End-Use Sector, by Census Division, and State, 2014, 2013.<br>
+<a name='41'></a><sup>41</sup> Architect of the Capitol, Capitol Power Plant, updated December 15, 2015.<br>
+<a name='42'></a><sup>42</sup> Architect of the Capitol, Capitol Power Plant Cogeneration Project, accessed July 26, 2016. <br>
+<a name='43'></a><sup>43</sup> Architect of the Capitol, Cogeneration at the Capitol Power Plant, accessed July 26, 2016.<br>
+<a name='44'></a><sup>44</sup> Pepco Holdings, “Benning and Buzzard Point Decommissioning,” Press Release, accessed July 26, 2016. <br>
+<a name='45'></a><sup>45</sup> Pepco Holdings, “Pepco Holdings Seeks to Retire DC Power Plants,” BusinessWire (February 28, 2007).<br>
+<a name='46'></a><sup>46</sup> Pepco Holdings, Service Area Map, accessed July 26, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. Federal Energy Regulatory Commission, Electric Power Markets, PJM, accessed July 26, 2016.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Electricity, Form EIA-860 detailed data, 2015, Table 3_1, DC.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B, 1.17.B.<br>
+<a name='50'></a><sup>50</sup> Architect of the Capitol, Capitol Power Plant Cogeneration Project, accessed July 26, 2016.<br>
+<a name='51'></a><sup>51</sup> U.S. Government Accountability Office, Capitol Power Plant, Architect of the Capitol Should Update Its Long-Term Energy Plan Before Committing to Major Projects, GAO-15-436 (September 2015), p. 1–10.<br>
+<a name='52'></a><sup>52</sup> District of Columbia, Department of the Environment, “District Issues Air Quality Permits for Cogeneration Equipment at the U.S. Capitol Power Plant,” (June 6, 2013).<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.14.B, 1.15.B, 1.17.B.<br>
+<a name='56'></a><sup>56</sup> District of Columbia, Department of Energy and Environment, EnergySmart DC Solar Initiatives, accessed July 26, 2016. <br>
+<a name='57'></a><sup>57</sup> Public Service Commission of the District of Columbia, Report on the Renewable Energy Portfolio Standard for Compliance Year 2015 (May 2, 2016), p. i.<br>
+<a name='58'></a><sup>58</sup> Costlow, Brian, “Leading by Example,” U.S. Department of Energy (November 3, 2011).<br>
+<a name='59'></a><sup>59</sup> NC Clean Energy Technology Center, DSIRE, District of Columbia, Renewable Portfolio Standard, updated July 26, 2016.<br>
+<a name='60'></a><sup>60</sup> District of Columbia, Executive Office of the Mayor, “Mayor Bowser Signs Renewable Portfolio Standard Into Law,” Press Release (July 25, 2016).<br>
+<a name='61'></a><sup>61</sup> Roselund, Christian, “Washington D.C. Raises Renewable Energy Mandate to 50% by 2032 with 5% Solar Carve-Out,” PV Magazine (July 26, 2016).<br>
+<a name='62'></a><sup>62</sup> NC Clean Energy Technology Center, DSIRE, District of Columbia, Renewable Portfolio Standard, updated July 26, 2016. <br>
+<a name='63'></a><sup>63</sup> U.S. Environmental Protection Agency, “Washington, D.C. Takes No. 1 Spot on EPA's Energy Star Top Cities List,” Press Release (March 25, 2015). <br>
+<a name='64'></a><sup>64</sup> Energy Star, Energy Star Certification, accessed July 27, 2016. <br>
+<a name='65'></a><sup>65</sup> Koch, Wendy, “Which U.S. Cities Have the Most Energy Star Buildings?” USA Today (March 12, 2013). <br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: PJM Interconnection (PJM)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1B</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Reliability First Corporation (RFC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://green.dc.gov/energy" title="District of Columbia, District Department of the Environment, Energy in DC">District of Columbia, District Department of the Environment, Energy in DC</a></li>
+  
+    <li><a href="http://www.dcpsc.org/" title="District of Columbia Public Service Commission">District of Columbia Public Service Commission</a></li>
+  
+    <li><a href="http://ddoe.dc.gov/service/energy-assistance-and-weatherization" title="District of Columbia, District Department of the Environment, Energy in DC,  Energy Assistance and Weatherization">District of Columbia, District Department of the Environment, Energy in DC,  Energy Assistance and Weatherization</a></li>
+  
+    <li><a href="http://occc.eom.dc.gov/occc/site/default.asp" title="District of Columbia, Clean City Initiative, Office of the Clean City">District of Columbia, Clean City Initiative, Office of the Clean City</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://greenup.dc.gov/" title="Green Up DC">Green Up DC</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional District of Columbia website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for District of Columbia\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/DC.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

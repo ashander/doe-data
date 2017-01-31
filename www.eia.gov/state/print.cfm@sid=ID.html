@@ -1,0 +1,3027 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Idaho Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Idaho State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Idaho Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Idaho is rich in renewable energy resources; the state&#39;s volcanic formations provide substantial geothermal energy potential.</li>
+	
+	<li>In 2015, 75% of Idaho&rsquo;s utility-scale net electricity generation came from renewable energy resources, and Idaho was tied with West Virginia for the sixth lowest average electricity prices in the United States.</li>
+	
+	<li>In 2015, Idaho&#39;s in-state net electricity generation equaled 66% of the state&#39;s total electric industry retail sales. The remainder came from other states and international imports.</li>
+	
+	<li>Hydroelectric power supplied 54% of net electricity generation in Idaho in 2015, the fourth largest share in the nation. Drought reduced hydropower&#39;s share from the average 74% of the previous 10 years.</li>
+	
+	<li>Idaho&#39;s wind generation provided 16% of utility-scale net electricity generation in 2015</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: November 17, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=ID.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=ID.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=ID.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=ID.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=ID.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Idaho Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Idaho Energy Consumption Estimates',
+		data : [7.5,94.3,81.9,61.0,4.1,5.0,0.0,7.8,0.0,85.6,40.1,29.0,104.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Idaho Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 120.0],['Commercial', 87.0],['Industrial', 177.7],['Transportation', 136.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Idaho Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Idaho Energy Production Estimates',
+		data : [0.0,0.0,0.0,0.0,8.5,146.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Idaho Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Idaho Net Electricity Generation',
+		data : [190,534,234]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Idaho Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Idaho U.S. Price Differentials',
+		data : [{y:-24.1050119332, period: Date.UTC(2016,9,1)},{y:-40.2474526929, period: Date.UTC(2016,9,1)},{y:-17.1887550201, period: Date.UTC(2016,9,1)},{y:-25.1193887297, period: Date.UTC(2016,9,1)},{y:-8.63095238095, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.7 million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.8 million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 65.2  billion 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 7,404  million 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 37,509 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					16,154 million miles 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					11.8 million acres 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					46.4 degrees Fahrenheit 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					22.5 inches 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.18 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 8.21 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					10.31 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					7.84 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.14 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=194">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					1 rigs 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					155 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					4,988 MW 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					968 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					19.6 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					79.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					331 thousand barrels 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					241 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Idaho</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">American Falls Energy Center (Energy Developement Group) ; Brownlee (Idaho Power Co) ; Payette Energy Center (Energy Developement Group) ; Dworshak (USCE-North Pacific Division) ; Bennett Mountain (Idaho Power Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=194">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Idaho</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Kingsgate Center (Market Center)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Idaho</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Chevron Pipeline, Phillips 66 Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Northwest Pipeline Group, Transcanada - Gas Transmission NW</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					666 stations 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					32 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					47 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					6 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					20 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					520 trillion Btu 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					318 million Btu 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 6,980  million 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,270 
+				</td>
+				<td>
+					32 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					120 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					87 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					178 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					135 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,139  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 699  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,407  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 3,735  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					30.8 million barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					92.0 billion cu ft 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0.4 million short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 4,515  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 609  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 24  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,393 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=194">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					51.1 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					1.7 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					33.3 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4.8 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					9.1 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					3,816 MW 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					60 million gal/year 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					534 thousand MWh 
+				</td>
+				<td>
+					3.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					187 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					47 thousand MWh 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					1 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					1,498 Thousand Barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					29.8 % 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=ID"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					1,764 thousand barrels 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					17.0 million metric tons 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Idaho</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=194">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					1,866 thousand metric tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					4 thousand metric tons 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					12 thousand metric tons 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: November 17, 2016<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Idaho has few conventional energy resources but is rich in renewable energy potential. </p></div><p>Idaho's river valleys, which offered passage through rugged mountains for early settlers, today give the state a wealth of hydroelectric and wind energy resources.<sup><a href='print.cfm@sid=ID.html#1'>1</a></sup> The plains flanking the Snake River stretch all the way across southern Idaho, from the Teton Mountains on the Wyoming border to Hells Canyon at the Oregon border. The valleys of the Snake River and its tributaries are home to most of Idaho's population, more than one-third of whom live in the Boise area,<sup><a href='print.cfm@sid=ID.html#2'>2</a>,<a href='print.cfm@sid=ID.html#3'>3</a>,<a href='print.cfm@sid=ID.html#4'>4</a></sup> while vast stretches of the state remain wilderness.<sup><a href='print.cfm@sid=ID.html#5'>5</a>,<a href='print.cfm@sid=ID.html#6'>6</a></sup> Idaho's altitude varies from mountains more than 12,000 feet high to river valleys just a few hundred feet above sea level.<sup><a href='print.cfm@sid=ID.html#7'>7</a></sup> Temperatures across the state range just as widely, from a record high of 118&#8457; to a record low of 60&#8457; below zero.<sup><a href='print.cfm@sid=ID.html#8'>8</a></sup></p>
+<p>Mountains cover much of Idaho from its border with Canada on the north to Nevada and Utah on the south. The mountains capture moisture-laden clouds coming east from the Pacific in winter. Those clouds typically produce plentiful mountain snowfall, which feeds fast-running rivers for hydroelectric power and supplies irrigation for the lowlands in spring and summer, when the weather turns hot and dry.<sup><a href='print.cfm@sid=ID.html#9'>9</a></sup> Idaho, also known as the Gem State, is rich in minerals like silver and phosphate, but the state has few reserves of fossil fuels.<sup><a href='print.cfm@sid=ID.html#10'>10</a></sup> Nearly three-fourths of the energy Idahoans consume comes from out of state.<sup><a href='print.cfm@sid=ID.html#11'>11</a>,<a href='print.cfm@sid=ID.html#12'>12</a>,<a href='print.cfm@sid=ID.html#13'>13</a></sup> Idaho's energy potential lies in its substantial hydropower, wind, geothermal, solar, and biomass resources.<sup><a href='print.cfm@sid=ID.html#14'>14</a></sup> </p>
+<p>Idaho's energy consumption per capita is near the national average,<sup><a href='print.cfm@sid=ID.html#15'>15</a></sup> but the state's energy intensity (energy consumption per real dollar of gross domestic product) is well above the national median.<sup><a href='print.cfm@sid=ID.html#16'>16</a></sup> The industrial sector leads energy consumption, followed by the transportation sector.<sup><a href='print.cfm@sid=ID.html#17'>17</a></sup> Agriculture, forest products, and mining have long been important to Idaho's economy. Electronics manufacturing, food processing, and tourism are growing economic sectors.<sup><a href='print.cfm@sid=ID.html#18'>18</a>,<a href='print.cfm@sid=ID.html#19'>19</a>,<a href='print.cfm@sid=ID.html#20'>20</a></sup></p>
+<h2>Petroleum</h2>
+<p>Exploration for petroleum in Idaho began in 1903, but, despite promising geology in the state's southeast and southwest, no commercial reserves were discovered until recently, when small amounts of crude oil and condensate were produced from wells drilled primarily for natural gas.<sup><a href='print.cfm@sid=ID.html#21'>21</a>,<a href='print.cfm@sid=ID.html#22'>22</a>,<a href='print.cfm@sid=ID.html#23'>23</a></sup> Idaho has no petroleum refineries.<sup><a href='print.cfm@sid=ID.html#24'>24</a></sup> Idaho consumers receive petroleum products by two pipelines, one running west along the Snake River Valley from refineries in Utah and another crossing the northern part of the state from refineries in Montana.<sup><a href='print.cfm@sid=ID.html#25'>25</a>,<a href='print.cfm@sid=ID.html#26'>26</a>,<a href='print.cfm@sid=ID.html#27'>27</a></sup> Some petroleum products from Puget Sound refineries are also sent by pipeline to Portland, Oregon, and then by barge up the Columbia and Snake Rivers to Lewiston, Idaho.<sup><a href='print.cfm@sid=ID.html#28'>28</a></sup></p>
+<p>Petroleum is the leading energy source in Idaho. Consumption per capita is slightly below the national median.<sup><a href='print.cfm@sid=ID.html#29'>29</a>,<a href='print.cfm@sid=ID.html#30'>30</a></sup> Nearly four-fifths of the petroleum products consumed in Idaho are used in the transportation sector, and most of the rest is used in the industrial sector.<sup><a href='print.cfm@sid=ID.html#31'>31</a></sup> Idaho is one of the few states that allow use of conventional motor gasoline statewide.<sup><a href='print.cfm@sid=ID.html#32'>32</a>,<a href='print.cfm@sid=ID.html#33'>33</a></sup> However, much of the motor fuel sold in the state contains 10% ethanol because more populous states around Idaho do require oxygenated blends.<sup><a href='print.cfm@sid=ID.html#34'>34</a></sup> Idaho has two ethanol plants: a larger one in the east at Burley and a small plant in the west at Caldwell.<sup><a href='print.cfm@sid=ID.html#35'>35</a></sup> The productive capacity of the operating plants is slightly greater than Idaho's annual consumption of ethanol.<sup><a href='print.cfm@sid=ID.html#36'>36</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>Drilling in Idaho's southwest is beginning to produce natural gas.</p></div><p>Commercial natural gas production is being developed in southwestern Idaho, but output so far has been small.<sup><a href='print.cfm@sid=ID.html#37'>37</a>,<a href='print.cfm@sid=ID.html#38'>38</a>,<a href='print.cfm@sid=ID.html#39'>39</a>,<a href='print.cfm@sid=ID.html#40'>40</a>,<a href='print.cfm@sid=ID.html#41'>41</a></sup> Idaho consumers receive nearly all their natural gas supply by pipeline from Canada and from other western states.<sup><a href='print.cfm@sid=ID.html#42'>42</a>,<a href='print.cfm@sid=ID.html#43'>43</a>,<a href='print.cfm@sid=ID.html#44'>44</a></sup> One pipeline system enters Idaho at its northern border with Canada, crosses the panhandle, and continues to Washington, Oregon, and California.<sup><a href='print.cfm@sid=ID.html#45'>45</a></sup> The other system runs from the San Juan Basin in southwestern Colorado across Idaho's Snake River Plain to the Pacific Northwest and Canada. That system is bi-directional, so it can supply natural gas to Idaho either from Canada or from Wyoming and Colorado.<sup><a href='print.cfm@sid=ID.html#46'>46</a></sup> About 85% of the natural gas entering Idaho continues on to Washington, Oregon, and Nevada.<sup><a href='print.cfm@sid=ID.html#47'>47</a></sup> The industrial sector is Idaho's largest natural gas-consuming sector, followed by the electric power sector and the residential sector.<sup><a href='print.cfm@sid=ID.html#48'>48</a></sup> Slightly more than half of Idaho households use natural gas as their primary energy source for home heating.<sup><a href='print.cfm@sid=ID.html#49'>49</a></sup></p>
+<h2>Coal</h2>
+<p>Idaho has no coal mining<sup><a href='print.cfm@sid=ID.html#50'>50</a></sup> and few estimated recoverable reserves.<sup><a href='print.cfm@sid=ID.html#51'>51</a></sup> There are no electric utility-owned coal-fired generating plants within Idaho.<sup><a href='print.cfm@sid=ID.html#52'>52</a></sup> Electricity is generated with coal at only two industrial cogeneration facilities.<sup><a href='print.cfm@sid=ID.html#53'>53</a></sup> Coal is supplied primarily from mines in Wyoming and Utah and shipped to Idaho by rail.<sup><a href='print.cfm@sid=ID.html#54'>54</a></sup> However, Idaho gets about one-third of the electricity consumed in the state from coal-fired power plants located in other states. One of those coal-fired power plants, located in Oregon, is scheduled to close in 2020.<sup><a href='print.cfm@sid=ID.html#55'>55</a></sup> Coal's annual share of Idaho's electricity varies depending on how much hydroelectric power is available.<sup><a href='print.cfm@sid=ID.html#56'>56</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Renewable resources account for a larger share of net electricity generation in Idaho than in all but three other states.</p></div><p>Hydroelectric power plants dominate Idaho electricity generation, typically supplying between three-fifths and four-fifths of in-state net generation, except in recent years when drought has cut hydroelectric generation's share to a little over half. The balance of Idaho's net electricity generation is supplied by natural gas, wind, biomass, geothermal, and coal generation.<sup><a href='print.cfm@sid=ID.html#57'>57</a>,<a href='print.cfm@sid=ID.html#58'>58</a></sup> Idaho has among the lowest average electricity rates in the nation, mainly because of its large proportion of hydroelectric generation.<sup><a href='print.cfm@sid=ID.html#59'>59</a>,<a href='print.cfm@sid=ID.html#60'>60</a></sup> About one-third of Idaho households use electricity as their primary energy source for home heating.<sup><a href='print.cfm@sid=ID.html#61'>61</a></sup></p>
+<p>Idaho typically consumes one-third more electricity than it generates and depends on power supplied via interstate transmission lines from out-of-state resources owned by Idaho utilities and other suppliers.<sup><a href='print.cfm@sid=ID.html#62'>62</a>,<a href='print.cfm@sid=ID.html#63'>63</a></sup> Those power lines have grown increasingly congested, and projects are under way to expand capacity both to supply Idaho and to transport power from other mountain states to the West Coast markets.<sup><a href='print.cfm@sid=ID.html#64'>64</a>,<a href='print.cfm@sid=ID.html#65'>65</a>,<a href='print.cfm@sid=ID.html#66'>66</a>,<a href='print.cfm@sid=ID.html#67'>67</a>,<a href='print.cfm@sid=ID.html#68'>68</a></sup> Most new generating capacity planned in the region is natural gas-fired, but the transmission projects also aim to enable development of the region's renewable resources.<sup><a href='print.cfm@sid=ID.html#69'>69</a>,<a href='print.cfm@sid=ID.html#70'>70</a></sup></p>
+<p>The Idaho National Laboratory, a federal nuclear power and energy research center, is the state's second largest employer and the site of the first U.S. nuclear electricity generation in 1951.<sup><a href='print.cfm@sid=ID.html#71'>71</a>,<a href='print.cfm@sid=ID.html#72'>72</a></sup> The state has no commercial nuclear power plants.<sup><a href='print.cfm@sid=ID.html#73'>73</a></sup></p>
+<h2>Renewable energy</h2>
+<div class='pullquote'><p>Idaho Power's Hells Canyon dam system is the nation's largest privately owned hydroelectric facility.</p></div><p>Idaho typically gets more than four-fifths of its net electricity generation from renewable resources.<sup><a href='print.cfm@sid=ID.html#74'>74</a>,<a href='print.cfm@sid=ID.html#75'>75</a></sup> Most of the state's renewable power comes from hydroelectric sources,<sup><a href='print.cfm@sid=ID.html#76'>76</a></sup> and 4 of Idaho's 10 largest generating facilities run on hydropower.<sup><a href='print.cfm@sid=ID.html#77'>77</a></sup> The three dams making up Idaho Power's Hells Canyon complex on the Snake River constitute the nation's largest privately owned hydroelectric generating facility.<sup><a href='print.cfm@sid=ID.html#78'>78</a>,<a href='print.cfm@sid=ID.html#79'>79</a></sup></p>
+<p>Idaho has no renewable portfolio standard (RPS) or other renewable requirements,<sup><a href='print.cfm@sid=ID.html#80'>80</a>,<a href='print.cfm@sid=ID.html#81'>81</a></sup> but its three major electric utilities do offer net metering programs that take electricity from small wind, solar, biomass, and other renewable sources. Commercial, residential, and agricultural customers are eligible for net metering.<sup><a href='print.cfm@sid=ID.html#82'>82</a></sup></p>
+<p>Although a relatively small percentage of the state's land area is available for wind development, Idaho has substantial wind energy potential along the Snake River and on mountain ridges across the state.<sup><a href='print.cfm@sid=ID.html#83'>83</a></sup> The first commercial wind energy project began operating in 2006. In 2015, wind provided one-sixth of the state's net electricity generation<sup><a href='print.cfm@sid=ID.html#84'>84</a>,<a href='print.cfm@sid=ID.html#85'>85</a></sup> from 15 utility-scale wind facilities with a total capacity of 973 megawatts. All were located in the Snake River Valley.<sup><a href='print.cfm@sid=ID.html#86'>86</a></sup> Wind developers typically sell their electricity to Idaho electricity retailers and sell their renewable energy certificates to electricity providers who are subject to RPS requirements in neighboring states.<sup><a href='print.cfm@sid=ID.html#87'>87</a>,<a href='print.cfm@sid=ID.html#88'>88</a></sup></p>
+<p>Idaho has no utility-scale solar generation,<sup><a href='print.cfm@sid=ID.html#89'>89</a></sup> but distributed (customer-sited small-scale) solar photovoltaic and solar thermal installations are widely used in the state's rural areas. The state offers low-interest loans and tax deductions for small-scale solar facilities.<sup><a href='print.cfm@sid=ID.html#90'>90</a>,<a href='print.cfm@sid=ID.html#91'>91</a></sup> The Idaho town of Sandpoint is first in the nation to test solar road panels that light up lane markings and heat to melt snow.<sup><a href='print.cfm@sid=ID.html#92'>92</a>,<a href='print.cfm@sid=ID.html#93'>93</a></sup> </p>
+<p>Idaho's volcanic landscape has a wealth of hot springs and other geothermal resources that have long been used for aquaculture, greenhouses, spas, resorts, and city district heating.<sup><a href='print.cfm@sid=ID.html#94'>94</a></sup> The state has some of the best geothermal potential in the nation.<sup><a href='print.cfm@sid=ID.html#95'>95</a></sup> In 2015, Idaho was one of eight states with operating geothermal power capacity<sup><a href='print.cfm@sid=ID.html#96'>96</a></sup> and one of seven with commercial-scale geothermal electricity generation.<sup><a href='print.cfm@sid=ID.html#97'>97</a></sup> Idaho's sole geothermal generating plant, a 13-megawatt facility, is built on the site of the federal government's first geothermal experiment, at Raft River in the state's southeast.<sup><a href='print.cfm@sid=ID.html#98'>98</a></sup> Geothermal development in Idaho may be limited by availability of groundwater, since utility-scale geothermal technology is water-intensive.<sup><a href='print.cfm@sid=ID.html#99'>99</a>,<a href='print.cfm@sid=ID.html#100'>100</a>,<a href='print.cfm@sid=ID.html#101'>101</a></sup> Idaho gets about 4% of its net electricity generation from biomass,<sup><a href='print.cfm@sid=ID.html#102'>102</a></sup> primarily waste and cogeneration from the wood products and agricultural industries.<sup><a href='print.cfm@sid=ID.html#103'>103</a>,<a href='print.cfm@sid=ID.html#104'>104</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> LewisAndClarkTrail.com, Travel the Lewis and Clark Trail, accessed September 30, 2016.<br>
+<a name='2'></a><sup>2</sup> U.S. Census Bureau, 2010 Census: Idaho Profile, accessed September 30, 2016.<br>
+<a name='3'></a><sup>3</sup> Pitts, Ryan, and Mike Tigas, Census 2010, Idaho, Counties, Spokane Spokesman-Review, accessed September 30, 2016.<br>
+<a name='4'></a><sup>4</sup> NETSTATE, Idaho, The Geography of Idaho, updated February 25, 2016.<br>
+<a name='5'></a><sup>5</sup> University of Montana, Wilderness.net, Idaho, accessed September 30, 2016.<br>
+<a name='6'></a><sup>6</sup> Sangres.com, National Wilderness Areas in Idaho, accessed September 30, 2016.<br>
+<a name='7'></a><sup>7</sup> NETSTATE, Idaho, The Geography of Idaho, updated February 25, 2016.<br>
+<a name='8'></a><sup>8</sup> Qualls, Russell, "Idaho Contrasts from Mountains to Plains," State Climate Series, Community Collaborative Rain, Hail & Snow Network, accessed September 30, 2016.<br>
+<a name='9'></a><sup>9</sup> Qualls, Russell, "Idaho Contrasts from Mountains to Plains," State Climate Series, Community Collaborative Rain, Hail & Snow Network, accessed September 30, 2016.<br>
+<a name='10'></a><sup>10</sup> Idaho State University, Idaho Museum of Natural History, Mining in Idaho, accessed September 30, 2016.<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration (EIA), State Energy Data System, Production, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='12'></a><sup>12</sup> U.S. EIA, State Energy Consumption Estimates, 1960-2014, DOE/EIA-0214(2014), (June 2016), Idaho, Table CT2, Primary Energy Consumption Estimates, Selected Years, 1960-2014, p. 155.<br>
+<a name='13'></a><sup>13</sup> U.S. EIA, State Energy Production Estimates, 1960-2014, Idaho, Table PT2, Energy Production Estimates in Trillion Btu, 1960-2014, p. 37.<br>
+<a name='14'></a><sup>14</sup> Idaho, Governor's Office of Energy Resources, Renewable Energy, accessed September 30, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2014.<br>
+<a name='17'></a><sup>17</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, Ranked by State, 2014.<br>
+<a name='18'></a><sup>18</sup> National Association of Manufacturers, 2014 State Manufacturing Data, Idaho Manufacturing Facts, revised February 2015.<br>
+<a name='19'></a><sup>19</sup> NETSTATE, Idaho Economy, updated February 25, 2016.<br>
+<a name='20'></a><sup>20</sup> Infoplease, Idaho Economy, accessed October 5, 2016.<br>
+<a name='21'></a><sup>21</sup> McLeod, John D., The Search for Oil and Gas in Idaho, GeoNote 21, Idaho Geological Survey, accessed October 5, 2016.<br>
+<a name='22'></a><sup>22</sup> Barker, Rocky, "Idaho Has Become an Oil-Producing State," Idaho Statesman (June 28, 2016).<br>
+<a name='23'></a><sup>23</sup> Idaho Geological Survey, Idaho Oil & Gas, Southwestern Idaho Gas Play, accessed October 5, 2016.<br>
+<a name='24'></a><sup>24</sup> U.S. EIA, Refinery Capacity Report 2016 (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016.<br>
+<a name='25'></a><sup>25</sup> Idaho, Office of the Attorney General, Report on Motor Fuel Prices in Idaho (June 2008), p. 3-6.<br>
+<a name='26'></a><sup>26</sup> Tesoro Corp., Transition Team Delivers Successful Pipeline System Acquisition, accessed October 5, 2016.<br>
+<a name='27'></a><sup>27</sup> Sunoco Logistics, Refined Products Pipeline System, accessed October 5, 2016.<br>
+<a name='28'></a><sup>28</sup> Idaho, Office of the Attorney General, Report on Motor Fuel Prices in Idaho (June 2008), p. 5.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='30'></a><sup>30</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='31'></a><sup>31</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='32'></a><sup>32</sup> U.S. Environmental Protection Agency, Gasoline Standards, see Gasoline Programs: Reformulated Gasoline, Reid Vapor Pressure, and Winter Oxygenates for Idaho requirements.<br>
+<a name='33'></a><sup>33</sup> American Petroleum Institute, U.S. Gasoline Requirements, updated June 2015.<br>
+<a name='34'></a><sup>34</sup> Wutz, Katherine, "'Real Gas'â€”What Does It Mean?" Idaho Mountain Express (June 6, 2012).<br>
+<a name='35'></a><sup>35</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, updated January 23, 2016. <br>
+<a name='36'></a><sup>36</sup> U.S. EIA, State Energy Data System, Table F4: Fuel Ethanol Consumption Estimates, 2014.<br>
+<a name='37'></a><sup>37</sup> Barker, Rocky, "Idaho Has Become an Oil-Producing State," Idaho Statesman (June 28, 2016).<br>
+<a name='38'></a><sup>38</sup> Ridler, Keith, "Natural Gas Production Records from Idaho Are Released to the Public," The Salt Lake Tribune (September 18, 2015).<br>
+<a name='39'></a><sup>39</sup> Idaho Geological Survey, Idaho Oil & Gas, Southwestern Idaho Gas Play, accessed October 5, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='41'></a><sup>41</sup> Idaho Legislative Council's Interim Committee on Energy, Environment and Technology, 2012 Idaho Energy Plan (March 6, 2012), p. 74, 86.<br>
+<a name='42'></a><sup>42</sup> U.S. EIA, International & Interstate Movements of Natural Gas by State, Idaho, 2010-15.<br>
+<a name='43'></a><sup>43</sup> Idaho Public Utilities Commission, Major Natural Gas Pipelines and Local Gas Distribution Companies, accessed October 7, 2016.<br>
+<a name='44'></a><sup>44</sup> Northwest Gas Association and Pacific Northwest Utilities Conference Committee, Natural Gas-Electricity Primer (August 2012), p. 7.<br>
+<a name='45'></a><sup>45</sup> Gas Transmission Northwest Corp., Gas Transmission Northwest and North Baja Pipeline Fact Sheet and Map, accessed October 7, 2016.<br>
+<a name='46'></a><sup>46</sup> Williams, Northwest Pipeline, accessed October 7, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, International & Interstate Movements of Natural Gas by State, Idaho, 2010-15.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, Natural Gas Consumption by End Use, Idaho, Annual, 2009-14.<br>
+<a name='49'></a><sup>49</sup> U.S. Census Bureau, American FactFinder, Idaho, Table B25040, House Heating Fuel, American Community Survey 1-Year Estimates, 2015.<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='51'></a><sup>51</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='52'></a><sup>52</sup> Idaho Power, Coal-Fired Plants, accessed October 7, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 2014, Table 3_1.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Idaho, Table DS-12, Domestic Coal Distribution, by Destination State, 2014.<br>
+<a name='55'></a><sup>55</sup> Ramseth, Luke, "Idaho's Energy Future: Less Coal, Uncertain Hydro," Idaho Statesman (December 28, 2015).<br>
+<a name='56'></a><sup>56</sup> Idaho Power, Fuel Mix, Resource Portfolio Fuel Mix, 2008-15, accessed October 7, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.5.B, 1.7.B, 1.9.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.16.B.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+<a name='59'></a><sup>59</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='60'></a><sup>60</sup> Idaho Public Utilities Commission, Power Cost Adjustment, What is the PCA (Power Cost Adjustment)?, accessed October 7, 2016.<br>
+<a name='61'></a><sup>61</sup> U.S. Census Bureau, American FactFinder, Idaho, Table B25040, House Heating Fuel, American Community Survey 1-Year Estimates, 2015.<br>
+<a name='62'></a><sup>62</sup> Idaho Power, Coal-Fired Plants, accessed October 7, 2016.<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, State Electricity Profiles, 2014, Idaho, Table 10, Supply and Disposition of Electricity, 1990 Through 2014.<br>
+<a name='64'></a><sup>64</sup> Idaho, Governor's Office of Energy Resources, Transmission, accessed October 7, 2016.<br>
+<a name='65'></a><sup>65</sup> Idaho Power and Rocky Mountain Power, Gateway West Transmission Line Project, accessed October 7, 2016.<br>
+<a name='66'></a><sup>66</sup> Idaho Power, Boardman to Hemingway Transmission Line Project, accessed October 7, 2016.<br>
+<a name='67'></a><sup>67</sup> Idaho, Governor's Office of Energy Resources, Transmission Task Force Report 2015, p. 5, 23-26.<br>
+<a name='68'></a><sup>68</sup> Pacificorp, Energy Gateway, updated April 22, 2015.<br>
+<a name='69'></a><sup>69</sup> Northwest Gas Association & Pacific Northwest Utilities Conference Committee, Natural Gas-Electricity Primer (August 2012), p. 6.<br>
+<a name='70'></a><sup>70</sup> Idaho, Governor's Office of Energy Resources, Transmission, accessed October 7, 2016.<br>
+<a name='71'></a><sup>71</sup> Idaho National Laboratory, Fact Sheets, INL Overview, accessed October 7, 2016.<br>
+<a name='72'></a><sup>72</sup> Barker, Rocky, "Federal Aid Cuts Would Weaken Idaho's Economy," Idaho Center for Fiscal Policy (July 8, 2012).<br>
+
+<a name='73'></a><sup>73</sup> U.S. EIA, Idaho, Profile Overview, Map, Layers/Legend, Nuclear Power Plants, accessed October 7, 2016.<br>
+<a name='74'></a><sup>74</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B.<br>
+<a name='76'></a><sup>76</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B.<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, State Electricity Profiles, Idaho, Table 2, Ten Largest Plants by Generation Capacity, 2014.<br>
+<a name='78'></a><sup>78</sup> Idaho Power, Hells Canyon, accessed October 7, 2016.<br>
+<a name='79'></a><sup>79</sup> U.S. Federal Energy Regulatory Commission, Present Development of Conventional Hydroelectric Projects, updated June 10, 2013.<br>
+<a name='80'></a><sup>80</sup> Idaho Legislature, 2012 Idaho Energy Plan (January 10, 2012), p. 78.<br>
+<a name='81'></a><sup>81</sup> National Conference of State Legislatures, State Renewable Portfolio Standards and Goals, updated July 27, 2016.<br>
+<a name='82'></a><sup>82</sup> U.S. Department of Energy, Idaho Power-Net Metering, accessed October 7, 2016.<br>
+<a name='83'></a><sup>83</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, WINDExchange, Idaho Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, Electric Power Monthly (February 2015), Table 1.3.B, 1.14.B.<br>
+<a name='85'></a><sup>85</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+<a name='86'></a><sup>86</sup> American Wind Energy Association, Idaho Wind Energy, accessed October 8, 2016.<br>
+<a name='87'></a><sup>87</sup> Idaho Power, How Renewable Energy Certificates Work, accessed October 8, 2016.<br>
+<a name='88'></a><sup>88</sup> American Public Power Association, "Seattle City Light Acquires Idaho Wind Project's Renewable Energy Credits," Public Power Weekly (May 2, 2011).<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B, 1.18.B.<br>
+<a name='90'></a><sup>90</sup> Idaho, Governor's Office of Energy Resources, Solar, accessed October 8, 2016.<br>
+<a name='91'></a><sup>91</sup> NC Clean Energy Technology Center, DSIRE, Residential Alternative Energy Tax Deduction, Program Overview, Idaho, updated December 18, 2015.<br>
+<a name='92'></a><sup>92</sup> Prentice, George, "Sandpoint Will Light Up Solar Roads this Friday," Boise Weekly (September 28, 2016).<br>
+<a name='93'></a><sup>93</sup> Varinsky, Dana, "Snow-Melting Solar Roads Are Being Tested Publicly for First Time in U.S.," Business Insider (October 5, 2016).<br>
+<a name='94'></a><sup>94</sup> Idaho, Governor's Office of Energy Resources, Renewable Energy, Geothermal, History, accessed October 8, 2016.<br>
+<a name='95'></a><sup>95</sup> Roberts, Billy J., Geothermal Resource of the United States, National Renewable Energy Laboratory (October 13, 2009).<br>
+<a name='96'></a><sup>96</sup> Geothermal Energy Association, 2016 Annual U.S. and Global Geothermal Power Production Report (February 2016), p. 13.<br>
+<a name='97'></a><sup>97</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='98'></a><sup>98</sup> U.S. Geothermal Inc., Raft River Project, accessed October 8, 2016.<br>
+<a name='99'></a><sup>99</sup> Idaho, Governor's Office of Energy Resources, Renewable Energy, Geothermal, History, accessed October 8, 2016.<br>
+<a name='100'></a><sup>100</sup> Harrington, Helen, Ken Neely, and Warren Weihung, Geothermal Resources in Idaho, Idaho Department of Water Resources, updated 2007, p. 14.<br>
+<a name='101'></a><sup>101</sup> Lundquist, Laura, "Idaho's Geothermal Potential Faces Barriers to Large-Scale Production," Magic Valley Times-News (February 14, 2011).<br>
+<a name='102'></a><sup>102</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.15.B. <br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 2014, Table 3_1.<br>
+<a name='104'></a><sup>104</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 4</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.energy.idaho.gov" title="Idaho Governor's Office of Energy Resources">Idaho Governor's Office of Energy Resources</a></li>
+  
+    <li><a href="http://www.puc.idaho.gov" title="Idaho Public Utilities Commission">Idaho Public Utilities Commission</a></li>
+  
+    <li><a href="https://www.idl.idaho.gov/oil-gas/commission/" title="Idaho Oil and Gas Conservation Commission">Idaho Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="http://www.idahocommunityaction.org/programs/programsenergyassistance/" title="Community Action Partnership Association of Idaho, Low Income Home Energy Assistance Program">Community Action Partnership Association of Idaho, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.idahocommunityaction.org/programs/weatherization-html/" title="Community Action Partnership Association of Idaho, Weatherization Assistance Program">Community Action Partnership Association of Idaho, Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.nwcouncil.org/energy/" title="Northwest Power and Conservation Council">Northwest Power and Conservation Council</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://www.idahogeology.org/uploads/Geothermal/Geothermal_book.pdf" title="Idaho Department of Water Resources, Idaho's Geothermal Resources">Idaho Department of Water Resources, Idaho's Geothermal Resources</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Idaho website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Idaho\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/ID.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

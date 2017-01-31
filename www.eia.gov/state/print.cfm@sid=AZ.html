@@ -1,0 +1,3048 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Arizona Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Arizona State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Arizona Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Arizona&#39;s Palo Verde Nuclear Generating Station, rated at 3,937 net megawatts, is the largest net generator of electricity in the nation. By capacity, it is the second-largest power plant of any kind in the nation.&nbsp;</li>
+	
+	<li>Arizona ranked second in the nation in utility-scale electricity generation from solar energy in 2015.</li>
+	
+	<li>Arizona, the 14th most populous state, ranked 45th in the nation in per capita energy consumption in 2014, partly because of the state&rsquo;s small industrial sector.</li>
+	
+	<li>Arizona&#39;s only operating coal mine, Kayenta, on the Navajo and Hopi reservations, supplies the 7-to-8 million short tons burned annually by the Navajo Generating Station&#39;s three 750-megawatt units.</li>
+	
+	<li>Arizona&#39;s Renewable Environmental Standard requires 15% of the state&rsquo;s electricity consumed in 2025 to come from renewable energy resources; in 2015, 9.5% of Arizona&rsquo;s utility-scale net electricity generation came from renewable resources, primarily from the Glen Canyon and Hoover Dams.</li>
+	
+	<li>Twenty-five percent of the energy consumed in Arizona homes is for air conditioning, which is more than four times the national average of 6 percent, according to EIA&#39;s Residential Energy Consumption Survey. &nbsp;<br />
+</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: December 15, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=AZ.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=AZ.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=AZ.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=AZ.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=AZ.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Arizona Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arizona Energy Consumption Estimates',
+		data : [447.8,315.4,298.9,143.0,21.5,7.4,0.0,21.4,338.0,58.2,31.4,51.7,-313.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Arizona Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 386.3],['Commercial', 337.5],['Industrial', 234.3],['Transportation', 463.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arizona Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arizona Energy Production Estimates',
+		data : [173.3,0.1,0.3,338.0,5.9,117.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arizona Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arizona Net Electricity Generation',
+		data : [4,2750,2947,2196,444,369]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arizona Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arizona U.S. Price Differentials',
+		data : [{y:-2.38663484487, period: Date.UTC(2016,9,1)},{y:35.4439592431, period: Date.UTC(2016,9,1)},{y:-2.32931726908, period: Date.UTC(2016,9,1)},{y:1.52817574021, period: Date.UTC(2016,9,1)},{y:-4.91071428571, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					6.8 million 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					3.3 million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 290.6  billion 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 23,530  million 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 39,060 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					62,631 million miles 
+				</td>
+				<td>
+					17 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					26.2 million acres 
+				</td>
+				<td>
+					14 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					61.8 degrees Fahrenheit 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					14.4 inches 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.09 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 18.61 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 2.10 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.16 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					10.63 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.39 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=184">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					209 million short tons 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					6 wells 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					635 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					1 thousand barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					95 million cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					6,805 thousand short tons 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					0 barrels/calendar day 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					28,138 MW 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					8,708 thousand MWh 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					31.6 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					33.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					25.2 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					9.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					79 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					468 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					138 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					3,854 thousand tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Arizona</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Kayenta Mine / Peabody Western Coal Company</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Toltec Power Station (Toltec Power Station LLC) ; Gila River Power Station (Gila River Power Station LP) ; Navajo (Salt River Project) ; Springerville (Tucson Electric Power Co) ; Mesquite Generating Station (Mesquite Power LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Palo Verde (Arizona Public Service Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=184">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Arizona</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Arizona</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">El Paso Natural Gas Company LLC, Mojave Pipeline Company LLC, North Baja Pipeline Company, Southern Trails Pipeline Company, Transwestern Pipeline Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					1,625 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					93 stations 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					378 stations 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					30 stations 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					121 stations 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,423 trillion Btu 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					211 million Btu 
+				</td>
+				<td>
+					45 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 22,610  million 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,360 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					386 trillion Btu 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					338 trillion Btu 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					234 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					464 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 4,564  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 3,469  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 2,363  million 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 12,214  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					97.4 million barrels 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					306.6 billion cu ft 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					23.1 million short tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 13,753  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 2,156  million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 945  million 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					7 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					20,900 million cu ft 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,583 thousand short tons 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=184">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					33.9 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					59.4 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					2.8 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					3.8 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					4,603 MW 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					50 million gal/year 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					444 thousand MWh 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					352 thousand MWh 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					17 thousand MWh 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					138 thousand MWh 
+				</td>
+				<td>
+					8.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					1,044 Thousand Barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					9.9 % 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=AZ"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					6,929 thousand barrels 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					93.0 million metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Arizona</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=184">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					50,201 thousand metric tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					16 thousand metric tons 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					43 thousand metric tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: December 15, 2016</p>
+<h2>Overview </h2>
+<p>Arizona is known for its iconic vistas, from the Grand Canyon and Monument Valley in the north and east to the deserts in the southwest.<sup><a href='print.cfm@sid=AZ.html#1'>1</a></sup> Although it is the most populous state in the Mountain Census Division, the majority of Arizona's residents live in a few dense urban areas, leaving the rest of the state lightly populated.<sup><a href='print.cfm@sid=AZ.html#2'>2</a>,<a href='print.cfm@sid=AZ.html#3'>3</a></sup> Elevations in Arizona vary from peaks more than 2 miles high in the northeast to nearly sea level in the lower deserts of the Basin and Range region to the southwest.<sup><a href='print.cfm@sid=AZ.html#4'>4</a>,<a href='print.cfm@sid=AZ.html#5'>5</a></sup> Some of the highest elevations in the state are along the 200-mile long, steep-sided Mogollon Rim, the area with Arizona's greatest wind potential.<sup><a href='print.cfm@sid=AZ.html#6'>6</a></sup> Although higher elevations receive greater amounts of precipitation, including significant snowfalls, most of Arizona is semiarid, and abundant sunshine gives the entire state some of the nation's greatest solar power potential. <sup><a href='print.cfm@sid=AZ.html#7'>7</a>,<a href='print.cfm@sid=AZ.html#8'>8</a></sup> </p>
+<p>The Basin and Range region of southwestern Arizona is rich in minerals, and the state drew Spanish explorers seeking gold, silver, and copper as early as the 1600s. Arizona mines also have produced uranium.<sup><a href='print.cfm@sid=AZ.html#9'>9</a>,<a href='print.cfm@sid=AZ.html#10'>10</a></sup> Northern Arizona is the site of some of the nation's major uranium reserves, including the highest-grade uranium mine in the nation.<sup><a href='print.cfm@sid=AZ.html#11'>11</a>,<a href='print.cfm@sid=AZ.html#12'>12</a></sup> Mining has long been a significant contributor to Arizona's wealth, but the economy has diversified. Real estate, professional and business services, trade, and health care services are among the largest contributors to the state's gross domestic product.<sup><a href='print.cfm@sid=AZ.html#13'>13</a></sup> Other key industries in Arizona include computer and electronic products manufacturing, aerospace and defense, renewable energy, biosciences, and optics and photonics.<sup><a href='print.cfm@sid=AZ.html#14'>14</a></sup> Arizona still produces more copper than any other state.<sup><a href='print.cfm@sid=AZ.html#15'>15</a></sup></p>
+<div class='pullquote'><p>Transportation is the largest end-use energy-consuming sector in Arizona. </p></div><p>Arizona's primary economic activities are not energy intensive, and the state's per capita energy consumption is among the lowest in the nation.<sup><a href='print.cfm@sid=AZ.html#16'>16</a></sup> The transportation sector is Arizona's largest end-use energy consumer, followed by the residential sector.<sup><a href='print.cfm@sid=AZ.html#17'>17</a></sup> Mild summers in the north and mild winters in the south make Arizona a popular vacation and retirement destination. The mild weather draws seasonal residents, and about 1 in 13 Arizona homes is occupied only part of the year.<sup><a href='print.cfm@sid=AZ.html#18'>18</a>,<a href='print.cfm@sid=AZ.html#19'>19</a>,<a href='print.cfm@sid=AZ.html#20'>20</a></sup> The state's year-round population has rapidly increased in recent decades.<sup><a href='print.cfm@sid=AZ.html#21'>21</a>,<a href='print.cfm@sid=AZ.html#22'>22</a></sup></p>
+<h2>Petroleum</h2>
+<p>Arizona has minor crude oil production from fewer than 30 wells, all of which are located in one county in the northeastern corner of the state.<sup><a href='print.cfm@sid=AZ.html#23'>23</a></sup> The largest producing oil field in the state is on the Navajo reservation.<sup><a href='print.cfm@sid=AZ.html#24'>24</a></sup> Regions of both the Colorado Plateau in the northeast and the Basin and Range in the southwest are believed to have petroleum potential, but exploratory drilling has never yielded large finds, and much of Arizona remains unexplored.<sup><a href='print.cfm@sid=AZ.html#25'>25</a></sup> The state has no significant reported proved crude oil reserves, and most drilling activity is related to helium, carbon dioxide, or minerals exploration.<sup><a href='print.cfm@sid=AZ.html#26'>26</a>,<a href='print.cfm@sid=AZ.html#27'>27</a></sup></p>
+<p>Arizona does not have any oil refineries. Petroleum products are supplied by pipeline from Southern California and Texas.<sup><a href='print.cfm@sid=AZ.html#28'>28</a></sup> Arizona's petroleum consumption is dominated by the transportation sector, which uses seven of every eight barrels of petroleum consumed in the state.<sup><a href='print.cfm@sid=AZ.html#29'>29</a></sup> To meet federal air quality standards, an oxygenated blend called Arizona Clean Burning Gasoline (CBG) is used year-round in Maricopa County, which includes the city of Phoenix. Oxygenated motor gasoline is also required during the winter in the Tucson area.<sup><a href='print.cfm@sid=AZ.html#30'>30</a>,<a href='print.cfm@sid=AZ.html#31'>31</a></sup> The industrial sector accounts for nearly all of the remaining petroleum consumed in the state.<sup><a href='print.cfm@sid=AZ.html#32'>32</a></sup></p>
+<h2>Natural gas</h2>
+<p>With only a few producing wells and little new drilling activity, Arizona's natural gas production has declined to less than 100 million cubic feet per year from a peak of more than 2 billion cubic feet per year in 1990.<sup><a href='print.cfm@sid=AZ.html#33'>33</a>,<a href='print.cfm@sid=AZ.html#34'>34</a></sup> Almost all of the natural gas consumed in Arizona comes from other states via interstate pipelines that enter Arizona at the New Mexico border. More than two-thirds of that natural gas entering the state continues on to California.<sup><a href='print.cfm@sid=AZ.html#35'>35</a></sup> Arizona has no natural gas underground storage capacity, and attempts to build storage fields to buffer against supply disruptions have encountered financial and environmental issues.<sup><a href='print.cfm@sid=AZ.html#36'>36</a>,<a href='print.cfm@sid=AZ.html#37'>37</a></sup> A natural gas distribution company in the state is planning to construct a liquefied natural gas (LNG) storage facility in southern Arizona to assure supply.<sup><a href='print.cfm@sid=AZ.html#38'>38</a>,<a href='print.cfm@sid=AZ.html#39'>39</a></sup></p>
+<p>The electric power sector consumes almost three-fourths of the natural gas used in Arizona. The residential sector, where about one-third of Arizonans use natural gas as their primary home heating fuel, is a distant second, accounting for about one-tenth of the state's natural gas consumption.<sup><a href='print.cfm@sid=AZ.html#40'>40</a>,<a href='print.cfm@sid=AZ.html#41'>41</a></sup> Overall per capita consumption of natural gas in Arizona is less than in four-fifths of the states.<sup><a href='print.cfm@sid=AZ.html#42'>42</a>,<a href='print.cfm@sid=AZ.html#43'>43</a></sup></p>
+<h2>Coal</h2>
+<p>There are two coal fields in Arizona&mdash;Black Mesa in the northeast on the Navajo and Hopi reservations and Pinedale in south-central Arizona.<sup><a href='print.cfm@sid=AZ.html#44'>44</a></sup> The state's only operating coal mine is in the Black Mesa field, and it is one of the 25 largest coal mines in the nation.<sup><a href='print.cfm@sid=AZ.html#45'>45</a></sup> Coal from that mine is sent 17 miles by conveyor to a closed loop electric train that takes the crushed coal directly to the coal-fired Navajo Generating Station 80 miles away.<sup><a href='print.cfm@sid=AZ.html#46'>46</a></sup> The coal that supplies Arizona's other coal-fired power plants is brought into the state by rail, typically from New Mexico and Wyoming, with smaller amounts arriving from Montana and Colorado. A small amount of coal from Colorado and Utah is also delivered to industrial plants in Arizona.<sup><a href='print.cfm@sid=AZ.html#47'>47</a></sup> </p>
+<div class='pullquote'><p>Arizona is part of a multi-state effort to find formations suitable for carbon sequestration.</p></div><p>Less than one-third of Arizona's electricity generation was fueled by coal in 2015.<sup><a href='print.cfm@sid=AZ.html#48'>48</a></sup> The Navajo Generating Station is the second-largest power plant by capacity in the state and the largest coal-fired facility.<sup><a href='print.cfm@sid=AZ.html#49'>49</a></sup> In 2014, the Environmental Protection Agency finalized its rule aimed at reducing pollution from the plant.<sup><a href='print.cfm@sid=AZ.html#50'>50</a></sup> Arizona is part of a multi-state effort to assess geologic formations for potential long-term sequestration of carbon captured from coal plant emissions. A site was evaluated in northeastern Arizona, but the permeability in the formation tested was not adequate for injection. However, other areas of northeastern Arizona are candidates for future assessment.<sup><a href='print.cfm@sid=AZ.html#51'>51</a></sup></p>
+<h2>Electricity</h2>
+<p>Arizona's Palo Verde Nuclear Generating Station is the nation's largest nuclear power plant and is second only to the Grand Coulee Dam in total generating capacity.<sup><a href='print.cfm@sid=AZ.html#52'>52</a></sup> However, in the past, coal fueled the largest share of net electricity generation in the state. Coal-fired generation has decreased and, in 2015, coal, nuclear, and natural gas each fueled about three-tenths of the state's net electricity generation. Renewable resources, mostly hydroelectric power and solar photovoltaic (PV) generation, provide the balance.<sup><a href='print.cfm@sid=AZ.html#53'>53</a></sup> </p>
+<p>Power plants in Arizona generate more electricity than the state consumes, and Arizona generating stations supply electricity to consumers throughout the southwest.<sup><a href='print.cfm@sid=AZ.html#54'>54</a>,<a href='print.cfm@sid=AZ.html#55'>55</a>,<a href='print.cfm@sid=AZ.html#56'>56</a></sup> Transmission lines have become congested in peak demand periods. Arizona has been working with other states and stakeholders on multiple projects to improve transmission capacity. Among them are projects to bring electricity from Wyoming, Colorado, and New Mexico to urban areas in the desert southwest, including Las Vegas in Nevada; Phoenix and Tucson in Arizona; and Southern California.<sup><a href='print.cfm@sid=AZ.html#57'>57</a>,<a href='print.cfm@sid=AZ.html#58'>58</a></sup> Another transmission project is in development that will connect areas of southeastern California to southwestern Arizona.<sup><a href='print.cfm@sid=AZ.html#59'>59</a></sup> However, changes in future demand forecasts have caused several projects to be deferred.<sup><a href='print.cfm@sid=AZ.html#60'>60</a></sup> </p>
+<p>Per capita retail electricity sales in Arizona are below the national average, even though about 3 in 5 households rely on electricity as their primary energy source for home heating, and more than 9 in 10 homes have air conditioning.<sup><a href='print.cfm@sid=AZ.html#61'>61</a>,<a href='print.cfm@sid=AZ.html#62'>62</a>,<a href='print.cfm@sid=AZ.html#63'>63</a>,<a href='print.cfm@sid=AZ.html#64'>64</a></sup> Electricity is also crucial for pumping water for drinking and irrigation from the Colorado River in the north to the drier central and southern parts of Arizona.<sup><a href='print.cfm@sid=AZ.html#65'>65</a></sup> More than four-fifths of the state's population lives in south-central Arizona.<sup><a href='print.cfm@sid=AZ.html#66'>66</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>The Glen Canyon and Hoover Dams, among the largest power plants in the state, provide the bulk of Arizona's net hydroelectric generation.</p></div><p>The Glen Canyon Dam and Hoover Dam, both located on the Colorado River in northern Arizona, are among the largest power plants in the state and provide the bulk of Arizona's net hydroelectric generation.<sup><a href='print.cfm@sid=AZ.html#67'>67</a></sup> Hydroelectric power has long dominated Arizona's renewable electricity generation. However, increasing amounts of electricity generation capacity from other renewable sources, especially solar, are coming online.<sup><a href='print.cfm@sid=AZ.html#68'>68</a></sup> Arizona has one of the largest solar energy resources of any state.<sup><a href='print.cfm@sid=AZ.html#69'>69</a></sup> The state's first commercial solar photovoltaic (PV) array opened in 1997, and one of the world's largest solar PV facilities, located in Yuma, Arizona, was completed in 2014.<sup><a href='print.cfm@sid=AZ.html#70'>70</a>,<a href='print.cfm@sid=AZ.html#71'>71</a></sup> There are also facilities in Arizona that use concentrating solar power technology.<sup><a href='print.cfm@sid=AZ.html#72'>72</a></sup> Arizona was one of the top five states in the installation of new solar facilities in 2015 and ranked second in the nation after California in total installed solar electric capacity.<sup><a href='print.cfm@sid=AZ.html#73'>73</a></sup> In 2015, solar energy contributed about 4% to Arizona's net electricity generation, about one-fourth of it from distributed (customer-sited small-scale) generation.<sup><a href='print.cfm@sid=AZ.html#74'>74</a></sup> The state has some wind potential, mainly along the 200-mile-long, steep-walled Mogollon Rim that cuts across central Arizona.<sup><a href='print.cfm@sid=AZ.html#75'>75</a></sup> The state's first commercial-scale wind farm became operational in 2009,<sup><a href='print.cfm@sid=AZ.html#76'>76</a></sup> but, in 2015, wind provided less than 0.5% of Arizona's net generation.<sup><a href='print.cfm@sid=AZ.html#77'>77</a></sup> Arizona has geothermal resources; however, the state does not have any utility-scale power plants that use geothermal energy.<sup><a href='print.cfm@sid=AZ.html#78'>78</a></sup> Arizona has many hot springs, a few small spas, and several direct-use applications, including an active aquaculture industry that uses geothermal resources to raise shrimp and other fish. Some deeper high-temperature resources, particularly in the central and southern parts of Arizona, may be suitable for power generation.<sup><a href='print.cfm@sid=AZ.html#79'>79</a></sup> Arizona has participated in a federal effort to map geothermal potential across the nation.<sup><a href='print.cfm@sid=AZ.html#80'>80</a></sup> </p>
+<p>Arizona's renewable energy standard requires that increasing amounts of electricity sold in the state must come from renewable sources. The state's overall renewable goal for regulated electric utilities is 15% by 2025.<sup><a href='print.cfm@sid=AZ.html#81'>81</a></sup> Key to developing renewable resource potential on a large scale in Arizona is the transmission capacity needed to carry the electricity from remote sites where it is generated to urban markets. State, regional, and federal stakeholders are developing expanded transmission infrastructure in Arizona.<sup><a href='print.cfm@sid=AZ.html#82'>82</a>,<a href='print.cfm@sid=AZ.html#83'>83</a></sup> Each year, a total of 30% of the required renewable energy target must come from non-utility distributed generation. Half of the non-utility distributed generation requirement must come from residential sites and the other half from non-residential non-utility installations.<sup><a href='print.cfm@sid=AZ.html#84'>84</a></sup> The state allows net metering for distributed (customer-sited) renewable generation.<sup><a href='print.cfm@sid=AZ.html#85'>85</a></sup> In addition, Arizona's energy efficiency standards require investor-owned electric utilities, electric cooperatives, and natural gas utilities to increase energy efficiency to reduce consumption of both electricity and natural gas.<sup><a href='print.cfm@sid=AZ.html#86'>86</a></sup></p>
+<h2>Energy on tribal lands</h2>
+<p>Arizona is home to 21 federally recognized Native American tribes, 22 tribal governments, and part of the nation's largest reservation, the Navajo Nation.<sup><a href='print.cfm@sid=AZ.html#87'>87</a>,<a href='print.cfm@sid=AZ.html#88'>88</a>,<a href='print.cfm@sid=AZ.html#89'>89</a></sup> As tribes and individuals, Native Americans control more than one-fourth of Arizona's land&mdash;the largest proportion of any state and second only to Alaska in total acreage.<sup><a href='print.cfm@sid=AZ.html#90'>90</a></sup> Most of Arizona's energy mineral resources are on that land.<sup><a href='print.cfm@sid=AZ.html#91'>91</a></sup> The largest producing oil field in Arizona&mdash;Dineh-bi-Keyah, The People's Field&mdash;is on the Navajo reservation and has produced almost 19 million barrels of oil since its discovery in the mid-1960s.<sup><a href='print.cfm@sid=AZ.html#92'>92</a></sup> Arizona's only operating coal mine, Kayenta, is in the Black Mesa coal field on the Navajo and Hopi reservations, and the coal-fired Navajo Generating Station that uses Kayenta coal is also located on tribal lands.<sup><a href='print.cfm@sid=AZ.html#93'>93</a>,<a href='print.cfm@sid=AZ.html#94'>94</a>,<a href='print.cfm@sid=AZ.html#95'>95</a></sup> Several natural gas pipelines and transmissions lines cross tribal lands, and hydroelectric dams in the state are also located there.<sup><a href='print.cfm@sid=AZ.html#96'>96</a></sup> Almost 4 million tons of uranium were removed from more than 500 mines on Navajo Nation land from 1944 to 1986. The mines are now closed.<sup><a href='print.cfm@sid=AZ.html#97'>97</a></sup> </p>
+<p>Renewable resources are abundant on Arizona's tribal lands, and they offer opportunities for electricity generation in remote areas. Tribes are assessing their solar, geothermal, wind, and biomass resources and are using renewable technologies, including solar panels, for onsite generation of electricity. Although the Navajo reservation in Arizona, by far the largest reservation in the United States, has the highest percentage of households without electricity among the nation's reservations, it is the reservation with the greatest solar and geothermal potential.<sup><a href='print.cfm@sid=AZ.html#98'>98</a>,<a href='print.cfm@sid=AZ.html#99'>99</a></sup> Three of the top five tribes with significant rural utility-scale solar electricity potential are in Arizona, as are two of the five tribes with the greatest geothermal potential.<sup><a href='print.cfm@sid=AZ.html#100'>100</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Hendricks, David, Arizona Soils, University of Arizona (1985), Chapter 2, Geologic Framework of Arizona.<br>
+<a name='2'></a><sup>2</sup> City Data, Arizona Population, accessed October 27, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Census Bureau, 2010 Census: Arizona Profile, Population Density by Census Tract, accessed October 27, 2016.<br>
+<a name='4'></a><sup>4</sup> NETSTATE, Arizona, The Geography of Arizona, accessed October 27, 2016.<br>
+<a name='5'></a><sup>5</sup> Thomas, B., "Scenic Drive: 200 Miles along Mogollon Rim," The Arizona Republic (June 14, 2006). <br>
+<a name='6'></a><sup>6</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Arizona Wind Resource Map and Potential Wind Capacity (September 24, 2015).<br>
+<a name='7'></a><sup>7</sup> Selover, Nancy, Arizona–A State of Mild Temperatures as well as Extremes, Arizona's Climate, The CoCoRaHS ‘State Climates' Series, accessed October 27, 2016.<br>
+<a name='8'></a><sup>8</sup> Nebraska Energy Office, Comparison of Solar Power Potential by State (March 11, 2010).<br>
+<a name='9'></a><sup>9</sup> Arizona Geological Survey, Mineral Resources, accessed October 27, 2016.<br>
+<a name='10'></a><sup>10</sup> "Arizona Strip Region Has Yielded Uranium Ore for Decades," Arizona Daily Star (June 28, 2015).<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration (EIA), Major U.S. Uranium Reserves, map, accessed October 27, 2016.<br>
+<a name='12'></a><sup>12</sup> Energy Fuels, "Energy Fuels Discovers High-Grade Copper Mineralization at Its Canyon Uranium Mine," Press Release (October 27, 2016).<br>
+<a name='13'></a><sup>13</sup> U.S. Bureau of Economic Analysis, Interactive Data, Regional Data, GDP and Personal Income, Gross Domestic Product by State, Arizona, 2014.<br>
+<a name='14'></a><sup>14</sup> Arizona Commerce Authority, Industries, accessed October 27, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Department of the Interior, U.S. Geological Survey, Mineral Commodity Summaries 2016 (January 2016), p. 54.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014. <br>
+<a name='17'></a><sup>17</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='18'></a><sup>18</sup> Western Regional Climate Center, Climate of Arizona, Climate and Economy, accessed October 31, 2016.<br>
+<a name='19'></a><sup>19</sup> Gardner, Dustin, and Leslie Wright, "Field Guide: Arizona's Snowbirds Arrive," The Arizona Republic (December 3, 2011).<br>
+<a name='20'></a><sup>20</sup> U.S. Census Bureau, American FactFinder, Arizona, Table B25002, Occupancy Status, 2010-2014 American Community Survey 5-Year Estimates, and Table B25004, Vacancy Status, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='21'></a><sup>21</sup> U.S. Census Bureau, Population Distribution and Change: 2000 to 2010 (March 2011), Table 1, Population Change for the United States, Regions, States, and Puerto Rico: 2000 to 2010.<br>
+<a name='22'></a><sup>22</sup> U.S. Census Bureau, A Decade of State Population Change (January 10, 2013).<br>
+<a name='23'></a><sup>23</sup> Arizona Oil and Gas Conservation Commission, Arizona Geological Survey, Oil, Gas, Helium Production Report, December 2015 (March 3, 2016).<br>
+<a name='24'></a><sup>24</sup> Rauzi, Steven L., Dineh-Bi-Keyah Oil Field Apache County, Arizona, Arizona Geological Survey, Publication OG-15 (OGCC Well Location Map P-2) (March 5, 2015). <br>
+<a name='25'></a><sup>25</sup> Rauzi, Steven L., Arizona Has Oil and Gas Potential!, Arizona Geological Survey Circular 29 (February 2001).<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, Arizona Profile Data, Reserves and Supply, accessed October 31, 2016.<br>
+<a name='27'></a><sup>27</sup> Rauzi, Steven L., Annual Oil and Gas Activity in Arizona 1959 to 2014, Arizona Geological Survey (March 4, 2015), p. 55–63.<br>
+<a name='28'></a><sup>28</sup> Kinder Morgan, Products Pipelines, Phoenix Terminal, Inbound Receipt Modes, accessed October 31, 2016.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='30'></a><sup>30</sup> U.S. Environmental Protection Agency, State Winter Oxygenated Fuel Program Requirements for Attainment or Maintenance of CO NAAQS, EPA420-B-08-006 (January 2008), p. 1.<br>
+<a name='31'></a><sup>31</sup> American Petroleum Institute, U.S. Gasoline Requirements (June 22, 2015).<br>
+<a name='32'></a><sup>32</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='33'></a><sup>33</sup> Arizona Oil and Gas Conservation Commission, Arizona Geological Survey, Oil, Gas, Helium Production Report, December 2015 (March 3, 2016).<br>
+<a name='34'></a><sup>34</sup> U.S. EIA, Arizona Natural Gas Gross Withdrawals, 1990–2015, accessed October 31, 2016.<br>
+<a name='35'></a><sup>35</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Arizona, 2015, accessed November 1, 2016.<br>
+<a name='36'></a><sup>36</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Storage Capacity, 2015, accessed November 1, 2016.<br>
+<a name='37'></a><sup>37</sup> Arizona Corporation Commission, Before the Arizona Corporation Commission, Arizona Natural Gas Storage Coalition 2011 Winter Readiness, Natural Gas Storage Workshop (November 1–2, 2011).<br>
+<a name='38'></a><sup>38</sup> Southwest Gas Investor Relations, 10-Q (June 30, 2015).<br>
+<a name='39'></a><sup>39</sup> Southwest Gas, 2016 AGA Financial Forum Presentation (May 15–17, 2016), p. 29.<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Natural Gas Consumption by End Use, Arizona, 2015.<br>
+<a name='41'></a><sup>41</sup> U.S. Census Bureau, American FactFinder, Arizona, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='42'></a><sup>42</sup> U.S. EIA, Natural Gas Consumption by End Use, Total Consumption, Annual, accessed November 1, 2016.<br>
+<a name='43'></a><sup>43</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Table 1, Annual Estimates of the Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015. <br>
+<a name='44'></a><sup>44</sup> Kirschbaum, Mark A., and Laura R. H. Biewick, Chapter B, A Summary of the Coal Deposits in the Colorado Plateau: Arizona, Colorado, New Mexico and Utah, U.S. Geological Survey Professional Paper 1625–B, U.S. Department of the Interior, U.S. Geological Survey (2000), p. B2.<br>
+<a name='45'></a><sup>45</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Tables 1, 9.<br>
+<a name='46'></a><sup>46</sup> Peabody Energy, Kayenta Mine, accessed November 1, 2016. <br>
+<a name='47'></a><sup>47</sup> U.S. EIA, Annual Coal Distribution Report 2014 (April 2016), Arizona Table DS-3, Domestic Coal Distribution, by Destination State, 2014.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='49'></a><sup>49</sup> U.S. EIA, Arizona Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='50'></a><sup>50</sup> U.S. Environmental Protection Agency, "EPA cuts emissions at Navajo Generating Station, protecting public health, preserving tribal jobs and improving visibility at the Grand Canyon," Press Release (July 28, 2014).<br>
+<a name='51'></a><sup>51</sup> West Coast Regional Carbon Sequestration Partnership, Arizona Utilities CO2 Storage Pilot&mdash;Cholla Site, accessed November 1, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Energy Explained, Secondary Sources, Electricity, Electricity in the United States, Top 10, Largest U.S. electricity generation facilities by annual net electricity generation, Largest U.S. electricity generation facilities by electricity generation capacity (2014 final data).<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.9.B, 1.10.B, 1.11.B, 1.17.B. <br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Arizona Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014.<br>
+<a name='55'></a><sup>55</sup> Nuclear Energy Institute, Economic Benefits of the Palo Verde Nuclear Generation Station, An Economic Impact Study by the Nuclear Energy Institute (November 2004), 2.2 Generation, p. 11.<br>
+<a name='56'></a><sup>56</sup> U.S. Department of the Interior, Bureau of Reclamation, Upper Colorado Storage Project, Glen Canyon Dam and Powerplant, Lake Powell (2008), Hydroelectric Power.<br>
+<a name='57'></a><sup>57</sup> SunZia, Welcome to the SunZia Southwest Transmission Project, accessed November 3, 2016.<br>
+<a name='58'></a><sup>58</sup> TransWest Express LLC, Delivering Wyoming wind energy to the West, accessed November 3, 2016.<br>
+<a name='59'></a><sup>59</sup> Ten West Link, accessed November 2, 2016.<br>
+<a name='60'></a><sup>60</sup> Arizona Corporation Commission, Eighth Biennial Transmission Assessment 2014-2023 Staff Report, Docket No. E-00000D-13-0002 Decision No. 74785 (October 29, 2014), p. 13–14. <br>
+<a name='61'></a><sup>61</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='62'></a><sup>62</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Table 1, Annual Estimates of the Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015. <br>
+<a name='63'></a><sup>63</sup> U.S. Census Bureau, American FactFinder, Arizona, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, Residential Energy Consumption Survey, 2009, Table HC7.11, Air Conditioning in Homes in West Region, Divisions, and States, 2009. <br>
+<a name='65'></a><sup>65</sup> Central Arizona Project, CAP Background, accessed November 4, 2016.<br>
+<a name='66'></a><sup>66</sup> U.S. Census Bureau, Quick Facts, Arizona, Maricopa County, Pima County and Pinal County, accessed November 4, 2016.<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Arizona Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014. <br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Electricity, Detailed State Data, 1990–2015, Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='69'></a><sup>69</sup> National Renewable Energy Laboratory, Dynamic Maps, GIS Data and Analysis Tools, Solar Maps, accessed November 11, 2016. <br>
+<a name='70'></a><sup>70</sup> Arizona Public Service, Arizona's Energy Future, APS Solar Plant in Flagstaff Celebrates "Sunny Sweet 16? (October 3, 2013).<br>
+<a name='71'></a><sup>71</sup> Jegede, Dara, "Top 10 largest solar photovoltaic plants in the world," Institution of Mechanical Engineers (May 4, 2016).<br>
+<a name='72'></a><sup>72</sup> Arizona Public Service, Renewable Portfolio Map, Concentrating Solar, accessed November 11, 2016.<br>
+<a name='73'></a><sup>73</sup> Solar Energy Industries Association, Solar Spotlight: Arizona (September 9, 2016).<br>
+<a name='74'></a><sup>74</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 6.2.B.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B, 1.18.B. <br>
+<a name='76'></a><sup>76</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Arizona Wind Resource Map and Potential Wind Capacity, accessed November 14, 2016.<br>
+<a name='77'></a><sup>77</sup> Iberdrola Renewables, "Arizona's First Wind Farm Wins Award, Brings Together U.S. Interior Secretary Salazar,<br>
+Energy Leaders and Navajo County Families to Dedicate Dry Lake Wind," Press Release (October 12, 2009).<br>
+<a name='78'></a><sup>78</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B. <br>
+<a name='79'></a><sup>79</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='80'></a><sup>80</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Geothermal Technologies Program, Arizona (April 2006).<br>
+<a name='81'></a><sup>81</sup> Arizona Geological Survey, Geothermal Potential in Arizona, accessed November 14, 2016.<br>
+<a name='82'></a><sup>82</sup> Arizona Corporation Commission, Utilities Division, Renewable Energy Standard and Tariff, accessed November 14, 2016.<br>
+<a name='83'></a><sup>83</sup> SunZia, Welcome to the SunZia Southwest Transmission Project, accessed November 14, 2016.<br>
+<a name='84'></a><sup>84</sup> U.S. Department of Energy, "Energy Department, Arizona Utilities Announce Transmission Infrastructure Project Energization," Press Release (February 12, 2015).<br>
+<a name='85'></a><sup>85</sup> NC Clean Energy Technology Center, DSIRE, Renewable Energy Standard, Arizona (March 18, 2016).<br>
+<a name='86'></a><sup>86</sup> NC Clean Energy Technology Center, DSIRE, Net Metering, Arizona (December 21, 2015).<br>
+<a name='87'></a><sup>87</sup> NC Clean Energy Technology Center, DSIRE, Energy Efficiency Standards, Arizona (February 4, 2015).<br>
+<a name='88'></a><sup>88</sup> Arizona Governor's Office on Tribal Relations, Tribes of Arizona, Arizona Tribal Leadership List (September 28, 2016).<br>
+<a name='89'></a><sup>89</sup> U.S. Department of the Interior, Bureau of Indian Affairs, "Indian Entities Recognized and Eligible to Receive Services from the United States Bureau of Indian Affairs," Federal Register, Vol. 81, No. 86 (May 4, 2016), p. 26826–30.<br>
+<a name='90'></a><sup>90</sup> Infoplease, Largest Native American Reservations in the U.S., accessed November 14, 2016.<br>
+<a name='91'></a><sup>91</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, Appendix D: Indian Nations, The American Indian Digest (April 1997), p. D-3.<br>
+<a name='92'></a><sup>92</sup> Arizona State University, Arizona's Energy Future (September 2011), Chapter 7, Energy in Indian Country. <br>
+<a name='93'></a><sup>93</sup> Rauzi, S., Dineh-Bi-Keyah Oil Field, Apache County, Arizona, Arizona Geological Survey, Publication OG-15 (OGCC Well Location Map P-2) (March 5, 2015).<br>
+<a name='94'></a><sup>94</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='95'></a><sup>95</sup> Kirschbaum, M. A., and L. R. H. Biewick, Chapter B–A Summary of the Coal Deposits in the Colorado Plateau: Arizona, Colorado, New Mexico and Utah, U.S. Geological Survey Professional Paper 1625–B, U.S. Department of the Interior, U.S. Geological Survey (2000), p. B2.<br>
+<a name='96'></a><sup>96</sup> Arizona State University, Arizona's Energy Future (September 2011), Chapter 7, Energy in Indian Country, p. 93. <br>
+<a name='97'></a><sup>97</sup> Arizona State University, Arizona's Energy Future (September 2011), Chapter 7, Energy in Indian Country, p. 92, 97. <br>
+<a name='98'></a><sup>98</sup> U.S. Environmental Protection Agency, Navajo Nation: Cleaning Up Abandoned Uranium Mines, accessed November 14, 2016.<br>
+<a name='99'></a><sup>99</sup> Arizona State University, Arizona's Energy Future (September 2011), Chapter 7, Energy in Indian Country, p. 95–98.<br>
+<a name='100'></a><sup>100</sup> U.S. EIA, Energy Consumption and Renewable Energy Development Potential on Indian Lands, SR/CNEAF/2000-01 (April 2000), p. 39. <br>
+<a name='101'></a><sup>101</sup> U.S. Department of Energy, Office of Indian Energy, Developing Clean Energy Projects on Tribal Lands, Data and Resources for Tribes, DOE/IE-0015 (April 2013), p. 40, 44, 52.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 5</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="https://grants.az.gov/programs/energy" title="Arizona Office of Grants and Federal Resources, Energy">Arizona Office of Grants and Federal Resources, Energy</a></li>
+  
+    <li><a href="http://www.azgs.az.gov/minerals.shtml" title="Arizona Geological Survey, Mineral Resources">Arizona Geological Survey, Mineral Resources</a></li>
+  
+    <li><a href="https://des.az.gov/services/aging-and-adult/community-services/energy-assistance" title="Arizona Department of Economic Security, Energy Assistance">Arizona Department of Economic Security, Energy Assistance</a></li>
+  
+    <li><a href="https://www.wrpinfo.org/AboutUs.aspx" title="Western Regional Partnership (WRP)">Western Regional Partnership (WRP)</a></li>
+  
+    <li><a href="https://grants.az.gov/programs/energy" title="Arizona Office of Grants and Federal Resources, Energy, Solar/Renewable Resources">Arizona Office of Grants and Federal Resources, Energy, Solar/Renewable Resources</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.azcc.gov/Divisions/Utilities/" title="Arizona Corporation Commission - Utilities Division">Arizona Corporation Commission - Utilities Division</a></li>
+  
+    <li><a href="http://www.azogcc.az.gov/" title="Arizona Oil and Gas Conservation Commission">Arizona Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="http://asmi.az.gov/" title="Arizona State Mine Inspector">Arizona State Mine Inspector</a></li>
+  
+    <li><a href="http://www.azcommerce.com/industries/renewable-energy" title="Arizona Commerce Authority, Renewable Energy">Arizona Commerce Authority, Renewable Energy</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Arizona website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Arizona\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/AZ.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

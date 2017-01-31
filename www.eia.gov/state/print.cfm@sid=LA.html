@@ -1,0 +1,3051 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Louisiana Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Louisiana State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Louisiana Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>The Henry Hub in Erath, Louisiana, where 13 major pipeline systems interconnect, is the delivery point for the benchmark natural gas futures contract traded on the New York Mercantile Exchange. &nbsp;</li>
+	
+	<li>With 18 operating petroleum refineries, Louisiana is, as of January 2016, second only to Texas in both total and operating refinery capacity.</li>
+	
+	<li>The Louisiana Offshore Oil Port (LOOP) is the only U.S. port capable of berthing Ultra Large Crude Carriers, the largest ocean-going crude oil tankers.</li>
+	
+	<li>In early 2016, the first large-scale LNG export terminal in the Lower 48 states opened at Sabine Pass, Louisiana. The only other U.S. LNG tanker export port is in Nikiski, Alaska.</li>
+	
+	<li>In 2014, Louisiana ranked first among the states in total energy consumption per capita, primarily because of the state&#39;s industrial sector, which includes many refineries and petrochemical plants. &nbsp;</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 19, 2017</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=LA.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=LA.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=LA.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=LA.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=LA.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Louisiana Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Louisiana Energy Consumption Estimates',
+		data : [210.0,1563.3,257.1,192.4,132.9,617.9,42.5,795.8,181.1,10.4,144.5,3.3,129.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Louisiana Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 348.8],['Commercial', 268.2],['Industrial', 3024.1],['Transportation', 640.0]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Louisiana Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Louisiana Energy Production Estimates',
+		data : [35.5,2096.5,396.5,181.1,0.2,142.7]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Louisiana Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Louisiana Net Electricity Generation',
+		data : [1,4823,751,1381,90,228]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Louisiana Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Louisiana U.S. Price Differentials',
+		data : [{y:-5.01193317422, period: Date.UTC(2016,9,1)},{y:-25.0602409639, period: Date.UTC(2016,9,1)},{y:-19.2932187202, period: Date.UTC(2016,9,1)},{y:-21.2797619048, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					4.7 million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					2.1 million 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 243.3  billion 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 52,749  million 
+				</td>
+				<td>
+					13 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 43,252 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					48,252 million miles 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					7.9 million acres 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					68.1 degrees Fahrenheit 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					67.3 inches 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 48.11 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.98 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					9.33 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					8.45 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.29 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=199">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					424 million barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					16,097 billion cu ft 
+				</td>
+				<td>
+					5.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					218 million barrels 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					89 million short tons 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					111 rigs 
+				</td>
+				<td>
+					6.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					18,382 wells 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					2,852 trillion Btu 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					4,755 thousand barrels 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,776,800 million cu ft 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					3,439 thousand short tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					3,348,820 barrels/calendar day 
+				</td>
+				<td>
+					18.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					26,308 MW 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					7,694 thousand MWh 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					62.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					9.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					17.9 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					4.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,713 thousand barrels 
+				</td>
+				<td>
+					10.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					6,886 thousand barrels 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					655,683 million cu ft 
+				</td>
+				<td>
+					7.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					425 thousand barrels 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					2,382 thousand tons 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Louisiana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Alon Refining (Krotz Springs), Calcasieu Refining (Lake Charles), Calumet Lubricants (Cotton Valley), Calumet Lubricants (Princeton), Calumet Shreveport (Shreveport), Chalmette Refining (Chalmette), Citgo Petroleum (Lake Charles), Excel Paralubes (Westlake), ExxonMobil Refining & Supply (Baton rouge), Marathon Petroleum (Garyville), Motiva Enterprises (Convent), Motiva Enterprises (Norco), Phillips 66 Company (Belle Chasse), Phillips 66 Company (Westlake), Placid Refining (Port Allen), Shell Oil Products (Saint Rose), Valero Energy (Meraux), Valero Refining (Norco)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Big Cajun 2 (Louisiana Generating LLC) ; Willow Glen (Entergy Gulf States Louisiana LLC) ; Nine Mile Point (Entergy Louisiana Inc) ; Red River Energy Facility (Shreveport-Bossier Port of) ; Rodemacher (Cleco Power LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Waterford 3 (Entergy Louisiana Inc), River Bend (Entergy Louisiana Inc)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=199">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Louisiana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Louisiana Offshore Oil Port (LOOP), Port of South Louisiana, New Orleans, Lake Charles, Baton Rouge, Port of Plaquemines.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Egan Hub (Storage Hub), Henry Hub (Market Center), Jefferson Island (Storage Hub), Nautilus Hub (Production Hub), Perryville Hub (Market Center)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Louisiana</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Exxon-Mobil, LOOP, Shell, Sunoco, Plains Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Colonial Pipeline, Enterprise, Kinder Morgan, Explorer Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">American Midstream Midla LLC, ANR Pipeline Company, Chandeleur Pipeline Company, Cheniere Creole Trail Pipeline, Columbia Gufl Transmission, Discovery Gas Transmission, Dow Interstate Gas Company, Enable Gas Transmission LLC, Enable Mississippi River Transmission, ETC Tiger Pipeline LLC</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					2,399 stations 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					51 stations 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					66 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					9 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					27 stations 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					4,279 trillion Btu 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					921 million Btu 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 45,400  million 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 9,766 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					349 trillion Btu 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					268 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					3,024 trillion Btu 
+				</td>
+				<td>
+					9.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					638 trillion Btu 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 3,564  million 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,603  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 25,136  million 
+				</td>
+				<td>
+					10.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 14,097  million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					431.3 million barrels 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,518.3 billion cu ft 
+				</td>
+				<td>
+					5.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					12.8 million short tons 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 33,806  million 
+				</td>
+				<td>
+					3.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 5,792  million 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 627  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					2 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					39,011 million cu ft 
+				</td>
+				<td>
+					5.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					540 thousand short tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=199">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					35.0 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					61.6 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					2.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.0 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					687 MW 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					90 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					228 thousand MWh 
+				</td>
+				<td>
+					4.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					16 thousand MWh 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					34 Thousand Barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					3.7 % 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=LA"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					5,778 thousand barrels 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					218.0 million metric tons 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Louisiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=199">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					56,299 thousand metric tons 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					69 thousand metric tons 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					71 thousand metric tons 
+				</td>
+				<td>
+					3.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 19, 2017<p>
+<h2>Overview </h2>
+<p>Situated at the mouth of the Mississippi River, Louisiana has abundant crude oil and natural gas resources both onshore and offshore, buried beneath the thick sediments of the Mississippi Delta.<sup><a href='print.cfm@sid=LA.html#1'>1</a>,<a href='print.cfm@sid=LA.html#2'>2</a></sup> Freshwater and saltwater wetlands cover about one-third of Louisiana’s land area. The state rises gradually from the marshes, bayous, and estuaries along its extensive Gulf of Mexico coastline to the prairie of the state’s north and west. On average, Louisiana is only 100 feet above sea level.<sup><a href='print.cfm@sid=LA.html#3'>3</a>,<a href='print.cfm@sid=LA.html#4'>4</a></sup> </p>
+<p>In addition to crude oil and natural gas, Louisiana’s energy resources include minor deposits of lignite coal<sup><a href='print.cfm@sid=LA.html#5'>5</a>,<a href='print.cfm@sid=LA.html#6'>6</a>,<a href='print.cfm@sid=LA.html#7'>7</a></sup> and substantial biomass potential from agricultural byproducts and from wood and wood waste.<sup><a href='print.cfm@sid=LA.html#8'>8</a></sup> The state’s abundant water, subtropical climate,<sup><a href='print.cfm@sid=LA.html#9'>9</a></sup> and rich soils create a diverse agricultural economy that includes sugar cane, rice, and livestock, as well as forest products from upland pine and hardwood forests.<sup><a href='print.cfm@sid=LA.html#10'>10</a></sup> </p>
+<p>Louisiana's total energy consumption and per capita energy consumption both rank among the highest in the nation,<sup><a href='print.cfm@sid=LA.html#11'>11</a>,<a href='print.cfm@sid=LA.html#12'>12</a></sup> largely because of an industrial sector dominated by the energy-intensive chemical, petroleum, and natural gas industries.<sup><a href='print.cfm@sid=LA.html#13'>13</a></sup> Energy consumption in Louisiana’s industrial sector is second only to that of Texas. Although demand for air conditioning is high during the hot, humid summer months, heating demand is limited in the moderate winters, and Louisiana’s total and per capita energy consumption in the residential sector are both near the national median.<sup><a href='print.cfm@sid=LA.html#14'>14</a>,<a href='print.cfm@sid=LA.html#15'>15</a>,<a href='print.cfm@sid=LA.html#16'>16</a>,<a href='print.cfm@sid=LA.html#17'>17</a></sup></p>
+<h2>Petroleum</h2>
+<p>Commercial crude oil production in Louisiana started early in the 20th century, soon after the 1901 discovery of the Spindletop oil field just over the border in Texas.<sup><a href='print.cfm@sid=LA.html#18'>18</a></sup> Annual state production of crude oil and condensate peaked in 1970 at more than 1.5 million barrels per day. Output has fallen to about one-ninth of the 1970 peak in recent years.<sup><a href='print.cfm@sid=LA.html#19'>19</a></sup> However, Louisiana still ranks among the top 10 crude oil-producing states in the nation.<sup><a href='print.cfm@sid=LA.html#20'>20</a></sup></p>
+<p>In 1947, the first commercial crude oil well drilled out of sight of land was completed 10 miles off the Louisiana coast. Although the water was only 18 feet deep, the well was a significant achievement in opening the Gulf of Mexico to crude oil production.<sup><a href='print.cfm@sid=LA.html#21'>21</a></sup> The Gulf has become one of the largest U.S. crude oil-producing regions<sup><a href='print.cfm@sid=LA.html#22'>22</a></sup> and is among the largest in the nation in terms of reserves.<sup><a href='print.cfm@sid=LA.html#23'>23</a></sup> Production from state waters and the federal Outer Continental Shelf (OCS) area off Louisiana first peaked in 1972. Advances in deepwater drilling technology sent production to new highs in the early 2000s.<sup><a href='print.cfm@sid=LA.html#24'>24</a></sup> Many of the nation’s largest oil fields are found off the Louisiana coast in the federal OCS,<sup><a href='print.cfm@sid=LA.html#25'>25</a></sup> and a large share of federal OCS production in the Gulf of Mexico comes onshore in Louisiana.<sup><a href='print.cfm@sid=LA.html#26'>26</a></sup></p>
+<p>Louisiana's offshore petroleum industry experienced a serious setback in 2005 when Hurricanes Katrina and Rita damaged offshore platforms and curbed production and refining for several months. In 2008, hurricanes again caused damage and forced refining and production platform shutdowns.<sup><a href='print.cfm@sid=LA.html#27'>27</a></sup> In April 2010, 40 miles off the Louisiana coast, an explosion and fire sank the Deepwater Horizon drilling platform, killing 11 workers and resulting in the largest crude oil spill in U.S. history. In less than three months, an estimated 4.9 million barrels of crude oil were released into the Gulf of Mexico.<sup><a href='print.cfm@sid=LA.html#28'>28</a></sup> The spill resulted in two temporary moratoria on new deepwater drilling in the Gulf. New safety rules were created for offshore drilling, and new requirements for oil spill response and containment were adopted. The federal agencies that oversee offshore drilling were restructured.<sup><a href='print.cfm@sid=LA.html#29'>29</a></sup> </p>
+<div class='pullquote'><p>The Louisiana Offshore Oil Port is the nation's first and only deepwater oil port.</p></div><p>Louisiana is among the top three states in foreign crude oil imports.<sup><a href='print.cfm@sid=LA.html#30'>30</a></sup> Crude oil is shipped into several ports, including the Louisiana Offshore Oil Port (LOOP). The LOOP, which began receiving foreign crude oil in 1981, is the nation's first and only deep-water oil port. It provides offloading for some of the largest tankers in the world<sup><a href='print.cfm@sid=LA.html#31'>31</a></sup> and can receive between 1 and 2 million barrels per day.<sup><a href='print.cfm@sid=LA.html#32'>32</a></sup> It is the single largest point of entry for waterborne crude oil entering the United States.<sup><a href='print.cfm@sid=LA.html#33'>33</a></sup> The LOOP’s onshore facilities include the Clovelly Dome Storage Terminal, where nearly 60 million barrels of crude oil can be stored in underground salt caverns. Aboveground storage is being expanded to hold more than 11 million barrels.<sup><a href='print.cfm@sid=LA.html#34'>34</a>,<a href='print.cfm@sid=LA.html#35'>35</a></sup> Through a network of crude oil pipelines, the LOOP is connected to more than half of the refining capacity in the United States.<sup><a href='print.cfm@sid=LA.html#36'>36</a></sup> With U.S. oil production increasing, the Clovelly Dome storage facilities are used for domestic as well as imported crude oil. The LOOP is exploring adding loading capability for crude oil exports.<sup><a href='print.cfm@sid=LA.html#37'>37</a></sup></p>
+<p>The U.S. Department of Energy chose Louisiana as the site for two of the Strategic Petroleum Reserve’s four storage facilities. Crude oil is stored in 29 salt caverns capable of holding almost 300 million barrels of oil at two sites in Louisiana: Bayou Choctaw and West Hackberry.<sup><a href='print.cfm@sid=LA.html#38'>38</a></sup> </p>
+<div class='pullquote'><p>Louisiana's 18 oil refineries account for nearly one-fifth of the nation's crude oil-refining capacity.</p></div><p>Louisiana's 18 oil refineries<sup><a href='print.cfm@sid=LA.html#39'>39</a></sup> account for nearly one-fifth of the nation’s refining capacity and are capable of processing more than 3.3 million barrels of crude oil per calendar day.<sup><a href='print.cfm@sid=LA.html#40'>40</a></sup> Many of the state’s refineries are sophisticated facilities that use additional refining processes beyond simple distillation to yield a larger quantity of lighter, higher-value products such as motor gasoline.<sup><a href='print.cfm@sid=LA.html#41'>41</a></sup> Louisiana refineries can process a wide variety of crude oil types from around the world.<sup><a href='print.cfm@sid=LA.html#42'>42</a></sup> </p>
+<p>About three-fourths of Louisiana's refined petroleum products are sent out of state.<sup><a href='print.cfm@sid=LA.html#43'>43</a></sup> The Plantation Pipeline, one of the nation’s largest refined petroleum product pipelines, runs from near Baton Rouge, Louisiana, to the suburbs of Washington, DC, and supplies much of the South with motor gasoline, jet fuel, diesel, and biodiesel.<sup><a href='print.cfm@sid=LA.html#44'>44</a></sup> Several other major product pipeline systems also pass through the state.<sup><a href='print.cfm@sid=LA.html#45'>45</a></sup> Refineries also supply Louisiana’s industrial sector, particularly the petrochemical industry.<sup><a href='print.cfm@sid=LA.html#46'>46</a></sup> Louisiana has one of the largest concentrations of petrochemical manufacturing facilities in the United States.<sup><a href='print.cfm@sid=LA.html#47'>47</a></sup> Consequently, Louisiana’s total consumption and per capita consumption of petroleum are both among the highest in the nation.<sup><a href='print.cfm@sid=LA.html#48'>48</a>,<a href='print.cfm@sid=LA.html#49'>49</a></sup></p>
+<h2>Natural gas</h2>
+<p>Louisiana is one of the top natural gas-producing states in the country. In 2015, the state accounted for about 6% of U.S. marketed production<sup><a href='print.cfm@sid=LA.html#50'>50</a></sup> and, at year’s end, held about 5% of the nation’s proved dry natural gas reserves.<sup><a href='print.cfm@sid=LA.html#51'>51</a></sup> Among its many productive areas is the Haynesville Shale.<sup><a href='print.cfm@sid=LA.html#52'>52</a>,<a href='print.cfm@sid=LA.html#53'>53</a></sup> Louisiana is also a top natural gas-consuming state.<sup><a href='print.cfm@sid=LA.html#54'>54</a></sup> Nearly three-fourths of its production is consumed in the state, mainly by the industrial sector.<sup><a href='print.cfm@sid=LA.html#55'>55</a></sup></p>
+<div class='pullquote'><p>The first large-scale LNG export terminal in the Lower 48 states is in Louisiana.</p></div><p>Louisiana delivers the remaining one-fourth of its natural gas production to other states via a vast network of interstate pipelines.<sup><a href='print.cfm@sid=LA.html#56'>56</a></sup> More than two-thirds of the natural gas entering Louisiana comes from Texas. Most of the rest comes onshore from the federal OCS in the Gulf of Mexico.<sup><a href='print.cfm@sid=LA.html#57'>57</a></sup> Louisiana plays an essential role in the movement of natural gas from the U.S. Gulf Coast region to markets throughout the country. The state has five natural gas marketing centers.<sup><a href='print.cfm@sid=LA.html#58'>58</a></sup> The most active natural gas market center in North America is the Henry Hub in Erath, Louisiana, where nine interstate and four intrastate pipelines interconnect to provide natural gas to major markets throughout the country.<sup><a href='print.cfm@sid=LA.html#59'>59</a></sup> The Henry Hub is the chief pricing benchmark location for natural gas physical and futures trading on the New York Mercantile Exchange.<sup><a href='print.cfm@sid=LA.html#60'>60</a></sup> </p>
+<p>Nineteen natural gas storage facilities are located in salt caverns and depleted fields in Louisiana,<sup><a href='print.cfm@sid=LA.html#61'>61</a></sup> providing about one-twelfth of U.S. storage capability.<sup><a href='print.cfm@sid=LA.html#62'>62</a></sup> Those facilities allow Louisiana to store natural gas when national demand is low and to quickly ramp up delivery when markets across the country require larger volumes. Historically, natural gas demand was highest in the winter for home heating. With the growing use of natural gas for U.S. electricity generation, Louisiana now withdraws natural gas from storage during the summer months as well, when electricity demand rises for air conditioning.<sup><a href='print.cfm@sid=LA.html#63'>63</a>,<a href='print.cfm@sid=LA.html#64'>64</a>,<a href='print.cfm@sid=LA.html#65'>65</a></sup></p>
+<p>In February 2016, the Sabine Pass liquefaction plant and tanker terminal opened, giving Louisiana the first large-scale liquefied natural gas (LNG) export terminal in the Lower 48 states.<sup><a href='print.cfm@sid=LA.html#66'>66</a>,<a href='print.cfm@sid=LA.html#67'>67</a></sup> Sabine Pass, like Louisiana’s two other LNG terminals, was originally designed for imports.<sup><a href='print.cfm@sid=LA.html#68'>68</a></sup> All three terminals are in the process of adding capability to export LNG.<sup><a href='print.cfm@sid=LA.html#69'>69</a>,<a href='print.cfm@sid=LA.html#70'>70</a>,<a href='print.cfm@sid=LA.html#71'>71</a></sup> The world’s first deepwater LNG import facility, the Gulf Gateway Energy Bridge Deepwater Port, was located 116 miles off the Louisiana coast in federal waters. Commissioned in March 2005, this facility delivered natural gas to the Gulf Coast region through two offshore pipeline systems until Hurricane Ike damaged both pipelines in September 2008. The port was decommissioned in 2012.<sup><a href='print.cfm@sid=LA.html#72'>72</a></sup></p>
+<p>Industrial processes use almost seven-tenths of the natural gas consumed in Louisiana. Electricity generation consumes another one-fourth.<sup><a href='print.cfm@sid=LA.html#73'>73</a></sup> One-third of Louisiana households rely on natural gas for home heating,<sup><a href='print.cfm@sid=LA.html#74'>74</a></sup> but the volume consumed is small because of the state’s mild winters. In many years, residential use is less than the amount used statewide by pipelines to maintain pressure. Louisiana’s pipeline use of natural gas is among the largest of any state in the nation.<sup><a href='print.cfm@sid=LA.html#75'>75</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>New Orleans is one of the nation's largest coal exporting ports.</p></div><p>New Orleans, Louisiana, is one of the nation’s largest coal exporting ports. In 2015, one-eighth of the nation’s coal for export traveled out through the New Orleans Customs District.<sup><a href='print.cfm@sid=LA.html#76'>76</a></sup> The state has only minor coal resources of its own and produces only lignite, the lowest grade of coal, at two surface mines.<sup><a href='print.cfm@sid=LA.html#77'>77</a></sup> The mines supply the nearby Dolet Hills generating plant,<sup><a href='print.cfm@sid=LA.html#78'>78</a></sup> by truck from one mine and by a 7-mile-long conveyor system from the other.<sup><a href='print.cfm@sid=LA.html#79'>79</a></sup> Most of the coal consumed in Louisiana is used for power generation, and more than two-thirds of the coal consumed comes from out of state. Almost all the coal delivered to Louisiana’s coal-fired power plants is subbituminous coal shipped by rail from Wyoming. A limited amount of the coal consumed in Louisiana comes by barge down the Mississippi River from Illinois and Indiana. <sup><a href='print.cfm@sid=LA.html#80'>80</a></sup></p>
+<h2>Electricity</h2>
+<p>Per capita retail sales of electricity in Louisiana are among the highest in the nation, particularly in the residential sector, where three-fifths of all households use electricity for home heating<sup><a href='print.cfm@sid=LA.html#81'>81</a>,<a href='print.cfm@sid=LA.html#82'>82</a>,<a href='print.cfm@sid=LA.html#83'>83</a></sup> and almost all households have air conditioning.<sup><a href='print.cfm@sid=LA.html#84'>84</a></sup> The primary fuel used for electricity generation in Louisiana is natural gas. It provides about three-fifths of the state’s net electricity generation, nearly twice the national average.<sup><a href='print.cfm@sid=LA.html#85'>85</a></sup> Coal was Louisiana’s second-leading source for electricity generation for decades<sup><a href='print.cfm@sid=LA.html#86'>86</a></sup> but now provides less generation than the state’s two single-reactor nuclear power plants. They are located along the Mississippi River and typically contribute about one-sixth of the state’s net electricity generation.<sup><a href='print.cfm@sid=LA.html#87'>87</a></sup> Petroleum, petroleum coke, industrial gases, woody biomass, and hydroelectricity provide nearly all the rest of Louisiana’s net electricity generation.<sup><a href='print.cfm@sid=LA.html#88'>88</a></sup> About three-tenths of Louisiana’s net electricity is generated at industrial and commercial facilities. The state does not generate enough electricity to meet consumer demand and receives power from the regional interstate grid.<sup><a href='print.cfm@sid=LA.html#89'>89</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Louisiana obtains less than 4% of its net electricity generation from renewable sources. Biomass is abundant in Louisiana, and electricity generated from wood and wood waste accounts for more than two-thirds of the state’s renewable generation. Hydroelectric power provides almost all of the remaining renewable generation.<sup><a href='print.cfm@sid=LA.html#90'>90</a></sup> Sugar cane waste, called bagasse, and other agricultural residues can provide additional biomass resources.<sup><a href='print.cfm@sid=LA.html#91'>91</a></sup> Facilities to convert bagasse into pellets for power plant fuel and other products are being developed.<sup><a href='print.cfm@sid=LA.html#92'>92</a>,<a href='print.cfm@sid=LA.html#93'>93</a></sup> </p>
+<p>Louisiana has a small amount of distributed (customer-sited, small-scale) solar photovoltaic (PV) generation,<sup><a href='print.cfm@sid=LA.html#94'>94</a></sup> which provided all of the state’s solar electricity generation in 2015.<sup><a href='print.cfm@sid=LA.html#95'>95</a></sup> State tax credits for installation of distributed solar systems, which were first available in 2008, are fully subscribed and the program will end on January 1, 2018.<sup><a href='print.cfm@sid=LA.html#96'>96</a>,<a href='print.cfm@sid=LA.html#97'>97</a></sup> Louisiana has little wind potential.<sup><a href='print.cfm@sid=LA.html#98'>98</a></sup> In 2013, the state legislature repealed state tax credits for the development of wind systems.<sup><a href='print.cfm@sid=LA.html#99'>99</a></sup></p>
+<p>The Louisiana Public Service Commission initiated a renewable energy pilot program in 2010 to determine whether a renewable portfolio standard (RPS) was suitable for the state. In 2013, the commission concluded that Louisiana did not need a mandatory RPS.<sup><a href='print.cfm@sid=LA.html#100'>100</a></sup> Louisiana has other policies designed to encourage renewable energy and energy efficiency, including voluntary electric utility efficiency programs, energy standards for public buildings, and net metering.<sup><a href='print.cfm@sid=LA.html#101'>101</a>,<a href='print.cfm@sid=LA.html#102'>102</a></sup> Distributed installations of up to 25 kilowatts using solar PV, wind, biomass, and other renewable technologies are eligible for utility net metering, but total consumer capacity connected to the system is limited to 0.5% of each utility’s load. Because customer demand for distributed connections has exceeded that limit, the state is considering how to accommodate additional distributed facilities.<sup><a href='print.cfm@sid=LA.html#103'>103</a></sup> </p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration (EIA), Crude Oil Proved Reserves, Reserve Changes, and Production, Proved Reserves as of 12/31, Annual, 2010–15.<br>
+<a name='2'></a><sup>2</sup> U.S. EIA, Estimated Dry Natural Gas Contained in Total Natural Gas Proved Reserves, Proved Reserves as of Dec. 31, Annual, 2010–15.<br>
+<a name='3'></a><sup>3</sup> NETSTATE, Louisiana, The Geography of Louisiana, updated February 25, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. Geological Survey, National Water Summary on Wetland Resources, State Summary Highlights, Louisiana, accessed December 13, 2016.<br>
+<a name='5'></a><sup>5</sup> Louisiana Geological Survey, Generalized Geology of Louisiana (2008).<br>
+<a name='6'></a><sup>6</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='7'></a><sup>7</sup> Haque, Syed M., Lignite Resources in Louisiana, Louisiana Geological Survey (June 2008).<br>
+<a name='8'></a><sup>8</sup> Louisiana, Department of Natural Resources, Renewable Energy Resource: Louisiana (July 18, 2006), p. 4–8.<br>
+<a name='9'></a><sup>9</sup> Keim, Barry, “Louisiana–The Wettest State in the Contiguous United States,” Community Collaborative Rain, Hail and Snow Network, accessed December 13, 2016.<br>
+<a name='10'></a><sup>10</sup> NETSTATE, Louisiana, Louisiana Economy, updated February 25, 2016.<br>
+<a name='11'></a><sup>11</sup> U.S. EIA, Louisiana, Rankings: Total Energy Consumed per Capita, 2014.<br>
+<a name='12'></a><sup>12</sup> U.S. EIA, State Energy Data System, Consumption, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='13'></a><sup>13</sup> NETSTATE, Louisiana, Louisiana Economy, updated February 25, 2016. <br>
+<a name='14'></a><sup>14</sup> Current Results, Winter Temperature Averages for Every State, accessed December 13, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Consumption, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, Residential Energy Consumption Survey (2009), Air Conditioning, Table HC7.10.<br>
+<a name='17'></a><sup>17</sup> U.S. EIA, State Energy Data System, Consumption, Table C13, Energy Consumption Estimates per Capita by End-User Sector, Ranked by State, 2014.<br>
+<a name='18'></a><sup>18</sup> Louisiana Oil & Gas Association, Louisiana Oil & Gas History, Jennings Field, accessed December 14, 2016.<br>
+<a name='19'></a><sup>19</sup> Louisiana, Department of Natural Resources, Technology Assessment Division, Selected Louisiana Energy Statistics (July 2010), p. 2.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010–15.<br>
+<a name='21'></a><sup>21</sup> National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling, Staff Working Paper No. 1, Draft, A Brief History of Offshore Oil Drilling, accessed December 14, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010–15. <br>
+<a name='23'></a><sup>23</sup> U.S. EIA, Crude Oil Proved Reserves, Reserve Changes, and Production, Proved Reserves as of 12/31, Annual, 2010–15.<br>
+<a name='24'></a><sup>24</sup> Louisiana, Department of Natural Resources, Technology Assessment Division, Selected Louisiana Energy Statistics (July 2010), p. 2.<br>
+<a name='25'></a><sup>25</sup> U.S. EIA, Top 100 U.S. Oil and Gas Fields (March 2015), p. 5–7. <br>
+<a name='26'></a><sup>26</sup> U.S. EIA, Gulf of Mexico Fact Sheet, Energy Infrastructure with Real-time Storm Information, Layer: crude oil pipelines, accessed December 14, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. Department of Energy, Electricity Delivery and Energy Reliability, Comparing the Impacts of the 2005 and 2008 Hurricanes on U.S. Energy Infrastructure (February 2009).<br>
+<a name='28'></a><sup>28</sup> National Commission on the BP Deepwater Horizon Oil Spill and Offshore Drilling, Deep Water, The Gulf Oil Disaster and the Future of Offshore Drilling (January 2011), p. 17, 167–169.<br>
+<a name='29'></a><sup>29</sup> U.S. Department of the Interior, Reforms Since the Deepwater Horizon Tragedy, accessed December 14, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. EIA, Petroleum and Other Liquids, Company Level Imports (monthly, 2016 through September, 2015, 2014).<br>
+<a name='31'></a><sup>31</sup> Louisiana, Department of Transportation and Development, All About LOOP, accessed December 14, 2016.<br>
+<a name='32'></a><sup>32</sup> Crude Oil Quality Association, Louisiana Offshore Oil Port, meeting presentation, slides 4 and 13, accessed December 14, 2016.<br>
+<a name='33'></a><sup>33</sup> LOOP, LLC, About LOOP, The LOOP Story, accessed December 14, 2016. <br>
+<a name='34'></a><sup>34</sup> Ellis, Sean, “Oil Storage Hub Near Galliano Expanding,” houmatoday.com (November 19, 2015).<br>
+<a name='35'></a><sup>35</sup> Associated Press, “Louisiana Oil Port, Made for Import, Rents Domestic Storage,” FuelFix (April 5, 2015).<br>
+<a name='36'></a><sup>36</sup> LOOP, LLC, LOOP Connectivity, accessed December 14, 2016. <br>
+<a name='37'></a><sup>37</sup> “LOOP Seeks Commitments for Crude Vessel Loading,” Argus Media (November 30, 2015).<br>
+<a name='38'></a><sup>38</sup> U.S. Department of Energy, Fossil Energy, SPR Quick Facts, accessed December 14, 2016. <br>
+<a name='39'></a><sup>39</sup> U.S. EIA, Refinery Capacity Report 2016 (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Number and Capacity of Petroleum Refineries, Atmospheric Crude Oil Distillation Operable Capacity, Annual (as of January 1), 2011–16.<br>
+<a name='41'></a><sup>41</sup> U.S. EIA, Downstream Charge Capacity of Operable Petroleum Refineries, Louisiana, Annual (as of January 1), 2011–16.<br>
+<a name='42'></a><sup>42</sup> Louisiana, Department of Natural Resources, Louisiana Crude Oil Refinery Survey Report, 2014 Survey (January 1, 2016), Figure 5, Historical Crude Oil Sources for Louisiana Refineries, p. 16.<br>
+<a name='43'></a><sup>43</sup> Louisiana, Department of Natural Resources, Louisiana Crude Oil Refinery Survey Report, 2014 Survey (January 1, 2016), p. 7.<br>
+<a name='44'></a><sup>44</sup> Kinder Morgan, Plantation Pipe Line Company, accessed December 14, 2016.<br>
+<a name='45'></a><sup>45</sup> U.S. EIA, Louisiana, Profile Data, Distribution and Marketing, accessed December 14, 2016.<br>
+<a name='46'></a><sup>46</sup> Louisiana, Department of Natural Resources, Louisiana Energy Facts Annual, 2015 (February 23, 2016), p. D 23.<br>
+<a name='47'></a><sup>47</sup> Scott, Loren, The Energy Sector: Still a Giant Economic Engine for the Louisiana Economy—An Update (2014), Loren C. Scott & Associates, p. 17.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates 2014. <br>
+<a name='49'></a><sup>49</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014,  Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual-Million Cubic Feet, 2010–15.<br>
+<a name='51'></a><sup>51</sup> U.S. EIA, Estimated Dry Natural Gas Contained in Total Natural Gas Proved Reserves, Proved Reserves as of Dec. 31, Annual, 2010–15.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, “Haynesville Surpasses Barnett as the Nation's Leading Shale Play,” Today in Energy (March 18, 2011).<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Drilling Productivity Report (December 12, 2016), Production by Region.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Natural Gas Consumption by End Use, Volumes Delivered to Customers, Annual, 2010–15.<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, Natural Gas Consumption by End Use, Louisiana, Annual, 2010–15.<br>
+<a name='56'></a><sup>56</sup> U.S. EIA, U.S. Natural Gas Pipeline Network Map, 2009, accessed December 15, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Louisiana, Annual, 2010–15.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Louisiana, Profile Data, Distribution and Marketing, accessed December 15, 2016. <br>
+<a name='59'></a><sup>59</sup> Krishnan, Barani, and DiSavino, Scott, “EnLink Buys Henry Hub and Other Louisiana Gas Pipelines From Chevron,” Reuters (September 29, 2014).<br>
+<a name='60'></a><sup>60</sup> Natural Gas Intelligence, NGIData, Henry Hub, accessed December 18, 2015.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, Annual, 2010-15.<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Storage Capacity, Annual, 2010–15.<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, “Electricity from Natural Gas Surpasses Coal for First Time, But Just for One Month,” Today in Energy (July 31, 2015). <br>
+<a name='64'></a><sup>64</sup> U.S. EIA, “Natural Gas-Fired Electricity Generation Expected to Reach Record Level in 2016,” Today in Energy (July 14, 2016).<br>
+<a name='65'></a><sup>65</sup> U.S. EIA, Louisiana Natural Gas Underground Storage Net Withdrawals, January 1990–September 2015, accessed December 18, 2015.<br>
+<a name='66'></a><sup>66</sup> “DOE: Cheniere’s Sabine Pass LNG Exports Reach 89.44 Bcf,” LNG World News (October 18, 2016).<br>
+<a name='67'></a><sup>67</sup> Bloomberg News, “U.S. Will Soon Double Shale LNG Exports,” WorkBoat (October 13, 2016).<br>
+<a name='68'></a><sup>68</sup> Federal Energy Regulatory Commission, North American LNG Import/Export Terminals, Existing, updated December 14, 2016.<br>
+<a name='69'></a><sup>69</sup> Energy Transfer, Lake Charles LNG, Investment in Lake Charles, accessed December 15, 2016.<br>
+<a name='70'></a><sup>70</sup> Cheniere, Sabine Pass LNG Terminal, updated June 20, 2016.<br>
+<a name='71'></a><sup>71</sup> Cameron LNG, About the Terminal, accessed December 15, 2016.<br>
+<a name='72'></a><sup>72</sup> “Excelerate Energy to Retire Gulf Gateway LNG Port,” Oil & Gas Journal (April 18, 2011).<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Natural Gas Consumption by End Use, Louisiana, Annual, 2010–15. <br>
+<a name='74'></a><sup>74</sup> U.S. Census Bureau, American FactFinder, Louisiana, Table B25040, House Heating Fuel, 2011–15 American Community Survey 5-Year Estimates.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Natural Gas Consumption by End Use, Pipeline and Distribution Use, Annual, 2010–15. <br>
+<a name='76'></a><sup>76</sup> U.S. EIA, Quarterly Coal Report (October–December 2015), Table 13, U.S. Coal Exports by Customs District. <br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Tables 1 and 6.<br>
+<a name='78'></a><sup>78</sup> Louisiana, Department of Natural Resources, Coal and Lignite in Louisiana (May 14, 1993), Louisiana Coal-Fired Electric Generating Plants and Lignite Mining in Louisiana.<br>
+<a name='79'></a><sup>79</sup> Cleco, Power Plants, Regulated Power Plants, Dolet Hills Power Station, accessed December 15, 2016. <br>
+<a name='80'></a><sup>80</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Louisiana.<br>
+<a name='81'></a><sup>81</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B. <br>
+<a name='83'></a><sup>83</sup> U.S. Census Bureau, American FactFinder, Louisiana, Table B25040, House Heating Fuel, 2015 American Community Survey 5-Year Estimates.<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, Residential Energy Consumption Survey (2009), Housing characteristics tables, Table HC7.10.<br>
+<a name='85'></a><sup>85</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='86'></a><sup>86</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923), 1990–2015.<br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.9.B.<br>
+<a name='88'></a><sup>88</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.5.B, 1.6.B, 1.8.B, 1.10.B, 1.15.B.<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Louisiana Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990–2014.<br>
+<a name='90'></a><sup>90</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.15.B. <br>
+<a name='91'></a><sup>91</sup> LSU AgCenter, The Louisiana Biomass Resources Database website, accessed December 15, 2016.<br>
+<a name='92'></a><sup>92</sup> “Energy Firm Plans to Turn Louisiana Sugar Cane Waste into Biofuel Pellets,” Greater Baton Rouge Business Report (December 7, 2015).<br>
+<a name='93'></a><sup>93</sup> Fletcher, Katie, “Stora Enso Division US Headquarters Move to Raceland, Louisiana,” Biomass Magazine (October 27, 2015).<br>
+<a name='94'></a><sup>94</sup> Solar Energy Industries Association, Louisiana Solar, accessed December 15, 2016.<br>
+<a name='95'></a><sup>95</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='96'></a><sup>96</sup> NC Clean Energy Technology Center, DSIRE, Tax Credit for Solar Energy Systems on Residential Property (Personal), Louisiana, updated October 6, 2016.<br>
+<a name='97'></a><sup>97</sup> Larino, Jennifer, “Louisiana Has No More Tax Credits for Solar Owners,” NOLA.com (July 20, 2016). <br>
+<a name='98'></a><sup>98</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Louisiana Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='99'></a><sup>99</sup> Woolfarth, Robert, “Spotlight on Louisiana: Louisiana Legislature Reduces its Tax Credit for Wind and Solar Energy Systems,” Baker Donelson (October 3, 2013).<br>
+<a name='100'></a><sup>100</sup> U.S. Department of Energy, Renewable Energy Pilot Program, Louisiana, accessed December 15, 2016.<br>
+<a name='101'></a><sup>101</sup> U.S. EIA, Annual Energy Outlook 2016, “State energy efficiency resource standards and goals through January 2016” (September 15, 2016), Louisiana.<br>
+<a name='102'></a><sup>102</sup> NC Clean Energy Technology Center, DSIRE, Programs, Louisiana, accessed December 15, 2016.<br>
+<a name='103'></a><sup>103</sup> NC Clean Energy Technology Center, DSIRE, Net Metering, Louisiana, updated January 15, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Interior</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 3</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: SERC Reliability Corporation (SERC), Southwest Power Pool, Inc (SPP)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.lpsc.org/" title="Louisiana Public Service Commission">Louisiana Public Service Commission</a></li>
+  
+    <li><a href="http://www.lhfa.state.la.us/programs/energy_assistance/low_income_energy.aspx" title="Louisiana Housing Finance Agency -Low Income Energy Assistance">Louisiana Housing Finance Agency -Low Income Energy Assistance</a></li>
+  
+    <li><a href="http://www.lhfa.state.la.us/programs/energy_assistance/weatherization.aspx" title="Louisiana Housing Finance Agency -Weatherization Assistance Program">Louisiana Housing Finance Agency -Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://dnr.louisiana.gov/index.cfm?md=pagebuilder&tmp=home&pid=42&ngid=3" title="Louisiana Department of Natural Resources, Office of Mineral Resources">Louisiana Department of Natural Resources, Office of Mineral Resources</a></li>
+  
+    <li><a href="../special/gulf_of_mexico/index.html" title="EIA Gulf of Mexico Fact Sheet">EIA Gulf of Mexico Fact Sheet</a></li>
+  
+    <li><a href="http://dnr.louisiana.gov/index.cfm?md=pagebuilder&tmp=home&pid=255" title="Louisiana Department of Natural Resources, Technology Assessment Division / Renewable Energy">Louisiana Department of Natural Resources, Technology Assessment Division / Renewable Energy</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://dnr.louisiana.gov/index.cfm?md=pagebuilder&tmp=home&pid=46&ngid=4" title="Louisiana Department of Natural Resources, Office of Conservation">Louisiana Department of Natural Resources, Office of Conservation</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.swpa.gov" title="Southwestern Power Administration">Southwestern Power Administration</a></li>
+  
+    <li><a href="http://dnr.louisiana.gov/index.cfm?md=pagebuilder&tmp=home&pid=35&ngid=2" title="Louisiana Department of Natural Resources, Technology Assessment Division/ State Energy Office">Louisiana Department of Natural Resources, Technology Assessment Division/ State Energy Office</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Louisiana website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Louisiana\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/LA.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

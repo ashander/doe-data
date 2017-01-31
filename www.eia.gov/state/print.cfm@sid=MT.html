@@ -1,0 +1,3086 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Montana Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Montana State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Montana Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>The Bakken and Three Forks formations in the Williston Basin of Montana and North Dakota are currently estimated to be capable of producing 7.4 billion barrels of oil.&nbsp;</li>
+	
+	<li>As of the end of 2015, Montana held nearly one-fourth of the nation&#39;s demonstrated coal reserve base and was the sixth-largest coal-producing state. It produced 4.7% of U.S. coal in 2015 and distributed coal to seven other states.</li>
+	
+	<li>Montana&#39;s four refineries, with more than 31% of U.S. Petroleum Administration for Defense District 4 (Colorado, Idaho, Montana, Utah, and Wyoming) refining capacity as of January 1, 2016, process domestic and Canadian crude oils for regional markets.</li>
+	
+	<li>Hydroelectric power provided almost one-third of Montana&#39;s net electricity generation in 2015 and wind energy provided most of the rest of the state&#39;s renewable generation.&nbsp;</li>
+	
+	<li>Montana has the second largest amount of land in farms, and the industrial sector, which includes agriculture, is the largest energy-consuming sector in the state.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 19, 2017</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=MT.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=MT.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=MT.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=MT.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=MT.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Montana Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Montana Energy Consumption Estimates',
+		data : [175.4,79.3,58.6,56.6,5.5,8.3,0.0,40.3,0.0,109.2,8.9,19.2,-154.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Montana Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 86.9],['Commercial', 78.2],['Industrial', 125.3],['Transportation', 113.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Montana Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Montana Energy Production Estimates',
+		data : [790.7,64.1,173.3,0.0,0.0,133.7]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Montana Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Montana Net Electricity Generation',
+		data : [1401,635,154]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Montana Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Montana U.S. Price Differentials',
+		data : [{y:-20.5250596659, period: Date.UTC(2016,9,1)},{y:-42.4308588064, period: Date.UTC(2016,9,1)},{y:-8.83534136546, period: Date.UTC(2016,9,1)},{y:-1.52817574021, period: Date.UTC(2016,9,1)},{y:-24.5535714286, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.0 million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.5 million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 45.9  billion 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 3,132  million 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 41,280 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					12,157 million miles 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					59.8 million acres 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					44.9 degrees Fahrenheit 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					16.9 inches 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 43.23 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.33 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 7.91 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 17.44 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.35 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					10.31 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.07 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=207">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					326 million barrels 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					692 billion cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					15 million barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					817 million short tons 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					8 rigs 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					5,655 wells 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,162 trillion Btu 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					1,883 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					57,421 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					41,864 thousand short tons 
+				</td>
+				<td>
+					4.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					213,200 barrels/calendar day 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					6,224 MW 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					2,293 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					61.1 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					34.4 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					506 thousand barrels 
+				</td>
+				<td>
+					3.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					970 thousand barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					216,461 million cu ft 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					18 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Montana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Spring Creek Coal Company / Spring Creek Coal LLC, Rosebud Mine&crusher/Conveyor / Western Energy Company, Bull Mountains Mine No 1 / Signal Peak Energy LLC, Absaloka Mine / Westmoreland Resources Inc.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Calumet Montana Refining (Great Falls), Cenex Harvest States (Laurel), ExxonMobil Refining & Supply (Billings), Phillips 66 Company (Billings)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Colstrip (PPL Montana LLC) ; Noxon Rapids (Avista Corp) ; Libby (USCE-North Pacific Division) ; Silver Bow Generation Plant (CES Acquisition Corp) ; Hungry Horse (U S Bureau of Reclamation)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=207">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Montana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Montana</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Amoco, Belle Fourche, Cenex, Conoco, Exxon, Portal, Shell, Texaco, Wascana.  </td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Phillips 66 Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Bison Pipeline LLC, Northern Border Pipeline Company, WBI Energy Transmission Inc</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					498 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					55 stations 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					28 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					2 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					7 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					403 trillion Btu 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					394 million Btu 
+				</td>
+				<td>
+					14 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 5,528  million 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,402 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					87 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					78 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					125 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					113 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 900  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 708  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 838  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 3,082  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					31.8 million barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					77.3 billion cu ft 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					10.5 million short tons 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 3,850  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 528  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 322  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					908 thousand short tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=207">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					54.6 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					1.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					22.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					11.9 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					10.3 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					3,439 MW 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					635 thousand MWh 
+				</td>
+				<td>
+					3.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					152 thousand MWh 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					1 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					34.0 % 
+				</td>
+				<td>
+					5 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=MT"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					1,269 thousand barrels 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					32.0 million metric tons 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Montana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=207">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					18,136 thousand metric tons 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					13 thousand metric tons 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					19 thousand metric tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 19, 2017</p>
+<h2>Overview </h2>
+<p>Montana is a net supplier of energy to the rest of the country, producing energy from both fossil and renewable resources.<sup><a href='print.cfm@sid=MT.html#1'>1</a>,<a href='print.cfm@sid=MT.html#2'>2</a>,<a href='print.cfm@sid=MT.html#3'>3</a></sup> About one-fourth of the nation's demonstrated coal reserve base is in Montana, and the northern and eastern areas of the state are believed to contain large deposits of crude oil and natural gas.<sup><a href='print.cfm@sid=MT.html#4'>4</a>,<a href='print.cfm@sid=MT.html#5'>5</a>,<a href='print.cfm@sid=MT.html#6'>6</a></sup> </p>
+<div class='pullquote'><p>Montana holds one-fourth of the nation's demonstrated coal reserve base and substantial renewable resources.</p></div><p>The Missouri River is the longest river in the United States and the fourth longest in the world.<sup><a href='print.cfm@sid=MT.html#7'>7</a></sup> Beginning in the Rocky Mountains in western Montana and flowing eastward across the state, the Missouri River and its tributaries give Montana substantial hydroelectric energy resources.<sup><a href='print.cfm@sid=MT.html#8'>8</a>,<a href='print.cfm@sid=MT.html#9'>9</a>,<a href='print.cfm@sid=MT.html#10'>10</a></sup> The state's western mountains capture warm, moist air from the Pacific Ocean, creating a more moderate climate in the western third of Montana than further east, where the Rocky Mountains give way to dry, wind-swept plains that stretch to the Dakotas.<sup><a href='print.cfm@sid=MT.html#11'>11</a>,<a href='print.cfm@sid=MT.html#12'>12</a></sup> The state's vast plains provide Montana with some of the best wind potential in the nation.<sup><a href='print.cfm@sid=MT.html#13'>13</a></sup> </p>
+<p>Montana is the fourth largest state in the nation and the third least densely populated.<sup><a href='print.cfm@sid=MT.html#14'>14</a>,<a href='print.cfm@sid=MT.html#15'>15</a></sup> Much of the eastern third of the state has, on average, less than one resident per square mile.<sup><a href='print.cfm@sid=MT.html#16'>16</a></sup> Montana's population is clustered in and around a few towns, mainly in the valleys of the Missouri River and its tributaries.<sup><a href='print.cfm@sid=MT.html#17'>17</a></sup></p>
+<p>Montana's early economy was built around mining, ranching, wheat farming, and timber. After World War II, spurred by such popular destinations as Glacier and Yellowstone National Parks, tourism increased. In 1970, tourism surpassed mining, becoming the second largest industry in the state after agriculture.<sup><a href='print.cfm@sid=MT.html#18'>18</a></sup> In 2014, the service sector&mdash;including real estate, health care, the hospitality industry, and government&mdash;was the largest contributor to the state's gross domestic product (GDP), but natural resources and mining continue to be significant contributors.<sup><a href='print.cfm@sid=MT.html#19'>19</a></sup> </p>
+<p>The mining; crude oil and natural gas production; petroleum refining; and agricultural industries are all energy-intensive. Those industries, as well as long travel distances within the state, place Montana's per capita energy consumption among the top one-third of all states.<sup><a href='print.cfm@sid=MT.html#20'>20</a></sup> The transportation and industrial sectors lead state end-use energy consumption, together accounting for three-fifths of the state's total. Summer days can exceed 100 degrees Fahrenheit on the plains and winter can bring Arctic blasts with subzero temperatures. Despite the temperature extremes, Montana's small population results in a residential sector that uses far less energy than other end-use sectors in the state.<sup><a href='print.cfm@sid=MT.html#21'>21</a>,<a href='print.cfm@sid=MT.html#22'>22</a></sup></p>
+<h2>Petroleum</h2>
+<p>At the end of 2015, Montana had almost 1% of U.S. proved petroleum reserves, but potential recoverable resources in the state could be much greater.<sup><a href='print.cfm@sid=MT.html#23'>23</a>,<a href='print.cfm@sid=MT.html#24'>24</a></sup> Montana produces nearly 1% of the nation's crude oil.<sup><a href='print.cfm@sid=MT.html#25'>25</a></sup> Production is concentrated in the northeastern part of the state near the North Dakota border.<sup><a href='print.cfm@sid=MT.html#26'>26</a></sup> Montana's Elm Coulee field was initially the most prolific oil field in the Williston Basin, a geologic basin that spreads from eastern Montana into North Dakota and Canada.<sup><a href='print.cfm@sid=MT.html#27'>27</a></sup> However, as drilling activity moved to North Dakota where the productive Bakken Shale formation is thicker, the state's oil production declined from its 2006 peak.<sup><a href='print.cfm@sid=MT.html#28'>28</a>,<a href='print.cfm@sid=MT.html#29'>29</a></sup> Recently, production rebounded as drilling activity increased in northeastern Montana's portion of the Williston Basin.<sup><a href='print.cfm@sid=MT.html#30'>30</a></sup> </p>
+<p>Montana has four operating oil refineries with a combined crude oil-processing capacity of about 203,000 barrels per day. Three refineries are in the Billings area, and one is in Great Falls.<sup><a href='print.cfm@sid=MT.html#31'>31</a></sup> Those refineries receive crude oil mainly from Canada and Wyoming and produce a wide range of refined products, including motor gasoline, ultra-low sulfur diesel fuels, aviation fuels, butane, propane, petroleum coke, and asphalt. Pipelines and railroads are used to ship crude oil into, and refined products out from, the refineries.<sup><a href='print.cfm@sid=MT.html#32'>32</a>,<a href='print.cfm@sid=MT.html#33'>33</a>,<a href='print.cfm@sid=MT.html#34'>34</a>,<a href='print.cfm@sid=MT.html#35'>35</a></sup> </p>
+<div class='pullquote'><p>Transport of Montana crude oil by railroad increased as pipelines became congested or unavailable.</p></div><p>Several pipelines carry Montana crude oil to refineries in other states as well.<sup><a href='print.cfm@sid=MT.html#36'>36</a></sup> New production in the region has been constrained by the lack of pipeline takeaway capacity. A number of new pipeline projects are in development, primarily to transport crude oil to major refining centers in the Midwest, in Oklahoma, and on the Gulf Coast.<sup><a href='print.cfm@sid=MT.html#37'>37</a></sup> The transport of crude oil by rail increased as an alternative to pipeline shipment. However, crude-by-rail volumes have decreased since mid-2015, as production in the region has slowed.<sup><a href='print.cfm@sid=MT.html#38'>38</a>,<a href='print.cfm@sid=MT.html#39'>39</a>,<a href='print.cfm@sid=MT.html#40'>40</a></sup></p>
+<p>Although Montana's total petroleum consumption is low compared with that of other states, it is among the top 10 states on a per capita basis.<sup><a href='print.cfm@sid=MT.html#41'>41</a>,<a href='print.cfm@sid=MT.html#42'>42</a></sup> The transportation sector consumes almost two-thirds of the petroleum used in the state.<sup><a href='print.cfm@sid=MT.html#43'>43</a></sup> During the winter months, federal air quality standards require oxygenated motor gasoline use in the Missoula area.<sup><a href='print.cfm@sid=MT.html#44'>44</a>,<a href='print.cfm@sid=MT.html#45'>45</a></sup> The state requires the use of motor gasoline blended with 10% ethanol.<sup><a href='print.cfm@sid=MT.html#46'>46</a></sup> Montana has no ethanol refineries, although one has been proposed that would use wheat and barley as its feedstocks.<sup><a href='print.cfm@sid=MT.html#47'>47</a>,<a href='print.cfm@sid=MT.html#48'>48</a></sup> Ethanol is brought in from nearby states and blended with conventional motor gasoline at two locations in the state.<sup><a href='print.cfm@sid=MT.html#49'>49</a></sup> The industrial sector is the second-largest consumer of petroleum, accounting for about one-fourth of the state's use. The residential sector, where 1 in 10 households heat with fuel oil, and the electric power sector consume almost all the rest.<sup><a href='print.cfm@sid=MT.html#50'>50</a></sup></p>
+<h2>Natural gas</h2>
+<p>Natural gas production in Montana is less than half of what it was at its peak in 2007.<sup><a href='print.cfm@sid=MT.html#51'>51</a></sup> In 2015, the state produced less than 0.2% of the nation's natural gas.<sup><a href='print.cfm@sid=MT.html#52'>52</a></sup> Production from natural gas wells and coalbed methane wells in the state has trended downward in recent years as exploration activities have focused on drilling for oil rather than for natural gas.<sup><a href='print.cfm@sid=MT.html#53'>53</a>,<a href='print.cfm@sid=MT.html#54'>54</a></sup> More than three-fourths of the producing natural gas wells in Montana are located in the northern part of the state, near the Canadian border. Production also comes from wells in smaller fields in the Williston Basin in northeastern Montana near the North Dakota border and from wells in south-central Montana.<sup><a href='print.cfm@sid=MT.html#55'>55</a></sup> </p>
+<p>Montana is crossed by natural gas pipelines from Canada and Wyoming.<sup><a href='print.cfm@sid=MT.html#56'>56</a></sup> Almost all the natural gas entering the state comes from Canada, crossing the border at 10 import points.<sup><a href='print.cfm@sid=MT.html#57'>57</a>,<a href='print.cfm@sid=MT.html#58'>58</a></sup> In 2015, about one-fourth of the nation's net natural gas imports from Canada entered the country through Montana.<sup><a href='print.cfm@sid=MT.html#59'>59</a>,<a href='print.cfm@sid=MT.html#60'>60</a></sup> Nearly all the natural gas that enters Montanaâ€”more than 95%â€”leaves the state, most of it continuing on to North Dakota on its way to Midwestern markets.<sup><a href='print.cfm@sid=MT.html#61'>61</a></sup> Some of the natural gas entering Montana is put in storage. The state has more underground natural gas storage capacity than any other state in the Rocky Mountain region, and the Baker/Cedar Creek field in the Williston Basin in eastern Montana is the nation's largest single underground natural gas storage facility.<sup><a href='print.cfm@sid=MT.html#62'>62</a>,<a href='print.cfm@sid=MT.html#63'>63</a></sup> </p>
+<p>More than half of Montana households use natural gas as their primary energy source for home heating.<sup><a href='print.cfm@sid=MT.html#64'>64</a></sup> Overall, natural gas consumption is fairly evenly divided among the industrial, residential, and commercial sectors. Only a small amount of natural gas is used for electricity generation. Despite cold winters that can be especially harsh in eastern Montana, the state's per capita natural gas use is below the national average.<sup><a href='print.cfm@sid=MT.html#65'>65</a>,<a href='print.cfm@sid=MT.html#66'>66</a>,<a href='print.cfm@sid=MT.html#67'>67</a></sup> Although Montana is among the five states with the lowest total natural gas consumption, residents use more natural gas than the state produces, making Montana a net consumer.<sup><a href='print.cfm@sid=MT.html#68'>68</a>,<a href='print.cfm@sid=MT.html#69'>69</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>About one-fourth of the coal mined in Montana is exported. </p></div><p>Montana produces almost 5% of the nation's coal from just half a dozen mines. Most of the state's coal production comes from several large surface mines in the Powder River Basin in southeastern Montana.<sup><a href='print.cfm@sid=MT.html#70'>70</a>,<a href='print.cfm@sid=MT.html#71'>71</a></sup> One of Montana's largest coal mines, the Rosebud surface mine, supplies almost all its production to the state's largest electricity generating station, the coal-fired power plant at Colstrip, Montana.<sup><a href='print.cfm@sid=MT.html#72'>72</a>,<a href='print.cfm@sid=MT.html#73'>73</a>,<a href='print.cfm@sid=MT.html#74'>74</a></sup> Almost all the coal used in the state fuels electricity generation and is delivered to generating plants by conveyor. In 2015, about one-fourth of the coal mined in Montana was consumed in the state, and all but a small fraction of that coal was used to generate electric power. About half of Montana's coal production was sent by rail to other states in 2015. The remaining one-fourth of Montana production was exported to western Canada, where much of it continued on to Asia.<sup><a href='print.cfm@sid=MT.html#75'>75</a>,<a href='print.cfm@sid=MT.html#76'>76</a>,<a href='print.cfm@sid=MT.html#77'>77</a>,<a href='print.cfm@sid=MT.html#78'>78</a></sup></p>
+<p>Montana has the nation's largest estimated recoverable coal reserves and holds one-fourth of the nation's demonstrated coal reserve base.<sup><a href='print.cfm@sid=MT.html#79'>79</a></sup> However, demand for coal has been declining because of competition from natural gas, decreasing coal exports, and regulatory and permitting challenges.<sup><a href='print.cfm@sid=MT.html#80'>80</a>,<a href='print.cfm@sid=MT.html#81'>81</a>,<a href='print.cfm@sid=MT.html#82'>82</a></sup> U.S. electricity generators have retrofitted many coal-fired generating plants with emission controls that allow use of higher-sulfur coal, thereby reducing demand for Montana's low-sulfur Powder River Basin coal.<sup><a href='print.cfm@sid=MT.html#83'>83</a></sup></p>
+<h2>Electricity</h2>
+<p>More than half of Montana's net electricity generation comes from coal, but new federal environmental rules are affecting coal-fired generation.<sup><a href='print.cfm@sid=MT.html#84'>84</a></sup> In 2015, one of Montana's older coal-fired power plants was shut down. The owner cited the projected costs of new pollution controls needed to meet federal restrictions on emissions of mercury and other toxins produced by burning coal.<sup><a href='print.cfm@sid=MT.html#85'>85</a></sup> Montana is hosting a test of carbon sequestration in a formation near the state's Canadian border, which could help coal-fired power plants reduce the impact of carbon emissions.<sup><a href='print.cfm@sid=MT.html#86'>86</a></sup> Five coal-fired power plants remain in operation in the state.<sup><a href='print.cfm@sid=MT.html#87'>87</a></sup> Most of the rest of Montana's electricity generation comes from hydroelectric power plants. Wind and natural gas-fired power plants provide additional electricity generating capacity, with wind providing the largest share of the additional generation.<sup><a href='print.cfm@sid=MT.html#88'>88</a>,<a href='print.cfm@sid=MT.html#89'>89</a></sup> </p>
+<p>Montanans use about half of the electricity generated in the state.<sup><a href='print.cfm@sid=MT.html#90'>90</a></sup> The rest is sent to other western states by high-voltage transmission lines. Generating more electricity for sale in other states is seen as an economic opportunity for Montana, but current transmission lines are congested, and new capacity must be built to expand sales. Most of Montana is part of the Western Interconnection grid serving western states and Canadian provinces.<sup><a href='print.cfm@sid=MT.html#91'>91</a></sup> Several transmission projects are being developed to increase capacity to move electricity from both conventional and renewable sources out of Montana to states in the west and southwest. Construction of a line between Montana and Alberta, Canada, was completed in 2013. It is the first direct interconnection between the two areas.<sup><a href='print.cfm@sid=MT.html#92'>92</a></sup> A portion of eastern Montana is part of the eastern U.S. grid. One of the nation's eight converter stations that connect the eastern and western grids is located at Miles City, Montana.<sup><a href='print.cfm@sid=MT.html#93'>93</a>,<a href='print.cfm@sid=MT.html#94'>94</a></sup></p>
+<p>Montana deregulated its electricity system starting in 1997, but the state experienced rising retail electricity costs and later re-regulated some aspects.<sup><a href='print.cfm@sid=MT.html#95'>95</a></sup> In 2015, the state's average retail electricity prices were well below the national average, and the average price of electricity for all customers in Montana was less than in two-thirds of the states.<sup><a href='print.cfm@sid=MT.html#96'>96</a></sup> About one-fifth of Montana households use electricity for heating.<sup><a href='print.cfm@sid=MT.html#97'>97</a></sup> The commercial and residential sectors each consume a little more than one-third of the electricity used in Montana, and the industrial sector consumes the balance.<sup><a href='print.cfm@sid=MT.html#98'>98</a></sup> </p>
+<h2>Renewable energy </h2>
+<p>Montana has substantial renewable energy resources. Its mountainous terrain along the Continental Divide creates fast-running rivers, and the eastern two-thirds of the state is drained by the Missouri River and its tributaries.<sup><a href='print.cfm@sid=MT.html#99'>99</a></sup> In 2015, Montana was the seventh-largest producer of hydroelectric power in the nation, having fallen from the fifth-largest because of drought conditions, particularly in western Montana, in the second half of 2015.<sup><a href='print.cfm@sid=MT.html#100'>100</a>,<a href='print.cfm@sid=MT.html#101'>101</a></sup> The state has 23 hydroelectric dams. Six of Montana's 10 largest power plants by generating capacity are hydroelectric facilities.<sup><a href='print.cfm@sid=MT.html#102'>102</a>,<a href='print.cfm@sid=MT.html#103'>103</a></sup> Opportunities for hydroelectric generating capacity expansions around the state are being evaluated.<sup><a href='print.cfm@sid=MT.html#104'>104</a>,<a href='print.cfm@sid=MT.html#105'>105</a></sup> </p>
+<div class='pullquote'><p>Montana's plains have some of the best utility-scale wind energy potential in the nation. </p></div><p>With its high plains crossed by occasional mountains and wide river valleys, eastern Montana has some of the best utility-scale wind potential in the nation.<sup><a href='print.cfm@sid=MT.html#106'>106</a>,<a href='print.cfm@sid=MT.html#107'>107</a></sup> The first utility-scale wind farm in the state came online in 2005.<sup><a href='print.cfm@sid=MT.html#108'>108</a></sup> By 2016, Montana had 655 megawatts of wind-powered electricity generating capacity in operation from utility-scale wind farms located in the center of the state. More wind projects are in various stages of development.<sup><a href='print.cfm@sid=MT.html#109'>109</a>,<a href='print.cfm@sid=MT.html#110'>110</a></sup> However, new wind projects depend in part on demand for renewable energy from other states and on available transmission capacity.<sup><a href='print.cfm@sid=MT.html#111'>111</a></sup> To provide a stable supply of electricity to the grid and offset the variability of wind-power, a large transmission and closed loop pumped hydro storage project is in development about 100 miles northwest of Billings, Montana.<sup><a href='print.cfm@sid=MT.html#112'>112</a>,<a href='print.cfm@sid=MT.html#113'>113</a></sup></p>
+<p>In some areas, Montana has significant geothermal energy resources.<sup><a href='print.cfm@sid=MT.html#114'>114</a></sup> Among more than 50 geothermal areas that the state has identified, about one-third are high-temperature sites. Montana's most significant geothermal resources are in the mountainous southwest, but, so far, they have not been tapped for electricity generation. Low- and moderate-temperature resources are found in nearly all areas of the state.<sup><a href='print.cfm@sid=MT.html#115'>115</a></sup> Those geothermal resources have a variety of direct-use applications in Montana, including recreational hot springs, greenhouses, and fish farms. Several hot springs resorts and public bathing facilities in Montana take advantage of their geothermal resources by using them for space heating, as well as for mineral baths.<sup><a href='print.cfm@sid=MT.html#116'>116</a></sup> </p>
+<p>Although almost one-tenth of Montana's residents heat their homes with wood, very little electricity generation in the state is from biomass.<sup><a href='print.cfm@sid=MT.html#117'>117</a>,<a href='print.cfm@sid=MT.html#118'>118</a></sup> Most of Montana's biomass comes from and is used at wood-processing facilities. Montana is considering increasing the use of biomass from wood waste, particularly from trees culled as part of efforts to fight pine beetle infestations.<sup><a href='print.cfm@sid=MT.html#119'>119</a></sup> </p>
+<p>Montana had 4.5 megawatts of installed solar generating capacity by the end of 2015, but none of it was at electric utility-scale solar facilities. There are a variety of residential and commercial distributed (customer-sited, small-scale) solar generation installations around the state.<sup><a href='print.cfm@sid=MT.html#120'>120</a>,<a href='print.cfm@sid=MT.html#121'>121</a></sup></p>
+<p>Montana's renewable resource standard (RRS) requires retail electricity suppliers to get at least 15% of the electricity they sell in-state from renewable energy sources beginning in 2015. Power must come from renewable facilities that began operation after January 1, 2005. The RRS recognizes renewable energy from wind, solar, geothermal, biomass, small hydroelectric facilities, landfill gas, anaerobic digesters, and fuel cells that use renewable fuels as qualifying renewable resources. The standard requires electricity suppliers to buy a set amount of power from smaller community-based renewable energy projects.<sup><a href='print.cfm@sid=MT.html#122'>122</a></sup></p>
+<h2>Energy on tribal lands</h2>
+<p>More than 5.5 million acres of Montana, about 6% of the state's land area, is held by Native Americans.<sup><a href='print.cfm@sid=MT.html#123'>123</a></sup> Of the 12 tribes in Montana, 11 are federally recognized. Montana's tribal lands sit on top of a wealth of coal, crude oil, and natural gas resources. The largest of the seven federal reservations in the state, the Crow Nation Reservation, with more than 2 million acres in south-central Montana, is underlain by one of the largest coal reserves in the United States.<sup><a href='print.cfm@sid=MT.html#124'>124</a>,<a href='print.cfm@sid=MT.html#125'>125</a>,<a href='print.cfm@sid=MT.html#126'>126</a></sup> The Northern Cheyenne Reservation in southeastern Montana, adjacent to the Crow Nation Reservation, also has a large coal resource.<sup><a href='print.cfm@sid=MT.html#127'>127</a></sup> </p>
+<p>In addition to an estimated 9 billion tons of low-sulfur coal, the Crow Nation Reservation has oil and natural gas resources.<sup><a href='print.cfm@sid=MT.html#128'>128</a></sup> The Blackfeet Reservation on the eastern slopes of the Rocky Mountains has, on its more than 1.5 million acres, oil and natural gas resources that are being developed. Crude oil was discovered in the early 1950s on the Fort Peck Reservation, the second-largest reservation in the state. The Fort Peck Reservation is located in northeastern Montana, and it overlies the western edge of the Bakken formation.<sup><a href='print.cfm@sid=MT.html#129'>129</a></sup> There are several oil and natural gas fields near the reservation's borders, but the tribe has not yet had any successful Bakken wells drilled on its lands, and interest has flagged with falling oil prices.<sup><a href='print.cfm@sid=MT.html#130'>130</a></sup> </p>
+<div class='pullquote'><p>Montana's tribal lands sit on top of a wealth of coal, crude oil, and natural gas resources. </p></div><p>Much of Montana's tribal land has abundant renewable resource potential, and several tribes are focusing their energy development on those resources. The Salish and Kootenai tribes, on the Flathead reservation in western Montana, became the first tribal owners and operators of a major hydroelectric facility in the nation when they acquired sole ownership of the Kerr Dam on the boundary of their reservation in September 2015.<sup><a href='print.cfm@sid=MT.html#131'>131</a></sup> The Flathead and the Northern Cheyenne reservations, with their timber resources, have significant biomass potential.<sup><a href='print.cfm@sid=MT.html#132'>132</a>,<a href='print.cfm@sid=MT.html#133'>133</a></sup> The best wind potential in Montana is in the eastern three-fourths of the state, particularly in the northern and northeastern regions where the Blackfeet, Rocky Boy, Fort Belknap, and Fort Peck reservations are located.<sup><a href='print.cfm@sid=MT.html#134'>134</a>,<a href='print.cfm@sid=MT.html#135'>135</a></sup> The Blackfeet Reservation, the third largest reservation in Montana, has pursued wind energy projects for several years. In 1996, a utility-scale wind project came online at the Blackfeet Community College in Browning, Montana, offsetting the college's electricity costs.<sup><a href='print.cfm@sid=MT.html#136'>136</a></sup> In 1999, the four 10-kilowatt wind turbines installed by the tribe at a wastewater treatment plant in Browning began supplying one-fourth of the plant's electricity needs.<sup><a href='print.cfm@sid=MT.html#137'>137</a>,<a href='print.cfm@sid=MT.html#138'>138</a></sup> In 2016, Montana's governor directed the state's Department of Environmental Quality to work with tribes to facilitate the development of solar power on tribal lands.<sup><a href='print.cfm@sid=MT.html#139'>139</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration (EIA), State Energy Production Estimates 1960 Through 2014, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='2'></a><sup>2</sup> U.S. EIA, Montana Profile Data, Reserves and Supply, accessed January 8, 2017.<br>
+<a name='3'></a><sup>3</sup> U.S. EIA, Montana Renewable Electricity Profile 2010, accessed January 8, 2017.<br>
+<a name='4'></a><sup>4</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='5'></a><sup>5</sup> U.S. EIA, Lower 48 states shale plays, Map (April 13, 2015). <br>
+<a name='6'></a><sup>6</sup> U.S. EIA, U.S. Crude Oil and Natural Gas Proved Reserves 2015 (December 2016).<br>
+<a name='7'></a><sup>7</sup> U.S. Department of the Interior, U.S. Geological Survey, The USGS Water Science School, Lengths of the major rivers, updated December 2, 2016.<br>
+<a name='8'></a><sup>8</sup> Montana Department of Natural Resources and Conservation, Hydropower, accessed December 13, 2016.<br>
+<a name='9'></a><sup>9</sup> Northwestern Energy, Hydroelectric Facilities Acquisition, accessed December 13, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Army Corps of Engineers, Omaha District, Fort Peck Dam, accessed January 8, 2017.<br>
+<a name='11'></a><sup>11</sup> Potts, Donald, "Montana, Big Sky Country and the Last, Best Place," Montana's Climate, The CoCoRaHS â€˜State Climates' Series, accessed December 14, 2016.<br>
+<a name='12'></a><sup>12</sup> Montana Climate Office, Mean Annual Precipitation, accessed December 14, 2016. <br>
+<a name='13'></a><sup>13</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Montana Wind Resource Map and Potential Wind Capacity, accessed December 14, 2016. <br>
+<a name='14'></a><sup>14</sup> U.S. Department of the Interior, U.S. Geological Survey, The USGS Water Science School, How much of your state is wet?, updated December 2, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Census Bureau, Statistical Abstract of the United States: 2012, The National Data Book, 131st Edition (2011), p. 19, Table 14, State Populationâ€”Rank, Percent Change, and Population Density: 1980 to 2010.<br>
+<a name='16'></a><sup>16</sup> U.S. Census Bureau, 2010 Census: Montana Profile, Population Density by Census Tract.<br>
+<a name='17'></a><sup>17</sup> Geology.com, Montana Map Collection, Map of Montana Cities and Montana Rivers Map, accessed December 14, 2016.<br>
+<a name='18'></a><sup>18</sup> Montana Official State Website, History of Montana, accessed December 15, 2016.<br>
+<a name='19'></a><sup>19</sup> U.S. Bureau of Economic Analysis, Interactive Data, Regional Data, GDP and Personal Income, Annual Gross Domestic Product by State, Current Dollars, All Industries, Montana, 2014.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='21'></a><sup>21</sup> Potts, Donald, "Montana, Big Sky Country and the Last, Best Place," Montana's Climate, The CoCoRaHS â€˜State Climates' Series, accessed December 14, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption by End Use Sector, Ranked by State, 2014.<br>
+<a name='23'></a><sup>23</sup> U.S. EIA, Crude Oil plus Lease Condensate Proved Reserves, Reserves Changes, and Production, Annual Proved Reserves as of December 31, 2016.<br>
+<a name='24'></a><sup>24</sup> U.S. Department of the Interior, U.S. Geological Survey, Assessment of Undiscovered Oil Resources in the Bakken and Three Forks Formations, Williston Basin Province, Montana, North Dakota, and South Dakota, 2013, Fact Sheet 2013-3013 (April 2013). <br>
+<a name='25'></a><sup>25</sup> U.S. EIA, Crude Oil Production, Annual, Thousand Barrels, 2010-15, accessed December 15, 2016.<br>
+<a name='26'></a><sup>26</sup> Montana Department of Natural Resources and Conservation, Oil and Gas Conservation Division, Annual Review 2015, Volume 59, p. 3-1.<br>
+<a name='27'></a><sup>27</sup> Montana Department of Transportation, The Elm Coulee Oil Field, Birthplace of the Bakken Oil Boom, accessed December 15, 2016.<br>
+<a name='28'></a><sup>28</sup> U.S. EIA, Montana Field Production of Crude Oil, Annual, Thousand Barrels per Day, 1981-2015. <br>
+<a name='29'></a><sup>29</sup> U.S. Department of the Interior, U.S. Geological Survey, Assessment of Undiscovered Oil Resources in the Bakken and Three Forks Formations, Williston Basin Province, Montana, North Dakota, and South Dakota, 2013, Fact Sheet 2013-3013 (April 2013).<br>
+<a name='30'></a><sup>30</sup> Montana Bureau of Mines and Geology, Energy, Oil and Gas Evaluation, accessed December 15, 2016. <br>
+<a name='31'></a><sup>31</sup> U.S. EIA, Refinery Capacity Report 2016 (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 14.<br>
+<a name='32'></a><sup>32</sup> CHS, Energy and Industrial, Refining, CHS Refinery at Laurel, accessed December 15, 2016.<br>
+<a name='33'></a><sup>33</sup> Phillips 66, Billings Refinery, accessed December 15, 2016.<br>
+<a name='34'></a><sup>34</sup> ExxonMobil, Billings Refinery, accessed December 15, 2016.<br>
+<a name='35'></a><sup>35</sup> Calumet, Calumet Montana Refining, Great Falls, Montana, accessed December 15, 2016. <br>
+<a name='36'></a><sup>36</sup> U.S. EIA, Montana Profile Data, Distribution and Marketing, accessed December 15, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. EIA, "In Rocky Mountain region, increased crude production is being shipped by pipeline, rail," Today in Energy (July 15, 2015).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, "Crude by rail accounts for more than half of East Coast refinery supply in February," Today in Energy (May 5, 2015).<br>
+<a name='39'></a><sup>39</sup> U.S. EIA, "Crude oil shipments by rail from Midwest to coastal regions decline," Today in Energy (March 11, 2016).<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Rocky Mountain (PADD 4) Field Production of Crude Oil, Monthly, accessed December 15, 2016.<br>
+<a name='41'></a><sup>41</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption by Source, Ranked by State, 2014.<br>
+<a name='42'></a><sup>42</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='43'></a><sup>43</sup> U.S. EIA, State Energy Data 2014: Updates by Energy Source, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='44'></a><sup>44</sup> U.S. Environmental Protection Agency, State Winter Oxygenated Fuel Program Requirements for Attainment or Maintenance of CO NAAQS, EPA420-B-08-006 (January 2008), p. 1.<br>
+<a name='45'></a><sup>45</sup> Gardner, K. W., U.S. Gasoline Requirements, Map, ExxonMobil (June 2015).<br>
+<a name='46'></a><sup>46</sup> Edelstein, Stephen, "State Laws On Ethanol In Gasoline: Only Seven States Require E10 Blend," Green Car Reports (July 17, 2015).<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, State Energy Profile Data, Montana, Environment, accessed December 16, 2016.<br>
+<a name='48'></a><sup>48</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, All Platforms, Proposed (January 23, 2016).<br>
+<a name='49'></a><sup>49</sup> Lutey, T., "Ethanol Sputters in Montana but Feds Favor More," Billings Gazette (May 8, 2012).<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, State Energy Data 2014: Updates by Energy Source, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='51'></a><sup>51</sup> U.S. EIA, Montana Natural Gas Gross Withdrawals, 1967-2015.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual, 2015.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Montana Natural Gas Gross Withdrawals, 1967-2015. <br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Montana Natural Gas Gross Withdrawals from Coalbed Wells, 2002-15.<br>
+<a name='55'></a><sup>55</sup> Montana Department of Natural Resources and Conservation, Oil and Gas Conservation Division, Annual Review 2015, volume 59, p. 3-1, 5-1, 6-1.<br>
+<a name='56'></a><sup>56</sup> U.S. EIA, Montana Profile Data, Distribution and Marketing, accessed December 17, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Montana, Annual, 2010-15.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, About U.S. Natural Gas Pipelines, Locations of U. S. Natural Gas Import & Export Points, 2009. <br>
+<a name='59'></a><sup>59</sup> U.S. EIA, U.S. Natural Gas Exports and Re-Exports by Country, Annual, 2010-15.<br>
+<a name='60'></a><sup>60</sup> U.S. EIA, U.S. Natural Gas Imports by Country, Annual, 2010-15. <br>
+<a name='61'></a><sup>61</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Montana, Annual, 2010-15.<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Annual, 2010-15.<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, Natural Gas Annual Respondent Query System, 191 Field Level Storage Data, Annual, 2015.<br>
+<a name='64'></a><sup>64</sup> U.S. Census Bureau, American FactFinder, Montana, Table B25040, House Heating Fuel, 2011-2015 American Community Survey 5-Year Estimates.<br>
+<a name='65'></a><sup>65</sup> City-Data, Montana Climate, accessed December 18, 2016.<br>
+<a name='66'></a><sup>66</sup> U.S. EIA, State Energy Data 2014: Updates by Energy Source, Table F19, Natural Gas Consumption Estimates, 2014.<br>
+<a name='67'></a><sup>67</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Natural Gas Consumption by End Use, Total Consumption, Annual, 2015.<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual, 2015.<br>
+<a name='70'></a><sup>70</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2015.<br>
+<a name='71'></a><sup>71</sup> U.S. Department of the Interior, U.S. Geological Survey, Energy Resources Program, Powder River Basin, Wyoming and Montana, accessed December 18, 2016.<br>
+<a name='72'></a><sup>72</sup> Westmoreland Coal Company, Rosebud Mine, Montana, accessed December 19, 2016.<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 9, Major U.S. Coal Mines, 2015.<br>
+<a name='74'></a><sup>74</sup> U.S. EIA, Montana Electricity Profile, 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='76'></a><sup>76</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 2016), Montana Table OS-16, Domestic Coal Distribution, by Origin State, 2015.<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 2016), Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2015.<br>
+<a name='78'></a><sup>78</sup> Brown, Matthew, "Coal company shifts to Canadian port to reach Asia markets," Associated Press (October 13, 2016).<br>
+<a name='79'></a><sup>79</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='80'></a><sup>80</sup> U.S. EIA, Monthly Energy Review (November 2016) Table 6.2 Coal Consumption by Sector.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, "Coal mine starts continue to decline," Today in Energy (September 23, 2015).<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, "U.S. coal exports declined 23% in 2015, as coal imports remained steady," Today in Energy (March 7, 2016).<br>
+<a name='83'></a><sup>83</sup> U.S. EIA, "2012 Brief: Coal prices and production in most basins down in 2012," Today in Energy (January 14, 2013).<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='85'></a><sup>85</sup> Brown, M., "Montana coal-fired power plant is latest to shut down," PowerSource (February 10, 2015).<br>
+<a name='86'></a><sup>86</sup> Krotz, Dan, "Geologic Carbon Sequestration Comes to Big Sky Country," Press Release, Lawrence Berkeley National Laboratory News Center (November 2, 2011).<br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 3_1_Generator_Y2015, 2015 Form EIA-860 Data, Schedule 3, 'Generator Data' (Operable Coal Units Only). <br>
+<a name='88'></a><sup>88</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B, 1.10.B, 1.14.B.<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 3_1_Generator_Y2015, 2015 Form EIA-860 Data, Schedule 3, 'Generator Data' (Operable Units Only).<br>
+<a name='90'></a><sup>90</sup> U.S. EIA, Montana Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990-2014.<br>
+<a name='91'></a><sup>91</sup> Nowakowski, Sonja, Montana's Energy Policy Review Senate Bill No. 290: A look at existing policy, A report to the 62nd Legislature of the State of Montana (October 2010), p. 11-15.<br>
+<a name='92'></a><sup>92</sup> Montana Department of Environmental Quality, Understanding Energy in Montana, updated for 2013-2014 Energy and Telecommunications Interim Committee, p. 36, accessed December 19, 2016.<br>
+<a name='93'></a><sup>93</sup> Nowakowski, Sonja, Montana's Energy Policy Review Senate Bill No. 290: A look at existing policy, A report to the 62nd Legislature of the State of Montana (October 2010), p. 11-15.<br>
+<a name='94'></a><sup>94</sup> Montana Department of Environmental Quality, Understanding Energy in Montana, updated for 2013-2014 Energy and Telecommunications Interim Committee, p. 25, accessed December 19, 2016.<br>
+<a name='95'></a><sup>95</sup> Legislative Services Division, A Citizen's Guide to Montana Energy Law, Montana Legislature, Energy and Telecommunications Interim Committee (2011), p. 8-11.<br>
+<a name='96'></a><sup>96</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='97'></a><sup>97</sup> U.S. Census Bureau, American FactFinder, Montana, Table B25040, House Heating Fuel, 2011-2015 American Community Survey 5-Year Estimates.<br>
+<a name='98'></a><sup>98</sup> U.S. EIA, State Energy Data 2014: Updates by Energy Source, Table F21, Electricity Consumption Estimates, 2014.<br>
+<a name='99'></a><sup>99</sup> New World Encyclopedia, Missouri River, updated November 11, 2014.<br>
+<a name='100'></a><sup>100</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.10.B.<br>
+<a name='101'></a><sup>101</sup> Montana State Library, Geographic Information, Montana County Drought Status Maps, accessed December 20, 2016.<br>
+<a name='102'></a><sup>102</sup> U.S. EIA, Electricity, Form EIA-860 Detailed Data, 3_1_Generator_Y2015, 2015 Form EIA-860 Data, Schedule 3, 'Generator Data' (Operable Units Only).<br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Montana Electricity Profile 2014, Table 2, Ten Largest Plants by Generation Capacity, 2014.<br>
+<a name='104'></a><sup>104</sup> Montana Department of Natural Resources and Conservation, Water Resources Division, Report on Survey of Power Generation Capacity (June 2016).<br>
+<a name='105'></a><sup>105</sup> Steve Daines, United States Senator for Montana, "Daines' Bills to Expand Montana Hydro Power Pass Out of Committee," Press Release (July 30, 2015).<br>
+<a name='106'></a><sup>106</sup> NETSTATE, Montana, The Geography of Montana, updated February 25, 2016.<br>
+<a name='107'></a><sup>107</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Montana Wind Resource Map and Potential Wind Capacity, accessed December 20, 2016.<br>
+<a name='108'></a><sup>108</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, "Judith Gap Wind Energy Center: the first utility-scale wind project in the state of Montana," Press Release (October 7, 2005).<br>
+<a name='109'></a><sup>109</sup> American Wind Energy Association, Montana Wind Energy, accessed December 20, 2016.<br>
+<a name='110'></a><sup>110</sup> Martin, Garrett, Wind Energy Development in Montana, Montana Energy Bureau, Montana Department of Environmental Quality, accessed December 21, 2016. <br>
+<a name='111'></a><sup>111</sup> Montana Department of Environmental Quality, Montana's Wind Resources Compare Favorably to Columbia Gorge, accessed December 21, 2016. <br>
+<a name='112'></a><sup>112</sup> Absaroka Energy, LLC, Gordon Butte Closed Loop Pumped Storage Hydro Facility Briefing Document, accessed December 21, 2016.<br>
+<a name='113'></a><sup>113</sup> GB Energy Park, Project Overview, accessed December 21, 2016.<br>
+<a name='114'></a><sup>114</sup> State of Montana Governor's Office, Montana Energy Future, The Future of Montana Electricity (2016), p. 25, 26.<br>
+<a name='115'></a><sup>115</sup> Montana Department of Environmental Quality, Geothermal Energy Program, Geothermal Energy Sites, accessed December 21, 2016.<br>
+<a name='116'></a><sup>116</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Geothermal Technologies Program, Montana, DOE/GO-102005-2215 (November 2005).<br>
+<a name='117'></a><sup>117</sup> U.S. Census Bureau, American FactFinder, Montana, Table B25040, House Heating Fuel, 2011-2015 American Community Survey 5-Year Estimates.<br>
+<a name='118'></a><sup>118</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.15.B.<br>
+<a name='119'></a><sup>119</sup> Nowakowski, Sonja, Montana's Energy Policy Review Senate Bill No. 290: A look at existing policy, Montana Legislature, Energy and Telecommunications Interim Committee (October 2010), p. 24, 36.<br>
+<a name='120'></a><sup>120</sup> Solar Energy Industries Association, Montana Solar, accessed December 21, 2016.<br>
+<a name='121'></a><sup>121</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='122'></a><sup>122</sup> North Carolina Clean Energy Technology Center, DSIRE, Montana Renewable Resource Standard, updated October 28, 2016.<br>
+<a name='123'></a><sup>123</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, Appendix D: Indian Nations, The American Indian Digest (April 1997) p. D-3.<br>
+<a name='124'></a><sup>124</sup> U.S. Department of the Interior, Bureau of Indian Affairs, "Indian Entities Recognized and Eligible to Receive Services from the United States Bureau of Indian Affairs," Federal Register, Vol. 81 No. 86 (May 4, 2016), p. 26826-26832.<br>
+<a name='125'></a><sup>125</sup> Montana Office of Public Instruction, Indian Education, Montana Indians, Their History and Location (April 2009). <br>
+<a name='126'></a><sup>126</sup> Regan, S., "Unlocking the Wealth of Indian Nations: Overcoming Obstacles to Tribal Energy Development," Property and Environment Research Center (February 18, 2014).<br>
+<a name='127'></a><sup>127</sup> The Montana Legislature, Montana 64th Session, The Tribal Nations of Montana, Economic Development (March 1995). <br>
+<a name='128'></a><sup>128</sup> Regan, S., "Unlocking the Wealth of Indian Nations: Overcoming Obstacles to Tribal Energy Development," Property and Environment Research Center (February 18, 2014).<br>
+<a name='129'></a><sup>129</sup> Montana Office of Public Instruction, Indian Education, Montana Indians, Their History and Location (April 2009). <br>
+<a name='130'></a><sup>130</sup> Frank, Matthew, "Oil bust puts tribes, towns over a barrel," High Country News (March 17, 2016).<br>
+<a name='131'></a><sup>131</sup> U.S. Department of Energy, Indian Energy Policy and Programs, Montana Tribes Realize Long-Held Vision of Acquiring Kerr Dam: Interview with Energy Keepers Inc. CEO Brian Lipscomb (September 16, 2015).<br>
+<a name='132'></a><sup>132</sup> The Montana Legislature, Montana 64th Session, The Tribal Nations of Montana, Economic Development (March 1995). <br>
+<a name='133'></a><sup>133</sup> Montana Governor's Office of Indian Affairs, Confederated Salish and Kootenai Tribes, accessed December 22, 2016. <br>
+<a name='134'></a><sup>134</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Montana Wind Resource Map and Potential Wind Capacity, accessed December 22, 2016.<br>
+<a name='135'></a><sup>135</sup> Montana Office of Public Instruction, Indian Education, Tribal Lands in Montana, accessed December 22, 2016.<br>
+<a name='136'></a><sup>136</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Tribal Energy Program, Blackfeet Tribe, 1995 Project, accessed December 22, 2016. <br>
+<a name='137'></a><sup>137</sup> Blackfeet Nation, Commercial Wind Development, Blackfeet Reservation, Montana, accessed December 22, 2016. <br>
+<a name='138'></a><sup>138</sup> Lawrence, Jeri, Blackfeet Nation Energy Organization Development, U.S. Department of Energy, Project Reports for Blackfeet Tribe, 2006 Project, Status Report (October 2006).<br>
+<a name='139'></a><sup>139</sup> State of Montana Governor's Office, Montana Energy Future, The Future of Montana Electricity (2016), p. 12. <br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Midwest Independent Transmission System Operator (MISO)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 4</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Midwest Reliability Organization (MRO, Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://psc.mt.gov/" title="Montana Public Service Commission">Montana Public Service Commission</a></li>
+  
+    <li><a href="http://dphhs.mt.gov/hcsd/energyassistance.aspx" title="Montana Department of Public Health and Human Services, Low Income Energy Assistance">Montana Department of Public Health and Human Services, Low Income Energy Assistance</a></li>
+  
+    <li><a href="http://deq.mt.gov/Land/coaluranium" title="Montana Department of Environmental Quality, Coal and Uranium Program, Coal Section">Montana Department of Environmental Quality, Coal and Uranium Program, Coal Section</a></li>
+  
+    <li><a href="www.deq.mt.gov/energy/default.mcpx.html" title="Montana Department of Environmental Quality, Energy">Montana Department of Environmental Quality, Energy</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://www.nwcouncil.org/energy/" title="Northwest Power and Conservation Council">Northwest Power and Conservation Council</a></li>
+  
+    <li><a href="http://bogc.dnrc.mt.gov/BoardSummaries.asp" title="Department of Natural Resources and Conservation, Montana Board of Oil and Gas Conservation">Department of Natural Resources and Conservation, Montana Board of Oil and Gas Conservation</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Montana website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Montana\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/MT.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

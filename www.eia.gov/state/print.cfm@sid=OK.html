@@ -1,0 +1,3045 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Oklahoma Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Oklahoma State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Oklahoma Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Excluding federal offshore areas, Oklahoma ranked fifth in crude oil production in the nation in 2014.&nbsp;</li>
+	
+	<li>Oklahoma had five operating petroleum refineries with a combined daily capacity of over 500,000 barrels per day (2.8% of the total U.S. operating distillation capacity) as of January 2015.</li>
+	
+	<li>Oklahoma is one of the top natural gas-producing states in the nation, accounting for 7.4% of U.S. gross production and 7.4% of marketed production in 2014.&nbsp;</li>
+	
+	<li>Cushing, Oklahoma is where the &nbsp;benchmark price is set for the blend of U.S. crude oils known as West Texas Intermediate (WTI).&nbsp;</li>
+	
+	<li>In 2014, Oklahoma ranked fourth in the nation in net electricity generation from wind, which provided almost 17% of the state&#39;s net generation.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=OK.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=OK.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=OK.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=OK.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=OK.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Oklahoma Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Oklahoma Energy Consumption Estimates',
+		data : [336.1,665.8,224.9,188.0,45.1,10.6,3.0,70.1,0.0,13.6,42.9,113.6,-34.1]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Oklahoma Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 325.0],['Commercial', 265.8],['Industrial', 605.9],['Transportation', 482.9]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Oklahoma Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Oklahoma Energy Production Estimates',
+		data : [20.6,2659.4,736.9,0.0,0.0,155.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Oklahoma Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Oklahoma Net Electricity Generation',
+		data : [1,2327,2335,182,2086]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Oklahoma Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Oklahoma U.S. Price Differentials',
+		data : [{y:20.0477326969, period: Date.UTC(2016,9,1)},{y:80.7132459971, period: Date.UTC(2016,9,1)},{y:-11.40562249, period: Date.UTC(2016,9,1)},{y:-24.2597898758, period: Date.UTC(2016,9,1)},{y:-25.1488095238, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					3.9 million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.8 million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 180.4  billion 
+				</td>
+				<td>
+					29 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 17,797  million 
+				</td>
+				<td>
+					32 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 44,272 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					47,699 million miles 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					34.4 million acres 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					60.9 degrees Fahrenheit 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					53.5 inches 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 46.07 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 5.03 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 24.83 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 43.46 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.03 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					7.93 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.03 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=217">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					1,262 million barrels 
+				</td>
+				<td>
+					3.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					28,486 billion cu ft 
+				</td>
+				<td>
+					9.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					1,626 million barrels 
+				</td>
+				<td>
+					12.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					8 million short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					199 rigs 
+				</td>
+				<td>
+					10.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					49,852 wells 
+				</td>
+				<td>
+					9.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					3,573 trillion Btu 
+				</td>
+				<td>
+					4.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					13,151 thousand barrels 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					2,499,599 million cu ft 
+				</td>
+				<td>
+					8.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					780 thousand short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					511,300 barrels/calendar day 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					24,866 MW 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					6,922 thousand MWh 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					33.6 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					33.7 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					32.8 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					291 thousand barrels 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,685 thousand barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					359,760 million cu ft 
+				</td>
+				<td>
+					4.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,966 thousand tons 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Oklahoma</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Hollyfrontier  Refining & Marketing (Tulsa East), Hollyfrontier Refining & Marketing (Tulsa West), Phillips 66 Company (Ponca City), Valero Refining (Ardmore), Wynnewood Refining (Wynnewood)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Sooner (Oklahoma Gas & Electric Co) ; Northeastern (Public Service Co of Oklahoma) ; Muskogee (Oklahoma Gas & Electric Co) ; Seminole (Oklahoma Gas & Electric Co) ; Redbud Power Plant (Oklahoma Gas & Electric Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=217">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Oklahoma</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Tulsa, Port of Catoosa.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Oklahoma</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Enbridge, Enterprise, Magellan, Nustar, Plains Pipeline, TransCanada, Phillips 66 Pipeline, Exxon-Mobil, Western Gas, BP Pipelines, Phillips 66 Pipeline, Centurion Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Explorer Pipeline, Nustar, Phillips 66 Pipeline, Midstream Partners</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Conoco Phillips, Enterprise Products, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Arkansas Oklahoma Gas Corporation, Colorado Interstate Gas Company LLC, DCP Midstream LP, El Paso Natural Gas Company LLC, Enable Gas Transmission LLC, Enbridge PLS Texas Gathering LP, Fairfax, Gulf Crossing Pipeline LLC, Midcontinent Express Pipeline, Natural Gas Pipeline Company of America, Northern Natural Gas, OKTex Pipeline Company, Ozark Gas Transmission LLC, Panhandle Eastern Pipeline Company, Postrock KPC Pipeline LLC, Southern Star Central Gas Pipeline, West Texas Gas Inc, Western Gas Interstate Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					1,847 stations 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					149 stations 
+				</td>
+				<td>
+					3.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					44 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					31 stations 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					120 stations 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,680 trillion Btu 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					433 million Btu 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 20,497  million 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,283 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					325 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					266 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					606 trillion Btu 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					483 trillion Btu 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 3,268  million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,191  million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 3,671  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 11,366  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					102.5 million barrels 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					640.2 billion cu ft 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					19.4 million short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 13,053  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 3,454  million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 680  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					2 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					18,651 million cu ft 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,468 thousand short tons 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=217">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					53.3 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					36.7 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					7.0 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					2.9 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					6,390 MW 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					182 thousand MWh 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					2,061 thousand MWh 
+				</td>
+				<td>
+					8.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					25 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					10.1 % 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=OK"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					4,441 thousand barrels 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					105.0 million metric tons 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Oklahoma</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=217">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					41,626 thousand metric tons 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					61 thousand metric tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					29 thousand metric tons 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 21, 2016<p>
+<h2>Overview </h2>
+<p> </p>
+<p>Oklahoma is in the heart of the Mid-Continent Oil Region, a vast oil- and natural gas-producing area extending northward from Texas and flanked by the Mississippi River to the east and the Rocky Mountain states to the west.<sup><a href='print.cfm@sid=OK.html#1'>1</a></sup> Crude oil and natural gas wells can be seen across much of Oklahoma, and some of the largest oil and natural gas fields in the country are found in the state.<sup><a href='print.cfm@sid=OK.html#2'>2</a>,<a href='print.cfm@sid=OK.html#3'>3</a></sup> Eastern Oklahoma is also a coal-mining region.<sup><a href='print.cfm@sid=OK.html#4'>4</a></sup> However, fossil fuels are not the state's only energy resources. The open plains and low hills of the prairie cover most of Oklahoma, and the state has significant wind potential. Wind energy is providing an increasing share of Oklahoma's electricity generation.<sup><a href='print.cfm@sid=OK.html#5'>5</a>,<a href='print.cfm@sid=OK.html#6'>6</a>,<a href='print.cfm@sid=OK.html#7'>7</a></sup> With several rivers and more than 200 lakes, most created by dams, the state has substantial hydroelectric potential.<sup><a href='print.cfm@sid=OK.html#8'>8</a>,<a href='print.cfm@sid=OK.html#9'>9</a></sup> Solar potential is also widespread and increases to the west across Oklahoma as sunny, arid conditions increase, and precipitation decreases.<sup><a href='print.cfm@sid=OK.html#10'>10</a>,<a href='print.cfm@sid=OK.html#11'>11</a></sup> </p>
+<p>Oklahoma's economy is diverse.<sup><a href='print.cfm@sid=OK.html#12'>12</a></sup> The state is best known, however, for its energy-intensive petroleum and natural gas industries.<sup><a href='print.cfm@sid=OK.html#13'>13</a></sup> Total energy consumption in the state is above the national median, and Oklahoma is in the top 10 states in energy use per capita.<sup><a href='print.cfm@sid=OK.html#14'>14</a>,<a href='print.cfm@sid=OK.html#15'>15</a></sup> The industrial sector is the largest energy-consuming end-use sector in Oklahoma, followed by the state's transportation sector.<sup><a href='print.cfm@sid=OK.html#16'>16</a></sup> </p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>Many important oil and gas conservation practices and organizations trace their origins to Oklahoma. </p></div><p>The discovery of oil in Oklahoma transformed the state's economy. By the time Oklahoma became a state in 1907, it was the largest oil producer in the nation.<sup><a href='print.cfm@sid=OK.html#17'>17</a></sup> The early history of petroleum development in Oklahoma is one of booms and busts, including unregulated overproduction and waste. As a result, many important oil and gas conservation practices and organizations trace their origins to the state. In 1935, the Interstate Oil and Gas Compact Commission (IOGCC), headquartered in Oklahoma City, was created.<sup><a href='print.cfm@sid=OK.html#18'>18</a></sup> Its purpose is to ensure responsible development and to prevent waste of petroleum resources through the coordinated efforts of oil-producing states.<sup><a href='print.cfm@sid=OK.html#19'>19</a></sup> The voluntary IOGCC has grown from an association of 6 oil-producing member states in 1935 to 30 member states and 8 associates in 2015.<sup><a href='print.cfm@sid=OK.html#20'>20</a></sup> </p>
+<p>Oklahoma produces a substantial amount of crude oil. With annual production typically accounting for between 3% and 4% of the nation's total, Oklahoma is one of the top five petroleum-producing states.<sup><a href='print.cfm@sid=OK.html#21'>21</a></sup> Although oil fields predominate in the eastern half of the state and natural gas fields in the west, oil wells are found throughout Oklahoma.<sup><a href='print.cfm@sid=OK.html#22'>22</a></sup> One of the 100 largest oil fields in the United States is in south central Oklahoma.<sup><a href='print.cfm@sid=OK.html#23'>23</a></sup> The state's oil industry experienced declining production from the mid-1980s until 2005, when crude oil production in Oklahoma hit its lowest point since 1913.<sup><a href='print.cfm@sid=OK.html#24'>24</a></sup> Production has rebounded in recent years and, by 2014, was more than twice the 2005 level.<sup><a href='print.cfm@sid=OK.html#25'>25</a></sup> Proved reserves also doubled between 2009 and 2014.<sup><a href='print.cfm@sid=OK.html#26'>26</a></sup> Oklahoma crude oil provides the feedstock for the state's refineries, which have a combined distillation capacity of more than 500,000 barrels per calendar day-roughly 3% of the total U.S. refining capacity.<sup><a href='print.cfm@sid=OK.html#27'>27</a></sup> The number of operable refineries in Oklahoma has declined from 12 in the early 1980s to 5 in 2015.<sup><a href='print.cfm@sid=OK.html#28'>28</a></sup> Several petroleum product pipelines connect those refineries to markets in Oklahoma and in other states.<sup><a href='print.cfm@sid=OK.html#29'>29</a></sup></p>
+<div class='pullquote'><p>Cushing, Oklahoma, is known internationally as the delivery point for the U.S. benchmark crude oil, West Texas Intermediate.</p></div><p>The city of Cushing, in central Oklahoma, is known internationally as the designated delivery and pricing point for the U.S. benchmark crude oil, West Texas Intermediate (WTI).<sup><a href='print.cfm@sid=OK.html#30'>30</a></sup> It has been called the most significant trading hub for crude oil in North America, and it is the terminus for many crude oil pipelines.<sup><a href='print.cfm@sid=OK.html#31'>31</a></sup> It is also a major storage terminal, with about one-fifth of the nation's crude oil storage capacity, excluding the U.S. Strategic Petroleum Reserve.<sup><a href='print.cfm@sid=OK.html#32'>32</a></sup> Over the past five years an annual average of almost 40 million barrels of crude oil has been stored at Cushing.<sup><a href='print.cfm@sid=OK.html#33'>33</a></sup> The Cushing hub connects Gulf Coast producers and importers to refiners in other parts of the country, originally transporting Gulf Coast and Mid-Continent crude oil north to Midwest refining markets. Increased U.S. shale oil and Canadian heavy crude oil production created a crude oil delivery bottleneck at Cushing in 2011. In response, an underused pipeline system that originally transported crude oil from South Texas to Cushing was reversed in May 2012, marking a historic shift in the way oil flows across the United States. That reversal allowed delivery of more U.S. shale and Canadian crude oil to Gulf Coast refining centers and helped relieve the bottleneck at Cushing.<sup><a href='print.cfm@sid=OK.html#34'>34</a></sup> Additional pipeline capacity from Cushing south to the Gulf Coast has since come on line.<sup><a href='print.cfm@sid=OK.html#35'>35</a></sup></p>
+<p>Per capita petroleum consumption in Oklahoma is greater than in three-fourths of the states.<sup><a href='print.cfm@sid=OK.html#36'>36</a>,<a href='print.cfm@sid=OK.html#37'>37</a></sup> The transportation sector uses more than three-fourths of petroleum consumed in the state. The industrial sector uses most of the rest. The residential sector, where only about 0.1% of households use petroleum for home heating, accounts for 2% of state consumption.<sup><a href='print.cfm@sid=OK.html#38'>38</a>,<a href='print.cfm@sid=OK.html#39'>39</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>The Hugoton-to-Chicago pipeline initiated the marketing of natural gas far from its source.</p></div><p>Oklahoma's natural gas production reached an all-time high of 2.31 trillion cubic feet in 2014, surpassing the previous peak of 2.26 trillion cubic feet in 1990.<sup><a href='print.cfm@sid=OK.html#40'>40</a></sup> The state is a top natural gas producer, supplying almost one-tenth of the marketed natural gas in the nation.<sup><a href='print.cfm@sid=OK.html#41'>41</a></sup> Thirteen of the 100 largest natural gas fields in the United States are in Oklahoma,<sup><a href='print.cfm@sid=OK.html#42'>42</a></sup> and proved natural gas reserves in the state have almost doubled in the past decade.<sup><a href='print.cfm@sid=OK.html#43'>43</a></sup> The Hugoton Field is the largest natural gas field in the state and one of the largest individual natural gas fields in the United States, covering much of the Oklahoma panhandle, as well as parts of the Texas panhandle and Kansas.<sup><a href='print.cfm@sid=OK.html#44'>44</a></sup> The initial development of those natural gas reserves was hampered by lack of accessible markets. As a result, in 1931, construction of a 24-inch, high-pressure pipeline from the Hugoton Gas Area to Chicago area markets was completed, initiating long-distance pipeline transportation of natural gas. The ability to market natural gas far from where it was produced was a critical development in the creation of the modern natural gas industry.<sup><a href='print.cfm@sid=OK.html#45'>45</a></sup> </p>
+<p>Oklahoma also has substantial shale gas and coalbed methane resources. In 2013, Oklahoma was the fifth-largest shale gas-producing state, after Texas, Pennsylvania, Louisiana, and Arkansas, and its proved reserves are substantial.<sup><a href='print.cfm@sid=OK.html#46'>46</a>,<a href='print.cfm@sid=OK.html#47'>47</a></sup> Oklahoma produced more than 3.5 trillion cubic feet of natural gas from shales between 2007 and 2014, and production has been steadily increasing.<sup><a href='print.cfm@sid=OK.html#48'>48</a></sup> Oklahoma also has coalbed methane resources in the eastern part of the state.<sup><a href='print.cfm@sid=OK.html#49'>49</a></sup> More than 600 billion cubic feet of natural gas have been produced from Oklahoma coalbeds since 2005.<sup><a href='print.cfm@sid=OK.html#50'>50</a></sup> Remaining proved reserves, which have been increasing since 2011, are almost equal to the amount that has already been extracted.<sup><a href='print.cfm@sid=OK.html#51'>51</a></sup></p>
+<p>About two-fifths of the natural gas delivered to consumers in Oklahoma is used for electric power generation, while the industrial sector consumes slightly more than one-third of end-use deliveries.<sup><a href='print.cfm@sid=OK.html#52'>52</a></sup> Although more than half of Oklahoma households use natural gas for home heating, the residential sector accounts for only about one-eighth of the natural gas delivered to consumers in the state.<sup><a href='print.cfm@sid=OK.html#53'>53</a>,<a href='print.cfm@sid=OK.html#54'>54</a></sup> Typically about one-third of Oklahoma's natural gas production is consumed within the state.<sup><a href='print.cfm@sid=OK.html#55'>55</a>,<a href='print.cfm@sid=OK.html#56'>56</a></sup> The remaining supply is sent through Kansas, Texas, Arkansas, and Missouri on its way to other markets. More than twice as much natural gas flows out of Oklahoma each year as flows into the state.<sup><a href='print.cfm@sid=OK.html#57'>57</a></sup></p>
+<h2>Coal</h2>
+<p>The Oklahoma coal mining region extends south from the Kansas border in northeastern Oklahoma and eastward to the Arkansas border. Commercial coal-mining began in Oklahoma in 1873.<sup><a href='print.cfm@sid=OK.html#58'>58</a></sup> The first mines were underground, and significant surface mining did not begin until 1915.<sup><a href='print.cfm@sid=OK.html#59'>59</a></sup> In 2013, bituminous coal was mined at seven underground mines and two surface mines in the state.<sup><a href='print.cfm@sid=OK.html#60'>60</a>,<a href='print.cfm@sid=OK.html#61'>61</a></sup> However, coal produced from Oklahoma's mines meets only a small fraction of the state's needs, and almost all of the coal consumed in Oklahoma is brought into the state from Wyoming by railcar for use by the electric power sector.<sup><a href='print.cfm@sid=OK.html#62'>62</a>,<a href='print.cfm@sid=OK.html#63'>63</a></sup></p>
+<h2>Electricity</h2>
+<p>Oklahoma's largest power plants are either coal- or natural gas-fired.<sup><a href='print.cfm@sid=OK.html#64'>64</a></sup> Together coal- and natural gas-fired power plants generate more than four-fifths of the electric power produced in the state.<sup><a href='print.cfm@sid=OK.html#65'>65</a></sup> In 2012, the amount of natural gas used for electricity generation in Oklahoma reached a record when it fueled about half of the state's net generation.<sup><a href='print.cfm@sid=OK.html#66'>66</a>,<a href='print.cfm@sid=OK.html#67'>67</a></sup> In recent years, the share of power generation fueled by coal and natural gas in the state has decreased as wind-powered generation has increased.<sup><a href='print.cfm@sid=OK.html#68'>68</a>,<a href='print.cfm@sid=OK.html#69'>69</a></sup> Although electric utilities provide the majority of the state's electricity, independent power producers provide about three-tenths of the state's total power, and almost half of that share is generated from wind.<sup><a href='print.cfm@sid=OK.html#70'>70</a></sup> A small share of Oklahoma's electricity generation comes from hydroelectric power.<sup><a href='print.cfm@sid=OK.html#71'>71</a></sup> Oklahoma does not have any nuclear power plants.<sup><a href='print.cfm@sid=OK.html#72'>72</a></sup> </p>
+<p>More than one-third of Oklahoma households rely on electricity as their primary energy source for home heating.<sup><a href='print.cfm@sid=OK.html#73'>73</a></sup> Retail sales of electricity are highest in the residential sector, and Oklahoma's total electricity consumption per capita is higher than the national average.<sup><a href='print.cfm@sid=OK.html#74'>74</a>,<a href='print.cfm@sid=OK.html#75'>75</a></sup> </p>
+<h2>Renewable energy </h2>
+<p>Oklahoma generates about one-fifth of its electricity from renewable resources, mostly wind energy, but also from other renewable energy resources, particularly hydroelectric dams and, to a limited extent, biomass.<sup><a href='print.cfm@sid=OK.html#76'>76</a></sup> The state is among the top producers of electricity from wind, ranking fourth in the nation in 2014. Oklahoma's wind resource provided one-seventh of the state's electricity generation in 2014 and its contribution is increasing.<sup><a href='print.cfm@sid=OK.html#77'>77</a></sup> </p>
+<div class='pullquote'><p>Oklahoma ranked fourth among the states in electricity generation from wind in 2014.</p></div><p>Oklahoma is entirely within the drainage basin of the Mississippi River.<sup><a href='print.cfm@sid=OK.html#78'>78</a></sup> Many of the rivers that flow across the state have been dammed to form lakes, and Oklahoma has more man-made lakes than any other state in the nation.<sup><a href='print.cfm@sid=OK.html#79'>79</a>,<a href='print.cfm@sid=OK.html#80'>80</a></sup> Those dams, and the rivers they restrict including the Neosho River, the Grand River, and the Arkansas River, are the sites of several hydroelectric power generation facilities.<sup><a href='print.cfm@sid=OK.html#81'>81</a></sup> Hydroelectric power contributes varying amounts to the state's electric grid, depending on river levels, precipitation, and drought, but, on average, it provides about 3% of the state's annual net generation.<sup><a href='print.cfm@sid=OK.html#82'>82</a></sup> The state has considerably more hydroelectric potential, and additional facilities are planned.<sup><a href='print.cfm@sid=OK.html#83'>83</a></sup></p>
+<p>Oklahoma's legislature established a renewable energy goal for the state's electric utilities of 15% of total installed generation capacity from renewable sources by 2015. A variety of renewable energy resources were allowed, including wind, solar, biomass, hydropower, geothermal, and hydrogen. Energy efficiency and demand-side management could be used to meet up to 25% of the overall goal. To verify their activities, each utility that owns or operates electricity generation facilities had to file an annual report documenting total installed capacity, actual generation, and the energy source used at all generation facilities. The goal did not extend beyond 2015.<sup><a href='print.cfm@sid=OK.html#84'>84</a></sup> In 2013, the Oklahoma Corporation Commission reported that the state's utilities had already exceeded the 2015 goal.<sup><a href='print.cfm@sid=OK.html#85'>85</a></sup></p>
+<div class="feature tribal" id="quick_facts_container">
+			<span>
+				<h3>Energy on Tribal Lands</h3>
+<p>Oklahoma's tribal areas are spread across about three-fourths of the state, but only one of the state's 38 federally recognized Native American tribes has a reservation.<sup><a href='print.cfm@sid=OK.html#86'>86</a>,<a href='print.cfm@sid=OK.html#87'>87</a>,<a href='print.cfm@sid=OK.html#88'>88</a></sup> The nearly 1.5 million acres of the Osage Nation Reservation occupies all of Osage County, Oklahoma. The tribe purchased its land, including the mineral rights, in the 19th century. After oil was discovered on their land in 1894, the Osage tribe became known as the richest people in the world.<sup><a href='print.cfm@sid=OK.html#89'>89</a></sup> They continue to receive income from the significant amounts of crude oil and natural gas produced in the county.<sup><a href='print.cfm@sid=OK.html#90'>90</a></sup> </p>
+<p>Oklahoma's tribal areas share in many of the state's renewable resources.<sup><a href='print.cfm@sid=OK.html#91'>91</a>,<a href='print.cfm@sid=OK.html#92'>92</a></sup> Some tribes are using solar energy for distributed generation. The Delaware Nation installed a 37.5-kilowatt solar array on the roof of their headquarters complex north of Anadarko, Oklahoma.<sup><a href='print.cfm@sid=OK.html#93'>93</a></sup> Several tribal areas in Oklahoma have wind potential.<sup><a href='print.cfm@sid=OK.html#94'>94</a></sup> Taking advantage of their wind resources, five tribes have partnered with a company that develops and constructs wind power projects to build a wind farm around the Chilocco Indian School at Chilocco. One of the largest wind farms on U.S. tribal land, the 90-turbine, 153-megawatt wind farm, covering 6,000 acres, is being constructed on land that is owned by and leased from five Oklahoma tribes&#8212the Cherokee Nation, the Kaw Nation, the Otoe-Missouri Tribe, the Pawnee Nation, and the Ponca Nation.<sup><a href='print.cfm@sid=OK.html#95'>95</a></sup> Construction of the wind farm began in December 2013 and is expected to be completed by the end of 2016.<sup><a href='print.cfm@sid=OK.html#96'>96</a></sup> Other energy resource options are being explored by Oklahoma tribes. The Seminole Nation of Oklahoma is pursuing a waste-to-energy project,<sup><a href='print.cfm@sid=OK.html#97'>97</a></sup> and the Citizen Potawatomi Nation has explored using geothermal resources for ground-source heat pumps.<sup><a href='print.cfm@sid=OK.html#98'>98</a></sup></p>
+</span>
+</div>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Gibson, Arrell M., "Midcontinent Oil Region," Dictionary of American History, Encyclopedia.com (2003).<br>
+<a name='2'></a><sup>2</sup> Oklahoma Corporation Commission, Oil and Gas Info, accessed January 11, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015).<br>
+<a name='4'></a><sup>4</sup> Oklahoma Department of Mines, Oklahoma Coal (October 10, 2015).<br>
+<a name='5'></a><sup>5</sup> East Central University Department of Cartography and Geography, Web Atlas of Oklahoma, Physiography (July 2004).<br>
+<a name='6'></a><sup>6</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Oklahoma Wind Resource Map and Potential Wind Capacity, accessed December 2, 2015.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.17.B.<br>
+<a name='8'></a><sup>8</sup> Oklahoma Historical Society, Lakes and Reservoirs, accessed December 2, 2015.<br>
+<a name='9'></a><sup>9</sup> Francfort, James E., U.S. Hydropower Resource Assessment for Oklahoma, Idaho National Engineering Laboratory, DOE/ID-10430 (December 1993).<br>
+<a name='10'></a><sup>10</sup> National Renewable Energy Laboratory, Dynamic Maps, GIS Data and Analysis Tools, Solar Maps, accessed December 2, 2015.<br>
+<a name='11'></a><sup>11</sup> Oklahoma Climatological Survey, Climate of Oklahoma, accessed December 2, 2015.<br>
+<a name='12'></a><sup>12</sup> Evans, Monte, Oklahoma Economic Indicators, Oklahoma Employment Security Commission (October 2015), p. 4.<br>
+<a name='13'></a><sup>13</sup> State Chamber of Oklahoma Research Foundation, Top Economic Facts About Oklahoma's Oil and Gas Industry (January 2014).<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2013, DOE/EIA-0214(2013) (July 2015), Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='17'></a><sup>17</sup> Oklahoma Energy Resources Board, Oklahoma: Where Energy Reigns (2007), p. 26.<br>
+<a name='18'></a><sup>18</sup> Interstate Oil and Gas Compact Commission, About Us, Our History, accessed December 2, 2015.<br>
+<a name='19'></a><sup>19</sup> Interstate Oil and Gas Compact Commission, About Us, Interstate Oil and Gas Commission Charter, accessed December 2, 2015.<br>
+<a name='20'></a><sup>20</sup> Interstate Oil and Gas Compact Commission, Member States, accessed December 2, 2015.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Crude Oil Production, Annual, 2014, accessed December 2, 2015. <br>
+<a name='22'></a><sup>22</sup> Boyd, Dan T., Map of Oklahoma Oil and Gas Fields, Map GM-36, Oklahoma Geological Survey (2002).<br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), Table 1, Top 100 U.S. oil fields as of December 31, 2013, p. 6.<br>
+<a name='24'></a><sup>24</sup> Oklahoma Corporation Commission, 2011 Report on Oil and Natural Gas Activity within the State of Oklahoma, p. 14, accessed December 2, 2015.<br>
+<a name='25'></a><sup>25</sup> U.S. Energy Information Administration, Oklahoma Field Production of Crude Oil, 1981-2014.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, Crude Oil Proved Reserves, Reserve Changes, and Production, Proved Reserves as of 12/31, 2014.<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Atmospheric Crude Oil Distillation Operable Capacity, as of January 1, 2015.<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Total Number of Operable Refineries, as of January 1, 2015. <br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, Oklahoma State Energy Profile Map, Petroleum Product Pipelines and Petroleum Refineries layers, accessed December 2, 2015. <br>
+<a name='30'></a><sup>30</sup> Miller, K. D., M. T. Chevalier, and J. Leavens, The Role of WTI as a Crude Oil Benchmark (January 2010), p. 24.<br>
+<a name='31'></a><sup>31</sup> National Petroleum Council, Paper #1-7 Crude Oil Infrastructure (September 15, 2011), p. 12.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Working and Net Available Shell Storage Capacity as of September 30, 2015, Table 3, Net Available Shell Storage Capacity of Terminals and Tank Farms as of September 30, 2015.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Cushing, OK Ending Stocks of Crude Oil, 2009-14.<br>
+<a name='34'></a><sup>34</sup> Platts Price Group, Oil Division, Special Report, New Crudes, New Markets, Platts (March 2013), p. 2, 14.<br>
+<a name='35'></a><sup>35</sup> Blum, Jordan, "Enbridge, Enterprise deliver high-volume Canadian crude to the Houston area," Houston Business Journal (January 16, 2015).<br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='37'></a><sup>37</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2013.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='39'></a><sup>39</sup> U.S. Census Bureau, American FactFinder, Table: B25040, State: Oklahoma, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Oklahoma Natural Gas Gross Withdrawals, accessed December 3, 2015.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual, 2014, accessed December 3, 2015.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), Table 2, Top 100 U.S. gas fields as of December 31, 2013, p. 8.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Oklahoma Natural Gas, Wet After Lease Separation Proved Reserves, 1979-2014. <br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), Table 2, Top 100 U.S. gas fields as of December 31, 2013, p. 8.<br>
+<a name='45'></a><sup>45</sup> The Historical Marker Database, Panhandle Area Natural Gas, accessed December 3, 2015.<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Oklahoma Natural Gas Gross Withdrawals from Shale Gas, 2007-13.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Shale Gas Proved Reserves as of December 1, 2014.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Oklahoma Shale Production, 2007-14.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Coalbed Methane Fields, Lower 48 States (April 8, 2009).<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Oklahoma Coalbed Methane Production, 2005-14, accessed December 3, 2015. <br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Coalbed Methane, Proved Reserves as of December 31, 2014.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Oklahoma, 2014.<br>
+<a name='53'></a><sup>53</sup> U.S. Census Bureau, American FactFinder, Table: B25040, House Heating Fuel, State: Oklahoma, 2014 American Community Survey 1-Year Estimates.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Oklahoma, 2014.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Oklahoma, Annual, 2009-2014, accessed December 3, 2015.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Oklahoma, 2009-2014, accessed December 3, 2015.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, Oklahoma, Annual, 2009-2014, accessed December 3, 2015.<br>
+<a name='58'></a><sup>58</sup> Sewell, Steven L., "Coal," Encyclopedia of Oklahoma History and Culture (2009).<br>
+<a name='59'></a><sup>59</sup> Luza, Kenneth V., and Kenneth S. Johnson, Earth Sciences and Mineral Resources of Oklahoma, Educational Publication 9, Oklahoma Geological Survey (2008), p. 15.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2013.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 1, Coal Production and Number of Mines by State and Mine Type, 2013 and 2012.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 26, U.S. Coal Consumption by End Use Sector, Census Division, and State, 2013 and 2012.<br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 2015), By Destination State, Table DS-34, Domestic Coal Distribution, by Destination State, 2013, Oklahoma. <br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Oklahoma Electricity Profile 2013, Table 2, Ten largest plants by generation capacity, 2013.<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B., 1.7.B., 1.10.B.<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Oklahoma Natural Gas Deliveries to Electric Power Consumers, 1997-2014.<br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2013), Tables 1.6.B., 1.10.B.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (March 2011), Tables 1.6.B., 1.7.B., 1.10.B.,1.17.B.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B., 1.7.B., 1.10.B., 1.17.B.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B., 1.17.B.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B., 1.13.B.<br>
+<a name='72'></a><sup>72</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 1.12.B.<br>
+<a name='73'></a><sup>73</sup> U.S. Census Bureau, American FactFinder, Table: B25040, House Heating Fuel, State: Oklahoma, 2014 American Community Survey 1-Year Estimates.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 5.4.B.<br>
+<a name='75'></a><sup>75</sup> U.S. Census Bureau, United States, QuickFacts Oklahoma, accessed December 4, 2015.<br>
+<a name='76'></a><sup>76</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.14.B, 1.17.B, 1.18.B.<br>
+<a name='77'></a><sup>77</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 1.17.B.<br>
+<a name='78'></a><sup>78</sup> Oklahoma Climatological Survey, Climate of Oklahoma, Overview, accessed December 6, 2015.<br>
+<a name='79'></a><sup>79</sup> Oklahoma Historical Society, Lakes and Reservoirs, accessed December 2, 2015.<br>
+<a name='80'></a><sup>80</sup> OutdoorsOK, Oklahoma Lakes, accessed December 6, 2015.<br>
+<a name='81'></a><sup>81</sup> Federal Energy Regulatory Commission, Hydropower, Complete List of Active Licenses, accessed December 6, 2015.<br>
+<a name='82'></a><sup>82</sup> U.S. Energy Information Administration, Electric Power Monthly (March 2010; March 11; February 2012; February 2013; February 2014; February 2015) Tables 1.6.B and 1.13.B.<br>
+<a name='83'></a><sup>83</sup> Federal Energy Regulatory Commission, Hydropower, Active Preliminary Permits (November 6, 2015).<br>
+<a name='84'></a><sup>84</sup> NC Clean Energy Technology Center, DSIRE, Oklahoma Renewable Energy Goal (October 30, 2014).<br>
+<a name='85'></a><sup>85</sup> Oklahoma Corporation Commission, The Oklahoma Corporation Commission's 2013 Report on the Oklahoma Energy Security Act (2014).<br>
+<a name='86'></a><sup>86</sup> Oklahoma Department of Transportation, Tribal Jurisdictions in Oklahoma (2010).<br>
+<a name='87'></a><sup>87</sup> U.S. Department of the Interior, Bureau of Indian Affairs, "Indian Entities Recognized and Eligible to Receive Services from the United States Bureau of Indian Affairs," Federal Register, Vol. 80 No. 9 (January 14, 2015), p. 1942-1948.<br>
+<a name='88'></a><sup>88</sup> U.S. Department of the Interior, U.S. Geological Survey, The National Atlas of the United States, Oklahoma Federal Lands and Indian Reservations (2004).<br>
+<a name='89'></a><sup>89</sup> Landry, Alysa, "Native History: Osage Forced to Abandon Lands in Missouri and Arkansas," Indian Country Today (November 10, 2013).<br>
+<a name='90'></a><sup>90</sup> The Osage Nation, Mineral Council, accessed December 7, 2015.<br>
+<a name='91'></a><sup>91</sup> Oklahoma Department of Transportation, Tribal Jurisdictions in Oklahoma (2010).<br>
+<a name='92'></a><sup>92</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Oklahoma Renewable Energy Resource Maps, accessed December 7, 2015.<br>
+<a name='93'></a><sup>93</sup> "A Nation's Solar System: The Delaware Nation Moves to Sun Power and Solar Manufacturing," Indian Country Today (June 26, 2011).<br>
+<a name='94'></a><sup>94</sup> U.S. Department of the Interior, Bureau of Indian Affairs, Office of Indian Energy and Economic Development Division of Energy and Mineral Development, Native American Wind Resource Atlas (2010), p. 46-51.<br>
+<a name='95'></a><sup>95</sup> Murphy, J., "Tribe Pushes Forward with Wind Farm," Cherokee Phoenix (May 24, 2013).<br>
+<a name='96'></a><sup>96</sup> PNE Wind, Financial report on the first six month and the second quarter of 2015 (August 7, 2015), p. 20.<br>
+<a name='97'></a><sup>97</sup> Seminole Nation of Oklahoma, Request for Proposal, Energy and Mineral Consulting Services (March 31, 2015).<br>
+<a name='98'></a><sup>98</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Tribal Energy Program, Citizen Potawatomi Nation 2005 Project, accessed December 8, 2015.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Interior</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Southwest Power Pool, Inc (SPP)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://okcommerce.gov/state-energy-office/" title="Oklahoma State Energy Office">Oklahoma State Energy Office</a></li>
+  
+    <li><a href="http://www.okdhs.org/divisionsoffices/programsandservices/liheap/" title="Oklahoma Department of Human Services, Utility Assistance, Service Information">Oklahoma Department of Human Services, Utility Assistance, Service Information</a></li>
+  
+    <li><a href="http://www.ogs.ou.edu/level2-energy.php" title="Oklahoma Geological Survey, Energy">Oklahoma Geological Survey, Energy</a></li>
+  
+    <li><a href="http://okcommerce.gov/community-resources/grants-and-funding-programs/weatherization/" title="Oklahoma Department of Commerce, Weatherization Assistance Program">Oklahoma Department of Commerce, Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://www.swpa.gov" title="Southwestern Power Administration">Southwestern Power Administration</a></li>
+  
+    <li><a href="http://www.okcleancities.org//" title="Association of Central Oklahoma Governments Clean Cities">Association of Central Oklahoma Governments Clean Cities</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.occ.state.ok.us/" title="Oklahoma Corporation Commission">Oklahoma Corporation Commission</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Oklahoma website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Oklahoma\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/OK.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

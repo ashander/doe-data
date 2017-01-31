@@ -1,0 +1,2984 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Iowa Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Iowa State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Iowa Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Iowa is the largest producer of ethanol in the United States, and it had 27.3% of the nation&#39;s fuel ethanol operating capacity in 2015.&nbsp;</li>
+	
+	<li>The heavy use of liquefied petroleum gases (LPG) in the industrial sector and in the residential sector contributes to Iowa&#39;s ranking of fifth among the states in LPG consumption in 2013.&nbsp;</li>
+	
+	<li>In 2015, 53% of Iowa&#39;s net electricity generation was fueled by coal, down from 59% in 2014.</li>
+	
+	<li>In 2015, Iowa was ranked second among the states in net electricity generation from wind and third among the states in the amount of net electricity generated from all non-hydroelectric renewable energy resources.</li>
+	
+	<li>Wind provided 31.3% of Iowa&rsquo;s total electricity generation in 2015, a larger share than any other state. Wind was second only to coal as an energy source for electricity generation in the state.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: March 17, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=IA.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=IA.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=IA.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=IA.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=IA.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Iowa Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Iowa Energy Consumption Estimates',
+		data : [401.2,311.3,186.9,145.3,5.7,68.1,0.0,19.4,43.4,8.4,241.1,156.7,-45.7]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Iowa Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 253.1],['Commercial', 213.1],['Industrial', 766.4],['Transportation', 309.3]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Iowa Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Iowa Energy Production Estimates',
+		data : [0.0,0.0,0.0,43.4,526.8,186.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Iowa Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Iowa Net Electricity Generation',
+		data : [8,159,2184,21,66,1814]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Iowa Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Iowa U.S. Price Differentials',
+		data : [{y:3.5799522673, period: Date.UTC(2016,9,1)},{y:-1.44578313253, period: Date.UTC(2016,9,1)},{y:-16.3323782235, period: Date.UTC(2016,9,1)},{y:-19.3452380952, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					3.1 million 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.7 million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 174.1  billion 
+				</td>
+				<td>
+					30 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 31,782  million 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 44,971 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					31,414 million miles 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					30.6 million acres 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					49.3 degrees Fahrenheit 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					42.5 inches 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.34 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.54 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.27 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					8.76 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.42 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=193">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					757 trillion Btu 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					16,608 MW 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					4,253 thousand MWh 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					3.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					51.4 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0.5 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					44.2 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					144 thousand barrels 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,903 thousand barrels 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					276,919 million cu ft 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					128 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					8,220 thousand tons 
+				</td>
+				<td>
+					5.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Iowa</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Walter Scott Jr Energy Center (MidAmerican Energy Co) ; George Neal North (MidAmerican Energy Co) ; Louisa (MidAmerican Energy Co) ; Ottumwa (Interstate Power and Light Co) ; George Neal South (MidAmerican Energy Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Duane Arnold (NextEra Energy Duane Arnold LLC)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=193">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Iowa</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Iowa</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">BP Pipeline, Koch Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Midstream Partners, Nustar, Buckeye Partners</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Kinder Morgan, Enterprise Products, Nustar, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Natural Gas Pipeline Company of America, Northern Border Pipeline Company, Northern Natural Gas</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					1,800 stations 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					34 stations 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					93 stations 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					209 stations 
+				</td>
+				<td>
+					6.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					20 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,542 trillion Btu 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					496 million Btu 
+				</td>
+				<td>
+					5 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 18,022  million 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,796 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					253 trillion Btu 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					213 trillion Btu 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					767 trillion Btu 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					309 trillion Btu 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 2,900  million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,016  million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 5,046  million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 8,060  million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					88.2 million barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					329.9 billion cu ft 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					23.0 million short tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 11,483  million 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 2,579  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 723  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					12 thousand barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,370 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,285 thousand short tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=193">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					62.7 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.7 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					20.4 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					13.2 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					3.0 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					6,440 MW 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					3,921 million gal/year 
+				</td>
+				<td>
+					25.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					66 thousand MWh 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					1,793 thousand MWh 
+				</td>
+				<td>
+					7.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					20 thousand MWh 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					4 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					92,632 Thousand Barrels 
+				</td>
+				<td>
+					27.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					26.3 % 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=IA"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					4,536 thousand barrels 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					82.0 million metric tons 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Iowa</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=193">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					35,043 thousand metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					44 thousand metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					31 thousand metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: March 17, 2016<p>
+<h2>Overview </h2>
+<p>Located between the Mississippi and Missouri rivers, Iowa's gently rolling plains have some of the richest farmland in the nation and significant renewable energy resources. The state's climate, with rainfall in the growing season and dry air at harvest, together with Iowa's deep topsoils, produce abundant grain crops.<sup><a href='print.cfm@sid=IA.html#1'>1</a></sup> The state leads the nation in the production of both corn and ethanol.<sup><a href='print.cfm@sid=IA.html#2'>2</a>,<a href='print.cfm@sid=IA.html#3'>3</a></sup> Unobstructed winds blow across Iowa's open prairie, giving the state significant wind resources.<sup><a href='print.cfm@sid=IA.html#4'>4</a></sup> With its many days of sunshine each year, Iowa has solar energy potential as well.<sup><a href='print.cfm@sid=IA.html#5'>5</a></sup> However, Iowa has few fossil energy resources and no crude oil or natural gas production.<sup><a href='print.cfm@sid=IA.html#6'>6</a>,<a href='print.cfm@sid=IA.html#7'>7</a></sup></p>
+<div class='pullquote'><p>Iowa is one of the top 10 states in share of GDP from manufacturing.</p></div>Iowa ranks fifth in the nation in total energy use per person, placing the state above the national median in total energy consumption despite its small population.<sup><a href='print.cfm@sid=IA.html#8'>8</a></sup> The industrial sector leads the state's end-use energy consumption, accounting for half of the state total.<sup><a href='print.cfm@sid=IA.html#9'>9</a></sup> Agriculture, biofuels production, and manufacturing are key Iowa industries.<sup><a href='print.cfm@sid=IA.html#10'>10</a></sup> Iowa consistently ranks among the top 10 states in the nation in share of gross domestic product (GDP) from manufacturing.<sup><a href='print.cfm@sid=IA.html#11'>11</a></sup> Iowa's manufactured products include food and beverages, machinery, fabricated metals, transportation equipment, computers and electronics, plastics, and chemicals. Together, those products account for three-fourths of the state's manufacturing GDP. Food and beverage production alone provides one-fourth of the state's manufacturing GDP.<sup><a href='print.cfm@sid=IA.html#12'>12</a></sup> The transportation sector uses about one-fifth of the energy consumed by end users in Iowa, less than half as much as the industrial sector. The residential sector, where the majority of households heat with natural gas, and the commercial sector together account for less than one-third of the state's end-use consumption.<sup><a href='print.cfm@sid=IA.html#13'>13</a>,<a href='print.cfm@sid=IA.html#14'>14</a></sup>
+<h2>Petroleum</h2>
+<p>Iowa is not a petroleum producing state.<sup><a href='print.cfm@sid=IA.html#15'>15</a></sup> Of the approximately 135 exploration wells drilled in the state, only 2 ever produced oil. Those wells are no longer producing, and their combined total cumulative production was less than 500 barrels of crude oil.<sup><a href='print.cfm@sid=IA.html#16'>16</a></sup> Iowa does not have any oil refineries and relies on petroleum products brought in by pipeline from other states.<sup><a href='print.cfm@sid=IA.html#17'>17</a>,<a href='print.cfm@sid=IA.html#18'>18</a></sup> Iowa ranks fifth among the states in liquefied petroleum gas (LPG) consumption. LPG use is highest in the state's industrial and residential sectors.<sup><a href='print.cfm@sid=IA.html#19'>19</a></sup> Residential use, where more than one-eighth of Iowa's households heat with LPG, is almost triple the national average.<sup><a href='print.cfm@sid=IA.html#20'>20</a>,<a href='print.cfm@sid=IA.html#21'>21</a></sup> LPG is also used in the industrial sector, in agriculture, for corn drying after harvest.<sup><a href='print.cfm@sid=IA.html#22'>22</a></sup> </p>
+<p>Most of the petroleum consumed in Iowa is used as motor gasoline.<sup><a href='print.cfm@sid=IA.html#23'>23</a></sup> Iowa allows the statewide use of conventional motor gasoline without ethanol.<sup><a href='print.cfm@sid=IA.html#24'>24</a></sup> However, Iowa has more than one-fourth of the nation's total ethanol production capacity, and blends of 15% motor gasoline and 85% ethanol (E-85) are sold across the state.<sup><a href='print.cfm@sid=IA.html#25'>25</a></sup> With about 1.4% of the nation's registered motor vehicles, Iowa's ethanol consumption is only slightly more than 1% of the nation's total.<sup><a href='print.cfm@sid=IA.html#26'>26</a>,<a href='print.cfm@sid=IA.html#27'>27</a></sup> </p>
+<h2>Natural gas</h2>
+<p>Iowa does not have any natural gas production, but the state is crossed by four natural gas pipelines and has four natural gas storage fields that have a combined capacity of almost 300 billion cubic feet.<sup><a href='print.cfm@sid=IA.html#28'>28</a>,<a href='print.cfm@sid=IA.html#29'>29</a>,<a href='print.cfm@sid=IA.html#30'>30</a>,<a href='print.cfm@sid=IA.html#31'>31</a></sup> Natural gas enters Iowa from Canada by pipelines that cross North Dakota, South Dakota, and Minnesota, while other pipelines bring natural gas from the south and southwest into the state.<sup><a href='print.cfm@sid=IA.html#32'>32</a>,<a href='print.cfm@sid=IA.html#33'>33</a></sup> Slightly more than four-fifths of the natural gas entering Iowa continues on to markets in the Midwest and beyond.<sup><a href='print.cfm@sid=IA.html#34'>34</a></sup> </p>
+<p>Natural gas provides about one-fourth of the total energy consumed in Iowa.<sup><a href='print.cfm@sid=IA.html#35'>35</a></sup> More than half of the natural gas delivered to end users in the state is consumed in the industrial sector. The residential sector, where almost two-thirds of households use natural gas as their primary home heating fuel, consumes about one-fourth of the natural gas delivered to end users in Iowa.<sup><a href='print.cfm@sid=IA.html#36'>36</a>,<a href='print.cfm@sid=IA.html#37'>37</a></sup> </p>
+<h2>Coal</h2>
+<p>Coal mining began in Iowa in the 1840s and continued in the state until the 1990s. In the 1910s, there were more than 400 coal mines located in the southern half of the state. There are no active coal mines in Iowa today, but the state still has considerable coal resources.<sup><a href='print.cfm@sid=IA.html#38'>38</a>,<a href='print.cfm@sid=IA.html#39'>39</a></sup> Iowa has almost 2.2 billion tons of demonstrated coal reserves with an estimated recoverable reserve base of more than 1.1 billion tons.<sup><a href='print.cfm@sid=IA.html#40'>40</a></sup> The state's coal reserves are primarily in the south central part of Iowa.<sup><a href='print.cfm@sid=IA.html#41'>41</a></sup> There are also deeply buried coal resources in southwestern Iowa, where underground mining is currently not economically feasible. The resource potential of any associated coalbed methane in Iowa is unknown.<sup><a href='print.cfm@sid=IA.html#42'>42</a></sup> </p>
+<p>Coal consumption for electricity generation in Iowa ranks among the top one-third of all states. Because of Iowa's reliance on coal for electricity generation and because only about 1% of the nation's population lives in the state, Iowa is among the top 10 states in the nation in coal use per capita.<sup><a href='print.cfm@sid=IA.html#43'>43</a>,<a href='print.cfm@sid=IA.html#44'>44</a>,<a href='print.cfm@sid=IA.html#45'>45</a></sup> Almost all of the coal consumed in Iowa is low-sulfur coal brought by rail from Wyoming and delivered to electric power generators.<sup><a href='print.cfm@sid=IA.html#46'>46</a>,<a href='print.cfm@sid=IA.html#47'>47</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>About three-tenths of Iowa’s net electricity generation comes from wind.</p></div><p>Iowa's five largest power plants by capacity are all coal-fired, and coal is the primary fuel used in electricity generation in the state.<sup><a href='print.cfm@sid=IA.html#48'>48</a></sup> Coal-fired plants produce more than half of the electricity generated in Iowa. The second-largest source of electricity generation in the state is wind, which accounts for about three-tenths of Iowa's net generation. The state's only nuclear plant, Duane Arnold, with its single reactor, is the third-smallest operating nuclear power plant, by capacity, in the nation.<sup><a href='print.cfm@sid=IA.html#49'>49</a></sup> Duane Arnold, located just northwest of Cedar Rapids, on average generates almost one-tenth of the state's electricity.<sup><a href='print.cfm@sid=IA.html#50'>50</a>,<a href='print.cfm@sid=IA.html#51'>51</a></sup> The amount of electricity generated from natural gas in Iowa has fluctuated, but natural gas-fired power plants typically contribute less than 5% of the state's net generation.<sup><a href='print.cfm@sid=IA.html#52'>52</a>,<a href='print.cfm@sid=IA.html#53'>53</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Most of Iowa's renewably sourced electricity generation comes from wind. The state leads the nation in the percentage of its electricity generated from wind and is second in the nation, after Texas, in the total amount of electricity generated from wind.<sup><a href='print.cfm@sid=IA.html#54'>54</a></sup> The strongest winds occur in northwestern Iowa, and, although there are wind facilities across the state, most of the wind power plants in Iowa are located in the state's north and west.<sup><a href='print.cfm@sid=IA.html#55'>55</a>,<a href='print.cfm@sid=IA.html#56'>56</a></sup> Iowa is third in the nation, after Vermont and Maine, in the percentage of in-state electricity generation from renewable resources other than hydroelectric power. In addition to wind, about 2% of the state's total net electricity generation comes from hydroelectric power and biomass.<sup><a href='print.cfm@sid=IA.html#57'>57</a></sup> Although biomass contributes only a limited amount to the state's electricity generation, Iowa is committed to biomass research. The Iowa Energy Center has created the Biomass Energy Conversion facility to focus on development of Iowa's abundant biomass resource potential.<sup><a href='print.cfm@sid=IA.html#58'>58</a></sup> Iowa's number of sunny days and, as a result, its solar power potential increases from northeast to southwest across the state.<sup><a href='print.cfm@sid=IA.html#59'>59</a></sup> Presently, only a small amount of distributed photovoltaic electricity generation exists in Iowa.<sup><a href='print.cfm@sid=IA.html#60'>60</a></sup></p>
+<div class='pullquote'><p>Iowa is the leading ethanol-producing state in the nation.</p></div><p>Iowa is the leading ethanol-producing state in the nation and has more than one-fourth of the nation's ethanol production capacity.<sup><a href='print.cfm@sid=IA.html#61'>61</a>,<a href='print.cfm@sid=IA.html#62'>62</a></sup> The state's ethanol plants have a combined productive capacity of about 4 billion gallons per year. Iowa's plentiful cornfields provide the feedstock for most of the state's 47 ethanol plants, which include three cellulosic ethanol plants that use agricultural waste, either corn stover (the stalk, leaf, cob, and husk left after harvest) or corn kernel fiber as feedstock. A fourth cellulosic ethanol plant uses municipal solid waste as a feedstock.<sup><a href='print.cfm@sid=IA.html#63'>63</a>,<a href='print.cfm@sid=IA.html#64'>64</a></sup> Iowa also has about a dozen biodiesel plants with a combined productive capacity of more than 330 million gallons per year.<sup><a href='print.cfm@sid=IA.html#65'>65</a></sup> Iowa is a leading biodiesel producer and has the second-largest biodiesel production capacity in the nation, after Texas. In 2015, the state produced a record 242 million gallons of biodiesel.<sup><a href='print.cfm@sid=IA.html#66'>66</a>,<a href='print.cfm@sid=IA.html#67'>67</a></sup></p>
+<p>Iowa's energy policies and regulations promote energy efficiency and renewable resources. In 1983, Iowa became the first state in the nation to adopt a renewable portfolio standard (RPS). State regulations required Iowa's two investor-owned utilities to own or to contract for a combined total of 105 megawatts of renewable generating capacity and associated production from generating facilities designated by the utilities and approved by the Iowa Utilities Board (IUB).<sup><a href='print.cfm@sid=IA.html#68'>68</a></sup> Installed capacity from eligible renewable resources has exceeded the RPS goals. In 2008, the IUB, at the direction of the state legislature, established energy efficiency standards for each regulated utility in the state. Municipal utilities and cooperatives file their own energy efficiency goals.<sup><a href='print.cfm@sid=IA.html#69'>69</a></sup> In addition to energy efficiency standards, the Mandatory Utility Green Power Option requires all electric utilities operating in Iowa, including those not rate-regulated by the IUB, to offer renewable-sourced power options to their customers.<sup><a href='print.cfm@sid=IA.html#70'>70</a></sup> </p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> National Oceanic and Atmospheric Administration, National Climatic Data Center, Climate of Iowa, accessed February 14, 2016.<br>
+<a name='2'></a><sup>2</sup> National Agriculture in the Classroom, A Look at Iowa Agriculture (June 2015).<br>
+<a name='3'></a><sup>3</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, Ethanol Facilities Nameplate Capacity and Operating Production Ranked by State (September 4, 2015).<br>
+<a name='4'></a><sup>4</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Iowa Wind Resource Map and Potential Wind Capacity, accessed February 14, 2016.<br>
+<a name='5'></a><sup>5</sup> Current Results, Days of Sunshine per Year in Iowa, accessed February 14, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2013.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, Iowa Profile Data, Reserves and Supply, accessed February 14, 2016. <br>
+<a name='8'></a><sup>8</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2013.<br>
+<a name='10'></a><sup>10</sup> Smith, Jeff, "Top 5 Industries in Iowa: Which Parts of the Economy Are Strongest?" Newsmax (April 5, 2015). <br>
+<a name='11'></a><sup>11</sup> Iowa State University Office of Economic Development and Industry Relations, Manufacturing in Iowa (July 2015), p. 1.<br>
+<a name='12'></a><sup>12</sup> Iowa State University Office of Economic Development and Industry Relations, Manufacturing in Iowa (July 2015), p. 4.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2013.<br>
+<a name='14'></a><sup>14</sup> U.S. Census Bureau, American Factfinder, Iowa, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, Iowa Profile Data, Reserves and Supply, accessed February 14, 2016. <br>
+<a name='16'></a><sup>16</sup> McKay, Robert M., Mineral Resource Facts, accessed February 13, 2016. <br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Total Number of Operable Refineries as of January 1 (June 19, 2015).<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, Iowa Profile Data, Distribution and Marketing, accessed February 15, 2016.<br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, State Energy Data System, Table F12, Liquefied Petroleum Gases Consumption Estimates, 2013.<br>
+<a name='20'></a><sup>20</sup> U.S. Census Bureau, American Factfinder, Iowa, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Iowa Profile Data, Consumption and Expenditures, Energy Source Used for Home Heating (share of households), accessed February 15, 2016.<br>
+<a name='22'></a><sup>22</sup> Wilcke, Bill, "Energy Costs for Corn Drying and Cooling," University of Minnesota Extension, Corn Production, accessed February 15, 2016. <br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='24'></a><sup>24</sup> American Petroleum Institute, U.S. Gasoline Requirements (June 2015).<br>
+<a name='25'></a><sup>25</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Alternative Fuels Data Center, Alternative Fueling Station Locator, Ethanol (E85), Iowa, accessed February 15, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, Iowa Profile Data, Environment, Alternative Fuels, accessed February 15, 2016.<br>
+<a name='27'></a><sup>27</sup> Federal Highway Administration, Policy and Governmental Affairs, Office of Highway Policy Information, Highway Statistics Series, Highway Statistics 2011, State Motor-Vehicle Registrations - 2011 (Revised) (March 2013).<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Iowa Profile Data, Reserves and Supply, accessed February 15, 2016. <br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, Iowa Profile Data, Distribution and Marketing, accessed February 15, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, 2014.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Storage Capacity, Annual, 2014.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Midwest Region, accessed February 15, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Central Region, accessed February 15, 2016.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Iowa, Annual, 2014.<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C11, Energy Consumption by Source, Ranked by State, 2013.<br>
+<a name='36'></a><sup>36</sup> U.S. Census Bureau, American Factfinder, Iowa, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Iowa, Annual, 2014.<br>
+<a name='38'></a><sup>38</sup> Hoehnle, Peter, "Types of Business and Industry," Iowa Pathways, accessed February 16, 2016.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 1, Coal Production and Number of Mines by State and Mine Type, 2013 and 2012.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2013.<br>
+<a name='41'></a><sup>41</sup> Iowa Pathways, Coal Mining Towns, accessed February 16, 2016.<br>
+<a name='42'></a><sup>42</sup> McKay, Robert M., Mineral Resource Facts, accessed February 13, 2016.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 26, U.S. Coal Consumption by End Use Sector, Census Division, and State, 2013 and 2012.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Iowa Profile Data, Energy Indicators, accessed February 16, 2016.<br>
+<a name='45'></a><sup>45</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Table 1, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 2015), Iowa Table DS-14, Domestic Coal Distribution, by Destination State, 2013.<br>
+<a name='47'></a><sup>47</sup> Iowa Association of Naturalists, Energy in Iowa (September 1998), p. 4.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Iowa Electricity Profile 2013, Table 2, Ten Largest Plants by Generation Capacity, 2013.<br>
+<a name='49'></a><sup>49</sup> World Nuclear Association, Nuclear Power in the USA, Appendix 1: U.S. Operating Nuclear Reactors (November 2015).<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Electricity Data Browser, Iowa Net Generation, All Sectors, All Fuels and Nuclear, Annual 2001-14.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Iowa Nuclear Profile 2010, Iowa nuclear power plants, summer capacity and net generation, 2010.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Electric Power Annual (February 16, 2016), Tables 3.7.B, 3.8.B, 3.11.B, 3.13.B, 3.18.B.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.9.B, 1.14.B. <br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B.<br>
+<a name='55'></a><sup>55</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Iowa Wind Resource Map and Potential Wind Capacity, accessed February 17, 2016.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Iowa Profile Overview, Wind Power Plant Map Layer, accessed February 17, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.11.B, 1.15.B.<br>
+<a name='58'></a><sup>58</sup> Iowa Energy Center, Biomass Energy Conversion (BECON) Facility, accessed February 17, 2016.<br>
+<a name='59'></a><sup>59</sup> Iowa Energy Center, Iowa Solar Maps, accessed February 17, 2016.<br>
+<a name='60'></a><sup>60</sup> Solar Energy Industries Association, State Solar Policy, Iowa Solar, accessed February 17, 2016.<br>
+<a name='61'></a><sup>61</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, Ethanol Facilities Nameplate Capacity and Operating Production Ranked by State (August 2015).<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Iowa Profile Data, Environment, accessed February 17, 2016.<br>
+<a name='63'></a><sup>63</sup> "U.S. Ethanol Plant List, All Platforms, Existing," Ethanol Producer Magazine (January 23, 2016).<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Iowa Profile Data, Environment, accessed February 17, 2016.<br>
+<a name='65'></a><sup>65</sup> "USA Plants, Existing," Biodiesel Magazine (December 8, 2015).<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Monthly Biodiesel Production Report (January 2016), Table 4, Biodiesel producers and production capacity by state, November 2015.<br>
+<a name='67'></a><sup>67</sup> Iowa Renewable Fuels Association, "Iowa Biodiesel Production Breaks Record in 2015," Press Release (January 13, 2016).<br>
+<a name='68'></a><sup>68</sup> DSIRE, NC Clean Energy Technology Center, Iowa Alternative Energy Law (October 31, 2014).<br>
+<a name='69'></a><sup>69</sup> DSIRE, NC Clean Energy Technology Center, Iowa Energy Efficiency Standard (March 10, 2015).<br>
+<a name='70'></a><sup>70</sup> DSIRE, NC Clean Energy Technology Center, Iowa Mandatory Utility Green Power Option (January 29, 2016).<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Midwest Independent Transmission System Operator (MISO)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Midwest Reliability Organization (MRO</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.iowaeconomicdevelopment.com/programs/energy" title="Iowa Economic Development Authority, Energy Office">Iowa Economic Development Authority, Energy Office</a></li>
+  
+    <li><a href="http://www.state.ia.us/government/com/util/" title="Iowa Utilities Board">Iowa Utilities Board</a></li>
+  
+    <li><a href="http://www.dcaa.iowa.gov/bureau_EA/index.html" title="Iowa Department of Human Rights, Division of Community Action Agencies, Bureau of Energy Assistance">Iowa Department of Human Rights, Division of Community Action Agencies, Bureau of Energy Assistance</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.weatherization.iowa.gov/" title="Iowa Department of Human Rights, Division of Community Action Agencies, Bureau of Weatherization, Weatherization Assistance Program">Iowa Department of Human Rights, Division of Community Action Agencies, Bureau of Weatherization, Weatherization Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Iowa website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Iowa\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/IA.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

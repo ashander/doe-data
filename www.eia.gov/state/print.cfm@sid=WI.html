@@ -1,0 +1,2999 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Wisconsin Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Wisconsin State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Wisconsin Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Wisconsin&#39;s industrial sector, which includes energy-intensive industries like the manufacure of machinery, metals, and food products, was the largest energy consuming sector in 2013, accounting for about one-third (32%) of the state&#39;s energy end-use consumption.</li>
+	
+	<li>Coal has dominated electricity generation in Wisconsin. &nbsp;In 2015, coal provided 55.9% of the state&#39;s net electricity generation.</li>
+	
+	<li>Point Beach nuclear power plant&#39;s Unit 1 reactor, one of the oldest operating reactors in the United States, started commercial operations in 1970. &nbsp;In 2005, Point Beach&#39;s operating license was extended 25 years (for a total of 60 years).</li>
+	
+	<li>In 2015, 8.4% of Wisconsin&#39;s net electricity generation came from renewable energy resources, split among biomass, wind, and conventional hydroelectric power.</li>
+	
+	<li>In 2016, Wisconsin ranked seventh in the nation in ethanol operating capacity at 537 million gallons.</li>
+	
+	<li>Wisconsin households use 103 million Btu of site energy per home, 15% more than the U.S. average. Lower utility rates compared to states with a similar climate, like New York, result in households spending 5% less for energy than the U.S. average, according to EIA&#39;s Residential Energy Consumption Survey.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: April 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=WI.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=WI.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=WI.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=WI.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=WI.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Wisconsin Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wisconsin Energy Consumption Estimates',
+		data : [417.1,477.9,291.5,153.0,11.1,36.3,0.3,50.2,98.8,23.5,136.8,16.8,155.2]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Wisconsin Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 450.2],['Commercial', 380.8],['Industrial', 591.7],['Transportation', 445.9]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wisconsin Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wisconsin Energy Production Estimates',
+		data : [0.0,0.0,0.0,98.8,73.3,126.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wisconsin Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wisconsin Net Electricity Generation',
+		data : [662,2578,892,163,227]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wisconsin Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wisconsin U.S. Price Differentials',
+		data : [{y:4.05727923628, period: Date.UTC(2016,9,1)},{y:-33.0422125182, period: Date.UTC(2016,9,1)},{y:18.5542168675, period: Date.UTC(2016,9,1)},{y:3.24737344795, period: Date.UTC(2016,9,1)},{y:12.2023809524, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					5.8 million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					3.1 million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 305.8  billion 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 57,933  million 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 45,617 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					60,053 million miles 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					14.6 million acres 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					44.8 degrees Fahrenheit 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					35.9 inches 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.36 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 9.20 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 2.19 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					14.76 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					10.81 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.54 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=229">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					299 trillion Btu 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					38,000 barrels/calendar day 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					16,677 MW 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					4,539 thousand MWh 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					14.6 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					56.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					19.6 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					8.6 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					181 thousand barrels 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,283 thousand barrels 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					224 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,406 thousand tons 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Wisconsin</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Calumet Lubricants (Superior)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Sherry Energy Center (Calpine Central LP) ; Pleasant Prairie (Wisconsin Electric Power Co) ; Elm Road Generating Station (Wisconsin Electric Power Co) ; South Oak Creek (Wisconsin Electric Power Co) ; Port Washington Generating Station (Wisconsin Electric Power Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Point Beach (NextEra Energy Point Beach LLC)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=229">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Wisconsin</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Wisconsin</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Enbridge</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Midstream Partners, West Shore Pipeline, Enbridge</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enbridge, Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Great Lakes Gas Transmission LP, Guardian Pipeline, Natural Gas Pipeline Company of America, Northern Natural Gas, Viking Gas Transmission Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					2,524 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					74 stations 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					240 stations 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					159 stations 
+				</td>
+				<td>
+					5.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					66 stations 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,869 trillion Btu 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					324 million Btu 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 26,448  million 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,592 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					450 trillion Btu 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					381 trillion Btu 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					592 trillion Btu 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					446 trillion Btu 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 5,475  million 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 3,688  million 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 4,776  million 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 12,510  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					108.2 million barrels 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					463.1 billion cu ft 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					22.7 million short tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 15,161  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 3,981  million 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 1,019  million 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					3 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					5,133 million cu ft 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,521 thousand short tons 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=229">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					65.2 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					2.8 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					15.1 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					10.9 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					5.9 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,110 MW 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					537 million gal/year 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					163 thousand MWh 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					123 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					104 thousand MWh 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					2 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					12,882 Thousand Barrels 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					9.5 % 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=WI"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					6,422 thousand barrels 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					101.0 million metric tons 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Wisconsin</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=229">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					45,195 thousand metric tons 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					54 thousand metric tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					34 thousand metric tons 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: April 21, 2016<p>
+<h2>Overview </h2>
+<p>Bordered on three sides by navigable waterways, Wisconsin lies between Lakes Superior and Michigan to the north and east and the Mississippi and Saint Croix Rivers to the west. The state lacks fossil fuel resources of its own but ships coal and petroleum products from its many ports.<sup><a href='print.cfm@sid=WI.html#1'>1</a>,<a href='print.cfm@sid=WI.html#2'>2</a></sup> The Great Lakes port at Superior transports coal from Wyoming and Montana to the east through the Great Lakes-Saint Lawrence Seaway system.<sup><a href='print.cfm@sid=WI.html#3'>3</a></sup> Petroleum products and coal are also shipped from other Wisconsin ports across the Great Lakes-Saint Lawrence Seaway System and along the Upper Mississippi River System.<sup><a href='print.cfm@sid=WI.html#4'>4</a></sup> The state's fertile soil and rich agricultural economy make it a leader in the market value of its agricultural products.<sup><a href='print.cfm@sid=WI.html#5'>5</a>,<a href='print.cfm@sid=WI.html#6'>6</a></sup> Wisconsin's corn crop feeds the state's ethanol refineries, and manure from some of the state's more than 1 million cows is converted to energy in anaerobic digesters.<sup><a href='print.cfm@sid=WI.html#7'>7</a>,<a href='print.cfm@sid=WI.html#8'>8</a></sup> <sup><a href='print.cfm@sid=WI.html#9'>9</a>,<a href='print.cfm@sid=WI.html#10'>10</a>,<a href='print.cfm@sid=WI.html#11'>11</a></sup> With more than 16 million acres of forestland, Wisconsin has an ample biomass resource, and dams throughout the state supply hydroelectric power.<sup><a href='print.cfm@sid=WI.html#12'>12</a>,<a href='print.cfm@sid=WI.html#13'>13</a></sup> Wind resources have been developed on the ridges in eastern Wisconsin near Lake Michigan and in the state's Western Uplands region.<sup><a href='print.cfm@sid=WI.html#14'>14</a></sup></p>
+<p>Despite winters that are cold and snowy, with temperatures in the northern part of the state falling to minus 30 degrees Fahrenheit almost every winter, Wisconsin's energy consumption per person is only slightly above the national average.<sup><a href='print.cfm@sid=WI.html#15'>15</a>,<a href='print.cfm@sid=WI.html#16'>16</a></sup> Industry is the largest energy-consuming end-use sector in the state.<sup><a href='print.cfm@sid=WI.html#17'>17</a></sup> Wisconsin's industrial base includes the manufacture of machinery, metals, and food products.<sup><a href='print.cfm@sid=WI.html#18'>18</a></sup> An important dairy state, Wisconsin produces one-third of the cheese made in the nation. Beer is the state's most valuable processed beverage product.<sup><a href='print.cfm@sid=WI.html#19'>19</a></sup></p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>Southeastern Wisconsin is the only part of the state where reformulated gasoline is required.</p></div><p>Wisconsin does not have any crude oil production or reserves, but it does have one small oil refinery at Superior in the northwestern part of the state.<sup><a href='print.cfm@sid=WI.html#20'>20</a>,<a href='print.cfm@sid=WI.html#21'>21</a></sup> The Superior refinery can process about 38,000 barrels of crude oil per calendar day, and its output includes motor gasoline, diesel, asphalt, and heavy fuel oils. Crude oil that enters the state from Canada and North Dakota via railcar and a major crude oil pipeline either continues across the state or is delivered to the Superior refinery.<sup><a href='print.cfm@sid=WI.html#22'>22</a>,<a href='print.cfm@sid=WI.html#23'>23</a></sup> Trucks, railcars, and several petroleum product pipeline systems deliver refined products to Wisconsin markets from the refinery in Superior and from refineries in the Chicago and Minneapolis metropolitan areas.<sup><a href='print.cfm@sid=WI.html#24'>24</a>,<a href='print.cfm@sid=WI.html#25'>25</a>,<a href='print.cfm@sid=WI.html#26'>26</a>,<a href='print.cfm@sid=WI.html#27'>27</a></sup> </p>
+<p>More than three-fourths of the petroleum consumed in Wisconsin is used in the transportation sector.<sup><a href='print.cfm@sid=WI.html#28'>28</a></sup> Reformulated gasoline has been required in a six-county area in the southeastern part of the state since 1995.<sup><a href='print.cfm@sid=WI.html#29'>29</a></sup> However, E10, the 10% ethanol-gasoline blend, is available at most of the retail gasoline stations in Wisconsin.<sup><a href='print.cfm@sid=WI.html#30'>30</a></sup> Almost 160 fueling stations statewide sell E85, the 85% ethanol blend.<sup><a href='print.cfm@sid=WI.html#31'>31</a></sup> Ethanol is one of the few energy sources that Wisconsin produces and sends out of state.<sup><a href='print.cfm@sid=WI.html#32'>32</a>,<a href='print.cfm@sid=WI.html#33'>33</a></sup></p>
+<h2>Natural gas </h2>
+<div class='pullquote'><p>Two-thirds of Wisconsin households use natural gas for home heating.</p></div><p>Wisconsin has no natural gas production. Although eastern Wisconsin is within the boundaries of the Michigan Basin, a bowl-shaped geologic structure centered in Michigan's Lower Peninsula, Wisconsin does not have any of the Basin's prolific natural gas reserves.<sup><a href='print.cfm@sid=WI.html#34'>34</a>,<a href='print.cfm@sid=WI.html#35'>35</a></sup> Wisconsin's natural gas needs are met by several interstate pipelines.<sup><a href='print.cfm@sid=WI.html#36'>36</a></sup> Much of Wisconsin's natural gas supply is from production in Oklahoma, Texas, Louisiana, and Kansas, with additional supply from Canada.<sup><a href='print.cfm@sid=WI.html#37'>37</a></sup> Wisconsin does not have any natural gas market centers, and natural gas is delivered to the state's consumers from U.S. market centers in other Midwestern states and from western Canada.<sup><a href='print.cfm@sid=WI.html#38'>38</a>,<a href='print.cfm@sid=WI.html#39'>39</a>,<a href='print.cfm@sid=WI.html#40'>40</a></sup> Natural gas enters Wisconsin by pipeline primarily from Illinois and Minnesota. Typically, about one-third of the natural gas volume that enters Wisconsin exits the state, most of it continuing on to Michigan.<sup><a href='print.cfm@sid=WI.html#41'>41</a></sup> Wisconsin has no underground natural gas storage fields.<sup><a href='print.cfm@sid=WI.html#42'>42</a></sup></p>
+<p>Wisconsin's residential and industrial sectors are the state's largest natural gas consumers, but use by the electric power sector more than doubled between 2011 and 2015.<sup><a href='print.cfm@sid=WI.html#43'>43</a></sup> About two-thirds of Wisconsin households use natural gas as their primary fuel for home heating.<sup><a href='print.cfm@sid=WI.html#44'>44</a></sup></p>
+<h2>Coal</h2>
+<p>Wisconsin has no active coal mines or recoverable coal reserves.<sup><a href='print.cfm@sid=WI.html#45'>45</a></sup> Coal shipments from other states are handled at several of Wisconsin's ports along the Mississippi River and the Great Lakes.<sup><a href='print.cfm@sid=WI.html#46'>46</a></sup> Most of the coal consumed in Wisconsin arrives by rail from Wyoming. Almost all of it is used by the power sector to generate electricity. The remaining coal is used by the industrial sector, with only about 0.1% being consumed by the commercial sector.<sup><a href='print.cfm@sid=WI.html#47'>47</a></sup> </p>
+<h2>Electricity</h2>
+<p>Coal is the primary fuel for electricity generation in Wisconsin, accounting for more than half of the state's net generation.<sup><a href='print.cfm@sid=WI.html#48'>48</a></sup> Natural gas-fired power plants have contributed an increasing share of the state's net generation since 2004, reaching one-fifth of the total net generation for the first time in 2015.<sup><a href='print.cfm@sid=WI.html#49'>49</a>,<a href='print.cfm@sid=WI.html#50'>50</a></sup> Nuclear reactors and, to a lesser extent, hydroelectric power, biomass, and wind, supply almost all of the state's remaining net generation.<sup><a href='print.cfm@sid=WI.html#51'>51</a></sup> Until recently, two nuclear power plants supplied about one-fifth of Wisconsin's electricity generation.<sup><a href='print.cfm@sid=WI.html#52'>52</a></sup> However, the Kewaunee Nuclear Power Plant ceased operations in May 2013. Nuclear power now supplies about 15% of the state's total net generation.<sup><a href='print.cfm@sid=WI.html#53'>53</a>,<a href='print.cfm@sid=WI.html#54'>54</a></sup> To meet demand, Wisconsin is a net electricity importer.<sup><a href='print.cfm@sid=WI.html#55'>55</a></sup></p>
+<p>Wisconsin's retail sales of electricity are spread almost equally across the residential, commercial, and industrial sectors.<sup><a href='print.cfm@sid=WI.html#56'>56</a></sup> Per capita electricity use in Wisconsin is near the national average, despite the cold winters, in part because of the heavy reliance on natural gas for home heating.<sup><a href='print.cfm@sid=WI.html#57'>57</a>,<a href='print.cfm@sid=WI.html#58'>58</a></sup> Only about one in seven Wisconsin households rely on electricity to heat their homes.<sup><a href='print.cfm@sid=WI.html#59'>59</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Wisconsin leads the nation in the number of animal waste-to-energy systems.</p></div><p>Wisconsin's renewable electricity generation comes from hydroelectric, biomass, and wind power plants, but those renewable resources, including hydropower, provide less than one-tenth of the state's total net electricity generation. Almost one-third of Wisconsin's renewable electricity generation comes from biomass.<sup><a href='print.cfm@sid=WI.html#60'>60</a></sup> The state leads the nation in the number of animal waste-to-energy systems, with on-farm digesters that can turn manure into fuel.<sup><a href='print.cfm@sid=WI.html#61'>61</a></sup> Wind energy also provides almost one-third of Wisconsin's renewable generation.<sup><a href='print.cfm@sid=WI.html#62'>62</a>,<a href='print.cfm@sid=WI.html#63'>63</a></sup> The state's onshore wind energy resource is modest, with the greatest wind energy potential in the east, along Lake Michigan.<sup><a href='print.cfm@sid=WI.html#64'>64</a>,<a href='print.cfm@sid=WI.html#65'>65</a></sup> Additional wind resource potential exists offshore in the Wisconsin portion of that Great Lake.<sup><a href='print.cfm@sid=WI.html#66'>66</a></sup> Of the approximately 3,900 dams in Wisconsin, about 150 are used to generate hydroelectric power. Large hydroelectric dams were constructed in the 1950s and earlier, but new hydroelectric facilities are being created by adding generators at existing dams.<sup><a href='print.cfm@sid=WI.html#67'>67</a>,<a href='print.cfm@sid=WI.html#68'>68</a></sup> Wisconsin has a small amount of electricity generation from its solar resource. Although almost all of the solar generation in Wisconsin is from distributed sources with less than 1 megawatt of capacity, the state also has utility-scale generation from solar photovoltaic (PV) facilities.<sup><a href='print.cfm@sid=WI.html#69'>69</a></sup> Several new solar PV facilities, some with as much as 2.5 megawatts of capacity, are expected to come online in 2016.<sup><a href='print.cfm@sid=WI.html#70'>70</a></sup></p>
+<p>Wisconsin is using its agricultural resources to move toward its renewable goals. Capitalizing on its status as one of the nation's leading corn-producing states, Wisconsin produces more than 500 million gallons of ethanol per year and is among the top 10 ethanol-producing states.<sup><a href='print.cfm@sid=WI.html#71'>71</a>,<a href='print.cfm@sid=WI.html#72'>72</a>,<a href='print.cfm@sid=WI.html#73'>73</a></sup> The state's nine ethanol plants are primarily located in agriculturally rich southern and central Wisconsin.<sup><a href='print.cfm@sid=WI.html#74'>74</a></sup> The state also has three facilities that produce biodiesel from corn, soy, and canola oils.<sup><a href='print.cfm@sid=WI.html#75'>75</a></sup> </p>
+<p>Wisconsin is trying to attain energy sustainability through the development of its renewable resources. Wisconsin established an Energy Office in 2003 and the Office of Energy Independence in 2007 to lead the state's efforts in clean energy.<sup><a href='print.cfm@sid=WI.html#76'>76</a></sup> Wisconsin's goal is for all new installed electricity generation capacity to come from renewable energy resources to the extent that it is cost-effective and technically feasible.<sup><a href='print.cfm@sid=WI.html#77'>77</a></sup> In 1999, Wisconsin was the first state to enact a renewable portfolio standard (RPS) without restructuring its electric utility industry. Legislation enacted in 2006 set an overall statewide goal of 10% of retail sales from renewable resources by the end of 2015 for all electricity providers. Percentage requirements varied by provider, and power generated out of state could be counted toward the goal as long as it was sold to Wisconsin consumers. After 2015, the RPS requires that each electricity provider maintain, at a minimum, their 2015 percentage of retail sales from renewable resources. In June 2016, the Wisconsin Public Service Commission will determine if the RPS goals have been met.<sup><a href='print.cfm@sid=WI.html#78'>78</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Reserves and Supply, accessed March 5, 2016.<br>
+<a name='2'></a><sup>2</sup> Wisconsin Department of Transportation, Bureau of Planning and Economic Development, Economic Impact of<br>
+Wisconsin's Commercial Ports (December 2010), p. 1, 2.<br>
+<a name='3'></a><sup>3</sup> Bergeron, Dale, "What's in the Ships?" Minnesota Sea Grant (May 2007).<br>
+<a name='4'></a><sup>4</sup> Wisconsin Department of Transportation, Bureau of Planning and Economic Development, Economic Impact of<br>
+Wisconsin's Commercial Ports (December 2010), p. 2-8.<br>
+<a name='5'></a><sup>5</sup> NETSTATE, Wisconsin, The Geography of Wisconsin, accessed March 5, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Department of Agriculture, National Agricultural Statistics Service, 2015 State Agriculture Overview, Wisconsin, Census State Profile: Wisconsin, Ranked Items Within The U.S., 2012.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Environment, accessed March 5, 2016.<br>
+<a name='8'></a><sup>8</sup> "U.S. Ethanol Plants," Ethanol Producer Magazine (January 23, 2016). <br>
+<a name='9'></a><sup>9</sup> U.S. Department of Agriculture, National Agricultural Statistics Service, 2015 State Agriculture Overview, Wisconsin.<br>
+<a name='10'></a><sup>10</sup> Wisconsin Farm Bureau Federation, Wisconsin Ag in the Classroom, A Look at Wisconsin Agriculture (January 2014).<br>
+<a name='11'></a><sup>11</sup> Wisconsin Department of Natural Resources, Division of Forestry Resources, Wisconsin's Forest Resources (2015), p. 2.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, Wisconsin State Profile, Overview, Hydroelectric Power Plant Map Layer, accessed March 5, 2016.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, Wisconsin State Profile, Overview, Wind Power Plant Map Layer, accessed March 5, 2016.<br>
+<a name='14'></a><sup>14</sup> Wisconsin State Climatology Office, Climate of Wisconsin, accessed March 5, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='17'></a><sup>17</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP and Personal Income, Begin using data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Wisconsin, Time Period 2013.<br>
+<a name='18'></a><sup>18</sup> NETSTATE, Wisconsin, Wisconsin Economy, accessed March 5, 2016. <br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Reserves and Supply, accessed March 5, 2016.<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Wisconsin State Profile, Overview, Petroleum Refinery Map Layer, accessed March 5, 2016.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Wisconsin, Annual as of January 1, 2015.<br>
+<a name='22'></a><sup>22</sup> Calumet, Calumet Superior Refining, Superior, Wisconsin, accessed March 5, 2016.<br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Distribution and Marketing, accessed March 5, 2016.<br>
+<a name='24'></a><sup>24</sup> Calumet, Calumet Superior Refining, Superior, Wisconsin, accessed March 5, 2016.<br>
+<a name='25'></a><sup>25</sup> Magellan Midstream Partners L. P., Asset Map, accessed March 7, 2016.<br>
+<a name='26'></a><sup>26</sup> West Shore Pipeline, Home, accessed March 7, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='28'></a><sup>28</sup> Wisconsin State Energy Office, Wisconsin Alternative Fuels and Advanced Vehicle Technologies Use Report, 2013 Annual Report (November 2013), p. 10.<br>
+<a name='29'></a><sup>29</sup> Wisconsin State Energy Office, E85 Stations, Ethanol Availability in Wisconsin, accessed March 7, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Alternative Fuels Data Center, Ethanol Fueling Station Locations, Wisconsin, accessed March 7, 2016.<br>
+<a name='31'></a><sup>31</sup> Wisconsin State Energy Office, 2010 Wisconsin Energy Statistics, Chapter 2, Energy Use by Type of Fuel, p. 42, accessed March 7, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Environment, accessed March 7, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Reserves and Supply, accessed March 7, 2016. <br>
+<a name='34'></a><sup>34</sup> Dolton, Gordon L., Michigan Basin Province (063), U.S. Geological Survey (1995), p. 1. <br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Distribution and Marketing, accessed March 7, 2016.<br>
+<a name='36'></a><sup>36</sup> Wisconsin State Energy Office, 2013 Wisconsin Energy Statistics, Energy Use Natural Gas, Wisconsin Natural Gas Deliveries, by Pipeline Company, p. 47, accessed March 7, 2016. <br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Distribution and Marketing, accessed March 7, 2016.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines - Transporting Natural Gas, Natural Gas Pipelines in the Midwest Region, accessed March 8, 2016.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Natural Gas Market Centers: A 2008 Update (April 2009), Figure 1, Natural Gas Centers/Hubs Relative to Natural Gas Transportation Corridors, 2008.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, Wisconsin, Annual, accessed March 8, 2016.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, accessed March 12, 2016.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Wisconsin, accessed March 8, 2016.<br>
+<a name='43'></a><sup>43</sup> U.S. Census Bureau, American FactFinder, Wisconsin, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Reserves and Supply, accessed March 8, 2016.<br>
+<a name='45'></a><sup>45</sup> Wisconsin Department of Transportation, Bureau of Planning and Economic Development, Economic Impact of Wisconsin's Commercial Ports (January 2014).<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 2015), Wisconsin Table DS-45, Domestic Coal Distribution, by Destination State, 2013, p. 99.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Electricity Browser, Wisconsin Natural Gas-Fired Net Generation, Annual, accessed March 8, 2016.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Electricity Browser, Wisconsin Net Generation for All Fuels, Annual, accessed March 8, 2016. <br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.9.B, 1.10.B, 1.14.B, 1.15.B.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Wisconsin State Nuclear Profile 2010, accessed March 8, 2016. <br>
+<a name='52'></a><sup>52</sup> U.S. Nuclear Regulatory Commission, Kewaunee Power Station, accessed March 8, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Wisconsin Electricity Profile 2014, Table 10, Supply and Disposition of Electricity, 1990 through 2014, Wisconsin.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C11, Energy Consumption Estimates by Source, Ranked by State, 2013.<br>
+<a name='57'></a><sup>57</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2013, Annual Population Estimates.<br>
+<a name='58'></a><sup>58</sup> U.S. Census Bureau, American FactFinder, Wisconsin, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.14.B, 1.15.B.<br>
+<a name='60'></a><sup>60</sup> Wisconsin Farm Bureau Federation, Wisconsin Ag in the Classroom, A Look at Wisconsin Agriculture (January 2014).<br>
+<a name='61'></a><sup>61</sup> Wisconsin Department of Natural Resources, Hydro-electric generation, accessed March 11, 2016.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.14.B, 1.15.B.<br>
+<a name='63'></a><sup>63</sup> American Wind Energy Association, Wisconsin Wind Energy, accessed March 11, 2016.<br>
+<a name='64'></a><sup>64</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Wisconsin Wind Resource Map and Wind Resource Potential, accessed March 11, 2016.<br>
+<a name='65'></a><sup>65</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Wisconsin Offshore 90-Meter Wind Map and Wind Resource Potential, accessed March 11, 2016.<br>
+<a name='66'></a><sup>66</sup> Wisconsin Department of Natural Resources, Dams overview, accessed March 11, 2016.<br>
+<a name='67'></a><sup>67</sup> Wisconsin Department of Natural Resources, Hydro-electric generation, accessed March 11, 2016.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='69'></a><sup>69</sup> Dairyland Power Cooperative, "Dairyland Power Announces Major Solar Projects," News Release (February 24, 2016).<br>
+<a name='70'></a><sup>70</sup> National Corn Growers Association, World of Corn 2016 (2016), p. 4.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Wisconsin Profile Data, Environment, accessed March 11, 2016.<br>
+<a name='72'></a><sup>72</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, accessed March 11, 2016.<br>
+<a name='73'></a><sup>73</sup> "U.S. Ethanol Plants," Ethanol Producer Magazine (January 23, 2016). <br>
+<a name='74'></a><sup>74</sup> "USA Plants," Biodiesel Magazine (December 8, 2015).<br>
+<a name='75'></a><sup>75</sup> Wisconsin Office of Energy Independence, Wisconsin Energy Statistics 2009, p. 2-3, accessed March 11, 2016.<br>
+<a name='76'></a><sup>76</sup> Public Service Commission of Wisconsin, Renewable Energy, accessed March 11, 2016.<br>
+<a name='77'></a><sup>77</sup> NC Clean Energy Technology Center, DSIRE, Wisconsin Renewable Portfolio Standard (November 18, 2015).<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Midwest Independent Transmission System Operator (MISO)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Midwest Reliability Organization (MRO, Reliability First Corporation (RFC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.energyindependence.wi.gov/" title="Wisconsin State Energy Office">Wisconsin State Energy Office</a></li>
+  
+    <li><a href="http://psc.wi.gov/" title="Public Service Commission of Wisconsin">Public Service Commission of Wisconsin</a></li>
+  
+    <li><a href="http://energyindependence.wi.gov/docview.asp?docid=21585&locid=160" title="Wisconsin Biofuels and Alternative Fuels Use Report 2011">Wisconsin Biofuels and Alternative Fuels Use Report 2011</a></li>
+  
+    <li><a href="http://dnr.wi.gov/topic/Dams/hydroElectric.html" title="(Wisconsin Department of Natural Resources) Hydro Electric Generation">(Wisconsin Department of Natural Resources) Hydro Electric Generation</a></li>
+  
+    <li><a href="http://homeenergyplus.wi.gov/" title="(Wisconsin) homeenergy +">(Wisconsin) homeenergy +</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://energyindependence.wi.gov/docview.asp?docid=21555&locid=160" title="Wisconsin Energy Statistics 2010">Wisconsin Energy Statistics 2010</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Wisconsin website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Wisconsin\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/WI.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

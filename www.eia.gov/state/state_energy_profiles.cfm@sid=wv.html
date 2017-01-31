@@ -143,7 +143,11 @@ var _gaq = _gaq || [];
         <script src="http://www.eia.gov/global/scripts/maps/js/stateConfig.js?v=1.41"></script>
 	
 	<script>
-    
+    var sessBasemap = 'gray';
+            if(typeof layerConfigs != 'undefined' && typeof layerConfigs['state'] != 'undefined') {
+                layerConfigs['state'].visible = [7,8,9,10,11,12,13,14,15,16,17,18,19,20,33,125];
+            }
+        
 	</script>
 	
 		<script src="http://www.eia.gov/global/scripts/maps/js/app.js?v=1.41"></script>
@@ -328,10 +332,10 @@ var _gaq = _gaq || [];
 		spacingRight: 40
 	},
 	title : { 
-		text : 'West Virginia Net Electricity Generation by Source, Sep. 2016'
+		text : 'West Virginia Net Electricity Generation by Source, Oct. 2016'
 	},
 	xAxis : {
-		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nonhydroelectric Renewables'],
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
 		labels : {
 		}
 	},
@@ -347,7 +351,7 @@ var _gaq = _gaq || [];
 	},
 	series : [{
 		name : 'West Virginia Net Electricity Generation',
-		data : [11,140,5458,68]
+		data : [11,197,4895,97,131]
 	}],
 	credits : {
 		text : 'Source: Energy Information Administration, Electric Power Monthly',
@@ -427,13 +431,13 @@ var _gaq = _gaq || [];
 	},
 	series : [{
 		name : 'West Virginia U.S. Price Differentials',
-		data : [{y:11.7391304348, period: Date.UTC(2016,8,1)},{y:-0.595592614652, period: Date.UTC(2016,8,1)},{y:-9.94560994561, period: Date.UTC(2016,8,1)},{y:-13.0841121495, period: Date.UTC(2016,8,1)},{y:-8.81118881119, period: Date.UTC(2016,8,1)}],
+		data : [{y:-10.9785202864, period: Date.UTC(2016,9,1)},{y:-15.211062591, period: Date.UTC(2016,9,1)},{y:-4.49799196787, period: Date.UTC(2016,9,1)},{y:-8.21394460363, period: Date.UTC(2016,9,1)},{y:-2.97619047619, period: Date.UTC(2016,9,1)}],
 		tooltip: {
 			precision: 2
 		}
 	}],
 	credits : {
-		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly.1.html">Natural Gas Monthly</a>;<br/><a href="../electricity/monthly.1.html">Electric Power Monthly</a>',
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly.1.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly.1.html">Natural Gas Monthly</a>;<br/><a href="../electricity/monthly.1.html">Electric Power Monthly</a>',
 		href : null,
 		position: {
 			y: -22
@@ -496,7 +500,14 @@ var _gaq = _gaq || [];
 		);
 		</script>
 	
-</head>
+
+                    <script type="text/javascript">
+                      var w=window;
+                      if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document,AKSB=AKSB||{};AKSB.q=[];AKSB.mark=function(a,b){AKSB.q.push(["mark",a,b||(new Date).getTime()])};AKSB.measure=function(a,b,c){AKSB.q.push(["measure",a,b,c||(new Date).getTime()])};AKSB.done=function(a){AKSB.q.push(["done",a])};AKSB.mark("firstbyte",(new Date).getTime());AKSB.prof={custid:"421524",ustr:"UNKNOWN",originlat:0,clientrtt:2,ghostip:"184.28.17.43",
+                      ipv6:false,pct:10,clientip:"54.221.83.229",requestid:"2e32fcbe",protocol:"",blver:10,akM:"dscb",akN:"ae",akTT:"O",akTX:"1",akTI:"2e32fcbe",ai:"269977",ra:"",pmgn:"",pmgi:"",pmp:""};(function(a){var b=
+                      d.createElement("script");b.async="async";b.src=a;a=d.getElementsByTagName("script");a=a[a.length-1];a.parentNode.insertBefore(b,a)})(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")};
+                    </script>
+                    </head>
 	<body>
 		<div class="popup_wrapper">
 			<div id="state_list_inc_us_popup" class="list_popup">
@@ -907,7 +918,7 @@ $(document).ready(function() {
             <span class="global_menu_col1">
               <a href="../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
               <a href="../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -951,7 +962,7 @@ $(document).ready(function() {
         <li class="global-geo"><a>Geography</a></li>
           <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -1145,7 +1156,7 @@ $(document).ready(function() {
 
 
 <div class="pub_title bg_pub_states_tall new_header" id="stateSelection">
-  <a href="../state.1.html">&lsaquo; U.S. States</a>
+  <a href="seds/sep_prod/xls/P2.xls.html">&lsaquo; U.S. States</a>
   <h1 style="padding-top:45px;">West Virginia&nbsp;&nbsp;&nbsp;<img src="http://www.eia.gov/state/img/flags/WV.png" height="25" align="absmiddle" vspace="2" alt="West Virginia Profile" style="border:1px solid #eee"></h1>
   <p class="subtitle"><i>State Profile and Energy Estimates</i></p>
   <p class="submenu rnd_crn4  no_print"><a class="change_location submenu_toggle">Change State/Territory<span class="arrow_rL">&nbsp;</span></a></p>
@@ -1579,12 +1590,12 @@ $(document).ready(function() {
 						
 							<tr class="indented">
 								<td><a href="http://www.eia.gov/state/rankings/?sid=WV#series/28">Natural Gas</a></td>
-								<td class="textRight">26</td>
+								<td class="textRight">31</td>
 							</tr>
 						
 							<tr class="indented">
 								<td><a href="http://www.eia.gov/state/rankings/?sid=WV#series/31">Electricity</a></td>
-								<td class="textRight">36</td>
+								<td class="textRight">31</td>
 							</tr>
 						
 							<tr class="heading">
@@ -1684,14 +1695,6 @@ $(document).ready(function() {
       
         <div id="rs_home"></div>
         
-      <div class="rs_comments">
-        <form>
-        <p><b>Thank You.</b> We welcome your comments or suggestions <i>(optional)</i>. <a id="closer" style="cursor:pointer;"></a><br />
-            <textarea name="comments" id="comments" style="height:100px;"></textarea><br />
-            <input type="submit" name="submit" alt="submit comments" class="submit_com" align="absmiddle" border="0" title="Submit comments">
-        </p>
-        </form>
-      </div>
 	  
       </div>
       <div id="addbar">
@@ -1711,7 +1714,7 @@ $(document).ready(function() {
            <a href="../naturalgas/index.html">Natural Gas</a><br />
            <a href="../renewable/index.html">Renewable</a><br />
            <a href="../fuelnuclear.html">Nuclear</a><br />
-           <a href="../electricity/data/browser/css/images/minusplus.png.html">Electricity</a><br />
+           <a href="../electricity.1.html">Electricity</a><br />
            <a href="../consumption/residential/methodology/index.cfm.html">Consumption</a><br />
            <a href="../totalenergy/index.html">Total Energy</a></p>
         <p><b>Topics</b><br />
@@ -1720,7 +1723,7 @@ $(document).ready(function() {
            <a href="../finance/index.html">Markets & Finance</a><br />
            <a href="../todayinenergy.1.html">Today in Energy</a></p>
         <p><b>Geography</b><br />
-           <a href="../state.1.html">States</a><br />
+           <a href="seds/sep_prod/xls/P2.xls.html">States</a><br />
            <a href="../emeu/international/gasconsumption.html">Countries</a><br />
            <a href="../maps.1.html">Maps</a><br />
         <p><b>Tools</b><br />
@@ -1742,7 +1745,7 @@ $(document).ready(function() {
            <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
            <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
            <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
-           <a href="http://linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
            <a href="../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
            <a href="../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
       </div>

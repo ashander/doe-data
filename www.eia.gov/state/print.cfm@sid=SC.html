@@ -1,0 +1,3006 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>South Carolina Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	
+                    <script type="text/javascript">
+                      var w=window;
+                      if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document,AKSB=AKSB||{};AKSB.q=[];AKSB.mark=function(a,b){AKSB.q.push(["mark",a,b||(new Date).getTime()])};AKSB.measure=function(a,b,c){AKSB.q.push(["measure",a,b,c||(new Date).getTime()])};AKSB.done=function(a){AKSB.q.push(["done",a])};AKSB.mark("firstbyte",(new Date).getTime());AKSB.prof={custid:"421524",ustr:"ECDHE-RSA-AES256-GCM-SHA384",originlat:0,clientrtt:2,ghostip:"184.28.17.48",
+                      ipv6:false,pct:10,clientip:"54.221.83.229",requestid:"42d432a5",protocol:"",blver:10,akM:"dscb",akN:"ae",akTT:"O",akTX:"1",akTI:"42d432a5",ai:"269977",ra:"",pmgn:"",pmgi:"",pmp:""};(function(a){var b=
+                      d.createElement("script");b.async="async";b.src=a;a=d.getElementsByTagName("script");a=a[a.length-1];a.parentNode.insertBefore(b,a)})(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")};
+                    </script>
+                    </head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>South Carolina State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>South Carolina Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>In 2015, South Carolina was eighth in the nation in per capita retail electricity sales, in part because of high air conditioning demand during the hot summer months and the widespread use of electricity for home heating in winter.</li>
+	
+	<li>South Carolina&#39;s electric power sector received 45% of its domestic coal deliveries from Kentucky and 24% from Pennslyvania in 2014.</li>
+	
+	<li>South Carolina&rsquo;s four nuclear power plants supplied 55% of the state&rsquo;s net electricity generation in 2015. Two new reactors are under construction at the V.C. Summer Nuclear Station site in Fairfield County.</li>
+	
+	<li>In 2015, renewable energy resources accounted for 5.3% of South Carolina&#39;s net electricity generation; almost 56% of that generation came from conventional hydroelectric power.</li>
+	
+	<li>In 2014, South Carolina enacted a renewable portfolio standard authorizing the creation of distributed energy resource programs to encourage the development of in-state renewable energy generation capacity.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: August 18, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=SC.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=SC.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=SC.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=SC.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=SC.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'South Carolina Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'South Carolina Energy Consumption Estimates',
+		data : [305.7,235.9,299.0,116.8,12.1,9.7,7.2,33.3,548.2,24.4,122.2,0.8,-85.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'South Carolina Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 376.7],['Commercial', 267.9],['Industrial', 543.2],['Transportation', 442.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'South Carolina Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'South Carolina Energy Production Estimates',
+		data : [0.0,0.0,0.0,548.2,0.0,126.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'South Carolina Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'South Carolina Net Electricity Generation',
+		data : [5,1398,1015,4611,131,186]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'South Carolina Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'South Carolina U.S. Price Differentials',
+		data : [{y:-4.29594272076, period: Date.UTC(2016,9,1)},{y:61.9359534207, period: Date.UTC(2016,9,1)},{y:-0.481927710843, period: Date.UTC(2016,9,1)},{y:-6.59025787966, period: Date.UTC(2016,9,1)},{y:-11.0119047619, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					4.9 million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					2.3 million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 198.7  billion 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 33,444  million 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 38,041 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					49,931 million miles 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					5.0 million acres 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					64.5 degrees Fahrenheit 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					60.7 inches 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.01 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 22.25 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 3.35 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.39 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.78 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.98 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=221">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					675 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					22,696 MW 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					7,294 thousand MWh 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					19.2 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					13.9 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					63.2 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					4.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					113 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					738 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					711 thousand barrels 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					5,136 thousand tons 
+				</td>
+				<td>
+					3.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>South Carolina</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Cross (South Carolina Pub Serv Auth) ; John S Rainey (South Carolina Pub Serv Auth) ; Winyah (South Carolina Pub Serv Auth) ; Bad Creek (Duke Energy Carolinas, LLC) ; Darlington County (Progress Energy Carolinas Inc)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Oconee (Duke Energy Carolinas, LLC), Catawba (Duke Energy Carolinas, LLC), V C Summer (South Carolina Electric&Gas Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=221">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>South Carolina</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Charleston.   </td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>South Carolina</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Colonial Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Carolina Gas Transmission Corporation, Elba Express, Southern Natural Gas Company, Transcontinental Gas Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					2,556 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					56 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					180 stations 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					68 stations 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					41 stations 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,632 trillion Btu 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					338 million Btu 
+				</td>
+				<td>
+					19 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 21,876  million 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,530 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					377 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					268 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					543 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					444 trillion Btu 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 4,420  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,597  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 3,558  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 11,300  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					95.2 million barrels 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					230.3 billion cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					12.3 million short tons 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 12,586  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,596  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 1,115  million 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					10 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					10,913 million cu ft 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					436 thousand short tons 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=221">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					22.9 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					1.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					70.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.7 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,790 MW 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					131 thousand MWh 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					186 thousand MWh 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					4 thousand MWh 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					9.0 % 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=SC"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					6,145 thousand barrels 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					75.0 million metric tons 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>South Carolina</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=221">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					29,849 thousand metric tons 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					26 thousand metric tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					18 thousand metric tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: August 18, 2016<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>South Carolina's electric power sector is the largest energy-consuming sector in the state.</p></div><p>South Carolina is located on the U.S. East Coast halfway between New York City and Miami, Florida. Much of the state is coastal plain, but South Carolina's topography gradually rises from the Atlantic Ocean in the southeast to the Blue Ridge Mountains in the northwest. The coastal plain, which covers two-thirds of the state, is also known as the Low Country and extends westward from the coast until it reaches the Fall Line, an area of waterfalls and rapids. The remaining one-third of the state, known as the Up Country, has the forested hills of the Piedmont region and South Carolina's mountains.<sup><a href='print.cfm@sid=SC.html#1'>1</a></sup> Although the state does not have any fossil fuel reserves or production, it does have renewable resources.<sup><a href='print.cfm@sid=SC.html#2'>2</a>,<a href='print.cfm@sid=SC.html#3'>3</a></sup> The state is crossed by many large rivers that flow from the mountains to the ocean, and South Carolina's system of rivers and lakes provides considerable hydroelectric power potential.<sup><a href='print.cfm@sid=SC.html#4'>4</a></sup> About two-thirds of South Carolina is forested.<sup><a href='print.cfm@sid=SC.html#5'>5</a></sup> The wood waste from the state's forests, lumber mills, and wood products industry yields significant amounts of biomass. Methane from landfills in more densely populated areas provides South Carolina with additional biomass resources.<sup><a href='print.cfm@sid=SC.html#6'>6</a></sup> However, South Carolina's primary energy resource is its nuclear power capacity.<sup><a href='print.cfm@sid=SC.html#7'>7</a></sup></p>
+<p>The electric power sector uses the most energy in South Carolina, consuming three-fifths of the energy used in the state. Industry accounts for one-third of the state's total energy use.<sup><a href='print.cfm@sid=SC.html#8'>8</a></sup> South Carolina's manufacturing activities contribute one-sixth of the state's gross domestic product and include aeronautical and automotive assembly; chemicals, pharmaceuticals, and plastics; paper and wood products; fabricated metal products and primary metals; machinery; electrical equipment, computers, and electronic products; food products and processing; and textiles.<sup><a href='print.cfm@sid=SC.html#9'>9</a>,<a href='print.cfm@sid=SC.html#10'>10</a></sup> The transportation sector uses more than one-fourth of the state's total energy supply, primarily in the form of motor gasoline. Although South Carolina's coastal islands and beaches, hot and humid summers, and mild winters draw tourists and new residents to this southeastern state, residential energy use accounts for less than one-fourth of the state's energy consumption and the commercial sector accounts for one-sixth of state energy use.<sup><a href='print.cfm@sid=SC.html#11'>11</a>,<a href='print.cfm@sid=SC.html#12'>12</a>,<a href='print.cfm@sid=SC.html#13'>13</a></sup></p>
+<h2>Petroleum</h2>
+<p>South Carolina has no known crude oil reserves.<sup><a href='print.cfm@sid=SC.html#14'>14</a></sup> There are no petroleum refineries in the state, and all petroleum products arrive from out of state.<sup><a href='print.cfm@sid=SC.html#15'>15</a></sup> Petroleum products enter South Carolina at the Port of Charleston and arrive from the Gulf Coast by way of refined product pipelines.<sup><a href='print.cfm@sid=SC.html#16'>16</a>,<a href='print.cfm@sid=SC.html#17'>17</a></sup> Petroleum coke, which provides fuel for industrial processes like aluminum smelting at South Carolina's Mount Holly smelting plant, is handled at the Port of Georgetown.<sup><a href='print.cfm@sid=SC.html#18'>18</a>,<a href='print.cfm@sid=SC.html#19'>19</a>,<a href='print.cfm@sid=SC.html#20'>20</a></sup></p>
+<p>South Carolina's total petroleum consumption is at the national median.<sup><a href='print.cfm@sid=SC.html#21'>21</a></sup> Almost all of the petroleum used in the state is consumed by the transportation sector, primarily by automobiles.<sup><a href='print.cfm@sid=SC.html#22'>22</a>,<a href='print.cfm@sid=SC.html#23'>23</a></sup> Motor gasoline consumption per capita in South Carolina is among the highest in the nation, in part because of sales to nonresidents who travel on the state's major interstate corridors.<sup><a href='print.cfm@sid=SC.html#24'>24</a>,<a href='print.cfm@sid=SC.html#25'>25</a>,<a href='print.cfm@sid=SC.html#26'>26</a></sup> Although South Carolina has no ethanol plants and blended gasoline is not required in the state, nearly 2% of the nation's fuel ethanol consumption occurs in South Carolina.<sup><a href='print.cfm@sid=SC.html#27'>27</a>,<a href='print.cfm@sid=SC.html#28'>28</a>,<a href='print.cfm@sid=SC.html#29'>29</a></sup> Only a small number of South Carolina households use petroleum products for home heating.<sup><a href='print.cfm@sid=SC.html#30'>30</a></sup></p>
+<h2>Natural gas</h2>
+<p>Because South Carolina has no natural gas production or reserves, all natural gas consumed in the state arrives via interstate pipeline. Several major interstate pipeline systems transport natural gas from the Gulf Coast and deliver it through Georgia to South Carolina. The state consumes substantial amounts of natural gas, but, because of the large volumes in the interstate pipeline system, more than three-fourths of the supply that enters South Carolina continues on to North Carolina on its way to markets further north.<sup><a href='print.cfm@sid=SC.html#31'>31</a>,<a href='print.cfm@sid=SC.html#32'>32</a>,<a href='print.cfm@sid=SC.html#33'>33</a></sup></p>
+<div class='pullquote'><p>Natural gas consumption by the electric power sector more than tripled in the past decade.</p></div><p>Natural gas use in South Carolina has increased in the past decade, most dramatically in the electric power sector, where consumption more than tripled.<sup><a href='print.cfm@sid=SC.html#34'>34</a>,<a href='print.cfm@sid=SC.html#35'>35</a></sup> The electric power sector's use of natural gas has exceeded that of any other sector since 2009. Industrial demand has remained fairly constant, and the industrial sector, which had led the state in natural gas use prior to 2009, is the second-largest natural gas consuming-sector in the state after the electric power sector. Winters are generally mild, and overall demand for heating in South Carolina is relatively low. Almost one in four South Carolina households use natural gas for home heating, but residential sector natural gas consumption lags behind that of the electric power sector and the industrial sector.<sup><a href='print.cfm@sid=SC.html#36'>36</a>,<a href='print.cfm@sid=SC.html#37'>37</a>,<a href='print.cfm@sid=SC.html#38'>38</a></sup> </p>
+<h2>Coal</h2>
+<p>South Carolina does not have any coal production or reserves. Coal used in the state is almost exclusively consumed for electricity generation, and fuel for South Carolina's coal-fired power plants arrives by rail, mostly from Kentucky, Pennsylvania, West Virginia, and Illinois. Minor amounts of coal are also delivered to industrial plants in the state.<sup><a href='print.cfm@sid=SC.html#39'>39</a>,<a href='print.cfm@sid=SC.html#40'>40</a></sup> Coal arrives from overseas at the Port of Charleston, and some coal is exported from the Port of Charleston as well.<sup><a href='print.cfm@sid=SC.html#41'>41</a>,<a href='print.cfm@sid=SC.html#42'>42</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>South Carolina ranks third in the nation in nuclear generating capacity.</p></div><p>Nuclear energy dominates electricity generation in South Carolina, and the state's largest power plant is a nuclear facility. Ranked third in the nation in nuclear generating capacity and annual generation, South Carolina produces more than half of its net electricity generation from nuclear power. There are currently seven operating reactors at four nuclear power plants in the state, and two more reactors are under construction.<sup><a href='print.cfm@sid=SC.html#43'>43</a>,<a href='print.cfm@sid=SC.html#44'>44</a>,<a href='print.cfm@sid=SC.html#45'>45</a></sup> Coal-fired power plants supply almost one-fourth of South Carolina's electricity generation. Two of the state's five largest power plants are coal-fired.<sup><a href='print.cfm@sid=SC.html#46'>46</a></sup> Natural gas fuels another one-sixth of the state's generation, and almost all of the remaining electricity generation is provided by renewable resources, including conventional and pumped hydroelectric power plants and biomass-fueled facilities that use wood waste or landfill gas.<sup><a href='print.cfm@sid=SC.html#47'>47</a>,<a href='print.cfm@sid=SC.html#48'>48</a>,<a href='print.cfm@sid=SC.html#49'>49</a>,<a href='print.cfm@sid=SC.html#50'>50</a></sup> South Carolina generates much more electricity than it consumes and sends its surplus to other states.<sup><a href='print.cfm@sid=SC.html#51'>51</a></sup> </p>
+<p>Per capita retail electricity sales in South Carolina are among the highest in the nation, in part because of the high demand for air conditioning during the hot and humid summer months. The largest share of retail electricity sales in the state are to the residential sector.<sup><a href='print.cfm@sid=SC.html#52'>52</a>,<a href='print.cfm@sid=SC.html#53'>53</a>,<a href='print.cfm@sid=SC.html#54'>54</a></sup> Electricity consumption is also high because 7 in 10 South Carolina households use electricity as their primary energy source for home heating.<sup><a href='print.cfm@sid=SC.html#55'>55</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Hydropower and biomass, South Carolina's primary renewable resources, contribute more than 5% of the state's total net electricity generation.<sup><a href='print.cfm@sid=SC.html#56'>56</a></sup> There are dozens of hydroelectric generating plants in South Carolina, primarily in the western part of the state, and additional development potential exists at sites throughout South Carolina.<sup><a href='print.cfm@sid=SC.html#57'>57</a>,<a href='print.cfm@sid=SC.html#58'>58</a></sup> Biomass contributes almost as much to South Carolina's net generation as hydropower.<sup><a href='print.cfm@sid=SC.html#59'>59</a></sup> The state has about 13 million acres of forest, and forestry is a leading industry in South Carolina.<sup><a href='print.cfm@sid=SC.html#60'>60</a>,<a href='print.cfm@sid=SC.html#61'>61</a></sup> Logging residue is considered to be the state's greatest source of underused biomass. It has been estimated that woody biomass could supply one-eighth of South Carolina's electricity needs.<sup><a href='print.cfm@sid=SC.html#62'>62</a></sup> Additionally, the manufacture of wood pellets is a growing industry in the state.<sup><a href='print.cfm@sid=SC.html#63'>63</a></sup> The U.S. Department of Energy, using biomass fuel from forest debris collected within 100 miles of its Savannah River Site in Aiken, has replaced coal-fired and petroleum-fired cogeneration facilities with those fueled by biomass. The Savannah River facilities, in operation since 2012, are the largest publicly operated biomass facilities in the nation.<sup><a href='print.cfm@sid=SC.html#64'>64</a>,<a href='print.cfm@sid=SC.html#65'>65</a></sup> </p>
+<p>Landfill gas is used to generate electricity at about 20 facilities in South Carolina. In 2001, Santee Cooper, South Carolina's largest electricity generator, became the first utility in the state to produce electricity using methane gas from landfills.<sup><a href='print.cfm@sid=SC.html#66'>66</a>,<a href='print.cfm@sid=SC.html#67'>67</a></sup> Additionally, the state's first anaerobic digester project came online in 2011. The anaerobic digester project generates power from methane gas captured at a hog farm.<sup><a href='print.cfm@sid=SC.html#68'>68</a></sup> South Carolina has biomass resources in the form of agricultural residues from corn, wheat, and soybean crops, as well.<sup><a href='print.cfm@sid=SC.html#69'>69</a></sup> Although the state is the third-largest consumer of ethanol in the nation, there are no ethanol production facilities in South Carolina.<sup><a href='print.cfm@sid=SC.html#70'>70</a></sup> The state does have five biodiesel plants.<sup><a href='print.cfm@sid=SC.html#71'>71</a></sup></p>
+<p>South Carolina does not have any appreciable onshore wind energy resource and does not have any installed wind capacity, but manufacturers and assemblers of wind turbine components are located in the state.<sup><a href='print.cfm@sid=SC.html#72'>72</a>,<a href='print.cfm@sid=SC.html#73'>73</a></sup> A small but increasing share of South Carolina's renewable generation comes from solar resources.<sup><a href='print.cfm@sid=SC.html#74'>74</a></sup> The state offers tax credits to encourage the use of solar technologies.<sup><a href='print.cfm@sid=SC.html#75'>75</a></sup> Geothermal resource applications in South Carolina focus on geothermal heat pumps.<sup><a href='print.cfm@sid=SC.html#76'>76</a></sup></p>
+<p>In 2014, South Carolina's legislature authorized the creation of distributed (customer-sired small-scale) energy resource programs by electric utilities and required the Public Service Commission to develop accompanying net metering rules. The legislation's goal is to encourage the development of in-state renewable energy generation capacity by allowing a participating utility to recover costs connected with meeting the utility's renewable generation target. The program has a target of 2% of aggregate generation capacity from renewable resources by 2021, half from facilities with capacities between 1 and 10 megawatts and half from facilities that have capacities of less than 1 megawatt.<sup><a href='print.cfm@sid=SC.html#77'>77</a></sup> Additionally, in 2007, South Carolina established energy standards for public buildings requiring the development of energy conservation plans. The ultimate conservation goal is a 20% reduction in energy use from year 2000 levels by 2020.<sup><a href='print.cfm@sid=SC.html#78'>78</a>,<a href='print.cfm@sid=SC.html#79'>79</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> South Carolina Department of Parks, Recreation and Tourism, South Carolina Geography, Climate, and Economy, accessed July 20, 2016.<br>
+<a name='2'></a><sup>2</sup> U.S. Energy Information Administration, South Carolina Profile Data, Reserves and Supply, accessed July 20, 2016. <br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration, State Energy Data 2014: Production, Table P2, Energy Production Estimates in Trillion Btu, 2014.<br>
+<a name='4'></a><sup>4</sup> South Carolina Department of Natural Resources, South Carolina State Water Assessment, Chapter 9, Special Topics (2009).<br>
+<a name='5'></a><sup>5</sup> South Carolina Forestry Commission, The State of SC's Forests, By the Numbers: 2015, accessed July 20, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration, South Carolina Profile Overview, Map Layer, Biomass Power Plant, accessed July 21, 2016.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, State Energy Data 2014: Production, Table P2, Energy Production Estimates in Trillion Btu, 2014.<br>
+<a name='8'></a><sup>8</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), South Carolina Tables CT3, CT4, CT5, CT6, CT7, CT8.<br>
+<a name='9'></a><sup>9</sup> South Carolina Department of Commerce, The SC Advantage, Industries, Business Sectors, accessed July 21, 2016. <br>
+<a name='10'></a><sup>10</sup> U.S. Bureau of Economic Analysis, Interactive Data, GDP and Personal Income, Regional Data, Annual Gross Domestic Product (GDP) by State, GDP in current dollars, All industries, South Carolina, 2014.<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Summary Table C8, and South Carolina Tables CT3, CT4, CT5, CT6, CT7, CT8.<br>
+<a name='12'></a><sup>12</sup> South Carolina Department of Parks, Recreation and Tourism, South Carolina Beaches, accessed July 26, 2016.<br>
+<a name='13'></a><sup>13</sup> "Governing Data, State-to-State Population Migration," Governing, accessed July 27, 2016.<br>
+<a name='14'></a><sup>14</sup> U.S. Department of Interior, Bureau of Land Management, South Carolina Reasonably Foreseeable Development Scenario for Fluid Minerals (May 2008), p. 8-10.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, South Carolina Profile Data, Reserves and Supply, accessed July 21, 2016.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, South Carolina Profile Data, Distribution and Marketing, accessed July 21, 2016.<br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, Petroleum and Other Liquids, Company Level Imports, accessed July 21, 2016. <br>
+<a name='18'></a><sup>18</sup> World Port Source, Port of Georgetown, Port Commerce, accessed July 21, 2016.<br>
+<a name='19'></a><sup>19</sup> National Association of Manufacturers, Petroleum Coke: Essential To Manufacturing, accessed July 21, 2016.<br>
+<a name='20'></a><sup>20</sup> Century Aluminum, Mt. Holly, SC, accessed July 21, 2016.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), South Carolina Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='22'></a><sup>22</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014. <br>
+<a name='23'></a><sup>23</sup> South Carolina Office of Regulatory Staff, Energy Office, South Carolina Energy Statistical Highlights (October 2015), p. 9.<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, State Energy Data System, Table F3, Motor Gasoline Consumption, Price, and Expenditure Estimates, 2014.<br>
+<a name='25'></a><sup>25</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='26'></a><sup>26</sup> South Carolina Office of Regulatory Staff, Energy Office, South Carolina Energy Statistical Highlights (October 2015), p. 10.<br>
+<a name='27'></a><sup>27</sup> South Carolina Office of Regulatory Staff, Energy Office, South Carolina Energy Statistical Highlights (October 2015), p. 10.<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, State Energy Data System, Table F4, Fuel Ethanol Consumption Estimates, 2014.<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, South Carolina Profile Data, Environment, accessed July 21, 2016. <br>
+<a name='30'></a><sup>30</sup> U.S. Census Bureau, American FactFinder, South Carolina, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimate.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, South Carolina Profile Data, Reserves and Supply, accessed July 22, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, South Carolina Profile Data, Distribution and Marketing, accessed July 22, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, South Carolina, accessed July 22, 2016.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, South Carolina Natural Gas Total Consumption, accessed July 22, 2016. <br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, South Carolina Natural Gas Deliveries to Electric Power Consumers, accessed July 22, 2016.<br>
+<a name='36'></a><sup>36</sup> South Carolina Department of Parks, Recreation and Tourism, South Carolina Geography, Climate, and Economy, accessed July 20, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. Census Bureau, American FactFinder, South Carolina, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimate.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, South Carolina, accessed July 22, 2016. <br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, South Carolina Profile Data, Reserves and Supply, accessed July 22, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), South Carolina Table DS-39, Domestic Coal Distribution, by Destination State, 2014.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated) January-March 2016 (June 2016), Table 13, U.S. Coal Exports by Customs District.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated) January-March 2016 (June 2016), Table 20, Coal Imports by Customs District.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, State Nuclear Profiles 2010 (April 2012), South Carolina. <br>
+<a name='44'></a><sup>44</sup> U.S. Nuclear Regulatory Commission, Virgil C. Summer Nuclear Station, Unit 2 (Under Construction), accessed July 22, 2106. <br>
+<a name='45'></a><sup>45</sup> U.S. Nuclear Regulatory Commission, Virgil C. Summer Nuclear Station, Unit 3 (Under Construction), accessed July 22, 2016. <br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, South Carolina Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, State Nuclear Profiles, accessed July 22, 2016. <br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.9.B, 1.10.B, 1.11.B, 1.12.B, 1.15.B.<br>
+<a name='49'></a><sup>49</sup> South Carolina Department of Natural Resources, South Carolina State Water Assessment, Chapter 9, Special Topics (2009), Table 9-1, Existing hydroelectric power plants in and adjacent to South Carolina.<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, South Carolina Profile Overview, Map Layer, Biomass Power Plant, accessed July 21, 2016.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, South Carolina Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014, South Carolina. <br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, 2009 RECS Survey Data, Air Conditioning, Table HC7.10, Air Conditioning in Homes in South Region, Divisions, and States, 2009.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='55'></a><sup>55</sup> U.S. Census Bureau, American FactFinder, South Carolina, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimate.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.6.B, 1.13.B, 1.18.B.<br>
+<a name='57'></a><sup>57</sup> South Carolina Department of Natural Resources, South Carolina State Water Assessment, Chapter 9, Special Topics (2009), p. 9-2 to 9-7.<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, South Carolina Profile Overview, Map Layer, Hydroelectric Power Plant, accessed July 23, 2016.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.15.B.<br>
+<a name='60'></a><sup>60</sup> South Carolina Forestry Commission, South Carolina Forest Industry Facts (February 24, 2014). <br>
+<a name='61'></a><sup>61</sup> Melvin, Jim, "At $41.7 billion, agribusiness remains SC's No. 1 industry," Clemson University Media Release (February 10, 2015).<br>
+<a name='62'></a><sup>62</sup> South Carolina Forestry Commission, "Forestry Commission Releases Biomass Harvesting Guidelines," News Release (May 7, 2013).<br>
+<a name='63'></a><sup>63</sup> "Woody Biomass Industry Emerging in S.C.," Forest Bioenergy Review (July 11, 2013).<br>
+<a name='64'></a><sup>64</sup> Ameresco, Department of Energy Savannah River Site Biomass Cogeneration Facility SC, accessed July 23, 2016.<br>
+<a name='65'></a><sup>65</sup> South Carolina Department of Commerce, Business Sectors, Alternative Energy, accessed July 23, 2016.<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Electricity Form EIA-860 detailed data, 3_1 Generator Y2014, 2014 Form EIA-860 Data, Schedule 3, 'Generator Data' (Operable Units Only), accessed July 23, 2016.<br>
+<a name='67'></a><sup>67</sup> Santee Cooper, Santee Cooper Fingertip Facts 2014, Who We Are, p. 3, accessed July 24, 2016.<br>
+<a name='68'></a><sup>68</sup> Santee Cooper, South Carolina Public Service Authority (Santee Cooper) Integrated Resource Plan (November 2012), p. 27.<br>
+<a name='69'></a><sup>69</sup> Harris, Robert A., Tim Adams, Vernon Hiott, David Van Lear, Geoff Wang, Tom Tanner, and Jim Frederick, Final Report to the South Carolina Forestry Commission on Potential For Biomass Energy Development in South Carolina, p. 25, accessed July 23, 2016.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, South Carolina Profile Data, Environment, accessed July 23, 2016.<br>
+<a name='71'></a><sup>71</sup> "USA Plants, Existing" Biodiesel Magazine (December 28, 2015).<br>
+<a name='72'></a><sup>72</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, South Carolina Wind Resource Map and Potential Wind Capacity, accessed July 23, 2016.<br>
+<a name='73'></a><sup>73</sup> American Wind Energy Association, South Carolina Wind Energy, accessed July 23, 2016.<br>
+<a name='74'></a><sup>74</sup> South Carolina Energy Office, South Carolina Energy Statistical Highlights (October 2015), p. 23.<br>
+<a name='75'></a><sup>75</sup> NC Clean Energy Technology Center, DSIRE, South Carolina, Solar Energy and Small Hydropower Tax Credit (Personal) (May 4, 2015). <br>
+<a name='76'></a><sup>76</sup> South Carolina Energy Office, Renewable Energy, Geothermal, accessed July 23, 2016. <br>
+<a name='77'></a><sup>77</sup> NC Clean Energy Technology Center DSIRE, South Carolina Distributed Energy Resource Program (August 21, 2015).<br>
+<a name='78'></a><sup>78</sup> South Carolina Legislature, South Carolina Code of Laws Unannotated, South Carolina Energy Efficiency Act, Title 48, Environmental Protection and Conservation, Chapter 52, Energy Efficiency, Article 6, Section 48-52-620, accessed July 24, 2016.<br>
+<a name='79'></a><sup>79</sup> NC Clean Energy Technology Center, DSIRE, South Carolina State Building Energy Standards (January 29, 2016). <br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1C</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.energy.sc.gov/" title="South Carolina Budget and Control Board - South Carolina Energy Office">South Carolina Budget and Control Board - South Carolina Energy Office</a></li>
+  
+    <li><a href="http://www.psc.sc.gov/" title="Public Service Commission of South Carolina">Public Service Commission of South Carolina</a></li>
+  
+    <li><a href="http://www.govoepp.state.sc.us/oeo/programs.htm" title="South Carolina Office of Economic Opportunity, Programs LIHEAP">South Carolina Office of Economic Opportunity, Programs LIHEAP</a></li>
+  
+    <li><a href="http://www.oepp.sc.gov/oeo/weatherization.htm" title="South Carolina Office of Economic Opportunity - Weatherization Program Information By County">South Carolina Office of Economic Opportunity - Weatherization Program Information By County</a></li>
+  
+    <li><a href="http://www.energy.sc.gov/renewable" title="South Carolina Budget and Control Board South Carolina Energy Office - Renewable Energy">South Carolina Budget and Control Board South Carolina Energy Office - Renewable Energy</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.palmettocleanfuels.org/" title="(South Carolina) Palmetto State Clean Fuels Coalition">(South Carolina) Palmetto State Clean Fuels Coalition</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional South Carolina website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for South Carolina\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/SC.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

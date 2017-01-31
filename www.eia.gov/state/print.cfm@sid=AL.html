@@ -1,0 +1,3021 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Alabama Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Alabama State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Alabama Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>In 2014, Alabama ranked 17th in the nation in the number of producing natural gas wells.</li>
+	
+	<li>Mobile, Alabama was the third-largest seaport for exporting U.S. coal in 2015. Coking coal used in the steelmaking process accounted for 83% of total exported coal.</li>
+	
+	<li>The three reactors at the Browns Ferry Nuclear Plant in Limestone County, Alabama have a combined generating capacity of 3,309 megawatts, second in capacity only to Arizona&rsquo;s Palo Verde nuclear plant.</li>
+	
+	<li>Alabama ranked eighth in 2015 in net electricity generation from renewable energy resources, including hydroelectric power. &nbsp;In 2015, conventional hydroelectric power supplied 75% of Alabama&#39;s generation from renewable resources.</li>
+	
+	<li>Alabama has the third-largest amount of timberland acreage among the Lower 48 states. In 2015, Alabama ranked fifth in the nation in electricity generation from biomass, much it from wood and wood waste from the state&rsquo;s substantial forest products industry.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: May 19, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=AL.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=AL.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=AL.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=AL.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=AL.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Alabama Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alabama Energy Consumption Estimates',
+		data : [575.9,651.5,287.5,143.5,14.2,8.5,7.7,35.0,431.4,90.0,186.6,0.3,-475.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Alabama Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 378.7],['Commercial', 262.4],['Industrial', 848.3],['Transportation', 467.7]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alabama Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alabama Energy Production Estimates',
+		data : [414.4,196.2,57.0,431.4,0.0,254.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alabama Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alabama Net Electricity Generation',
+		data : [4416,3123,2287,305,248]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alabama Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alabama U.S. Price Differentials',
+		data : [{y:0.238663484487, period: Date.UTC(2016,9,1)},{y:54.4395924309, period: Date.UTC(2016,9,1)},{y:0.883534136546, period: Date.UTC(2016,9,1)},{y:9.74212034384, period: Date.UTC(2016,9,1)},{y:-5.50595238095, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					4.9 million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					2.2 million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 204.2  billion 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 35,123  million 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 38,965 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					65,667 million miles 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					8.9 million acres 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					64.6 degrees Fahrenheit 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					61.4 inches 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.51 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.20 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 21.22 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 84.05 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.56 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					11.49 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.35 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=182">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					64 million barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					2,182 billion cu ft 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					58 million barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					228 million short tons 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					6 rigs 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					6,044 wells 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,354 trillion Btu 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					734 thousand barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					168,249 million cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					13,191 thousand short tons 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					131,675 barrels/calendar day 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					29,296 MW 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					10,384 thousand MWh 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					42.5 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					30.1 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					22.0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					5.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					104 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,464 thousand barrels 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					34,669 million cu ft 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					339 thousand barrels 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					3,706 thousand tons 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Alabama</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">No 7 Mine / Jim Walter Resources Inc</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Goodway Refining (Atmore), Hunt Refining (Tuscaloosa), Shell Chemical (Saraland)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Barry (Alabama Power Co) ; James H Miller Jr (Alabama Power Co) ; H Allen Franklin Combined Cycle (Southern Power Co) ; E B Harris Electric Generating Plant (Southern Power Co) ; E C Gaston (Alabama Power Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Browns Ferry (Tennessee Valley Authority), Joseph M Farley (Alabama Power Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=182">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Alabama</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Mobile  </td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Alabama</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Plains Pipeline, Hunt Crude Oil Supply</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Colonial Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Alabama Gas Corporation, American Midstream AlaTenn LLC, Bay Gas Storage, Chandeleur Pipeline Company, Childersburg Water Works, Sewer, and Gas Board, DCP Midstream LP, Florida Gas Transmission Company, Gulf South Pipeline Company LP, Gulfstream Natural Gas System LLC, Midcontinent Express Pipeline, Southeast Supply Header, Southern Natural Gas Company, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP, Transcontinental Gas Pipeline, USG Pipeline Company </td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					3,035 stations 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					104 stations 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					106 stations 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					31 stations 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					38 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,958 trillion Btu 
+				</td>
+				<td>
+					17 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_sum%252Fhtml%252Frank_use_capita.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					404 million Btu 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 24,147  million 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_sum%252Fhtml%252Frank_pr.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,982 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					379 trillion Btu 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					262 trillion Btu 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					848 trillion Btu 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					469 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 4,535  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,943  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 5,006  million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 11,662  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_use_pa.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					97.9 million barrels 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_use_ng.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					635.6 billion cu ft 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_use_cl.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					27.1 million short tons 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_pr_pa.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 13,078  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_pr_ng.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 3,521  million 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_pr_cl.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 1,677  million 
+				</td>
+				<td>
+					3.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					32,348 million cu ft 
+				</td>
+				<td>
+					4.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,580 thousand short tons 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=182">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					28.5 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					62.9 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					6.8 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.6 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					4,015 MW 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					305 thousand MWh 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					11 thousand MWh 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					238 thousand MWh 
+				</td>
+				<td>
+					4.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_sum%252Fhtml%252Fsum_btu_totcb.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					14.2 % 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_use_en.html&amp;sid=US&amp;sid=AL.html"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					6,649 thousand barrels 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					123.0 million metric tons 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Alabama</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=182">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					64,442 thousand metric tons 
+				</td>
+				<td>
+					3.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					117 thousand metric tons 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					51 thousand metric tons 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: May 19, 2016<p>
+<h2>Overview </h2>
+<p> </p>
+<div class='pullquote'><p>Alabama's energy use per capita is high because of demand from the state's manufacturing base. </p></div><p>Alabama is located on the Gulf of Mexico, where warm Gulf waters provide the abundant moisture that creates the humidity found throughout the state during most of the year. Two-thirds of the state consists of coastal plain. In its northeast, Alabama rises to include the southwestern limits of the Appalachian Mountains. Although the climate is subtropical, cold air brings snow to the higher elevations in the north in most years.<sup><a href='print.cfm@sid=AL.html#1'>1</a>,<a href='print.cfm@sid=AL.html#2'>2</a></sup> Alabama is rich in energy resources with sizeable deposits of coal, as well as some crude oil and natural gas reserves, including coalbed methane.<sup><a href='print.cfm@sid=AL.html#3'>3</a>,<a href='print.cfm@sid=AL.html#4'>4</a>,<a href='print.cfm@sid=AL.html#5'>5</a></sup> The state also has renewable resources. Alabama's many rivers flow generally southwest from the Appalachian highlands toward the Gulf of Mexico.<sup><a href='print.cfm@sid=AL.html#6'>6</a></sup> Several dams along those rivers provide hydroelectric power.<sup><a href='print.cfm@sid=AL.html#7'>7</a></sup> Forests cover more than two-thirds of Alabama, the third-largest amount of timberland acreage among the Lower 48 states, giving the state an ample biomass resource.<sup><a href='print.cfm@sid=AL.html#8'>8</a></sup> </p>
+<p>Alabama ranks among the top one-fourth of all states in energy consumption per person.<sup><a href='print.cfm@sid=AL.html#9'>9</a></sup> The state is well above the national median in total energy consumption because of high demand from Alabama's industrial sector, which consumes more energy than the state's transportation sector and residential sector combined.<sup><a href='print.cfm@sid=AL.html#10'>10</a></sup> The automotive, chemical, metals manufacturing, technology, forestry, and aeronautical industries are major contributors to Alabama's economy, as are mining and food production.<sup><a href='print.cfm@sid=AL.html#11'>11</a>,<a href='print.cfm@sid=AL.html#12'>12</a></sup> Despite high energy use for cooling during the hot, humid summers and the widespread use of electricity for home heating, the residential sector and the commercial sector together account for only about one-third of the state's end-use energy consumption. The transportation sector uses about one-fourth of the energy delivered to end users in Alabama, and the industrial sector accounts for more than two-fifths of end-use consumption.<sup><a href='print.cfm@sid=AL.html#13'>13</a></sup> However, together the Alabama end-use sectors account for only three-fifths of the total energy used in the state, and electric power generation consumes the rest.<sup><a href='print.cfm@sid=AL.html#14'>14</a>,<a href='print.cfm@sid=AL.html#15'>15</a></sup></p>
+<h2>Petroleum</h2>
+<p>Oil was discovered in western Alabama in the mid-1940s. Today, a small amount of crude oil is produced annually from fields in the northwestern part of the state and on Alabama's Gulf Coast in the southwestern part of the state.<sup><a href='print.cfm@sid=AL.html#16'>16</a>,<a href='print.cfm@sid=AL.html#17'>17</a></sup> Proved crude oil reserves had remained fairly constant over the past 25 years at about 50 million barrels, but, in 2014, they increased to 66 million barrels, a level not seen since the mid-1980s.<sup><a href='print.cfm@sid=AL.html#18'>18</a></sup> Annual crude oil production has increased slightly in the past three years for the first time since a significant drop-off began in the mid-1990s, but it is still only about half of what it was in 1995.<sup><a href='print.cfm@sid=AL.html#19'>19</a></sup> </p>
+<div class='pullquote'><p>Alabama's three oil refineries can process about 120,100 barrels of crude oil per day.</p></div><p>Alabama has three petroleum refineries. One refinery, the largest in the state, is located near the Port of Mobile. Another refinery is in Tuscaloosa on the Black Warrior River, and the third and smallest refinery is in Atmore. The refineries have a combined capacity of about 120,100 barrels of crude oil per calendar day.<sup><a href='print.cfm@sid=AL.html#20'>20</a></sup> Their products include feedstocks for chemical plants, specialty products, transportation fuels, and asphalt. The state's refined petroleum products are delivered to local and regional markets.<sup><a href='print.cfm@sid=AL.html#21'>21</a>,<a href='print.cfm@sid=AL.html#22'>22</a>,<a href='print.cfm@sid=AL.html#23'>23</a></sup> Alabama receives additional refined products from Texas and Louisiana via two major interstate petroleum product pipelines.<sup><a href='print.cfm@sid=AL.html#24'>24</a>,<a href='print.cfm@sid=AL.html#25'>25</a></sup> </p>
+<p>The majority of the petroleum used in Alabama is consumed as transportation fuels, particularly motor gasoline.<sup><a href='print.cfm@sid=AL.html#26'>26</a></sup> Reformulated gasoline is not required in Alabama and conventional gasoline can be used year round.<sup><a href='print.cfm@sid=AL.html#27'>27</a></sup> Counties in the Birmingham area were required to use gasoline with a reduced volatility during the summer months, but those restrictions have been relaxed.<sup><a href='print.cfm@sid=AL.html#28'>28</a></sup> About 0.2% of Alabama homes heat with fuel oil or kerosene, and 1 in 14 Alabama households heat with liquefied petroleum gas (LPG).<sup><a href='print.cfm@sid=AL.html#29'>29</a></sup></p>
+<h2>Natural gas</h2>
+<p>Alabama produces natural gas both onshore and offshore in state waters. The state's annual natural gas production has steadily declined from its peak in 1996, and Alabama currently contributes less than 1% of the nation's total natural gas production.<sup><a href='print.cfm@sid=AL.html#30'>30</a>,<a href='print.cfm@sid=AL.html#31'>31</a></sup> Three-fifths of Alabama's natural gas production comes from onshore wells, and more than two-thirds of that production comes from coalbed methane-a natural gas derived from coal seams. Alabama's coalbed methane wells are located primarily in the Black Warrior Basin.<sup><a href='print.cfm@sid=AL.html#32'>32</a>,<a href='print.cfm@sid=AL.html#33'>33</a></sup> Overall, Alabama's proved reserves of natural gas have fallen to about one-third of their 1992 peak of 5.8 trillion cubic feet.<sup><a href='print.cfm@sid=AL.html#34'>34</a></sup> </p>
+<p>An increasing amount of the natural gas delivered to customers in Alabama is going to the electric power sector, and, since 2007, that sector has been the largest natural gas-consuming sector in the state.<sup><a href='print.cfm@sid=AL.html#35'>35</a>,<a href='print.cfm@sid=AL.html#36'>36</a></sup> The industrial sector consumes the second-largest amount. Although about 3 out of every 10 households use natural gas for heating, the residential sector typically uses about 6% of the natural gas delivered to customers, primarily because of the state's mild winters.<sup><a href='print.cfm@sid=AL.html#37'>37</a>,<a href='print.cfm@sid=AL.html#38'>38</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Mobile, Alabama, is one of the largest U.S. coal ports, handling both imports and exports.</p></div><p>Coal has been mined commercially in Alabama for more than 150 years, and the state ranks 14th in total coal production and 10th in bituminous coal production among the states.<sup><a href='print.cfm@sid=AL.html#39'>39</a>,<a href='print.cfm@sid=AL.html#40'>40</a></sup> Alabama produces large amounts of high-quality bituminous coal in the northern part of the state from both surface and underground mines.<sup><a href='print.cfm@sid=AL.html#41'>41</a></sup> In 2014, two-thirds of the coal produced in Alabama was exported.<sup><a href='print.cfm@sid=AL.html#42'>42</a></sup> Mobile, Alabama, is the nation's third-largest seaport for exporting U.S. coal, most of which is bound for Europe and South and Central America.<sup><a href='print.cfm@sid=AL.html#43'>43</a>,<a href='print.cfm@sid=AL.html#44'>44</a>,<a href='print.cfm@sid=AL.html#45'>45</a></sup> In 2015, Mobile also was second only to Tampa, Florida, in coal imports.<sup><a href='print.cfm@sid=AL.html#46'>46</a></sup> More than half the coal mined in Alabama for domestic sale is delivered by barge, railroad, and truck to electric power plants in the state. Coal is also delivered to industrial facilities and coke plants in Alabama. Minor amounts are delivered to nearby states.<sup><a href='print.cfm@sid=AL.html#47'>47</a></sup></p>
+<p>Only one-fourth of the domestically produced coal used in Alabama is mined in the state. Wyoming supplies about half of the U.S. coal consumed in Alabama, and all of that coal is delivered to electric power plants, the largest coal consumers in the state. Another one-fourth of domestic coal comes by railroad, river barge, and truck from several other states for use in power plants and industrial facilities in Alabama. Coke plants in the state get their coal from West Virginia and Alabama.<sup><a href='print.cfm@sid=AL.html#48'>48</a></sup> Imported coal, primarily from Latin America, is also used in Alabama.<sup><a href='print.cfm@sid=AL.html#49'>49</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>The Browns Ferry plant has the second-largest nuclear electric generating capacity in the nation.</p></div><p>Alabama is sixth among the states in electricity generation. Coal has typically fueled the largest share of electric power generation in the state, but, because of market fluctuations and increased supply, natural gas has provided a larger share in recent years, exceeding coal-fired generation in 2012, 2014, and 2015. Alabama is one of the largest generators of electricity from nuclear power in the nation. Its two nuclear power plants, with a total of five reactors, typically produce about one-fourth of the electricity generated in Alabama.<sup><a href='print.cfm@sid=AL.html#50'>50</a>,<a href='print.cfm@sid=AL.html#51'>51</a></sup> The three reactors at the Browns Ferry nuclear power plant in Limestone County have a combined generating capacity of 3,309 megawatts, second only to Arizona's Palo Verde plant in generating capacity among nuclear power plants in the United States.<sup><a href='print.cfm@sid=AL.html#52'>52</a></sup> </p>
+<p>Alabama is one of the largest hydroelectric power producers east of the Rocky Mountains, second only to New York.<sup><a href='print.cfm@sid=AL.html#53'>53</a></sup> Two dozen hydroelectric dams, located along several of the state's many rivers, typically supply about 6% of the state's net electricity generation.<sup><a href='print.cfm@sid=AL.html#54'>54</a>,<a href='print.cfm@sid=AL.html#55'>55</a></sup> Alabama also ranks among the top five states for electricity generation from biomass, much it from wood and wood waste from the state's substantial forest products industry.<sup><a href='print.cfm@sid=AL.html#56'>56</a>,<a href='print.cfm@sid=AL.html#57'>57</a></sup></p>
+<p>The largest share of retail electricity sales in Alabama is delivered to the industrial sector, followed closely by the residential sector.<sup><a href='print.cfm@sid=AL.html#58'>58</a></sup> Average monthly consumption of electricity in Alabama's residential sector is among the highest in the nation because of high demand for air conditioning during the hot summer months and the widespread use of electricity for home heating during the winter months.<sup><a href='print.cfm@sid=AL.html#59'>59</a></sup> Three out of five Alabama households heat with electricity.<sup><a href='print.cfm@sid=AL.html#60'>60</a></sup> Power production in Alabama exceeds the state's consumption, and large amounts of electricity are delivered to neighboring states over several high-voltage interstate transmission lines.<sup><a href='print.cfm@sid=AL.html#61'>61</a>,<a href='print.cfm@sid=AL.html#62'>62</a></sup> </p>
+<h2>Renewable energy</h2>
+<p>Alabama's hydroelectric facilities provide three-fourths of the state's renewable electricity generation.<sup><a href='print.cfm@sid=AL.html#63'>63</a></sup> The rest of the state's utility-scale renewable generation comes from biomass, most of which is generated at industrial facilities.<sup><a href='print.cfm@sid=AL.html#64'>64</a></sup> Additionally, Alabama has five commercial biomass pellet plants with a combined annual production capacity of 837,000 short tons, almost 7% of the nation's total productive capacity at existing pellet plants. A sixth plant, with a capacity of 485,000 tons per year, has been proposed.<sup><a href='print.cfm@sid=AL.html#65'>65</a></sup> Alabama does not have any ethanol plants, but the state does have three facilities that produce biodiesel from multiple feedstocks.<sup><a href='print.cfm@sid=AL.html#66'>66</a></sup> Although there are no significant wind resources in Alabama, there are a few areas along its short coastline and along the spine of the mountains in northern Alabama where the wind resource is modest. The state has no utility-scale wind generation.<sup><a href='print.cfm@sid=AL.html#67'>67</a>,<a href='print.cfm@sid=AL.html#68'>68</a></sup></p>
+<p>There is little commercial electricity generation from solar power in Alabama.<sup><a href='print.cfm@sid=AL.html#69'>69</a></sup> However, the U.S. Army, in collaboration with the General Services Administration and Alabama Power, the state's largest electric utility, is developing large-scale solar projects at three of its military installations in the state.<sup><a href='print.cfm@sid=AL.html#70'>70</a></sup> The state's other major electricity provider, the Tennessee Valley Authority (TVA), operates two solar facilities in Alabama, one at a botanical garden and one at a wastewater treatment plant.<sup><a href='print.cfm@sid=AL.html#71'>71</a></sup> TVA has agreed to purchase power from a planned new 80-megawatt solar farm to be built in 2016 near Florence, Alabama.<sup><a href='print.cfm@sid=AL.html#72'>72</a></sup> </p>
+<p>Alabama does not have a renewable portfolio standard. The state has adopted a mandatory building energy code for commercial and residential buildings and energy standards for state agencies.<sup><a href='print.cfm@sid=AL.html#73'>73</a></sup> TVA offers homeowners and businesses financial incentives to install renewable energy generation. Participating customers receive credit on their utility bills for power sold back to the electric grid.<sup><a href='print.cfm@sid=AL.html#74'>74</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> University of Alabama, Department of Geography, Physiographic Regions, accessed April 22, 2016.<br>
+<a name='2'></a><sup>2</sup> Christy, John, "Alabama's Climate, It's the Humidity!" Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed April 20, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 14, Recoverable Coal Reserves and Average Recovery Percentage at Producing Mines by State, 2014 and 2013.<br>
+<a name='4'></a><sup>4</sup> U.S. Energy Information Administration, Alabama Profile Data, Reserves and Supply, accessed April 22, 2016.<br>
+<a name='5'></a><sup>5</sup> U.S. Energy Information Administration, Coalbed Methane, Proved Reserves as of December 31, 2014, accessed April 22, 2016.<br>
+<a name='6'></a><sup>6</sup> Geology.com, Alabama Lakes, Rivers and Water Resources, accessed April 22, 2016.<br>
+<a name='7'></a><sup>7</sup> Alabama Power, Our Lakes and Dams, accessed April 22, 2016.<br>
+<a name='8'></a><sup>8</sup> Alabama Forestry Commission, Alabama Forest Facts, accessed April 22, 2016.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2013.<br>
+<a name='11'></a><sup>11</sup> Alabama Department of Commerce, Made in Alabama, Industries, accessed April 23, 2016.<br>
+<a name='12'></a><sup>12</sup> U.S. Bureau of Economic Analysis, Interactive Data, GDP and Personal Income, Regional Data, Annual Gross Domestic Product (GDP) by State, GDP in current dollars, All industries, Alabama, 2013.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2013.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table CT8, Electric Power Sector Consumption Estimates, Selected Years, 1960-2013, Alabama.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table CT3. Total End-Use Energy Consumption Estimates, Selected Years, 1960-2013, Alabama.<br>
+<a name='16'></a><sup>16</sup> Hall, Douglas R., and David E. Bolin, The Petroleum Industry in Alabama, 1999-2007, Oil and Gas Report 3U, Geological Survey of Alabama (2009), p. 1, 2.<br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, Crude Oil Production, Annual Thousand Barrels, accessed April 23, 2016.<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, Alabama Crude Oil Proved Reserves, accessed April 23, 2016.<br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, Alabama Field Production of Crude Oil, accessed April 23, 2016.<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Refinery Capacity Report 2015, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015.<br>
+<a name='21'></a><sup>21</sup> Shell United States, Mobile, AL, accessed April 23, 2016.<br>
+<a name='22'></a><sup>22</sup> Goodway Refining, LLC, accessed April 23, 2016.<br>
+<a name='23'></a><sup>23</sup> Hunt Refining Company, Refining Operations, Tuscaloosa Refinery, accessed April 23, 2016.<br>
+<a name='24'></a><sup>24</sup> Colonial Pipeline Company, System Map, accessed April 23, 2016.<br>
+<a name='25'></a><sup>25</sup> Kinder Morgan, Plantation Pipe Line Company (PPL), accessed April 23, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2013.<br>
+<a name='27'></a><sup>27</sup> U.S. Environmental Protection Agency, Reformulated Gasoline, accessed April 23, 2016. <br>
+<a name='28'></a><sup>28</sup> U.S. Environmental Protection Agency, Gasoline Reid Vapor Pressure, accessed April 23, 2016.<br>
+<a name='29'></a><sup>29</sup> U.S. Census Bureau, American FactFinder, Alabama, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, Alabama Natural Gas Gross Withdrawals, accessed April 23, 2016.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual, accessed April 23, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Coalbed Wells, Annual, accessed April 23, 2016.<br>
+<a name='33'></a><sup>33</sup> Geological Survey of Alabama, State Oil and Gas Board, Coal Systems, Coalbed Methane, accessed April 23, 2016.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, Alabama Dry Natural Gas Expected Future Production, accessed April 23, 2016.<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Alabama Natural Gas Deliveries to Electric Power Customers, 1997-2015, accessed April 23, 2016. <br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, Alabama Natural Gas Industrial Consumption, 1997-2015, accessed April 23, 2016. <br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Alabama, 2007-2015, accessed April 23, 2016.<br>
+<a name='38'></a><sup>38</sup> U.S. Census Bureau, American FactFinder, Alabama, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate. <br>
+<a name='39'></a><sup>39</sup> Geological Survey of Alabama, State Oil and Gas Board, Coal Systems, accessed April 23, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2014.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2014.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Annual Coal Distribution Report, 2014 (April 2016), Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2014.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated), October-December 2015 (April 2016) Table 13, U.S. Coal Exports by Customs District.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Exports, Historical, U.S. Coal Exports by Year, Quarter, and Customs District, 2002-2015, accessed April 25, 2016.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, "Europe and Asia are the leading destinations for U.S. exports in 2012," Today in Energy (November 15, 2012).<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated), October-December 2015 (April 2016), Table 20, Coal Imports by Customs District.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), Alabama, Table OS-1, Domestic Coal Distribution, by Origin State, 2014.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), Alabama, Table DS-1, Domestic Coal Distribution, by Destination State, 2014.<br>
+<a name='49'></a><sup>49</sup> Deyette, Jeff, and Barbara Freese, Burning Coal, Burning Cash, Union of Concerned Scientists (May 2010), p. 22.<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2011, 2012, 2013, 2014), Tables 1.6.B, 1.7.B, 1.10B, 1.12.B; (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.9.B.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Alabama Nuclear Profile 2010, accessed April 25, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, State Nuclear Profiles (April 2012), p. 1, 5.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.10.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Electricity Form EIA-860 Detailed Data 2014, accessed April 25, 2016.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2011, 2012, 2013, 2014), Tables 1.6.B, 1.13.B; (February 2016), Tables 1.3.B, 1.10.B.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Alabama Profile Overview, Map Layers, Biomass Power Plant, accessed April 25, 2016.<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Sales, Revenue, and Average Price, 2014 Average Monthly Bill=Residential, accessed April 25, 2016.<br>
+<a name='60'></a><sup>60</sup> U.S. Census Bureau, American FactFinder, Alabama, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimate.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Alabama Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Alabama Profile Overview, Map Layers, Electric Transmission Line , accessed April 25, 2016. <br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B.	<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='65'></a><sup>65</sup> "Pellet Plants," Biomass Magazine (April 21, 2016).<br>
+<a name='66'></a><sup>66</sup> "USA Plants," Biodiesel Magazine (December 8, 2015).<br>
+<a name='67'></a><sup>67</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Alabama Wind Resource Map and Potential Wind Capacity, accessed April 26, 2016.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.14.B.<br>
+<a name='69'></a><sup>69</sup> Solar Energy Industries Association, State Solar Policy, Alabama Solar, accessed April 26, 2016. <br>
+<a name='70'></a><sup>70</sup> U.S. Army, Fort Rucker Large-Scale Renewable Energy Solar Project (April 2016).<br>
+<a name='71'></a><sup>71</sup> Tennessee Valley Authority, TVA in Alabama, accessed April 26, 2016.<br>
+<a name='72'></a><sup>72</sup> Tennessee Valley Authority, River Bend Solar Project, accessed April 26, 2016. <br>
+<a name='73'></a><sup>73</sup> NC Clean Energy Technology Center, DSIRE, Alabama Programs, accessed April 26, 2016.<br>
+<a name='74'></a><sup>74</sup> NC Clean Energy Technology Center, DSIRE, TVA Green Power Providers (June 2, 2015).<br>
+
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Appalachian</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 3</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://adeca.alabama.gov/Energy/default.aspx" title="Alabama Department of Economic and Community Affairs (ADECA), Energy Division">Alabama Department of Economic and Community Affairs (ADECA), Energy Division</a></li>
+  
+    <li><a href="http://adeca.alabama.gov/Divisions/energy/Pages/EnergyAssistance.aspx" title="ADECA, Energy Assistance Programs
+">ADECA, Energy Assistance Programs
+</a></li>
+  
+    <li><a href="http://adeca.alabama.gov/Divisions/energy/Pages/StateEnergyProgram.aspx#Renewable" title="ADECA, Energy Division, Renewable Energy Program">ADECA, Energy Division, Renewable Energy Program</a></li>
+  
+    <li><a href="../special/gulf_of_mexico/index.html" title="EIA Gulf of Mexico Fact Sheet">EIA Gulf of Mexico Fact Sheet</a></li>
+  
+    <li><a href="http://adeca.alabama.gov/Divisions/energy/Pages/default.aspx" title="ADECA, Energy Division, Energy Efficiency and Conservation Block Grant Program">ADECA, Energy Division, Energy Efficiency and Conservation Block Grant Program</a></li>
+  
+    <li><a href="http://www.adem.state.al.us/default.cnt" title="Alabama Department of Environmental Management">Alabama Department of Environmental Management</a></li>
+  
+    <li><a href="http://www.tva.org" title="Tennessee Valley Authority">Tennessee Valley Authority</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.gsa.state.al.us/ogb/ogb.html" title="Alabama Oil and Gas Board">Alabama Oil and Gas Board</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov/" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.psc.state.al.us/" title="Alabama Public Service Commission">Alabama Public Service Commission</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Alabama website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Alabama\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/AL.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

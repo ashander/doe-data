@@ -1,0 +1,3045 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Maine Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Maine State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Maine Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Nearly 90% of Maine is forested, and wood products, including biomass fuels, are an important part of the state&#39;s rural economy.</li>
+	
+	<li>Maine is the only New England state in which industry is the largest energy-consuming sector.</li>
+	
+	<li>Maine had the lowest average electricity retail prices in New England at the end of 2015.</li>
+	
+	<li>The industrial sector produces more than one-fifth of Maine&#39;s net electricity generation, the highest proportion of any state except Louisiana.</li>
+	
+	<li>In 2015, two-thirds of Maine&#39;s net electricity generation came from renewable energy resources, with 30% from hydroelectricity, 26% from biomass (mainly wood products), and 10% from wind.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: June 16, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=ME.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=ME.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=ME.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=ME.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=ME.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Maine Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Maine Energy Consumption Estimates',
+		data : [2.1,62.4,87.2,66.9,5.8,12.8,7.7,7.4,0.0,34.5,112.0,10.9,-15.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Maine Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 91.1],['Commercial', 62.7],['Industrial', 127.0],['Transportation', 129.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Maine Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Maine Energy Production Estimates',
+		data : [0.0,0.0,0.0,0.0,0.0,151.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Maine Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Maine Net Electricity Generation',
+		data : [3,284,5,189,310]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Maine Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Maine U.S. Price Differentials',
+		data : [{y:1.19331742243, period: Date.UTC(2016,9,1)},{y:14.7743813683, period: Date.UTC(2016,9,1)},{y:30.7630522088, period: Date.UTC(2016,9,1)},{y:18.8156638013, period: Date.UTC(2016,9,1)},{y:27.6785714286, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.3 million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.7 million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 56.6  billion 
+				</td>
+				<td>
+					45 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 5,588  million 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 42,077 
+				</td>
+				<td>
+					36 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					14,301 million miles 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					1.5 million acres 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					41.1 degrees Fahrenheit 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					43.4 inches 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.24 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 15.77 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					16.28 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					12.44 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					8.58 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=202">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					151 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					4,662 MW 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					814 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.3 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					34.8 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					0.7 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					61.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					2,155 thousand barrels 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Maine</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">William F Wyman (FPL Energy Wyman LLC) ; Gorham Energy Project (Gorham Energy LP) ; Westbrook Energy Center (Calpine Operating Services Company Inc) ; Maine Independence Station (Casco Bay Energy Co LLC) ; Verso Paper (Verso Bucksport LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=202">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Maine</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Portland, Searsport.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Maine</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Portland Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Granite State Gas Transmission, Maritimes Northeast Pipeline LLC, Portland Natural Gas Transmission System</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					768 stations 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					16 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					74 stations 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					0 stations 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					5 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					411 trillion Btu 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					309 million Btu 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 7,558  million 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,681 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					91 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					63 trillion Btu 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					127 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					130 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,836  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,092  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,031  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 3,598  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					36.9 million barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					60.7 billion cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0.1 million short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 5,347  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 623  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 11  million 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					9 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,958 million cu ft 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1 thousand short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=202">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					6.0 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					64.9 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					5.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					8.2 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					15.9 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,197 MW 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					189 thousand MWh 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					133 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					177 thousand MWh 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					2 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					38.3 % 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=ME"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					1,793 thousand barrels 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					17.0 million metric tons 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Maine</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=202">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					2,956 thousand metric tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					11 thousand metric tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					8 thousand metric tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: June 16, 2016<p>
+<h2>Overview </h2>
+<p>Maine is the least densely populated state east of the Mississippi River.<sup><a href='print.cfm@sid=ME.html#1'>1</a>,<a href='print.cfm@sid=ME.html#2'>2</a></sup> The state is home to both coastal cities and Northwest Aroostook, a territory with less than one resident per 100 square miles.<sup><a href='print.cfm@sid=ME.html#3'>3</a>,<a href='print.cfm@sid=ME.html#4'>4</a>,<a href='print.cfm@sid=ME.html#5'>5</a></sup> A majority of the state's population lives in rural areas.<sup><a href='print.cfm@sid=ME.html#6'>6</a></sup> More than five-sixths of Maine is still forested, and forest products are both a major, energy-intensive industry and a major biomass resource supplying wood-derived fuels such as wood pellets.<sup><a href='print.cfm@sid=ME.html#7'>7</a>,<a href='print.cfm@sid=ME.html#8'>8</a></sup></p><div class='pullquote'><p>Maine is largely rural and forested and has the most energy-intensive economy in New England.</p></div>
+<p>Maine is the easternmost state, rising from its jagged Atlantic coastline to include the northern terminus of the Appalachian Trail at Mt. Katahdin.<sup><a href='print.cfm@sid=ME.html#9'>9</a></sup> Maine weather varies significantly between the ocean-moderated coast, the southern interior, and the northern interior bordering Quebec and New Brunswick. Recorded temperatures have ranged from 103 degrees Fahrenheit on the coast in the summer to minus 50 degrees in the far north in the winter.<sup><a href='print.cfm@sid=ME.html#10'>10</a></sup> Industrial and transportation consumption,<sup><a href='print.cfm@sid=ME.html#11'>11</a></sup> along with heating needs during the northern winter,<sup><a href='print.cfm@sid=ME.html#12'>12</a></sup> give Maine the highest per capita energy usage in New England.<sup><a href='print.cfm@sid=ME.html#13'>13</a></sup> Maine also has the most energy-intensive economy in New England.<sup><a href='print.cfm@sid=ME.html#14'>14</a></sup> Maine's industrial sector accounts for nearly one-third of state energy consumption. Maine is the only New England state in which industry is the leading energy-consuming sector.<sup><a href='print.cfm@sid=ME.html#15'>15</a>,<a href='print.cfm@sid=ME.html#16'>16</a></sup> Although traditional industries such as forest products, leather, and textiles have declined, electronics manufacturing and service industries like health care and tourism are growing.<sup><a href='print.cfm@sid=ME.html#17'>17</a>,<a href='print.cfm@sid=ME.html#18'>18</a>,<a href='print.cfm@sid=ME.html#19'>19</a></sup> </p>
+<h2>Petroleum</h2>
+<p>Maine's energy consumption is dominated by petroleum because of widespread use of fuel oil for home heating during the long, cold winters.<sup><a href='print.cfm@sid=ME.html#20'>20</a></sup> Two-thirds of Maine households use fuel oil as their primary energy source for home heating, a higher share than in any other state.<sup><a href='print.cfm@sid=ME.html#21'>21</a>,<a href='print.cfm@sid=ME.html#22'>22</a></sup> Maine does not produce or refine petroleum.<sup><a href='print.cfm@sid=ME.html#23'>23</a>,<a href='print.cfm@sid=ME.html#24'>24</a></sup> The state receives more than half its petroleum products through the Port of Portland on Casco Bay, where terminals are operated by major product suppliers. Portland is a natural deep-water harbor and is ice-free year round.<sup><a href='print.cfm@sid=ME.html#25'>25</a></sup> Most of the rest of Maine's refined products are received farther north, at Searsport and Belfast, or at several border crossings from Canada. Heating oil and propane are also shipped through the Port of Portsmouth, New Hampshire, on Maine's southern border, and then barged or trucked inland. Canada is the dominant supplier of petroleum product imports to all of Maine's ports.<sup><a href='print.cfm@sid=ME.html#26'>26</a>,<a href='print.cfm@sid=ME.html#27'>27</a></sup></p>
+<p>Since World War II, the Port of Portland has hosted unloading and storage facilities for crude oil shipments, which were sent via a dedicated pipeline system to refineries in Quebec and Ontario.<sup><a href='print.cfm@sid=ME.html#28'>28</a></sup> However, those Canadian refineries are now being supplied with crude oil from western Canada, and shipments from Portland have dwindled.<sup><a href='print.cfm@sid=ME.html#29'>29</a></sup> There have been proposals to reverse the flow in the two parallel pipelines and bring crude oil from Alberta, Canada, and North Dakota to Portland for export to refineries elsewhere, but the idea has encountered environmental opposition and legal challenges in both Canada and the United States.<sup><a href='print.cfm@sid=ME.html#30'>30</a>,<a href='print.cfm@sid=ME.html#31'>31</a></sup> Alberta and North Dakota producers ship some crude oil by rail to Canada's largest refinery, in St. John, New Brunswick, and those shipments sometimes cross through Maine.<sup><a href='print.cfm@sid=ME.html#32'>32</a></sup></p>
+<div class='pullquote'><p>Maine, the most petroleum-dependent state for home heating, wants to cut petroleum usage 30% by 2030.</p></div><p>Maine does not require the use of reformulated motor gasoline, but the state does enforce vapor pressure limits statewide, with lower summer limits for the coastal population centers.<sup><a href='print.cfm@sid=ME.html#33'>33</a></sup> The state does not require motor gasoline to be oxygenated, but neighboring New England states do, so most motor gasoline sold in the state is blended with ethanol.<sup><a href='print.cfm@sid=ME.html#34'>34</a></sup> Maine's heavy use of fuel oil for home heating makes the state particularly vulnerable to distillate fuel oil shortages and price spikes during the winter months. In January and February 2000, heating oil prices rose sharply when extreme weather increased demand and frozen rivers hindered delivery of new supply. Subsequently, the Northeast Home Heating Oil Reserve was created to avert a future supply disruption. In 2011, the U.S. Department of Energy converted the reserve to ultra-low sulfur diesel (ULSD) to correspond with decisions by several northeastern states to begin requiring ULSD for heating.<sup><a href='print.cfm@sid=ME.html#35'>35</a></sup> Maine is phasing in ULSD use in 2016 to 2018.<sup><a href='print.cfm@sid=ME.html#36'>36</a>,<a href='print.cfm@sid=ME.html#37'>37</a></sup> The ULSD heating oil reserves are located in Revere, Massachusetts, and Groton, Connecticut.<sup><a href='print.cfm@sid=ME.html#38'>38</a></sup></p>
+<p>Home heating and transportation fuel consumption make Maine one of the most petroleum-dependent states in the nation,<sup><a href='print.cfm@sid=ME.html#39'>39</a></sup> with the highest per capita petroleum consumption in New England.<sup><a href='print.cfm@sid=ME.html#40'>40</a>,<a href='print.cfm@sid=ME.html#41'>41</a>,<a href='print.cfm@sid=ME.html#42'>42</a></sup> The state legislature has set a goal of reducing petroleum usage 30% by 2030 and 50% by 2050 below the 2007 consumption level.<sup><a href='print.cfm@sid=ME.html#43'>43</a>,<a href='print.cfm@sid=ME.html#44'>44</a></sup></p>
+<h2>Natural gas</h2>
+<p>Maine's natural gas consumption per capita is about 60% of the national average.<sup><a href='print.cfm@sid=ME.html#45'>45</a>,<a href='print.cfm@sid=ME.html#46'>46</a></sup> About two-fifths of Maine's natural gas is used in electricity generation and another two-fifths by industry.<sup><a href='print.cfm@sid=ME.html#47'>47</a></sup> Five of Maine's 10 largest electricity generating stations are fueled with natural gas.<sup><a href='print.cfm@sid=ME.html#48'>48</a></sup> Only about 1 in 20 Maine households use natural gas as their primary heating fuel,<sup><a href='print.cfm@sid=ME.html#49'>49</a></sup> in part because many areas of Maine lack natural gas distribution systems. Where natural gas service is available, constraints on pipeline delivery capacity have led to price spikes during winter demand peaks, when residences and businesses compete with electricity generators for available natural gas supply, and average natural gas and electricity prices have both risen as a result.<sup><a href='print.cfm@sid=ME.html#50'>50</a></sup> </p>
+<p>Maine does not produce natural gas and depends almost entirely on Canadian imports.<sup><a href='print.cfm@sid=ME.html#51'>51</a></sup> Natural gas enters Maine via pipelines from New Hampshire and Canada,<sup><a href='print.cfm@sid=ME.html#52'>52</a></sup> but the New Hampshire line carries mainly Canadian natural gas.<sup><a href='print.cfm@sid=ME.html#53'>53</a>,<a href='print.cfm@sid=ME.html#54'>54</a>,<a href='print.cfm@sid=ME.html#55'>55</a></sup> In recent years, Canadian supplies to New England have been buoyed by major natural gas discoveries off the Nova Scotia coast<sup><a href='print.cfm@sid=ME.html#56'>56</a></sup> and by the opening of the Canaport liquefied natural gas terminal at St. John, New Brunswick.<sup><a href='print.cfm@sid=ME.html#57'>57</a></sup> A pipeline carries natural gas from Canaport to markets in Maine, New Hampshire, and Massachusetts.<sup><a href='print.cfm@sid=ME.html#58'>58</a></sup></p>
+<h2>Coal</h2>
+<p>Maine's only coal-burning power plants are two industrial facilities supplying mill operations and selling surplus power to the electric grid. A 103-megawatt cogeneration plant at the Rumford paper mill<sup><a href='print.cfm@sid=ME.html#59'>59</a></sup> and a 62.5-megawatt facility at the Westbrook paper mill<sup><a href='print.cfm@sid=ME.html#60'>60</a></sup> both are fueled primarily by wood and operational wastes but also burn coal.<sup><a href='print.cfm@sid=ME.html#61'>61</a></sup> Westbrook gets less than one-fifth of its power from coal.<sup><a href='print.cfm@sid=ME.html#62'>62</a></sup> Rumford's operator has been increasing the use of non-coal waste fuels, including tire-derived fuel,<sup><a href='print.cfm@sid=ME.html#63'>63</a>,<a href='print.cfm@sid=ME.html#64'>64</a></sup> and aims to eventually eliminate coal.<sup><a href='print.cfm@sid=ME.html#65'>65</a></sup> Coal is not mined in Maine. Coal consumed in the state is shipped in through the port of Portland, Maine.<sup><a href='print.cfm@sid=ME.html#66'>66</a></sup> Most coal is imported, but small amounts may come from Appalachia.<sup><a href='print.cfm@sid=ME.html#67'>67</a>,<a href='print.cfm@sid=ME.html#68'>68</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Renewables produce more than half of Maine's net electricity generation.</p></div><p>In 2015, two-thirds of Maine's net electricity generation came from renewable sources, primarily hydroelectric dams and biomass generators using wood waste products, and another one-fourth was generated by natural gas. The rest of Maine's net generation comes from wind and petroleum, with less than 1% produced by coal and solar power.<sup><a href='print.cfm@sid=ME.html#69'>69</a></sup> Maine's largest electricity generating plant, the 811-megawatt William F. Wyman station, uses No. 2 fuel oil.<sup><a href='print.cfm@sid=ME.html#70'>70</a>,<a href='print.cfm@sid=ME.html#71'>71</a></sup> The state power supply has undergone a substantial shift since the early 1990s, when one-third of net electricity generation came from the Maine Yankee nuclear power station and another one-fifth from petroleum.<sup><a href='print.cfm@sid=ME.html#72'>72</a></sup> Maine Yankee was decommissioned in 1997,<sup><a href='print.cfm@sid=ME.html#73'>73</a></sup> leaving the state with no nuclear generation. Petroleum-fueled generation has decreased to less than 5% of supply and is used mainly as a backup fuel to meet peak winter demand.<sup><a href='print.cfm@sid=ME.html#74'>74</a>,<a href='print.cfm@sid=ME.html#75'>75</a></sup> However, with only two small industrial generating plants burning coal, Maine is one of the few states to get more electricity from petroleum than from coal.<sup><a href='print.cfm@sid=ME.html#76'>76</a></sup> Most new non-renewable electricity generation being planned in Maine, as in all of New England, is fueled by natural gas,<sup><a href='print.cfm@sid=ME.html#77'>77</a></sup> but most of the new generation will be able to burn fuel oil as well, so generators can switch when natural gas is not available or not economic.<sup><a href='print.cfm@sid=ME.html#78'>78</a></sup></p>
+<p>The industrial sector produces more than one-fifth of Maine's net electricity generation, the highest proportion of any state except Louisiana. The industrial sector uses primarily natural gas and biomass to generate power.<sup><a href='print.cfm@sid=ME.html#79'>79</a></sup> Maine has the lowest average electricity rates in New England, in part because of its low industrial sector rates.<sup><a href='print.cfm@sid=ME.html#80'>80</a></sup> Per capita residential electricity use in Maine is below the national average.<sup><a href='print.cfm@sid=ME.html#81'>81</a>,<a href='print.cfm@sid=ME.html#82'>82</a></sup> Only about 1 in 20 households use electricity as the primary energy source for home heating,<sup><a href='print.cfm@sid=ME.html#83'>83</a></sup> and, with the state's mild summers, household use of air conditioning is low.<sup><a href='print.cfm@sid=ME.html#84'>84</a></sup></p>
+<p>Maine restructured its electricity industry in 2000 and allows retail electric competition. Competitive providers initially focused on commercial and industrial customers, but now many offer supply to the residential market.<sup><a href='print.cfm@sid=ME.html#85'>85</a></sup> Maine allows net metering for renewables and high-efficiency combined-heat-and-power facilities for generators up to 660 kilowatts.<sup><a href='print.cfm@sid=ME.html#86'>86</a></sup> Maine is part of the regional transmission operator, Independent System Operator New England (ISO-NE), except in the northern part of the state where the power system is connected to the Canadian grid.<sup><a href='print.cfm@sid=ME.html#87'>87</a>,<a href='print.cfm@sid=ME.html#88'>88</a></sup> Maine is a member of the northeastern Regional Greenhouse Gas Initiative to limit carbon emissions from power generation.<sup><a href='print.cfm@sid=ME.html#89'>89</a></sup> With its limited use of coal and petroleum for electricity, Maine is among the 10 states with the lowest carbon emissions.<sup><a href='print.cfm@sid=ME.html#90'>90</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Nine-tenths of Maine's renewable generation comes from hydroelectric dams and wood-based biomass.</p></div><p>Hydroelectric dams and biomass from wood products, which together account for nine-tenths of Maine's renewable electricity generation, provide more than half of Maine's net total electricity generation.<sup><a href='print.cfm@sid=ME.html#91'>91</a></sup> Biomass alone accounts for more than one-fourth of generation, the largest share of any state, placing Maine among the top U.S. producers of electricity from wood and wood waste-derived fuels, such as wood pellets.<sup><a href='print.cfm@sid=ME.html#92'>92</a></sup> The state has the highest generation per capita of electricity from biomass in the nation,<sup><a href='print.cfm@sid=ME.html#93'>93</a></sup> although recent low petroleum and natural gas prices have have reduced demand for wood fuels and led to some biomass plant closures.<sup><a href='print.cfm@sid=ME.html#94'>94</a></sup> Use of wood and wood pellets for home and commercial heating increases in Maine when the price of home heating oil rises.<sup><a href='print.cfm@sid=ME.html#95'>95</a>,<a href='print.cfm@sid=ME.html#96'>96</a>,<a href='print.cfm@sid=ME.html#97'>97</a></sup> </p>
+<p>Hydroelectric turbines produce nearly one-fourth of Maine's net electricity generation, the largest share of any state east of the Mississippi River except Vermont.<sup><a href='print.cfm@sid=ME.html#98'>98</a></sup> Water-powered mills were built on Maine's many rivers to run its earliest industries, and, when electricity became available in the late 1800s, small hydroelectric dams were built all over the state. By the mid-1980s, the state was home to 782 dams. A few dams have since been removed to restore natural river flows and fish migrations.<sup><a href='print.cfm@sid=ME.html#99'>99</a></sup> Recently, Maine hydroelectric dam owners and conservationists have reached agreements to increase turbine generating capacity at some dams while tearing down others.<sup><a href='print.cfm@sid=ME.html#100'>100</a></sup></p>
+<p>In 1999, as part of electricity market restructuring, Maine regulators set a renewable portfolio standard (RPS) requiring that at least 30% of retail electricity sales come from renewable sources, although state electricity distributors had already surpassed that goal. In 2006, the legislature added a second, separate RPS that requires new renewable resources to supply increasing shares of electricity sales, topping out at 10% in 2017.<sup><a href='print.cfm@sid=ME.html#101'>101</a></sup> New hydroelectric generation must be smaller than 100 megawatts to count toward the second RPS.<sup><a href='print.cfm@sid=ME.html#102'>102</a></sup> The state legislature has debated lifting that limit to allow more hydroelectric imports from Canada.<sup><a href='print.cfm@sid=ME.html#103'>103</a>,<a href='print.cfm@sid=ME.html#104'>104</a></sup> So far, electricity providers have been found in compliance with the RPS.<sup><a href='print.cfm@sid=ME.html#105'>105</a></sup></p>
+<p>Maine leads New England in wind generation.<sup><a href='print.cfm@sid=ME.html#106'>106</a></sup> Wind produced one-tenth of the state's net electricity in 2015. At the end of 2015, Maine had 611 megawatts of wind capacity online.<sup><a href='print.cfm@sid=ME.html#107'>107</a></sup> The state's largest wind facility, the 148-megawatt Oakfield project in Aroostook County, began operation in late 2015.<sup><a href='print.cfm@sid=ME.html#108'>108</a></sup> Most new renewable generating resources planned in New England are wind-powered, and many of those projects are in Maine.<sup><a href='print.cfm@sid=ME.html#109'>109</a></sup> Maine has significant wind resources along crests of Appalachian ranges in the state's northwest and along its Atlantic coastline.<sup><a href='print.cfm@sid=ME.html#110'>110</a></sup> The Maine legislature set goals of installing 2,000 megawatts of wind capacity in the state by 2015, 3,000 megawatts by 2020 (with at least 300 megawatts offshore), and 8,000 megawatts by 2030 (with at least 5,000 megawatts offshore). The 2015 goal was not met. The 2020 goal is still considered feasible,<sup><a href='print.cfm@sid=ME.html#111'>111</a>,<a href='print.cfm@sid=ME.html#112'>112</a></sup> although proposed projects have encountered some local opposition.<sup><a href='print.cfm@sid=ME.html#113'>113</a></sup> The first application for wind turbines in federal waters off the coast of Maine was filed in 2011, and a floating grid-connected test turbine was installed in 2013,<sup><a href='print.cfm@sid=ME.html#114'>114</a></sup> but financial issues have delayed proposed off-shore wind projects.<sup><a href='print.cfm@sid=ME.html#115'>115</a></sup> </p>
+<p>Also located on the Maine coast is the first U.S. tidal power generating facility to produce electricity, a pilot project in Cobscook Bay.<sup><a href='print.cfm@sid=ME.html#116'>116</a></sup> Plans are under way to expand the tidal project to 5 megawatts.<sup><a href='print.cfm@sid=ME.html#117'>117</a>,<a href='print.cfm@sid=ME.html#118'>118</a></sup> Maine has no utility-scale solar photovoltaic (PV) generation, but about 20 megawatts of distributed solar PV panels are installed on homes and businesses<sup><a href='print.cfm@sid=ME.html#119'>119</a></sup> and produced about 0.1% of the state's power in 2015.<sup><a href='print.cfm@sid=ME.html#120'>120</a></sup> A 50-megawatt solar PV project is in development for the Sanford, Maine, airport. If built, it would be New England's largest solar generator.<sup><a href='print.cfm@sid=ME.html#121'>121</a></sup> Because of concerns about the cost of new technologies, New England governors are exploring regional procurement of renewable resources, primarily wind, to meet state RPS goals more economically.<sup><a href='print.cfm@sid=ME.html#122'>122</a>,<a href='print.cfm@sid=ME.html#123'>123</a>,<a href='print.cfm@sid=ME.html#124'>124</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates (August 2010).<br>
+<a name='2'></a><sup>2</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='3'></a><sup>3</sup> Wickenheiser, Matt, "Census: Maine Most Rural State in 2010 as Urban Centers Grow Nationwide," Bangor Daily News (March 26, 2012).<br>
+<a name='4'></a><sup>4</sup> USboundary.com, Northwest Aroostook UT, Aroostook County, Maine, accessed June 9, 2016.<br>
+<a name='5'></a><sup>5</sup> Roadside Thoughts, Unorganized Territory of Northwest Aroostook, Maine (January 14, 2016).<br>
+<a name='6'></a><sup>6</sup> State of Maine, Governor's Energy Office, Maine Energy Fast Facts (2014), p 2.<br>
+<a name='7'></a><sup>7</sup> McCarthy, James, "Forest Products Industry Puts $8 Billion into Maine's Economy," Mainebiz (September 8, 2014).<br>
+<a name='8'></a><sup>8</sup> Maine.gov, "Governor LePage Seeks Expanded Use of 'Green' Building Materials in State Construction" (December 8, 2011).<br>
+<a name='9'></a><sup>9</sup> NETSTATE, The Geography of Maine, updated February 25, 2016.<br>
+<a name='10'></a><sup>10</sup> Jacobsen, George, "Maine's Moist Climate: Strongly Variable Seasonal Temperatures with Even Precipitation," Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed May 2, 2016.<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, 2013.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, State Energy Data System, Table F7, Distillate Fuel Oil Consumption Estimates Estimates, 2014.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, Rankings, Total Energy Consumed Per Capita, 2013.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2013.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, 2013.  <br>
+<a name='16'></a><sup>16</sup> State of Maine, Governor's Energy Office, Maine Energy Fast Facts (2014), p 9.<br>
+<a name='17'></a><sup>17</sup> Rose, Galen, "A Brief History of the Maine Economy," Maine State Planning Office (June 2003).<br>
+<a name='18'></a><sup>18</sup> Breece, James, An Overview of the Maine Economy, University of Maine, School of Economics (February 2016), p. 10, 12.<br>
+<a name='19'></a><sup>19</sup> Turkel, Tux, "Wood Energy Industry, Hundreds of Maine Jobs, at Risk," Portland Press Herald (February 21, 2016).<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, 2013.<br>
+<a name='21'></a><sup>21</sup> U.S. Census Bureau, American FactFinder, Maine, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='22'></a><sup>22</sup> LaCapra Associates, Oil Dependence Reduction Assessment (April 2013), p. 3.<br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, Refinery Capacity 2015, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015.<br>
+<a name='25'></a><sup>25</sup> World Port Source, Port of Portland, accessed May 2, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, Petroleum and Other Liquids, Company Level Imports, reports for all months of 2015, 2014, and 2013.<br>
+<a name='27'></a><sup>27</sup> Magnusson, Matthew, Charles Colgan, and Ross Gittell, The Economic Impact of the Piscataqua River and the Ports of Portsmouth and Newington (June 2012), p. 3.<br>
+<a name='28'></a><sup>28</sup> Portland Pipe Line Corp., Montreal Pipe Line Ltd., About Us, accessed May 2, 2016.<br>
+<a name='29'></a><sup>29</sup> Bell, Tom, "Shifting Markets May Make Portland's Oil Pipeline to Quebec Redundant," Portland Press Herald (November 30, 2015).<br>
+<a name='30'></a><sup>30</sup> Turkel, Tux, "Analysis: Portland Pipeline's Open for Business, But Not Flowing," Portland Press Herald (March 20, 2016).<br>
+<a name='31'></a><sup>31</sup> Bouchard, Kelley, "South Portland Seeks Dismissal of Suit Challenging Ban on Oil Loading in Harbor," Portland Press Herald (April 1, 2015).<br>
+<a name='32'></a><sup>32</sup> Turkel, Tux, "Maine May Be Central as Oil Flow Shifts East," Portland Press Herald (June 18, 2012).<br>
+<a name='33'></a><sup>33</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Programs, Reformulated gasoline and Reid Vapor Pressure, accessed May 5, 2016.<br>
+<a name='34'></a><sup>34</sup> Maine Department of Environmental Protection, Air Quality, Ethanol, accessed May 5, 2016.<br>
+<a name='35'></a><sup>35</sup> U.S. Department of Energy, Office of Fossil Energy, Heating Oil Reserve History, accessed May 5, 2016.<br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets, updated May 2012, p. 9.<br>
+<a name='37'></a><sup>37</sup> Brown, Beth, and David Henry, "Colonial Pipeline to Stop Shipping High Sulfur Heating Oil in June," Platts (April 23, 2015).<br>
+<a name='38'></a><sup>38</sup> U.S. Department of Energy, Office of Fossil Energy, Heating Oil Reserve, accessed May 5, 2016.<br>
+<a name='39'></a><sup>39</sup> State of Maine, Governor's Energy Office, Maine Energy Profile (2012), p. 14. <br>
+<a name='40'></a><sup>40</sup> State of Maine, Governor's Energy Office, 2015 Maine Comprehensive Energy Plan Update (February 2015), p. 11.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, U.S. States, Table C3, Primary Energy Consumption Estimates, 2013.<br>
+<a name='42'></a><sup>42</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2013, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2013 (NST-EST2013-01).<br>
+<a name='43'></a><sup>43</sup> State of Maine, Governor's Energy Office, 2015 Maine Comprehensive Energy Plan Update (February 2015), p. 16. <br>
+<a name='44'></a><sup>44</sup> LaCapra Associates, Oil Dependence Reduction Assessment (April 2013), Executive Summary, p. 1.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Volumes Delivered to Consumers, Annual, 2010-2015.<br>
+<a name='46'></a><sup>46</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Maine, Annual, 2010-15.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Maine Electricity Profile 2014, Table 2, Ten largest plants by generating capacity, 2014.<br>
+<a name='49'></a><sup>49</sup> U.S. Census Bureau, American FactFinder, Maine, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='50'></a><sup>50</sup> State of Maine, Governor's Energy Office, 2015 Maine Comprehensive Energy Plan Update (February 2015), p. 18.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, accessed May 6, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, Maine, 2009-14.<br>
+<a name='53'></a><sup>53</sup> Portland Natural Gas Transmission System, Pipeline Information, accessed May 6, 2016.<br>
+<a name='54'></a><sup>54</sup> Maritimes & Northeast Pipeline, accessed May 6, 2016.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, New Hampshire, 2009-14.<br>
+<a name='56'></a><sup>56</sup> Nova Scotia Department of Energy, Oil & Gas, Offshore, accessed May 6, 2016. <br>
+<a name='57'></a><sup>57</sup> Canaport LNG, About Canaport LNG, accessed May 6, 2016.<br>
+<a name='58'></a><sup>58</sup> Maritimes & Northeast Pipeline, accessed May 6, 2016.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2013 Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860). <br>
+<a name='60'></a><sup>60</sup> Biomass Magazine, Biomass Plants, Sappi Fine Paper North America S C Warren Westbrook, updated April 21, 2016. <br>
+<a name='61'></a><sup>61</sup> Valigra, Lori, "Should Maine Be Smug About Smog?" Mainebiz (June 30, 2014).<br>
+<a name='62'></a><sup>62</sup> Sappi Fine Paper NA, Sappi/Warren Release Papers, slides 9-10, accessed May 9, 2016.<br>
+<a name='63'></a><sup>63</sup> Maine Dept. of Environmental Protection, Rumford Paper Co., Departmental Finding of Facts and Order, Part 70 Air Emission License Renewal (February 13, 2014), p. 22.<br>
+<a name='64'></a><sup>64</sup> Gilmer, Hudson, "Innovative Energy Management Strategies Help a Maine Paper Mill Stay Competitive," Plant Engineering (March 6, 2013).<br>
+<a name='65'></a><sup>65</sup> NewPage Corp., Rumford, Maine, paper mill brochure (2013). <br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Quarterly Coal Distribution Report (October-December 2015), Table 20, Coal Imports by Customs District. <br>
+<a name='67'></a><sup>67</sup> Union of Concerned Scientists, Burning Coal, Burning Cash: Ranking the States That Import the Most Coal (2014 Update), slide 16.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic distribution of U.S. Coal by destination State, consumer, destination and method of transportation, Maine, p. 22.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.5.B, 1.7.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.17.B.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Maine Electricity Profile 2014, Table 2, Ten largest plants by generating capacity, 2014.<br>
+<a name='71'></a><sup>71</sup> Fishell, Darren, "Maine's Largest Power Plant Taken Off the Market, Reflecting Changes," Bangor Daily News (August 12, 2014).<br>
+<a name='72'></a><sup>72</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='73'></a><sup>73</sup> Maine Yankee, Maine Yankee Decommissioning Overview, accessed May 6, 2016.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='75'></a><sup>75</sup> ISO New England, "2014-15 Winter Outlook: Sufficient Power Supplies Expected, but Natural Gas Pipeline Constraints and Ongoing Concern," Press Release (November 20, 2014).<br>
+<a name='76'></a><sup>76</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.4.B, 1.5.B.<br>
+<a name='77'></a><sup>77</sup> ISO New England, "New England Power Grid 2015-2016 Profile," accessed May 6, 2016, p. 2.<br>
+<a name='78'></a><sup>78</sup> ISO New England, Natural Gas Infrastructure Constraints, accessed May 6, 2016.<br>
+<a name='79'></a><sup>79</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B, 1.15.B.<br>
+<a name='80'></a><sup>80</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='81'></a><sup>81</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='82'></a><sup>82</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='83'></a><sup>83</sup> U.S. Census Bureau, American FactFinder, Maine, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='84'></a><sup>84</sup> U.S. Energy Information Administration, Residential Energy Consumption Survey, 2009 RECS Survey Data, Air Conditioning, Table HC7.8, Air Conditioning in Homes in Northeast Region, Divisions, and States.<br>
+<a name='85'></a><sup>85</sup> Maine. Office of the Public Advocate, Electricity Supply, updated April 1, 2016.<br>
+<a name='86'></a><sup>86</sup> Maine Public Utilities Commission, Section 65-407, Chapter 313, Customer Net Energy Billing, p. 5.<br>
+<a name='87'></a><sup>87</sup> U.S. Energy Information Administration, "Northern Maine Considers Options to Gain Direct Access to New England Electric Grid," Today in Energy (January 22, 2015).<br>
+<a name='88'></a><sup>88</sup> Northeast Energy Solutions LLC, Reliability Assessment, Power Market Cost/Benefit Assessment of Maine Power Connection 2012 (August 17, 2012), Executive Summary.<br>
+<a name='89'></a><sup>89</sup> Regional Greenhouse Gas Initiative, RGGI Inc., accessed May 7, 2016.<br>
+<a name='90'></a><sup>90</sup> U.S. Energy Information Administration, U.S. States, Rankings, Total Carbon Dioxide Emissions, 2013.<br>
+<a name='91'></a><sup>91</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.15.B.<br>
+<a name='92'></a><sup>92</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.15.B. <br>
+<a name='93'></a><sup>93</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='94'></a><sup>94</sup> Mistler, Steve, "Lawmakers Oppose Maine Biomass Bailout, But Leave an Opening," Portland Press Herald (April 1, 2016).<br>
+<a name='95'></a><sup>95</sup> Maine Pellet Fuels Association, Fuel Costs (April 20, 2016).<br>
+<a name='96'></a><sup>96</sup> Alliance for Green Heat, "2010 Census Shows Wood is Fastest Growing Heating Fuel in U.S.," Press Release (October 10, 2011).<br>
+<a name='97'></a><sup>97</sup> U.S. Census Bureau, American FactFinder, Maine, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='98'></a><sup>98</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B.<br>
+<a name='99'></a><sup>99</sup> Colby College Environmental Studies Program, The State of Maine's Environment (2009).<br>
+<a name='100'></a><sup>100</sup> McCarthy, James, "More Energy, Fewer Dams: A New Approach to Hydropower," Mainebiz (September 3, 2012).<br>
+<a name='101'></a><sup>101</sup> London Economics International, MPUC RPS Report 2011 - Review of RPS Requirements and Compliance in Maine (January 30, 2012), Executive Summary, p. 7.  <br>
+<a name='102'></a><sup>102</sup> Maine Governor's Energy Office, Energy Efficiency & Renewable Energy, accessed May 9, 2016.<br>
+<a name='103'></a><sup>103</sup> Higgins, A.J., "LePage Seeks to Remove Cap on Maine Hydropower," Maine Public Broadcasting (March 19, 2015).<br>
+<a name='104'></a><sup>104</sup> Valdmanis, Richard, "Quebec Key to Cutting New England Power Costs: Maine Governor," Reuters (November 13, 2015).<br>
+<a name='105'></a><sup>105</sup> Griset, Todd, "Maine Renewable Energy Report Released," JD Supra Business Advisor (April 4, 2016).<br>
+<a name='106'></a><sup>106</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.14.B.<br>
+<a name='107'></a><sup>107</sup> American Wind Energy Association, Maine Wind Energy, accessed May 9, 2016.<br>
+<a name='108'></a><sup>108</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 6.3.<br>
+<a name='109'></a><sup>109</sup> ISO New England, 2016 Regional Electricity Outlook (January 2016), p. 22.<br>
+<a name='110'></a><sup>110</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Maine Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='111'></a><sup>111</sup> State of Maine, Governor's Energy Office, 2015 Maine Comprehensive Energy Plan Update (February 2015), p. 56.<br>
+<a name='112'></a><sup>112</sup> Fishell, Darren, "Wind Power Sales to Southern NE Could Triple Maine's Capacity," Bangor Daily News (February 1, 2016).<br>
+<a name='113'></a><sup>113</sup> Turkel, Tux, "Wind Power Critics Upset by Scale of Newly Proposed Maine Projects," Portland Press Herald (February 2, 2016).<br>
+<a name='114'></a><sup>114</sup> Fairley, Peter, "Floating Wind Turbines Headed for Offshore Farms," IEEE Spectrum (June 9, 2014).<br>
+<a name='115'></a><sup>115</sup> Turkel, Tux, "Maine Offshore Wind Project Still Faces Money Hurdles, Despite Federal Grant," Portland Press Herald (November 16, 2015).<br>
+<a name='116'></a><sup>116</sup> "First Tidal Power Delivered to U.S.Power Grid Off Maine," Fox News (September 14, 2012).<br>
+<a name='117'></a><sup>117</sup> Ocean Renewable Power Co., Maine, accessed May 9, 2016.<br>
+<a name='118'></a><sup>118</sup> Maas, Steve, "Canal Will Be a Proving Ground for Tidal Turbines," Boston Globe (April 8, 2016).<br>
+<a name='119'></a><sup>119</sup> Turkel, Tux, "LePage Vetoes Solar Energy Bill After Compromise Talks Fail," Portland Press Herald (April 27, 2016).<br>
+<a name='120'></a><sup>120</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B.<br>
+<a name='121'></a><sup>121</sup> Wells, Tammy, "Maine City Reaches Deal to Establish New England's Largest Solar Farm," Bangor Daily News (May 4, 2016).<br>
+<a name='122'></a><sup>122</sup> McCann, Bailey, "New England Governors Push for Bulk Procurement of Renewable Energy," CivSource (August 21, 2012).<br>
+<a name='123'></a><sup>123</sup> New England Governors' Conference, Resolution Directing the New England State Committee on Electricity (NESCOE) to Implement a Work Plan for Competitive Coordinated Procurement of Regional Renewable Power (July 30, 2012).<br>
+<a name='124'></a><sup>124</sup> Bever, Fred, and Nora Flaherty, "Bids Submitted for Renewable Energy Projects," Maine Public Broadcasting (January 28, 2016).<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: ISO New England (ISO-NE)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1A</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Northeast Power Coordinating Council (NPCC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.state.me.us/mpuc/" title="Maine Public Utilities Commission">Maine Public Utilities Commission</a></li>
+  
+    <li><a href="http://www.mainehousing.org/programs-services/energy/" title="Maine State Housing Authority, Energy Assistance Programs">Maine State Housing Authority, Energy Assistance Programs</a></li>
+  
+    <li><a href="http://maine.gov/energy" title="Maine Governor's Office of Energy Independence and Security">Maine Governor's Office of Energy Independence and Security</a></li>
+  
+    <li><a href="http://www.state.me.us/mpuc/electricity/community_pilot.shtml" title="Maine Public Utilities Commission, Community-Based Renewable Energy Pilot Program">Maine Public Utilities Commission, Community-Based Renewable Energy Pilot Program</a></li>
+  
+    <li><a href="http://www.efficiencymaine.com/" title="Efficiency Maine">Efficiency Maine</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Maine website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Maine\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/ME.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

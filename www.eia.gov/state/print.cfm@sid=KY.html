@@ -1,0 +1,3037 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Kentucky Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Kentucky State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Kentucky Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Kentucky, the third-largest coal-mining state, produced more than 61 million short tons of bituminous coal in 2015.</li>
+	
+	<li>In 2015, 87% of Kentucky&#39;s net electricity generation was produced by coal and 7% by natural gas. The previous record share for natural gas was 3% of net generation.</li>
+	
+	<li>Most of Kentucky&#39;s natural gas currently comes from the Big Sandy field in the state&#39;s east, but the Devonian Shale underlying two-thirds of Kentucky may contain more than 100 trillion cubic feet of natural gas.</li>
+	
+	<li>Increasing amounts of customer-sited solar photovoltaic capacity have been installed across Kentucky, and the state is home to the nation&#39;s first net-zero energy public school.</li>
+	
+	<li>In 2015, Kentucky had two oil refineries with a combined operating capacity of about 245,500 barrels per calendar day.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: April 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=KY.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=KY.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=KY.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=KY.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=KY.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Kentucky Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Kentucky Energy Consumption Estimates',
+		data : [913.5,261.2,235.8,162.9,53.1,36.2,0.2,91.1,0.0,29.9,57.2,2.9,-73.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Kentucky Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 393.5],['Commercial', 263.9],['Industrial', 663.2],['Transportation', 449.9]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Kentucky Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Kentucky Energy Production Estimates',
+		data : [1869.3,90.9,19.6,0.0,5.0,70.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Kentucky Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Kentucky Net Electricity Generation',
+		data : [11,600,5237,205,33]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Kentucky Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Kentucky U.S. Price Differentials',
+		data : [{y:-13.3651551313, period: Date.UTC(2016,9,1)},{y:41.2663755459, period: Date.UTC(2016,9,1)},{y:-13.0120481928, period: Date.UTC(2016,9,1)},{y:-8.97803247373, period: Date.UTC(2016,9,1)},{y:-17.7083333333, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					4.4 million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					2.0 million 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 194.6  billion 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 37,765  million 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 38,989 
+				</td>
+				<td>
+					45 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					47,941 million miles 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					13.0 million acres 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					56.6 degrees Fahrenheit 
+				</td>
+				<td>
+					14 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					58.3 inches 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 46.70 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.63 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 19.41 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 55.01 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 2.11 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					10.83 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.53 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.53 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=198">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					10 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					1,362 billion cu ft 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					73 million barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					837 million short tons 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					3 rigs 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					NA 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					2,055 trillion Btu 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					204 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					85,775 million cu ft 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					61,425 thousand short tons 
+				</td>
+				<td>
+					6.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					278,500 barrels/calendar day 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					20,114 MW 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					6,174 thousand MWh 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					9.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					84.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					3.9 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					325 thousand barrels 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,018 thousand barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					217,821 million cu ft 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					238 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					7,474 thousand tons 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Kentucky</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">River View Mine / River View Coal LLC, Cardinal / Warrior Coal LLC</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Continental Refining (Somerset), Marathon Petroleum (Catlettsburg)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Trimble County (Louisville Gas & Electric Co) ; Paradise (Tennessee Valley Authority) ; Ghent (Kentucky Utilities Co) ; Shawnee (Tennessee Valley Authority) ; E W Brown (Kentucky Utilities Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=198">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Kentucky</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Louisville, Huntington</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Kentucky</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Sunoco, Marathon Pipeline, Shell</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Marathon Pipeline, , Enterprise</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Big Sandy Pipeline, Columbia Gas Transmission Corporation, Columbia Gulf Transmission, Ko Transmission, Major Pipeline LLC, Midwestern Gas Transmission Company, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP, Texas Gas Transmission LLC, Trunkline Gas Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					2,092 stations 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					50 stations 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					52 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					73 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					13 stations 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,771 trillion Btu 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					401 million Btu 
+				</td>
+				<td>
+					13 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 22,467  million 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,092 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					393 trillion Btu 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					264 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					663 trillion Btu 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					450 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 3,776  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,289  million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 4,552  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 11,851  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					113.0 million barrels 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					254.1 billion cu ft 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					40.3 million short tons 
+				</td>
+				<td>
+					4.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 14,309  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,762  million 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 2,178  million 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					20 thousand barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					4,840 million cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					2,477 thousand short tons 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=198">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					37.9 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					1.0 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					50.9 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					6.4 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					3.8 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,110 MW 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					36 million gal/year 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					205 thousand MWh 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					2 thousand MWh 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					31 thousand MWh 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					1 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					887 Thousand Barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					5.1 % 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=KY"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					4,996 thousand barrels 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					139.0 million metric tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Kentucky</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=198">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					76,427 thousand metric tons 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					122 thousand metric tons 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					62 thousand metric tons 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: April 21, 2016<p>
+<h2>Overview </h2>
+<p>Bordered on the north by the Ohio River, Kentucky stretches from the Appalachian Mountains in the east to the flat plain of the Mississippi River in the west.<sup><a href='print.cfm@sid=KY.html#1'>1</a></sup> In between, the rolling hills of the state's fertile Bluegrass region extend southward from the Ohio River to the Pennyroyal region, which is famous for its thousands of caverns and springs, including Mammoth Cave National Park.<sup><a href='print.cfm@sid=KY.html#2'>2</a></sup> Major coal deposits are found both in the Central Appalachian Basin in the eastern part of the state and in the Illinois Basin in the northwest.<sup><a href='print.cfm@sid=KY.html#3'>3</a>,<a href='print.cfm@sid=KY.html#4'>4</a></sup> Dams on the Tennessee, Cumberland, Ohio, and Laurel Rivers provide Kentucky with hydroelectric power.<sup><a href='print.cfm@sid=KY.html#5'>5</a></sup> The state also has some oil and natural gas resources.<sup><a href='print.cfm@sid=KY.html#6'>6</a>,<a href='print.cfm@sid=KY.html#7'>7</a></sup> Although two-thirds of Kentucky's agricultural economy is livestock, primarily thoroughbred horses and beef cattle,<sup><a href='print.cfm@sid=KY.html#8'>8</a></sup> the state's abundant rain, temperate climate, and fertile soils<sup><a href='print.cfm@sid=KY.html#9'>9</a></sup> provide ideal conditions for several crops.<sup><a href='print.cfm@sid=KY.html#10'>10</a></sup> Kentucky's most important crops are tobacco, soybeans, corn, and wheat.<sup><a href='print.cfm@sid=KY.html#11'>11</a></sup> Corn and beverage waste from distilleries in the state provide feedstock for Kentucky's ethanol production.<sup><a href='print.cfm@sid=KY.html#12'>12</a></sup></p>
+<p>Kentucky is among the top 10 states in energy use per dollar of gross domestic product.<sup><a href='print.cfm@sid=KY.html#13'>13</a></sup> The industrial sector leads the state's energy demand.<sup><a href='print.cfm@sid=KY.html#14'>14</a></sup> Low energy prices have helped attract manufacturing to Kentucky,<sup><a href='print.cfm@sid=KY.html#15'>15</a></sup> and the state's largest manufacturing industries include motor vehicles, food, beverage and tobacco products, and chemicals. The state is also a major transportation and logistics hub.<sup><a href='print.cfm@sid=KY.html#16'>16</a></sup> Kentucky is a net energy supplier to the nation, largely because of its coal production.<sup><a href='print.cfm@sid=KY.html#17'>17</a></sup></p>
+<h2>Petroleum</h2>
+<p>Kentucky's crude oil production has averaged fewer than 10,000 barrels per day for almost two decades,<sup><a href='print.cfm@sid=KY.html#18'>18</a></sup> and the state accounts for only about 0.1% of U.S. crude oil production.<sup><a href='print.cfm@sid=KY.html#19'>19</a></sup> The oil produced in the state comes primarily from fields in western and south-central Kentucky.<sup><a href='print.cfm@sid=KY.html#20'>20</a>,<a href='print.cfm@sid=KY.html#21'>21</a></sup> The state's annual crude oil production of about 3 million barrels<sup><a href='print.cfm@sid=KY.html#22'>22</a></sup> is less than 3% of Kentucky demand.<sup><a href='print.cfm@sid=KY.html#23'>23</a></sup> Crude oil and petroleum products enter the state via several pipelines.<sup><a href='print.cfm@sid=KY.html#24'>24</a></sup> </p>
+<div class='pullquote'><p>Kentucky has two oil refineries that can process nearly 246,000 barrels of oil per day.</p></div><p>Kentucky has two oil refineries, located in the cities of Catlettsburg and Somerset. The Catlettsburg refinery in the state's northeast can process about 240,000 barrels of crude oil per calendar day<sup><a href='print.cfm@sid=KY.html#25'>25</a></sup> and produces motor gasoline, distillates, asphalt, heavy fuel oil, propane, and other petroleum products.<sup><a href='print.cfm@sid=KY.html#26'>26</a></sup> The Somerset refinery in southeastern Kentucky can process about 5,500 barrels of crude oil per calendar day into motor gasoline, kerosene, diesel fuel, and heating oil that is marketed in the region.<sup><a href='print.cfm@sid=KY.html#27'>27</a></sup> </p>
+<p>The transportation sector consumes nearly three-fourths of all petroleum products in Kentucky.<sup><a href='print.cfm@sid=KY.html#28'>28</a></sup> Motor gasoline makes up the largest share of the petroleum consumed in Kentucky.<sup><a href='print.cfm@sid=KY.html#29'>29</a></sup> Although most of the state can use conventional gasoline, the counties around Louisville, Kentucky, and to the south of Cincinnati, Ohio, are voluntary opt-in areas for the use of gasoline reformulated with ethanol to reduce air pollution.<sup><a href='print.cfm@sid=KY.html#30'>30</a>,<a href='print.cfm@sid=KY.html#31'>31</a></sup> </p>
+<h2>Natural gas</h2>
+<p>Kentucky's annual natural gas production rose from about 90 billion cubic feet in the mid-2000s and peaked at slightly more than 135 billion cubic feet in 2010,<sup><a href='print.cfm@sid=KY.html#32'>32</a></sup> reaching 0.5% of total U.S. natural gas production. Natural gas prices subsequently declined, and Kentucky production fell back to less than 80 billion cubic feet by 2014.<sup><a href='print.cfm@sid=KY.html#33'>33</a>,<a href='print.cfm@sid=KY.html#34'>34</a></sup> Most of the state's natural gas is produced from wells in eastern Kentucky,<sup><a href='print.cfm@sid=KY.html#35'>35</a>,<a href='print.cfm@sid=KY.html#36'>36</a></sup> and the state's natural gas resources in the Devonian Shale underlying two-thirds of the state may exceed 100 trillion cubic feet.<sup><a href='print.cfm@sid=KY.html#37'>37</a></sup> </p>
+<p>Natural gas production in Kentucky is lower than consumption,<sup><a href='print.cfm@sid=KY.html#38'>38</a></sup> and several major interstate natural gas pipelines supply Kentucky consumers.<sup><a href='print.cfm@sid=KY.html#39'>39</a></sup> Most natural gas entering Kentucky originates in the Gulf region and comes by pipeline through Tennessee, but, in 2014, Kentucky also began receiving natural gas from the Marcellus and Utica shales by pipeline from Ohio and West Virginia.<sup><a href='print.cfm@sid=KY.html#40'>40</a></sup> More than nine-tenths of the natural gas entering Kentucky is shipped on to other states, primarily Indiana, Illinois, and Tennessee. Kentucky has 23 underground natural gas storage facilities that comprise 2.5% of U.S. storage capacity.<sup><a href='print.cfm@sid=KY.html#41'>41</a>,<a href='print.cfm@sid=KY.html#42'>42</a></sup> </p>
+<p>Kentucky's industrial sector uses nearly one-half of the natural gas consumed in the state. The electric power sector doubled its natural gas consumption from 2014 to 2015 and is now the second-largest consuming sector. The residential sector receives about one-fifth of the natural gas delivered to end users,<sup><a href='print.cfm@sid=KY.html#43'>43</a></sup> and 4 out of 10 households in Kentucky use natural gas as their primary fuel for home heating.<sup><a href='print.cfm@sid=KY.html#44'>44</a></sup> Natural gas use per capita by Kentucky's residential sector is below the national average.<sup><a href='print.cfm@sid=KY.html#45'>45</a>,<a href='print.cfm@sid=KY.html#46'>46</a></sup> </p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Kentucky accounts for almost one-fifth of U.S. coal production east of the Mississippi River.</p></div><p>For decades, Kentucky has been the third-largest coal-producing state, after Wyoming and West Virginia.<sup><a href='print.cfm@sid=KY.html#47'>47</a>,<a href='print.cfm@sid=KY.html#48'>48</a></sup> Kentucky typically accounts for almost 8% of total U.S. coal production and nearly one-fifth of production east of the Mississippi River.<sup><a href='print.cfm@sid=KY.html#49'>49</a></sup> However, coal production in Kentucky is declining as coal-fired electricity generating plants that have been customers of Kentucky mines are being retired. Preliminary state figures put 2015 coal production at 61.4 million short tons, the lowest level since 1954.<sup><a href='print.cfm@sid=KY.html#50'>50</a>,<a href='print.cfm@sid=KY.html#51'>51</a></sup> All of Kentucky's coal is bituminous.<sup><a href='print.cfm@sid=KY.html#52'>52</a></sup> About one-fourth of all U.S. coal mines are located in Kentucky, more coal mines than in any other state. Although nearly two-thirds of those are surface mines, the state's underground mines produce seven-tenths of the coal mined in Kentucky.<sup><a href='print.cfm@sid=KY.html#53'>53</a></sup> Kentucky's estimated total recoverable coal reserves are the fifth largest in the nation.<sup><a href='print.cfm@sid=KY.html#54'>54</a></sup></p>
+<p>The Central Appalachian (CAPP) coal delivery zone, an area around where the Big Sandy River flows into the Ohio River, is where benchmark prices for eastern U.S. coal are determined. Kentucky, Ohio, and West Virginia meet at the rivers' confluence, and bituminous coal arrives from mines in those states, as well as in Tennessee and Virginia, typically by rail or truck. The coal is delivered for shipment by multi-car trains and barges to final customers, including coal-fired electricity generating plants, industrial plants, commercial and institutional facilities, coke plants, and shipping ports.<sup><a href='print.cfm@sid=KY.html#55'>55</a></sup></p>
+<p>Kentucky ships more than two-thirds of its coal production out of state. Coal is sent to more than 20 other states, where it is primarily used by power plants to generate electricity.<sup><a href='print.cfm@sid=KY.html#56'>56</a></sup> Kentucky also usually exports about one-tenth of the coal it produces.<sup><a href='print.cfm@sid=KY.html#57'>57</a>,<a href='print.cfm@sid=KY.html#58'>58</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>In 2015, for the first time in decades, coal generated less than nine-tenths of Kentucky's net electricity.</p></div><p>Coal-fired power plants have routinely produced more than nine-tenths of Kentucky's net electricity generation,<sup><a href='print.cfm@sid=KY.html#59'>59</a></sup> but, in 2015, coal accounted for less than nine-tenths of net generation for the first time in decades. Natural gas-fired electricity production more than doubled, to 7% of net generation. However, Kentucky still relied on coal to generate a greater share of its electricity than any states except West Virginia and Wyoming.<sup><a href='print.cfm@sid=KY.html#60'>60</a></sup> The rest of Kentucky's electricity generation comes from hydroelectric power plants, with a small contribution from biomass.<sup><a href='print.cfm@sid=KY.html#61'>61</a></sup> </p>
+<p>As of 2014, Kentucky had the fourth-largest amount of coal-fired generating capacity in the nation, after Texas, Indiana, and Ohio.<sup><a href='print.cfm@sid=KY.html#62'>62</a></sup> But with coal-fired generating units aging and becoming more costly to operate, a number of coal-fired power plants in Kentucky are being shut down or retrofitted to burn natural gas.<sup><a href='print.cfm@sid=KY.html#63'>63</a>,<a href='print.cfm@sid=KY.html#64'>64</a></sup> In 2015 alone, 10% of Kentucky's coal-fired electricity generating capacity was shut down.<sup><a href='print.cfm@sid=KY.html#65'>65</a></sup> A total of nearly 3,000 megawatts of coal-fired generating capacity in the state has been retired or is scheduled to be retired between 2012 and 2025.<sup><a href='print.cfm@sid=KY.html#66'>66</a></sup> At Kentucky's largest power plant, the 2,550-megawatt coal-fired Paradise Plant,<sup><a href='print.cfm@sid=KY.html#67'>67</a></sup> the Tennessee Valley Authority (TVA) is replacing units 1 and 2, which have a combined capacity of more than 1,400 megawatts, with natural gas-fired capacity by 2017.<sup><a href='print.cfm@sid=KY.html#68'>68</a>,<a href='print.cfm@sid=KY.html#69'>69</a></sup></p>
+<p>Kentucky has not restructured its electric utility industry. Utilities in the state remain vertically integrated generators, transmitters, and distributors of electric power.<sup><a href='print.cfm@sid=KY.html#70'>70</a></sup> Electricity is supplied to consumers by three investor-owned electric utilities, 26 cooperatives, 20 municipal utilities, and the TVA.<sup><a href='print.cfm@sid=KY.html#71'>71</a></sup> Electricity rates vary by provider, but, on average in 2015, Kentucky had the fifth lowest rates of any state, and the lowest rates east of the Mississippi River.<sup><a href='print.cfm@sid=KY.html#72'>72</a>,<a href='print.cfm@sid=KY.html#73'>73</a></sup> About half of Kentucky households use electricity as their primary heating source.<sup><a href='print.cfm@sid=KY.html#74'>74</a></sup></p>
+<h2>Renewable energy</h2>
+<p>Renewable resources are a small part of Kentucky's energy mix, and the state has no renewable energy standard or goals.<sup><a href='print.cfm@sid=KY.html#75'>75</a></sup> The largest source of renewable energy in Kentucky is hydroelectric power, which provides about 4% of the state's electricity generation<sup><a href='print.cfm@sid=KY.html#76'>76</a></sup> at 6 dams around the state.<sup><a href='print.cfm@sid=KY.html#77'>77</a></sup> Biomass accounts for the other 0.5% of the state's net generation from renewables.<sup><a href='print.cfm@sid=KY.html#78'>78</a></sup> Wood wastes are the largest source of biomass for electricity.<sup><a href='print.cfm@sid=KY.html#79'>79</a></sup> </p>
+<p>Kentucky has few wind resources suitable for developing utility-scale power projects<sup><a href='print.cfm@sid=KY.html#80'>80</a></sup> and no commercial wind power facilities, but the state does have some solar potential.<sup><a href='print.cfm@sid=KY.html#81'>81</a></sup> Kentucky's first utility-scale solar photovoltaic (PV) generating facility, the 2-megawatt Bowling Green Solar Farm, came online in 2011 and sells its power to the TVA.<sup><a href='print.cfm@sid=KY.html#82'>82</a></sup> A second utility-scale solar farm, a 10-megawatt facility located at the E.W. Brown coal-fired generating station near Harrodsburg, Kentucky, began construction in 2016.<sup><a href='print.cfm@sid=KY.html#83'>83</a></sup> Increasing amounts of distributed solar PV capacity, from home rooftops to industrial systems, have been installed across the state.<sup><a href='print.cfm@sid=KY.html#84'>84</a></sup> Solar facilities are by far the largest component of distributed generation in Kentucky, with more than 12 megawatts of solar PV installed.<sup><a href='print.cfm@sid=KY.html#85'>85</a></sup> In 2015, three-fourths of distributed solar generation in Kentucky came from commercial-sector facilities.<sup><a href='print.cfm@sid=KY.html#86'>86</a></sup> Kentucky is home to the nation's first net-zero energy-use public school building. The school design combines energy efficient systems, geothermal heat pumps, daylight harvesting, and a thin film rooftop solar PV system.<sup><a href='print.cfm@sid=KY.html#87'>87</a></sup> Kentucky law provides for net metering of distributed generation from solar, wind, hydro, biomass, and biogas facilities of 30 kilowatts or less. Each power provider's obligation to connect eligible customer generators is limited to 1% of the provider's peak load in the previous year.<sup><a href='print.cfm@sid=KY.html#88'>88</a></sup></p>
+<p>Kentucky has two ethanol plants with a combined capacity of about 35 million gallons per year.<sup><a href='print.cfm@sid=KY.html#89'>89</a></sup> Most of the ethanol is produced at a plant owned by a farmers' cooperative that uses corn as its primary feedstock.<sup><a href='print.cfm@sid=KY.html#90'>90</a>,<a href='print.cfm@sid=KY.html#91'>91</a></sup> The smaller ethanol facility is a recycling operation in an abandoned bourbon distillery that produces ethanol from waste non-alcoholic and alcoholic beverages, sugars, industrial alcohols, health and beauty alcohols, and pharmaceutical manufacturing by-products.<sup><a href='print.cfm@sid=KY.html#92'>92</a></sup> Kentucky also has three biodiesel production plants with a combined capacity of about 47 million gallons per year. The biodiesel plants use multiple feedstocks, including waste vegetable oil and soy oil.<sup><a href='print.cfm@sid=KY.html#93'>93</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> NETSTATE, Kentucky Geography, updated February 25, 2016.<br>
+<a name='2'></a><sup>2</sup> Kentucky Geological Survey, Physiographic Map of Kentucky, updated August 1, 2012. <br>
+<a name='3'></a><sup>3</sup> Kentucky Geological Survey, The Eastern Kentucky Coal Field, updated August 1, 2012. <br>
+<a name='4'></a><sup>4</sup> Kentucky Geological Survey, The Western Kentucky Coal Field, updated August 1, 2012.   <br>
+<a name='5'></a><sup>5</sup> Power Plants Around the World, Hydroelectric Plants in Kentucky, updated January 16, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration, State Profile, Kentucky, map, layer, oil and gas fields, accessed March 19, 2016.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration, Kentucky, Profile Data, Reserves and Supply, accessed March 19, 2016.<br>
+<a name='8'></a><sup>8</sup> NETSTATE, Kentucky, Economy, updated February 25, 2016. <br>
+<a name='9'></a><sup>9</sup> Kentucky Geological Survey, The Bluegrass Region, updated August 1, 2012.   <br>
+<a name='10'></a><sup>10</sup> Department of Geography and Geology, Western Kentucky University, Kentucky Climate Center, accessed March 21, 2016.<br>
+<a name='11'></a><sup>11</sup> NETSTATE, Kentucky, Economy, updated February 25, 2016.  <br>
+<a name='12'></a><sup>12</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, updated January 23, 2016.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2013.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, Kentucky, Profile Overview, Kentucky Energy Consumption by End-Use Sector, 2013.<br>
+<a name='15'></a><sup>15</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), Executive Summary, p. 2.<br>
+<a name='16'></a><sup>16</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Kentucky, Time Period 2012-14.<br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, State Energy Data System, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2013. <br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels per Day, Kentucky, 2010-15.<br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels per Day, 2010-15.<br>
+<a name='20'></a><sup>20</sup> Kentucky Geological Survey, Distribution of Oil and Gas Production in Kentucky, accessed March 21, 2016.<br>
+<a name='21'></a><sup>21</sup> Kentucky Energy and Environment Cabinet, Department for Natural Resources, Division of Oil and Gas, Oil and Gas History, accessed March 21, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2010-15. <br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, Kentucky, Profile Data, Distribution & Marketing, accessed March 21, 2016.<br>
+<a name='25'></a><sup>25</sup> U.S. Energy Information Administration, Refinery Capacity 2015, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015.<br>
+<a name='26'></a><sup>26</sup> Marathon Petroleum Corp, Catlettsburg Refining LLC, accessed March 21, 2016.<br>
+<a name='27'></a><sup>27</sup> Continental Refining Co., Somerset, KY, oil refinery, accessed March 21, 2016.<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, State Energy Data System, Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2013.<br>
+<a name='30'></a><sup>30</sup> U.S. Environmental Protection Agency, Gasoline Standards, Reformulated Gasoline, "Opt-In" Areas, updated September 28, 2015.<br>
+<a name='31'></a><sup>31</sup> American Petroleum Institute, Gasoline Requirements Map (June 2015).<br>
+<a name='32'></a><sup>32</sup> Kentucky Geological Survey, Oil and Gas Production, Entire State, accessed March 21, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Kentucky Natural Gas Marketed Production, 1967-2014.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, U.S. Natural Gas Marketed Production, 1900-2015.<br>
+<a name='35'></a><sup>35</sup> Kentucky Energy and Environment Cabinet, Department for Natural Resources, Division of Oil and Gas, Oil and Gas History, accessed March 21, 2016.<br>
+<a name='36'></a><sup>36</sup> Kentucky Oil & Gas Association, The Economic Impact of Our Industry on Kentucky's Economy-2014, slide 4.<br>
+<a name='37'></a><sup>37</sup> Nuttall, Brandon, et al., Analysis of the Devonian Black Shale in Kentucky for Potential Carbon Dioxide Sequestration and Enhanced Natural Gas Production (U.S. DOE/NETL DE-FC26-02NT41442) (April 28, 2003), p. 1.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Kentucky, Annual, 2010-15.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Kentucky, Profile Data, Distribution & Marketing, accessed March 21, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Kentucky, Annual, 2009-14.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, Annual, 2009-14.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Storage Capacity, Annual, 2009-14.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Kentucky, Annual, 2010-15.<br>
+<a name='44'></a><sup>44</sup> U.S. Census Bureau, American FactFinder, Table B25040, Kentucky, House Heating Fuel, 2014 5-Year American Community Survey Estimates.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Volumes Delivered to Residential, Annual, 2010-15.<br>
+<a name='46'></a><sup>46</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, State Energy Data System, Rankings: Coal Production, 2013.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Coal Data Browser, Aggregate Coal Mine Production for Total, Annual, 2001-13.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Quarterly Coal Report, October-December 2014 (March 2016), Table 2, Coal Production by State.<br>
+<a name='50'></a><sup>50</sup> Kentucky Business and Finance Review, Kentucky Coal Production and Consumption, accessed March 22, 2016.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated), 3rd quarter 2015 (January 21, 2016), Table 2, Coal Production by State.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 23, 2015), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2013.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 23, 2015), Table 1, Coal Production and Number of Mines by State and Mine Type, 2013 and 2012.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 23, 2015), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method. <br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, "Trading Point: Central Appalachian (CAPP) Is the Nation's Benchmark Price for Eastern Coal," Today in Energy (September 19, 2012).<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 16, 2015), Domestic distribution of U.S. coal by origin State, consumer, destination and method of transportation, Kentucky, Table OS-8, p. 11.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 16, 2015), Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2013.<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, Annual Coal Distribution Report, Archive, Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2012, 2011.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923), 1990-2014, see Kentucky data, 1990-2014.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.7.B, 1.10.B.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Electric Power Annual (February 16, 2016), Table 4.7.C, Net Summer Capacity of Utility Scale Units Using Primarily Fossil Fuels and by State, 2014 and 2013.<br>
+<a name='63'></a><sup>63</sup> SourceWatch, Coal Plant Retirements, updated September 18, 2015, see Kentucky plants.<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, "Scheduled 2015 Capacity Additions Mostly Wind and Natural Gas; Retirements Mostly Coal," Today in Energy (March 10, 2015).<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, "Coal Made Up More Than 80% of Retired Electricity Generating Capacity in 2015," Today in Energy (March 8, 2016).<br>
+<a name='66'></a><sup>66</sup> U.S. Government Accountability Office, EPA Regulations and Electricity, Update on Agencies' Monitoring Efforts and Coal-Fueled Generating Unit Retirements, GAO-14-672 (August 2014), p. 21.<br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, Kentucky Electricity Profile 2013, Table 2, Ten largest plants by generation capacity, 2013.<br>
+<a name='68'></a><sup>68</sup> Lovan, Dylan, "Kentucky Plant Emblematic of Nationwide Move from Coal to Gas," FuelFix (June 5, 2014).<br>
+<a name='69'></a><sup>69</sup> Cassell, Barry, "TVA Asks for More Time for Paradise Coal Unites, Retires Johnsonville Units 5-10," Power Engineering (February 3, 2016).<br>
+<a name='70'></a><sup>70</sup> U.S. Federal Energy Regulatory Commission, Electric Power Markets: Southeast, updated March 10, 2016.<br>
+<a name='71'></a><sup>71</sup> U.S. Environmental Protection Agency, Energy Efficiency and Electric Infrastructure in the State of Kentucky, updated December 21, 2015.<br>
+<a name='72'></a><sup>72</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='73'></a><sup>73</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), Executive Summary, p. 2.<br>
+<a name='74'></a><sup>74</sup> U.S. Census Bureau, American FactFinder, Table B25040, Kentucky, House Heating Fuel, 2014 5-Year American Community Survey Estimates.<br>
+<a name='75'></a><sup>75</sup> Durkay, Jocelyn, State Renewable Portfolio Standards and Goals, National Conference of State Legislatures (January 15, 2016).<br>
+<a name='76'></a><sup>76</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.10.B.<br>
+<a name='77'></a><sup>77</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), p. 72.<br>
+<a name='78'></a><sup>78</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='79'></a><sup>79</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), p. 69.<br>
+<a name='80'></a><sup>80</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Kentucky Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='81'></a><sup>81</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), p. 70, 75.<br>
+<a name='82'></a><sup>82</sup> Solar Energy Industries Association, Major Solar Projects in the United States, Operating, Under Construction, or Under Development, updated February 23, 2015.<br>
+<a name='83'></a><sup>83</sup> Kentucky Utilities, "Solar Facility Close to Being Operational," Neighbor to Neighbor (Spring 2016).<br>
+<a name='84'></a><sup>84</sup> Solar Energy Industries Association, Kentucky Solar, accessed March 23, 2016.<br>
+<a name='85'></a><sup>85</sup> Kentucky Energy and Environment Cabinet, Department for Energy Development and Independence, Kentucky Energy Profile (2015), p. 74.<br>
+<a name='86'></a><sup>86</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='87'></a><sup>87</sup> Solar Energy Industries Association, A Study on Solar in U.S. Schools: First Steps for Going Solar-A Practical Guide, see Richardsville Elementary School, accessed March 23, 2016.<br>
+<a name='88'></a><sup>88</sup> Kentucky Public Service Commission, Information About Utilities, Electric Specific Information, Net Metering and Interconnection Guidelines, accessed March 23, 2016.<br>
+<a name='89'></a><sup>89</sup> Nebraska Government, Ethanol Facilities, Capacity by State and Plant, updated March 14, 2016.<br>
+<a name='90'></a><sup>90</sup> Commonwealth Agri-Energy, About Us, accessed March 23, 2016.<br>
+<a name='91'></a><sup>91</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, updated January 23, 2016. <br>
+<a name='92'></a><sup>92</sup> Parallel Products, Louisville, KY, accessed March 23, 2016.<br>
+<a name='93'></a><sup>93</sup> Biodiesel Magazine, USA Plants, updated December 8, 2015.<br>
+
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Appalachian</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Midwest Independent Transmission System Operator (MISO), PJM Interconnection (PJM)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Reliability First Corporation (RFC), SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://energy.ky.gov/Pages/default.aspx" title="Kentucky Department of Energy Development and Independence">Kentucky Department of Energy Development and Independence</a></li>
+  
+    <li><a href="http://psc.ky.gov/" title="Kentucky Public Service Commission">Kentucky Public Service Commission</a></li>
+  
+    <li><a href="http://dep.ky.gov/Pages/default.aspx" title="Kentucky Department for Environmental Protection">Kentucky Department for Environmental Protection</a></li>
+  
+    <li><a href="http://energy.ky.gov/efficiency/Pages/default.aspx" title="Kentucky Department for Energy Development and Independence, Division of Efficiency and Conservation">Kentucky Department for Energy Development and Independence, Division of Efficiency and Conservation</a></li>
+  
+    <li><a href="http://oilandgas.ky.gov/Pages/Welcome.aspx" title="Kentucky Department for Natural Resources, Division of Oil and Gas">Kentucky Department for Natural Resources, Division of Oil and Gas</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov/" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.tva.org" title="Tennessee Valley Authority">Tennessee Valley Authority</a></li>
+  
+    <li><a href="http://www.communityactionky.org/" title="Community Action Kentucky">Community Action Kentucky</a></li>
+  
+    <li><a href="http://energy.ky.gov/renewable/Pages/default.aspx" title="Kentucky Department for Energy Development and Independence, Division of Renewable Energy">Kentucky Department for Energy Development and Independence, Division of Renewable Energy</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Kentucky website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Kentucky\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/KY.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

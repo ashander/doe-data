@@ -1,0 +1,3069 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Texas Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Texas State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Texas Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Texas was the leading crude oil-producing state in the nation in 2015 and exceeded production levels even from the federal offshore areas.&nbsp;</li>
+	
+	<li>As of January 2016, the 29 petroleum refineries in Texas had a capacity of over 5.4 million barrels of crude oil per day and accounted for 30% of total U.S. refining capacity.</li>
+	
+	<li>Texas accounted for over 27% of U.S. marketed natural gas production in 2015, making it the leading natural gas producer among the states.</li>
+	
+	<li>Texas leads the nation in wind-powered generation capacity with more than 18,500 megawatts; in 2014 and 2015, Texas wind turbines produced more electricity than the state&#39;s two nuclear plants.&nbsp;</li>
+	
+	<li>Texas is the nation&#39;s largest producer of lignite coal. About 40% of the coal burned for electricity generation in Texas is lignite.</li>
+	
+	<li>The average annual electricity cost per Texas household is $1,801, among the highest in the nation; the cost is similar to other warm weather states like Florida, according to EIA&#39;s Residential Energy Consumption Survey.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 19, 2017</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=TX.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=TX.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=TX.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=TX.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=TX.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Texas Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Texas Energy Consumption Estimates',
+		data : [1586.0,4219.1,1486.0,1095.2,411.8,1598.1,133.4,1213.7,410.9,3.7,214.0,388.5,130.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Texas Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 1709.5],['Commercial', 1638.7],['Industrial', 6288.2],['Transportation', 3253.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Texas Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Texas Energy Production Estimates',
+		data : [576.8,9379.5,6703.0,410.9,43.8,483.1]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Texas Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Texas Net Electricity Generation',
+		data : [5,16670,12029,3002,5678]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Texas Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Texas U.S. Price Differentials',
+		data : [{y:17.661097852, period: Date.UTC(2016,9,1)},{y:46.5793304221, period: Date.UTC(2016,9,1)},{y:-11.6465863454, period: Date.UTC(2016,9,1)},{y:-25.787965616, period: Date.UTC(2016,9,1)},{y:-21.130952381, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					27.5 million 
+				</td>
+				<td>
+					8.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					13.4 million 
+				</td>
+				<td>
+					8.4%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 1,586.5  billion 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 227,458  million 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 46,745 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					243,076 million miles 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					130.2 million acres 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					65.8 degrees Fahrenheit 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					41.2 inches 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 46.19 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.93 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 20.14 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 22.69 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.83 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.00 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					7.77 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.30 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=224">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					11,759 million barrels 
+				</td>
+				<td>
+					36.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					78,866 billion cu ft 
+				</td>
+				<td>
+					25.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					5,163 million barrels 
+				</td>
+				<td>
+					40.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					633 million short tons 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					882 rigs 
+				</td>
+				<td>
+					47.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					142,368 wells 
+				</td>
+				<td>
+					25.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					17,597 trillion Btu 
+				</td>
+				<td>
+					20.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					98,653 thousand barrels 
+				</td>
+				<td>
+					36.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					7,880,530 million cu ft 
+				</td>
+				<td>
+					27.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					35,918 thousand short tons 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					5,452,250 barrels/calendar day 
+				</td>
+				<td>
+					29.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					118,686 MW 
+				</td>
+				<td>
+					11.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					37,679 thousand MWh 
+				</td>
+				<td>
+					12.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					44.2 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					31.9 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					8.0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					15.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					3,872 thousand barrels 
+				</td>
+				<td>
+					23.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					17,580 thousand barrels 
+				</td>
+				<td>
+					14.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					769,814 million cu ft 
+				</td>
+				<td>
+					9.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					1,122 thousand barrels 
+				</td>
+				<td>
+					3.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					12,252 thousand tons 
+				</td>
+				<td>
+					7.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Texas</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Kosse Strip / Luminant Mining Company LLC, Three Oaks / Luminant Mining Company LLC, Jewett Mine / Texas Westmoreland Coal Co., South Hallsville No 1 Mine / The Sabine Mining Company</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Alon USA Energy (Big Spring), Buckeye Texas Processing (Corpus Christi), Calumet Lubricants (San Antonio), Citgo Refining & Chemical (Corpus Christi), Deer Park Refining (Deer Park), Delek Refining (Tyler), Equistar Chemicals (Channelview), ExxonMobil Refining & Supply (Baytown), Flint Hills Resources (Corpus Christi), Houston Refining (Houston), Kinder Morgan (Galena Park), Lazarus Energy (Nixon), Marathon Petroleum (Galveston Bay), Marathon Petroleum (Texas City), Motiva Enterprises (Port Arthur), Pasadena Refining (Pasadena), Petromax Refining (Houston), Phillips 66 Company (Sweeny), Premcor Refining (Port Arthur), South Hampton Resources (Silsbee), Total Petrochemicals & Refining (Port Arthur), Valero (Sunray), Valero (Three Rivers), Valero (Corpus Christi), Valero (Houston), Valero (Texas City), Western Refining (El Paso), WRB Refining (Borger)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">W A Parish (NRG Texas Power LLC) ; Oak Grove (TXU Generation Co LP) ; Martin Lake (TXU Generation Co LP) ; Monticello (TXU Generation Co LP) ; Tradinghouse (Luminant Generation Company LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">South Texas Project (STP Nuclear Operating Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=224">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Texas</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Houston, Port Arthur, Corpus Christi, Texas City, Freeport, Beaumont, Brownsville, Galveston, Matagorda Port Lv Pt Com, Victoria, Aransas Pass.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Agua Dulce Hub (Production Hub), Carthage Hub (Production Hub), Katy (DCP) Hub (Production Hub), Katy Storage Center (Storage Hub), Moss Bluff Hub (Storage Hub), Waha (DCP/Atmos) Hub (Production Hub), Waha (EPGT) Texas Hub (Production Hub)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Texas</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Exxon-Mobil, Magellan, Nustar, Plains Pipeline, Shell, Sunoco, Phillips 66 Pipeline, Centurion Pipeline, Koch Pipeline, Enterprise</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Enterprise, Explorer Pipeline, Marathon Pipeline, Midstream Partners, Phillips 66 Pipeline, Enbridge, Nustar, Kinder Morgan, Plains All American Pipeline, Colonial Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Chevron, Conoco Phillips, Enterprise Products, Energy Transfer, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Colorado Interstate Gas Company LLC, DCP Midstream LP, El Paso Natural Gas Company LLC, Enable Gas Transmission LLC, Enbridge Pipeline Texas Gathering LP, Enterprise Texas Pipeline, ETC Tiger Pipeline LLC, Florida Gas Transmission Company, Golden Pass Pipeline, Golden Triangle Storage Inc, Greenlight Gas, Gulf Crossing Pipeline LLC, Gulf South Pipeline Company LP, Gulf States Transmission LLC, HIgh Island Offshore System, Midcontinent Express Pipeline, Mississippi River Transmission Corporation, Natural Gas Pipeline Company of America, Northern Natural Gas, OKTex Pipeline Company, Panhandle Eastern Pipeline Company, Sabine Pipeline LLC, Southern Natural Gas Company, Southern Star Central Gas Pipeline, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP, Texas Gas Transmission LLC, Transcontinental Gas Pipeline, Transwestern Pipeline Company, Trunkline Gas Company, West Texas Gas Inc, Western Interstate Gas Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					10,831 stations 
+				</td>
+				<td>
+					9.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					491 stations 
+				</td>
+				<td>
+					12.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					840 stations 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					200 stations 
+				</td>
+				<td>
+					6.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					158 stations 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					12,899 trillion Btu 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					478 million Btu 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 162,556  million 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 6,025 
+				</td>
+				<td>
+					5 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					1,709 trillion Btu 
+				</td>
+				<td>
+					7.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					1,639 trillion Btu 
+				</td>
+				<td>
+					9.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6,289 trillion Btu 
+				</td>
+				<td>
+					19.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					3,262 trillion Btu 
+				</td>
+				<td>
+					12.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 19,964  million 
+				</td>
+				<td>
+					7.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 13,547  million 
+				</td>
+				<td>
+					7.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 54,864  million 
+				</td>
+				<td>
+					22.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="seds/data.cfm@incfile=%252Fstate%252Fseds%252Fsep_fuel%252Fhtml%252Ffuel_te.html&amp;sid=US&amp;sid=TX.html"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 74,181  million 
+				</td>
+				<td>
+					10.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					1,274.9 million barrels 
+				</td>
+				<td>
+					18.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					4,096.2 billion cu ft 
+				</td>
+				<td>
+					15.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					103.0 million short tons 
+				</td>
+				<td>
+					11.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 117,944  million 
+				</td>
+				<td>
+					13.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 16,884  million 
+				</td>
+				<td>
+					9.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 3,214  million 
+				</td>
+				<td>
+					7.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					122,722 million cu ft 
+				</td>
+				<td>
+					15.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					8,377 thousand short tons 
+				</td>
+				<td>
+					15.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=224">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					36.8 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					58.7 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					3.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.0 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					20,541 MW 
+				</td>
+				<td>
+					10.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					390 million gal/year 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					5,547 thousand MWh 
+				</td>
+				<td>
+					22.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					131 thousand MWh 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					32 thousand MWh 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					7,708 Thousand Barrels 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					4.7 % 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=TX"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					31,431 thousand barrels 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					642.0 million metric tons 
+				</td>
+				<td>
+					11.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Texas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=224">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					243,386 thousand metric tons 
+				</td>
+				<td>
+					12.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					247 thousand metric tons 
+				</td>
+				<td>
+					9.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					172 thousand metric tons 
+				</td>
+				<td>
+					9.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 19, 2017<p>
+<h2>Overview </h2>
+<p>Texas leads the nation in energy production, primarily from crude oil and natural gas,<sup><a href='print.cfm@sid=TX.html#1'>1</a></sup> and is rapidly developing its wind energy resources as well.<sup><a href='print.cfm@sid=TX.html#2'>2</a></sup> Texas is second only to Alaska in total state land area<sup><a href='print.cfm@sid=TX.html#3'>3</a></sup> and stretches some 800 miles at its widest points both east to west and north to south.<sup><a href='print.cfm@sid=TX.html#4'>4</a></sup> The state’s climate varies significantly from east to west. Warm, moist air from the Gulf of Mexico sweeps westward across Texas, losing moisture as it goes. The result is a climate that is humid and subtropical along the coast, semi-arid on the high plains, and arid in the mountainous west.<sup><a href='print.cfm@sid=TX.html#5'>5</a></sup></p>
+<p>Texas has the second-largest population<sup><a href='print.cfm@sid=TX.html#6'>6</a></sup> and the second-largest economy among the states, after California.<sup><a href='print.cfm@sid=TX.html#7'>7</a>,<a href='print.cfm@sid=TX.html#8'>8</a>,<a href='print.cfm@sid=TX.html#9'>9</a></sup> The state leads the nation in energy consumption, in all end-use sectors, accounting for more than one-eighth of the U.S. total.<sup><a href='print.cfm@sid=TX.html#10'>10</a></sup> On a per capita basis, Texas is sixth in the nation in energy consumption.<sup><a href='print.cfm@sid=TX.html#11'>11</a></sup> The state has many energy-intensive industries, including petroleum refining and chemical manufacturing,<sup><a href='print.cfm@sid=TX.html#12'>12</a></sup> and its industrial sector accounts for the largest share of state energy use.<sup><a href='print.cfm@sid=TX.html#13'>13</a></sup> The transportation sector accounts for the second-largest share of energy consumption, in part because of the distances across the state and the large number of registered motor vehicles.<sup><a href='print.cfm@sid=TX.html#14'>14</a>,<a href='print.cfm@sid=TX.html#15'>15</a></sup> The Texas residential sector accounts for just one-eighth of state energy consumption, but Texas leads the nation in residential energy consumption. However, with the state’s large population, per capita residential energy consumption is in the lowest one-fifth nationwide.<sup><a href='print.cfm@sid=TX.html#16'>16</a>,<a href='print.cfm@sid=TX.html#17'>17</a></sup> </p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>West Texas Intermediate crude oil serves as a benchmark for crude oil pricing in North America.</p></div><p>Texas leads the nation in crude oil reserves and production. The state has more than one-third of all U.S. crude oil reserves.<sup><a href='print.cfm@sid=TX.html#18'>18</a></sup> Although the reserves are found in several geologic basins around the state, the largest fields are in the Permian Basin of West Texas, where 19 of the nation’s top 100 oil fields are located.<sup><a href='print.cfm@sid=TX.html#19'>19</a></sup> Texas produces more crude oil than any other state and exceeds even the federal offshore producing areas.<sup><a href='print.cfm@sid=TX.html#20'>20</a></sup> West Texas Intermediate (WTI) crude oil, a low-gravity, low-sulfur crude that yields a large fraction of motor gasoline when refined,<sup><a href='print.cfm@sid=TX.html#21'>21</a></sup> serves as a benchmark for crude oil pricing in North America, in both the crude oil physical market and the crude oil futures market.<sup><a href='print.cfm@sid=TX.html#22'>22</a></sup> </p>
+<p>The first major oil boom in Texas began in 1901 with the discovery of the Spindletop oil field.<sup><a href='print.cfm@sid=TX.html#23'>23</a></sup> Later discoveries led to increased crude oil production in Texas until 1972, when state production peaked at more than 3.4 million barrels per day.<sup><a href='print.cfm@sid=TX.html#24'>24</a></sup> In subsequent years, output fell to less than one-third of the 1972 peak. However, production began to rise in 2008 because of advances in production technology. In 2015, Texas had the largest increase of any state in crude oil output and produced more crude oil than in any year since 1979.<sup><a href='print.cfm@sid=TX.html#25'>25</a>,<a href='print.cfm@sid=TX.html#26'>26</a>,<a href='print.cfm@sid=TX.html#27'>27</a></sup> </p>
+<div class='pullquote'><p>Three-tenths of the nation's crude oil refining capacity is located in Texas.</p></div><p>With 29 petroleum refineries that can process more than 5.4 million barrels of crude oil per day, Texas leads the nation in crude oil-refining capacity.<sup><a href='print.cfm@sid=TX.html#28'>28</a></sup> Three-tenths of the nation’s total refining capacity is located in Texas.<sup><a href='print.cfm@sid=TX.html#29'>29</a></sup> The majority of the state’s refineries are clustered near ports along the Gulf Coast, including the nation’s largest refinery in Port Arthur. Together, they comprise the largest refining center in the United States.<sup><a href='print.cfm@sid=TX.html#30'>30</a></sup> Many of the Texas refineries are complex facilities that use additional refining processes beyond simple distillation to yield larger quantities of lighter, higher-value products, such as motor gasoline.<sup><a href='print.cfm@sid=TX.html#31'>31</a></sup> With that capability, Texas refineries can process a wide variety of crude oil types.<sup><a href='print.cfm@sid=TX.html#32'>32</a>,<a href='print.cfm@sid=TX.html#33'>33</a></sup> The Gulf Coast refineries obtain crude oil from Texas producers, offshore oil fields in the Gulf of Mexico, and foreign imports. Two of the U.S. Strategic Petroleum Reserve’s four crude oil storage facilities are in Texas, at Bryan Mound and Big Hill.<sup><a href='print.cfm@sid=TX.html#34'>34</a></sup> Refined-product pipelines connect the Gulf Coast refineries to virtually every major U.S. market east of the Rocky Mountains.<sup><a href='print.cfm@sid=TX.html#35'>35</a></sup> </p>
+<p>Texas leads the nation in total petroleum consumption,<sup><a href='print.cfm@sid=TX.html#36'>36</a></sup> and, in 2014, it was fifth in per capita petroleum consumption.<sup><a href='print.cfm@sid=TX.html#37'>37</a></sup> The state is first in the nation in the consumption of distillate fuel oil and liquefied petroleum gases (LPG). In 2014, Texas LPG use was greater than the LPG consumption of all other states combined.<sup><a href='print.cfm@sid=TX.html#38'>38</a></sup> Almost all the LPG is consumed by the industrial sector, where it is used as a chemical feedstock in the state’s petrochemical plants.<sup><a href='print.cfm@sid=TX.html#39'>39</a></sup> While much of Texas may use conventional motor gasoline, the eastern half of the state and El Paso County, at the state’s extreme western tip, require several different motor gasoline blends to meet their diverse air-quality requirements. Those blends include reformulated motor gasoline blended with ethanol, which is required in the metropolitan areas of Greater Houston and Dallas-Fort Worth.<sup><a href='print.cfm@sid=TX.html#40'>40</a></sup></p>
+<h2>Natural gas</h2>
+<p>Texas leads the nation in natural gas production<sup><a href='print.cfm@sid=TX.html#41'>41</a></sup> and holds more than one-fourth of the nation's proved natural gas reserves.<sup><a href='print.cfm@sid=TX.html#42'>42</a>,<a href='print.cfm@sid=TX.html#43'>43</a></sup> Almost one-third of the 100 largest natural gas-producing fields in the United States are located, in whole or in part, in Texas.<sup><a href='print.cfm@sid=TX.html#44'>44</a></sup> Like crude oil production, the state’s marketed natural gas production reached its peak in 1972. From that peak of 8.6 trillion cubic feet, yearly production declined to about 6 trillion cubic feet before stabilizing in the mid-1980s. </p>
+<div class='pullquote'><p>One-fourth of the nation's proved natural gas reserves are located in Texas.</p></div><p>Since 2004, however, natural gas marketed production levels have rebounded and, by 2014, reached 7.95 trillion cubic feet.<sup><a href='print.cfm@sid=TX.html#45'>45</a></sup> Production dropped slightly in 2015 and 2016 in the face of lower natural gas prices.<sup><a href='print.cfm@sid=TX.html#46'>46</a></sup> Much of the last decade’s rise in production is the result of drilling in the Barnett, Eagle Ford, and Haynesville-Bossier shale formations.<sup><a href='print.cfm@sid=TX.html#47'>47</a>,<a href='print.cfm@sid=TX.html#48'>48</a></sup> Advances in horizontal drilling and hydraulic fracturing technologies, coupled with increased natural gas prices in the late 1990s, led to significant drilling activity. The Barnett and Haynesville/Bossier formations produce mainly dry gas.<sup><a href='print.cfm@sid=TX.html#49'>49</a>,<a href='print.cfm@sid=TX.html#50'>50</a></sup> The Eagle Ford Shale produces substantial amounts of petroleum and natural gas liquids, along with natural gas, from more than 20 fields in 26 counties stretching across southern Texas.<sup><a href='print.cfm@sid=TX.html#51'>51</a></sup> Additional natural gas is also coming from shale formations in the Permian Basin in west Texas.<sup><a href='print.cfm@sid=TX.html#52'>52</a></sup> </p>
+<p>The development of pipeline systems in the mid-20th century to move natural gas to distant markets resulted in today’s expansive network of interstate natural gas pipelines. Natural gas is shipped from Texas to markets across the nation and into Mexico,<sup><a href='print.cfm@sid=TX.html#53'>53</a>,<a href='print.cfm@sid=TX.html#54'>54</a></sup> and pipelines carry natural gas through Texas to and from other states. The state’s largest net receipts are from Oklahoma and the federal offshore producing areas.<sup><a href='print.cfm@sid=TX.html#55'>55</a></sup> There are more natural gas market hubs in Texas than in any other state.<sup><a href='print.cfm@sid=TX.html#56'>56</a></sup> Because the natural gas infrastructure in Texas is well connected to consuming markets throughout the country, two liquefied natural gas (LNG) import terminals were built along the state’s Gulf Coast.<sup><a href='print.cfm@sid=TX.html#57'>57</a></sup> The state’s first LNG terminal at Freeport became operational in April 2008.<sup><a href='print.cfm@sid=TX.html#58'>58</a></sup> Another LNG terminal, Golden Pass, started up in 2010.<sup><a href='print.cfm@sid=TX.html#59'>59</a></sup> Owners of both terminals are developing capability to export LNG, and other export terminals in Texas are also in development.<sup><a href='print.cfm@sid=TX.html#60'>60</a>,<a href='print.cfm@sid=TX.html#61'>61</a></sup></p>
+<p>Natural gas storage capacity in Texas is among the largest in the nation.<sup><a href='print.cfm@sid=TX.html#62'>62</a></sup> Just over half of the state’s 36 active storage facilities<sup><a href='print.cfm@sid=TX.html#63'>63</a></sup> are in depleted oil and gas fields converted for storage use,<sup><a href='print.cfm@sid=TX.html#64'>64</a></sup> and the rest were developed in salt caverns.<sup><a href='print.cfm@sid=TX.html#65'>65</a></sup> Those facilities allow Texas to store natural gas when demand is low and to ramp up delivery quickly when demand increases.<sup><a href='print.cfm@sid=TX.html#66'>66</a></sup></p>
+<p>Texas leads the nation in natural gas consumption, accounting for about one-seventh of the nation’s total usage.<sup><a href='print.cfm@sid=TX.html#67'>67</a></sup> The industrial and electric power sectors dominate Texas natural gas demand and together account for nearly nine-tenths of in-state consumption.<sup><a href='print.cfm@sid=TX.html#68'>68</a></sup> The Texas industrial sector is responsible for about one-fifth of the nation’s total industrial sector consumption of natural gas.<sup><a href='print.cfm@sid=TX.html#69'>69</a></sup> The amount of natural gas used for electricity generation in Texas is greater than in any other state and accounts for one-sixth of the U.S. total used for electricity generation.<sup><a href='print.cfm@sid=TX.html#70'>70</a></sup> More than one-third of state households rely on natural gas as their primary heating fuel, but Texas residential natural gas consumption per capita ranks in the lower third of states nationally.<sup><a href='print.cfm@sid=TX.html#71'>71</a>,<a href='print.cfm@sid=TX.html#72'>72</a>,<a href='print.cfm@sid=TX.html#73'>73</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Texas is the largest lignite producer in the nation.</p></div><p>Texas is the largest lignite producer and the seventh-largest coal producer in the nation. Substantial lignite coal deposits are found in narrow bands in the Texas Gulf Coast region, and bituminous coal deposits are found in north central and southwestern Texas.<sup><a href='print.cfm@sid=TX.html#74'>74</a></sup> The state currently produces only lignite, the lowest grade of coal, from surface mines.<sup><a href='print.cfm@sid=TX.html#75'>75</a></sup> Bituminous coal was produced from underground mines until shortly after World War II, when petroleum made coal from underground mining uneconomical.<sup><a href='print.cfm@sid=TX.html#76'>76</a></sup> The state has estimated potential resources of 23 billion tons of lignite and 787 million tons of bituminous coal.<sup><a href='print.cfm@sid=TX.html#77'>77</a></sup> </p>
+<p>Texas is also the largest coal-consuming state,<sup><a href='print.cfm@sid=TX.html#78'>78</a></sup> and its emissions of carbon dioxide and sulfur dioxide are among the highest in the nation.<sup><a href='print.cfm@sid=TX.html#79'>79</a></sup> The lignite mined in Texas is consumed entirely within the state, almost all of it to generate electric power.<sup><a href='print.cfm@sid=TX.html#80'>80</a>,<a href='print.cfm@sid=TX.html#81'>81</a></sup> Lignite-fueled power plants are typically located at a surface mine, where lignite is delivered directly to the plant by conveyor belt, truck, or rail.<sup><a href='print.cfm@sid=TX.html#82'>82</a></sup> On a tonnage basis, Texas lignite typically accounts for about two-fifths of the state’s coal consumption, with nearly all the rest of the state’s needs met by subbituminous coal brought from Wyoming by rail.<sup><a href='print.cfm@sid=TX.html#83'>83</a>,<a href='print.cfm@sid=TX.html#84'>84</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Texas generates more electricity than any other state, almost twice as much as the second highest-producing state.</p></div><p>Texas produces more electricity than any other state, generating almost twice as much as Florida, the second highest-producing state. More than three-fourths of the state’s electricity is generated by independent power producers and industrial generators. Half of the electricity generated in Texas in 2015 came from natural gas-fired power plants.<sup><a href='print.cfm@sid=TX.html#85'>85</a></sup> Coal-fired power plants historically accounted for about one-third of net electricity generation,<sup><a href='print.cfm@sid=TX.html#86'>86</a></sup> but, in 2015, with older coal plants reducing operations or closing, coal supplied about one-fourth of generation.<sup><a href='print.cfm@sid=TX.html#87'>87</a>,<a href='print.cfm@sid=TX.html#88'>88</a></sup> Two nuclear plants supply nearly one-tenth of the state’s net electricity generation, and the rest is powered by renewable resources, primarily wind.<sup><a href='print.cfm@sid=TX.html#89'>89</a></sup></p>
+<p>Texas is the largest electricity consumer of any state,<sup><a href='print.cfm@sid=TX.html#90'>90</a>,<a href='print.cfm@sid=TX.html#91'>91</a></sup> and both electricity demand and power supply have been growing. Most new generation is fueled by either natural gas or wind.<sup><a href='print.cfm@sid=TX.html#92'>92</a></sup> The main Texas electricity grid is operated by the Electricity Reliability Council of Texas (ERCOT). The ERCOT grid serves about three-fourths of the state and is largely isolated from the interconnected power systems serving the eastern and western United States.<sup><a href='print.cfm@sid=TX.html#93'>93</a></sup> This isolation means the ERCOT grid is not subject to federal oversight and is, for the most part, dependent on its own resources to meet the state’s electricity needs.<sup><a href='print.cfm@sid=TX.html#94'>94</a></sup> Among the contiguous 48 states, Texas is the only one with a stand-alone electricity grid.<sup><a href='print.cfm@sid=TX.html#95'>95</a></sup></p>
+<p>The largest share of retail electricity sales in Texas goes to the residential sector.<sup><a href='print.cfm@sid=TX.html#96'>96</a></sup> Close to three out of five households in the state use electricity as their primary heating fuel,<sup><a href='print.cfm@sid=TX.html#97'>97</a></sup> and demand for air conditioning is high during the hot summer months.<sup><a href='print.cfm@sid=TX.html#98'>98</a></sup></p>
+<h2>Renewable energy </h2>
+<p>In 1999, the Public Utility Commission of Texas first adopted rules for the state's renewable energy mandate. In 2005, the state legislature amended the mandate to require that 5,880 megawatts, or about 5% of the state’s electricity capacity, come from renewable sources by 2015. Lawmakers also set a goal of 10,000 megawatts of renewable capacity by 2025, including 500 megawatts from resources other than wind. Texas surpassed the 2015 goal in 2005 and the 2025 goal in 2009, almost entirely with wind power.<sup><a href='print.cfm@sid=TX.html#99'>99</a></sup> Renewable energy sources contributed one-tenth of the state’s net electricity generation in 2015, and that amounted to nearly one-sixth of U.S. electricity from all nonhydroelectric renewable sources. Texas produced more nonhydroelectric renewable generation than any other state in the nation.<sup><a href='print.cfm@sid=TX.html#100'>100</a></sup></p>
+<div class='pullquote'><p>Texas leads the nation in wind-powered generation, with nearly one-fourth of the U.S. total in 2015.</p></div><p>Wind accounts for nearly all of the electricity generated from renewable resources in Texas.<sup><a href='print.cfm@sid=TX.html#101'>101</a></sup> The state encouraged construction of wind farms on its wide plains by authorizing Competitive Renewable Energy Zones (CREZ), a $7-billion effort in which transmission lines were built to connect to future wind farms.<sup><a href='print.cfm@sid=TX.html#102'>102</a></sup> Texas leads the nation in wind-powered electricity generation, producing nearly one-fourth of the U.S. total in 2015.<sup><a href='print.cfm@sid=TX.html#103'>103</a></sup> In 2011, Texas was the first state to reach 10,000 megawatts of installed wind generating capacity.<sup><a href='print.cfm@sid=TX.html#104'>104</a></sup> At the end of 2015, Texas had more than 18,500 megawatts of wind capacity installed.<sup><a href='print.cfm@sid=TX.html#105'>105</a></sup> Utility-scale wind facilities represented nearly one-sixth of the state’s total generating capacity<sup><a href='print.cfm@sid=TX.html#106'>106</a></sup> and produced one-tenth of state net generation.<sup><a href='print.cfm@sid=TX.html#107'>107</a></sup> More than 5,000 megawatts of additional wind generation capacity are under construction.<sup><a href='print.cfm@sid=TX.html#108'>108</a></sup></p>
+<p>Texas is also rich in other renewable energy resources. High levels of direct solar radiation in West Texas give the state some of the largest solar power potential in the nation.<sup><a href='print.cfm@sid=TX.html#109'>109</a></sup> Decreasing costs for solar photovoltaic (PV) panels and improved transmission access from the CREZ projects resulted in rapid increases in solar PV capacity in 2015, when installed utility-scale solar capacity within ERCOT grew by nearly half, to 288 megawatts.<sup><a href='print.cfm@sid=TX.html#110'>110</a></sup> In early 2016, more than 1,700 megawatts of solar capacity were in development in ERCOT.<sup><a href='print.cfm@sid=TX.html#111'>111</a></sup> In 2015, nearly one-third of Texas solar generation came from distributed (customer-sited, small-scale) facilities,<sup><a href='print.cfm@sid=TX.html#112'>112</a></sup> and distributed capacity is increasing.<sup><a href='print.cfm@sid=TX.html#113'>113</a></sup></p>
+<p>The agricultural and forestry sectors provide Texas with abundant biomass and biofuel resources. Currently, less than 1% of the state’s electricity is generated using biomass.<sup><a href='print.cfm@sid=TX.html#114'>114</a></sup> Texas is expanding its use of biomass in the production of electricity.<sup><a href='print.cfm@sid=TX.html#115'>115</a></sup> Texas has four biofuels plants in the agriculturally rich high plains region in the state’s northwest. The plants produce ethanol from corn and sorghum feedstocks.<sup><a href='print.cfm@sid=TX.html#116'>116</a></sup> </p>
+<p>Hydroelectric power contributes less than 1% to the electricity generated in Texas because the relatively gentle terrain and low rainfall throughout much of the state are not conducive to its development. Reservoirs are primarily used for water storage, with electricity generation as a secondary purpose, and water is usually not released from reservoirs solely to generate power.<sup><a href='print.cfm@sid=TX.html#117'>117</a></sup> However, the state does have some untapped hydropower resources, especially for small-scale, low-impact technologies.<sup><a href='print.cfm@sid=TX.html#118'>118</a></sup></p>
+<p>Texas has a unique untapped geothermal resource: its large network of crude oil and natural gas wells. Existing wells connect to deeper geothermal resources, many with water as hot as 200°C. More than 12 billion barrels of non-potable water are produced annually as a byproduct from the state’s crude oil and natural gas wells, and heat from that water could be used to generate electricity.<sup><a href='print.cfm@sid=TX.html#119'>119</a></sup> On a smaller scale, Texas’ geothermal resources have been tapped to heat and cool homes and schools around the state.<sup><a href='print.cfm@sid=TX.html#120'>120</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration (EIA), State Energy Data System, Table P2, Energy Production Estimates in Trillion Btu, 2014.<br>
+<a name='2'></a><sup>2</sup> American Wind Energy Association, Texas Wind Energy, accessed December 19, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates (2010).<br>
+<a name='4'></a><sup>4</sup> Texas State Historical Association, Texas Almanac, Environment, accessed December 19, 2016.<br>
+<a name='5'></a><sup>5</sup> Nielsen-Gammon, John, Texas State Climatologist, The Climate of Texas, accessed December 19, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='7'></a><sup>7</sup> U.S. Census Bureau, Statistical Abstract of the United States: 2012, Table 671, Gross Domestic Product Current and Chained (2005) Dollars: 2000–2009.<br>
+<a name='8'></a><sup>8</sup> U.S. Department of Commerce, Bureau of Economic Analysis, Regional Data, GDP by State, All Industries, California, New York, and Texas, for 2013, 2014, and 2015.<br>
+<a name='9'></a><sup>9</sup> U.S. EIA, Texas, Profile Data, Energy Indicators, accessed December 19, 2016. <br>
+<a name='10'></a><sup>10</sup> U.S. EIA, State Energy Data System, Table C4, Total End-Use Energy Consumption Estimates, 2014.<br>
+<a name='11'></a><sup>11</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='12'></a><sup>12</sup> U.S. Department of Commerce, Bureau of Economic Analysis, Regional Data, GDP by State, Texas, All industries, for 2013, 2014, and 2015.<br>
+<a name='13'></a><sup>13</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='14'></a><sup>14</sup> U.S. EIA, Texas, Profile Data, Energy Indicators, accessed December 19, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Census Bureau, Table 1098: State Motor Vehicle Registrations, 1990–2009.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='17'></a><sup>17</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='18'></a><sup>18</sup> U.S. EIA, Crude Oil Proved Reserves, Reserve Changes, and Production, Proved Reserves as of 12/31, Annual, 2010–15.<br>
+<a name='19'></a><sup>19</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (March 2015), p. 5–7.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010–15.<br>
+<a name='21'></a><sup>21</sup> U.S. EIA, “Crude oils have different quality characteristics,” Today in Energy (July 16, 2012).<br>
+<a name='22'></a><sup>22</sup> U.S. EIA, Petroleum & Other Liquids, Table Definitions, Sources, and Explanatory Notes, West Texas Intermediate (WTI-Cushing), accessed December 19, 2016.<br>
+<a name='23'></a><sup>23</sup> Wooster, Robert, and Christine M. Sanders, “Spindletop Oilfield,” The Handbook of Texas, Texas State Historical Association (June 15, 2010).<br>
+<a name='24'></a><sup>24</sup> Kim, Eugene, et al., Oil and Gas Production in Texas, Bureau of Economic Geology, University of Texas at Austin, p. 2, accessed December 19, 2016.<br>
+<a name='25'></a><sup>25</sup> Texas Railroad Commission, Crude Oil Production and Well Counts (Since 1935), accessed December 19, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, Texas Field Production of Crude Oil (Thousand Barrels per Day), 1981–2015.<br>
+<a name='27'></a><sup>27</sup> “U.S. Crude Production in 2015 Topped 1972 Records,” Oil & Gas 360 (November 7, 2016).<br>
+<a name='28'></a><sup>28</sup> U.S. EIA, Refinery Capacity Report 2016 (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 17–22.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, Number and Capacity of Petroleum Refineries, Atmospheric Crude Oil Distillation Operable Capacity, Annual (as of January 1), 2011–16. <br>
+<a name='30'></a><sup>30</sup> U.S. EIA, “Much of the country’s refinery capacity is concentrated along the Gulf Coast,” Today in Energy (July 19, 2012).<br>
+<a name='31'></a><sup>31</sup> U.S. EIA, Refinery Net Production, Texas Gulf Coast, Annual-Thousand Barrels, 2010–15.<br>
+<a name='32'></a><sup>32</sup> U.S. EIA, Crude Oil Input Qualities, API Gravity, Annual, 2010–15.<br>
+<a name='33'></a><sup>33</sup> U.S. EIA, Crude Oil Input Qualities, Sulfur Content, Annual, 2010–15.<br>
+<a name='34'></a><sup>34</sup> U.S. Department of Energy, Fossil Energy, SPR Quick Facts and FAQs, accessed December 19, 2016.<br>
+<a name='35'></a><sup>35</sup> U.S. EIA, “PADD regions enable regional analysis of petroleum product supply and movements,” Today in Energy (February 7, 2012). <br>
+<a name='36'></a><sup>36</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='37'></a><sup>37</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, State Energy Data System, Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2014.<br>
+<a name='39'></a><sup>39</sup> U.S. EIA, State Energy Data System, Table F12, Liquefied Petroleum Gases Consumption Estimates, 2014.<br>
+<a name='40'></a><sup>40</sup> Gardner, K.S., “U.S. Gasoline Requirements,” ExxonMobil (June 2015).<br>
+<a name='41'></a><sup>41</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual-Million Cubic Feet, 2010–15.<br>
+<a name='42'></a><sup>42</sup> U.S. EIA, Natural Gas Reserves Summary as of Dec. 31, Dry Natural Gas, Annual, 2010–15.<br>
+<a name='43'></a><sup>43</sup> U.S. Geological Survey, “USGS Estimates 20 Billion Barrels of Oil in Texas’ Wolfcamp Shale Formation,” Press Release (November 15, 2016).<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (March 2015), p. 8–10.<br>
+<a name='45'></a><sup>45</sup> U.S. EIA, Texas Natural Gas Marketed Production, Annual, 1967–2015, updated November 30, 2016.<br>
+<a name='46'></a><sup>46</sup> U.S. EIA, Texas Natural Gas Marketed Production, Monthly, January 1989–September 2016, updated November 30, 2016. <br>
+<a name='47'></a><sup>47</sup> Hiller, Jennifer, “Eagle Ford Shale Tops Texas List of Top Crude, Gas Producers,” FuelFix (August 1, 2015).<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, “Shale Gas Provides Largest Share of U.S. Natural Gas Production in 2013,” Today in Energy (November 25, 2014).<br>
+<a name='49'></a><sup>49</sup> Texas Railroad Commission, Major Oil & Gas Formations, Barnett Shale Information, updated December 1, 2016.<br>
+<a name='50'></a><sup>50</sup> Texas Railroad Commission, Major Oil & Gas Formations, Haynesville/Bossier Shale Information, updated December 6, 2016.<br>
+<a name='51'></a><sup>51</sup> Texas Railroad Commission, Major Oil & Gas Formations, Eagle Ford Shale Information, updated December 5, 2016.<br>
+<a name='52'></a><sup>52</sup> Fisher, Joe, “IHS Sees Plenty of Upside in Emerging Wolfcamp Delaware,” NGI’s Shale Daily (June 25, 2015).<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, About U.S. Natural Gas Pipelines, Intrastate Natural Gas Pipeline Segments, accessed December 19, 2016.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Southwest Region, accessed December 19, 2016.<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, International & Interstate Movements of Natural Gas by State, Texas, Annual, 2010–15.<br>
+<a name='56'></a><sup>56</sup> U.S. Federal Energy Regulatory Commission, Natural Gas Markets: National Overview, updated November 22, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. Federal Energy Regulatory Commission, North American LNG Import/Export Terminals, updated December 14, 2016.<br>
+<a name='58'></a><sup>58</sup> Macquarie, “Macquarie Energy and Freeport LNG Expansion, L.P., to Jointly Develop U.S. LNG Export Project,” Press Release (November 22, 2010).<br>
+<a name='59'></a><sup>59</sup> Moore, Sarah, “Sabine Pass Terminal Gets its First Shipment of LNG,” FuelFix (October 22, 2010).<br>
+<a name='60'></a><sup>60</sup> U.S. Department of Energy, Fossil Energy, Summary of LNG Export Applications of the Lower-48 States, accessed December 19, 2016.<br>
+<a name='61'></a><sup>61</sup> “EIA: LNG Export Terminals Under Construction, More Planned,” OilOnline (April 17, 2015).<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Storage Capacity, Annual, 2010–15.<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, Annual, 2010–15.<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Number of Depleted Fields, Annual, 2010–15.<br>
+<a name='65'></a><sup>65</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Number of Existing Salt Caverns, 2010–15.<br>
+<a name='66'></a><sup>66</sup> U.S. EIA, Texas Natural Gas Underground Storage Volume, January 1990–September 2016.<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Natural Gas Consumption by End-Use, Total Consumption, Annual, 2010–15.<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Natural Gas Consumption by End-Use, Texas, Annual, 2010–15.<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, Natural Gas Consumption by End Use, Volumes Delivered to Industrial Consumers, Annual, 2010–15.<br>
+<a name='70'></a><sup>70</sup> U.S. EIA, Natural Gas Consumption by End Use, Volumes Delivered to Electric Power Consumers, Annual, 2010–15.<br>
+<a name='71'></a><sup>71</sup> U.S. Census Bureau, American FactFinder, Texas, Table B25040, House Heating Fuel, 2011–15 American Community Survey 5-Year Estimates.<br>
+<a name='72'></a><sup>72</sup> U.S. EIA, Natural Gas Consumption by End Use, Volumes Delivered to Residential, Annual, 2010–15.<br>
+<a name='73'></a><sup>73</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='74'></a><sup>74</sup> Ambrose, William A., et al., Coal Resources in Texas, FutureGen Fact Sheet, Bureau of Economic Geology, University of Texas at Austin, accessed December 20, 2016.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2015.<br>
+<a name='76'></a><sup>76</sup> Texas State Historical Association, Minerals Resources and Mining, Coal, accessed January 9, 2017.<br>
+<a name='77'></a><sup>77</sup> U.S. Department of the Interior, Office of Surface Mining Reclamation and Enforcement, Texas, updated December 15, 2016.<br>
+<a name='78'></a><sup>78</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='79'></a><sup>79</sup> U.S. EIA, State Electricity Profiles, Texas Electricity Profile 2014, Emissions, accessed December 21, 2016.<br>
+<a name='80'></a><sup>80</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic distribution of U.S. coal by origin State, consumer, destination and method of transportation, Texas.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, Annual Coal Distribution Report, Archive (2014, 2013, 2012), Domestic distribution of U.S. coal by origin State, consumer, destination and method of transportation, Texas.<br>
+<a name='82'></a><sup>82</sup> Sakelaris, Nicholas, “Texas Coal Plants Burned 23M Tons in 3 Months to Lead Nation,” Dallas Business Journal (March 19, 2014).<br>
+<a name='83'></a><sup>83</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Texas.<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, Annual Coal Distribution Report, Archive (2014, 2013, 2012), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Texas.<br>
+<a name='85'></a><sup>85</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='86'></a><sup>86</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923), 1990–2015, updated November 30, 2016.<br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.4.B.<br>
+<a name='88'></a><sup>88</sup> Tomlinson, Chris, “Electricity Prices Drop as Coal Plants Close,” Houston Chronicle (October 7, 2016).<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.9.B, 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='90'></a><sup>90</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='91'></a><sup>91</sup> U.S. EIA, State Electricity Profiles, Texas Electricity Profile 2014, Total retail sales (megawatthours), accessed December 21, 2016.<br>
+<a name='92'></a><sup>92</sup> Electricity Reliability Council of Texas, Your Power, Our Promise, 2015 State of the Grid Report (February 2016), p. 20–22, 37.<br>
+<a name='93'></a><sup>93</sup> Texas State Historical Association, Texas Almanac, Texas Electric Grids: Demand and Supply, accessed December 21, 2016.<br>
+<a name='94'></a><sup>94</sup> Galbraith, Kate, "Proudly Independent Texas Power Grid Reaches Out a Bit," The Texas Tribune (March 29, 2012).<br>
+<a name='95'></a><sup>95</sup> Electricity Reliability Council of Texas, Your Power, Our Promise, 2015 State of the Grid Report (February 2016), p. 7.<br>
+<a name='96'></a><sup>96</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='97'></a><sup>97</sup> U.S. Census Bureau, American FactFinder, Texas, Table B25040, House Heating Fuel, 2011–15 American Community Survey 5-Year Estimates. <br>
+<a name='98'></a><sup>98</sup> Electricity Reliability Council of Texas, Your Power, Our Promise, 2015 State of the Grid Report (February 2016), p. 15–16.<br>
+<a name='99'></a><sup>99</sup> NC Clean Energy Technology Center, DSIRE, Renewable Portfolio Standard, Texas, updated April 29, 2016.<br>
+<a name='100'></a><sup>100</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.11.B.<br>
+<a name='101'></a><sup>101</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.11.B, 1.14.B.<br>
+<a name='102'></a><sup>102</sup> Malewitz, Jim, “$7 Billion CREZ Project Nears Finish, Aiding Wind Power,” The Texas Tribune (October 14, 2013).<br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.14.B.<br>
+<a name='104'></a><sup>104</sup> U.S. EIA, Electricity, Detailed State Data, Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860), 1990–2015.<br>
+<a name='105'></a><sup>105</sup> American Wind Energy Association, Texas Wind Energy, accessed December 21, 2016.<br>
+<a name='106'></a><sup>106</sup> U.S. EIA, Electricity, Detailed State Data, Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860), 1990–2015.<br>
+<a name='107'></a><sup>107</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B.<br>
+<a name='108'></a><sup>108</sup> American Wind Energy Association, Texas Wind Energy, accessed December 21, 2016.<br>
+<a name='109'></a><sup>109</sup> U.S. National Renewable Energy Laboratory, Dynamic Maps, GIS Data, and Analysis Tools, Solar Maps, updated July 18, 2016.<br>
+<a name='110'></a><sup>110</sup> Electricity Reliability Council of Texas, Your Power, Our Promise, 2015 State of the Grid Report (February 2016), p. 23.<br>
+<a name='111'></a><sup>111</sup> Fares, Robert, “Texas Poised to Integrate More Solar, Wind Energy,” Scientific American (March 17, 2016).<br>
+<a name='112'></a><sup>112</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='113'></a><sup>113</sup> Solar Energy Industries Association, Texas Solar, accessed December 21, 2016.<br>
+<a name='114'></a><sup>114</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='115'></a><sup>115</sup> Texas State Energy Conservation Office, Biomass Energy, accessed December 21, 2016.<br>
+<a name='116'></a><sup>116</sup> U.S. Ethanol Plants, Ethanol Producers Magazine, updated January 23, 2016. <br>
+<a name='117'></a><sup>117</sup> Texas Comptroller of Public Accounts, The Energy Report (May 2008), Chapter 19, Hydropower.<br>
+<a name='118'></a><sup>118</sup> State Energy Conservation Office, Texas Renewable Energy Resource Assessment 2008, Chapter 6, Energy from Water, Quantification of Resource, accessed December 21, 2016.<br>
+<a name='119'></a><sup>119</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Geothermal Technologies Program, Texas, DOE/GO-102006-2213 (April 2006).<br>
+<a name='120'></a><sup>120</sup> Henry, Terrence, Mose Buchele, and Dave Fehling, “What Are the Non-Wind and Non-Solar Renewable Resources in Texas?” State Impact Texas, NPR, accessed December 21, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Interior</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 3</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Electric Reliability Council of Texas (ERCOT), Southwest Power Pool, Inc (SPP), Texas Reliability Entity (TRE), Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.seco.cpa.state.tx.us/" title="State Energy Conservation Office">State Energy Conservation Office</a></li>
+  
+    <li><a href="http://www.puc.state.tx.us/" title="Public Utility Commission of Texas">Public Utility Commission of Texas</a></li>
+  
+    <li><a href="http://www.ercot.com" title="The Electricity Reliability Council of Texas (ERCOT)">The Electricity Reliability Council of Texas (ERCOT)</a></li>
+  
+    <li><a href="http://www.tdhca.state.tx.us/community-affairs/ceap/index.htm" title="Texas Department of Housing and Community Affairs - Comprehensive Energy Assistance Program">Texas Department of Housing and Community Affairs - Comprehensive Energy Assistance Program</a></li>
+  
+    <li><a href="../special/gulf_of_mexico/index.html" title="EIA Gulf of Mexico Fact Sheet">EIA Gulf of Mexico Fact Sheet</a></li>
+  
+    <li><a href="https://www.tceq.texas.gov/" title="Texas Commission on Environmental Quality">Texas Commission on Environmental Quality</a></li>
+  
+    <li><a href="http://www.rrc.state.tx.us/" title="The Railroad Commission of Texas (Oil and Gas Data and Regulation)">The Railroad Commission of Texas (Oil and Gas Data and Regulation)</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.swpa.gov" title="Southwestern Power Administration">Southwestern Power Administration</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Texas website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Texas\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/TX.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

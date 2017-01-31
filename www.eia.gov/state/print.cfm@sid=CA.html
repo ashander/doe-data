@@ -1,0 +1,3091 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>California Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>California State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>California Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Excluding federal offshore areas, California ranked third in the nation in crude oil production in 2015, despite an overall decline in production since the mid-1980s.</li>
+	
+	<li>California ranked third in the nation in oil refining capacity as of January 2016, with a combined capacity of almost 2 million barrels per calendar day from the state&#39;s 18 operable refineries.</li>
+	
+	<li>In 2014, California&rsquo;s per capita energy consumption ranked 49th in the nation; the state&#39;s low use of energy was due in part to its mild climate and its energy efficiency programs.</li>
+	
+	<li>In 2015, California ranked fourth in the nation in conventional hydroelectric generation, second in net electricity generation from all other renewable energy resources, and first as a producer of electricity from biomass, geothermal, and solar energy.</li>
+	
+	<li>In 2015, California ranked 15th in net electricity generation from nuclear power after one of the state&#39;s two nuclear plants, the San Onofre Nuclear Generating Station, permanently ceased operations in June 2013. &nbsp;</li>
+	
+	<li>Average site electricity consumption in California homes is among the lowest in the nation (6.9 megawatthours per year), according to EIA&#39;s Residential Energy Consumption Survey.&nbsp;</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: October 20, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=CA.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=CA.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=CA.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=CA.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=CA.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'California Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'California Energy Consumption Estimates',
+		data : [39.5,2417.5,1632.6,560.4,595.3,51.5,84.5,316.1,177.7,157.2,298.1,421.1,821.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'California Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 1397.4],['Commercial', 1418.5],['Industrial', 1855.4],['Transportation', 2943.4]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'California Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'California Energy Production Estimates',
+		data : [0.0,285.0,1184.8,177.7,25.4,740.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'California Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'California Net Electricity Generation',
+		data : [6,9097,27,1605,1731,4112]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'California Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'California U.S. Price Differentials',
+		data : [{y:-16.2291169451, period: Date.UTC(2016,9,1)},{y:-2.54730713246, period: Date.UTC(2016,9,1)},{y:11.9678714859, period: Date.UTC(2016,9,1)},{y:51.4804202483, period: Date.UTC(2016,9,1)},{y:60.2678571429, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					39.1 million 
+				</td>
+				<td>
+					12.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					19.5 million 
+				</td>
+				<td>
+					12.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 2,458.5  billion 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 278,584  million 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 52,651 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					332,857 million miles 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					25.6 million acres 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					60.8 degrees Fahrenheit 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					15.0 inches 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.21 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.51 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 13.39 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					13.94 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					15.86 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					10.77 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=185">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					2,333 million barrels 
+				</td>
+				<td>
+					7.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					1,832 billion cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					82 million barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					42 rigs 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					4,209 wells 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					2,413 trillion Btu 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					15,659 thousand barrels 
+				</td>
+				<td>
+					5.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					231,060 million cu ft 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					1,982,141 barrels/calendar day 
+				</td>
+				<td>
+					10.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					77,296 MW 
+				</td>
+				<td>
+					7.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					16,773 thousand MWh 
+				</td>
+				<td>
+					5.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					54.2 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					9.6 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					34.8 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					429 thousand barrels 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					5,497 thousand barrels 
+				</td>
+				<td>
+					4.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					515,162 million cu ft 
+				</td>
+				<td>
+					6.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>California</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Alon Bakersfield Operating (Bakersfield), Chevron USA (El Segundo), ExxonMobil Refining & Supply (Torrance), Kern Oil & Refining (Bakersfield), Lunday Thagard (South Gate), Paramount Petroleum (Paramount), Phillips 66 Company (Rodeo), Phillips 66 Company (Wilmington), San Joaquin Refining (Bakersfield), Santa Maria Refining Company (Santa Maria), Shell OIl Products (Martinez), Tesoro Refining & Marketing (Carson), Tesoro Refining & Marketing (Martinez), Tesoro Refining & Marketing (Wilmington), Valero Refining (Benicia), Valero Refining (Wilmington)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Dynegy Moss Landing Power Plant (Dynegy -Moss Landing LLC) ; AES Alamitos LLC (AES Alamitos LLC) ; Haynes (Los Angeles City of) ; Ormond Beach (RRI Energy Ormond Bch LLC) ; Pittsburg Power (Mirant Delta LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Diablo Canyon (Pacific Gas & Electric Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=185">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>California</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Los Angeles, Richmond, Long Beach, Oakland, Humboldt, San Diego.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">California Energy Hub (Market Center), Golden Gate Center (Market Center)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>California</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Phillips 66 Pipeline, Exxon-Mobil West Coast, Plains Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Phillips 66 Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">El Paso Natural Gas Company LLC, Kern River Gas Transmission Company, Mojave Pipeline Company LLC, North Baja Pipeline Company, Pacific Gas, Southern Trails Pipeline Company, Tuscarora Gas Transmission Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					7,344 stations 
+				</td>
+				<td>
+					6.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					397 stations 
+				</td>
+				<td>
+					10.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					3,701 stations 
+				</td>
+				<td>
+					24.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					111 stations 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					441 stations 
+				</td>
+				<td>
+					17.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					7,620 trillion Btu 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					196 million Btu 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 137,720  million 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,550 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					1,397 trillion Btu 
+				</td>
+				<td>
+					6.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					1,418 trillion Btu 
+				</td>
+				<td>
+					7.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					1,856 trillion Btu 
+				</td>
+				<td>
+					5.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					2,948 trillion Btu 
+				</td>
+				<td>
+					10.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 20,016  million 
+				</td>
+				<td>
+					7.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 21,589  million 
+				</td>
+				<td>
+					11.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 16,276  million 
+				</td>
+				<td>
+					6.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 79,839  million 
+				</td>
+				<td>
+					11.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					629.5 million barrels 
+				</td>
+				<td>
+					9.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					2,351.6 billion cu ft 
+				</td>
+				<td>
+					8.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1.7 million short tons 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 86,002  million 
+				</td>
+				<td>
+					10.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 16,128  million 
+				</td>
+				<td>
+					9.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 135  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					9 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					65,578 million cu ft 
+				</td>
+				<td>
+					8.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					6 thousand short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=185">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					65.0 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.3 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					26.2 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					3.1 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					5.4 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					28,016 MW 
+				</td>
+				<td>
+					14.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					218 million gal/year 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					1,731 thousand MWh 
+				</td>
+				<td>
+					10.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					3,612 thousand MWh 
+				</td>
+				<td>
+					14.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					500 thousand MWh 
+				</td>
+				<td>
+					10.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					718 thousand MWh 
+				</td>
+				<td>
+					44.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					4,462 Thousand Barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					11.5 % 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=CA"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					37,281 thousand barrels 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					358.0 million metric tons 
+				</td>
+				<td>
+					6.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>California</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=185">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					55,481 thousand metric tons 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					1 thousand metric tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					73 thousand metric tons 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: October 20, 2016<p>
+<h2>Overview </h2>
+<p>California is the most populated state in the nation, and with the largest economy, its total energy demand is second only to Texas.<sup><a href='print.cfm@sid=CA.html#1'>1</a>,<a href='print.cfm@sid=CA.html#2'>2</a>,<a href='print.cfm@sid=CA.html#3'>3</a></sup> Although California is a leader in many energy-intensive industries, the state has one of the lowest per capita total energy consumption levels in the country.<sup><a href='print.cfm@sid=CA.html#4'>4</a>,<a href='print.cfm@sid=CA.html#5'>5</a></sup> California state policy promotes energy efficiency.<sup><a href='print.cfm@sid=CA.html#6'>6</a></sup> The state's extensive efforts to increase energy efficiency and the implementation of alternative technologies have restrained growth in energy demand.<sup><a href='print.cfm@sid=CA.html#7'>7</a></sup> But California is also rich in energy resources. The state has an abundant supply of crude oil and is a top producer of conventional hydroelectric power.<sup><a href='print.cfm@sid=CA.html#8'>8</a>,<a href='print.cfm@sid=CA.html#9'>9</a></sup> California also leads the nation in electricity generation from solar, geothermal, and biomass resources.<sup><a href='print.cfm@sid=CA.html#10'>10</a></sup> </p>
+<div class='pullquote'><p>Residential energy use per person in California is lower than in every state except Hawaii.</p></div><p>Stretching two-thirds of the way up the West Coast, California is the nation's third-largest state.<sup><a href='print.cfm@sid=CA.html#11'>11</a></sup> Motor vehicle travel within the state contributes to energy use by California's transportation sector, and transportation dominates California's energy consumption profile.<sup><a href='print.cfm@sid=CA.html#12'>12</a></sup> More motor vehicles are registered in California than in any other state, and commute times in California are among the longest in the country.<sup><a href='print.cfm@sid=CA.html#13'>13</a>,<a href='print.cfm@sid=CA.html#14'>14</a></sup> In contrast, the residential sector consumes less energy than any of California's other end-use sectors.<sup><a href='print.cfm@sid=CA.html#15'>15</a></sup> In most of the more densely populated areas of the state, the climate is dry and relatively mild.<sup><a href='print.cfm@sid=CA.html#16'>16</a>,<a href='print.cfm@sid=CA.html#17'>17</a></sup> More than two-fifths of state households report that they do not have or do not use air conditioning, and almost one-seventh do not have or do not use space heating. Residential energy use per person in California is lower than in every other state except Hawaii.<sup><a href='print.cfm@sid=CA.html#18'>18</a>,<a href='print.cfm@sid=CA.html#19'>19</a></sup></p>
+<h2>Petroleum</h2>
+<p>Even though California's crude oil production has declined overall in the past 30 years, it remains one of the top producers of crude oil in the nation, accounting for about 6% of total U.S. production in 2015.<sup><a href='print.cfm@sid=CA.html#20'>20</a>,<a href='print.cfm@sid=CA.html#21'>21</a></sup> Petroleum reservoirs in the geologic basins along the Pacific Coast and in the Central Valley contain major crude oil reserves. The most prolific oil-producing area is the San Joaquin basin in the southern half of the Central Valley.<sup><a href='print.cfm@sid=CA.html#22'>22</a>,<a href='print.cfm@sid=CA.html#23'>23</a></sup> </p>
+<p>Federal assessments of California's offshore areas indicate the potential for large, undiscovered recoverable crude oil resources in the federally administered Outer Continental Shelf (OCS).<sup><a href='print.cfm@sid=CA.html#24'>24</a></sup> Concerns about the cumulative impacts and risks of offshore oil and natural gas development after the 1969 Santa Barbara oil spill resulted in state legislation that imposed a permanent moratorium on offshore oil and natural gas leasing in state waters.<sup><a href='print.cfm@sid=CA.html#25'>25</a></sup> Congress imposed a federal moratorium on oil and natural gas leasing in California federal waters in 1982. The federal moratorium was lifted in 2008; however, no new lease sales for the California federal OCS are currently planned.<sup><a href='print.cfm@sid=CA.html#26'>26</a>,<a href='print.cfm@sid=CA.html#27'>27</a></sup></p>
+<div class='pullquote'><p>California ranks third in the nation in petroleum refining capacity.</p></div><p>California ranks third in the nation in petroleum refining capacity and accounts for more than one-tenth of the total U.S. capacity.<sup><a href='print.cfm@sid=CA.html#28'>28</a></sup> A network of crude oil pipelines connects the state's oil production to the refining centers located in the Central Valley, Los Angeles, and the San Francisco Bay area.<sup><a href='print.cfm@sid=CA.html#29'>29</a></sup> California refiners also process large volumes of Alaskan and foreign crude oil received at the state's ports. Crude oil production in California and Alaska has declined, and California refineries have become increasingly dependent on imports to meet the state's needs.<sup><a href='print.cfm@sid=CA.html#30'>30</a>,<a href='print.cfm@sid=CA.html#31'>31</a></sup> Led by Saudi Arabia, Ecuador, and Columbia, foreign suppliers now provide more than half of the crude oil refined in California.<sup><a href='print.cfm@sid=CA.html#32'>32</a>,<a href='print.cfm@sid=CA.html#33'>33</a></sup> </p>
+<p>California's largest refineries are highly sophisticated and are capable of processing a wide variety of crude oil types. To meet strict federal and state environmental regulations, California refineries are configured to produce cleaner fuels, including reformulated motor gasoline and low-sulfur diesel. Refineries in the state often operate at or near maximum capacity because of the high demand for those petroleum products.<sup><a href='print.cfm@sid=CA.html#34'>34</a></sup> California requires that all motorists use, at a minimum, a specific blend of motor gasoline called CaRFG (California Reformulated Gasoline).<sup><a href='print.cfm@sid=CA.html#35'>35</a></sup> When unplanned refinery outages occur, replacement supplies must be brought in by marine tanker from refineries in the state of Washington or on the U.S. Gulf Coast. Refineries in several other countries can also supply CaRFG.<sup><a href='print.cfm@sid=CA.html#36'>36</a></sup> Locating and transporting replacement motor gasoline that conforms to California's strict fuel specifications can take several weeks.<sup><a href='print.cfm@sid=CA.html#37'>37</a></sup> </p>
+<h2>Natural gas</h2>
+<p>As with crude oil production, California's natural gas production has experienced a gradual overall decline in the past three decades.<sup><a href='print.cfm@sid=CA.html#38'>38</a></sup> Reserves and production are located primarily in geologic basins in the northern portion of the Central Valley. Some natural gas fields are also located in the southern portion of the Central Valley, in the coastal basins onshore in Northern California, and offshore along the Southern California coast.<sup><a href='print.cfm@sid=CA.html#39'>39</a></sup> California accounts for less than 1% of total U.S. natural gas production and that output equals about one-tenth of state demand.<sup><a href='print.cfm@sid=CA.html#40'>40</a>,<a href='print.cfm@sid=CA.html#41'>41</a></sup> Two-thirds of California households use natural gas for home heating, and about three-fifths of California's in-state utility-scale net electricity generation is fueled by natural gas.<sup><a href='print.cfm@sid=CA.html#42'>42</a>,<a href='print.cfm@sid=CA.html#43'>43</a></sup> </p>
+<p>Several interstate pipelines bring natural gas into California from the Southwest, the Rocky Mountain region, and western Canada, by way of Arizona, Nevada, and Oregon.<sup><a href='print.cfm@sid=CA.html#44'>44</a>,<a href='print.cfm@sid=CA.html#45'>45</a></sup> In 2011, natural gas supplies began arriving via the Ruby Pipeline, which runs from Wyoming to Oregon, linking natural gas produced in the Rocky Mountain region to markets in Northern California.<sup><a href='print.cfm@sid=CA.html#46'>46</a>,<a href='print.cfm@sid=CA.html#47'>47</a></sup> In California, markets are served by two key natural gas trading centers&mdash;the Golden Gate Center in Northern California and the California Energy Hub in Southern California.<sup><a href='print.cfm@sid=CA.html#48'>48</a></sup> The state has 14 natural gas storage fields that help stabilize supply; together they have a storage capacity of about 600 billion cubic feet of natural gas and a typical working natural gas capacity of about 375 billion cubic feet.<sup><a href='print.cfm@sid=CA.html#49'>49</a>,<a href='print.cfm@sid=CA.html#50'>50</a>,<a href='print.cfm@sid=CA.html#51'>51</a></sup> California also exports natural gas to Mexico.<sup><a href='print.cfm@sid=CA.html#52'>52</a></sup> </p>
+<h2>Coal</h2>
+<p>California does not have any coal production or reserves and has been phasing out the use of coal-fired power plants for electricity generation.<sup><a href='print.cfm@sid=CA.html#53'>53</a>,<a href='print.cfm@sid=CA.html#54'>54</a></sup> More coal is used at industrial facilities in California than is currently consumed by the electric power sector.<sup><a href='print.cfm@sid=CA.html#55'>55</a></sup> Almost all of the coal consumed in California originates from mines in Utah.<sup><a href='print.cfm@sid=CA.html#56'>56</a></sup> Some coal from western coal mines arrives in California by rail and is exported to overseas markets from port facilities located primarily in the Los Angeles and San Francisco areas.<sup><a href='print.cfm@sid=CA.html#57'>57</a></sup></p>
+<h2>Electricity</h2>
+<p>Natural gas-fired power plants generate about three-fifths of California's total in-state net electricity generation.<sup><a href='print.cfm@sid=CA.html#58'>58</a></sup> Until 2012, California's two nuclear power plants with four reactors provided about one-sixth of the state's total net electricity generation.<sup><a href='print.cfm@sid=CA.html#59'>59</a></sup> However, the two reactors at the San Onofre nuclear plant, initially shut down because of equipment problems in 2012, were permanently shut down in mid-2013, cutting the amount of electricity generation from nuclear power in California in half.<sup><a href='print.cfm@sid=CA.html#60'>60</a>,<a href='print.cfm@sid=CA.html#61'>61</a></sup> Almost 14% of the nation's hydroelectric generating capacity is in California, but hydroelectric power's share of the state's net generation varies with annual precipitation. With adequate snowpack, hydroelectric power can account for more than one-fourth of California's total net generation. But because of prolonged drought, in 2015 it supplied less than one-tenth. Other renewable technologies provide almost all of the rest of the state's net generation&mdash;nearly one-fourth of the total in 2015.<sup><a href='print.cfm@sid=CA.html#62'>62</a>,<a href='print.cfm@sid=CA.html#63'>63</a></sup> In-state coal-fired power plants have not been significant contributors to power generation in California, and that contribution has decreased in recent years.<sup><a href='print.cfm@sid=CA.html#64'>64</a></sup> In 2015, only 0.2% of the total net electricity generated in California came from coal-fired sources.<sup><a href='print.cfm@sid=CA.html#65'>65</a></sup></p>
+<p>Reductions in California's hydroelectric generation and nuclear capacity and generation have been largely made up for by renewable generation.<sup><a href='print.cfm@sid=CA.html#66'>66</a>,<a href='print.cfm@sid=CA.html#67'>67</a></sup> The Sunrise Powerlink Transmission project, which was put into service in June 2012, added approximately 800 megawatts of transmission capability to the Southern California electric grid, bringing electricity generated from renewable energy from Imperial County, in the southeastern corner of the state, to San Diego. Added transmission capability provided by the Sunrise Powerlink Transmission Project helped the Southern California electric grid address the capacity shortage that resulted from the decrease in nuclear generation.<sup><a href='print.cfm@sid=CA.html#68'>68</a>,<a href='print.cfm@sid=CA.html#69'>69</a></sup> Additional transmission projects have come online or are in the planning and construction phase.<sup><a href='print.cfm@sid=CA.html#70'>70</a></sup></p>
+<p>More than one-fourth of California's electricity supply comes from facilities outside the state.<sup><a href='print.cfm@sid=CA.html#71'>71</a></sup> In 2015, other than power from other unspecified sources, much of the power delivered to California from states in the Pacific Northwest was generated by wind. States in the Southwest delivered power generated at coal-fired power plants, at natural gas-fired power plants, and from nuclear generating stations.<sup><a href='print.cfm@sid=CA.html#72'>72</a></sup> Electricity supplied from out-of-state coal-fired power plants has decreased following the enactment of a state law in late 2006 that requires California utilities to limit new long-term financial investments in base-load generation to those power plants that meet California emissions performance standards.<sup><a href='print.cfm@sid=CA.html#73'>73</a></sup></p>
+<p>In 2000 and 2001, California suffered an energy crisis characterized by electricity price instability and blackouts.<sup><a href='print.cfm@sid=CA.html#74'>74</a></sup> Following the crisis, the state government created an Energy Action Plan that was designed to eliminate outages and excessive price spikes. The plan has been updated twice since 2003. The Energy Action Plan's goal was to ensure that adequate, reliable, and reasonably priced electric power and natural gas supplies, including prudent reserves, were provided. To reach those goals, the plan calls for optimizing energy conservation, building new generation facilities, and upgrading and expanding California's electricity transmission and distribution infrastructure to ensure that generating facilities can quickly come online when needed.<sup><a href='print.cfm@sid=CA.html#75'>75</a>,<a href='print.cfm@sid=CA.html#76'>76</a></sup> Although California has the second-highest retail electricity sales in the nation, retail sales are the second-lowest in the nation on a per capita basis.<sup><a href='print.cfm@sid=CA.html#77'>77</a>,<a href='print.cfm@sid=CA.html#78'>78</a></sup> About one-fourth of California households use electricity for home heating.<sup><a href='print.cfm@sid=CA.html#79'>79</a></sup></p>
+<h2>Renewable energy </h2>
+<p>California is among the top states in the nation in net electricity generation from renewable resources. The state leads the nation in net electricity generation from solar, geothermal, and biomass. California is also a leading producer of electricity from conventional hydroelectric power and from wind, ranking fourth in the nation in both.<sup><a href='print.cfm@sid=CA.html#80'>80</a></sup></p>
+<div class='pullquote'><p>California is the first state in the nation to get more than 5% of its electricity generation from solar energy.</p></div><p>In 2014, California became the first state in the nation to get more than 5% of its utility-scale electricity generation from its solar resource.<sup><a href='print.cfm@sid=CA.html#81'>81</a></sup> In 2015, utility-scale solar photovoltaic (PV) and solar thermal resources supplied 7.5% of the state's net generation.<sup><a href='print.cfm@sid=CA.html#82'>82</a></sup> California has considerable solar potential, especially in the state's southeastern deserts.<sup><a href='print.cfm@sid=CA.html#83'>83</a></sup> Several of the world's largest solar thermal plants are located in California's Mojave Desert.<sup><a href='print.cfm@sid=CA.html#84'>84</a>,<a href='print.cfm@sid=CA.html#85'>85</a>,<a href='print.cfm@sid=CA.html#86'>86</a>,<a href='print.cfm@sid=CA.html#87'>87</a></sup> On a smaller scale, the California Solar Initiative encourages Californians to install solar power systems on the rooftops of their homes and businesses.<sup><a href='print.cfm@sid=CA.html#88'>88</a></sup> When distributed (customer-sited, small-scale) generation is included, about one-tenth of California's total net generation is provided by solar power.<sup><a href='print.cfm@sid=CA.html#89'>89</a></sup> Currently, California has about 14,000 megawatts of installed solar power generating capacity.<sup><a href='print.cfm@sid=CA.html#90'>90</a></sup> </p>
+<p>Substantial geothermal resources are found in California's coastal mountain ranges and in the volcanic areas of northern California, as well as along the state's border with Nevada and near the Salton Sea.<sup><a href='print.cfm@sid=CA.html#91'>91</a></sup> With more than 2,700 megawatts of installed capacity, California is the top producer of electricity from geothermal energy in the nation.<sup><a href='print.cfm@sid=CA.html#92'>92</a>,<a href='print.cfm@sid=CA.html#93'>93</a></sup> The facility known as The Geysers, located in the Mayacamas Mountains north of San Francisco, is the largest complex of geothermal power plants in the nation and has more than 700 megawatts of installed capacity.<sup><a href='print.cfm@sid=CA.html#94'>94</a></sup> Although California's wind power potential is widespread, especially along the state's eastern and southern mountain ranges, much of the state is excluded from development of this resource because it is in wilderness areas, parks, or urban areas.<sup><a href='print.cfm@sid=CA.html#95'>95</a></sup> Even so, the state has more than 6,000 megawatts of installed capacity.<sup><a href='print.cfm@sid=CA.html#96'>96</a></sup> California is a top generator of electricity from wind energy, producing more than 6% of the U.S. total, ranking fourth in the nation behind Texas, Iowa, and Oklahoma.<sup><a href='print.cfm@sid=CA.html#97'>97</a></sup> California also leads the nation in utility-scale electricity generation from biomass.<sup><a href='print.cfm@sid=CA.html#98'>98</a></sup> More than half of California's biomass generating capacity comes from plants fueled by wood and wood waste, although those plants account for only one-sixth of the total number of biomass plants in the state.<sup><a href='print.cfm@sid=CA.html#99'>99</a></sup> </p><div class='pullquote'><p>California is the top producer of electricity from geothermal energy in the nation.</p></div>
+<p>Growing concern over the environment has spurred policy initiatives to reduce greenhouse gas (GHG) emissions. California's Low Carbon Fuel Standard, issued in January 2007, called for a reduction of at least 10% in the carbon intensity of California's transportation fuels by 2020. The standard requires substitutes for fossil fuels that demonstrate lower lifecycle greenhouse gas emissions than the fuels they replace. The first reduction in the carbon intensity of transportation fuels was 0.25% required in 2011, with annual increases to bring the total reduction to 10% by 2020.<sup><a href='print.cfm@sid=CA.html#100'>100</a></sup> A number of alternative pathways have been identified that reduce the levels of greenhouse gas emissions in the production of ethanol, biodiesel, and renewable diesel.<sup><a href='print.cfm@sid=CA.html#101'>101</a></sup> California has seven ethanol production plants and eight biodiesel plants with more under construction.<sup><a href='print.cfm@sid=CA.html#102'>102</a>,<a href='print.cfm@sid=CA.html#103'>103</a></sup> However, California produces only about one-eighth as much ethanol as is consumed in the state and most of the state's ethanol supply arrives from elsewhere.<sup><a href='print.cfm@sid=CA.html#104'>104</a></sup></p>
+<p>California established an emissions cap-and-trade program as part of the state's Global Warming Solutions Act of 2006. The program's goal is the reduction of the state's GHG emissions to 1990 levels by 2020, to 40% of 1990 levels by 2030, and to 80% of 1990 levels by 2050, and the state is on track to meet its 2020 target. Major sources of GHG emissions, including refineries, power plants, industrial facilities, and transportation fuels, must meet a GHG cap that declines over time. To minimize the costs of pollution controls, a system for trading allowable emissions permits was created. The California Air Resources Board held its first quarterly auction of the tradable GHG emissions permits for the program in November 2012.<sup><a href='print.cfm@sid=CA.html#105'>105</a>,<a href='print.cfm@sid=CA.html#106'>106</a>,<a href='print.cfm@sid=CA.html#107'>107</a></sup> </p>
+<p>The California renewable portfolio standard (RPS) was created in 2002 and has since been amended several times. The RPS requires that 33% of retail sales of electricity in California come from eligible renewable resources by 2020 and 50% by 2050. Eligible resources include wind, solar, geothermal, biomass, biogas, tidal, wave, ocean thermal, anaerobic digestion, fuel cells that use renewable fuels, and small hydroelectric facilities.<sup><a href='print.cfm@sid=CA.html#108'>108</a></sup> The state also requires retail electricity suppliers to disclose the fuel sources used to generate the power they supply.<sup><a href='print.cfm@sid=CA.html#109'>109</a></sup> In addition to the RPS, California has an energy efficiency resource standard.<sup><a href='print.cfm@sid=CA.html#110'>110</a></sup> California policies promote stricter appliance efficiency standards and higher energy efficiency standards for public buildings.<sup><a href='print.cfm@sid=CA.html#111'>111</a></sup> </p>
+<h2>Energy on tribal lands</h2>
+<p>California has one of the largest Native American populations in the nation.<sup><a href='print.cfm@sid=CA.html#112'>112</a></sup> The state is home to more than 100 federally recognized tribal groups.<sup><a href='print.cfm@sid=CA.html#113'>113</a></sup> Although tribal areas are spread throughout the state, they account for less than 1% of state lands.<sup><a href='print.cfm@sid=CA.html#114'>114</a></sup> Many of the tribal lands are small, including the nation's smallest reservation, the 1.32-acre Pit River Tribe cemetery.<sup><a href='print.cfm@sid=CA.html#115'>115</a></sup> Other tribal lands are very large. The Colorado River Tribe Reservation straddles the Colorado River and the California-Arizona border, and about 67 square miles of the Reservation's almost 450-square-mile area is within California.<sup><a href='print.cfm@sid=CA.html#116'>116</a></sup></p>
+<p>California's diverse geography gives tribes access to a variety of renewable energy resources.<sup><a href='print.cfm@sid=CA.html#117'>117</a>,<a href='print.cfm@sid=CA.html#118'>118</a></sup> A number of tribes are developing those resources. The Ramona Band of Cahuilla was the first reservation in the nation to be completely off-grid, establishing a microgrid and meeting all of their energy needs with renewable resources.<sup><a href='print.cfm@sid=CA.html#119'>119</a></sup> Other reservations in the state have similar goals.<sup><a href='print.cfm@sid=CA.html#120'>120</a></sup> The Bear River Band of the Rohnerville Rancheria in Northern California began installing a hybrid microgrid in 2015 that uses solar and wind energy for power generation.<sup><a href='print.cfm@sid=CA.html#121'>121</a></sup> The Campo Kumeyaay Nation in Southern California was the first tribe in the nation to develop a utility-scale wind project with 25 wind turbines constructed on land leased from the tribe. Another wind farm partially on the tribe's land is in development.<sup><a href='print.cfm@sid=CA.html#122'>122</a>,<a href='print.cfm@sid=CA.html#123'>123</a></sup> The Agua Caliente Band of Cahuilla Indians is working on the development of a combined wind/solar project on their large reservation in Southern California.  Other tribes, particularly in Northern California, are in areas of abundant biomass potential.<sup><a href='print.cfm@sid=CA.html#124'>124</a></sup> The Blue Lake Rancheria Tribe in Humboldt County uses wood waste from timber harvesting to fuel a first-of-a-kind biogas fuel cell system.<sup><a href='print.cfm@sid=CA.html#125'>125</a>,<a href='print.cfm@sid=CA.html#126'>126</a></sup> In 2016, as part of the construction of its microgrid, the Blue Lake Rancheria installed a 500-kilowatt solar array.<sup><a href='print.cfm@sid=CA.html#127'>127</a></sup> </p>
+<p>Several California reservations have abundant solar power potential. Some tribes have received grants from the U.S. Department of Energy for feasibility studies for solar projects and for the installation of solar PV systems. The Agua Caliente Band of Cahuilla Indians of Palm Springs and the Bishop Paiute Tribe are each involved in projects that will bring solar PV to offices and homes on their reservations.<sup><a href='print.cfm@sid=CA.html#128'>128</a></sup> Tribes have additional renewable opportunities. Geothermal resources underlie several reservations in the state, particularly in the Imperial Valley in the southern part of California, in the Geysers area in Northern California, and along the state's eastern border.<sup><a href='print.cfm@sid=CA.html#129'>129</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Census Bureau, United States Census 2010, Interactive Population Map.<br>
+<a name='2'></a><sup>2</sup> U.S. Bureau of Economic Analysis, "Gross Domestic Product by State: First Quarter 2016," News Release (BEA 16-39) (July 27, 2016), Table 3, Current-Dollar Gross Domestic Product (GDP) by State, 2015:I-2016:I.<br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration (EIA), State Energy Consumption Estimates, 1960 through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2014.<br>
+<a name='4'></a><sup>4</sup> U.S. Bureau of Economic Analysis, Interactive Data, Regional Data, Gross Domestic Product (GDP) by State, California, Percent of U.S., 2014. <br>
+<a name='5'></a><sup>5</sup> U.S. EIA, State Energy Data System, Rankings: Total Energy Consumed per Capita, 2014. <br>
+<a name='6'></a><sup>6</sup> California Energy Commission, 2015 Integrated Energy Policy Report, Publication Number: CEC-100-2015-001-CMF (June 29, 2016), p. 2.<br>
+<a name='7'></a><sup>7</sup> California Energy Commission, Achieving Energy Efficiency (July 2014).<br>
+<a name='8'></a><sup>8</sup> U.S. EIA, California Profile Data, Reserves and Supply, accessed September 8, 2016. <br>
+<a name='9'></a><sup>9</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.10.B.<br>
+<a name='10'></a><sup>10</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B.<br>
+<a name='11'></a><sup>11</sup> NETSTATE, California, The Geography of California, accessed September 8, 2016. <br>
+<a name='12'></a><sup>12</sup> U.S. EIA, State Energy Consumption Estimates, 1960 through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2014.<br>
+<a name='13'></a><sup>13</sup> U.S. Census Bureau, Statistical Abstract of the United States: 2012 (131st Edition) (August 2011), Table 1098, State Motor Vehicle Registrations, 1990 to 2009, Motorcycle Registrations and Licensed Drivers by State: 2009.<br>
+<a name='14'></a><sup>14</sup> Index Mundi, United States, Average Commute Time by State, accessed September 8, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Consumption Estimates, 1960 through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption by End-Use Sector, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. Census Bureau, 2010 Census: California Profile, Population Density by Census Tract. <br>
+<a name='17'></a><sup>17</sup> Western Regional Climate Center, Climate of California, accessed September 12, 2016. <br>
+<a name='18'></a><sup>18</sup> U.S. EIA, Residential Energy Consumption Survey (RECS), 2009 RECS Survey Data, Tables HC6.11, HC7.11. <br>
+<a name='19'></a><sup>19</sup> U.S. EIA, State Energy Consumption Estimates, 1960 through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, California Field Production of Crude Oil, Annual, accessed September 12, 2016.<br>
+<a name='21'></a><sup>21</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, accessed September 12, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (Washington, DC, March 2015), p. 5-7, 11.<br>
+<a name='23'></a><sup>23</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields By 2009 Proved Reserves (December 7, 2010).<br>
+<a name='24'></a><sup>24</sup> U.S. Department of the Interior, Bureau of Ocean Energy Management, Assessment of Undiscovered Oil and Gas Resources of the Nation's Outer Continental Shelf, 2016, BOEM Fact Sheet RED-2016-01b (2016).<br>
+<a name='25'></a><sup>25</sup> Vann, Adam, Offshore Oil and Gas Development: Legal Framework, Congressional Research Service (Washington, DC, September 26, 2014), p. 22.<br>
+<a name='26'></a><sup>26</sup> U.S. Department of the Interior, Bureau of Ocean Energy Management, 2012-2017 OCS Oil & Gas Leasing Program Final Programmatic EIS (July 2012), p. 1-1. <br>
+<a name='27'></a><sup>27</sup> U.S. Department of the Interior, Bureau of Ocean Energy Management, 2017-2022 OCS Oil and Gas Leasing Program, accessed September 12, 2016.<br>
+<a name='28'></a><sup>28</sup> U.S. EIA, Refinery Capacity Report (June 2016), Table 1, Number and Capacity of Petroleum Refineries by PAD District and State, as of January 1, 2016. <br>
+<a name='29'></a><sup>29</sup> California Office of the State Fire Marshal, Pipeline Safety Division, Crude Oil Pipelines (January 10, 2014). <br>
+<a name='30'></a><sup>30</sup> U.S. EIA, Alaska Field Production of Crude Oil, accessed September 13, 2016.<br>
+<a name='31'></a><sup>31</sup> U.S. EIA, California Field Production of Crude Oil, accessed September 13, 2016.<br>
+<a name='32'></a><sup>32</sup> California Energy Commission, Foreign Sources of Crude Oil Imports to California 2015, accessed September 13, 2016.<br>
+<a name='33'></a><sup>33</sup> California Energy Commission, Oil Supply Sources To California Refineries, accessed September 13, 2016. <br>
+<a name='34'></a><sup>34</sup> California Energy Commission, California's Oil Refineries, accessed September 13, 2016.<br>
+<a name='35'></a><sup>35</sup> American Petroleum Institute, U.S. Gasoline Requirements, accessed September 13, 2016.<br>
+<a name='36'></a><sup>36</sup> California Energy Commission, California's Oil Refineries, accessed September 13, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. EIA, "New Supply Patterns and Additional Disruptions Push California Gasoline Prices Higher," Today in Energy (May 12, 2015). <br>
+<a name='38'></a><sup>38</sup> U.S. EIA, California Natural Gas Gross Withdrawals, accessed September 14, 2016.<br>
+<a name='39'></a><sup>39</sup> California Department of Conservation, Division of Oil, Gas, and Geothermal Resources, Oil, Gas, and Geothermal Fields in California 2001 (Map S-1). <br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, accessed September 14, 2016.<br>
+<a name='41'></a><sup>41</sup> U.S. EIA, Natural Gas Consumption by End Use, Total Consumption, accessed September 14, 2016.<br>
+<a name='42'></a><sup>42</sup> U.S. Census Bureau, American Factfinder, Advanced Search, California, B25040 House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='43'></a><sup>43</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, California, accessed September 14, 2016.<br>
+<a name='45'></a><sup>45</sup> California Energy Commission, Natural Gas Resource Areas and Interstate Pipelines Into California, accessed September 14, 2016.<br>
+<a name='46'></a><sup>46</sup> U.S. EIA, "Ruby Pipeline ramps up rapidly to supply natural gas to Northern California," Today in Energy (September 23, 2011). <br>
+<a name='47'></a><sup>47</sup> Kinder Morgan, Natural Gas Pipelines, Ruby Pipeline LLC, accessed September 14, 2016.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, About U.S. Natural Gas Pipelines, Natural Gas Market Centers and Hubs in Relation to Major Natural Gas Transportation Corridors, 2009.<br>
+<a name='49'></a><sup>49</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, accessed September 14, 2016. <br>
+<a name='50'></a><sup>50</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Storage Capacity, accessed September 14, 2016.<br>
+<a name='51'></a><sup>51</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Working Gas Capacity, accessed September 14, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, California, accessed September 14, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, California Profile Data, Reserves and Supply, accessed September 14, 2016. <br>
+<a name='54'></a><sup>54</sup> California Energy Commission, Tracking Progress, Actual and Expected Energy From Coal for California, Overview (December 7, 2015).<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, Annual Coal Report 2014 (March 2016), Table 26, U.S. Coal Consumption by End Use Sector, Census Division, and State, 2014 and 2013.<br>
+<a name='56'></a><sup>56</sup> U.S. EIA, Annual Coal Distribution Report 2014 (April 2016), By Coal Destination State, California, Table DS-5. <br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Quarterly Coal Report (Abbreviated) January-March 2016 (June 2016), Table 13, U.S. Coal Exports by Customs District.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='59'></a><sup>59</sup> U.S. EIA, Electric Power Monthly, December Year-to-Date 2007 through 2011, Tables 1.6.B, 1.12.B. <br>
+<a name='60'></a><sup>60</sup> U.S. Nuclear Regulatory Commission, Plans for Decommissioning of San Onofre Nuclear Generating Station Units 2 and 3, accessed September 16, 2016.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Electric Power Monthly, December Year-to-Date 2005 through 2014, Tables 1.6.B, 1.12.B, and Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B.<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, "Current drought reduces hydro generation forecast for California," Today in Energy (February 6, 2014).<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B. <br>
+<a name='64'></a><sup>64</sup> California Energy Commission, SB 1368 Emission Performance Standards, accessed September 16, 2016.<br>
+<a name='65'></a><sup>65</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='66'></a><sup>66</sup> U.S. EIA, "California grid expected to maintain reliability despite drought," Today in Energy (July 6, 2015).<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B, 1.10.B, 1.11.B and Electric Power Monthly (February 2012), Tables 1.6.B, 1.12.B, 1.13.B, 1.14.B. <br>
+<a name='68'></a><sup>68</sup> San Diego Gas & Electric, "A Year Later, SDG&E's Sunrise Powerlink Delivering on What it was Designed to do," Press Release (June 17, 2013).<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, "New transmission project will help California meet summer electric demand," Today in Energy (July 11, 2012).<br>
+<a name='70'></a><sup>70</sup> California Energy Commission, Tracking Progress, Transmission Expansion Projects for Renewables (June 24, 2016), p. 3-4.<br>
+<a name='71'></a><sup>71</sup> U.S. EIA, California Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014.<br>
+<a name='72'></a><sup>72</sup> California Energy Commission, Total Electricity System Power, 2015 Total System Power in Gigawatt Hours, accessed September 16, 2016.<br>
+<a name='73'></a><sup>73</sup> California Energy Commission, Tracking Progress, Actual and Expected Energy From Coal for California - Overview (December 7, 2015), p. 2.<br>
+<a name='74'></a><sup>74</sup> Federal Energy Regulatory Commission, The Western Energy Crisis, the Enron Bankruptcy, and FERC's Response (April 13, 2005). <br>
+<a name='75'></a><sup>75</sup> California Energy Commission, State of California Energy Action Plan, accessed September 16, 2016. <br>
+<a name='76'></a><sup>76</sup> California Public Utilities Commission and California Energy Commission, 2008 Update Energy Action Plan CEC-100-2008-001 (February 2008).<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, State Energy Consumption Estimates, 1960 through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='78'></a><sup>78</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='79'></a><sup>79</sup> U.S. Census Bureau, American Factfinder, Advanced Search, California, B25040 House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='80'></a><sup>80</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B, 1.18.B.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, "California first state to generate more than 5% of electricity from utility-scale solar," Today in Energy (March 24, 2015).<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B, 1.18.B. <br>
+<a name='83'></a><sup>83</sup> California Energy Commission, California Energy Maps, Map of Solar Resource Potential in California, California Concentrating Solar Power Prospects, accessed September 16, 2016.<br>
+<a name='84'></a><sup>84</sup> California Energy Commission, Operational Power Plants, California, 2016, accessed September 16, 2016.<br>
+<a name='85'></a><sup>85</sup> BrightSource Limitless, Ivanpah, accessed September 16, 2016.<br>
+<a name='86'></a><sup>86</sup> NextEra Energy Resources, Solar Electric Generating Systems, accessed September 16, 2016.<br>
+<a name='87'></a><sup>87</sup> Abengoa, Mojave Solar, accessed September 16, 2016.<br>
+<a name='88'></a><sup>88</sup> Go Solar California, About Go Solar California, accessed September 16, 2016. <br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B, 1.18.B. <br>
+<a name='90'></a><sup>90</sup> Solar Energy Industry Association, California Solar, accessed September 16, 2016. <br>
+<a name='91'></a><sup>91</sup> California Energy Commission, California Energy Maps, Map of Known Geothermal Resource Areas in California (February 2015).<br>
+<a name='92'></a><sup>92</sup> Geothermal Energy Association, 2016 Annual U.S. & Global Geothermal Power Production Report (March 2016), p. 17.<br>
+<a name='93'></a><sup>93</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.16.B. <br>
+<a name='94'></a><sup>94</sup> Calpine, The Geysers, About Geothermal Energy, Welcome to the Geysers, accessed September 16, 2016. <br>
+<a name='95'></a><sup>95</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, California Wind Resource Map and Potential Wind Capacity, accessed September 16, 2016.<br>
+<a name='96'></a><sup>96</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Installed Wind Capacity, accessed September 16, 2016.<br>
+<a name='97'></a><sup>97</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.14.B. <br>
+<a name='98'></a><sup>98</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.15.B. <br>
+<a name='99'></a><sup>99</sup> U.S. EIA, Form EIA-860 detailed data, Annual Electric Generator Data, Form-860 Detailed Data, 3_1_GeneratorÂ¬_Y2014.<br>
+<a name='100'></a><sup>100</sup> California Energy Commission, Low Carbon Fuel Standard, accessed July 28, 2015.<br>
+<a name='101'></a><sup>101</sup> U.S. EIA, Biofuels Issues and Trends (October 2012), p. 24-25. <br>
+<a name='102'></a><sup>102</sup> Nebraska Energy Office, Ethanol Facilities Capacity by State and Plant, accessed September 17, 2016.<br>
+<a name='103'></a><sup>103</sup> California Biodiesel Alliance, accessed September 17, 2016. <br>
+<a name='104'></a><sup>104</sup> U.S. EIA, California Profile Data, Environment, accessed September 17, 2016.<br>
+<a name='105'></a><sup>105</sup> California Environmental Protection Agency, Air Resources Board, Cap-and-Trade Program, accessed September 18, 2016. <br>
+<a name='106'></a><sup>106</sup> California Environmental Protection Agency, Air Resources Board, AB 32 Scoping Plan, accessed September 18, 2016. <br>
+<a name='107'></a><sup>107</sup> California Environmental Protection Agency, Air Resources Board, Assembly Bill 32 Overview, accessed September 18, 2016. <br>
+<a name='108'></a><sup>108</sup> NC Clean Energy Technology Center, DSIRE, California Renewables Portfolio Standard (October 7, 2015).<br>
+<a name='109'></a><sup>109</sup> California Energy Commission, Background on Power Source Disclosure and the Power Content Label, accessed September 18, 2016.<br>
+<a name='110'></a><sup>110</sup> NC Clean Energy Technology Center, DSIRE, California Energy Efficiency Resource Standard (May 25, 2016).<br>
+<a name='111'></a><sup>111</sup> NC Clean Energy Technology Center, DSIRE, California Programs, accessed September 18, 2016.<br>
+<a name='112'></a><sup>112</sup> U.S. Census Bureau, American FactFinder, Advanced Search, Table B02005, American Indian and Alaska Native Alone for Selected Tribal Groupings, People who are American Indian and Alaska Native alone and people with no tribe reported 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='113'></a><sup>113</sup> U.S. Department of the Interior, Bureau of Indian Affairs, "Indian Entities Recognized and Eligible to Receive Services from the United States Bureau of Indian Affairs," Federal Register, Vol. 81 No. 19 (January 29, 2016), p. 5019-5025.<br>
+<a name='114'></a><sup>114</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, Appendix D: Indian Nations, The American Indian Digest (April 1997), p. D-3. <br>
+<a name='115'></a><sup>115</sup> U.S. Department of the Interior, Bureau of Indian Affairs, Frequently Asked Questions, accessed September 20, 2016.<br>
+<a name='116'></a><sup>116</sup> San Diego State University Library & Information Access, American Indian Studies, California Indians and their reservations: an online dictionary, Colorado Indian Reservation, accessed September 20, 2016. <br>
+<a name='117'></a><sup>117</sup> California Department of Water Resources, South Central Region Office, California Indian Tribal Homelands and Trust Land Map (July 19, 2011).<br>
+<a name='118'></a><sup>118</sup> California Energy Commission, California Energy Maps, Renewable Energy and Other Maps, accessed September 20, 2016. <br>
+<a name='119'></a><sup>119</sup> U.S. Environmental Protection Agency, Pacific Southwest, Region 9, 2009 Environmental Awards, accessed September 20, 2016.<br>
+<a name='120'></a><sup>120</sup> Ortiz, Edward, "California rancherias look to microgrids for power during natural disasters," The Sacramento Bee (October 19, 2016).<br>
+<a name='121'></a><sup>121</sup> Armitage, Lynn, "Northern California Tribe Harnesses Sun and Wind for Renewable Energy System," Indian Country Today Media Network.com (June 4, 2015).<br>
+<a name='122'></a><sup>122</sup> Campo, Kumeyaay Nation, Muht Hei, Inc., Kumeyaay Wind, accessed September 20, 2016. <br>
+<a name='123'></a><sup>123</sup> Nikolewski, Rob, "Tule Wind about to Start Construction," The San Diego Union-Tribune (September 1, 2016).<br>
+<a name='124'></a><sup>124</sup> U.S. Department of Energy, Office of Indian Energy Policy and Programs. "Agua Caliente Band's Pursuit of Energy Self-Sufficiency Gains Momentum" (March 1, 2016).<br>
+<a name='125'></a><sup>125</sup> National Renewable Energy Laboratory, Biomass Resources, California (September 25, 2007).<br>
+<a name='126'></a><sup>126</sup> Clarke, Chris, "Tribe to Launch Biomass-Fueled Fuel Cell Plant in Northern California," KCET Re Wire (February 28, 2013). <br>
+<a name='127'></a><sup>127</sup> Tucker, Ernie, "NREL Supports Native American Tribes in Clean Energy Transformational Leadership," National Renewable Energy Laboratory (March 30, 2016). <br>
+<a name='128'></a><sup>128</sup> Rada, Jake, "500kW Solar Array Installed for BLR Microgrid Project," Schatz Energy Research Center, Humboldt State University (September 6, 2016).<br>
+<a name='129'></a><sup>129</sup> "Tribes Get $6 Million in Federal Funds for Energy Efficiency Projects," Indian Country Today Media Network.com (March 23, 2015). <br>
+<a name='130'></a><sup>130</sup> California Energy Commission, California Energy Maps, Known Geothermal Resource Areas in California, accessed September 20, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: California Independent System Operator (CAISO)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 5</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.energy.ca.gov/" title="California Energy Commission">California Energy Commission</a></li>
+  
+    <li><a href="http://www.cpuc.ca.gov/PUC/energy/" title="California Public Utilities Commission (CPUC), Energy">California Public Utilities Commission (CPUC), Energy</a></li>
+  
+    <li><a href="http://www.csd.ca.gov/default.aspx" title="California Department of Community Services and Development">California Department of Community Services and Development</a></li>
+  
+    <li><a href="http://www.conservation.ca.gov/dog/Pages/Index.aspx" title="California Department of Conservation, Division of Oil, Gas and Geothermal Resources">California Department of Conservation, Division of Oil, Gas and Geothermal Resources</a></li>
+  
+    <li><a href="https://www.arb.ca.gov/homepage.htm" title="California Environmental Protection Agency Air Resources Board">California Environmental Protection Agency Air Resources Board</a></li>
+  
+    <li><a href="https://www.wrpinfo.org/AboutUs.aspx" title="Western Regional Partnership (WRP)">Western Regional Partnership (WRP)</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://westcoastgreenhighway.com/index.htm" title="West Coast Green Highway">West Coast Green Highway</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.westgov.org/index.php?option=com_content&view=article&id=311&Itemid=81" title="Western Governors Association">Western Governors Association</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.energy.ca.gov/altfuels/" title="California Energy Commission, Alternative and Renewable Fuel and Vehicle Technology Program Proceedings">California Energy Commission, Alternative and Renewable Fuel and Vehicle Technology Program Proceedings</a></li>
+  
+    <li><a href="https://energyupgradeca.org/en/" title="Energy Upgrade California">Energy Upgrade California</a></li>
+  
+    <li><a href="http://www.caiso.com/about/Pages/OurBusiness/Default.aspx" title="California ISO (Independent System Operator)">California ISO (Independent System Operator)</a></li>
+  
+    <li><a href="http://www.energy.ca.gov/almanac/" title="California Energy Commission, California Energy Almanac">California Energy Commission, California Energy Almanac</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional California website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for California\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/CA.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

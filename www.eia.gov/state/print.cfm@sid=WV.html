@@ -1,0 +1,3025 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>West Virginia Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>West Virginia State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>West Virginia Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>West Virginia ranked fourth among the states in total energy production in 2013, producing 4.6% of the nation&#39;s total.</li>
+	
+	<li>In 2014, West Virginia was the largest coal producer east of the Mississippi River and the second largest in the nation after Wyoming; the state accounted for 11% of the U.S. total coal production that year.&nbsp;</li>
+	
+	<li>In 2014, almost half (50 million short tons) of the coal that was mined in West Virginia was shipped to other states, and almost one-third (34 million short tons) was exported to foreign countries.</li>
+	
+	<li>Coal-fired electric power plants accounted for 94% of West Virginia&#39;s net electricity generation in 2015, natural gas contributed 1.8%, and renewable energy resources&mdash;primarily hydroelectric power and wind energy&mdash;contributed 3.7%.</li>
+	
+	<li>In 2015, West Virginia was the eighth-largest natural gas-producing state in the nation, with more than 1.3 trillion cubic feet of natural gas production.&nbsp;</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: July 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=WV.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=WV.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=WV.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=WV.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=WV.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'West Virginia Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'West Virginia Energy Consumption Estimates',
+		data : [816.5,161.7,92.1,73.5,1.2,4.0,0.5,14.1,0.0,11.8,30.1,14.0,-466.2]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'West Virginia Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 178.1],['Commercial', 112.3],['Industrial', 292.9],['Transportation', 169.9]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'West Virginia Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'West Virginia Energy Production Estimates',
+		data : [2858.0,1202.9,43.6,0.0,0.0,49.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'West Virginia Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'West Virginia Net Electricity Generation',
+		data : [11,197,4895,97,131]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'West Virginia Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'West Virginia U.S. Price Differentials',
+		data : [{y:-10.9785202864, period: Date.UTC(2016,9,1)},{y:-15.211062591, period: Date.UTC(2016,9,1)},{y:-4.49799196787, period: Date.UTC(2016,9,1)},{y:-8.21394460363, period: Date.UTC(2016,9,1)},{y:-2.97619047619, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.8 million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.8 million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 73.7  billion 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 7,426  million 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 37,047 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					19,117 million miles 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					3.6 million acres 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					53.1 degrees Fahrenheit 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					48.6 inches 
+				</td>
+				<td>
+					15 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 37.98 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.73 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 11.65 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 60.31 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.89 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.61 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.52 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=230">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					12 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					20,553 billion cu ft 
+				</td>
+				<td>
+					6.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					941 million barrels 
+				</td>
+				<td>
+					7.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					1,667 million short tons 
+				</td>
+				<td>
+					9.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					29 rigs 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					47,938 wells 
+				</td>
+				<td>
+					8.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					4,154 trillion Btu 
+				</td>
+				<td>
+					4.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					657 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,318,822 million cu ft 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					95,633 thousand short tons 
+				</td>
+				<td>
+					10.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					22,300 barrels/calendar day 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					15,159 MW 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					5,332 thousand MWh 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					3.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					91.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					4.3 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					20 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					125 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					484,856 million cu ft 
+				</td>
+				<td>
+					5.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					138 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,696 thousand tons 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>West Virginia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">McElroy Mine / McElroy Coal Company, Robinson Run No 95 / Consolidation Coal Company, Shoemaker Mine / Consolidation Coal Company, Loveridge #22 / Consolidation Coal Company, Tunnel Ridge Mine / Tunnel Ridge, LLC</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Ergon West Virginia (Newell)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">John E Amos (Appalachian Power Co) ; Harrison Power Station (Allegheny Energy Supply Co LLC) ; Mt Storm (Virginia Electric & Power Co) ; Mitchell (Ohio Power Co) ; Pleasants Power Station (Allegheny Energy Supply Co LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=230">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>West Virginia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>West Virginia</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Marathon Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Marathon Pipeline, Enterprise</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Blacksville Oil and Gas Company, Columbia Gas Transmission Corporation, Dominion Transmission Incorporated, Eastern Pipeline Corporation, Equitrans LP, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					968 stations 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					16 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					32 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					11 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					5 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					753 trillion Btu 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					407 million Btu 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 8,756  million 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,736 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					178 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					112 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					293 trillion Btu 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					170 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,651  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 930  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 2,144  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 4,032  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					35.8 million barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					150.7 billion cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					33.6 million short tons 
+				</td>
+				<td>
+					3.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 5,363  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 678  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 2,031  million 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					19 thousand barrels 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,845 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,992 thousand short tons 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=230">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					41.3 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					2.9 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					43.5 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4.4 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					7.9 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					930 MW 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					97 thousand MWh 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					130 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					7.4 % 
+				</td>
+				<td>
+					30 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=WV"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					1,888 thousand barrels 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					98.0 million metric tons 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>West Virginia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=230">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					66,270 thousand metric tons 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					61 thousand metric tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					57 thousand metric tons 
+				</td>
+				<td>
+					3.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: July 21, 2016<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Coal is West Virginia's most abundant mined product.</p></div><p>West Virginia is at the center of the Appalachian Mountain region.<sup><a href='print.cfm@sid=WV.html#1'>1</a></sup> The state's boundaries follow mountain ridges and rivers, giving West Virginia an unusual outline that includes two panhandles in the northern part of the state.<sup><a href='print.cfm@sid=WV.html#2'>2</a></sup> One of the 10 smallest states in area, West Virginia's borders stretch from a point north of Pittsburgh, Pennsylvania, along the state's northern panhandle to a point 70 miles north of North Carolina on the state's southern border with Virginia. Temperature and precipitation vary with elevation, which ranges from less than 300 feet above sea level on the Potomac River in the eastern panhandle to more than 4,800 feet on the state's highest peak.<sup><a href='print.cfm@sid=WV.html#3'>3</a></sup> The mountain ridges that run northeast to southwest along the eastern side of the state are covered by forests and separated by narrow river valleys. In all, more than three-fourths of the state is forested, providing abundant biomass potential, and the narrow wind-swept mountain ridges in the eastern part of the state have ample wind resources.<sup><a href='print.cfm@sid=WV.html#4'>4</a>,<a href='print.cfm@sid=WV.html#5'>5</a></sup> To the west, the flat-topped highlands and rounded hills of the Appalachian Plateau region contain much of West Virginia's coal, the state's most abundant mined product. Rivers that cross the Appalachian Plateau region have abundant hydroelectric power potential as well. Natural gas, crude oil, and natural gas liquids are gaining greater importance with the development of production from the Marcellus and Utica shales in West Virginia.<sup><a href='print.cfm@sid=WV.html#6'>6</a>,<a href='print.cfm@sid=WV.html#7'>7</a>,<a href='print.cfm@sid=WV.html#8'>8</a>,<a href='print.cfm@sid=WV.html#9'>9</a></sup> </p>
+<p>Even though West Virginia is a significant consumer of energy, in the top third among the states on a per capita basis, the state is a net energy supplier to other states, providing almost 5% of the nation's total energy, largely because of its coal production.<sup><a href='print.cfm@sid=WV.html#10'>10</a>,<a href='print.cfm@sid=WV.html#11'>11</a></sup> The electric power sector is the largest energy-consuming sector in West Virginia, followed by the industrial sector.<sup><a href='print.cfm@sid=WV.html#12'>12</a></sup> Mining, including coal, crude oil, and natural gas extraction, is a large and energy-intensive part of the state's economy. The energy-intensive chemical and primary metals manufacturing industries are also major economic activities in the state.<sup><a href='print.cfm@sid=WV.html#13'>13</a></sup> </p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>Recent drilling in the Marcellus Shale in northern West Virginia has discovered liquid hydrocarbons.</p></div><p>West Virginia's first oil field began producing just before the Civil War, and peak production of 16 million barrels per year was reached in 1900.<sup><a href='print.cfm@sid=WV.html#14'>14</a></sup> Although the state's annual crude oil production in the 21st century is much less than 1% of the nation's total, production has been rapidly increasing since 2012.<sup><a href='print.cfm@sid=WV.html#15'>15</a></sup> Much of the state's crude oil production has been derived from stripper wells (wells producing fewer than 10 barrels of oil per day).<sup><a href='print.cfm@sid=WV.html#16'>16</a></sup> However, recent drilling in the Marcellus Shale in West Virginia's northern panhandle has discovered liquid hydrocarbons, including crude oil and natural gas liquids. Most of the recent increased production has come from the northern part of the state.<sup><a href='print.cfm@sid=WV.html#17'>17</a>,<a href='print.cfm@sid=WV.html#18'>18</a></sup></p>
+<p>West Virginia has one oil refinery, located on the Ohio River at Newell, at the extreme northern tip of the northern panhandle. The Newell refinery has the ability to process more than 22,000 barrels of crude oil per calendar day.<sup><a href='print.cfm@sid=WV.html#19'>19</a></sup> The crude oils processed are Appalachian grade paraffinic crude oils, particularly Pennsylvania grade, that are gathered from facilities throughout Ohio, Pennsylvania, West Virginia, Kentucky, and New York. The crude oil arrives at the refinery by truck, barge, and pipeline. The refinery produces paraffinic specialty products and ultra-low sulfur fuel products that are sold in the regional market. The refined products are used in a variety of applications, including compounding motor oils, gear oils, greases, pharmaceutical and agricultural spray oils, food-grade applications, and high-temperature rubber applications.<sup><a href='print.cfm@sid=WV.html#20'>20</a></sup> The Ohio River, on the state's western border, serves as a major petroleum product transportation route.<sup><a href='print.cfm@sid=WV.html#21'>21</a></sup> </p>
+<p>Petroleum consumption per capita in West Virginia ranks below the national average.<sup><a href='print.cfm@sid=WV.html#22'>22</a>,<a href='print.cfm@sid=WV.html#23'>23</a></sup> Most of the petroleum is used for transportation fuels.<sup><a href='print.cfm@sid=WV.html#24'>24</a></sup> West Virginia allows the statewide use of conventional motor gasoline.<sup><a href='print.cfm@sid=WV.html#25'>25</a></sup> There are no ethanol plants in West Virginia, and there are only a few ethanol fueling stations selling E85, a blend of 85% ethanol and 15% gasoline.<sup><a href='print.cfm@sid=WV.html#26'>26</a>,<a href='print.cfm@sid=WV.html#27'>27</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>West Virginia is the eighth-largest natural gas-producing state in the nation.</p></div><p>West Virginia is in the leading natural gas-producing area in the nation, and the state's natural gas production has increased with the development of the Marcellus Shale.<sup><a href='print.cfm@sid=WV.html#28'>28</a></sup> West Virginia is the eighth-largest natural gas-producing state in the nation, largely because of shale gas production.<sup><a href='print.cfm@sid=WV.html#29'>29</a>,<a href='print.cfm@sid=WV.html#30'>30</a>,<a href='print.cfm@sid=WV.html#31'>31</a></sup> Natural gas production from shale wells surpassed the production from all other natural gas wells in the state for the first time in 2011. Shale wells now account for more than three-fourths of the state's production.<sup><a href='print.cfm@sid=WV.html#32'>32</a></sup> By 2014, West Virginia's shale gas reserves exceeded 28 trillion cubic feet.<sup><a href='print.cfm@sid=WV.html#33'>33</a></sup> Additional natural gas reserves exist in West Virginia's conventional natural gas fields and as coalbed methane in the state's many coal fields,<sup><a href='print.cfm@sid=WV.html#34'>34</a></sup> although coalbed methane production and proved reserves are minimal.<sup><a href='print.cfm@sid=WV.html#35'>35</a>,<a href='print.cfm@sid=WV.html#36'>36</a></sup></p>
+<p>West Virginia is crossed by more than 4,000 miles of interstate and intrastate natural gas pipelines. <sup><a href='print.cfm@sid=WV.html#37'>37</a></sup> New pipeline projects have come online in recent years to move natural gas from the Marcellus producing areas of West Virginia to markets in the Northeast, Midwest, and Gulf Coast.<sup><a href='print.cfm@sid=WV.html#38'>38</a>,<a href='print.cfm@sid=WV.html#39'>39</a></sup> Many natural gas processing plants and pipelines have been constructed or expanded in north central West Virginia. The processing plants separate dry natural gas from the associated natural gas liquids being produced from the Marcellus Shale.<sup><a href='print.cfm@sid=WV.html#40'>40</a>,<a href='print.cfm@sid=WV.html#41'>41</a></sup> Pipelines have been built or are under construction to expedite development of the Marcellus Shale and the Utica Shale. Those pipelines transport natural gas liquids from Appalachia to the Texas Gulf Coast, as well as from Appalachia to eastern refineries.<sup><a href='print.cfm@sid=WV.html#42'>42</a>,<a href='print.cfm@sid=WV.html#43'>43</a></sup> Natural gas moves in and out of the state via the interstate pipeline systems, entering West Virginia from the surrounding states, primarily Kentucky, and moving on to Pennsylvania, Virginia, and Ohio. On balance, more natural gas exits the state than enters because the amount of natural gas produced in the state is much more than West Virginia's natural gas consumption.<sup><a href='print.cfm@sid=WV.html#44'>44</a>,<a href='print.cfm@sid=WV.html#45'>45</a>,<a href='print.cfm@sid=WV.html#46'>46</a></sup> </p>
+<p>West Virginia has 30 underground natural gas storage fields, all in depleted natural gas reservoirs.<sup><a href='print.cfm@sid=WV.html#47'>47</a>,<a href='print.cfm@sid=WV.html#48'>48</a></sup> Those fields have a total storage capacity in excess of 500 billion cubic feet of natural gas and account for almost 6% of the nation's total underground natural gas storage capacity.<sup><a href='print.cfm@sid=WV.html#49'>49</a></sup> The proximity of this storage capacity to northeastern markets makes West Virginia an important supplier to the region during the winter months when natural gas demand peaks.<sup><a href='print.cfm@sid=WV.html#50'>50</a></sup></p>
+<p>Natural gas use in West Virginia is spread almost equally across the industrial, commercial, and residential sectors. Because of the many miles of pipeline in the state, about the same amount of natural gas is consumed for pipeline and distribution use as is used in each of the other three sectors. Natural gas use in well, field, and lease operations is also about the same amount as is used in each of the end-use sectors. A small amount of natural gas is used for electric power generation.<sup><a href='print.cfm@sid=WV.html#51'>51</a></sup> About two-fifths of West Virginia households use natural gas for home heating.<sup><a href='print.cfm@sid=WV.html#52'>52</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>West Virginia is the second-largest coal producer in the nation.</p></div><p>Coal has been an important part of West Virginia's economy for more than a century. The existence of coal in West Virginia was first reported in the early 1700s, but large-scale mining did not begin until the mid-1800s.<sup><a href='print.cfm@sid=WV.html#53'>53</a></sup> In the 21st century, West Virginia is the second-largest coal producer in the nation, after Wyoming.<sup><a href='print.cfm@sid=WV.html#54'>54</a></sup> The state is also the largest producer of bituminous coal.<sup><a href='print.cfm@sid=WV.html#55'>55</a></sup> Coal deposits underlie all but two counties, both of which are located in the state's eastern panhandle. Although coal occurs in 53 of the state's 55 counties, only 43 counties have economically recoverable reserves.<sup><a href='print.cfm@sid=WV.html#56'>56</a></sup> All West Virginia coal is bituminous, but sulfur content varies across the state. The Central Appalachian region, which includes the southern part of West Virginia, is the nation's primary source for bituminous coal that is relatively low in sulfur. Coal from the Northern Appalachian region, which includes northern West Virginia, has relatively high sulfur contents.<sup><a href='print.cfm@sid=WV.html#57'>57</a></sup> West Virginia is among the top three states in the nation in recoverable coal reserves at producing mines.<sup><a href='print.cfm@sid=WV.html#58'>58</a></sup> Most of West Virginia's coal production and reserves are found in underground mines.<sup><a href='print.cfm@sid=WV.html#59'>59</a>,<a href='print.cfm@sid=WV.html#60'>60</a></sup> </p>
+<p>More than three-fourths of West Virginia's mined coal is shipped out of state, mostly to about two dozen other states, but also to other countries.<sup><a href='print.cfm@sid=WV.html#61'>61</a>,<a href='print.cfm@sid=WV.html#62'>62</a>,<a href='print.cfm@sid=WV.html#63'>63</a></sup> About one-fourth of the state's coal production stays in West Virginia, and additional coal arrives in the state from the surrounding Appalachian region and from the Illinois Basin. Coal shipments move in and out of West Virginia by rail, barge, and truck. However, some coal is transported in state and from Pennsylvania by tramway, conveyor, or slurry pipeline. More than nine-tenths of the coal consumed in West Virginia goes to the electric power sector. Almost all of the rest is delivered to coke plants and other industrial facilities.<sup><a href='print.cfm@sid=WV.html#64'>64</a>,<a href='print.cfm@sid=WV.html#65'>65</a></sup></p>
+<h2>Electricity</h2>
+<p>Coal-fired power plants account for nearly all of West Virginia's electricity generation, and the 10 largest power plants in the state, by capacity, are coal-fired.<sup><a href='print.cfm@sid=WV.html#66'>66</a>,<a href='print.cfm@sid=WV.html#67'>67</a></sup> Most of the rest of the state's electricity generation is from hydroelectric, wind, and natural gas-fired facilities.<sup><a href='print.cfm@sid=WV.html#68'>68</a></sup> West Virginia is one of only a half dozen states east of the Mississippi River that does not have any nuclear power plants.<sup><a href='print.cfm@sid=WV.html#69'>69</a></sup></p>
+<p>West Virginia typically generates more electricity than it consumes. Although more than two-fifths of West Virginia households use electricity as their primary source for home heating, retail sales to all customers account for less than half of West Virginia's net electricity generation.<sup><a href='print.cfm@sid=WV.html#70'>70</a>,<a href='print.cfm@sid=WV.html#71'>71</a></sup> As a result, West Virginia is a net supplier of electricity to the regional grid. West Virginia is a leader in the nation in net interstate sales of electricity.<sup><a href='print.cfm@sid=WV.html#72'>72</a>,<a href='print.cfm@sid=WV.html#73'>73</a></sup> </p>
+<h2>Renewable energy </h2>
+<p>Less than 5% of the West Virginia's electricity generation comes from renewable resources.<sup><a href='print.cfm@sid=WV.html#74'>74</a></sup> Hydropower has long been used in mountainous West Virginia, and the state's first hydroelectric power plants were built around 1900.<sup><a href='print.cfm@sid=WV.html#75'>75</a></sup> West Virginia's largest hydroelectric facility, with more than 100 megawatts of capacity, was built in the 1930s, and the newest, with a capacity of 80 megawatts, began operating in 2001.<sup><a href='print.cfm@sid=WV.html#76'>76</a></sup> Of the state's utility-scale hydroelectric facilities, the industrial sector operates the largest share, followed closely by electric utilities and independent power producers. Hydroelectric power accounts for less than 2% of the state's net electricity generation.<sup><a href='print.cfm@sid=WV.html#77'>77</a></sup> Power generation from wind energy is on the increase, but most of West Virginia's wind energy potential is restricted to the narrow ridges in northeastern West Virginia.<sup><a href='print.cfm@sid=WV.html#78'>78</a></sup> There are almost 600 megawatts of installed wind capacity in West Virginia, and, recently, wind energy contributed slightly more than hydropower to the state's net electricity generation.<sup><a href='print.cfm@sid=WV.html#79'>79</a>,<a href='print.cfm@sid=WV.html#80'>80</a></sup> Biomass and solar photovoltaic generation each contribute less than 0.01% to the state's utility-scale electricity generation.<sup><a href='print.cfm@sid=WV.html#81'>81</a></sup></p>
+<p>In 2015, West Virginia became the first state to repeal its renewable portfolio standard.<sup><a href='print.cfm@sid=WV.html#82'>82</a></sup> In 2009, West Virginia had passed an alternative and renewable energy portfolio standard that required investor-owned electric utilities and retail suppliers with more than 30,000 customers to acquire 25% of their retail electric sales from eligible alternative and renewable energy resources by 2025. In addition to traditional renewable energy resources, West Virginia had allowed the use of a variety of other alternative, non-renewable technologies to meet the requirement, including advanced coal technology, coalbed methane, natural gas, fuel from coal gasification or liquefaction, synthetic gas, integrated gasification combined-cycle technologies, waste coal, tire-derived fuel, and pumped storage hydroelectric projects. <sup><a href='print.cfm@sid=WV.html#83'>83</a></sup> The legislature further limited net metering, allowing utilities to offer net metering for distributed (customer-sited) generation on a first-come, first-served basis, as long the total generation capacity from those customers is no more than 3% of the electric utility's peak demand during the previous year. At least 0.5% of that capacity is reserved for residential generation.<sup><a href='print.cfm@sid=WV.html#84'>84</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Appalachian Regional Commission, The Appalachian Region, accessed June 16, 2016. <br>
+<a name='2'></a><sup>2</sup> NETSTATE, The Geography of West Virginia, The Land, accessed June 17, 2016.<br>
+<a name='3'></a><sup>3</sup> Law, Kevin, "West Virginia's "Wild and Wonderful" Climate," West Virginia's Climate, The CoCoRaHS 'State Climates' Series, accessed June 17, 2016. <br>
+<a name='4'></a><sup>4</sup> West Virginia Division of Forestry, West Virginia Statewide Forest Resource Assessment (June 14, 2010), p. 3.<br>
+<a name='5'></a><sup>5</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, West Virginia Wind Resource Map and Potential Wind Capacity, accessed June 17, 2016. <br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration, West Virginia Profile Overview, Map Layers/Legend, All coal mines, Hydroelectric Power Plant, Tight Oil/Gas Play, accessed June 17, 2016.<br>
+<a name='7'></a><sup>7</sup> West Virginia Geological and Economic Survey, Physiographic Provinces of West Virginia (December 17, 2015).<br>
+<a name='8'></a><sup>8</sup> Downing, Bob, "Chesapeake pleased with oil results in West Virginia Marcellus shale," Akron Beacon Journal (February 23, 2013). <br>
+<a name='9'></a><sup>9</sup> Dinterman, Philip, 2014 Marcellus Shale Production and Utica Information Summary, West Virginia Geological and Economic Survey (August 20, 2015). <br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, Rankings: Total Energy Consumed per Capita, 2013, accessed June 17, 2016.<br>
+<a name='11'></a><sup>11</sup> U.S. Energy Information Administration, State Energy Production Estimates 1960 Through 2014 , Table P5A, Energy Production Estimates, Fossil Fuels and Nuclear Energy, in Trillion Btu, Ranked by State, 2014, Table P5B, Energy Production Estimates, Renewable and Total Energy, in Trillion Btu, Ranked by State, 2014.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), West Virginia Tables CT4, CT5, CT6, CT7, CT8.<br>
+<a name='13'></a><sup>13</sup> U.S. Bureau of Economic Analysis, Interactive Data, GDP and Personal Income, Regional Data, Annual Gross Domestic Product (GDP) by State, GDP in current dollars, All industries, West Virginia, 2014.<br>
+<a name='14'></a><sup>14</sup> West Virginia Geological and Economic Survey, History of WV Mineral Industries, Oil and Gas, accessed June 17, 2016. <br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, Crude Oil Production, Annual Thousand Barrels, accessed June 17, 2016.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, Distribution and Production of Oil and Gas Wells by State, West Virginia Distribution of Wells by Production Rate Bracket, accessed June 17, 2016.<br>
+<a name='17'></a><sup>17</sup> Downing, Bob, "Chesapeake pleased with oil results in West Virginia Marcellus shale," Akron Beacon Journal (February 23, 2013). <br>
+<a name='18'></a><sup>18</sup> Dinterman, Philip, 2014 Marcellus Shale Production and Utica Information Summary, West Virginia Geological and Economic Survey (August 20, 2015). <br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, Refinery Capacity Report (June 2015), Table 1, Number and Capacity of Operable Petroleum Refineries by PAD District and State as of January 1, 2015.<br>
+<a name='20'></a><sup>20</sup> Ergon, Refining & Marketing, Ergon-West Virginia, Inc. (EWV), accessed June 17, 2016.<br>
+<a name='21'></a><sup>21</sup> US Army Corps of Engineers, Planning Center for Expertise in Inland Navigation, Petroleum and Petroleum Products, accessed June 17, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C11, Energy Consumption by Source, Ranked by State, 2013. <br>
+<a name='23'></a><sup>23</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 through 2013, DOE/EIA-0214(2013) (July 2015), Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2013. <br>
+<a name='25'></a><sup>25</sup> U.S. Environmental Protection Agency, Gasoline Standards, Reformulated Gasoline, accessed June 18, 2016. <br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, West Virginia Profile Data, Environment, accessed June 17, 2016. <br>
+<a name='27'></a><sup>27</sup> U.S. Department of Energy Office of Energy Efficiency and Renewable Energy, Alternative Fuels Data Center, Alternative Fueling Station Counts by State, Public and Private (June 18, 2016).<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Top U.S. Oil and Gas Fields (March 2015), Table 2, Top 100 U.S. gas fields as of December 31, 2013<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, West Virginia Natural Gas Gross Withdrawals, Annual, accessed June 17, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, West Virginia Natural Gas Gross Withdrawals from Shale Gas, accessed June 20, 2016.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, accessed June 29, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, West Virginia, Annual, accessed June 17, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, West Virginia Shale Proved Reserves, accessed June 19, 2016. <br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, West Virginia Natural Gas Reserves Summary as of Dec. 31, accessed June 20, 2016.<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, West Virginia Coalbed Methane Proved Reserves, accessed June 19, 2016. <br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, Coalbed Methane, Estimated Production, Annual, accessed June 19, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, About U. S. Natural Gas Pipelines, Estimated Natural Gas Pipeline Mileage in the Lower 48 States, Close of 2008, accessed June 20, 2016.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, "New infrastructure boosts West Virginia, southern Pennsylvania natural gas production," Today in Energy (July 30, 2013).<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, "New pipeline projects increase Northeast natural gas takeaway capacity," Today in Energy (January 28, 2016).<br>
+<a name='40'></a><sup>40</sup> Brickle, Jennifer, "Surging NGL Production Drives Infrastructure Projects In Marcellus, Utica Plays," American Oil and Gas Reporter (December 2012).<br>
+<a name='41'></a><sup>41</sup> Conti, David, "Shale gas industry flourishes in W.Va.'s Marshall County," Trib Total Media (November 7, 2015).<br>
+<a name='42'></a><sup>42</sup> Enterprise Products Partners L.P., Operations, NGL Pipelines, accessed June 20, 2016.<br>
+<a name='43'></a><sup>43</sup> Sunoco Logistics, Natural Gas Liquids (NGL) Segments, accessed June 20, 2016.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, West Virginia, accessed June 20, 2016.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Total Consumption, Annual, accessed July 12, 2016.<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual, accessed July 12, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, accessed June 20, 2016.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Number of Depleted Fields, accessed June 20, 2016. <br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Storage Capacity, accessed June 20, 2016. <br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, About U. S. Natural Gas Pipelines, Underground Natural Gas Storage, Underground Storage by U.S. Region, Northeast Region, accessed June 20, 2016. <br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, West Virginia, accessed June 20, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. Census Bureau, American FactFinder, West Virginia, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimate. <br>
+<a name='53'></a><sup>53</sup> West Virginia Geologic and Economic Survey, History of West Virginia Mineral Industries-Coal (July 16, 2004). <br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2014.<br>
+<a name='56'></a><sup>56</sup> West Virginia Office of Miners' Health, Safety and Training, West Virginia Coal Mining Facts (October 10, 2012).<br>
+<a name='57'></a><sup>57</sup> Milici, Robert C., and Kristin O. Dennen, Production and Depletion of Appalachian and Illinois Basin Coal Resources, Chapter H, The National Coal Resource Assessment Overview, U.S. Geological Survey Professional Paper 1625-F (2009), p. 5-6.<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 14, Recoverable Coal Reserves and Average Recovery Percentage at Producing Mines by State, 2014 and 2013.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve by Mining Method, 2014.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014, Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2014. <br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), By Coal Origin State, West Virginia, Table OS-28, Domestic Coal Distribution by Origin State, 2014.<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), By Coal Destination State, West Virginia, Table DS-46, Domestic Coal Distribution, by Destination State, 2014. <br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), By Coal Origin State, West Virginia, Table OS-28, Domestic Coal Distribution by Origin State, 2014.<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B. <br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, West Virginia Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.10.B, 1.14.B.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, State Nuclear Profiles 2010 (April 2012).<br>
+<a name='70'></a><sup>70</sup> U.S. Census Bureau, American FactFinder, West Virginia, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimate.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, West Virginia Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014. <br>
+<a name='72'></a><sup>72</sup> West Virginia Department of Commerce, West Virginia, Let's Talk Business, accessed June 21, 2016. <br>
+<a name='73'></a><sup>73</sup> U.S. Energy Information Administration, State Electricity Profiles, accessed June 21, 2016.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B.<br>
+<a name='75'></a><sup>75</sup> West Virginia Humanities Council, Hydroelectricity, e-WV: The West Virginia Encyclopedia (May 20, 2013). <br>
+<a name='76'></a><sup>76</sup> U.S. Energy Information Administration, Annual Electric Generator Data, Form EIA-860 Detailed Data, 2014 Form EIA-860 Data, Schedule 3, 'Generator Data' (Operable Units Only), accessed June 22, 2016.<br>
+<a name='77'></a><sup>77</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B.<br>
+<a name='78'></a><sup>78</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, West Virginia Wind Resource Map and Potential Wind Capacity, accessed June 22, 2016.<br>
+<a name='79'></a><sup>79</sup> American Wind Energy Association, West Virginia Wind Energy, accessed June 22, 2016.<br>
+<a name='80'></a><sup>80</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.14.B.<br>
+<a name='81'></a><sup>81</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.15.B, 1.17.B.<br>
+<a name='82'></a><sup>82</sup> SustainableBusiness.com, "West Virginia:  First State to Repeal Renewable Portfolio Standard!" News (January 23, 2015).<br>
+<a name='83'></a><sup>83</sup> Heeter, Jenny, and Lori Bird, Including Alternative Resources in State Renewable Portfolio Standards: Current Design and Implementation Experience, Technical Report NREL/TP-6A20-55979, National Renewable Energy Laboratory (November 2012), p. 6.<br>
+<a name='84'></a><sup>84</sup> West Virginia Legislature, 2nd Session of the 82nd Legislature, West Virginia Code, Chapter 24, Public Service Commission, Article 2F, Net Metering of Customer-Generators, accessed June 23, 2016.<br>
+
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Appalachian</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: PJM Interconnection (PJM)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1C</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Reliability First Corporation (RFC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://wvcommerce.org/energy/default.aspx" title="West Virginia Division of Energy">West Virginia Division of Energy</a></li>
+  
+    <li><a href="http://www.psc.state.wv.us/" title="Public Service Commission of West Virginia">Public Service Commission of West Virginia</a></li>
+  
+    <li><a href="http://www.wvminesafety.org/default.htm" title="West Virginia Office of Miners' Health, Safety and Training">West Virginia Office of Miners' Health, Safety and Training</a></li>
+  
+    <li><a href="http://www.wvdhhr.org/bcf/family_assistance/utility.asp" title="WVDHHR/BCF- Family Assistance -Utility Assistance - Low Income Energy Assistance Program">WVDHHR/BCF- Family Assistance -Utility Assistance - Low Income Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.dep.wv.gov/oil-and-gas/Pages/default.aspx" title="West Virginia Department of Environmental Protection, Office of Oil and Gas">West Virginia Department of Environmental Protection, Office of Oil and Gas</a></li>
+  
+    <li><a href="http://www.dep.wv.gov/daq/EnergyEfficiency/Pages/default.aspx" title="West Virginia Department of Environmental Protection, Division of Air Quality - Energy Efficiency">West Virginia Department of Environmental Protection, Division of Air Quality - Energy Efficiency</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.oeo.wv.gov/weatherization/Pages/default.aspx" title="West Virginia Office of Economic Opportunity - Welcome to West Virginia Weatherization">West Virginia Office of Economic Opportunity - Welcome to West Virginia Weatherization</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional West Virginia website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for West Virginia\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/WV.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

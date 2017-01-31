@@ -1,0 +1,3056 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Nevada Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Nevada State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Nevada Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>About 90% of the energy Nevada consumes comes from outside the state.</li>
+	
+	<li>The 427-mile UNEV pipeline, opened in 2012, lets petroleum products from Salt Lake City area refineries flow to Las Vegas; previously, Las Vegas obtained petroleum products from California pipelines.</li>
+	
+	<li>Nevada generated 73% of its electricity from natural gas in 2015.</li>
+	
+	<li>Nevada ranked second in the nation in utility-scale net electricity generation from geothermal energy and fifth in utility-scale net generation from solar energy in 2015; 13.5% of Nevada&rsquo;s net electricity generation in 2015 came from those two sources.</li>
+	
+	<li>Nevada&#39;s Energy Portfolio Standard requires that 25% of electricity sales come from renewable energy resources by 2025; in 2015, 20.3% of net electricity generation came from geothermal, solar, wind, biomass, and hydroelectric power sources.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: December 15, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=NV.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=NV.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=NV.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=NV.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=NV.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Nevada Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nevada Energy Consumption Estimates',
+		data : [79.2,259.4,124.4,62.0,28.3,4.1,0.0,10.2,0.0,22.7,10.7,43.9,14.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Nevada Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 153.5],['Commercial', 120.2],['Industrial', 179.4],['Transportation', 206.7]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nevada Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nevada Energy Production Estimates',
+		data : [0.0,0.0,1.8,0.0,0.0,69.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nevada Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nevada Net Electricity Generation',
+		data : [1,2104,134,113,578]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nevada Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nevada U.S. Price Differentials',
+		data : [{y:-2.14797136038, period: Date.UTC(2016,9,1)},{y:-3.13253012048, period: Date.UTC(2016,9,1)},{y:-23.782234957, period: Date.UTC(2016,9,1)},{y:-0.744047619048, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					2.9 million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.4 million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 141.3  billion 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 6,536  million 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 42,185 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					25,302 million miles 
+				</td>
+				<td>
+					36 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					5.9 million acres 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					52.8 degrees Fahrenheit 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					11.3 inches 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.10 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.06 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					7.98 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.67 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=214">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					1 rigs 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					1 wells 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					71 trillion Btu 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					22 thousand barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					3 million cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					2,000 barrels/calendar day 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					11,146 MW 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					2,930 thousand MWh 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					71.8 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					4.6 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					23.6 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					148 thousand barrels 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					313 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Nevada</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Foreland Refining (Ely)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Clark (Nevada Power Co) ; Chuck Lenzie Generating Station (Nevada Power Co) ; Hoover Dam (U.S. Bureau of Reclamation) ; Tracy (Sierra Pacific Power Co.) ; Higgins Generating Station (Nevada Power)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=214">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Nevada</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Nevada</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">UNEV Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Kern River Gas Transmission Company, Ruby Pipeline LLC, Southwest Gas Corporation, Tuscarora Gas Transmission Company, </td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					774 stations 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					35 stations 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					146 stations 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					20 stations 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					14 stations 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					660 trillion Btu 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					233 million Btu 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 10,513  million 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,704 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					154 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					120 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					179 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					207 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 2,028  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,198  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,806  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 5,481  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					44.7 million barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					250.9 billion cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					3.8 million short tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 6,307  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,639  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 203  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					1 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					15,251 million cu ft 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					72 thousand short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=214">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					61.3 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.7 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					33.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					2.7 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					2.4 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,888 MW 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					113 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					576 thousand MWh 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					31 thousand MWh 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					11.7 % 
+				</td>
+				<td>
+					15 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=NV"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					2,836 thousand barrels 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					37.0 million metric tons 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Nevada</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=214">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					14,752 thousand metric tons 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					5 thousand metric tons 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					10 thousand metric tons 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: December 15, 2016</p>
+<h2>Overview </h2>
+<p>Known as the Silver State, Nevada is rich in mineral deposits; however, the state has no significant fossil fuel reserves.<sup><a href='print.cfm@sid=NV.html#1'>1</a>,<a href='print.cfm@sid=NV.html#2'>2</a></sup> Located almost entirely in the Great Basin, an arid high plateau with no outlet to the sea, Nevada has the lowest average annual precipitation in the nation, and much of the state is desert. The Sierra Nevada Mountains brush the western edge of Nevada and open prairie and deep canyons occupy northeastern Nevada. The state's many mountain ranges rise from the desert floor, and their slopes are home to lush forests that give the state some biomass resource. The mountain ridges provide the state with wind power potential.<sup><a href='print.cfm@sid=NV.html#3'>3</a>,<a href='print.cfm@sid=NV.html#4'>4</a>,<a href='print.cfm@sid=NV.html#5'>5</a>,<a href='print.cfm@sid=NV.html#6'>6</a>,<a href='print.cfm@sid=NV.html#7'>7</a></sup> Nevada has substantial geothermal and solar energy development, as well as some wind and landfill biomass power generation.<sup><a href='print.cfm@sid=NV.html#8'>8</a>,<a href='print.cfm@sid=NV.html#9'>9</a></sup> More than four-fifths of Nevada's land is under federal control&mdash;a higher share than in any other state in the nation&mdash;and one of the nation's largest federal dams, Hoover Dam, spans the Colorado River between Nevada and Arizona, supplying the state with hydroelectric power.<sup><a href='print.cfm@sid=NV.html#10'>10</a>,<a href='print.cfm@sid=NV.html#11'>11</a></sup> However, most of Nevada's energy comes from out of state.<sup><a href='print.cfm@sid=NV.html#12'>12</a></sup></p>
+<p>Settlers first flocked to Nevada in 1859, after silver and gold were discovered in the Comstock Lode near Virginia City.<sup><a href='print.cfm@sid=NV.html#13'>13</a></sup> Nevada is still one of the largest sources of gold in the world, providing more than four-fifths of U.S. gold production.<sup><a href='print.cfm@sid=NV.html#14'>14</a>,<a href='print.cfm@sid=NV.html#15'>15</a></sup> Although mining for gold, silver, and other minerals remains important, the state's economy has grown to encompass aerospace and defense, information technology, renewable energy, and tourism.<sup><a href='print.cfm@sid=NV.html#16'>16</a></sup> Las Vegas and Reno have become tourist destinations for gaming and entertainment, and the hospitality industry is the state's largest employer.<sup><a href='print.cfm@sid=NV.html#17'>17</a></sup> </p>
+<div class='pullquote'><p>Tourism to Las Vegas and Reno helps make the transportation sector one of Nevada's biggest energy consumers.</p></div><p>Nevada had the fastest-growing population of any state from 2000 to 2010.<sup><a href='print.cfm@sid=NV.html#18'>18</a></sup> The state's population is concentrated around its water resources. Almost three-fourths of Nevada's residents live in Clark County, which borders the Colorado River and includes the city of Las Vegas.<sup><a href='print.cfm@sid=NV.html#19'>19</a>,<a href='print.cfm@sid=NV.html#20'>20</a>,<a href='print.cfm@sid=NV.html#21'>21</a></sup> Nearly half of the state's counties have fewer than two residents per square mile.<sup><a href='print.cfm@sid=NV.html#22'>22</a></sup> In part because of tourism, the transportation sector is the state's second-largest energy-consuming sector, using almost one-third of the end-use energy consumed in Nevada. The electric power sector is the leading energy-consuming sector in the state.<sup><a href='print.cfm@sid=NV.html#23'>23</a></sup> Overall, the state's economy is not energy-intensive, and per capita energy consumption is well below the national average, despite the heavy use of air conditioning in the hot summers.<sup><a href='print.cfm@sid=NV.html#24'>24</a>,<a href='print.cfm@sid=NV.html#25'>25</a>,<a href='print.cfm@sid=NV.html#26'>26</a></sup></p>
+<h2>Petroleum</h2>
+<p>Petroleum exploration in Nevada has been sporadic over the past century, and the state produces only small amounts of crude oil. Although the first commercial crude oil discovery was made in 1954, most of the production occurred after the discovery of the Grant Canyon Field in 1983. From a high of 4 million barrels per year in 1990, annual crude oil field production fell to less than 300,000 barrels in 2015.<sup><a href='print.cfm@sid=NV.html#27'>27</a>,<a href='print.cfm@sid=NV.html#28'>28</a></sup> Nevada has one small crude oil refinery in Ely that produces asphalt and road oil.<sup><a href='print.cfm@sid=NV.html#29'>29</a>,<a href='print.cfm@sid=NV.html#30'>30</a></sup></p>
+<p>More than four-fifths of the petroleum products consumed in Nevada are used in the transportation sector.<sup><a href='print.cfm@sid=NV.html#31'>31</a></sup> Until 2012, fuel was supplied to Las Vegas and Reno almost exclusively by petroleum product pipelines from California refineries. In 2012, the 427-mile UNEV pipeline began bringing fuel to Las Vegas from refineries in Salt Lake City, Utah.<sup><a href='print.cfm@sid=NV.html#32'>32</a>,<a href='print.cfm@sid=NV.html#33'>33</a></sup> Both the Las Vegas and Reno metropolitan areas require the use of oxygenated motor gasoline during the winter months, and Washoe County, including the Reno area, also requires a reduced volatility blend during the summer to reduce evaporative emissions that contribute to the formation of ground-level ozone.<sup><a href='print.cfm@sid=NV.html#34'>34</a>,<a href='print.cfm@sid=NV.html#35'>35</a></sup> Ethanol is used as an oxygenate for motor gasoline, but there are no ethanol plants in Nevada.<sup><a href='print.cfm@sid=NV.html#36'>36</a></sup> Ethanol is shipped by rail from the Midwest for blending with motor gasoline at Nevada terminals.<sup><a href='print.cfm@sid=NV.html#37'>37</a></sup> On a per capita basis, Nevada is one of the lowest petroleum-consuming states in the nation.<sup><a href='print.cfm@sid=NV.html#38'>38</a>,<a href='print.cfm@sid=NV.html#39'>39</a></sup> Nearly all petroleum that is not used in the transportation sector is consumed by the industrial sector.<sup><a href='print.cfm@sid=NV.html#40'>40</a></sup> Less than 1% of Nevada households use petroleum for heating.<sup><a href='print.cfm@sid=NV.html#41'>41</a></sup></p>
+<h2>Natural gas</h2>
+<p>A limited amount of natural gas is produced in Nevada. All of it is produced from oil wells in association with petroleum production.<sup><a href='print.cfm@sid=NV.html#42'>42</a></sup> The state's natural gas production does not meet Nevada's needs, and interstate pipelines supply Nevada with natural gas from producing regions in nearby states.<sup><a href='print.cfm@sid=NV.html#43'>43</a>,<a href='print.cfm@sid=NV.html#44'>44</a></sup> The Las Vegas area receives natural gas primarily by pipeline through Utah from the Opal trading hub in Wyoming. Secondary supply comes from a pipeline crossing Arizona bringing natural gas from the Permian Basin in Texas and the San Juan Basin in New Mexico. Other pipeline systems transport natural gas from the Malin trading hub in Oregon and from interstate pipelines from Idaho that supply the Reno area.<sup><a href='print.cfm@sid=NV.html#45'>45</a>,<a href='print.cfm@sid=NV.html#46'>46</a></sup> Three-fourths of the natural gas received in Nevada moves on to other states. About half of the natural gas that enters the state continues on to California.<sup><a href='print.cfm@sid=NV.html#47'>47</a></sup> Of the natural gas consumed in Nevada, slightly more than two-thirds is used for electricity generation, and almost half of the rest is consumed by the residential sector.<sup><a href='print.cfm@sid=NV.html#48'>48</a></sup> Three in five Nevada households use natural gas as their primary home heating fuel.<sup><a href='print.cfm@sid=NV.html#49'>49</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Nevada's newest coal-fired plant powers gold mining in the desert and sells its excess electricity generation to the regional power company.</p></div><p>There are no coal mines in Nevada.<sup><a href='print.cfm@sid=NV.html#50'>50</a></sup> The state's three coal-fired power plants are supplied by railroad from mines in Wyoming and Utah as well as by a small amount arriving from Colorado.<sup><a href='print.cfm@sid=NV.html#51'>51</a>,<a href='print.cfm@sid=NV.html#52'>52</a></sup> One power plant generates electricity for the Las Vegas region, a second plant supplies northern Nevada towns, and the third and newest plant, an industrial facility, provides power to gold and copper mining operations in the northern Nevada desert near Elko.<sup><a href='print.cfm@sid=NV.html#53'>53</a></sup> That power plant also sells its excess generation to the regional electricity service provider.<sup><a href='print.cfm@sid=NV.html#54'>54</a></sup> The coal-fired power plant near Las Vegas was the state's largest until three of its four coal-fired units were shut in 2014. The fourth unit continues to operate but is scheduled for shut down by the end of 2017. <sup><a href='print.cfm@sid=NV.html#55'>55</a></sup> A small amount of coal from Utah and Colorado is delivered to industrial facilities in Nevada. Most of that coal arrives by truck.<sup><a href='print.cfm@sid=NV.html#56'>56</a></sup></p>
+<h2>Electricity</h2>
+<p>Natural gas is the primary fuel for power generation in Nevada. Eight of the state's 10 largest power plants by generating capacity are natural gas-fired, and natural gas fuels nearly three-fourths of Nevada's net electricity generation.<sup><a href='print.cfm@sid=NV.html#57'>57</a>,<a href='print.cfm@sid=NV.html#58'>58</a></sup> Minimizing the use of scarce water in conventional generation is a priority for Nevada.<sup><a href='print.cfm@sid=NV.html#59'>59</a>,<a href='print.cfm@sid=NV.html#60'>60</a></sup> The state's largest generating plant, NV Energy's Chuck Lenzie Generating Station, uses high-efficiency natural gas combined-cycle technology and recycles three-fourths of the water it uses. It also reduces water use by employing one of North America's largest air-cooled condenser systems.<sup><a href='print.cfm@sid=NV.html#61'>61</a>,<a href='print.cfm@sid=NV.html#62'>62</a></sup> </p>
+<p>Coal-fired power plants supply less than one-tenth of Nevada's net generation.<sup><a href='print.cfm@sid=NV.html#63'>63</a></sup> Until 2006, one of the largest power plants in the state was the coal-fired Mohave Generating Station. That plant received coal by what was the longest coal slurry pipeline in the nation. Plant operations were suspended in 2005, and the plant was later dismantled, primarily because of environmental concerns but also because of decreased water supply for the 273-mile long slurry pipeline that ran from a mine in northern Arizona to the power plant in Nevada.<sup><a href='print.cfm@sid=NV.html#64'>64</a>,<a href='print.cfm@sid=NV.html#65'>65</a>,<a href='print.cfm@sid=NV.html#66'>66</a></sup> Coal-fired electricity generation in Nevada has declined to about one-sixth of the level it was in 1990 as the state's coal-fired power plants have been retired.<sup><a href='print.cfm@sid=NV.html#67'>67</a>,<a href='print.cfm@sid=NV.html#68'>68</a></sup> In compliance with a 2013 state law, Nevada's largest utility is planning to eliminate most of its coal-fired electricity generation by the end of 2019.<sup><a href='print.cfm@sid=NV.html#69'>69</a>,<a href='print.cfm@sid=NV.html#70'>70</a></sup> Renewable energy resources, mainly geothermal, hydroelectric, and solar power plants, are supplying an increasing share of the state's net generation and now contribute about three times as much of the state's net electricity generation as coal does.<sup><a href='print.cfm@sid=NV.html#71'>71</a></sup> </p>
+<p>Electricity consumption per capita in Nevada is near the national average. The industrial sector is the leading electricity-consuming sector, followed closely by the residential sector, where about one in three households use electricity for home heating.<sup><a href='print.cfm@sid=NV.html#72'>72</a>,<a href='print.cfm@sid=NV.html#73'>73</a>,<a href='print.cfm@sid=NV.html#74'>74</a></sup> However, Nevada's electricity consumption exceeds in-state generation, and the state obtains needed electricity over high-voltage transmission lines from other states.<sup><a href='print.cfm@sid=NV.html#75'>75</a></sup></p>
+<p>Two separate transmission grids provide power to Nevada. One grid supplies the Las Vegas area and is connected to the Arizona, southern Utah, and California grids. The other power grid supplies communities in the northern part of Nevada, including the cities of Elko and Reno. The northern grid is tied into Idaho, northern Utah, and northern California.<sup><a href='print.cfm@sid=NV.html#76'>76</a></sup> Transmission projects running the length of the state, through the eastern desert from Idaho to Las Vegas, connected the two grids for the first time in 2014.<sup><a href='print.cfm@sid=NV.html#77'>77</a>,<a href='print.cfm@sid=NV.html#78'>78</a></sup> That connection, along with other new transmission lines in the state, has facilitated development of electricity generation projects fueled by either natural gas or renewable sources.<sup><a href='print.cfm@sid=NV.html#79'>79</a></sup> Renewable energy projects in remote parts of Nevada can now be linked to the state's population centers.<sup><a href='print.cfm@sid=NV.html#80'>80</a></sup> Other large-scale transmission projects are routed through Nevada for the delivery of renewable power to the states of California and Arizona, as well as Nevada.<sup><a href='print.cfm@sid=NV.html#81'>81</a></sup> </p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Nevada gets almost half of its renewable power generation from geothermal resources.</p></div><p>More than one-fifth of Nevada's electricity generation is fueled by renewable energy. Nevada is one of the few states that has utility-scale electricity generation from utility-scale geothermal resources, and those resources account for almost half of the state's renewable power generation.<sup><a href='print.cfm@sid=NV.html#82'>82</a></sup> Nevada is second in the nation, after California, in the amount of geothermal power produced and has the country's largest untapped geothermal resources.<sup><a href='print.cfm@sid=NV.html#83'>83</a>,<a href='print.cfm@sid=NV.html#84'>84</a></sup> Most of the rest of Nevada's renewable generation comes from hydroelectric power plants, primarily the Hoover Dam, the third largest power plant in the state, and from solar photovoltaic (PV) power.<sup><a href='print.cfm@sid=NV.html#85'>85</a>,<a href='print.cfm@sid=NV.html#86'>86</a></sup> Built in less than five years during the Great Depression, the Hoover Dam also supplies electricity to Arizona and California and is a National Historic Landmark.<sup><a href='print.cfm@sid=NV.html#87'>87</a>,<a href='print.cfm@sid=NV.html#88'>88</a></sup> A rapidly increasing share of Nevada's electricity generation has come from solar resources, particularly several large-scale solar thermal and solar PV projects.<sup><a href='print.cfm@sid=NV.html#89'>89</a></sup> The state leads the nation in solar power potential, and, in 2015, Nevada ranked among the top five states nationally in installed solar electric capacity. <sup><a href='print.cfm@sid=NV.html#90'>90</a>,<a href='print.cfm@sid=NV.html#91'>91</a></sup> Electricity generation from solar PV almost doubled between 2014 and 2015.<sup><a href='print.cfm@sid=NV.html#92'>92</a></sup> Nevada is home to the world's first hybrid geothermal-solar PV-solar thermal power plant. That facility began as a geothermal power plant in 2009, and later PV panels were added, creating a baseload geothermal facility with peaking solar generation. In 2015, a solar thermal power plant was added to the facility.<sup><a href='print.cfm@sid=NV.html#93'>93</a></sup> </p>
+<p>Nevada also has wind power potential along the state's mountain ridges.<sup><a href='print.cfm@sid=NV.html#94'>94</a></sup> Because the federal government controls much of the land in the state, most large-scale wind projects need some federal rights-of-way.<sup><a href='print.cfm@sid=NV.html#95'>95</a>,<a href='print.cfm@sid=NV.html#96'>96</a></sup> The state's first utility-scale commercial wind farm on public lands opened in 2012. It is the only wind project online in the state, and no new wind projects are currently under construction.<sup><a href='print.cfm@sid=NV.html#97'>97</a></sup></p>
+<p>Nevada's renewable portfolio standard (RPS) requires that increasing percentages of electricity sold to retail customers in Nevada must come from renewable resources, reaching the goal of 25% of retail electricity sales by 2025. As of 2016, 6% of the renewable requirement, 1.5% of the state's total net generation, must come from solar power. Up to one-fourth of the total RPS goal can be met by energy efficiency measures, half of which must be at residential customer service locations.<sup><a href='print.cfm@sid=NV.html#98'>98</a></sup></p>
+<h2>Energy on tribal lands</h2>
+<p>There are 32 Indian reservations and colonies across Nevada, including 19 federally recognized Indian tribal entities.<sup><a href='print.cfm@sid=NV.html#99'>99</a>,<a href='print.cfm@sid=NV.html#100'>100</a></sup> Although more than 80% of Nevada is federally controlled land, reservations are only a small part of that amount. Native Americans, as tribes and individuals, control a little more than 1.2 million acres, less than 2% of the state's land.<sup><a href='print.cfm@sid=NV.html#101'>101</a>,<a href='print.cfm@sid=NV.html#102'>102</a></sup> However, solar resources are abundant, and Nevada's Moapa River Indian Reservation is the site of the nation's first utility-scale solar power plant built on tribal land. Construction on the 250-megawatt Moapa Southern Paiute Solar Project&mdash;located about 50 miles northeast of Las Vegas&mdash;began in 2014 and was completed in late 2016. The project has signed agreements to sell solar power to the Los Angeles Department of Water and Power for the next 25 years.<sup><a href='print.cfm@sid=NV.html#103'>103</a>,<a href='print.cfm@sid=NV.html#104'>104</a></sup> A second utility-scale solar power plant on the Moapa River Indian Reservation was approved by the U.S. Department of the Interior in 2014, and a third solar project on the reservation was approved in September 2016.<sup><a href='print.cfm@sid=NV.html#105'>105</a>,<a href='print.cfm@sid=NV.html#106'>106</a>,<a href='print.cfm@sid=NV.html#107'>107</a></sup> Other tribes are also evaluating the solar potential on their lands. The Te-Moak tribe's Battle Mountain Colony undertook a solar PV feasibility study in 2012 and is pursuing project development.<sup><a href='print.cfm@sid=NV.html#108'>108</a></sup> </p>
+<p>Some of Nevada's abundant geothermal power potential occurs on tribal lands.<sup><a href='print.cfm@sid=NV.html#109'>109</a></sup> The Pyramid Lake Indian Reservation near Reno is the largest reservation in Nevada and is home to the Pyramid Lake Paiute Tribe. The Pyramid Lake reservation is ranked as one of the top five tribal lands in the nation by its potential for geothermal capacity and generation.<sup><a href='print.cfm@sid=NV.html#110'>110</a></sup> The tribe has been evaluating the reservation's geothermal resources.<sup><a href='print.cfm@sid=NV.html#111'>111</a>,<a href='print.cfm@sid=NV.html#112'>112</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> NETSTATE, The State of Nevada, updated February 26, 2016.<br>
+<a name='2'></a><sup>2</sup> U.S. Energy Information Administration (EIA), Nevada Profile Data, Reserves and Supply, accessed November 16, 2016.<br>
+<a name='3'></a><sup>3</sup> NETSTATE, The Geography of Nevada, accessed November 16, 2016.<br>
+<a name='4'></a><sup>4</sup> National Park Service, The Great Basin, accessed November 16, 2016.<br>
+<a name='5'></a><sup>5</sup> Online Nevada Encyclopedia, Nevada Vegetation Overview, accessed November 16, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Nevada Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='7'></a><sup>7</sup> American Wind Energy Association, Nevada Wind Energy, accessed November 16, 2016. <br>
+<a name='8'></a><sup>8</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.14.B, 1.15.B, 1.16.B, 1.17.B, 1.18.B. <br>
+<a name='9'></a><sup>9</sup> Solar Energy Industries Association, State Solar Policy, Nevada Solar, accessed November 16, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Bureau of Reclamation, Hoover Dam, The Story of Hoover Dam, updated October 23, 2015.<br>
+<a name='11'></a><sup>11</sup> Vincent, Carol Hardy, Laura A. Hanson, and Jerome P. Bjelopera, Federal Land Ownership: Overview and Data, Congressional Research Service 7-5700 R42346 (December 29, 2014), p. 4.<br>
+<a name='12'></a><sup>12</sup> U.S. EIA, State Energy Production Estimates 1960 Through 2014, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='13'></a><sup>13</sup> ONE, Online Nevada Encyclopedia, Comstock Lode, accessed October 15, 2015.<br>
+<a name='14'></a><sup>14</sup> NETSTATE, Nevada Economy, updated February 25, 2016.<br>
+<a name='15'></a><sup>15</sup> Nevada Mining Association, Nevada Mining Production: Gold, 2015, accessed November 16, 2016. <br>
+<a name='16'></a><sup>16</sup> Nevada Governor's Office of Economic Development, Key Industries, accessed November 17, 2016.<br>
+<a name='17'></a><sup>17</sup> U.S. Department of Labor, Bureau of Labor Statistics, Economy at a Glance, Nevada, accessed November 17, 2016.<br>
+<a name='18'></a><sup>18</sup> U.S. Census Bureau, "Population Distribution and Change: 2000 to 2010," 2010 Census Briefs, C2010BR-01 (March 2011), p. 2.<br>
+<a name='19'></a><sup>19</sup> Nevada State Legislature, 2010 Population of Counties in Nevada, accessed November 17, 2016.<br>
+<a name='20'></a><sup>20</sup> U.S. Census, State and County QuickFacts, Nevada, Clark County, 2015 Population Estimate, accessed November 17, 2016.<br>
+<a name='21'></a><sup>21</sup> Thompson, Jeff, "Nevada's Extremes Reign Supreme," Nevada's Climate, The CoCoRaHS â€˜State Climates' Series, accessed November 17, 2016.<br>
+<a name='22'></a><sup>22</sup> U.S. Census Bureau, State and County QuickFacts, Nevada, Carson City, Churchill, Clark, Douglas, Elko, Esmerelda, Eureka, Humboldt, Lander, Lincoln, Lyon, Mineral, Nye, Pershing, Storey, Washoe, and White Pine Counties, 2015 Population Estimate, accessed November 17, 2016.<br>
+<a name='23'></a><sup>23</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Nevada, Tables CT3, CT4, CT5, CT6, CT7, CT8.<br>
+<a name='24'></a><sup>24</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C12, Total Energy Consumption, Gross Domestic Product (GDP), Energy Consumption per Real Dollar of GDP, Ranked by State, 2014.<br>
+<a name='25'></a><sup>25</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, Household Energy Use in Arizona, accessed November 17, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. EIA, Nevada Field Production of Crude Oil, accessed November 17, 2016.<br>
+<a name='28'></a><sup>28</sup> University of Nevada, Reno, Nevada Bureau of Mines & Geology, Oil & Gas Historical Summary, accessed November 17, 2016.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, Refinery Capacity Report 2016 (June 2016), Table 3, Capacity of Operable Petroleum Refineries by State and Individual Refinery as of January 1, 2016, p 14.<br>
+<a name='30'></a><sup>30</sup> U.S. EIA, Production Capacity of Operable Petroleum Refineries, Nevada, accessed November 17, 2016.<br>
+<a name='31'></a><sup>31</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014, accessed November 17, 2016.<br>
+<a name='32'></a><sup>32</sup> Holly Energy Partners, Operations, Pipelines, accessed November 17, 2016.<br>
+<a name='33'></a><sup>33</sup> Holly Energy Partners, LP, UNEV Pipeline Transaction, Investor Update (July 12, 2012), p. 5. <br>
+<a name='34'></a><sup>34</sup> U.S. Environmental Protection Agency, State Winter Oxygenated Fuel Program Requirements for Attainment or Maintenance of CO NAAQS, EPA420-B-08-006 (January 2008).<br>
+<a name='35'></a><sup>35</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Reid Vapor Pressure, updated August 1, 2016.<br>
+<a name='36'></a><sup>36</sup> "U.S. Ethanol Plants," Ethanol Producer Magazine (January 23, 2016).<br>
+<a name='37'></a><sup>37</sup> "Ethanol Fuels Firefighting Dilemma," Las Vegas Review Journal (March 14, 2008).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Nevada, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='39'></a><sup>39</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010, to July 1, 2014, NST-EST2014-01.<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='41'></a><sup>41</sup> U.S. Census Bureau, American FactFinder, Nevada, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='42'></a><sup>42</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Nevada, Annual, accessed November 18, 2016.<br>
+<a name='43'></a><sup>43</sup> U.S. EIA, Natural Gas Consumption by End Use, Nevada, Annual, accessed November 18, 2016.<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Nevada, Annual, accessed November 18, 2016.<br>
+<a name='45'></a><sup>45</sup> U.S. EIA, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Western Region, accessed November 18, 2016.<br>
+<a name='46'></a><sup>46</sup> Kinder Morgan, Natural Gas Pipelines, Ruby Pipeline LLC, accessed November 18, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Nevada, Annual, accessed November 18, 2016.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, Natural Gas Consumption by End Use, Nevada, Annual, accessed November 18, 2016.<br>
+<a name='49'></a><sup>49</sup> U.S. Census Bureau, American FactFinder, Nevada, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='51'></a><sup>51</sup> U.S. EIA, Electricity, Capacity of electric power plants, 2014 Form EIA-860 Data - Schedule 3, 'Generator Data' (Operable Coal Units Only), accessed November 18, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 2016), Nevada, Table DS-27, Domestic Coal Distribution, by Destination State, 2015.<br>
+<a name='53'></a><sup>53</sup> NV Energy, Our Power Supply, accessed November 18, 2016.<br>
+<a name='54'></a><sup>54</sup> Peltier, Robert, "TS Power Plant, Eureka County, Nevada," POWER Magazine (October 15, 2008). <br>
+<a name='55'></a><sup>55</sup> NV Energy, Our Power Supply, accessed November 18, 2016.<br>
+<a name='56'></a><sup>56</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 2016), Nevada, Table DS-27, Domestic Coal Distribution, by Destination State, 2015.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Nevada Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='59'></a><sup>59</sup> NV Energy, Three Part Strategy, accessed November 18, 2016.<br>
+<a name='60'></a><sup>60</sup> Donnelly, Kristina, and Heather Cooley, Water Use Trends in the United States, Pacific Institute (April 2015), p. 2-6.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Nevada Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='62'></a><sup>62</sup> NV Energy, Chuck Lenzie Generating Station (April 2015).<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, State Electricity Profiles 2006 (November 27, 2007) Nevada, Table 2, Ten Largest Plants by Generation Capacity, 2006, p. 141.<br>
+<a name='65'></a><sup>65</sup> "Environmental quandary shuts Mohave plant," POWER Magazine (March 15, 2006).<br>
+<a name='66'></a><sup>66</sup> Randazzo, Ryan, "Mohave Generating Station to be demolished," The Arizona Republic (June 11, 2009).<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Electricity Detailed State Data, 1990-2015 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Electricity, Capacity of electric power plants, 2014 Form EIA-860 Data - Schedule 3, 'Generator Data' (Retired & Canceled Coal Units Only).<br>
+<a name='69'></a><sup>69</sup> Legiscan, Nevada Senate Bill 123, 2013, 77th Legislature, Enrolled, accessed November 18, 2016. <br>
+<a name='70'></a><sup>70</sup> DiSavino, S., "NV Energy Proposes to Shut Nevada Coal-fired Power Plants," Reuters (April 4, 2013).<br>
+<a name='71'></a><sup>71</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B through 1.17.B.<br>
+<a name='72'></a><sup>72</sup> U.S. EIA, State Energy Data System, Table F21, Electricity Consumption Estimates, 2014.<br>
+<a name='73'></a><sup>73</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014.<br>
+<a name='74'></a><sup>74</sup> U.S. Census Bureau, American FactFinder, Nevada, Table B25040, House Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Nevada Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014.<br>
+<a name='76'></a><sup>76</sup> U.S. Department of Energy, Electricity Delivery and Energy Reliability, State of Nevada, Energy Sector Risk Profile, p. 2, accessed November 22, 2016.<br>
+<a name='77'></a><sup>77</sup> Totten, K., "Officials dedicate line connecting Northern, Southern Nevada electricity grids," Las Vegas Review-Journal (January 24, 2014).<br>
+<a name='78'></a><sup>78</sup> NVEnergy, "One Nevada Transmission Line Begins Serving Customers," Press Release (January 23, 2014). <br>
+<a name='79'></a><sup>79</sup> NVEnergy, NV Energy's Clean Energy Commitment (August 8, 2016).<br>
+<a name='80'></a><sup>80</sup> NVEnergy, "One Nevada Transmission Line Begins Serving Customers," Press Release (January 23, 2014).<br>
+<a name='81'></a><sup>81</sup> TransWest Express LLC, Delivering Wyoming Wind Energy, accessed November 19, 2016.<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B, 1.18.B.<br>
+<a name='83'></a><sup>83</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='84'></a><sup>84</sup> U.S. Department of Energy, Geothermal Energy, heat from the earth, Nevada, DOE/GO -102001-1432 (October 2001).<br>
+<a name='85'></a><sup>85</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.16.B, 1.17.B.<br>
+<a name='86'></a><sup>86</sup> U.S. EIA, Nevada Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='87'></a><sup>87</sup> U.S. Bureau of Reclamation, Hoover Dam, The Story of Hoover Dam, updated October 23, 2015.<br>
+<a name='88'></a><sup>88</sup> U.S. Bureau of Reclamation, Hoover Dam, Frequently Asked Questions and Answers, Hydropower at Hoover Dam, updated March 12, 2015.<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B, 1.18.B.<br>
+<a name='90'></a><sup>90</sup> Nebraska Energy Office, Comparison of Solar Power Potential by State, updated March 11, 2010.<br>
+<a name='91'></a><sup>91</sup> Solar Energy Industries Association, Nevada Solar, accessed November 20, 2016.<br>
+<a name='92'></a><sup>92</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='93'></a><sup>93</sup> Zaripova, Adilya, "World's first triple geo-PV-solar thermal power plant unveiled in Nevada," PV Magazine (March 30, 2016).<br>
+<a name='94'></a><sup>94</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Nevada Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='95'></a><sup>95</sup> Vincent, Carol Hardy, Laura A. Hanson, and Jerome P. Bjelopera, Federal Land Ownership: Overview and Data, Congressional Research Service 7-5700 R42346 (December 29, 2014), p. 4.<br>
+<a name='96'></a><sup>96</sup> U.S. Department of the Interior, Bureau of Land Management, Rights-of-Way, updated April 28, 2015.<br>
+<a name='97'></a><sup>97</sup> American Wind Energy Association, Nevada Wind Energy, accessed November 20, 2016.<br>
+<a name='98'></a><sup>98</sup> State of Nevada Public Utilities Commission, Renewable Portfolio Standard, accessed November 20, 2016.<br>
+<a name='99'></a><sup>99</sup> Nevada's Indian Territory, Map of Nevada Tribes, Indian Reservations and Colonies of Nevada, accessed November 21, 2016. <br>
+<a name='100'></a><sup>100</sup> U.S. Department of the Interior, Bureau of Indian Affairs, "Indian Entities Recognized and Eligible to Receive Services from the United States Bureau of Indian Affairs," Federal Register, Vol. 81, No. 86 (May 4, 2016), p. 26826-30.<br>
+<a name='101'></a><sup>101</sup> Vincent, Carol Hardy, Laura A. Hanson, and Jerome P. Bjelopera, Federal Land Ownership: Overview and Data, Congressional Research Service 7-5700 R42346 (December 29, 2014), p. 4.<br>
+<a name='102'></a><sup>102</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, Appendix D: Indian Nations, The American Indian Digest (April 1997) p. D-3. <br>
+<a name='103'></a><sup>103</sup> Lott, Melissa C., "First utility-scale solar project on tribal land breaks ground in Nevada," Scientific American (April 5, 2014).<br>
+<a name='104'></a><sup>104</sup> Crowell Chris, "Moapa Southern Paiute Solar," Solar Builder Magazine (November/December 2016), p. 31.<br>
+<a name='105'></a><sup>105</sup> Clarke, Chris, "2nd Tribal Solar Plant Approved On Nevada Reservation" KCET (May 7, 2014).<br>
+<a name='106'></a><sup>106</sup> U.S. Department of the Interior, Indian Affairs, Moapa Solar Energy Center Project, accessed November 22, 2016.<br>
+<a name='107'></a><sup>107</sup> "Secretary Jewell Approves Utility-Scale Solar Project on Tribal Land in Nevada," Native Times (September 15, 2016).<br>
+<a name='108'></a><sup>108</sup> U.S. Department of Energy, Office of Indian Energy Policy and Programs, Battle Mountain Band - Te-Moak, Tribal Energy Program Review (March 26, 2014). <br>
+<a name='109'></a><sup>109</sup> Roberts, Billy J., "Geothermal Resource of the United States," National Renewable Energy Laboratory (October 13, 2009).<br>
+<a name='110'></a><sup>110</sup> U.S. Department of Energy, Office of Indian Energy, Developing Clean Energy Projects on Tribal Lands, Data and Resources for Tribes, DOE/IE-0015 (April 2013), p. 44.<br>
+<a name='111'></a><sup>111</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Geothermal Technologies Office 2013 Peer Review, Comprehensive Evaluation of the Geothermal Resource Potential within the Pyramid Lake Paiute Reservation (April 23, 2013). <br>
+<a name='112'></a><sup>112</sup> Clutter, Ted J., "Pyramid Lake Geothermal," Geothermal Resources Council (GRC) Bulletin (March/April 2005), p. 84-87.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 5</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://energy.nv.gov/" title="Nevada Governor's Office of Energy">Nevada Governor's Office of Energy</a></li>
+  
+    <li><a href="http://puc.nv.gov" title="State of Nevada Public Utilities Commission">State of Nevada Public Utilities Commission</a></li>
+  
+    <li><a href="http://www.diversifynevada.com/key-industries/energy" title="Nevada Governor's Office of Economic Development, Nevada Renewable & Sustainable Energy">Nevada Governor's Office of Economic Development, Nevada Renewable & Sustainable Energy</a></li>
+  
+    <li><a href="http://housing.nv.gov/programs/Weatherization/" title="Nevada Department of Business and Industry, Housing Division, Weatherization Assistance Program">Nevada Department of Business and Industry, Housing Division, Weatherization Assistance Program</a></li>
+  
+    <li><a href="https://dwss.nv.gov/Energy/1_Energy_Assistance/" title="Nevada Department of Health and Human Services, Division of Welfare and Supportive Services, Energy Assistance">Nevada Department of Health and Human Services, Division of Welfare and Supportive Services, Energy Assistance</a></li>
+  
+    <li><a href="https://www.wrpinfo.org/AboutUs.aspx" title="Western Regional Partnership (WRP)">Western Regional Partnership (WRP)</a></li>
+  
+    <li><a href="http://minerals.nv.gov/" title="Nevada Commission on Mineral Resources, Division of Minerals ">Nevada Commission on Mineral Resources, Division of Minerals </a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://crc.nv.gov/" title="Colorado River Commission of Nevada">Colorado River Commission of Nevada</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://ndep.nv.gov/" title="State of Nevada Department of Conservation and Natural Resources, Nevada Division of Environmental Protection">State of Nevada Department of Conservation and Natural Resources, Nevada Division of Environmental Protection</a></li>
+  
+    <li><a href="http://www.nrea.coop/home/" title="Nevada Rural Electric Association">Nevada Rural Electric Association</a></li>
+  
+    <li><a href="http://www.snfa.org/" title="Southern Nevada Fleet Association">Southern Nevada Fleet Association</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Nevada website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Nevada\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/NV.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

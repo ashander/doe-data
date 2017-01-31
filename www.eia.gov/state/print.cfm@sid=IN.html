@@ -1,0 +1,3014 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Indiana Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Indiana State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Indiana Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>In 2013, Indiana ranked eighth among the states in coal production and third in coal consumption. The state&#39;s industrial sector was second nationwide in coal consumption.</li>
+	
+	<li>Indiana&rsquo;s industrial sector, which includes manufacturers of aluminum, chemicals, glass, metal casting, and steel, consumed more energy in 2013 than the residential sector and the commercial sector combined.</li>
+	
+	<li>As of January 2015, Indiana&#39;s Whiting oil refinery had the largest processing capacity of any refinery outside the Gulf Coast region.</li>
+	
+	<li>Indiana is a major producer of ethanol. As of January 2016, Indiana&#39;s ethanol plants were capable of producing more than 1.2 billion gallons of ethanol per year.</li>
+	
+	<li>A geothermal heating and cooling system installed at Ball State University in Muncie, Indiana, has replaced a coal-fired power plant and enabled the university to halve its carbon footprint.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: March 17, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=IN.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=IN.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=IN.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=IN.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=IN.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Indiana Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Indiana Energy Consumption Estimates',
+		data : [1221.5,724.7,340.0,252.2,46.7,22.5,0.9,100.7,0.0,3.5,112.8,39.3,66.1]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Indiana Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 582.4],['Commercial', 390.4],['Industrial', 1326.9],['Transportation', 631.3]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Indiana Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Indiana Energy Production Estimates',
+		data : [886.4,6.8,14.5,0.0,140.0,75.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Indiana Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Indiana Net Electricity Generation',
+		data : [6,1511,5591,35,521]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Indiana Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Indiana U.S. Price Differentials',
+		data : [{y:1.19331742243, period: Date.UTC(2016,9,1)},{y:-14.192139738, period: Date.UTC(2016,9,1)},{y:-1.68674698795, period: Date.UTC(2016,9,1)},{y:-4.01146131805, period: Date.UTC(2016,9,1)},{y:9.52380952381, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					6.6 million 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					3.3 million 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 336.4  billion 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 99,962  million 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 40,998 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					79,204 million miles 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					14.7 million acres 
+				</td>
+				<td>
+					19 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					52.3 degrees Fahrenheit 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					47.5 inches 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.27 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.24 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 11.79 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 46.12 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.24 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					10.05 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.36 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=196">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					8 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					627 million short tons 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					1 rigs 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					899 wells 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,123 trillion Btu 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					151 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					7,250 million cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					34,295 thousand short tons 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					440,600 barrels/calendar day 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					25,643 MW 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					7,831 thousand MWh 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					19.3 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					71.4 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					7.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					202 thousand barrels 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					3,656 thousand barrels 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					103,735 million cu ft 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					111 thousand barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					10,157 thousand tons 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Indiana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Bear Run Mine / Peabody Bear Run Mining LLC</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">BP Products North America (Whiting), Countrymark Cooperative (Mount Vernon)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">NA 1 (Duke Energy Indiana Inc) ; Gibson (Duke Energy Indiana Inc) ; Rockport (Indiana Michigan Power Co) ; R M Schahfer (Northern Indiana Pub Serv Co) ; Tenaska Indiana Generating Station (Tenaska Indiana Partners LP)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=196">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Indiana</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Mount Vernon, Indiana Harbor.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Indiana</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Enbridge, Marathon Pipeline, BP Pipelines</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Explorer Pipeline, Enbridge, Buckeye Partners, Marathon Pipeline, Wolverine Pipeline, West Shore Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Buckeye Partners, Enterprise Products, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Crossroads Pipeline, Midwestern Gas Transmission Company, Natural Gas Pipeline Company of America, Northern Broder Pipeline Company, Northern Indiana Public Service Company, Panhandle Eastern Pipeline Company, Rockies Express Pipeline LLC, Texas Eastern Transmission LP, Texas Gas Transmission LLC, Trunkline Gas Company, Vector Pipeline Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					2,610 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					192 stations 
+				</td>
+				<td>
+					5.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					151 stations 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					201 stations 
+				</td>
+				<td>
+					6.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					40 stations 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					2,932 trillion Btu 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					444 million Btu 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 34,152  million 
+				</td>
+				<td>
+					13 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,176 
+				</td>
+				<td>
+					15 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					582 trillion Btu 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					390 trillion Btu 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					1,327 trillion Btu 
+				</td>
+				<td>
+					4.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					632 trillion Btu 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 5,781  million 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 3,414  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 8,548  million 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 16,410  million 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					147.0 million barrels 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					712.8 billion cu ft 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					55.3 million short tons 
+				</td>
+				<td>
+					6.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 18,850  million 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 5,266  million 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 3,514  million 
+				</td>
+				<td>
+					7.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					11 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					11,346 million cu ft 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					2,729 thousand short tons 
+				</td>
+				<td>
+					5.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=196">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					60.7 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.9 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					28.2 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					7.1 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					3.1 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,180 MW 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					1,163 million gal/year 
+				</td>
+				<td>
+					7.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					35 thousand MWh 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					485 thousand MWh 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					36 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					1 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					24,611 Thousand Barrels 
+				</td>
+				<td>
+					7.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					5.3 % 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=IN"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					7,155 thousand barrels 
+				</td>
+				<td>
+					16 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					207.0 million metric tons 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Indiana</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=196">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					89,045 thousand metric tons 
+				</td>
+				<td>
+					4.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					157 thousand metric tons 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					97 thousand metric tons 
+				</td>
+				<td>
+					5.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: March 17, 2016<p>
+<h2>Overview </h2>
+<p>Indiana, in the nation's Interior Plains just west of the Appalachian Mountains, extends from Lake Michigan south to the Ohio River.<sup><a href='print.cfm@sid=IN.html#1'>1</a></sup> Sediments deposited over millions of years,<sup><a href='print.cfm@sid=IN.html#2'>2</a></sup> when the state was covered by inland seas and, later, lush swamps, became the rocks that contain Indiana's fossil fuel resources, predominantly coal but also oil and some natural gas.<sup><a href='print.cfm@sid=IN.html#3'>3</a></sup> The flat plains and slightly rolling terrain in the northern two-thirds of the state are the result of the 2,000-foot-thick glacier that covered much of the state during the Ice Ages.<sup><a href='print.cfm@sid=IN.html#4'>4</a></sup> The retreat of the glacier more than 10,000 years ago left behind the excellent topsoil that supports Indiana's agriculture.<sup><a href='print.cfm@sid=IN.html#5'>5</a></sup> Ample summer rainfall and the rich prairie soils<sup><a href='print.cfm@sid=IN.html#6'>6</a></sup> allow Indiana farmers to produce abundant corn and soybean crops.<sup><a href='print.cfm@sid=IN.html#7'>7</a>,<a href='print.cfm@sid=IN.html#8'>8</a></sup> Using corn as a feedstock, Indiana has become a major ethanol-producing state.<sup><a href='print.cfm@sid=IN.html#9'>9</a>,<a href='print.cfm@sid=IN.html#10'>10</a>,<a href='print.cfm@sid=IN.html#11'>11</a></sup> Indiana's open farmland has substantial wind energy potential.<sup><a href='print.cfm@sid=IN.html#12'>12</a>,<a href='print.cfm@sid=IN.html#13'>13</a></sup></p>
+<p>Although Indiana is one of the smallest states in land area west of the Appalachian Mountains, it has a varied climate because of its length from north to south. In the north, Indiana experiences lake-effect snows and winds off Lake Michigan. In the south, the hilly terrain creates localized weather variations. The climate statewide is influenced by the interplay of polar air moving south from Canada and warm, moist air moving north from the Gulf of Mexico. Indiana's winters can be bitterly cold, spring weather often includes tornadoes, and summer days may have oppressive humidity and heat.<sup><a href='print.cfm@sid=IN.html#14'>14</a></sup> In part because of those weather extremes, residential energy use per capita in Indiana is well above the national average.<sup><a href='print.cfm@sid=IN.html#15'>15</a></sup> The industrial sector is the state's largest energy consumer.<sup><a href='print.cfm@sid=IN.html#16'>16</a></sup> Indiana's industrial activities include the energy-intensive chemical, petroleum, transportation equipment, and steelmaking industries.<sup><a href='print.cfm@sid=IN.html#17'>17</a>,<a href='print.cfm@sid=IN.html#18'>18</a></sup> The state consumes more energy than it produces.<sup><a href='print.cfm@sid=IN.html#19'>19</a></sup>  </p>
+<h2>Petroleum</h2>
+<p>The Trenton Field, discovered in east-central Indiana in the late 1800s, was the nation's first giant oil field (producing more than 100 million barrels of crude oil).<sup><a href='print.cfm@sid=IN.html#20'>20</a></sup> Trenton Field resources helped draw heavy industry to Indiana, but the field ceased production in the early 20th century. Subsequently, crude oil production moved to the Illinois Basin in southwestern Indiana, where output peaked in 1956.<sup><a href='print.cfm@sid=IN.html#21'>21</a></sup> Use of advanced drilling technology has helped boost Indiana crude oil production somewhat in the last half dozen years,<sup><a href='print.cfm@sid=IN.html#22'>22</a></sup> but the state produces only about 2.5 million barrels of crude oil per year, less than 0.01% of U.S. production.<sup><a href='print.cfm@sid=IN.html#23'>23</a></sup> Indiana has the smallest proved crude oil reserves of any oil-producing state.<sup><a href='print.cfm@sid=IN.html#24'>24</a></sup></p>
+<div class='pullquote'><p>The Whiting refinery in Indiana is the largest inland crude oil refinery in the nation.</p></div><p>Indiana has two crude oil refineries.<sup><a href='print.cfm@sid=IN.html#25'>25</a></sup> The Whiting refinery, located in northwest Indiana, is the largest inland crude oil refinery in the nation; only six Gulf Coast refineries can process more crude oil per day.<sup><a href='print.cfm@sid=IN.html#26'>26</a>,<a href='print.cfm@sid=IN.html#27'>27</a></sup> A recent modernization project at the Whiting refinery increased the share of heavy, sour crude oil that can be processed there from about one-fifth of the crude oil feedstock to about four-fifths.<sup><a href='print.cfm@sid=IN.html#28'>28</a></sup> A second, small refinery, located in the state's southern tip at Mount Vernon, processes Illinois Basin crude oil.<sup><a href='print.cfm@sid=IN.html#29'>29</a></sup> Indiana also has 15 ethanol facilities with a combined capacity of more than 1 billion gallons per year, equal to about 8% of the nation's total capacity.<sup><a href='print.cfm@sid=IN.html#30'>30</a></sup></p>
+<p>Indiana is a major consumer of petroleum and petroleum products, which enter the state via three interstate crude oil pipelines and six petroleum product pipelines.<sup><a href='print.cfm@sid=IN.html#31'>31</a></sup> The majority of Indiana's petroleum consumption is in the form of motor gasoline, followed by distillate fuel oil, including diesel fuel.<sup><a href='print.cfm@sid=IN.html#32'>32</a></sup> Although conventional motor gasoline is used throughout most of Indiana, reformulated motor gasoline blended with ethanol is required in the northwestern corner of the state in the greater Chicago metropolitan area.<sup><a href='print.cfm@sid=IN.html#33'>33</a></sup> In addition, motor gasoline formulated to reduce emissions that contribute to ground-level ozone is required during the summer months on Indiana's southeastern border near Louisville, Kentucky.<sup><a href='print.cfm@sid=IN.html#34'>34</a></sup> Distillate fuel sales to the residential sector have been declining over the past three decades.<sup><a href='print.cfm@sid=IN.html#35'>35</a></sup> Currently fewer than 1% of Indiana households use fuel oil or kerosene for home heating, and 7% use liquefied petroleum gases (LPG).<sup><a href='print.cfm@sid=IN.html#36'>36</a></sup></p>
+<h2>Natural gas</h2>
+<p>Early discoveries of natural gas in the late 1870s attracted industry to the east central part of Indiana, but unregulated development caused the loss of much of the resource. The advent of advanced drilling technology has created interest in the New Albany Shale gas play in the state's south, which, along with potential coalbed methane resources, could add significant new natural gas reserves.<sup><a href='print.cfm@sid=IN.html#37'>37</a></sup> Indiana's natural gas production is modest, but it has increased in the last two decades.<sup><a href='print.cfm@sid=IN.html#38'>38</a>,<a href='print.cfm@sid=IN.html#39'>39</a></sup> However, production in the state is much lower than demand,<sup><a href='print.cfm@sid=IN.html#40'>40</a></sup> and interstate pipelines supply Indiana consumers with natural gas from the United States and Canada.<sup><a href='print.cfm@sid=IN.html#41'>41</a>,<a href='print.cfm@sid=IN.html#42'>42</a>,<a href='print.cfm@sid=IN.html#43'>43</a></sup> Indiana is crossed by a dozen major interstate natural gas pipelines. Natural gas enters the state primarily via Illinois and Kentucky, and a majority of the natural gas shipped into Indiana is sent on to Ohio and Michigan.<sup><a href='print.cfm@sid=IN.html#44'>44</a></sup> Indiana does not have any natural gas market hubs. The state has 22 natural gas storage fields,<sup><a href='print.cfm@sid=IN.html#45'>45</a></sup> with a total working capacity of about 33 billion cubic feet of natural gas.<sup><a href='print.cfm@sid=IN.html#46'>46</a></sup> </p>
+<p>The industrial sector is the largest consumer of natural gas in Indiana. The sector uses more natural gas than all other sectors combined.<sup><a href='print.cfm@sid=IN.html#47'>47</a></sup> The residential sector accounts for only about 20% of the natural gas consumed in Indiana, even though three-fifths of households use natural gas for home heating.<sup><a href='print.cfm@sid=IN.html#48'>48</a></sup> The electric power sector increased its use of natural gas for power generation significantly from 2009 through 2012, when it reached a level equal to residential use. Natural gas consumption in the power sector dropped in 2013 and 2014, but rose in 2015 to exceed the 2012 level.<sup><a href='print.cfm@sid=IN.html#49'>49</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Indiana's industrial coal consumption is second only to that of Pennsylvania.</p></div><p>Indiana is one of the top 10 coal-producing states in the nation. Bituminous coal is produced from 18 surface and 9 underground mines located within the Illinois Basin in southwestern Indiana.<sup><a href='print.cfm@sid=IN.html#50'>50</a>,<a href='print.cfm@sid=IN.html#51'>51</a></sup> About one-third of the coal produced in Indiana is shipped to a dozen other states by rail, barge, and truck. The other two-thirds is consumed in Indiana, but production meets only about 60% of demand.<sup><a href='print.cfm@sid=IN.html#52'>52</a></sup> The other 40% of the coal consumed in Indiana comes from other states. Coal arrives by rail, barge, or truck, primarily from mines in Illinois, Kentucky, Wyoming, West Virginia, and Virginia.<sup><a href='print.cfm@sid=IN.html#53'>53</a></sup> </p>
+<p>Indiana's total coal consumption ranks third in the nation, after Texas and Illinois,<sup><a href='print.cfm@sid=IN.html#54'>54</a></sup> and the state is second only to Pennsylvania in coal tonnage used by the industrial sector.<sup><a href='print.cfm@sid=IN.html#55'>55</a></sup> About one-tenth of the coal used in Indiana, primarily coal originating in West Virginia and Virginia, is delivered to coking plants,<sup><a href='print.cfm@sid=IN.html#56'>56</a></sup> which produce coke to serve the state's steel industry.<sup><a href='print.cfm@sid=IN.html#57'>57</a></sup> Indiana is a leader in steel manufacturing.<sup><a href='print.cfm@sid=IN.html#58'>58</a></sup> </p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Sales of electricity to Indiana's industrial sector are among the highest in the nation.</p></div><p>More than three-fourths of Indiana's electricity generation is typically fueled by coal,<sup><a href='print.cfm@sid=IN.html#59'>59</a>,<a href='print.cfm@sid=IN.html#60'>60</a></sup> and 9 of the state's 10 largest power plants are coal-fired.<sup><a href='print.cfm@sid=IN.html#61'>61</a></sup> Natural gas accounts for much of the rest of the state's net electricity generation.<sup><a href='print.cfm@sid=IN.html#62'>62</a></sup> Wind provides a small but increasing share.<sup><a href='print.cfm@sid=IN.html#63'>63</a></sup> Indiana does not have any nuclear power plants.<sup><a href='print.cfm@sid=IN.html#64'>64</a></sup></p>
+<p>Retail sales of electricity to Indiana's industrial sector are among the highest in the nation.<sup><a href='print.cfm@sid=IN.html#65'>65</a></sup> Per capita residential electricity consumption in Indiana is in the top half of states.<sup><a href='print.cfm@sid=IN.html#66'>66</a>,<a href='print.cfm@sid=IN.html#67'>67</a></sup> Slightly more than one-fourth of Indiana households rely on electricity as their main source of energy for home heating.<sup><a href='print.cfm@sid=IN.html#68'>68</a></sup> </p>
+<h2>Renewable energy </h2>
+<p>About 5% of Indiana's net electricity generation comes from renewable sources.<sup><a href='print.cfm@sid=IN.html#69'>69</a></sup> Wind has become the primary renewable resource used for electric power generation in Indiana.<sup><a href='print.cfm@sid=IN.html#70'>70</a></sup> In 2008, Indiana's first utility-scale wind project, the Benton County Wind Farm, began operating in the northwestern part of the state.<sup><a href='print.cfm@sid=IN.html#71'>71</a></sup> Currently, the state has nearly 1,900 megawatts of installed wind capacity, including the 500-megawatt Meadow Lake Wind Farm that stretches across three counties and is the eighth-largest wind project in the nation.<sup><a href='print.cfm@sid=IN.html#72'>72</a>,<a href='print.cfm@sid=IN.html#73'>73</a></sup> In 2015, more than 4% of Indiana's electric power was generated by wind turbines.<sup><a href='print.cfm@sid=IN.html#74'>74</a></sup> The rest of Indiana's renewable generation comes from biomass, hydroelectric power, and solar photovoltaic facilities.<sup><a href='print.cfm@sid=IN.html#75'>75</a></sup> </p>
+<p>Ball State University in Muncie, Indiana, has installed a geothermal heating and cooling system.<sup><a href='print.cfm@sid=IN.html#76'>76</a></sup> The system replaced four aging coal-fired boilers and provides renewable power to heat and cool 47 university buildings. It is estimated that $2 million in operating costs will be saved each year, and that the university's carbon footprint will be cut in half. The project was completed in 2014.<sup><a href='print.cfm@sid=IN.html#77'>77</a></sup></p>
+<p>In 2011, Indiana's legislature created a voluntary clean energy portfolio standard that took effect on January 1, 2012.<sup><a href='print.cfm@sid=IN.html#78'>78</a></sup> As an incentive, regulated electric utilities and retail power suppliers are eligible for increases in their allowable profit if they obtain increasing amounts of their electricity supply from clean energy in each of three goal periods. The ultimate goal is for suppliers to obtain 10% of their electricity from clean energy sources in 2025.<sup><a href='print.cfm@sid=IN.html#79'>79</a></sup> Technologies that qualify as clean energy include not only renewable resources, but also coalbed methane, clean coal technology, nuclear energy, combined heat and power systems, and natural gas that displaces electricity from coal.<sup><a href='print.cfm@sid=IN.html#80'>80</a></sup> At least half of the qualifying energy obtained by Indiana's participating electricity providers must come from within the state.<sup><a href='print.cfm@sid=IN.html#81'>81</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> World Atlas, Indiana Geography, updated September 29, 2015.<br>
+<a name='2'></a><sup>2</sup> U.S. Geological Survey, Geologic Provinces of the United States: Interior Plain Province, updated October 2, 2014.<br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration, Indiana, Profile Data, Reserves & Supply, accessed February 8, 2016.<br>
+<a name='4'></a><sup>4</sup> Indiana Geological Survey, Surficial Geology, accessed February 8, 2015.<br>
+<a name='5'></a><sup>5</sup> City-Data, Indiana - Topography, accessed February 8, 2016.<br>
+<a name='6'></a><sup>6</sup> Indiana State Climate Office, About Indiana Climate (December 2002). <br>
+<a name='7'></a><sup>7</sup> National Agriculture in the Classroom, A Look at Indiana Agriculture (July 2010).<br>
+<a name='8'></a><sup>8</sup> Truitt, Gary, "Indiana Sets Record for 2014 Corn and Soybean Yield," Hoosier Ag Today (January 12, 2015).<br>
+<a name='9'></a><sup>9</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, Existing, All Platforms, updated January 23, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, Indiana State Energy Profile, Data, Environment, accessed February 8, 2016.<br>
+<a name='11'></a><sup>11</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, updated September 4, 2015.<br>
+<a name='12'></a><sup>12</sup> American Wind Energy Association, Indiana Wind Energy, accessed February 8, 2016.  <br>
+<a name='13'></a><sup>13</sup> Tindera, Michela, and Jimmy Jenkins, "Tilting at Windmills: A Closer Look at Indiana's Expanding Wind Power Industry," Investigative Journalism Education Consortium (July 24, 2013).<br>
+<a name='14'></a><sup>14</sup> Indiana State Climate Office, About Indiana Climate (December 2002).<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.  <br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013. <br>
+<a name='17'></a><sup>17</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Indiana, Time Period 2012-15.<br>
+<a name='18'></a><sup>18</sup> Pete, Joseph, "Indiana Leads Nation in Steel Production Again," nwitimes.com (March 23, 2014). <br>
+<a name='19'></a><sup>19</sup> U.S. Energy Information Administration, State Energy Data System, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2013.<br>
+<a name='20'></a><sup>20</sup> Indiana Geological Survey, Oil and Gas - A Brief Overview of the History of the Petroleum Industry In Indiana, Trenton Field, accessed February 8, 2016.<br>
+<a name='21'></a><sup>21</sup> Indiana Geological Survey, Oil and Gas - A Brief Overview of the History of the Petroleum Industry In Indiana, The History of Gas and Oil Exploration, accessed February 8, 2016.<br>
+<a name='22'></a><sup>22</sup> McDivitt, Herschel, Hydraulic Fracturing 101, Indiana Division of Oil and Gas, slide 35, Indiana Hydraulic Fracturing Trends, updated October 15, 2014.<br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2009-14. <br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, Crude Oil Proved Reserves, Reserves Changes, and Production, Proved Reserves as of 12/31, Annual, 2009-14. <br>
+<a name='25'></a><sup>25</sup> U.S. Energy Information Administration, Refinery Capacity Report (June 19, 2015), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, Oil: Crude and Petroleum Products Explained, Refining Crude Oil, updated July 10, 2015.<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, Indiana, Profile Overview, Map Layers, Petroleum Refinery, accessed February 8, 2016.<br>
+<a name='28'></a><sup>28</sup>  BP Global, "BP starts up new crude unit at Whiting Refinery," Press Release (July 1, 2013).<br>
+<a name='29'></a><sup>29</sup> CountryMark, About Us, Refinery, accessed February 8, 2016.<br>
+<a name='30'></a><sup>30</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, All Platforms, Existing, updated January 23, 2016.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Indiana, Profile Data, Distribution & Marketing, accessed February 8, 2016. <br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, State Energy Data System, Table C3, Primary Energy Consumption Estimates, 2013. <br>
+<a name='33'></a><sup>33</sup> U.S. Environmental Protection Agency, Gasoline Standards, Reformulated Gasoline, updated September 28, 2015.<br>
+<a name='34'></a><sup>34</sup> U. .S. Environmental Protection Agency, Gasoline Standards, Gasoline Reid Vapor Pressure, updated December 30, 2015. <br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Indiana Total Distillate Sales/Deliveries to Residential Consumers, 1984-2014.<br>
+<a name='36'></a><sup>36</sup> U.S. Census Bureau, American FactFinder, Table B25040, State Indiana, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='37'></a><sup>37</sup> Indiana Geological Survey, Oil & Gas - A Brief Overview of the History of the Petroleum Industry in Indiana, Trenton Field, accessed February 9, 2016. <br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Annual, 2009-14. <br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Indiana Natural Gas Gross Withdrawals, 1967-2014.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Total Consumption, Annual, 2009-14.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Indiana. Profile Data, Distribution & Marketing, updated January 21, 2016.<br>
+<a name='42'></a><sup>42</sup> Texas Gas Transmission, LLC, Overview, accessed February 9, 2016.<br>
+<a name='43'></a><sup>43</sup> Northern Border Pipeline Co., Northern Border Pipeline, accessed February 9, 2015.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Indiana, Annual, 2009-14.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, Annual, 2009-14.<br>
+<a name='46'></a><sup>46</sup>  U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Working Gas Capacity, Annual, 2009-14.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Indiana, Annual, 2009-14. <br>
+<a name='48'></a><sup>48</sup> U.S. Census Bureau, American FactFinder, Table B25040, State  Indiana, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Indiana Natural Gas Deliveries to Electric Power Consumers, Monthly, 2001-15.<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 23, 2015), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2013.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 23, 2015), Table 1, Coal Production and Number of Mines by State and Mine Type, 2013 and 2012.<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 16, 2015), Domestic distribution of coal by origin State, consumer, destination and method of transportation, Indiana.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 16, 2015), Domestic distribution of coal by destination State, consumer, destination and method of transportation, Indiana.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, State Energy Data System, Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2013.  <br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, State Energy Data System, Table F17, Coal Consumption Estimates and Imports and Exports of Coal Coke, 2013.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 16, 2015), Domestic distribution of coal by destination State, consumer, destination and method of transportation, Indiana.<br>
+<a name='57'></a><sup>57</sup> Illinois Sustainable Technology Institute, Primary Metals, Chapter 2, The Steel Making Industry, accessed February 10, 2016.<br>
+<a name='58'></a><sup>58</sup> Pete, Joseph, "Indiana Leads Nation in Steel Production Again," nwitimes.com (March 23, 2014). <br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923), 1990-2014.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, State Electricity Profiles, Indiana Electricity Profile 2013, Table 2, Ten Largest Plants by Generation Capacity, 2013.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.7.B.<br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.14.B.<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.9.B.<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, State Energy Data System, Table F21, Electricity Consumption Estimates, 2013.<br>
+<a name='67'></a><sup>67</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2013.<br>
+<a name='68'></a><sup>68</sup> U.S. Census Bureau, American FactFinder, Table B25040, State Indiana, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='71'></a><sup>71</sup> Benton County, Indiana, Wind Farms, Benton County Wind Farm, accessed February 10, 2016.<br>
+<a name='72'></a><sup>72</sup> EDP Renewables North America, Indiana-Meadow Lake, accessed February 10, 2016. <br>
+<a name='73'></a><sup>73</sup> American Wind Energy Association, Indiana Wind Energy, accessed February 10, 2016.  <br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B.<br>
+<a name='75'></a><sup>75</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.17.B, 1.18.B.<br>
+<a name='76'></a><sup>76</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Indiana (March 2013), p. 4.<br>
+<a name='77'></a><sup>77</sup> Ball State University, "BSU Shutting Down Coal Boilers," Press Release (March 17, 2014).<br>
+<a name='78'></a><sup>78</sup> Indiana Utility Regulatory Commission, Indiana Voluntary Clean Energy Portfolio Standard Program, accessed February 15, 2016.<br>
+<a name='79'></a><sup>79</sup> Indiana Office of Energy Development, Indiana Choice Program, accessed February 15, 2016.<br>
+<a name='80'></a><sup>80</sup> Indiana Office of Energy Development, CHOICE Program FAQ, accessed February 15, 2016.<br>
+<a name='81'></a><sup>81</sup> NC Clean Energy Technology Center, DSIRE, Indiana, Clean Energy Portfolio Standard, updated November 20, 2015. <br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Interior</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Midwest Independent Transmission System Operator (MISO), PJM Interconnection (PJM)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Reliability First Corporation (RFC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.in.gov/oed/" title="Indiana Office of Energy Development">Indiana Office of Energy Development</a></li>
+  
+    <li><a href="http://www.in.gov/idem/index.htm" title="Indiana Department of Environmental Management">Indiana Department of Environmental Management</a></li>
+  
+    <li><a href="http://www.in.gov/iurc/" title="Indiana Utility Regulatory Commission">Indiana Utility Regulatory Commission</a></li>
+  
+    <li><a href="http://www.in.gov/dnr/reclamation/" title="Indiana Department of Natural Resources  Division of Reclamation">Indiana Department of Natural Resources  Division of Reclamation</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.in.gov/ihcda/2523.htm" title="Indiana Housing and Community Development Authority Energy Programs">Indiana Housing and Community Development Authority Energy Programs</a></li>
+  
+    <li><a href="http://www.in.gov/oed/2391.htm" title="Indiana Office of Energy Development - Renewable Energy Systems and Energy Efficiency Improvements Program">Indiana Office of Energy Development - Renewable Energy Systems and Energy Efficiency Improvements Program</a></li>
+  
+    <li><a href="http://www.in.gov/dnr/dnroil/" title="Indiana Department of Natural Resources  Division of Oil and Gas">Indiana Department of Natural Resources  Division of Oil and Gas</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Indiana website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Indiana\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/IN.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

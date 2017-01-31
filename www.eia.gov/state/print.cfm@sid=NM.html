@@ -1,0 +1,3085 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>New Mexico Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>New Mexico State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>New Mexico Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Excluding federal offshore areas, New Mexico ranked sixth in crude oil production in the nation in 2015.</li>
+	
+	<li>New Mexico&rsquo;s marketed production of natural gas rose in the past three years to account for 4.3% of U.S. marketed natural gas production in 2015, which was nevertheless a 27% decline from its 2000 peak.&nbsp;</li>
+	
+	<li>New Mexico has 26% of the nation&#39;s coalbed methane proved reserves, second only to Colorado in the United States.</li>
+	
+	<li>In 2015, New Mexico ranked sixth in the nation in utility-scale electricity generation from solar energy.</li>
+	
+	<li>New Mexico reservations have abundant renewable energy potential, including solar, wind, geothermal, and biomass resources.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 19, 2017</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=NM.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=NM.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=NM.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=NM.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=NM.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'New Mexico Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'New Mexico Energy Consumption Estimates',
+		data : [215.3,256.1,108.7,94.0,6.6,7.2,0.0,23.5,0.0,0.9,17.2,28.7,-79.1]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'New Mexico Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 117.4],['Commercial', 125.2],['Industrial', 228.6],['Transportation', 208.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'New Mexico Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'New Mexico Energy Production Estimates',
+		data : [400.2,1355.0,717.4,0.0,3.3,38.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'New Mexico Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'New Mexico Net Electricity Generation',
+		data : [853,2047,406]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'New Mexico Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'New Mexico U.S. Price Differentials',
+		data : [{y:-13.6038186158, period: Date.UTC(2016,9,1)},{y:-8.51528384279, period: Date.UTC(2016,9,1)},{y:1.12449799197, period: Date.UTC(2016,9,1)},{y:-4.3935052531, period: Date.UTC(2016,9,1)},{y:-19.1964285714, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					2.1 million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.9 million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 92.2  billion 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 4,239  million 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 38,457 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					25,347 million miles 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					43.2 million acres 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					54.9 degrees Fahrenheit 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					19.3 inches 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.68 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.62 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 12.57 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 37.43 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.99 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.59 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					10.01 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.43 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=213">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					1,486 million barrels 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					14,364 billion cu ft 
+				</td>
+				<td>
+					4.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					740 million barrels 
+				</td>
+				<td>
+					5.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					167 million short tons 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					92 rigs 
+				</td>
+				<td>
+					4.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					40,596 wells 
+				</td>
+				<td>
+					7.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					2,515 trillion Btu 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					12,705 thousand barrels 
+				</td>
+				<td>
+					4.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,244,811 million cu ft 
+				</td>
+				<td>
+					4.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					19,679 thousand short tons 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					127,500 barrels/calendar day 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					8,594 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					3,318 thousand MWh 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					25.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					61.7 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					12.2 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					81 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					278 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					77,416 million cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					37 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>New Mexico</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">San Juan Mine 1 / San Juan Coal Company, El Segundo / Peabody New Mexico Services, Navajo Mine / BHP Billiton Mine Management</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Hollyfrontier Navajo Refining (Artesia), Western Refining Southwest (Gallup)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Four Corners (Arizona Public Service Co) ; San Juan (Public Service Co of NM) ; Duke Energy Curry (Duke Energy Curry LLC) ; Gallup Energy Center (Energy Developement Group) ; Hobbs Generating Station (CAMS NM LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=213">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>New Mexico</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Blanco Hub (Production Hub)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>New Mexico</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Centurion Pipeline, Western Refining, Plains Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Nustar, Plaines All American Pipeline, Enterprise, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Chevron, Conoco Phillips, Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">El Paso Natural Gas Company LLC, Natural Gas Pipeline Company of America, New Mexico Gas Company, Northern Natural Gas, Ortex Pipeline Company, Southern Trails Pipeline Company, TransColorado Gas Transmission Company, TransWestern Pipeline Company, West Texas Gas Inc</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					873 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					58 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					44 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					10 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					22 stations 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					679 trillion Btu 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					326 million Btu 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 9,020  million 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,325 
+				</td>
+				<td>
+					30 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					117 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					125 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					229 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					208 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,334  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,202  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,123  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 5,360  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					45.9 million barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					247.4 billion cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					12.0 million short tons 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 6,171  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 975  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 812  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					7,109 million cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,131 thousand short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=213">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					66.7 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					16.6 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					8.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					8.3 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,654 MW 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					403 thousand MWh 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					15 thousand MWh 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					574 Thousand Barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					6.9 % 
+				</td>
+				<td>
+					32 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=NM"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					2,422 thousand barrels 
+				</td>
+				<td>
+					36 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					50.0 million metric tons 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>New Mexico</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=213">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					24,850 thousand metric tons 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					11 thousand metric tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					42 thousand metric tons 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 19, 2017<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Petroleum, natural gas, and coal production make New Mexico the seventh-largest net supplier of energy to the nation.</p></div><p>New Mexico contains a wealth of fossil fuel, mineral, and renewable energy resources.<sup><a href='print.cfm@sid=NM.html#1'>1</a>,<a href='print.cfm@sid=NM.html#2'>2</a>,<a href='print.cfm@sid=NM.html#3'>3</a></sup> It is home to the forested peaks and valleys of the southern Rocky Mountains, high plateaus of the Great Plains, and spectacular desert canyons and mesas.<sup><a href='print.cfm@sid=NM.html#4'>4</a></sup> In addition to its dramatic vistas, the state has substantial oil and natural gas reserves, abundant sunshine, and nearly one-third of the nation's known uranium resources.<sup><a href='print.cfm@sid=NM.html#5'>5</a></sup> The climate varies widely by location and elevation, from the deserts in the south, where temperatures in the triple digits are common, to snowy peaks in the north, where temperatures have fallen to 50 degrees Fahrenheit below zero.<sup><a href='print.cfm@sid=NM.html#6'>6</a></sup> Although New Mexico is the fifth-largest state by area, it is the sixth-least densely populated.<sup><a href='print.cfm@sid=NM.html#7'>7</a>,<a href='print.cfm@sid=NM.html#8'>8</a></sup> More than one in four residents live in the city of Albuquerque, and two-thirds of the state has fewer than 10 people per square mile.<sup><a href='print.cfm@sid=NM.html#9'>9</a>,<a href='print.cfm@sid=NM.html#10'>10</a>,<a href='print.cfm@sid=NM.html#11'>11</a></sup></p>
+<p>New Mexico is the seventh-largest net supplier of energy to the nation, primarily because of its petroleum, natural gas, natural gas liquids, and coal production.<sup><a href='print.cfm@sid=NM.html#12'>12</a>,<a href='print.cfm@sid=NM.html#13'>13</a></sup> The state's largest employers are the health care, retail trade, hospitality, and educational service industries. Although not a large employer, the mining sector, especially the oil and gas industry, contributes significantly to the state's gross domestic product (GDP).<sup><a href='print.cfm@sid=NM.html#14'>14</a>,<a href='print.cfm@sid=NM.html#15'>15</a></sup> More than one-third of New Mexico's land is federally administered, and the state is second only to Wyoming in the number of producing oil and natural gas leases on federal land.<sup><a href='print.cfm@sid=NM.html#16'>16</a>,<a href='print.cfm@sid=NM.html#17'>17</a></sup> </p>
+<p>New Mexico's energy consumption per dollar of GDP and energy consumption per capita are both above the national average.<sup><a href='print.cfm@sid=NM.html#18'>18</a>,<a href='print.cfm@sid=NM.html#19'>19</a></sup> Among the state's end-use sectors, the industrial sector is the largest consumer of energy, followed by the transportation sector.<sup><a href='print.cfm@sid=NM.html#20'>20</a></sup> Despite the state's climate extremes, energy consumption per capita by the residential sector is among the lowest in the nation.<sup><a href='print.cfm@sid=NM.html#21'>21</a></sup> </p>
+<h2>Petroleum</h2>
+<p>The Permian Basin of West Texas and southeastern New Mexico is one of the most productive oil provinces in the nation.<sup><a href='print.cfm@sid=NM.html#22'>22</a></sup> New Mexico's Permian Basin, with about 26,000 oil wells, contains 2 of the nation's 100 largest oil fields.<sup><a href='print.cfm@sid=NM.html#23'>23</a>,<a href='print.cfm@sid=NM.html#24'>24</a></sup> Oil production in the state, which had been relatively steady for several decades, has more than doubled since 2009, and New Mexico's proved reserves have more than doubled during the same period.<sup><a href='print.cfm@sid=NM.html#25'>25</a>,<a href='print.cfm@sid=NM.html#26'>26</a></sup> New Mexico is the largest petroleum producer among the eight Rocky Mountain states and produces more than 4% of the nation's crude oil.<sup><a href='print.cfm@sid=NM.html#27'>27</a></sup> </p>
+<p>New production has come online as a result of the use of advanced drilling and oil recovery technologies in both the oil-rich Permian Basin in the southeastern part of the state and from oil-rich shales in the natural gas-rich San Juan Basin in the northwest.<sup><a href='print.cfm@sid=NM.html#28'>28</a>,<a href='print.cfm@sid=NM.html#29'>29</a></sup> Horizontal drilling technology also has opened oil production in New Mexico's potash-mining region, on the western edge of the Permian Basin. New Mexico is the nation's largest supplier of potash, a fertilizer component. The potash industry had opposed traditional drilling, saying it posed safety threats to underground mines.<sup><a href='print.cfm@sid=NM.html#30'>30</a></sup> Improved drilling techniques, including horizontal drilling, have allayed concerns.<sup><a href='print.cfm@sid=NM.html#31'>31</a></sup> Pipeline operators have explored ways to accommodate New Mexico's increased crude oil production, including pipelines that were built, expanded, or reversed to take Permian crude oil production to Gulf Coast refineries.<sup><a href='print.cfm@sid=NM.html#32'>32</a></sup> Petroleum output is filling existing pipelines, and New Mexico producers have turned to railroads to transport crude oil.<sup><a href='print.cfm@sid=NM.html#33'>33</a>,<a href='print.cfm@sid=NM.html#34'>34</a></sup> </p>
+<p>New Mexico has two operating oil refineries.<sup><a href='print.cfm@sid=NM.html#35'>35</a></sup> Local San Juan Basin crude oil, known as Four Corners Sweet, is the main feedstock for a small refinery in Gallup, New Mexico. It is the only active refinery in the Four Corners area and supplies that region with motor gasoline, diesel, propane, butane, and heavy fuel oils. Pipelines also deliver the refinery's products to other southwestern marketsÂ¬Â¬, including metropolitan Albuquerque, New Mexico, and northern Arizona.<sup><a href='print.cfm@sid=NM.html#36'>36</a></sup> The state's larger refinery in Artesia is operated in conjunction with distillation facilities in Lovington, New Mexico, 65 miles away.<sup><a href='print.cfm@sid=NM.html#37'>37</a></sup> The refinery can process both heavy sour and light sweet crude oils. Most of the crude oil processed at Artesia comes from the Permian Basin, but some is brought by pipeline from other areas, including Canada. The Artesia refinery serves markets in the southwestern United States and northern Mexico.<sup><a href='print.cfm@sid=NM.html#38'>38</a></sup> A third New Mexico refinery in Bloomfield stopped operating at the end of 2009 and was permanently closed in 2012.<sup><a href='print.cfm@sid=NM.html#39'>39</a></sup></p>
+<div class='pullquote'><p>New Mexico's one ethanol refinery uses local sorghum, not feed corn, as its primary feedstock.</p></div><p>New Mexico requires the use of oxygenated motor gasoline in winter to reduce carbon monoxide emissions in the Albuquerque metropolitan area.<sup><a href='print.cfm@sid=NM.html#40'>40</a>,<a href='print.cfm@sid=NM.html#41'>41</a></sup> Ethanol, the oxygenate blended with motor gasoline, is produced at one commercial-scale ethanol production plant in the state.<sup><a href='print.cfm@sid=NM.html#42'>42</a></sup> That facility uses regionally grown, drought-resistant sorghum as its primary feedstock instead of feed corn, which is commonly used elsewhere.<sup><a href='print.cfm@sid=NM.html#43'>43</a></sup></p>
+<p>The transportation sector dominates petroleum consumption in New Mexico. Almost three-fourths of all petroleum used in the state goes to that sector. The industrial sector is a distant second, and the residential sector and commercial sector use only small amounts of petroleum. Even less is used by the electric power sector.<sup><a href='print.cfm@sid=NM.html#44'>44</a></sup> Only about 0.1% of New Mexico households use petroleum products for home heating.<sup><a href='print.cfm@sid=NM.html#45'>45</a></sup></p>
+<h2>Natural gas</h2>
+<p>The San Juan Basin in northwestern New Mexico contains one of the largest proved natural gas reserves in the United States. <sup><a href='print.cfm@sid=NM.html#46'>46</a></sup> Although New Mexico's total proved natural gas reserves are less than they were a decade ago, the state's proved shale gas reserves have risen dramatically over the same period. <sup><a href='print.cfm@sid=NM.html#47'>47</a>,<a href='print.cfm@sid=NM.html#48'>48</a>,<a href='print.cfm@sid=NM.html#49'>49</a></sup> Shale gas reserves are a small portion of the state's total proved natural gas reserves, but several New Mexico basins have shale gas potential.<sup><a href='print.cfm@sid=NM.html#50'>50</a>,<a href='print.cfm@sid=NM.html#51'>51</a></sup> In addition, New Mexico is second only to Colorado in proved coalbed methane reserves.<sup><a href='print.cfm@sid=NM.html#52'>52</a></sup></p>
+<p>New Mexico is among the top 10 natural gas-producing states, accounting for about 4% of the nation's total.<sup><a href='print.cfm@sid=NM.html#53'>53</a></sup> In 2015, the largest share of New Mexico's natural gas production came from natural gas wells.<sup><a href='print.cfm@sid=NM.html#54'>54</a>,<a href='print.cfm@sid=NM.html#55'>55</a></sup> Natural gas from oil wells, shale gas wells, and coalbed methane wells also contributed to the state's total natural gas production.<sup><a href='print.cfm@sid=NM.html#56'>56</a>,<a href='print.cfm@sid=NM.html#57'>57</a>,<a href='print.cfm@sid=NM.html#58'>58</a></sup> New Mexico's output from coalbed methane wells increased sharply from 2000 to 2007 but then declined.<sup><a href='print.cfm@sid=NM.html#59'>59</a></sup> Although shale gas production has increased during the past decade, the state's total natural gas production has decreased.<sup><a href='print.cfm@sid=NM.html#60'>60</a>,<a href='print.cfm@sid=NM.html#61'>61</a></sup></p>
+<p>New Mexico produces more natural gas than it uses and sends natural gas through interstate pipelines primarily to Arizona and to markets on the West Coast.<sup><a href='print.cfm@sid=NM.html#62'>62</a></sup> The Blanco Hub, located in the San Juan Basin, is a major connection and trading point for interstate pipelines carrying Rocky Mountain natural gas.<sup><a href='print.cfm@sid=NM.html#63'>63</a></sup> New Mexico has only two underground storage fields with a combined storage capacity of 89 billion cubic feet of natural gas, about 1% of the nation's total.<sup><a href='print.cfm@sid=NM.html#64'>64</a>,<a href='print.cfm@sid=NM.html#65'>65</a></sup> </p>
+<p>About one-fifth of the natural gas produced in New Mexico is consumed in the state. The electric power sector is the largest natural gas consumer in New Mexico, followed by the residential sector.<sup><a href='print.cfm@sid=NM.html#66'>66</a>,<a href='print.cfm@sid=NM.html#67'>67</a></sup> Two-thirds of the state's households use natural gas as their primary energy source for home heating.<sup><a href='print.cfm@sid=NM.html#68'>68</a></sup> New Mexico is among the top 10 states in the nation in per capita natural gas consumption.<sup><a href='print.cfm@sid=NM.html#69'>69</a>,<a href='print.cfm@sid=NM.html#70'>70</a></sup></p>
+<h2>Coal</h2>
+<p>Coal has been mined in New Mexico since the 1850s. Although the state's coal production has trended downward in the past decade, the state continues to produce millions of tons of coal per year.<sup><a href='print.cfm@sid=NM.html#71'>71</a>,<a href='print.cfm@sid=NM.html#72'>72</a>,<a href='print.cfm@sid=NM.html#73'>73</a></sup> New Mexico has coal deposits around the state, but the San Juan Basin in the state's northwest is the largest coal-bearing region and the only area currently being mined.<sup><a href='print.cfm@sid=NM.html#74'>74</a></sup> There are three active coal mines in the Basin, one underground and two surface operations.<sup><a href='print.cfm@sid=NM.html#75'>75</a></sup> Two of those mines are dedicated suppliers to neighboring coal-fired power plants.<sup><a href='print.cfm@sid=NM.html#76'>76</a></sup> Almost all the coal mined in New Mexico is either burned in the state or shipped by rail to Arizona for power generation.<sup><a href='print.cfm@sid=NM.html#77'>77</a></sup> New Mexico has about 1% of the nation's estimated recoverable coal reserves at producing mines.<sup><a href='print.cfm@sid=NM.html#78'>78</a></sup> Most of the state's known reserves are located in the San Juan and Raton Basins in northern New Mexico.<sup><a href='print.cfm@sid=NM.html#79'>79</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>New Mexico has the second-largest known uranium reserves in the nation.</p></div><p>Coal-fired power plants supply more than three-fifths of New Mexico's net electricity generation. Natural gas supplies most of the remaining generation, with renewable resources, primarily wind, providing almost all the rest.<sup><a href='print.cfm@sid=NM.html#80'>80</a></sup> Although the state has no nuclear power plants, it has the second-largest known uranium reserves in the nation.<sup><a href='print.cfm@sid=NM.html#81'>81</a>,<a href='print.cfm@sid=NM.html#82'>82</a></sup> Coal-fired generation in New Mexico is declining as federal air quality regulations have tightened and as California has decided to stop purchasing electricity generated from coal.<sup><a href='print.cfm@sid=NM.html#83'>83</a></sup> Shutdown of two of the four coal-fired generating units at New Mexico's largest power plant is scheduled to occur by the end of 2017, and three of the five coal-fired electricity generating units at the state's second-largest coal-fired power plant were retired in 2013.<sup><a href='print.cfm@sid=NM.html#84'>84</a>,<a href='print.cfm@sid=NM.html#85'>85</a>,<a href='print.cfm@sid=NM.html#86'>86</a></sup></p>
+<div class='pullquote'><p>Plans are under way to connect all three U.S. grids in New Mexico.</p></div><p>All of New Mexico's planned new electricity generating capacity will use renewable energy or natural gas.<sup><a href='print.cfm@sid=NM.html#87'>87</a></sup> The state has recognized an economic interest in selling more electricity to other states, particularly electricity generated from renewable resources.<sup><a href='print.cfm@sid=NM.html#88'>88</a></sup> New transmission projects are under way that take advantage of the state's location at the edge of the three U.S. electrical gridsâ€”the Eastern, Western, and Texas Intertiesâ€”and of the Four Corners power trading hub, located at the Four Corners coal complex in northwestern New Mexico.<sup><a href='print.cfm@sid=NM.html#89'>89</a>,<a href='print.cfm@sid=NM.html#90'>90</a></sup> </p>
+<p>New Mexico uses less electricity per capita than about two-thirds of the states and less than it produces, meaning that the state is a net supplier of electricity to neighboring states.<sup><a href='print.cfm@sid=NM.html#91'>91</a>,<a href='print.cfm@sid=NM.html#92'>92</a>,<a href='print.cfm@sid=NM.html#93'>93</a></sup> New Mexico's residential, commercial, and industrial end-use sectors use roughly equal amounts of electricity, with the commercial sector consuming a slightly larger share than either the residential sector or the industrial sector.<sup><a href='print.cfm@sid=NM.html#94'>94</a></sup> About one in six New Mexico households use electricity as the primary source for home heating. <sup><a href='print.cfm@sid=NM.html#95'>95</a></sup></p>
+<h2>Renewable energy </h2>
+<p>New Mexico possesses substantial renewable resources.<sup><a href='print.cfm@sid=NM.html#96'>96</a>,<a href='print.cfm@sid=NM.html#97'>97</a></sup> The greatest wind potential is on the high plains in the eastern half of the state.<sup><a href='print.cfm@sid=NM.html#98'>98</a></sup> In 2015, wind energy contributed 6% of New Mexico's electricity generation from more than 700 operating wind turbines. The state has more than 1,100 megawatts of installed electricity generating capacity from wind.<sup><a href='print.cfm@sid=NM.html#99'>99</a>,<a href='print.cfm@sid=NM.html#100'>100</a></sup> </p>
+<div class='pullquote'><p>In 2015, wind energy contributed 6% of New Mexico's electricity generation from more than 700 operating wind turbines.</p></div><p>New Mexico's climate is typified by abundant sunshine, giving the state some of the nation's best solar energy potential.<sup><a href='print.cfm@sid=NM.html#101'>101</a>,<a href='print.cfm@sid=NM.html#102'>102</a></sup> The number of utility-scale solar photovoltaic (PV) facilities in New Mexico is increasing, and so is the use of distributed (customer-sited, small-scale) solar generation, including larger corporate PV installations.<sup><a href='print.cfm@sid=NM.html#103'>103</a></sup> State regulatory policies and incentives encourage the use of distributed solar technologies.<sup><a href='print.cfm@sid=NM.html#104'>104</a>,<a href='print.cfm@sid=NM.html#105'>105</a></sup> In 2015, New Mexico ranked 13th in the nation in installed solar capacity with 406 megawatts.<sup><a href='print.cfm@sid=NM.html#106'>106</a></sup> On a per-capita basis, New Mexico was among the top 10 states nationally in solar electric capacity in 2015.<sup><a href='print.cfm@sid=NM.html#107'>107</a></sup> </p>
+<p>New Mexico has the sixth-largest geothermal resource in the nation. Most of those resources are located in the southwestern and north-central parts of the state.<sup><a href='print.cfm@sid=NM.html#108'>108</a></sup> Geothermal energy has been used for greenhouse agriculture in New Mexico, much of it for the state's famed green chilies, as well as for aquaculture. Geothermal energy has also been used for space heating, district heating, and heating soaking tubs and swimming pools at several spas in the state. In December 2013, New Mexico's first utility-scale geothermal power plant came online, making New Mexico one of seven states with utility-scale geothermal generation.<sup><a href='print.cfm@sid=NM.html#109'>109</a>,<a href='print.cfm@sid=NM.html#110'>110</a>,<a href='print.cfm@sid=NM.html#111'>111</a></sup> The power plant, located in the Animas Valley in southwestern New Mexico, had an initial electricity generating capacity of up to 4 megawatts. A planned expansion of the facility is in development and will provide another 6 megawatts of geothermal generating capacity.<sup><a href='print.cfm@sid=NM.html#112'>112</a></sup> New Mexico also has small amounts of utility-scale electricity generation from hydropower and biomass.<sup><a href='print.cfm@sid=NM.html#113'>113</a></sup></p>
+<p>With a relatively small state population and low electricity demand, New Mexico's solar, wind, and geothermal projects need more transmission capacity to take the electricity that renewable projects generate to power markets in the Southwest.<sup><a href='print.cfm@sid=NM.html#114'>114</a>,<a href='print.cfm@sid=NM.html#115'>115</a></sup> Transmission projects are under development that are designed to allow delivery of renewably generated electricity within New Mexico and to other western states.<sup><a href='print.cfm@sid=NM.html#116'>116</a>,<a href='print.cfm@sid=NM.html#117'>117</a>,<a href='print.cfm@sid=NM.html#118'>118</a>,<a href='print.cfm@sid=NM.html#119'>119</a>,<a href='print.cfm@sid=NM.html#120'>120</a></sup> All of these projects will enable the development of renewable energy resources in New Mexico by providing them with access to the nation's interstate power grids.<sup><a href='print.cfm@sid=NM.html#121'>121</a></sup></p>
+<p>The New Mexico renewable portfolio standard requires investor-owned electric utilities to acquire 20% of electricity sold in-state from renewable energy sources by 2020. Of that 20%, at least half must come from solar and wind energy, and the balance must include shares from several other renewable sources, including distributed generation. Rural electric cooperatives are required to obtain 10% of their sales from renewable sources by 2020.<sup><a href='print.cfm@sid=NM.html#122'>122</a></sup> New Mexico has regulatory policies that include net metering, solar easements, and interconnection standards, as well as a number of financial incentives that encourage renewable generation.<sup><a href='print.cfm@sid=NM.html#123'>123</a></sup></p>
+<p>Energy on tribal lands</p>
+<div class='pullquote'><p>Two of New Mexico's largest reservations are in the oil- and gas-rich Four Corners region of northwestern New Mexico.</p></div><p>Tribal lands cover more than one-tenth of New Mexico, giving the state the third largest amount of tribal acreageâ€”after Arizona and Alaskaâ€”among all states.<sup><a href='print.cfm@sid=NM.html#124'>124</a></sup> Two of New Mexico's largest reservationsâ€”the Navajo Reservation and the Jicarilla Apache Reservationâ€”are in the oil- and gas-rich Four Corners region of northwestern New Mexico.<sup><a href='print.cfm@sid=NM.html#125'>125</a></sup> The Jicarilla Apache Reservation, on the east flank of the San Juan Basin, a prolific hydrocarbon-producing area within the Four Corners region, is the largest mineral rights owner in the basin after the federal government. The reservation has within its boundaries several oil and gas fields.<sup><a href='print.cfm@sid=NM.html#126'>126</a></sup> The Navajo Nation, whose reservation is in three states, owns and operates oil and gas interests on its reservation lands in the San Juan Basin in New Mexico and operates a pipeline between New Mexico and Utah.<sup><a href='print.cfm@sid=NM.html#127'>127</a></sup> In 2013, the Navajo Nation also purchased the Navajo Mine, a coal mine located on reservation land in New Mexico. The mine is the source of all the coal used by the Four Corners Generating Station, one of the largest power plants in New Mexico, which is also on the reservation. Some of the proceeds from the Navajo Nation's coal mine are to be used to develop renewable and alternative energy projects both on and off the Navajo Nation reservation.<sup><a href='print.cfm@sid=NM.html#128'>128</a>,<a href='print.cfm@sid=NM.html#129'>129</a></sup></p>
+<p>New Mexico reservations have abundant renewable energy potential, including solar, wind, geothermal, and biomass resources.<sup><a href='print.cfm@sid=NM.html#130'>130</a></sup> All 23 federally recognized tribes in the state have potential geothermal resources on their lands.<sup><a href='print.cfm@sid=NM.html#131'>131</a></sup> Although New Mexico's greatest wind energy resources are in the east, outside of tribal lands, several ridges on the state's reservations also have some wind energy potential.<sup><a href='print.cfm@sid=NM.html#132'>132</a>,<a href='print.cfm@sid=NM.html#133'>133</a></sup> New Mexico's solar resources are among the best in the nation.<sup><a href='print.cfm@sid=NM.html#134'>134</a></sup> Several tribes have been exploring distributed generation using solar PV panels. In 2015, the Santo Domingo Tribe received a grant to install a 115-kilowatt PV system to power the Tribe's community water pump and water treatment facility.<sup><a href='print.cfm@sid=NM.html#135'>135</a></sup> New Mexico tribes also have biomass resources; New Mexico is among the top 10 states with the largest concentrations of tribal forests.<sup><a href='print.cfm@sid=NM.html#136'>136</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration (EIA), New Mexico Profile Data, Reserves and Supply, accessed November 29, 2016. <br>
+<a name='2'></a><sup>2</sup> NETSTATE, New Mexico Economy (February 25, 2016).<br>
+<a name='3'></a><sup>3</sup> New Mexico Energy, Minerals and Natural Resources Department, Renewable Energy Overview, accessed November 29, 2016.<br>
+<a name='4'></a><sup>4</sup> NETSTATE, The Geography of New Mexico (February 25, 2016).<br>
+<a name='5'></a><sup>5</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Energy Policy and Implementation Plan, Energy Background, accessed November 29, 2016. <br>
+<a name='6'></a><sup>6</sup> Western Regional Climate Center, Climate of New Mexico, accessed November 29, 2016. <br>
+<a name='7'></a><sup>7</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates, accessed November 29, 2016.<br>
+<a name='8'></a><sup>8</sup> U.S. Census Bureau, Resident Population Data (Text Version), Population Density, 2010 Census. <br>
+<a name='9'></a><sup>9</sup> U.S. Census Bureau, State and County Quick Facts, New Mexico and Albuquerque (city), New Mexico, accessed November 29, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Census Bureau, 2010 Census: New Mexico Profile. <br>
+<a name='11'></a><sup>11</sup> U.S. Census Bureau, American FactFinder, Table GCT-PH1, Population, Housing Units, Area, and Density: 2010, United States, County by State; and for Puerto Rico, 2010 Census Summary File 1. <br>
+<a name='12'></a><sup>12</sup> U.S. EIA, State Energy Production Estimates 1960 Through 2014, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='13'></a><sup>13</sup> U.S. EIA, New Mexico Profile Data, Reserves and Supply, accessed November 29, 2016.<br>
+<a name='14'></a><sup>14</sup> New Mexico Economic Development Department, Employment and Wages, accessed November 30, 2016. <br>
+<a name='15'></a><sup>15</sup> U.S. Bureau of Economic Analysis, Interactive Data, Regional Data, GDP and Personal Income, Annual Gross Domestic Product by State, Current Dollars, All Industries, New Mexico, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. Department of the Interior, Bureau of Land Management, Public Land Statistics, 2015 (May 2016), Table 1-3, Mineral and Surface Acres Administered by the Bureau of Land Management, Fiscal Year 2015, p. 7. <br>
+<a name='17'></a><sup>17</sup> U.S. Department of the Interior, Bureau of Land Management, Oil and Gas Statistics, Table 6, Number of Producing Leases on Federal Lands (October 29, 2015).<br>
+<a name='18'></a><sup>18</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by<br>
+State, 2014.<br>
+<a name='19'></a><sup>19</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014. <br>
+<a name='21'></a><sup>21</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='22'></a><sup>22</sup> Independent Petroleum Association of New Mexico, Energy New Mexico 2014 (2014), p. 5.<br>
+<a name='23'></a><sup>23</sup> Independent Petroleum Association of New Mexico, Energy New Mexico 2014 (2014), p. 6.<br>
+<a name='24'></a><sup>24</sup> U.S. EIA, Top 100 U.S. Oil and Gas Fields (March 2015), Table 1, Top 100 U.S. oil fields as of December 31, 2013, p. 6. <br>
+<a name='25'></a><sup>25</sup> U.S. EIA, New Mexico Field Production of Crude Oil, Annual, accessed November 30, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, New Mexico Crude Oil Proved Reserves, accessed November 30, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. EIA, Crude Oil Production, Annual, 2015, accessed November 30, 2016. <br>
+<a name='28'></a><sup>28</sup> NGI's Shale Daily, Information on the Permian Basin, accessed November 30, 2016.<br>
+<a name='29'></a><sup>29</sup> NGI's Shale Daily, Information on the San Juan Basin, accessed November 30, 2016.<br>
+<a name='30'></a><sup>30</sup> U.S. Department of the Interior, Bureau of Land Management, New Mexico, Potash, accessed November 30, 2016.<br>
+<a name='31'></a><sup>31</sup> Boyd, Dan, "Updated: Oil Drilling Surges in N.M.'s Potash Areas," AlbuquerqueJournal Online (July 24, 2011).<br>
+<a name='32'></a><sup>32</sup> U.S. EIA, "Rail helps make Midwest a net shipper of crude oil," Today in Energy (August 10, 2015).<br>
+<a name='33'></a><sup>33</sup> Rangeland Energy, The RIO System, accessed November 30, 2016.<br>
+<a name='34'></a><sup>34</sup> Grubs, M., "State Says Volatile Crude Oil Shipments Bypass New Mexico," KRQE News 13 (July 30, 2015).<br>
+<a name='35'></a><sup>35</sup> U.S. EIA, Refinery Capacity Report (June 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 14. <br>
+<a name='36'></a><sup>36</sup> Western Refining, Gallup Refinery, accessed November 30, 2016.<br>
+<a name='37'></a><sup>37</sup> Holly Energy Partners, Operations, Pipelines, accessed November 30, 2016.<br>
+<a name='38'></a><sup>38</sup> HollyFrontier, Navajo Refinery, accessed November 30, 2016.<br>
+<a name='39'></a><sup>39</sup> U.S. EIA, Refinery Capacity Report (June 2016), Table 13, Refineries Permanently Shutdown by PAD District Between January 1, 1990 and January 1, 2016.<br>
+<a name='40'></a><sup>40</sup> U.S. Environmental Protection Agency, State Winter Oxygenated Fuel Program Requirements for Attainment or Maintenance of CO NAAQS, EPA420-B-08-006 (January 2008), p. 3.<br>
+<a name='41'></a><sup>41</sup> American Petroleum Institute, U.S. Gasoline Requirements (June 2015).<br>
+<a name='42'></a><sup>42</sup> New Mexico Energy, Minerals and Natural Resources Department, Ethanol, accessed November 30, 2016.<br>
+<a name='43'></a><sup>43</sup> Abengoa Bioenergy, "Abengoa Bioenergy announces restart of New Mexico ethanol production plant," Press Release (January 13, 2011).<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014. <br>
+<a name='45'></a><sup>45</sup> U.S. Census Bureau, American FactFinder, New Mexico, Table B25040, Home Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='46'></a><sup>46</sup> U.S. EIA, Top 100 U.S. Oil and Gas Fields (March 2015), Table 2, Top 100 U.S. gas fields as of December 31, 2013.<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, New Mexico Dry Natural Gas Expected Future Production, accessed December 1, 2016.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, New Mexico Natural Gas, Wet after Lease Separation Proved Reserves, accessed December 1, 2016.<br>
+<a name='49'></a><sup>49</sup> U.S. EIA, New Mexico Shale Proved Reserves, accessed December 1, 2016.<br>
+<a name='50'></a><sup>50</sup> Broadhead, Ron, and L. Greer Price, "New Mexico's Natural Gas Resources, Economic Benefits and the Future of Oil and Gas in New Mexico " New Mexico Earth Matters (Winter 2012), p. 3.<br>
+<a name='51'></a><sup>51</sup> Broadhead, Ron, "Economic Benefits and the Future of Oil and Gas in New Mexico," Lite Geology (Spring 2014), p. 6.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Coalbed Methane, Proved Reserves as of December 31, 2014, Annual, accessed December 1, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual, 2015, accessed December 1, 2016.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Gas Wells, Annual, accessed January 10, 2017.<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, New Mexico Natural Gas Gross Withdrawals, Annual, accessed December 1, 2016.<br>
+<a name='56'></a><sup>56</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Shale Gas Wells, Annual, accessed December 1, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Oil Wells, Annual, accessed January 10, 2017.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Coalbed Methane Wells, Annual, accessed January 10, 2017.<br>
+<a name='59'></a><sup>59</sup> U.S. EIA, New Mexico Natural Gas Gross Withdrawals from Coalbed Wells, accessed December 1, 2016.<br>
+<a name='60'></a><sup>60</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Shale Gas Wells, Annual, accessed December 1, 2016.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, New Mexico Natural Gas Gross Withdrawals, Annual, accessed December 1, 2016.<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, New Mexico, accessed December 1, 2016.<br>
+<a name='63'></a><sup>63</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Energy Policy and Implementation Plan, Energy Background, Energy Infrastructure, Pipelines, Refineries, Hubs, and Nuclear Infrastructure, accessed December 1, 2016. <br>
+<a name='64'></a><sup>64</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Number of Existing Fields, accessed December 1, 2016.<br>
+<a name='65'></a><sup>65</sup> U.S. EIA, Underground Natural Gas Storage Capacity, Total Storage Capacity, accessed December 1, 2016.<br>
+<a name='66'></a><sup>66</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, New Mexico, accessed December 1, 2016.<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Natural Gas Consumption by End Use, New Mexico, accessed December 1, 2016.<br>
+<a name='68'></a><sup>68</sup> U.S. Census Bureau, American FactFinder, New Mexico, Table B25040, Home Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates. <br>
+<a name='69'></a><sup>69</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption by Source, Ranked by State, 2014.<br>
+<a name='70'></a><sup>70</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='71'></a><sup>71</sup> New Mexico Bureau of Geology and Mineral Resources, Importance of Coal Production in New Mexico, accessed December 2, 2016.<br>
+<a name='72'></a><sup>72</sup> New Mexico Energy, Minerals and Natural Resources Department, Seizing our Energy Potential: Creating a More Diverse Economy in New Mexico, New Mexico Energy Policy & Implementation Plan (2015), p. 10.<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2015.<br>
+<a name='74'></a><sup>74</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Mines and Minerals Division, Active Mines in New Mexico, November 2014.<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2015.<br>
+<a name='76'></a><sup>76</sup> APS, Generation, Coal-fueled power plants, accessed December 2, 2016. <br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 2016), New Mexico Table OS-17, Domestic Coal Distribution, by Origin State, 2015.<br>
+<a name='78'></a><sup>78</sup> U.S. EIA, Annual Coal Report 2015 (November 2016), Table 14, Recoverable Coal Reserves and Average Recovery Percentage at Producing Mines by State, 2015 and 2014.<br>
+<a name='79'></a><sup>79</sup> New Mexico Bureau of Geology and Mineral Resources, Importance of Coal Production in New Mexico, accessed December 5, 2016.<br>
+<a name='80'></a><sup>80</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.11.B, 1.14.B.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, State Nuclear Profiles, accessed December 5, 2016.<br>
+<a name='82'></a><sup>82</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Energy Policy and Implementation Plan, Energy Background, New Mexico's Energy, accessed December 5, 2016. <br>
+<a name='83'></a><sup>83</sup> New Mexico Energy, Minerals and Natural Resources Department, Seizing our Energy Potential: Creating a More Diverse Economy in New Mexico, New Mexico Energy Policy & Implementation Plan (2015), p. 21.<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, New Mexico Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014, New Mexico.<br>
+<a name='85'></a><sup>85</sup> New Mexico Energy, Minerals and Natural Resources Department, Seizing our Energy Potential: Creating a More Diverse Economy in New Mexico, New Mexico Energy Policy & Implementation Plan (2015), p. 11, Box 1.<br>
+<a name='86'></a><sup>86</sup> Randazzo, Ryan, "APS Closes 3 Units at 4 Corners Power Plant," azcentral.com (December 30, 2013). <br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Preliminary Monthly Electric Generator Inventory, Inventory of Planned Generators as of September 2016. <br>
+<a name='88'></a><sup>88</sup> New Mexico Energy, Minerals and Natural Resources Department, Seizing our Energy Potential: Creating a More Diverse Economy in New Mexico, New Mexico Energy Policy & Implementation Plan (2015), p. 28.<br>
+<a name='89'></a><sup>89</sup> Tres Amigas LLC, Location, accessed December 6, 2016.<br>
+<a name='90'></a><sup>90</sup> Energy and Infrastructure, Lucky Corridor, LLC, accessed December 6, 2016.<br>
+<a name='91'></a><sup>91</sup> U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='92'></a><sup>92</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='93'></a><sup>93</sup> U.S. EIA, New Mexico Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990 through 2014, New Mexico. <br>
+<a name='94'></a><sup>94</sup> U.S. EIA, State Energy Data System, Table F21, Electricity Consumption Estimates 2014.<br>
+<a name='95'></a><sup>95</sup> U.S. Census Bureau, American FactFinder, New Mexico, Table B25040, Home Heating Fuel, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='96'></a><sup>96</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Energy Policy and Implementation Plan, Energy Background, New Mexico's Energy, accessed December 6, 2016. <br>
+<a name='97'></a><sup>97</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B.<br>
+<a name='98'></a><sup>98</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, New Mexico Wind Resource Map and Potential Wind Capacity, New Mexico Annual Average Wind Speed at 80 m (September 24, 2010).<br>
+<a name='99'></a><sup>99</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B.<br>
+<a name='100'></a><sup>100</sup> American Wind Energy Association, New Mexico Wind Energy, accessed December 6, 2016.<br>
+<a name='101'></a><sup>101</sup> Western Regional Climate Center, Climate of New Mexico, Sunshine, accessed December 6, 2016.<br>
+<a name='102'></a><sup>102</sup> U.S. Department of Energy, Solar Energy Potential, accessed December 6, 2016.<br>
+<a name='103'></a><sup>103</sup> Solar Energy Industries Association, New Mexico Solar, accessed December 7, 2016. <br>
+<a name='104'></a><sup>104</sup> Clean Energy Authority, New Mexico Solar Rebates and Incentives, accessed December 7, 2016.<br>
+<a name='105'></a><sup>105</sup> NC Clean Energy Technology Center, DSIRE, Programs, New Mexico, Solar, accessed December 7, 2016.<br>
+<a name='106'></a><sup>106</sup> Solar Energy Industries Association, New Mexico Solar, accessed December 7, 2016. <br>
+<a name='107'></a><sup>107</sup> Weissman, Gideon, Lighting the Way 4 The Top States that Helped Drive America's Solar Energy Boom in 2015, Environment America Research and Policy Center (July 2016), p. 11. <br>
+<a name='108'></a><sup>108</sup> New Mexico Energy, Minerals and Natural Resources Department, New Mexico Energy Policy and Implementation Plan, Energy Background, New Mexico's Energy, accessed December 7, 2016. <br>
+<a name='109'></a><sup>109</sup> Witcher, James C., "Geothermal Energy in New Mexico," GHC Bulletin (December 2002), p. 2. <br>
+<a name='110'></a><sup>110</sup> U.S. Department of Energy, New Mexico Geothermal Resources, INEEL/MISC-2002-395 Rev. 1 (November 2003). <br>
+<a name='111'></a><sup>111</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='112'></a><sup>112</sup> Cyrq Energy, Lightning Dock Geothermal HI-01, accessed December 7, 2016.<br>
+<a name='113'></a><sup>113</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.15.B.<br>
+<a name='114'></a><sup>114</sup>Â¬Â¬Â¬Â¬Â¬Â¬Â¬ U.S. EIA, State Energy Consumption Estimates 1960 Through 2014, DOE/EIA-0214(2014) (June 2016), Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='115'></a><sup>115</sup> Toole, G., M. Ewers, et al., New Mexico Renewable Development Study, Los Alamos National Laboratory LA-UR-10-6319 (October 18, 2010), p. 1. <br>
+<a name='116'></a><sup>116</sup> Lucky Corridor, New Mexico Transmission Projects, accessed December 7, 2016. <br>
+<a name='117'></a><sup>117</sup> Clean Line Energy Partners, Western Spirit Clean Line, Location, accessed December 7, 2016. <br>
+<a name='118'></a><sup>118</sup> Clean Line Energy Partners, Centennial West Clean Line, Project Description, accessed December 7, 2016. <br>
+<a name='119'></a><sup>119</sup> SunZia, Welcome to the SunZia Southwest Transmission Project, accessed December 7, 2016.<br>
+<a name='120'></a><sup>120</sup> Southline Transmission Project, Project Location, accessed December 7, 2016. <br>
+<a name='121'></a><sup>121</sup> New Mexico Finance Authority, Oversight Committee, New Mexico Renewable Transmission Authority (November 20, 2014), p. 5-13.<br>
+<a name='122'></a><sup>122</sup> NC Clean Energy Technology Center, DSIRE, Renewable Portfolio Standard, New Mexico, updated November 2, 2016.<br>
+<a name='123'></a><sup>123</sup> NC Clean Energy Technology Center, DSIRE, Programs, New Mexico, accessed December 7, 2016.<br>
+<a name='124'></a><sup>124</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, Appendix D: Indian Nations, The American Indian Digest (April 1997), p. D-3.<br>
+<a name='125'></a><sup>125</sup> Earth Data Analysis Center, University of New Mexico, Native Nation Lands, New Mexico (June 1, 2011). <br>
+<a name='126'></a><sup>126</sup> U.S. Department of the Interior, Bureau of Indian Affairs, Atlas of Oil and Gas Plays on American Indian Lands, Jicarilla Apache Indian Reservation, New Mexico, Reservation Overview, Introduction, p. 1, accessed December 8, 2016. <br>
+<a name='127'></a><sup>127</sup> Navajo Nation Oil and Gas Company, About NNOGC, accessed December 8, 2016. <br>
+<a name='128'></a><sup>128</sup> Navajo Transitional Energy Company, accessed December 8, 2016.<br>
+<a name='129'></a><sup>129</sup> U.S. EIA, New Mexico Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='130'></a><sup>130</sup> New Mexico Tribal Economic Development Task Force, 2009 Report and Recommendations (December 18, 2009), p. 20.<br>
+<a name='131'></a><sup>131</sup> U.S. Department of the Interior, Bureau of Land Management and U.S. Department of Agriculture, U.S. Forest Service, Geothermal Energy Resources and Policies of the Western States (July 2009), p. 31, 33. <br>
+<a name='132'></a><sup>132</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, New Mexico Wind Resource Map and Potential Wind Capacity, accessed December 8, 2016.<br>
+<a name='133'></a><sup>133</sup> Earth Data Analysis Center, University of New Mexico, Native Nation Lands, New Mexico (June 1, 2011). <br>
+<a name='134'></a><sup>134</sup> National Renewable Energy Laboratory, Dynamic Maps, GIS Data, and Analysis Tools, Solar Maps, accessed December 8, 2016.<br>
+<a name='135'></a><sup>135</sup> U.S. Department of Energy, "Energy Department Selects 11 Tribal Communities to Deploy Energy Efficiency and Renewable Energy Technologies," Press Release (March 18, 2015).<br>
+<a name='136'></a><sup>136</sup> Chaney, Rob, "CSKT Foresters Earn Accolades as Tribal Timber Operations Face Budget Shortfalls," Missoulian (June 29, 2013). <br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 3</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Southwest Power Pool, Inc (SPP), Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.nmprc.state.nm.us/" title="New Mexico Public Regulation Commission">New Mexico Public Regulation Commission</a></li>
+  
+    <li><a href="http://nmstatelands.org/" title="New Mexico State Lands Office">New Mexico State Lands Office</a></li>
+  
+    <li><a href="http://www.emnrd.state.nm.us/ecmd/index.html" title="New Mexico Energy, Minerals and Natural Resources Department, Energy Conservation and Management Division">New Mexico Energy, Minerals and Natural Resources Department, Energy Conservation and Management Division</a></li>
+  
+    <li><a href="http://nmreta.com/" title="New Mexico Renewable Energy Transmission Authority">New Mexico Renewable Energy Transmission Authority</a></li>
+  
+    <li><a href="http://www.housingnm.org/renters/energysmart" title="NM Energy Smart">NM Energy Smart</a></li>
+  
+    <li><a href="https://www.wrpinfo.org/AboutUs.aspx" title="Western Regional Partnership (WRP)">Western Regional Partnership (WRP)</a></li>
+  
+    <li><a href="http://www.emnrd.state.nm.us/ocd/" title="New Mexico Energy, Minerals and Natural Resources Department, Oil Conservation Division">New Mexico Energy, Minerals and Natural Resources Department, Oil Conservation Division</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.env.nm.gov/" title="New Mexico Environment Department">New Mexico Environment Department</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.emnrd.state.nm.us/MMD/CMRP/cmrpmain.html" title="New Mexico Energy, Minerals and Natural Resources Department, Mining and Minerals Division, Coal Mine Reclamation Program ">New Mexico Energy, Minerals and Natural Resources Department, Mining and Minerals Division, Coal Mine Reclamation Program </a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional New Mexico website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for New Mexico\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/NM.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

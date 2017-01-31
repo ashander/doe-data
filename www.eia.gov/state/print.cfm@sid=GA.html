@@ -1,0 +1,3024 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Georgia Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Georgia State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Georgia Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>The Elba Island, Georgia, liquefied natural gas (LNG) receiving terminal can regasify up to 1.8 billion cubic feet of natural gas per day and has storage capacity for 11.5 billion cubic feet of LNG. The Federal Energy Regulatory Commission has approved additional facilities to export up to 350 million cubic feet per day of natural gas as LNG.</li>
+	
+	<li>In February 2012, the U.S. Nuclear Regulatory Commission approved the construction of two new nuclear reactors at the Vogtle nuclear power plant in Burke County, Georgia. The two reactors have startup dates in 2019 and 2020.</li>
+	
+	<li>Georgia&rsquo;s four existing nuclear reactor units accounted for 26% of the state&rsquo;s net electricity generation in 2015, coal accounted for 29%, natural gas accounted for 39%, and renewable energy, including hydroelectric power, contributed 6%.</li>
+	
+	<li>Georgia is heavily forested and has been a leading state in the production of wood products, which contribute feedstock for biomass electricity generation. &nbsp;In 2015, Georgia ranked third in the nation in net electricity generation from biomass.</li>
+	
+	<li>In 2015, Georgia ranked 8th in the nation both in net electricity generation and in retail sales of electricity. &nbsp;</li>
+	
+	<li>Georgia is one of the few states where at least 30% of household energy consumption is used for space heating and at least 10% of the energy consumed in homes is used for air conditioning (compared to the national average of 41% for heating and 6% for air conditioning), according to EIA&#39;s Residential Energy Consumption Survey. </li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: August 18, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=GA.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=GA.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=GA.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=GA.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=GA.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Georgia Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Georgia Energy Consumption Estimates',
+		data : [482.7,666.1,523.0,227.6,21.7,19.1,13.3,28.9,340.7,29.1,252.8,2.6,240.5]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Georgia Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 742.8],['Commercial', 548.8],['Industrial', 769.5],['Transportation', 787.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Georgia Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Georgia Energy Production Estimates',
+		data : [0.0,0.0,0.0,340.7,14.3,243.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Georgia Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Georgia Net Electricity Generation',
+		data : [7,3673,2882,3068,190,476]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Georgia Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Georgia U.S. Price Differentials',
+		data : [{y:3.5799522673, period: Date.UTC(2016,9,1)},{y:84.133915575, period: Date.UTC(2016,9,1)},{y:-11.0843373494, period: Date.UTC(2016,9,1)},{y:-8.30945558739, period: Date.UTC(2016,9,1)},{y:-16.9642857143, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					10.2 million 
+				</td>
+				<td>
+					3.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					5.0 million 
+				</td>
+				<td>
+					3.1%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 495.7  billion 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 54,818  million 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 40,551 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					111,535 million miles 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					9.6 million acres 
+				</td>
+				<td>
+					29 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					65.3 degrees Fahrenheit 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					55.7 inches 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.34 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 25.30 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 2.69 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.07 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.60 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.58 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=191">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					598 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					0 barrels/calendar day 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					36,506 MW 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					10,170 thousand MWh 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					36.1 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					28.3 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					30.2 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					6.6 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					261 thousand barrels 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,370 thousand barrels 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					812 thousand barrels 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,370 thousand tons 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Georgia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Scherer (Georgia Power Co) ; Bowen (Georgia Power Co) ; Jack McDonough (Georgia Power Co) ; Wansley (Georgia Power Co) ; Harllee Branch (Georgia Power Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Edwin I Hatch (Georgia Power Co), Vogtle (Georgia Power Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=191">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Georgia</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Savannah.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Georgia</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Colonial Pipeline, Kinder Morgan</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">East Tennessee Natural Gas LLC, Elba Express, Southern Natural Gas Company, Transcontinental Gas Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					4,991 stations 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					88 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					518 stations 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					58 stations 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					69 stations 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					2,851 trillion Btu 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					282 million Btu 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 39,728  million 
+				</td>
+				<td>
+					10 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,935 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					743 trillion Btu 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					549 trillion Btu 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					770 trillion Btu 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					790 trillion Btu 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 8,952  million 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 5,690  million 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 5,373  million 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 19,713  million 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					166.4 million barrels 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					652.4 billion cu ft 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					23.5 million short tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 21,955  million 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 4,963  million 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 1,521  million 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					11 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					26,437 million cu ft 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,399 thousand short tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=191">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					40.3 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					53.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					5.0 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.4 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					3,626 MW 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					120 million gal/year 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					190 thousand MWh 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					119 thousand MWh 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					357 thousand MWh 
+				</td>
+				<td>
+					7.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					2,517 Thousand Barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					10.0 % 
+				</td>
+				<td>
+					22 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=GA"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					10,816 thousand barrels 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					140.0 million metric tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Georgia</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=191">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					59,274 thousand metric tons 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					67 thousand metric tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					48 thousand metric tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: August 18, 2016<p>
+<h2>Overview </h2>
+<p>Georgia, located at the southern end of the Blue Ridge Mountains, has the largest land area of any state east of the Mississippi River.<sup><a href='print.cfm@sid=GA.html#1'>1</a></sup> The state's elevations decrease from almost 5,000 feet in the mountains to sea level along its Atlantic Coast. The rolling hills of the Piedmont region, south and east of the Blue Ridge, flatten out to Georgia's broad coastal plains.<sup><a href='print.cfm@sid=GA.html#2'>2</a></sup> The coastal region is warm and humid much of the year. Rainfall typically decreases further inland, but the higher elevations of the Blue Ridge capture moisture and often receive winter snows as well as rain.<sup><a href='print.cfm@sid=GA.html#3'>3</a></sup></p>
+<div class='pullquote'><p>Most of the energy produced in Georgia comes from nuclear power and biomass. </p></div><p>Nearly three-fifths of the energy produced in Georgia comes from nuclear power, and much of the rest comes from biomass.<sup><a href='print.cfm@sid=GA.html#4'>4</a></sup> Despite its location near the Appalachian coalfields and oil and natural gas basins, Georgia does not have any appreciable fossil fuel resources.<sup><a href='print.cfm@sid=GA.html#5'>5</a>,<a href='print.cfm@sid=GA.html#6'>6</a></sup> However, the state does have renewable energy potential. With two-thirds of the state forested, there is abundant biomass potential in Georgia.<sup><a href='print.cfm@sid=GA.html#7'>7</a>,<a href='print.cfm@sid=GA.html#8'>8</a></sup> Onshore wind resources offer minimal wind energy potential across the southern half of the state, but Blue Ridge crests in the north have moderate potential.<sup><a href='print.cfm@sid=GA.html#9'>9</a></sup> Although Georgia has only about 100 miles of Atlantic Ocean shoreline,<sup><a href='print.cfm@sid=GA.html#10'>10</a></sup> its offshore waters have large areas with good wind resources in shallow depths close to both land and transmission grid access.<sup><a href='print.cfm@sid=GA.html#11'>11</a></sup> The state's coastal plain occupies the southern half of the state and is the location of most of Georgia's natural lakes. The state's larger, man-made lakes and reservoirs are concentrated in the river valleys of the north.<sup><a href='print.cfm@sid=GA.html#12'>12</a></sup> Many of the larger reservoirs provide hydroelectric power,<sup><a href='print.cfm@sid=GA.html#13'>13</a></sup> and a small amount of additional hydroelectric potential exists in the state.<sup><a href='print.cfm@sid=GA.html#14'>14</a></sup></p>
+<p>Georgia is the nation's eighth most populous state, and its share of the nation's total energy consumption is nearly the same as its share of the nation's population.<sup><a href='print.cfm@sid=GA.html#15'>15</a>,<a href='print.cfm@sid=GA.html#16'>16</a></sup> However, energy consumption per capita is below the national average.<sup><a href='print.cfm@sid=GA.html#17'>17</a></sup> Transportation is the leading energy-consuming end-use sector, followed by the industrial sector.<sup><a href='print.cfm@sid=GA.html#18'>18</a></sup> Georgia has several energy-intensive industries, including the manufacture of chemicals, paper, and metals.<sup><a href='print.cfm@sid=GA.html#19'>19</a></sup></p>
+<h2>Petroleum</h2>
+<p>Georgia does not have any crude oil production or known petroleum reserves.<sup><a href='print.cfm@sid=GA.html#20'>20</a></sup> No crude oil pipelines cross the state, but two petroleum product pipelines and a natural gas liquids pipeline serve Georgia.<sup><a href='print.cfm@sid=GA.html#21'>21</a></sup> The Port of Savannah receives petroleum product imports from around the world.<sup><a href='print.cfm@sid=GA.html#22'>22</a></sup> The state's last crude oil refinery, which produced asphalt, was idled in 2012 and shut permanently at the end of 2014, but the refinery site continues in use as a products terminal facility.<sup><a href='print.cfm@sid=GA.html#23'>23</a>,<a href='print.cfm@sid=GA.html#24'>24</a>,<a href='print.cfm@sid=GA.html#25'>25</a>,<a href='print.cfm@sid=GA.html#26'>26</a></sup></p>
+<p>Petroleum products supply more of the energy consumed in Georgia than any other source,<sup><a href='print.cfm@sid=GA.html#27'>27</a></sup> and the state is among the 10 top petroleum-consuming states in the nation.<sup><a href='print.cfm@sid=GA.html#28'>28</a></sup> About three-fifths of the petroleum used in Georgia is consumed as motor gasoline. Slightly more than one-fifth is consumed as distillate fuel oil, most of which is also used by the transportation sector.<sup><a href='print.cfm@sid=GA.html#29'>29</a></sup> To minimize formation of ozone, motor gasoline sold in the metropolitan Atlanta area during the summer months must be a lower volatility blend than motor gasoline sold in the rest of the state.<sup><a href='print.cfm@sid=GA.html#30'>30</a></sup></p>
+<p>Fewer than 0.5% of residential customers in Georgia use fuel oil for heating during the mild winters. About 5% of households depend on liquefied petroleum gas (LPG) for home heating.<sup><a href='print.cfm@sid=GA.html#31'>31</a></sup> </p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>Georgia's Elba Island LNG import terminal has federal approvals to add LNG export capability.</p></div><p>Georgia does not have any natural gas reserves or production.<sup><a href='print.cfm@sid=GA.html#32'>32</a></sup> The state receives all of its natural gas supply by interstate pipelines and from other countries through the Elba Island liquefied natural gas (LNG) terminal.<sup><a href='print.cfm@sid=GA.html#33'>33</a>,<a href='print.cfm@sid=GA.html#34'>34</a></sup> LNG imports have arrived from a variety of countries in the past few years, including Trinidad and Tobago, Qatar, and Egypt.<sup><a href='print.cfm@sid=GA.html#35'>35</a>,<a href='print.cfm@sid=GA.html#36'>36</a></sup> Import volumes have decreased substantially since 2010.<sup><a href='print.cfm@sid=GA.html#37'>37</a></sup> Elba Island has received federal government approvals to build liquefaction and terminal facilities so it can export as well as import LNG.<sup><a href='print.cfm@sid=GA.html#38'>38</a>,<a href='print.cfm@sid=GA.html#39'>39</a></sup> Slightly more than two-fifths of the natural gas received in Georgia is consumed in the state. The rest of the natural gas entering Georgia moves on to other states, primarily to South Carolina on the way to markets further north.<sup><a href='print.cfm@sid=GA.html#40'>40</a></sup> </p>
+<p>Since 2009, the largest share of natural gas delivered to end users in Georgia has gone to the electric power generating sector.<sup><a href='print.cfm@sid=GA.html#41'>41</a></sup> Deliveries to that sector have doubled since 2010, while consumption in the other end-use sectors has remained relatively stable.<sup><a href='print.cfm@sid=GA.html#42'>42</a>,<a href='print.cfm@sid=GA.html#43'>43</a>,<a href='print.cfm@sid=GA.html#44'>44</a></sup> About two-fifths of Georgia households use natural gas for home heating, but the winters are mild, and per capita natural gas use by Georgia's residential sector is below the national average.<sup><a href='print.cfm@sid=GA.html#45'>45</a>,<a href='print.cfm@sid=GA.html#46'>46</a>,<a href='print.cfm@sid=GA.html#47'>47</a>,<a href='print.cfm@sid=GA.html#48'>48</a></sup></p>
+<h2>Coal</h2>
+<p>Georgia has no coal production and only small estimated recoverable reserves.<sup><a href='print.cfm@sid=GA.html#49'>49</a>,<a href='print.cfm@sid=GA.html#50'>50</a></sup> Coal used in the state arrives by rail, primarily from Wyoming, Kentucky, and Illinois. All but a very small fraction of the coal delivered is consumed by the electric power sector.<sup><a href='print.cfm@sid=GA.html#51'>51</a></sup> Coal also travels through the Savannah Customs District; Appalachian coal is exported from there, and coal imports arrive from Latin America.<sup><a href='print.cfm@sid=GA.html#52'>52</a>,<a href='print.cfm@sid=GA.html#53'>53</a>,<a href='print.cfm@sid=GA.html#54'>54</a></sup></p>
+<h2>Electricity</h2>
+<p>Coal-fired power plants historically fueled nearly two-thirds of net electricity generation in Georgia. However, since 2008, as natural gas became more economical and as coal-fired power plants were retired,<sup><a href='print.cfm@sid=GA.html#55'>55</a>,<a href='print.cfm@sid=GA.html#56'>56</a></sup> natural gas has accounted for an increasing share of the state's net electricity generation.<sup><a href='print.cfm@sid=GA.html#57'>57</a></sup> In 2015, for the first time, natural gas was the largest source of generation, supplying two-fifths of Georgia's net electricity generation. Coal supplied less than three-tenths.<sup><a href='print.cfm@sid=GA.html#58'>58</a></sup></p>
+<div class='pullquote'><p>Two new nuclear reactors under construction at an existing plant in Georgia are the first to be approved by the U.S. Nuclear Regulatory Commission in 30 years.</p></div> Georgia's two nuclear power plants, both located in the eastern part of the state,<sup><a href='print.cfm@sid=GA.html#59'>59</a></sup> typically provide one-fourth of the state's net electricity generation.<sup><a href='print.cfm@sid=GA.html#60'>60</a>,<a href='print.cfm@sid=GA.html#61'>61</a></sup> In recent years, the four reactors at those two plants have received physical modifications to increase generating capacity.<sup><a href='print.cfm@sid=GA.html#62'>62</a></sup> Two new reactors, being built at the existing Vogtle nuclear plant in Waynesboro, Georgia,<sup><a href='print.cfm@sid=GA.html#63'>63</a>,<a href='print.cfm@sid=GA.html#64'>64</a></sup> are the first new reactors approved by the U.S. Nuclear Regulatory Commission in 30 years.<sup><a href='print.cfm@sid=GA.html#65'>65</a></sup> The state's remaining net electricity generation is provided primarily by biomass and hydroelectric power.<sup><a href='print.cfm@sid=GA.html#66'>66</a></sup><p>More than two-fifths of the electricity sales in Georgia are to the residential sector, where more than half of the households use electricity for heating.<sup><a href='print.cfm@sid=GA.html#67'>67</a>,<a href='print.cfm@sid=GA.html#68'>68</a></sup> With the state's hot, humid summers, almost all Georgia households have air conditioning.<sup><a href='print.cfm@sid=GA.html#69'>69</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Three-fifths of Georgia's net renewable electricity generation comes from biomass.<sup><a href='print.cfm@sid=GA.html#70'>70</a></sup> The state is a national leader in the use of wood and wood waste for electricity generation.<sup><a href='print.cfm@sid=GA.html#71'>71</a>,<a href='print.cfm@sid=GA.html#72'>72</a></sup> Ranked first in the nation in commercial timberland, Georgia has 25 million acres of forest covering two-thirds of the state.<sup><a href='print.cfm@sid=GA.html#73'>73</a></sup> More than a dozen wood pellet plants in the state can export pellets to supply renewable fuel to European power plants.<sup><a href='print.cfm@sid=GA.html#74'>74</a>,<a href='print.cfm@sid=GA.html#75'>75</a>,<a href='print.cfm@sid=GA.html#76'>76</a></sup> Georgia also has five biodiesel plants and two ethanol plants; the state can produce up to 46 million gallons of biodiesel and more than 100 million gallons of ethanol each year.<sup><a href='print.cfm@sid=GA.html#77'>77</a>,<a href='print.cfm@sid=GA.html#78'>78</a></sup></p>
+<p>Nearly all the rest of Georgia's net renewable generation comes from hydroelectricity.<sup><a href='print.cfm@sid=GA.html#79'>79</a></sup> Georgia is one of the 10 largest hydroelectric power producers east of the Rocky Mountains.<sup><a href='print.cfm@sid=GA.html#80'>80</a></sup> The state has 14 river basins and thousands of dams, some of which provide hydroelectric power.<sup><a href='print.cfm@sid=GA.html#81'>81</a>,<a href='print.cfm@sid=GA.html#82'>82</a></sup> The Chattahoochee River, the most heavily used water resource in the state, has 13 hydroelectric dams that were constructed by the U.S. Army Corps of Engineers.<sup><a href='print.cfm@sid=GA.html#83'>83</a></sup> Georgia Power, the state's largest electric utility, has another 19 hydroelectric dams at locations across the state.<sup><a href='print.cfm@sid=GA.html#84'>84</a>,<a href='print.cfm@sid=GA.html#85'>85</a></sup></p>
+<p>Georgia does not have a renewable energy portfolio standard,<sup><a href='print.cfm@sid=GA.html#86'>86</a></sup> but state regulators have required Georgia Power to install 525 megawatts of solar photovoltaic (PV) capacity before 2017, including some distributed (small-scale customer-sited) solar capacity.<sup><a href='print.cfm@sid=GA.html#87'>87</a></sup> In 2015, 248 megawatts of utility-scale and distributed solar PV capacity were installed statewide, increasing the state's total capacity more than five-fold.<sup><a href='print.cfm@sid=GA.html#88'>88</a></sup> One-third of Georgia's net solar generation in 2015 came from distributed resources like rooftop solar PV panels, and two-thirds came from utility-scale resources.<sup><a href='print.cfm@sid=GA.html#89'>89</a></sup> The state's net metering rule credits customers for kilowatthours generated with distributed resources at the avoided wholesale cost of electricity, not the retail cost used in some other states.<sup><a href='print.cfm@sid=GA.html#90'>90</a>,<a href='print.cfm@sid=GA.html#91'>91</a></sup> Georgia has put in place energy standards for public buildings, interconnection guidelines, and solar easement regulations.<sup><a href='print.cfm@sid=GA.html#92'>92</a></sup></p>
+<p>Georgia also has renewable potential from offshore wind resources.<sup><a href='print.cfm@sid=GA.html#93'>93</a></sup> There are no wind projects online in Georgia,<sup><a href='print.cfm@sid=GA.html#94'>94</a></sup> but several manufacturers located in the state make products for the wind industry.<sup><a href='print.cfm@sid=GA.html#95'>95</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> 1keydata.com, List of States by Size, by Land Area, accessed July 16, 2016.<br>
+<a name='2'></a><sup>2</sup> NETSTATE, Georgia, The Geography of Georgia, updated February 25, 2016.<br>
+<a name='3'></a><sup>3</sup> Knox, Pam, "Georgia's Climate Is Peachy!" Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed July 20, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. Energy Information Administration, State Energy Data System, Table P2, Energy Production Estimates in Trillion Btu, 2014.<br>
+<a name='5'></a><sup>5</sup> U.S. Energy Information Administration, Georgia, Profile Data, Reserves & Supply, accessed July 16, 2016.<br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2014.<br>
+<a name='7'></a><sup>7</sup> Georgia Forestry Commission, Georgia Forest Facts, accessed July 16, 2016.<br>
+<a name='8'></a><sup>8</sup> Georgia Department of Economic Development, Georgia Energy Industry Overview (February 22, 2011), p. 2.<br>
+<a name='9'></a><sup>9</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Georgia Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='10'></a><sup>10</sup> Beaver, Janice C., U.S. International Borders: Brief Facts, Congressional Research Service (November 9, 2006), p. CRS-3.<br>
+<a name='11'></a><sup>11</sup> Georgia Department of Economic Development, Georgia Energy Industry Overview (February 22, 2011), p. 8.<br>
+<a name='12'></a><sup>12</sup> Parker, Amanda K., New Georgia Encyclopedia, Geography & Environment, Reservoirs, updated June 24, 2016. <br>
+<a name='13'></a><sup>13</sup> Georgia Power, Generating Plants, accessed July 16, 2016.<br>
+<a name='14'></a><sup>14</sup> Conner, Alison, and James E. Francfort, U.S. Hydropower Resource Assessment for Georgia, DOE/ID-10430(GA) (October 1998), p. 2. <br>
+<a name='15'></a><sup>15</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014. <br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector-Ranked by State 2014. <br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014. <br>
+<a name='19'></a><sup>19</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Georgia, Time Period 2013-15.<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Georgia, Profile Data, Reserves & Supply, accessed July 16, 2016. <br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Georgia, Profile Data, Distribution & Marketing, accessed July 16, 2016. <br>
+<a name='22'></a><sup>22</sup> U.S. Energy Information Administration, Petroleum & Other Liquids, Company Level Imports Archive, (January-December 2015, 2014). <br>
+<a name='23'></a><sup>23</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Georgia, Annual (as of January 1), 2011-16. <br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, Refinery Capacity 2016, Table 13, Refineries Permanently Shutdown By PAD District Between January 1, 1990 and January 1, 2016. <br>
+<a name='25'></a><sup>25</sup> Vaughan, Vicki, "Asphalt Maker Chooses San Antonio as Home," San Antonio Express News (February 27, 2014).<br>
+<a name='26'></a><sup>26</sup> NuStar, "NuStar Energy L.P. Completes Acquisition of CITGO Asphalt Refining Company's Asphalt Operations and Assets," Press Release (March 20, 2008).<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, State Energy Data System, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014. <br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, State Energy Data System, Table C3, Primary Energy Consumption Estimates, 2014. <br>
+<a name='30'></a><sup>30</sup> U. S. Environmental Protection Agency, Gasoline Standards, Gasoline Reid Vapor Pressure, updated June 27, 2016. <br>
+<a name='31'></a><sup>31</sup> U.S. Census Bureau, American FactFinder, Georgia, Table B25040, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Georgia, Profile Data, Reserves & Supply, accessed July 16, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Georgia, Profile Data, Distribution & Marketing, accessed July 16, 2016.<br>
+<a name='34'></a><sup>34</sup> Federal Energy Regulatory Commission, North American LNG Import/Export Terminals, Approved, updated July 11, 2016.<br>
+<a name='35'></a><sup>35</sup> Hydrocarbons-technology.com, Elba Island LNG Terminal, United States of America, accessed July 16, 2016.<br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, U.S. Natural Gas Imports by Point of Entry, Liquefied Natural Gas Volumes, Annual, 2010-15. <br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Georgia, Annual, 2009-14. <br>
+<a name='38'></a><sup>38</sup> Kinder Morgan, Natural Gas Pipelines, Elba Liquefaction Project & EEC Modification Project, accessed July 16, 2016.<br>
+<a name='39'></a><sup>39</sup> "KMI, Gets FERC Approval for Elba Island LNG Plant," Oil & Gas Journal (June 3, 2016). <br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Georgia, Annual, 2009-14.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Georgia, Annual, 2010-15.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Georgia Natural Gas Deliveries to Electric Power Consumers, 1997-2015.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Georgia Natural Gas Industrial Consumption, 1997-2015. <br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Georgia Natural Gas Residential Consumption, 1997-2015.<br>
+<a name='45'></a><sup>45</sup> U.S. Census Bureau, American FactFinder, Georgia, Table B25040, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='46'></a><sup>46</sup> NETSTATE, Georgia, The Geography of Georgia, updated February 25, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Volumes Delivered to Residential, Annual, 2010-15. <br>
+<a name='48'></a><sup>48</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Georgia, Profile Data, Reserves & Supply, accessed July 17, 2016.<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2014.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Georgia.<br>
+<a name='52'></a><sup>52</sup> Lelyveld, Michael, "China Taps U.S. Coal," Radio Free Asia (April 30, 2012). <br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated) (June 15, 2016), Tables 13, Coal Exports by Customs District, and 20, Coal Imports by Customs District.<br>
+<a name='54'></a><sup>54</sup> Deyette, Jeff, and Barbara Freese, Burning Coal, Burning Cash, Union of Concerned Scientists (May 2010), p. 27.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, "Power Sector Coal Demand Has Fallen in Nearly Every State Since 2007," Today in Energy (April 28, 2016).<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Electric Power Annual (February 16, 2016), Table 4.6, Capacity Additions, Retirements and Changes by Energy Source.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Georgia, Profile Overview, Map, Nuclear Power Plant Layer, accessed July 17, 2016.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B.<br>
+<a name='62'></a><sup>62</sup> U.S. Nuclear Regulatory Commission, Backgrounder on Power Uprates for Nuclear Plants, updated April 8, 2016. <br>
+<a name='63'></a><sup>63</sup> U.S. Nuclear Regulatory Commission, Vogtle Electric Generating Plant, Unit 3 (Under Construction), updated April 8, 2016. <br>
+<a name='64'></a><sup>64</sup> U.S. Nuclear Regulatory Commission, Vogtle Electric Generating Plant, Unit 4 (Under Construction), updated April 8, 2016. <br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, "Nuclear Regulatory Commission Approves Construction of First Nuclear Units in 30 Years," Today in Energy (March 5, 2012).<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.15.B.<br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='68'></a><sup>68</sup> U.S. Census Bureau, American FactFinder, Georgia, Table B25040, House Heating Fuel, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, Residential Energy Consumption Survey (RECS), 2009 RECS Survey Data, Air Conditioning, Table HC7.10.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.15.B.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='72'></a><sup>72</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='73'></a><sup>73</sup> Georgia Forestry Commission, Georgia Forest Facts, accessed July 18, 2016.<br>
+<a name='74'></a><sup>74</sup> Biomass Magazine, Pellet Plants, updated May 16, 2016.<br>
+<a name='75'></a><sup>75</sup> Faulkner, Wayne, "Demand for Wood Pellets in Europe a Boon in Southeast U.S." StarNews Online (April 6, 2013). <br>
+<a name='76'></a><sup>76</sup> Wood Resources International LLC, "North American Wood Pellet Exports Reached Record High in 2015," Biomass Magazine (May 4, 2016).<br>
+<a name='77'></a><sup>77</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, All Platforms, Existing, updated January 23, 2016.<br>
+<a name='78'></a><sup>78</sup> Biodiesel Magazine, USA Plants, existing, updated December 8, 2015.<br>
+<a name='79'></a><sup>79</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.15.B.<br>
+<a name='80'></a><sup>80</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.10.B.<br>
+<a name='81'></a><sup>81</sup> Meyer, Judith L., and Gretchen Loeffler, New Georgia Encyclopedia, Geography & Environment, River Basins, updated June 24, 2016. <br>
+<a name='82'></a><sup>82</sup> Parker, Amanda K., New Georgia Encyclopedia, Geography & Environment, Reservoirs, updated June 24, 2016.<br>
+<a name='83'></a><sup>83</sup> Georgia River Network, Chattahoochee River, accessed July 18, 2016.<br>
+<a name='84'></a><sup>84</sup> U.S. Energy Information Administration, Georgia Electricity Profile 2014, Table 3, Top Five Retailers of Electricity, with End Use Sectors, 2014.<br>
+<a name='85'></a><sup>85</sup> Georgia Power, Generating Plants, accessed July 18, 2016.<br>
+<a name='86'></a><sup>86</sup> U.S. Energy Information Administration, "Hawaii and Vermont Set High Renewable Portfolio Standard Targets," Today in Energy (June 29, 2015).<br>
+<a name='87'></a><sup>87</sup> Williams, Dave, "Georgia PSC Orders More Solar Power," Atlanta Business Chronicle (July 11, 2013).<br>
+<a name='88'></a><sup>88</sup> Solar Energy Industries Association, Georgia Solar, accessed July 18, 2016. <br>
+<a name='89'></a><sup>89</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='90'></a><sup>90</sup> NC Clean Energy Technology Center, DSIRE, Georgia, Net Metering, updated September 1, 2015.<br>
+<a name='91'></a><sup>91</sup> Swartz, Kristi E., and Rod Kuckro, "Georgia Power Set to Make Push Into Hot Ga. Rooftop Solar Market," EnergyWire (May 27, 2015).<br>
+<a name='92'></a><sup>92</sup> NC Clean Energy Technology Center, DSIRE, Georgia, Financial Incentives, accessed July 18, 2016.<br>
+<a name='93'></a><sup>93</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Georgia Offshore 90-Meter Wind Map and Wind Resource Potential, updated May 1, 2014.<br>
+<a name='94'></a><sup>94</sup> U.S. Energy Information Administration, Georgia, Profile Overview, Map, Wind Power Plant Layer, accessed July 18, 2016.<br>
+<a name='95'></a><sup>95</sup> American Wind Energy Association, Georgia Wind Energy, accessed July 18, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1C</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.psc.state.ga.us/" title="Georgia Public Service Commission">Georgia Public Service Commission</a></li>
+  
+    <li><a href="http://dfcs.dhr.georgia.gov/portal/site/DHS-DFCS/menuitem.5d32235bb09bde9a50c8798dd03036a0/?vgnextoid=154a2b48d9a4ff00VgnVCM100000bf01010aRCRD" title="Georgia Department of Human Services Division of Family and Children Services Energy Assistance Program (EAP)
+">Georgia Department of Human Services Division of Family and Children Services Energy Assistance Program (EAP)
+</a></li>
+  
+    <li><a href="http://www.gefa.georgia.gov" title="Georgia Environmental Finance Authority">Georgia Environmental Finance Authority</a></li>
+  
+    <li><a href="http://www.georgiaenergydata.org" title="Georgia Energy Data">Georgia Energy Data</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.tva.com/" title="Tennessee Valley Authority">Tennessee Valley Authority</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.gefa.org/Index.aspx?page=32" title="Georgia Environmental Finance Authority, Energy Resources Division">Georgia Environmental Finance Authority, Energy Resources Division</a></li>
+  
+    <li><a href="http://www.georgiaenergychallenge.org/AboutUs.aspx" title="Georgia Energy Challenge">Georgia Energy Challenge</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Georgia website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Georgia\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/GA.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

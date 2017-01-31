@@ -1,0 +1,3076 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Colorado Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Colorado State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Colorado Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Colorado&#39;s vast fossil fuel resources include the Niobrara Shale, with resource estimates running as high as 2 billion barrels of oil.</li>
+	
+	<li>From 2005 to 2015, crude oil production in Colorado more than quadrupled; in the same period, marketed natural gas production rose 51%.&nbsp;</li>
+	
+	<li>In 2015, 60% of the electricity generated in Colorado came from coal, 22% from natural gas, and 18% from renewable energy resources.</li>
+	
+	<li>Colorado&#39;s Renewable Energy Standard requires investor-owned electric utilities to provide 30% of electricity sold from renewable energy sources by 2020, with 3% coming from distributed generation.</li>
+	
+	<li>In 2015, Colorado&rsquo;s grid-connected solar photovoltaic capacity of 599 megawatts was the ninth largest in the United States, and the state obtained more than 6 times as much net generation from utility-scale solar facilities as it did just 5 years earlier in 2010.</li>
+	
+	<li>Average household energy costs in Colorado ($1,551 per year) are 23% less than the national average, primarily due to historically lower natural gas prices in the state, according to EIA&#39;s Residential Energy Consumption Survey.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: December 15, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=CO.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=CO.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=CO.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=CO.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=CO.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Colorado Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Colorado Energy Consumption Estimates',
+		data : [350.5,495.4,250.3,119.1,52.6,16.3,0.0,31.7,0.0,16.8,36.2,78.4,32.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Colorado Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 355.2],['Commercial', 282.0],['Industrial', 429.0],['Transportation', 413.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Colorado Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Colorado Energy Production Estimates',
+		data : [528.2,1834.2,552.1,0.0,17.8,109.3]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Colorado Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Colorado Net Electricity Generation',
+		data : [754,2370,124,863]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Colorado Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Colorado U.S. Price Differentials',
+		data : [{y:12.8878281623, period: Date.UTC(2016,9,1)},{y:-29.03930131, period: Date.UTC(2016,9,1)},{y:-3.53413654618, period: Date.UTC(2016,9,1)},{y:-4.58452722063, period: Date.UTC(2016,9,1)},{y:7.44047619048, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					5.5 million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					2.9 million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 314.9  billion 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 22,981  million 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 50,410 
+				</td>
+				<td>
+					15 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					48,985 million miles 
+				</td>
+				<td>
+					24 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					31.9 million acres 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					47.5 degrees Fahrenheit 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					21.7 inches 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.26 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.73 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 9.75 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 36.12 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.77 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					12.01 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.99 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.22 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=186">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					1,212 million barrels 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					17,139 billion cu ft 
+				</td>
+				<td>
+					5.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					801 million barrels 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					298 million short tons 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					68 rigs 
+				</td>
+				<td>
+					3.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					46,322 wells 
+				</td>
+				<td>
+					8.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					3,042 trillion Btu 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					9,807 thousand barrels 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,704,836 million cu ft 
+				</td>
+				<td>
+					5.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					18,879 thousand short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					103,000 barrels/calendar day 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					15,970 MW 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					4,099 thousand MWh 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					18.4 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					57.8 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					24.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					460 thousand barrels 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					523 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					116,320 million cu ft 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					120 thousand barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					5,174 thousand tons 
+				</td>
+				<td>
+					3.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Colorado</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Foidel Creek Mine / Peabody Twentymile Mining LLC, West Elk Mine / Mountain Coal Company, L.L.C.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Suncor Energy (Commerce City East), Suncor Energy (Commerce City West)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Comanche (Public Service Co of Colorado) ; Craig (Tri-State G & T Assn, Inc) ; Fort St Vrain (Public Service Co of Colorado) ; Cherokee (Public Service Co of Colorado) ; Rawhide (Platte River Power Authority)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=186">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Colorado</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Cheyene Hub (Market Hub), White River Hub (Production Hub)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Colorado</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Western Gas, Plains Pipeline, Chevron, Nustar Energy</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Nustar, Phillips 66 Pipeline, Plaines All American Pipeline, Midstream Partners</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Conoco Phillips, DCP Midstream, Enterprise Products, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Cheyenne Plains Gas Pipeline Company LLC, Colorado Interstate Gas Company LLC, DCP Midstream LP, El Paso Natural Gas Company, Kinder Morgan Interstate Gas Transmission, Northwest Pipeline Group, Questar Pipeline Company, Raton Gas Transmission Company, Rockies Express Pipeline LLC, Southern Star Central Gas Pipeline, Trailblazer Pipeline Company, TransColorado Gas Transmission Company, Transwestern Pipeline Company, Westgas Interstate Company LLC</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					1,570 stations 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					60 stations 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					346 stations 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					89 stations 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					64 stations 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,477 trillion Btu 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					276 million Btu 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 19,994  million 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,733 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					355 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					282 trillion Btu 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					429 trillion Btu 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					411 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 3,751  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 2,672  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 2,792  million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 10,780  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					91.3 million barrels 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					479.1 billion cu ft 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					18.3 million short tons 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 12,388  million 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 2,686  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 684  million 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					5,661 million cu ft 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,350 thousand short tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=186">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					71.1 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					20.9 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4.8 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					3.2 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					4,035 MW 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					127 million gal/year 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					124 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					856 thousand MWh 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					7 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					39 thousand MWh 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					3,133 Thousand Barrels 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					8.9 % 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=CO"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					5,340 thousand barrels 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					92.0 million metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Colorado</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=186">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					37,413 thousand metric tons 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					22 thousand metric tons 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					35 thousand metric tons 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: December 15, 2016</p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Colorado, with vast fossil and renewable energy resources, calls itself an "all of the above" state.</p></div><p>Colorado, richly endowed with both conventional and renewable energy resources, calls itself an "all of the above" state.<sup><a href='print.cfm@sid=CO.html#1'>1</a></sup> Its diverse geography and geology include the headwaters of major rivers,<sup><a href='print.cfm@sid=CO.html#2'>2</a></sup> winds that have created new wealth on the open plains,<sup><a href='print.cfm@sid=CO.html#3'>3</a>,<a href='print.cfm@sid=CO.html#4'>4</a></sup> and substantial deposits of oil, natural gas, and coal.<sup><a href='print.cfm@sid=CO.html#5'>5</a>,<a href='print.cfm@sid=CO.html#6'>6</a>,<a href='print.cfm@sid=CO.html#7'>7</a></sup> Home to the tallest peaks of the Rocky Mountains, Colorado has the highest average elevation of any state. Wide plains, already more than half a mile above sea level at the Kansas border,<sup><a href='print.cfm@sid=CO.html#8'>8</a></sup> rise to meet the mountains running north-south down Colorado's center.<sup><a href='print.cfm@sid=CO.html#9'>9</a></sup> The majority of Coloradans live where the plains and mountains meet in a region called the Front Range.<sup><a href='print.cfm@sid=CO.html#10'>10</a></sup> </p>
+<p>Weather fronts can move in from the west across the mountains or from the east across the plains. Temperatures vary widely depending on elevation and have reached records of 114&#8457 on the plains and 61&#8457 below zero in the mountains.<sup><a href='print.cfm@sid=CO.html#11'>11</a></sup> With its large Front Range cities, Colorado is second only to Arizona among the Rocky Mountain states in population size and density.<sup><a href='print.cfm@sid=CO.html#12'>12</a></sup> Six in seven residents live in the metropolitan areas,<sup><a href='print.cfm@sid=CO.html#13'>13</a></sup> and much of Colorado's mountain and plains areas are sparsely populated.<sup><a href='print.cfm@sid=CO.html#14'>14</a></sup> Colorado is a winter sports destination, and about 1 in 20 houses is occupied only seasonally.<sup><a href='print.cfm@sid=CO.html#15'>15</a></sup></p>
+<p>Colorado's economy is highly diversified.<sup><a href='print.cfm@sid=CO.html#16'>16</a></sup> Major industries include aerospace and defense; research and sciences; electronics and advanced manufacturing; agriculture; tourism and outdoor recreation; financial services; and food and beverage manufacturing.<sup><a href='print.cfm@sid=CO.html#17'>17</a></sup> Per capita energy consumption is below the national average.<sup><a href='print.cfm@sid=CO.html#18'>18</a></sup> Industry is the leading energy-consuming sector, followed closely by the transportation sector.<sup><a href='print.cfm@sid=CO.html#19'>19</a></sup></p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>Substantial new crude oil production is coming from the Niobrara Shale in northeastern Colorado.</p></div><p>Colorado's crude oil production quadrupled from 2010 to 2015 with the increased use of directional drilling and hydraulic fracturing technologies, but output declined somewhat in 2016 because of lower crude oil prices.<sup><a href='print.cfm@sid=CO.html#20'>20</a>,<a href='print.cfm@sid=CO.html#21'>21</a>,<a href='print.cfm@sid=CO.html#22'>22</a></sup> In 2015, the state supplied more than 3 of every 100 barrels of U.S. crude oil production.<sup><a href='print.cfm@sid=CO.html#23'>23</a>,<a href='print.cfm@sid=CO.html#24'>24</a></sup> Substantial new production is coming from the Niobrara Shale formation in the Denver-Julesberg Basin in northeastern Colorado, where production in one county, Weld, quintupled from 2010 to 2015. Weld County was the source 9 of every 10 barrels of Colorado crude oil produced in 2015.<sup><a href='print.cfm@sid=CO.html#25'>25</a>,<a href='print.cfm@sid=CO.html#26'>26</a></sup> The state's proved reserves tripled from 2010 to 2014,<sup><a href='print.cfm@sid=CO.html#27'>27</a></sup> and the Wattenberg field, much of which is in Weld County,<sup><a href='print.cfm@sid=CO.html#28'>28</a></sup> is the fourth largest U.S. oil field ranked by proved reserves.<sup><a href='print.cfm@sid=CO.html#29'>29</a></sup> According to industry estimates, approximately 2 billion barrels of oil could be recoverable from the entire Niobrara.<sup><a href='print.cfm@sid=CO.html#30'>30</a></sup> The Piceance Basin in the western mountains is the other primary petroleum-producing area in Colorado.<sup><a href='print.cfm@sid=CO.html#31'>31</a>,<a href='print.cfm@sid=CO.html#32'>32</a></sup></p>
+<p>Northwestern Colorado overlays part of the Green River oil shale, a kerogen-rich formation that, by some estimates, could be the world's largest crude oil resource.<sup><a href='print.cfm@sid=CO.html#33'>33</a></sup> Kerogen is an organic material, found in sedimentary rock, which can be heated to extract crude oil. Although pilot oil shale projects have been undertaken in the area, current technology for obtaining crude oil from kerogen has not proven economically viable.<sup><a href='print.cfm@sid=CO.html#34'>34</a></sup> </p>
+<p>Colorado has two operating petroleum refineries, both in Commerce City near Denver, which are owned and operated as a single complex.<sup><a href='print.cfm@sid=CO.html#35'>35</a></sup> They produce motor gasoline, diesel fuel, and asphalt. Recent upgrades enable the refineries to process more crude oil from Canada's tar sands.<sup><a href='print.cfm@sid=CO.html#36'>36</a></sup> With oil production from the Niobrara Shale increasing, more pipelines are being built or repurposed to move Colorado crude oil to refineries out of state.<sup><a href='print.cfm@sid=CO.html#37'>37</a></sup> Demand for refined petroleum products in Colorado exceeds refining capacity.<sup><a href='print.cfm@sid=CO.html#38'>38</a>,<a href='print.cfm@sid=CO.html#39'>39</a></sup> Several petroleum product pipelines, primarily from Wyoming, Texas, and Kansas, help supply the Colorado market.<sup><a href='print.cfm@sid=CO.html#40'>40</a>,<a href='print.cfm@sid=CO.html#41'>41</a>,<a href='print.cfm@sid=CO.html#42'>42</a>,<a href='print.cfm@sid=CO.html#43'>43</a></sup></p>
+<p>The transportation sector accounts for more than four-fifths of all petroleum consumed in Colorado, and much of the rest is used by the industrial sector.<sup><a href='print.cfm@sid=CO.html#44'>44</a></sup> The Denver-Boulder and Fort Collins metropolitan areas use oxygenated motor gasoline to limit smog formation. The rest of the state is allowed to use conventional motor gasoline.<sup><a href='print.cfm@sid=CO.html#45'>45</a>,<a href='print.cfm@sid=CO.html#46'>46</a></sup> In 1988, Denver became the first U.S. city to require use of motor gasoline blended with ethanol.<sup><a href='print.cfm@sid=CO.html#47'>47</a></sup> Most ethanol is produced in the Midwest, but Colorado has three small ethanol plants that mainly use corn as their feedstocks.<sup><a href='print.cfm@sid=CO.html#48'>48</a>,<a href='print.cfm@sid=CO.html#49'>49</a>,<a href='print.cfm@sid=CO.html#50'>50</a></sup> The state's smallest ethanol plant, located in Golden, uses a brewery's waste beer as its feedstock.<sup><a href='print.cfm@sid=CO.html#51'>51</a></sup></p>
+<h2>Natural gas</h2>
+<p>Colorado is among the major natural gas-producing states in the nation,<sup><a href='print.cfm@sid=CO.html#52'>52</a></sup> and state output has doubled since 2001.<sup><a href='print.cfm@sid=CO.html#53'>53</a></sup> Historically, the San Juan Basin, which extends into New Mexico, was Colorado's largest natural gas-producing region, but, since 2000, production has grown in the Denver-Julesberg Basin in the northeast and in the Piceance Basin in the west.<sup><a href='print.cfm@sid=CO.html#54'>54</a></sup> Recently, as natural gas prices have declined, some well drilling activity has moved from the Piceance, which produces mainly dry natural gas, to the Denver-Julesberg Basin, which also produces crude oil and natural gas liquids.<sup><a href='print.cfm@sid=CO.html#55'>55</a>,<a href='print.cfm@sid=CO.html#56'>56</a></sup> The state has substantial proved natural gas reserves,<sup><a href='print.cfm@sid=CO.html#57'>57</a>,<a href='print.cfm@sid=CO.html#58'>58</a></sup> and 11 of the nation's 100 largest natural gas fields are located wholly or partly in Colorado.<sup><a href='print.cfm@sid=CO.html#59'>59</a></sup></p>
+<p>Production of coalbed methane from coal seams grew rapidly in the 1990s<sup><a href='print.cfm@sid=CO.html#60'>60</a></sup> and typically accounted for about one-third of Colorado's total natural gas production. Recent declining natural gas prices have rendered some coalbed methane wells uneconomic, and production of coalbed methane fell to less than one-fourth of Colorado's gross withdrawals of natural gas in 2015.<sup><a href='print.cfm@sid=CO.html#61'>61</a>,<a href='print.cfm@sid=CO.html#62'>62</a></sup> Colorado, New Mexico, and Wyoming are the leading coalbed methane producers in the United States,<sup><a href='print.cfm@sid=CO.html#63'>63</a></sup> and Colorado has more than one-third of U.S. proved coalbed methane reserves, more than any other state.<sup><a href='print.cfm@sid=CO.html#64'>64</a></sup> Nearly all coalbed methane is produced in the San Juan and Raton Basins.<sup><a href='print.cfm@sid=CO.html#65'>65</a></sup></p>
+<div class='pullquote'><p>Colorado has two natural gas trading hubs, Cheyenne in the northeast and White River in the west.</p></div><p>The residential sector is Colorado's largest consumer of natural gas.<sup><a href='print.cfm@sid=CO.html#66'>66</a></sup> Nearly three-fourths of households in the state use natural gas as their primary home heating source.<sup><a href='print.cfm@sid=CO.html#67'>67</a></sup> Consumption of natural gas for electricity generation rose during the last decade,<sup><a href='print.cfm@sid=CO.html#68'>68</a></sup> and electric power is Colorado's second-largest natural gas-consuming sector.<sup><a href='print.cfm@sid=CO.html#69'>69</a></sup> However, the state uses only about one-fourth of the natural gas it produces.<sup><a href='print.cfm@sid=CO.html#70'>70</a></sup> </p>
+<p>
+Colorado is crossed by major interstate pipelines shipping natural gas to markets in the West and Midwest.<sup><a href='print.cfm@sid=CO.html#71'>71</a>,<a href='print.cfm@sid=CO.html#72'>72</a></sup> The state has two natural gas trading hubs at interstate pipeline interconnections.<sup><a href='print.cfm@sid=CO.html#73'>73</a></sup> The larger Cheyenne hub is located in the Denver-Julesberg Basin,<sup><a href='print.cfm@sid=CO.html#74'>74</a></sup> and the White River hub is located in the Piceance Basin.<sup><a href='print.cfm@sid=CO.html#75'>75</a>,<a href='print.cfm@sid=CO.html#76'>76</a></sup> Colorado has had a relatively small amount of underground storage capacity.<sup><a href='print.cfm@sid=CO.html#77'>77</a></sup> Recently, more storage has opened, mainly around the Cheyenne hub, to accommodate seasonal fluctuations in natural gas demand.<sup><a href='print.cfm@sid=CO.html#78'>78</a></sup> </p>
+<h2>Coal</h2>
+<p>Colorado holds substantial estimated recoverable coal reserves, including bituminous, subbituminous, and lignite coals,<sup><a href='print.cfm@sid=CO.html#79'>79</a>,<a href='print.cfm@sid=CO.html#80'>80</a></sup> and the state produces coal from both underground and surface mines. Mining is currently focused in the Green River, Piceance, and San Juan Basins.<sup><a href='print.cfm@sid=CO.html#81'>81</a></sup> Historically, Colorado's coal was used to power railroad locomotives and to make steel.<sup><a href='print.cfm@sid=CO.html#82'>82</a></sup> More recently, it has been used in the United States almost entirely for electricity generation, but the market for coal has been shrinking, and several Colorado mines have closed.<sup><a href='print.cfm@sid=CO.html#83'>83</a>,<a href='print.cfm@sid=CO.html#84'>84</a>,<a href='print.cfm@sid=CO.html#85'>85</a></sup> Typically, nearly half of Colorado coal mined for domestic consumption is used for power generation in the state, and Colorado coal is burned for electric power generation in nearly a dozen other states.<sup><a href='print.cfm@sid=CO.html#86'>86</a>,<a href='print.cfm@sid=CO.html#87'>87</a></sup> More than half of the coal consumed by electricity generators in Colorado is transported by rail from Wyoming.<sup><a href='print.cfm@sid=CO.html#88'>88</a>,<a href='print.cfm@sid=CO.html#89'>89</a></sup> Colorado producers have been exporting the state's low-sulfur, high-heat-value bituminous coal to steel manufacturers overseas,<sup><a href='print.cfm@sid=CO.html#90'>90</a></sup> but exports have recently decreased in the face of international competition.<sup><a href='print.cfm@sid=CO.html#91'>91</a>,<a href='print.cfm@sid=CO.html#92'>92</a>,<a href='print.cfm@sid=CO.html#93'>93</a></sup></p>
+<h2>Electricity</h2>
+<p>Coal and natural gas are the primary fuels used to generate electricity in Colorado. Coal-fired power plants provide about three-fifths of net generation, and natural gas provides more than one-fifth. Electricity from renewable sources has tripled since 2007, to more than one-sixth of net electricity generation in 2015, almost all because of increased wind generation.<sup><a href='print.cfm@sid=CO.html#94'>94</a>,<a href='print.cfm@sid=CO.html#95'>95</a></sup> Colorado's largest utility has committed to replace some older coal-fired capacity with natural gas and renewable generation sources<sup><a href='print.cfm@sid=CO.html#96'>96</a></sup> and is pursuing additional options for variable pricing, large-scale storage, efficiency, and distributed (customer-sited, small-scale) energy.<sup><a href='print.cfm@sid=CO.html#97'>97</a></sup> </p>
+<p>Colorado does not have any nuclear power plants, but it does have some uranium deposits. Projects for both mining and processing uranium ore are in development in the state.<sup><a href='print.cfm@sid=CO.html#98'>98</a></sup> No uranium was mined in Colorado in 2015.<sup><a href='print.cfm@sid=CO.html#99'>99</a></sup> A proposed uranium mill in western Colorado is permitted and licensed, but plans to build it have been put on hold because of uranium market conditions.<sup><a href='print.cfm@sid=CO.html#100'>100</a>,<a href='print.cfm@sid=CO.html#101'>101</a></sup></p>
+<p>Colorado uses less electricity per capita than three-fourths of the states.<sup><a href='print.cfm@sid=CO.html#102'>102</a>,<a href='print.cfm@sid=CO.html#103'>103</a></sup> The commercial sector is the largest consumer of electricity, followed by the residential sector and the industrial sector.<sup><a href='print.cfm@sid=CO.html#104'>104</a></sup> Only one in five Colorado households uses electricity as the main home heating source.<sup><a href='print.cfm@sid=CO.html#105'>105</a></sup> Typically, total electricity consumption slightly exceeds in-state generation,<sup><a href='print.cfm@sid=CO.html#106'>106</a>,<a href='print.cfm@sid=CO.html#107'>107</a></sup> and the state is connected by high-voltage transmission lines to Wyoming, Nebraska, New Mexico, Utah, and Kansas.<sup><a href='print.cfm@sid=CO.html#108'>108</a></sup> </p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Colorado was the first state with a voter-approved renewable portfolio standard.</p></div><p>Clean energy is considered a key industry in Colorado.<sup><a href='print.cfm@sid=CO.html#109'>109</a></sup> In 2004, Colorado became the first state with a voter-approved renewable portfolio standard (RPS). The legislature has increased requirements several times since, and the RPS now requires 30% of electricity sold by investor-owned utilities to come from renewable energy sources by 2020, with 3% from distributed generation. Separate requirements apply to municipal and cooperative electricity suppliers depending on their size.<sup><a href='print.cfm@sid=CO.html#110'>110</a></sup> The RPS and other state support for the efficiency and renewable energy industries have attracted private investment and have made Colorado a clean energy industry leader.<sup><a href='print.cfm@sid=CO.html#111'>111</a></sup></p>
+<p>Colorado has significant wind resources on its eastern plains and mountain crests, and the state has substantial solar resources, especially in the south near the New Mexico border.<sup><a href='print.cfm@sid=CO.html#112'>112</a>,<a href='print.cfm@sid=CO.html#113'>113</a></sup> In 2015, wind turbines accounted for three-fourths of all renewable electricity generation, followed by hydroelectric facilities that contributed about one-sixth.<sup><a href='print.cfm@sid=CO.html#114'>114</a>,<a href='print.cfm@sid=CO.html#115'>115</a></sup> Colorado's largest utility has led the nation for more than a decade in wind capacity<sup><a href='print.cfm@sid=CO.html#116'>116</a></sup> and had about 2,500 megawatts of wind operating in the state in 2015.<sup><a href='print.cfm@sid=CO.html#117'>117</a></sup> Overall, all turbine operators in the state had nearly 3,000 megawatts of wind capacity installed by early 2016, making Colorado 10th nationwide in wind power generating capacity.<sup><a href='print.cfm@sid=CO.html#118'>118</a></sup></p>
+<p>The federal government has identified four Colorado areas that are potentially suitable for utility-scale solar development.<sup><a href='print.cfm@sid=CO.html#119'>119</a></sup> In 2015, Colorado was among the top dozen states in installed solar capacity<sup><a href='print.cfm@sid=CO.html#120'>120</a></sup> and eighth in the nation in solar electricity generation. Nearly three-fifths of the state's solar generation came from distributed facilities.<sup><a href='print.cfm@sid=CO.html#121'>121</a></sup> Colorado offers rebates to encourage homeowners and businesses to install solar panels, including solar gardens&mdash;collections of panels shared by several homes.<sup><a href='print.cfm@sid=CO.html#122'>122</a></sup> State electric utilities are also investing in larger scale solar projects.<sup><a href='print.cfm@sid=CO.html#123'>123</a></sup> Planning is under way for transmission expansions to bring utility-scale renewable electricity both to Colorado population centers and to cities in other western states.<sup><a href='print.cfm@sid=CO.html#124'>124</a>,<a href='print.cfm@sid=CO.html#125'>125</a></sup> Small-scale applications of renewable technologies such as wind power, solar energy, and methane recovery are used in several industries, including breweries.<sup><a href='print.cfm@sid=CO.html#126'>126</a>,<a href='print.cfm@sid=CO.html#127'>127</a></sup></p>
+<p>There are about 60 small hydroelectric generators in Colorado's mountainous western region.<sup><a href='print.cfm@sid=CO.html#128'>128</a>,<a href='print.cfm@sid=CO.html#129'>129</a></sup> The state is encouraging development of small-scale hydropower projects that have minimal environmental impact, including turbines on irrigation lines. Colorado negotiated a pioneering agreement with the U.S. Federal Energy Regulatory Commission to speed the permitting process for low-impact hydropower facilities.<sup><a href='print.cfm@sid=CO.html#130'>130</a>,<a href='print.cfm@sid=CO.html#131'>131</a></sup> Colorado's first commercial-scale woody biomass plant, which burns waste gathered from surrounding forests, consumes trees culled as part of efforts to fight pine beetle infestations.<sup><a href='print.cfm@sid=CO.html#132'>132</a></sup> Other biomass projects are in development.<sup><a href='print.cfm@sid=CO.html#133'>133</a>,<a href='print.cfm@sid=CO.html#134'>134</a></sup> Colorado has a number of hot springs, and studies indicate that the state has significant geothermal potential.<sup><a href='print.cfm@sid=CO.html#135'>135</a></sup> Some federal lands have been leased for geothermal projects in Colorado.<sup><a href='print.cfm@sid=CO.html#136'>136</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Colorado Office of Economic Development and International Trade, Energy & Natural Resources, accessed November 14, 2016.<br>
+<a name='2'></a><sup>2</sup> NETSTATE, Colorado, Geography of Colorado, updated February 25, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Colorado Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='4'></a><sup>4</sup> E2 Environmental Entrepreneurs, Winds of Change (2015), p. 1.<br>
+<a name='5'></a><sup>5</sup> Colorado Department of Natural Resources, "Colorado's New Oil Boom&mdash;The Niobrara," Rock Talk (2011).<br>
+<a name='6'></a><sup>6</sup> U.S. Energy Information Administration (EIA), Natural Gas Proved Reserves, Wet After Lease Separation, Proved Reserves as of Dec. 31, 2009-2014.<br>
+<a name='7'></a><sup>7</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='8'></a><sup>8</sup> NETSTATE, Colorado, Geography of Colorado, updated February 25, 2016.<br>
+<a name='9'></a><sup>9</sup> Doesken, Nolan, "Colorado-Rocky Mountain High," Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed November 14, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Census Bureau, 2010 Census: Colorado Profile, accessed November 14, 2016.<br>
+<a name='11'></a><sup>11</sup> Doesken, Nolan, "Colorado-Rocky Mountain High," Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed November 14, 2016.<br>
+<a name='12'></a><sup>12</sup> U.S. Census Bureau, Resident Population Data, Population Density, 1910-2010.<br>
+<a name='13'></a><sup>13</sup> U.S. Census Bureau, Colorado: 2010, Population and Housing Unit Counts, CPH-2-7 (August 2012), p. 27, Table 1, Population: Earliest Census to 2010; and Housing Units: 1950 to 2010.<br>
+<a name='14'></a><sup>14</sup> U.S. Census Bureau, 2010 Census: Colorado Profile, accessed November 14, 2016.<br>
+<a name='15'></a><sup>15</sup> U.S. Census Bureau, American Fact Finder, Colorado, Tables B25002 and B25004, 2015 American Community Survey 1-year estimates.<br>
+<a name='16'></a><sup>16</sup> Headwaters Economics, The Status of Colorado's Oil and Gas Industry (2012), p. 7. <br>
+<a name='17'></a><sup>17</sup> Colorado, Office of Economic Development & International Trade, Industries, accessed November 14, 2016.<br>
+<a name='18'></a><sup>18</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='19'></a><sup>19</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, Ranked by State, 2014.<br>
+<a name='20'></a><sup>20</sup> Colorado Oil & Gas Conservation Commission, COGCC Reports Portal, Monthly Oil Produced by County, 2012-2016, accessed November 14, 2016.<br>
+<a name='21'></a><sup>21</sup> Wobbekind, Richard, Brian Lewandowski, and Ernie Chung, Oil and Gas Industry Economic and Fiscal Contributions in Colorado by County, 2008-2012, University of Colorado Boulder (May 2014), p. 1-4. <br>
+<a name='22'></a><sup>22</sup> Garcia, Adrian D., "What the Hell Is Going On With Colorado's Oil and Gas Industry?" Denverite (September 20, 2016).<br>
+<a name='23'></a><sup>23</sup> U.S. EIA, "U.S. EIA improves state-level monthly oil production estimates with up to 10 years of revisions," Today in Energy (October 9, 2012), Colorado tab.<br>
+<a name='24'></a><sup>24</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels per Day, 2010-2015.<br>
+<a name='25'></a><sup>25</sup> Colorado Oil & Gas Conservation Commission, COGCC Reports Portal, Monthly Oil Produced by County, 2010-2015, accessed November 14, 2016.<br>
+<a name='26'></a><sup>26</sup> Colorado Counties Map, accessed November 14, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. EIA, Crude Oil Proved Reserves, Reserves Changes, and Production, Proved Reserves as of 12/31, Annual, 2009-14.<br>
+<a name='28'></a><sup>28</sup> "Information on the Niobrara-DJ Basin," Natural Gas Intelligence Shale Daily, accessed November 23, 2016.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (March 2015), p. 5.<br>
+<a name='30'></a><sup>30</sup> Colorado Oil & Gas Association, Fast Facts, The Niobrara, accessed November 14, 2016.<br>
+<a name='31'></a><sup>31</sup> Colorado Oil & Gas Conservation Commission, COGCC Reports Portal, Monthly Oil Produced by County, 2010-2015, accessed November 14, 2016.<br>
+<a name='32'></a><sup>32</sup> Spencer, Charles, Uinta-Piceance Basin Province (020), U.S. Geological Survey, p. 2, accessed November 14, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Government Accountability Office, Unconventional OIl and Gas Production: Opportunities and Challenges of Oil Shale Development, GAO-12-740T (May 10, 2012).<br>
+<a name='34'></a><sup>34</sup> Bureau of Land Management, "BLM Issues Draft Programmatic Environmental Impact Statement for Oil Shale and Tar Sands," Press Release (February 3, 2012).<br>
+<a name='35'></a><sup>35</sup> U.S. EIA, Refinery Capacity 2016, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 8-10.<br>
+<a name='36'></a><sup>36</sup> Suncor Energy Inc., Refining, accessed November 14, 2016.<br>
+<a name='37'></a><sup>37</sup> "U.S. Crude Oil Pipeline Projects: Kinder Morgan Acquiring Hiland Crude," Reuters (January 21, 2015), see Pony Express, Grand Mesa, White Cliffs, Saddlehorn pipeline projects.<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='39'></a><sup>39</sup> U.S. EIA, Refinery Capacity 2016, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 8-10.<br>
+<a name='40'></a><sup>40</sup> U.S. Department of Energy, Electricity Delivery and Energy Reliability, State of Colorado, Energy Sector Risk Profile, Petroleum, p. 4, accessed November 15, 2016.<br>
+<a name='41'></a><sup>41</sup> Magellan Midstream Partners LP, Asset Map, see Refined Products Assets, Product Availability Refined Pipeline, accessed November 15, 2016.<br>
+<a name='42'></a><sup>42</sup> Sinclair Oil Corp., What We Do, Transportation, accessed November 15, 2016.<br>
+<a name='43'></a><sup>43</sup> NuStar Energy LP, Form 10-K Annual Report as of December 31, 2013 to U.S. Securities & Exchange Commission, p. 10.<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='45'></a><sup>45</sup> U.S. Environmental Protection Agency, Gasoline Standards, see Gasoline Programs: Reformulated Gasoline, Reid Vapor Pressure, and Winter Oxygenates, accessed November 15, 2016.<br>
+<a name='46'></a><sup>46</sup> Gardner, K.W., U.S. Gasoline Requirements, ExxonMobil (June 2015).<br>
+<a name='47'></a><sup>47</sup> Porter, Steve, "Ethanol's Long History Leads to Brighter Future," BizWest (March 2, 2007).<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, State Energy Data System, Table P4, Energy Production Estimates in Physical Units, Ranked by State, 2014.<br>
+<a name='49'></a><sup>49</sup> Nebraska Government, Ethanol Facilities, Capacity by State and Plant, Million Gallons per Year as of September 2016.<br>
+<a name='50'></a><sup>50</sup> Ethanol Producers Magazine, U.S. Ethanol Plants, All Platforms, Existing, updated January 23, 2016.<br>
+<a name='51'></a><sup>51</sup> MillerCoors, Environmental Stewardship, Waste Reduction, Converting Waste Beer into Fuel-Grade Ethanol, accessed November 17, 2016.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Colorado Natural Gas Gross Withdrawals, 1967-2015.<br>
+<a name='54'></a><sup>54</sup> Colorado Geological Survey, Natural Gas, Map, accessed November 17, 2016.<br>
+<a name='55'></a><sup>55</sup> Colorado Oil & Gas Conservation Commission, Data, Production by County, Monthly Coalbed & Natural Gas Sold by County, 2011-2016, accessed November 17, 2016.<br>
+<a name='56'></a><sup>56</sup> Webb, Dennis, "Gas Firm Selling Off Assets in Colorado," The Daily Sentinel (October 8, 2015).<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Natural Gas Proved Reserves, Wet After Lease Separation, Proved Reserves as of Dec. 31, 2009-14.<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Estimated Dry Natural Gas Contained in Total Natural Gas Proved Reserves, Proved Reserves as of Dec. 31, 2009-14.<br>
+<a name='59'></a><sup>59</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (March 2015).<br>
+<a name='60'></a><sup>60</sup> U.S. EIA, Colorado Coalbed Methane Production, 1989-2014.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15, and Gross Withdrawals from Coalbed Wells, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='62'></a><sup>62</sup> Voge, Adam, "Wyoming Threatens to Pull Coal Bed Methane Permits," Casper Star Tribune (September 15, 2012).<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals from Coalbed Wells, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, U.S. Crude Oil and Natural Gas Proved Reserves 2014 (November 23, 2015), Table 16, Coalbed methane proved reserves, reserve changes, and production, 2014.<br>
+<a name='65'></a><sup>65</sup> Colorado Oil & Gas Conservation Commission, Data, Production by County, Monthly Coalbed Methane Produced by County, 2011-2016, accessed November 18, 2016.<br>
+<a name='66'></a><sup>66</sup> U.S. EIA, Natural Gas Consumption by End Use, Colorado, Annual, 2010-15.<br>
+<a name='67'></a><sup>67</sup> U.S. Census Bureau, American Community Survey, Colorado, Table B25040, House Heating Fuel, 2015 American Community Survey 1-year estimates.<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Colorado Natural Gas Deliveries to Electric Power Consumers, 1997-2015, accessed November 18, 2016.<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, Natural Gas Consumption by End Use, Colorado, Annual, 2010-15.<br>
+<a name='70'></a><sup>70</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='71'></a><sup>71</sup> U.S. EIA, International & Interstate Movements of Natural Gas by State, Colorado, 2010-15.<br>
+<a name='72'></a><sup>72</sup> U.S. EIA, Natural Gas Pipelines in the Central Region (2008).<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Natural Gas Market Centers: A 2008 Update (April 2009), p. 1-4.<br>
+<a name='74'></a><sup>74</sup> Natural Gas Intelligence, Cheyenne Hub, accessed November 18, 2016.<br>
+<a name='75'></a><sup>75</sup> Questar, White River Hub: A new natural gas pipeline hub in the Rockies, accessed November 18, 2016.<br>
+<a name='76'></a><sup>76</sup> Natural Gas Intelligence, White River Hub, accessed November 18, 2016.<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Natural Gas Underground Storage Capacity, Total Storage Capacity, Annual, 2010-15.<br>
+<a name='78'></a><sup>78</sup> "Storing Gas for When It's Needed - Midstream Energy's NE Colorado Facility Services Utilities, Producers," Midstream Energy Holdings (May 2016).<br>
+<a name='79'></a><sup>79</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2015.<br>
+<a name='80'></a><sup>80</sup> National Mining Association, Coal-Bearing Areas of the United States, accessed November 18, 2016.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2015.<br>
+<a name='82'></a><sup>82</sup> Colorado Preservation, Inc., Colorado Fuel & Iron Plant, accessed November 18, 2016.<br>
+<a name='83'></a><sup>83</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='84'></a><sup>84</sup> Svaldi, Aldo, "Delta County Loses Another Big Coal Mine with Closure of Bowie #2," The Denver Post (February 26, 2016).<br>
+<a name='85'></a><sup>85</sup> Finley, Bruce, "Collapse of Colorado Coal Industry Leaves Mining Towns Unsure What's Next," The Denver Post (May 14, 2016).<br>
+<a name='86'></a><sup>86</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic distribution of U.S. coal by origin State, consumer, destination, and method of transportation, Colorado, 2015.<br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Annual Coal Distribution Report, Archive, Domestic distribution of U.S. coal by origin State, consumer destination, and method of transportation, Colorado, 2014, 2013, 2012.<br>
+<a name='88'></a><sup>88</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination, and method of transportation, Colorado, 2015<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Annual Coal Distribution Report, Archive, Domestic distribution of U.S. coal by destination State, consumer, destination, and method of transportation, Colorado, 2014, 2013, 2012.<br>
+<a name='90'></a><sup>90</sup> Buchsbaum, Lee, "High Quality Western Bituminous & Metallurgical Coal Keeps Finding Homes Overseas," Coal Age (September 30, 2011).<br>
+<a name='91'></a><sup>91</sup> Rowland, Jonathan, "The Steelmaker's Headache," World Coal (March 18, 2016).<br>
+<a name='92'></a><sup>92</sup> U.S. EIA, Annual Coal Distribution Report 2015 (November 14, 2016), Domestic and Foreign Distribution of U.S. Coal by Origin State.<br>
+<a name='93'></a><sup>93</sup> U.S. EIA, Annual Coal Distribution Report, Archive, Domestic and Foreign Distribution of U.S. Coal by State of Origin, 2014, 2013, 2012.<br>
+<a name='94'></a><sup>94</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='95'></a><sup>95</sup> U.S. EIA, "Over Past Decade, Mountain Region States Have Used Less Coal for Electricity Generation," Today in Energy (October 19, 2016).<br>
+<a name='96'></a><sup>96</sup> Cantwell, Rebecca, "Xcel's New Resource Plan Describes a New Energy Landscape," Smart Energy Living Blog (November 2, 2011).<br>
+<a name='97'></a><sup>97</sup> Proctor, Cathy, "Xcel Lays Out Sweeping Plan for Colorado's Energy Future," Denver Business Journal (January 25, 2016).<br>
+<a name='98'></a><sup>98</sup> World Nuclear Association, U.S. Uranium Mining and Exploration, updated October 2016.<br>
+<a name='99'></a><sup>99</sup> U.S. EIA, Domestic Uranium Production Report - Annual (May 5, 2016), Tables 4, 5.<br>
+<a name='100'></a><sup>100</sup> Energy Fuels, "Energy Fuels Announces Closing of Sale of PiÃ±on Ridge License and Related Assets," Press Release (November 7, 2014).<br>
+<a name='101'></a><sup>101</sup> World Nuclear Association, U.S. Uranium Mining and Exploration, updated October 2016.<br>
+<a name='102'></a><sup>102</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01)<br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='104'></a><sup>104</sup> U.S. EIA, State Energy Data System, Table F21, Electricity Consumption Estimates 2014.<br>
+<a name='105'></a><sup>105</sup> U.S. Census Bureau, American Community Survey, Colorado, Table B25040, House Heating Fuel, 2015 American Community Survey 1-year estimates.<br>
+<a name='106'></a><sup>106</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 5.4.B.<br>
+<a name='107'></a><sup>107</sup> U.S. EIA, State Electricity Profiles, Colorado Electricity Profile 2014, Table 10, Supply and Disposition of Electricity 1990-2014.<br>
+<a name='108'></a><sup>108</sup> U.S. Department of Energy, Electricity Delivery and Energy Reliability, State of Colorado, Energy Sector Risk Profile, p. 2, accessed November 19, 2016.<br>
+<a name='109'></a><sup>109</sup> Colorado Office of Economic Development & International Trade, Energy & Natural Resources, accessed November 10, 2015.<br>
+<a name='110'></a><sup>110</sup> NC Clean Energy Technology Center, DSIRE, Renewable Energy Standard, Colorado, updated August 5, 2015.<br>
+<a name='111'></a><sup>111</sup> Clean Edge, An In-Depth Look at Colorado's Clean Energy Technology Sector (2015).<br>
+<a name='112'></a><sup>112</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, WINDExchange, Colorado Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='113'></a><sup>113</sup> National Renewable Energy Laboratory, Dynamic Maps, GIS Data, & Analysis Tools, Solar Maps, U.S. Solar Resource Maps, Photovoltaics and Concentrating Solar Power, updated July 18, 2016.<br>
+<a name='114'></a><sup>114</sup> Colorado Energy Office, Energy in Colorado, Renewable Energy, accessed November 21, 2016.<br>
+<a name='115'></a><sup>115</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='116'></a><sup>116</sup> Xcel Energy, Wind Power on Our System, accessed November 21, 2016.<br>
+<a name='117'></a><sup>117</sup> Xcel Energy, Colorado Wind Power, accessed November 21, 2016.<br>
+<a name='118'></a><sup>118</sup> American Wind Energy Association, State Wind Facts, Colorado Wind Energy, accessed November 21, 2016.<br>
+<a name='119'></a><sup>119</sup> U.S. Department of the Interior, Bureau of Land Management, Solar Energy Program, Colorado, accessed November 21, 2016.<br>
+<a name='120'></a><sup>120</sup> Solar Energy Industries Association, Colorado Solar, accessed November 21, 2016.<br>
+<a name='121'></a><sup>121</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='122'></a><sup>122</sup> Colorado Energy Office, Energy in Colorado, Solar, accessed November 21, 2016.<br>
+<a name='123'></a><sup>123</sup> Proctor, Cathy, "Colorado Gives Green Light to Xcel's Plan to Add a Lot More Solar Power," Denver Business Journal (November 9, 2016).<br>
+<a name='124'></a><sup>124</sup> U.S. Department of Energy, Status Report: U.S. Department of Energy Implementation of Interconnection-Level Transmission Analysis and Planning (January 2011), slides 11-13.<br>
+<a name='125'></a><sup>125</sup> U.S. Department of the Interior, Bureau of Land Management, Electric Transmission Facilities and Energy Corridors, updated April 28, 2015.<br>
+<a name='126'></a><sup>126</sup> Krantz, Laura, "Colorado Voters Get Revved Up Over Energy Policy," NPR (October 3, 2012).<br>
+<a name='127'></a><sup>127</sup> Solar Energy Industries Association, Colorado Solar, accessed November 21, 2016.<br>
+<a name='128'></a><sup>128</sup> Colorado Small Hydro Association, About Colorado Hydropower, accessed November 21, 2016.<br>
+<a name='129'></a><sup>129</sup> U.S. EIA, Electricity, Detailed State Data, 1990-2014, Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type, and State (EIA-860).<br>
+<a name='130'></a><sup>130</sup> "FERC Approves First Hydroelectric Project in Colorado under Small Hydro Agreement," U.S. Federal Energy Regulatory Commission, Press Release (September 14, 2011).<br>
+<a name='131'></a><sup>131</sup> Colorado Energy Office, Energy in Colorado, Hydropower, accessed November 21, 2016.<br>
+<a name='132'></a><sup>132</sup> Mack, Pat, "Colorado's First Biomass Plant Begins Delivering Electricity," Colorado Public Radio (December 16, 2013).<br>
+<a name='133'></a><sup>133</sup> Best, Allen, "Can Biomass Plants in Colorado Deliver Benefits Without Being a Nuisance?" Mountain Town News (March 6, 2014).<br>
+<a name='134'></a><sup>134</sup> Colorado Energy Office, Energy in Colorado, Waste to Energy, accessed November 21, 2016.<br>
+<a name='135'></a><sup>135</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, "Colorado Takes Steps to Expand Geothermal Development" (June 3, 2014).<br>
+<a name='136'></a><sup>136</sup> U.S. Department of the Interior, Bureau of Land Management, Colorado, Geothermal, updated February 25, 2015.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 4</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.colorado.gov/energyoffice/" title="Colorado Energy Office">Colorado Energy Office</a></li>
+  
+    <li><a href="https://www.colorado.gov/dora/puc" title="Colorado Department of Regulatory Agencies, Public Utilities Commission">Colorado Department of Regulatory Agencies, Public Utilities Commission</a></li>
+  
+    <li><a href="https://sites.google.com/a/state.co.us/cdhs-leap/" title="Colorado Department of Human Services, Office of Economic Security, LEAP">Colorado Department of Human Services, Office of Economic Security, LEAP</a></li>
+  
+    <li><a href="http://cogcc.state.co.us/#home/" title="Colorado Oil and Gas Conservation Commission">Colorado Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="https://www.colorado.gov/pacific/energyoffice/economic-development-4" title="Colorado Energy Office, Financing">Colorado Energy Office, Financing</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://rechargecolorado.com/homes" title="Recharge Colorado">Recharge Colorado</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="https://cdnr.us/#/division/DRMS" title="Colorado Department of Natural Resources, Division of Reclamation, Mining and Safety">Colorado Department of Natural Resources, Division of Reclamation, Mining and Safety</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Colorado website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Colorado\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/CO.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

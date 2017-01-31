@@ -132,7 +132,7 @@ var _gaq = _gaq || [];
         };
         if(typeof config != 'undefined') {$.extend(dojoConfig.paths, config.paths);}
 
-		var sid = 'UT';var sid = 'UT';var sid = 'UT';
+		var sid = 'UT';
 
 	</script>
     
@@ -333,7 +333,7 @@ var _gaq = _gaq || [];
 		spacingRight: 40
 	},
 	title : { 
-		text : 'Utah Net Electricity Generation by Source, Sep. 2016'
+		text : 'Utah Net Electricity Generation by Source, Oct. 2016'
 	},
 	xAxis : {
 		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
@@ -352,7 +352,7 @@ var _gaq = _gaq || [];
 	},
 	series : [{
 		name : 'Utah Net Electricity Generation',
-		data : [3,643,2310,48,281]
+		data : [3,586,2444,53,266]
 	}],
 	credits : {
 		text : 'Source: Energy Information Administration, Electric Power Monthly',
@@ -432,13 +432,13 @@ var _gaq = _gaq || [];
 	},
 	series : [{
 		name : 'Utah U.S. Price Differentials',
-		data : [{y:-16.0869565217, period: Date.UTC(2016,8,1)},{y:-39.7260273973, period: Date.UTC(2016,8,1)},{y:-12.3543123543, period: Date.UTC(2016,8,1)},{y:-10.7476635514, period: Date.UTC(2016,8,1)},{y:-3.77622377622, period: Date.UTC(2016,8,1)}],
+		data : [{y:15.0357995227, period: Date.UTC(2016,9,1)},{y:-32.8238719068, period: Date.UTC(2016,9,1)},{y:-14.1365461847, period: Date.UTC(2016,9,1)},{y:-14.6131805158, period: Date.UTC(2016,9,1)},{y:-7.58928571429, period: Date.UTC(2016,9,1)}],
 		tooltip: {
 			precision: 2
 		}
 	}],
 	credits : {
-		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly.1.html">Natural Gas Monthly</a>;<br/><a href="../electricity/monthly.1.html">Electric Power Monthly</a>',
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly.1.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly.1.html">Natural Gas Monthly</a>;<br/><a href="../electricity/monthly.1.html">Electric Power Monthly</a>',
 		href : null,
 		position: {
 			y: -22
@@ -913,7 +913,7 @@ $(document).ready(function() {
             <span class="global_menu_col1">
               <a href="../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="../electricity/data/browser/css/images/minusplus.png.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
               <a href="../consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -957,7 +957,7 @@ $(document).ready(function() {
         <li class="global-geo"><a>Geography</a></li>
           <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="../state.1.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
@@ -1133,4 +1133,629 @@ $(document).ready(function() {
 			}
 		});
 		
-		$('.rankLink').on
+		$('.rankLink').on('click', function(event) { 
+			$(this).parents('.dat_block').css('display', 'none'); return true;
+		});
+		
+	
+		require(['qTipsHelp', 'helpTooltips'], function(qTipsHelp, helpToolTips) {
+			$(function() {
+				var help = new qTipsHelp();
+				$('.help').on('click', function(event) {
+					help.toggleHelpTooltips(helpToolTips());
+				});
+			});
+		});
+	});
+</script>
+
+
+<div class="pub_title bg_pub_states_tall new_header" id="stateSelection">
+  <a href="seds/sep_prod/xls/P2.xls.html">&lsaquo; U.S. States</a>
+  <h1 style="padding-top:45px;">Utah&nbsp;&nbsp;&nbsp;<img src="http://www.eia.gov/state/img/flags/UT.png" height="25" align="absmiddle" vspace="2" alt="Utah Profile" style="border:1px solid #eee"></h1>
+  <p class="subtitle"><i>State Profile and Energy Estimates</i></p>
+  <p class="submenu rnd_crn4  no_print"><a class="change_location submenu_toggle">Change State/Territory<span class="arrow_rL">&nbsp;</span></a></p>
+</div>
+
+	
+
+
+<div class="L2_blue_toggle no_print">
+	<h2>Choose a U.S. State or Territory</h2>
+	<table class="L2_toggle_table" width="100%">
+	  <tr>
+		<td width="14%">
+		
+			<a href="http://www.eia.gov/state/?sid=US">United States</a><br />
+		
+				<a href="http://www.eia.gov/state/?sid=AL">Alabama</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=AK">Alaska</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=AZ">Arizona</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=AR">Arkansas</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=CA">California</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=CO">Colorado</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=CT">Connecticut</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=DE">Delaware</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="http://www.eia.gov/state/?sid=DC">District of Columbia</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=FL">Florida</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=GA">Georgia</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=HI">Hawaii</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=ID">Idaho</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=IL">Illinois</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=IN">Indiana</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=IA">Iowa</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=KS">Kansas</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="http://www.eia.gov/state/?sid=KY">Kentucky</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=LA">Louisiana</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=ME">Maine</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MD">Maryland</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MA">Massachusetts</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MI">Michigan</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MN">Minnesota</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MS">Mississippi</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=MO">Missouri</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="http://www.eia.gov/state/?sid=MT">Montana</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NE">Nebraska</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NV">Nevada</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NH">New Hampshire</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NJ">New Jersey</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NM">New Mexico</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NY">New York</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=NC">North Carolina</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=ND">North Dakota</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="http://www.eia.gov/state/?sid=OH">Ohio</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=OK">Oklahoma</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=OR">Oregon</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=PA">Pennsylvania</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=RI">Rhode Island</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=SC">South Carolina</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=SD">South Dakota</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=TN">Tennessee</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=TX">Texas</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="http://www.eia.gov/state/?sid=UT">Utah</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=VT">Vermont</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=VA">Virginia</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=WA">Washington</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=WV">West Virginia</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=WI">Wisconsin</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=WY">Wyoming</a><br />
+			
+				</td>
+				<td width="15%">
+				  <strong>U.S. Territories</strong><br />
+			
+				<a href="http://www.eia.gov/state/?sid=AQ">American Samoa</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=GQ">Guam</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=CQ">Northern Mariana Islands</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=RQ">Puerto Rico</a><br />
+			
+				<a href="http://www.eia.gov/state/?sid=VQ">US Virgin Islands</a><br />
+			
+		 </td>
+	  </tr>
+	</table>
+</div>
+
+
+<div class="subnav tools">
+  
+  <ul>
+	<li class="active" id="overview"><a href="http://www.eia.gov/state/?sid=UT">Overview</a></li>
+    
+	<li class=" dropdown" id="data">
+		
+			<a href="http://www.eia.gov/state/data.cfm?sid=UT">Data</a>
+		
+	</li>
+    <div class="dat_block">
+			<ul>
+	
+		
+            <li><b>State Profiles</b></li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#EnergyIndicators">Energy Indicators</a>
+					</li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#Prices">Prices</a>
+					</li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#ReservesSupply">Reserves & Supply</a>
+					</li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#DistributionMarketing">Distribution & Marketing</a>
+					</li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#ConsumptionExpenditures">Consumption & Expenditures</a>
+					</li>
+				
+					<li>
+						<a href="http://www.eia.gov/state/data.cfm?sid=UT#Environment">Environment</a>
+					</li>
+				
+    
+            <li><b>Energy estimates (SEDS)</b></li>
+            <li>
+            
+                <a href="http://www.eia.gov/state/seds/seds-data-complete.cfm?sid=UT">1960-2014 estimates</a>
+            
+            </li>
+            <li>
+            
+                <a href="http://www.eia.gov/state/seds/seds-data-fuel.cfm?sid=UT">2015 updates</a>
+            
+            
+            
+            </li>
+
+            
+            </li>
+            
+        </ul>
+    </div>
+	<li  id="analysis">
+		
+			<a href="http://www.eia.gov/state/analysis.cfm?sid=UT">Analysis</a>
+		
+	</li>
+	
+		
+    
+    	
+			
+			
+			
+			
+    
+	
+    
+	
+    
+    
+  </ul>
+  <div>
+		<ul>
+			<li>&nbsp;</li>
+			<li  id="rankings">
+				
+					<a href="http://www.eia.gov/state/rankings/?sid=UT">Rankings</a>
+				
+			</li>
+			<li class="" id="compare">
+				
+					<a href="http://www.eia.gov/state/compare/?sid=UT#?selected=US-UT">Compare</a>
+				
+			</li>
+			<li  id="find"><a href="http://www.eia.gov/state/search/?sid=UT#?2=225">Find</a></li>
+			<li class="help"><a>Help</a></li>
+		</ul>
+	</div>
+</div>
+
+
+<div class="pagecontent mr_temp2" id="stateProfilePage">
+	<div class="main_col">
+		<h1>Profile Overview</h1>
+
+		<div class="blue_top" id="profile_map_container">
+            <div id="profile_map_inner_container" class="claro">
+            
+            <span class="clickable" id="fullScreen">Full Screen</span>
+<div id="content" data-dojo-type="dijit/layout/BorderContainer" gutters="false" style="width:100%;height:100%;margin:0;" allowfullscreen="true">
+	<div id="map" data-dojo-type="dijit/layout/ContentPane" region="center">
+		<div id="LocateButton"></div>
+		<div class="buttons">
+			<div id="printButton"></div>
+			<div id="locatePane" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Find address',open:false">
+				<div data-dojo-type="dijit/layout/ContentPane" style="overflow:auto;">
+					<input type="text" id="address"/>
+					<button id="locate" data-dojo-type="dijit/form/Button">Locate</button>
+					<div id="locList"></div>
+				</div>
+			</div>
+			<div id="baseMap" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Basemaps',open:false">
+				<div data-dojo-type="dijit/layout/ContentPane">
+					<div id="basemapGallery"></div>
+				</div>
+			</div>
+			<div id="legendContainer" data-dojo-type="dijit/TitlePane" data-dojo-props="title:'Layers/Legend',open:false">
+				<div id="legend"></div>
+			</div>
+		</div>
+</div>
+</div>
+
+            </div>
+			
+			<div class="carousel_footer">
+                <div id="layerinfo"><a href="http://www.eia.gov/maps/layer_info-m.cfm"><img src="http://www.eia.gov/state/img/layers_info.png" id="layerinfo_img"> Layer information and map data</a></div>
+				<!-- <a href="/maps/layer_info-m.cfm">Map details and data</a> -->
+                <!-- <a target="_blank" href="maps/map_legend.pdf" class="ico_pdf">Map legend</a>  -->
+				<span style="float:right;">Send map questions, comments and<br />suggestions to: <a href="mailto:mapping@eia.gov">mapping@eia.gov</a></span><br /><br />
+			</div>
+		</div>
+		<div class="feature" id="quick_facts_container">
+			<span>
+				<h3>Quick Facts</h3>
+				
+<ul>
+
+	<li>Utah produced 1.8% of U.S. coal in 2014 and shipped 30% of that production out of the state, of which just over half was exported.</li>
+	
+	<li>Utah&#39;s five refineries process crude oil primarily from Utah, Colorado, Wyoming, and Canada; the UNEV pipeline, opened in late 2011, was the first to connect Utah&#39;s refineries to Las Vegas, the largest city in Nevada.&nbsp;</li>
+	
+	<li>In 2015, coal produced less than 76% of Utah&#39;s net electricity generation and natural gas produced 19%; in 2005, coal produced 94% and natural gas, 3%. State planners expect the natural gas share to continue rising as older coal units are shut down.</li>
+	
+	<li>Utah had the ninth lowest average electricity prices in the nation in 2015.</li>
+	
+	<li>Utah has a voluntary goal of obtaining 20% of the state&#39;s 2025 adjusted retail electric sales from cost-effective eligible renewable energy resources; in 2015, 4.3% of utility-scale net electricity generation came from renewable resources.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: November 17, 2016</p>
+</div>
+				
+			</span>
+		</div>
+		
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="state-energy-profiles.cfm@sid=UT.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="state-energy-profiles.cfm@sid=UT.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="state-energy-profiles.cfm@sid=UT.html#tabs-3">Production</a></li>
+			<li><a href="state-energy-profiles.cfm@sid=UT.html#tabs-4">Electricity</a></li>
+			<li><a href="state-energy-profiles.cfm@sid=UT.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+	
+		<h3 id="more_data_title">More Data & Analysis in Utah</h3>
+		<div id="byFuel" class="left">
+			<h4>by Source</h4>
+			<br/>
+			<ul class="left">
+				<li><a href="http://www.eia.gov/state/search/#?1=79&2=225">Petroleum</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?1=96&2=225">Natural Gas</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?1=102&2=225">Electricity</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?1=101&2=225">Coal</a></li>
+			</ul>
+			<ul class="right">
+				<li><a href="http://www.eia.gov/state/search/#?1=104&2=225">Renewable & Alternative Fuels</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?1=119&2=225">Nuclear</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?7=147&2=225">Environment</a></li>
+				<li><a href="http://www.eia.gov/state/search/#?1=78&2=225">Total Energy</a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div id="summaryReports" class="right">
+			<h4>Summary Reports</h4>
+			<br/>
+			<ul>
+				
+				<li><a href="http://www.eia.gov/electricity/state/Utah/">State Electricity Summary</a></li>
+				<li><a href="http://www.eia.gov/renewable/state/Utah/">State Renewable Electricity Statistics</a></li>
+				
+				<li><a href="http://www.eia.gov/dnav/ng/ng_sum_lsum_dcu_SUT_m.htm">Natural Gas Summary Statistics</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	
+	
+	</div>
+	<div class="side_col right">
+		<div class="print_profile">
+			<a href="http://www.eia.gov/state/print.cfm?sid=UT" class="ico_print" target="_blank">Print State Energy Profile<br>(overview, data, & analysis)</a>
+		</div>
+		
+		
+
+		<span class="ltblue_side2 side_list2">
+			<h3>Utah, U.S. Rankings</h3>
+			<table id="rankings_table">
+				<tbody>
+					
+							<tr class="heading">
+								<td colspan="2">Consumption</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/12">Total Energy per Capita</a></td>
+								<td class="textRight">35</td>
+							</tr>
+						
+							<tr class="heading">
+								<td colspan="2">Expenditures</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/225">Total Energy per Capita</a></td>
+								<td class="textRight">46</td>
+							</tr>
+						
+							<tr class="heading">
+								<td colspan="2">Production</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/101">Total Energy</a></td>
+								<td class="textRight">17</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/46">Crude Oil</a></td>
+								<td class="textRight">11</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/47">Natural Gas</a></td>
+								<td class="textRight">12</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/48">Coal</a></td>
+								<td class="textRight">13</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/51">Electricity</a></td>
+								<td class="textRight">32</td>
+							</tr>
+						
+							<tr class="heading">
+								<td colspan="2">Prices</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/28">Natural Gas</a></td>
+								<td class="textRight">41</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/31">Electricity</a></td>
+								<td class="textRight">44</td>
+							</tr>
+						
+							<tr class="heading">
+								<td colspan="2">Environment</td>
+							</tr>
+						
+							<tr class="indented">
+								<td><a href="http://www.eia.gov/state/rankings/?sid=UT#series/226">Carbon Dioxide Emissions</a></td>
+								<td class="textRight">31</td>
+							</tr>
+						
+					
+
+				</tbody>
+			</table>
+			<p class="no_btm_border"><a href="http://www.eia.gov/state/rankings/">See rankings for all states &rsaquo;</a></p>
+		</span>
+		
+		<span class="grey_side blue_top" id="tie_side">
+			<h4>Today In Energy</h4>
+			
+  <p class="no_btm_border"><a href="http://www.eia.gov/state/search/?sid=UT#?2=225&11=36&a=true">See all articles for this state &rsaquo;</a></p>
+
+		</span>
+		<span class="grey_side blue_top">
+            <style>
+			.paper-page {display:inline-block;width:80px;height:80px;background:transparent url(http://www.eia.gov/state/state_one_pager/outlines/document-empty-icon-80.png) no-repeat top left;float:left;}
+			.paper-page-he {display:inline-block;width:80px;height:80px;background:transparent url(http://www.eia.gov/state/state_one_pager/outlines/document-empty-icon-80_HE.png) no-repeat top left;float:left;}
+			.paper-page-s2 {display:inline-block;width:80px;height:80px;background:transparent url(http://www.eia.gov/state/state_one_pager/outlines/s2.png) no-repeat top left;float:left;}
+			.paper-text:hover {text-decoration:underline;}
+			</style>
+		  
+            <h4>Utah at a Glance</h4>
+          
+          
+            <a href="../emeu/recs/recs97_additions/recs_changes.html"><span class="paper-page-he"></span>
+          
+            <span class="paper-text" style="float:left;padding-top:12px;">Household<br />Energy Use<br />Fact Sheet &rsaquo;</span></a>
+            <div class="clear"></div>
+			
+            
+			
+		</span>
+		<span class="grey_side green_top" id="tie_side">
+	<h4>U.S. Energy Mapping System</h4>
+	<p><a href="maps.cfm.html"><img src="http://www.eia.gov/state/img/thumb_mapping_system.jpg" alt="U.S. Energy Mapping System" /></a></p>
+   
+	
+
+	<form>
+		<select onchange="window.location.assign(this.options[this.selectedIndex].value)" style="width:196px;">
+			<option value="">Choose your energy view...</option>
+		<option value="/state/maps.cfm?v=Petroleum">Petroleum</option> <option value="/state/maps.cfm?v=Natural Gas">Natural Gas</option> <option value="/state/maps.cfm?v=Renewable Energy Power Plants">Renewable Energy Power Plants</option> <option value="/state/maps.cfm?v=Coal">Coal</option> <option value="/state/maps.cfm?v=Biomass">Biomass</option> <option value="/state/maps.cfm?v=Solar">Solar</option> <option value="/state/maps.cfm?v=Geothermal">Geothermal</option> <option value="/state/maps.cfm?v=Fossil Fuel Resources">Fossil Fuel Resources</option> <option value="/state/maps.cfm?v=Energy Infrastructure">Energy Infrastructure</option> <option value="/state/maps.cfm?v=Electricity">Electricity</option> <option value="/state/maps.cfm?v=Wind">Wind</option> <option value="/state/maps.cfm?v=Hydroelectric">Hydroelectric</option> 
+		</select>
+	</form>
+</span>
+		<span class="grey_side blue_top" id="background_side">
+			<h4>Reference</h4>
+			<p><a href="http://www.eia.gov/state/updates.cfm?sid=UT">Record of Updates</a></p>
+			<p class="no_btm_border"><a href="http://www.eia.gov/state/notes-sources.cfm?sid=UT">Notes & Sources</a></p>
+		</span>
+		<span class="grey_side blue_top" id="other_side">
+			<h4>Other Resources</h4>
+			
+			
+				<p><a href="http://www.energy.utah.gov" title="Utah Office of Energy Development">Utah Office of Energy Development</a></p>
+			
+				<p><a href="http://oilgas.ogm.utah.gov/" title="Utah Oil and Gas, Division of Oil, Gas and Mining, Department of Natural Resources">Utah Oil and Gas, Division of Oil, Gas and Mining, Department of Natural Resources</a></p>
+			
+				<p><a href="http://www.psc.state.ut.us/" title="Public Service Commission of Utah">Public Service Commission of Utah</a></p>
+			
+				<p><a href="http://trustlands.utah.gov/" title="Utah Trust Lands Administration">Utah Trust Lands Administration</a></p>
+			
+				<p><a href="http://jobs.utah.gov/housing/wap/index.html" title="Utah Housing and Community Development Division, Weatherization Assistance Program">Utah Housing and Community Development Division, Weatherization Assistance Program</a></p>
+			
+			<p class="no_btm_border"><a href="http://www.eia.gov/state/other.cfm?sid=UT">more</a></p>
+		</span>
+		<span class="grey_side blue_top" ><iframe width="100%" src="http://www.youtube.com/embed/F-WBhuIHTXs?rel=0" frameborder="0" allowfullscreen=""></iframe>Play a short video to learn how to use this tool.
+		</span>
+	</div>
+</div> 
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+	  
+      </div>
+      <div id="addbar">
+      <a href="../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../abouteia/index.html">About EIA</a></h3>
+        <h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="../pressroom/index.html">Press Room</a></h3>
+        <h3><a href="../about/careers.1.html">Careers</a></h3>
+        
+        <h3><a href="../contactus.html">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="../petroleum/index.html">Petroleum</a><br />
+           <a href="../coal/index.html">Coal</a><br />
+           <a href="../naturalgas/index.html">Natural Gas</a><br />
+           <a href="../renewable/index.html">Renewable</a><br />
+           <a href="../fuelnuclear.html">Nuclear</a><br />
+           <a href="../electricity.1.html">Electricity</a><br />
+           <a href="../consumption/residential/methodology/index.cfm.html">Consumption</a><br />
+           <a href="../totalenergy/index.html">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="../analysis/index.html">Analysis & Projections</a><br />
+           <a href="../environment.1.html">Environment</a><br />
+           <a href="../finance/index.html">Markets & Finance</a><br />
+           <a href="../todayinenergy.1.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="seds/sep_prod/xls/P2.xls.html">States</a><br />
+           <a href="../emeu/international/gasconsumption.html">Countries</a><br />
+           <a href="../maps.1.html">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="../tools/a-z/index.html">A-Z Index</a><br />
+           <a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="../survey.html">EIA Survey Forms</a><br />
+           <a href="http://www.eia.gov/beta/">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="../about/privacy_security_policy.cfm.html">Privacy/Security</a><br />
+           <a href="../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br />
+           <a href="../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+		</div>
+		
+	</body>
+</html> 

@@ -1,0 +1,3039 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Pennsylvania Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Pennsylvania State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Pennsylvania Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Pennsylvania&#39;s annual gross natural gas production, primarily from the Marcellus Shale, exceeded 4 trillion cubic feet in 2014, doubling the state&#39;s 2012 production and making Pennsylvania the nation&#39;s second-largest natural gas producer.</li>
+	
+	<li>Pennsylvania was the fourth-largest coal-producing state in the nation in 2014 and the only state producing anthracite coal, which has a higher heat value than other kinds of coal.</li>
+	
+	<li>In 2015, Pennsylvania ranked second in the nation in electricity generation from nuclear power. The state obtained 37.2% of its net electricity generation from nuclear power, more than from any other source.</li>
+	
+	<li>Pennsylvania&#39;s Alternative Energy Portfolio Standards require 18% of electricity sold by 2021 to come from approved renewable or alternative sources, including at least 0.5% solar photovoltaic power. In 2015, renewable energy accounted for 4% of Pennsylvania&#39;s net electricity generation.</li>
+	
+	<li>As of 2014, 51% of Pennsylvania households used natural gas as their primary home heating fuel, while 21% depended on electricity for heat and 19% relied on fuel oil. Other heating fuels used in the state included propane, wood, and coal. &nbsp;</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: July 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=PA.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=PA.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=PA.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=PA.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=PA.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Pennsylvania Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Pennsylvania Energy Consumption Estimates',
+		data : [1039.2,1257.1,554.7,395.2,39.7,48.5,5.6,147.9,823.3,25.1,149.1,40.8,-624.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Pennsylvania Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 971.7],['Commercial', 652.7],['Industrial', 1374.3],['Transportation', 905.0]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Pennsylvania Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Pennsylvania Energy Production Estimates',
+		data : [1566.4,4474.0,38.8,823.3,15.7,169.2]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Pennsylvania Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Pennsylvania Net Electricity Generation',
+		data : [15,5177,3369,6377,123,514]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Pennsylvania Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Pennsylvania U.S. Price Differentials',
+		data : [{y:-4.29594272076, period: Date.UTC(2016,9,1)},{y:-1.67394468705, period: Date.UTC(2016,9,1)},{y:15.6626506024, period: Date.UTC(2016,9,1)},{y:-11.9388729704, period: Date.UTC(2016,9,1)},{y:1.93452380952, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					12.8 million 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					6.5 million 
+				</td>
+				<td>
+					4.1%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 689.2  billion 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 85,125  million 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 49,180 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					99,882 million miles 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					7.7 million acres 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					49.4 degrees Fahrenheit 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					43.2 inches 
+				</td>
+				<td>
+					23 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 45.20 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.01 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 13.51 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 57.73 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.86 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					14.40 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.22 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.85 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=219">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					13 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					55,894 billion cu ft 
+				</td>
+				<td>
+					18.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					441 million barrels 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					1,296 million short tons 
+				</td>
+				<td>
+					7.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					56 rigs 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					68,536 wells 
+				</td>
+				<td>
+					12.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					7,087 trillion Btu 
+				</td>
+				<td>
+					8.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					465 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					4,812,983 million cu ft 
+				</td>
+				<td>
+					16.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					50,031 thousand short tons 
+				</td>
+				<td>
+					5.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					601,000 barrels/calendar day 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					43,933 MW 
+				</td>
+				<td>
+					4.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					15,631 thousand MWh 
+				</td>
+				<td>
+					5.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					33.1 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					21.6 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					40.8 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					4.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					17 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					5,811 thousand barrels 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					723,384 million cu ft 
+				</td>
+				<td>
+					8.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					1,308 thousand barrels 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Pennsylvania</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Bailey Mine / Consol Pennsylvania Coal Company, Enlow Fork Mine / Consol Pennsylvania Coal Company, Cumberland Mine / Cumberland Coal Resources LP, Blacksville No 2 / Consolidation Coal Company</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">American Refining Group (Bradford), Monroe Energy (Trainer), Philadelphia Energy Solutions (Philadelphia), United Refining (Warren)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Bruce Mansfield (FirstEnergy Generation Corp) ; Homer City Station (Midwest Generations EME LLC) ; Keystone (RRI Energy NE Management Co) ; Conemaugh (RRI Energy NE Management Co) ; PPL Martins Creek (PPL Martins Creek LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">PPL Susquehanna (PPL Susquehanna LLC), Peach Bottom (Exelon Nuclear), Limerick (Exelon Nuclear), Beaver Valley (FirstEnergy Nuclear Operating Company)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=219">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Pennsylvania</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Philadelphia, Marcus Hook, Pittsburgh.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Dominion Hub (Market Center)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Pennsylvania</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Enbridge</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Enterprise, Colonial Pipeline, Marathon Pipeline, Sunoco, Buckeye partners</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Buckeye Partners, Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Blacksville Oil and Gas Company, Central New York Oil and Gas Company, Columbia Gas Transmission Corporation, Dominion Transmission Inc, Eastern Shore Natural Gas Company, Empire Pipeline, Equitrans LP, National Fuel Gas Supply Corporation, Pike County Ligh and Power, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP, Transcontinental Gas Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					3,842 stations 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					108 stations 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					288 stations 
+				</td>
+				<td>
+					1.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					43 stations 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					70 stations 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					3,902 trillion Btu 
+				</td>
+				<td>
+					6 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					305 million Btu 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 55,666  million 
+				</td>
+				<td>
+					5 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,351 
+				</td>
+				<td>
+					29 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					972 trillion Btu 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					653 trillion Btu 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					1,375 trillion Btu 
+				</td>
+				<td>
+					4.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					903 trillion Btu 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 13,630  million 
+				</td>
+				<td>
+					5.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 6,553  million 
+				</td>
+				<td>
+					3.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 10,873  million 
+				</td>
+				<td>
+					4.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 24,610  million 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					230.8 million barrels 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,200.7 billion cu ft 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					46.5 million short tons 
+				</td>
+				<td>
+					5.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 32,754  million 
+				</td>
+				<td>
+					3.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 8,819  million 
+				</td>
+				<td>
+					5.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 3,006  million 
+				</td>
+				<td>
+					6.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					34 thousand barrels 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					39,517 million cu ft 
+				</td>
+				<td>
+					5.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,549 thousand short tons 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=219">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					51.0 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					18.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					21.6 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					3.9 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					5.3 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,854 MW 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					110 million gal/year 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					123 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					342 thousand MWh 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					173 thousand MWh 
+				</td>
+				<td>
+					3.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					23 thousand MWh 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					2,757 Thousand Barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					5.5 % 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=PA"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					11,171 thousand barrels 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					245.0 million metric tons 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Pennsylvania</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=219">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					90,973 thousand metric tons 
+				</td>
+				<td>
+					4.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					201 thousand metric tons 
+				</td>
+				<td>
+					7.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					104 thousand metric tons 
+				</td>
+				<td>
+					5.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: July 21, 2016<p>
+<h2>Overview</h2>
+<div class='pullquote'><p>Pennsylvania supplies coal, natural gas, electricity, and refined petroleum products to the East Coast.</p></div><p>Pennsylvania is a leading East Coast supplier of coal, natural gas, nuclear power, and refined petroleum products to its own industries and to the nation. The Appalachian Mountains have rich coal resources and run southwest to northeast through Pennsylvania, dividing the Ohio River valley in the west from the Susquehanna River and Delaware River valleys in the east.<sup><a href='print.cfm@sid=PA.html#1'>1</a></sup> Pennsylvania's largest metropolitan areas are Philadelphia on the Delaware River and Pittsburgh on the Ohio River.<sup><a href='print.cfm@sid=PA.html#2'>2</a></sup> The Marcellus Shale, the largest U.S. natural gas field, underlies about three-fifths of the state in an arc reaching from the southwest to the northeast.<sup><a href='print.cfm@sid=PA.html#3'>3</a>,<a href='print.cfm@sid=PA.html#4'>4</a></sup></p>
+<p>Pennsylvania's temperate climate varies from the southeast, where it is influenced by the Atlantic Ocean, to cooler areas near the Great Lakes in the northwest, where weather fronts often come from Canada.<sup><a href='print.cfm@sid=PA.html#5'>5</a></sup> Precipitation in the state is plentiful and evenly distributed throughout the year. Temperatures vary significantly among the four seasons.<sup><a href='print.cfm@sid=PA.html#6'>6</a></sup> </p>
+<p>Pennsylvania's gross domestic product ranked sixth among the states in 2014.<sup><a href='print.cfm@sid=PA.html#7'>7</a></sup> The state is among the top 10 consumers of coal, natural gas, petroleum products, and electricity,<sup><a href='print.cfm@sid=PA.html#8'>8</a></sup> but its total energy consumption per capita is in the lower half of states nationwide.<sup><a href='print.cfm@sid=PA.html#9'>9</a></sup> The industrial sector leads energy consumption in the state.<sup><a href='print.cfm@sid=PA.html#10'>10</a></sup> Major energy-consuming industries include mining; steel, metals, and machinery manufacturing; chemical products; agriculture and food processing; and tourism.<sup><a href='print.cfm@sid=PA.html#11'>11</a>,<a href='print.cfm@sid=PA.html#12'>12</a>,<a href='print.cfm@sid=PA.html#13'>13</a></sup></p>
+<h2>Petroleum</h2>
+<p>Pennsylvania has long been the leading petroleum-refining state in the Northeast. Until 2011, the state's three largest refineries, clustered on the Delaware River around Philadelphia,  represented half of the East Coast's refining capacity, supplying more than half the Northeast's ultra-low sulfur diesel (ULSD) and nearly half its heating oil and motor gasoline. Pipelines from the refineries transported products to other parts of Pennsylvania and to western New York state.<sup><a href='print.cfm@sid=PA.html#14'>14</a></sup> But the refineries processed primarily imported crude oil and struggled to compete when world crude oil prices rose. In 2012, new owners took over the two larger refineries and improved their economics with less expensive feedstock derived from U.S. shale, brought in mainly by rail.<sup><a href='print.cfm@sid=PA.html#15'>15</a>,<a href='print.cfm@sid=PA.html#16'>16</a>,<a href='print.cfm@sid=PA.html#17'>17</a>,<a href='print.cfm@sid=PA.html#18'>18</a></sup> The refineries now have infrastructure to take either railed or shipped crude oils.<sup><a href='print.cfm@sid=PA.html#19'>19</a></sup> One refinery, at Marcus Hook, was shut down, and the facility is being used as a refined products terminal.<sup><a href='print.cfm@sid=PA.html#20'>20</a></sup> Natural gas liquids storage and processing capability were added at that terminal.<sup><a href='print.cfm@sid=PA.html#21'>21</a></sup> Two small refineries are located in northwestern Pennsylvania. One processes crude oil received by pipeline from Canada,<sup><a href='print.cfm@sid=PA.html#22'>22</a>,<a href='print.cfm@sid=PA.html#23'>23</a></sup> and the other processes crude oils from Pennsylvania and neighboring states.<sup><a href='print.cfm@sid=PA.html#24'>24</a>,<a href='print.cfm@sid=PA.html#25'>25</a></sup></p>
+<p>Pennsylvania, site of the first commercial oil well in 1859, continues to produce modest amounts of crude oil, mainly paraffin-based crude oil used for lubricants.<sup><a href='print.cfm@sid=PA.html#26'>26</a></sup> In addition to petroleum products from local refineries, Pennsylvania receives refined products by the Colonial Pipeline from Texas and by tanker and rail from the Gulf of Mexico.<sup><a href='print.cfm@sid=PA.html#27'>27</a></sup> Refined products are also imported from Canada, Latin America, Europe, and Africa.<sup><a href='print.cfm@sid=PA.html#28'>28</a></sup></p>
+<p>Nearly one in five Pennsylvania households rely on distillate fuel oils for home heating, making Pennsylvania,<sup><a href='print.cfm@sid=PA.html#29'>29</a></sup> like much of the U.S. Northeast, potentially vulnerable to distillate fuel oil shortages and price spikes. After severe weather threatened regional shortages during the winter of 2000, the federal government created the Northeast Home Heating Oil Reserve to avert future shortages in the Mid-Atlantic and New England states. In 2011, the government converted the reserve to ULSD, which has less than 15 parts per million (ppm) of sulfur, to correspond with decisions made by several northeastern states to begin requiring either low-sulfur diesel, with 15 ppm to 500 ppm sulfur, or ULSD for heating.<sup><a href='print.cfm@sid=PA.html#30'>30</a></sup> In 2012, Pennsylvania delayed its ULSD requirements because of uncertainty about operations at state refineries that were a major ULSD source,<sup><a href='print.cfm@sid=PA.html#31'>31</a></sup> but, in 2016, the state joined most of the Northeast in requiring low-sulfur heating oil.<sup><a href='print.cfm@sid=PA.html#32'>32</a></sup></p>
+<p>To reduce emissions of smog-forming pollutants, motorists in the heavily populated areas of southeastern Pennsylvania, including Philadelphia, are required to use reformulated motor gasoline blended with ethanol. Drivers in the Pittsburgh, Pennsylvania, area must use a low-vapor-pressure motor gasoline blend in summer.<sup><a href='print.cfm@sid=PA.html#33'>33</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>The Marcellus Shale has made Pennsylvania the nation's second-largest natural gas-producing state.</p></div><p>Pennsylvania's natural gas production was more than eight times larger in 2015 than in 2010 because of development of the Marcellus Shale.<sup><a href='print.cfm@sid=PA.html#34'>34</a></sup> Gross natural gas production exceeded 4.7 trillion cubic feet in 2015 and made the state the second largest natural gas producer in the nation, after Texas.<sup><a href='print.cfm@sid=PA.html#35'>35</a></sup> Pennsylvania is also second only to Texas in estimates of proved natural gas reserves, which quadrupled from 2010 to 2014.<sup><a href='print.cfm@sid=PA.html#36'>36</a></sup> The Marcellus Shale, which extends under parts of Pennsylvania, West Virginia, New York, Ohio, and Maryland, has the largest estimated proved reserves of any U.S. natural gas field.<sup><a href='print.cfm@sid=PA.html#37'>37</a></sup></p>
+<p>Until recently, Pennsylvania depended on interstate pipelines from the Gulf Coast to supply natural gas, but, with Marcellus Shale production, the state can meet its own demand. Pipelines are being reconfigured to send natural gas from Pennsylvania to the Midwest and the Gulf Coast.<sup><a href='print.cfm@sid=PA.html#38'>38</a>,<a href='print.cfm@sid=PA.html#39'>39</a>,<a href='print.cfm@sid=PA.html#40'>40</a></sup> New infrastructure, mainly pipelines to transport Marcellus output from wells to interstate natural gas transmission systems, is also being built.<sup><a href='print.cfm@sid=PA.html#41'>41</a></sup> The state has some transmission pipeline infrastructure in the west, the legacy of an earlier era when western Pennsylvania, western New York, and West Virginia comprised the nation's largest natural gas-producing region.<sup><a href='print.cfm@sid=PA.html#42'>42</a></sup> Pennsylvania's underground natural gas storage capacity is among the largest in the nation.<sup><a href='print.cfm@sid=PA.html#43'>43</a></sup></p>
+<p>Pennsylvania is experiencing parallel growth in the production of natural gas liquids (NGL), including ethane and propane.<sup><a href='print.cfm@sid=PA.html#44'>44</a>,<a href='print.cfm@sid=PA.html#45'>45</a></sup> Natural gas processing in the state grew more than five-fold from 2010 to 2014,<sup><a href='print.cfm@sid=PA.html#46'>46</a></sup> and producers are building both processing plants to extract NGLs and pipelines to transport them to domestic and Canadian markets and to ports on the East Coast and Gulf Coast for export.<sup><a href='print.cfm@sid=PA.html#47'>47</a>,<a href='print.cfm@sid=PA.html#48'>48</a>,<a href='print.cfm@sid=PA.html#49'>49</a>,<a href='print.cfm@sid=PA.html#50'>50</a></sup> Pennsylvania's first ethane cracker, which makes feedstocks for plastics manufacturing from ethane, is in development.<sup><a href='print.cfm@sid=PA.html#51'>51</a></sup></p>
+<p>Half of all households in Pennsylvania use natural gas as their primary heating fuel,<sup><a href='print.cfm@sid=PA.html#52'>52</a></sup> but electric power sector consumption has grown rapidly in recent years to surpass the residential sector as the state's largest natural gas consumer. The electric power sector uses nearly two-fifths of all natural gas consumed in the state. The residential sector and the industrial sector each consume slightly less than one-fourth.<sup><a href='print.cfm@sid=PA.html#53'>53</a></sup></p>
+<h2>Coal</h2>
+<p>Pennsylvania is one of the five largest coal-producing states in the nation.<sup><a href='print.cfm@sid=PA.html#54'>54</a></sup> The state hosts the two most productive coal mines east of the Mississippi River.<sup><a href='print.cfm@sid=PA.html#55'>55</a></sup> Pennsylvania has been home to coal mining for more than 200 years and, in the western half of the state, still has substantial reserves of bituminous coal, which is used to generate electricity and to produce coke for steelmaking.<sup><a href='print.cfm@sid=PA.html#56'>56</a>,<a href='print.cfm@sid=PA.html#57'>57</a>,<a href='print.cfm@sid=PA.html#58'>58</a></sup> </p>
+<p>Although northeast Pennsylvania has virtually all the nation's reserves of anthracite coal, anthracite accounts for a minimal share of the state's total coal production.<sup><a href='print.cfm@sid=PA.html#59'>59</a>,<a href='print.cfm@sid=PA.html#60'>60</a></sup> Anthracite, which has a higher heat value than other kinds of coal and burns with little soot, is used primarily in space heating.<sup><a href='print.cfm@sid=PA.html#61'>61</a></sup></p>
+<p>Pennsylvania is also among the nation's major coal consumers.<sup><a href='print.cfm@sid=PA.html#62'>62</a></sup> Nearly five-sixths of the coal consumed in the state is burned for electricity generation, and the remaining one-sixth is consumed for steelmaking and other industrial uses.<sup><a href='print.cfm@sid=PA.html#63'>63</a></sup> Large volumes of coal are moved by rail, barge, and truck into and out of Pennsylvania and around the state. In 2014, about 80% of Pennsylvania-mined coal was used domestically for electricity generation, about two-fifths in-state and three-fifths in other states throughout the East and Midwest.<sup><a href='print.cfm@sid=PA.html#64'>64</a></sup> Pennsylvania electricity generators and industries brought in nearly half of the coal they consumed from nearby states.<sup><a href='print.cfm@sid=PA.html#65'>65</a></sup> In 2014, about one-eighth of the coal mined in Pennsylvania was exported to other nations, but, in recent years, exports have reached as much as one-fourth of state output. Pennsylvania is among the nation's leading coal exporting states.<sup><a href='print.cfm@sid=PA.html#66'>66</a>,<a href='print.cfm@sid=PA.html#67'>67</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Pennsylvania is one of the top three generators of electricity in the nation.</p></div><p>Pennsylvania is one of the top three electricity-generating states in the nation, along with Texas and Florida. Electricity generation regularly exceeds in-state consumption, making the state an important electricity supplier to the Mid-Atlantic region.<sup><a href='print.cfm@sid=PA.html#68'>68</a></sup> Per capita electricity consumption is below the national average.<sup><a href='print.cfm@sid=PA.html#69'>69</a></sup> The residential sector is the largest consumer of electricity, using more than one-third of the power consumed in the state.<sup><a href='print.cfm@sid=PA.html#70'>70</a>,<a href='print.cfm@sid=PA.html#71'>71</a></sup> One in five Pennsylvania households use electricity as their primary heating source.<sup><a href='print.cfm@sid=PA.html#72'>72</a></sup></p>
+<p>The regional electricity grid is managed by the PJM Interconnection,<sup><a href='print.cfm@sid=PA.html#73'>73</a></sup> and the state wholesale power market is supplied with electricity almost entirely by independent power producers.<sup><a href='print.cfm@sid=PA.html#74'>74</a></sup> With the increased availability of economic natural gas, the proportion of Pennsylvania's net generation from coal is declining, and the share from natural gas is growing. In 2005, coal provided more than half of the state's net generation, and natural gas, less than 5%.<sup><a href='print.cfm@sid=PA.html#75'>75</a></sup> By 2015, coal had declined to three-tenths of net generation, and natural gas generated more than one-fourth.<sup><a href='print.cfm@sid=PA.html#76'>76</a></sup> </p>
+<p>Pennsylvania ranks second in the nation, after Illinois, in nuclear generating capacity, and nuclear power is the state's largest source of generation. The state's five nuclear stations have provided more than one-third of net electricity generation in recent years.<sup><a href='print.cfm@sid=PA.html#77'>77</a></sup> Pennsylvania is the site of the first commercial U.S. nuclear power plant, which came online at Shippingport in 1957. It operated for 25 years and was shut down in 1982.<sup><a href='print.cfm@sid=PA.html#78'>78</a></sup> The state is also the site of the nation's most serious nuclear power accident, a partial core meltdown at Three Mile Island Unit 2 in 1979. That accident led to sweeping changes in U.S. nuclear regulation and operating standards.<sup><a href='print.cfm@sid=PA.html#79'>79</a></sup></p>
+<h2>Renewable energy</h2>
+<div class='pullquote'><p>Wind generation has surpassed hydropower to become Pennsylvania's largest source of renewable energy.</p></div><p>Pennsylvania obtains about 4% of its net electricity generation from renewable sources.<sup><a href='print.cfm@sid=PA.html#80'>80</a></sup> Until recently, renewable electricity came mostly from hydroelectric and biomass power plants,<sup><a href='print.cfm@sid=PA.html#81'>81</a></sup> but wind power has grown to provide two-fifths of renewable electricity generation, making it the state's largest renewable source.<sup><a href='print.cfm@sid=PA.html#82'>82</a></sup> Appalachian Mountain crests, mainly in Pennsylvania's southwest but also in the northeast, have wind resources suitable for commercial power production.<sup><a href='print.cfm@sid=PA.html#83'>83</a></sup> Pennsylvania's first commercial wind farm started generating electricity in 2000, and the state now has 24 operating wind farms.<sup><a href='print.cfm@sid=PA.html#84'>84</a>,<a href='print.cfm@sid=PA.html#85'>85</a></sup></p>
+<p>Hydropower and biomass each provide about three-tenths of Pennsylvania's renewable electricity.<sup><a href='print.cfm@sid=PA.html#86'>86</a></sup> The state's hydroelectric facilities average nearly 60 years old.<sup><a href='print.cfm@sid=PA.html#87'>87</a></sup> Some of them have been modernized and upgraded for more efficient operation.<sup><a href='print.cfm@sid=PA.html#88'>88</a>,<a href='print.cfm@sid=PA.html#89'>89</a></sup> Biomass generation comes mainly from municipal solid waste and landfill gas.<sup><a href='print.cfm@sid=PA.html#90'>90</a></sup> Pennsylvania is among the top dozen states in the nation using biomass for electricity generation.<sup><a href='print.cfm@sid=PA.html#91'>91</a></sup> </p>
+<p>Although solar energy still produces substantially less than 1% of the state's net electricity generation, the number of solar photovoltaic (PV) installations in Pennsylvania is increasing. Solar PV is the choice of most customers generating power into the Pennsylvania electric grid.<sup><a href='print.cfm@sid=PA.html#92'>92</a></sup> In 2015, more than two-thirds of net solar generation came from distributed (customer-sited) generating facilities, such as rooftop solar PV, with capacities smaller than 1 megawatt.<sup><a href='print.cfm@sid=PA.html#93'>93</a></sup> A number of large businesses have turned to rooftop solar PV for their power supplies.<sup><a href='print.cfm@sid=PA.html#94'>94</a></sup> The state's largest solar PV facility is 10 megawatts.<sup><a href='print.cfm@sid=PA.html#95'>95</a></sup> </p>
+<p>Pennsylvania's alternative energy portfolio standards (AEPS), being phased in from 2007 to 2021, require 18% of electricity provided by generation and distribution companies to come from renewable sources by 2021, with at least 0.5% from solar power.<sup><a href='print.cfm@sid=PA.html#96'>96</a></sup> Among the resources Pennsylvania recognizes as meeting part of its AEPS requirements are byproducts of pulping and wood manufacturing, coal mine methane, and waste coal.<sup><a href='print.cfm@sid=PA.html#97'>97</a></sup> The state also requires investor-owned utilities doing business in the state to undertake energy efficiency measures to reduce peak demand and electricity consumption, which may include helping customers to install solar and geothermal technologies. The Pennsylvania Public Utility Commission reviews efficiency progress and adjusts goals as needed.<sup><a href='print.cfm@sid=PA.html#98'>98</a>,<a href='print.cfm@sid=PA.html#99'>99</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> NETSTATE, Pennsylvania, The Geography of Pennsylvania, updated February 25, 2016.<br>
+<a name='2'></a><sup>2</sup> U.S. Census Bureau, American FactFinder, Table: PEPANNRES, State: Pennsylvania, Population Estimate by Counties, Annual Estimates of the Resident Population: April 1, 2010 to July 1, 2015, 2015 Population Estimates.<br>
+<a name='3'></a><sup>3</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), p. 4.<br>
+<a name='4'></a><sup>4</sup> Pennsylvania Independent Oil & Gas Association, The Marcellus Shale: Pennsylvania's Home-Grown Energy Source, accessed June 8, 2016.<br>
+<a name='5'></a><sup>5</sup> City-data.com, Pennsylvania Climate, accessed June 8, 2016.<br>
+<a name='6'></a><sup>6</sup> Knight, Paul, "Pennsylvania: Where It Can Rain on Everyone's Parade..." Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed June 8, 2016.<br>
+<a name='7'></a><sup>7</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, GDP in current dollars, NAICS, All industries total, Alabama to Wyoming, 2014.<br>
+<a name='8'></a><sup>8</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates Per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Total Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='11'></a><sup>11</sup> Byrne, Dennis, "Top 5 Industries in Pennsylvania: Which Parts of the Economy Are Strongest?" Newsmax (April 10, 2015).<br>
+<a name='12'></a><sup>12</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Pennsylvania, Time Period 2012-14.<br>
+<a name='13'></a><sup>13</sup> Pennsylvania Department of Community & Economic Development, Key Industries, accessed June 8, 2016.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets, updated May 11, 2012.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, Refinery Capacity 2015, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015, p. 17.<br>
+<a name='16'></a><sup>16</sup> Fraser, Katherine, "U.S. East Coast Oil Refineries Enjoy a Stirring Comeback," The Barrel (May 17, 2013).<br>
+<a name='17'></a><sup>17</sup> Maykuth, Andrew, "More Oil Moves by Rail and It Moves Here," Philadelphia Inquirer (April 12, 2015).<br>
+<a name='18'></a><sup>18</sup> Loyd, Linda, "Delta Air Lines Says Its Trainer Refinery Posted a $106M Profit in 3Q," Philly.com (October 16, 2015).<br>
+<a name='19'></a><sup>19</sup> Renshaw, Jarrett, and Catherine Ngai, "U.S. Oil Refiners Look Abroad for Crude Supplies as North Dakota Boom Fades," Reuters (November 3, 2015).<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Refinery Capacity 2015, Table 13, Refineries Permanently Shutdown By PAD District Between January 1, 1990 and January 1, 2015.<br>
+<a name='21'></a><sup>21</sup> Sunoco Logistics, Natural Gas Liquids (NGL) Segment, accessed June 8, 2016.<br>
+<a name='22'></a><sup>22</sup> United Refining Company, About United Refining-Our History, accessed June 13, 2016.<br>
+<a name='23'></a><sup>23</sup> Nixon, Alex, "Warren Refinery Thrives While Importing Threatens Others in Pennsylvania," Trib Live (April 15, 2012).<br>
+<a name='24'></a><sup>24</sup> American Refining Group, Inc., Refinery History, accessed June 13, 2016.<br>
+<a name='25'></a><sup>25</sup> AgMap, American Refining Group, Inc., accessed June 13, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets, updated May 11, 2012, p. 6, 7.<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Petroleum & Other Liquids, Company Level Imports, all months, 2015, 2014, 2013.<br>
+<a name='29'></a><sup>29</sup> U.S. Census Bureau, American FactFinder, Pennsylvania, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='30'></a><sup>30</sup> U.S. Department of Energy, Office of Fossil Energy, Heating Oil Reserve History, accessed June 16, 2016.<br>
+<a name='31'></a><sup>31</sup> Kerr, Jeffrey, "CME to Change Heating Oil Futures Specs to Reflect Sulfur Change," Reuters (March 23, 2012).<br>
+<a name='32'></a><sup>32</sup> Brown, Beth, and David Henry, "Colonial Pipeline to Stop Shipping High Sulfur Heating OIl in June," Platts (April 23, 2015).<br>
+<a name='33'></a><sup>33</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Programs, Reformulated gasoline and Reid Vapor Pressure, accessed June 13, 2016.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, Marcellus Region, Drilling Productivity Report (June 2016).<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, U.S. Crude Oil and Natural Gas Proved Reserves, 2014 (November 2015), Table 10, Natural gas proved reserves, reserve changes, and production, wet after lease separation, 2009-14.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), p. 4.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, Pennsylvania, 2009-14.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, "32% of Natural Gas Pipeline Capacity into the Northeast Could Be Bidirectional by 2017," Today in Energy (December 2, 2014).<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, "New Pipeline Projects Increase Northeast Natural Gas Takeaway Capacity," Today in Energy (January 28, 2016).<br>
+<a name='41'></a><sup>41</sup> State Impact, Pennsylvania, "Your Guide to Pipelines," NPR, accessed June 14, 2016.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Northeast Region, accessed June 14, 2016.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Total Storage Capacity, Annual, 2009-14.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Natural Gas Plant Field Production, PADD 1, Annual-Thousand Barrels, 2010-15. <br>
+<a name='45'></a><sup>45</sup> Malawsky, Nick, "Sunoco Logistics Plans Marcellus, Utica Pipeline Through Susquehanna Valley," Penn Live (November 21, 2013).<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Natural Gas Plant Processing, Natural Gas Processed, Annual, 2009-14.<br>
+<a name='47'></a><sup>47</sup> Stell, Jeannie, "Gas Processing in the Mighty Marcellus and Ãœber Utica," Gas Processing (2013). <br>
+<a name='48'></a><sup>48</sup> Maykuth, Andrew, "Shell Gives Green Light to Giant Pennsylvania Ethane Cracker Plant," Philly.com (June 8, 2016).<br>
+<a name='49'></a><sup>49</sup> Sunoco Logistics, Natural Gas Liquids (NGL) Segment, accessed June 8, 2016.<br>
+<a name='50'></a><sup>50</sup> The Williams Companies, Ohio Valley Ethane Pipeline, Overview, accessed June 14, 2016.<br>
+<a name='51'></a><sup>51</sup> Yoon, Esther, "Shell to Build $6 Billion Ethane Cracker in Pennsylvania," BizPhilly (June 8, 2016).<br>
+<a name='52'></a><sup>52</sup> U.S. Census Bureau, American FactFinder, Pennsylvania, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Pennsylvania, Annual, 2010-15.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 9, Major U.S. Coal Mines, 2014.<br>
+<a name='56'></a><sup>56</sup> Pennsylvania Department of Environmental Protection, Pennsylvania Mining History, accessed June 14, 2016.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2014.<br>
+<a name='58'></a><sup>58</sup> Pennsylvania Department of Environmental Protection, Distribution of Pennsylvania Coals (1992).<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, U.S. Coal Reserves (March 24, 2016).<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 6, Coal Production and Number of Mines by State and Coal Rank, 2014.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Glossary, Anthracite, accessed June 14, 2016.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, State Energy Data System, Table F17, Coal Consumption Estimates and Imports and Exports of Coal Coke, 2014.<br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 2016), Table 26, U.S. Coal Consumption by End-Use Sector, Census Division, and State, 2014 and 2013.<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic distribution of U.S. coal by origin State, consumer, destination and method of transportation, Pennsylvania.<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Pennsylvania. <br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 8, 2016), Domestic and foreign distribution of U.S. coal by origin state.<br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, Annual Coal Distribution Report, Archive, Domestic and foreign distribution of U.S. coal by State of origin, 2010-13.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 5.4.B.<br>
+<a name='69'></a><sup>69</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, State Electricity Profiles, Pennsylvania Electricity Profile 2014, Table 8, Retail sales, revenue, and average retail price by sector, 1990-2014.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='72'></a><sup>72</sup> U.S. Census Bureau, American FactFinder, Pennsylvania, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.<br>
+<a name='73'></a><sup>73</sup> U.S. Federal Energy Regulatory Commission, Electric Power Markets: PJM, updated May 26, 2016.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.3.B.<br>
+<a name='75'></a><sup>75</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='76'></a><sup>76</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B.<br>
+<a name='77'></a><sup>77</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B.<br>
+<a name='78'></a><sup>78</sup> U.S. Department of Energy, Office of Legacy Management, FUSRAP Considered Sites, Shippingport Atomic Power Plant, updated December 16, 2015.<br>
+<a name='79'></a><sup>79</sup> U.S. Nuclear Regulatory Commission, Backgrounder on the Three Mile Island Accident, updated December 12, 2014.<br>
+<a name='80'></a><sup>80</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B.<br>
+<a name='81'></a><sup>81</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='82'></a><sup>82</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='83'></a><sup>83</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Pennsylvania Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='84'></a><sup>84</sup> American Wind Energy Association, Pennsylvania Wind Energy, accessed June 14, 2016.<br>
+<a name='85'></a><sup>85</sup> PennFuture, Energy, Wind Farms in Pennsylvania, accessed June 14, 2016.<br>
+<a name='86'></a><sup>86</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.15.B.<br>
+<a name='87'></a><sup>87</sup> U.S. Energy Information Administration, Electricity, Form EIA-860 detailed data, 2014, Table 3_1.<br>
+<a name='88'></a><sup>88</sup> "PPL Holtwood Doubles Capacity of Hydroelectric Facility," PPL Generation, Press Release (December 2, 2013).<br>
+<a name='89'></a><sup>89</sup> Safe Harbor Water Power Corporation, About Safe Harbor Water Power Corporation, The Beginning, accessed June 15, 2016.<br>
+<a name='90'></a><sup>90</sup> U.S. Energy Information Administration, Electricity, Form EIA-860 detailed data, 2014, Table 3_1.<br>
+<a name='91'></a><sup>91</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.15.B.<br>
+<a name='92'></a><sup>92</sup> Pennsylvania Public Utility Commission, 2014 Annual Report, Alternative Energy Portfolio Standards Act of 2004, p. 12.<br>
+<a name='93'></a><sup>93</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B.<br>
+<a name='94'></a><sup>94</sup> Solar Energy Industries Association, Pennsylvania Solar, accessed June 15, 2016.<br>
+<a name='95'></a><sup>95</sup> U.S. Energy Information Administration, Electricity, Form EIA-860 detailed data, 2014, Table 3_1<br>
+<a name='96'></a><sup>96</sup> NC Clean Energy Technology Center, DSIRE, Alternative Energy Portfolio Standard, Pennsylvania, updated February 16, 2016.<br>
+<a name='97'></a><sup>97</sup> Pennsylvania Public Utility Commission, 2014 Annual Report, Alternative Energy Portfolio Standards Act of 2004, p. i, footnote 3.<br>
+<a name='98'></a><sup>98</sup> NC Clean Energy Technology Center, DSIRE, Energy Efficiency and Conservation Requirements for Utilities, Pennsylvania, updated June 12, 2015.<br>
+<a name='99'></a><sup>99</sup> Pennsylvania Public Utility Commission, Energy Efficiency and Conservation (EE&C) Program, accessed June 15, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Appalachian</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: PJM Interconnection (PJM)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1B</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Reliability First Corporation (RFC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.puc.state.pa.us/" title="Pennsylvania Public Utility Commmission">Pennsylvania Public Utility Commmission</a></li>
+  
+    <li><a href="http://www.puc.state.pa.us/consumer_info/electricity/energy_assistance_programs.aspx" title="Pennsylvania Public Utility Commmission, Energy Assistance Programs">Pennsylvania Public Utility Commmission, Energy Assistance Programs</a></li>
+  
+    <li><a href="http://www.depweb.state.pa.us/portal/server.pt/community/dep_home/5968" title="Pennsylvania Department of Environmental Protection">Pennsylvania Department of Environmental Protection</a></li>
+  
+    <li><a href="http://www.newpa.com/find-and-apply-for-funding/funding-and-program-finder/weatherization-assistance-program" title="Pennsylvania Weatherization Assistance Program">Pennsylvania Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://www.portal.state.pa.us/portal/server.pt/community/oil_and_gas/6003" title="Pennsylvania  Department of Environmental Protection, Oil and Gas Programs">Pennsylvania  Department of Environmental Protection, Oil and Gas Programs</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.portal.state.pa.us/portal/server.pt/community/mining/6002" title="Pennsylvania  Department of Environmental Protection, Mining">Pennsylvania  Department of Environmental Protection, Mining</a></li>
+  
+    <li><a href="http://www.portal.state.pa.us/portal/server.pt/community/governor%27s_green_governance_council/13828" title="Pennsylvania Governor's Green Government Council">Pennsylvania Governor's Green Government Council</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Pennsylvania website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Pennsylvania\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/PA.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

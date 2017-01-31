@@ -1,0 +1,3042 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Alaska Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Alaska State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Alaska Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>In 2015, Alaska was the fourth largest producer of crude oil among the 50 states.</li>
+	
+	<li>The Kenai liquefied natural gas (LNG) export facility, which began operations in 1969, was the first LNG export terminal in the United States.</li>
+	
+	<li>Many rural communities in Alaska rely primarily on diesel electric generators for power. &nbsp;Alaska ranked second only to Hawaii in 2015 in the share of its electricity that is generated from petroleum liquids.&nbsp;</li>
+	
+	<li>Wind supplied nearly three-fourths of Alaska&#39;s electricity from nonhydroelectric renewable sources in 2015.</li>
+	
+	<li>In 2015, Alaska was one of eight states generating electricity from geothermal energy. Alaska&#39;s geothermal power plant at Chena Hot Springs has a capacity of 730 kilowatts.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: October 20, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=AK.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=AK.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=AK.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=AK.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=AK.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Alaska Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alaska Energy Consumption Estimates',
+		data : [18.2,329.6,32.2,73.2,96.0,1.2,0.8,31.0,0.0,14.6,5.5,1.6,0.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Alaska Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 47.8],['Commercial', 63.2],['Industrial', 329.0],['Transportation', 163.8]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alaska Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alaska Energy Production Estimates',
+		data : [22.9,381.6,1050.8,0.0,0.0,19.7]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alaska Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alaska Net Electricity Generation',
+		data : [67,162,36,138,18]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Alaska Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Alaska U.S. Price Differentials',
+		data : [{y:-26.7103347889, period: Date.UTC(2016,9,1)},{y:68.8353413655, period: Date.UTC(2016,9,1)},{y:74.8806112703, period: Date.UTC(2016,9,1)},{y:142.410714286, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					0.7 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.4 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 52.8  billion 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 1,600  million 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 55,940 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					4,857 million miles 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					0.8 million acres 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					30.1 degrees Fahrenheit 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					40.1 inches 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 39.17 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 10.07 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 3.04 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					21.02 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					18.31 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					16.29 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=181">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					2,034 million barrels 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					4,566 billion cu ft 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					211 million barrels 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					51 million short tons 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					10 rigs 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					329 wells 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,475 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					15,341 thousand barrels 
+				</td>
+				<td>
+					5.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					343,534 million cu ft 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,177 thousand short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					158,700 barrels/calendar day 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,644 MW 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					422 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					16.0 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					38.5 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					8.5 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					37.0 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					833 thousand barrels 
+				</td>
+				<td>
+					5.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1,027 thousand barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					49,460 million cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					137 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Alaska</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">BP Exploration Alaska (Prudhoe Bay), Conoco Phillips Alaska (Prudhoe Bay), Petro Star (North Pole), Petro Star (Valdez), Tesoro Alaska Petroleum (Kenai)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Beluga (Chugach Electric Assn Inc) ; George M Sullivan Generation Plant 2 (Anchorage Municipal Light and Power) ; Southcentral Power Plant (Chugach Electric Assn Inc) ; North Pole (Golden Valley Elec Assn Inc) ; Bradley Lake (Homer Electric Assn Inc)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=181">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Alaska</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Ketchikan, Valdez, Anchorage, Nikishka, Homer, Iliuliuk Harbor, Unalaska Island.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Alaska</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">BP Pipeline, Alpine Transportation, Kuparuk Transportation, ENI US Operating, Alyeska Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					218 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					8 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					3 stations 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					0 stations 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					1 stations 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					603 trillion Btu 
+				</td>
+				<td>
+					40 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					818 million Btu 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 6,891  million 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 9,349 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					48 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					63 trillion Btu 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					329 trillion Btu 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					163 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 764  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 885  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,099  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 4,143  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					41.6 million barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					328.9 billion cu ft 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1.2 million short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 5,537  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 481  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 89  million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					132 thousand barrels 
+				</td>
+				<td>
+					8.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,808 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					29 thousand short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=181">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					48.5 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					30.3 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					12.0 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					1.4 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					7.8 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					515 MW 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					138 thousand MWh 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					14 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					3.6 % 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=AK"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					713 thousand barrels 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					35.0 million metric tons 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Alaska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=181">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					3,676 thousand metric tons 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					4 thousand metric tons 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					19 thousand metric tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: October 20, 2016<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Alaska's energy demand per person is the third highest in the nation. </p></div><p>Alaska, the largest U.S. state by area, is one-fifth the size of the Lower 48 states and, with the Aleutian Island chain, as wide as the Lower 48 states from east to west.<sup><a href='print.cfm@sid=AK.html#1'>1</a></sup> It is the only state with territory north of the Arctic Circle, and it has the highest mountains and longest coastline of any state.<sup><a href='print.cfm@sid=AK.html#2'>2</a></sup> Alaska's winters are frequently severe, but its climate varies significantly from north to south and from winter to summer, particularly in the interior where temperatures ranging from 100&deg;F to minus 80&deg;F have been recorded.<sup><a href='print.cfm@sid=AK.html#3'>3</a></sup> Large areas of Alaska remain uninhabited. It has the fourth-smallest population and is the least densely populated of any state.<sup><a href='print.cfm@sid=AK.html#4'>4</a></sup> More than two-fifths of Alaskans live in the Anchorage area, while the rest of the state averages less than one resident per square mile.<sup><a href='print.cfm@sid=AK.html#5'>5</a></sup></p>
+<p>The oil and natural gas industry is a key part of Alaska's economy.<sup><a href='print.cfm@sid=AK.html#6'>6</a></sup> The North Slope contains half a dozen of the 100 largest oil fields in the United States and one of the 100 largest natural gas fields.<sup><a href='print.cfm@sid=AK.html#7'>7</a></sup> Alaska's Prudhoe Bay field remains among the 10 largest oil fields in the nation. However, production from the North Slope has fallen to less than 500,000 barrels per day from its peak of 2 million barrels per day in 1988.<sup><a href='print.cfm@sid=AK.html#8'>8</a>,<a href='print.cfm@sid=AK.html#9'>9</a></sup></p>
+<p>In recent years, Alaska has experienced warmer temperatures for longer periods of time during the year. This temperature change reduces the amount of time energy companies can explore for onshore oil, because ice roads and drilling pads can be used only during the coldest months of the year, when the frozen land is less damaged by equipment. Conversely, the warmer temperatures reduce floating ice packs, potentially making offshore oil exploration easier.<sup><a href='print.cfm@sid=AK.html#10'>10</a></sup> </p>
+<p>Alaska has other substantial energy resources. The state's coal resource is estimated to be larger than the combined resources of the Lower 48 states.<sup><a href='print.cfm@sid=AK.html#11'>11</a></sup> Its many rivers offer some of the highest hydroelectric power potential in the nation.<sup><a href='print.cfm@sid=AK.html#12'>12</a></sup> Large swaths of the Alaskan coastline offer significant wind energy potential,<sup><a href='print.cfm@sid=AK.html#13'>13</a></sup> and the state's many volcanic fields offer geothermal potential.<sup><a href='print.cfm@sid=AK.html#14'>14</a></sup> Because of its small population, Alaska's total energy demand is below the national median;<sup><a href='print.cfm@sid=AK.html#15'>15</a></sup> however, harsh winters and energy-intensive industry make the state's per capita energy consumption the fourth highest in the nation after Louisiana, Wyoming, and North Dakota.<sup><a href='print.cfm@sid=AK.html#16'>16</a></sup></p>
+<h2>Petroleum</h2>
+<p>Most of Alaska's crude oil production takes place on the North Slope,<sup><a href='print.cfm@sid=AK.html#17'>17</a></sup> where new technology has recently resulted in the first increase in production in decades.<sup><a href='print.cfm@sid=AK.html#18'>18</a>,<a href='print.cfm@sid=AK.html#19'>19</a>,<a href='print.cfm@sid=AK.html#20'>20</a></sup> Until this year, Alaska's oil production had declined steadily as the state's oil fields matured,<sup><a href='print.cfm@sid=AK.html#21'>21</a></sup> but it has remained one of the top crude oil producing states in the nation. Known reserves on the North Slope have not yet been tapped,<sup><a href='print.cfm@sid=AK.html#22'>22</a></sup> and large areas of the state remain unexplored. Oil exploration and drilling are prohibited in the Arctic National Wildlife Refuge and in other environmentally sensitive areas in the state.<sup><a href='print.cfm@sid=AK.html#23'>23</a></sup></p>
+<p>The Trans-Alaska Pipeline System transports crude oil from the frozen North Slope to the warm-water port at Valdez, on Alaska's southern coast.<sup><a href='print.cfm@sid=AK.html#24'>24</a></sup> The pipeline can carry more than 2 million barrels per day, but actual deliveries have been less than 1 million barrels per day since 2003.<sup><a href='print.cfm@sid=AK.html#25'>25</a>,<a href='print.cfm@sid=AK.html#26'>26</a></sup> Alaskan crude oil is transported by tanker primarily to refineries in Alaska, California, and Washington.<sup><a href='print.cfm@sid=AK.html#27'>27</a>,<a href='print.cfm@sid=AK.html#28'>28</a></sup> On March 24, 1989, the Exxon Valdez tanker struck Bligh Reef and spilled 257,000 barrels of crude oil into the Prince William Sound.<sup><a href='print.cfm@sid=AK.html#29'>29</a></sup> As a result, changes were made by industry and regulators in tanker construction, navigation technology, and crew training.<sup><a href='print.cfm@sid=AK.html#30'>30</a></sup></p>
+<p>
+Alaska is among the lowest one-fifth of states in total demand for finished petroleum products.<sup><a href='print.cfm@sid=AK.html#31'>31</a></sup> The state has five operating refineries.<sup><a href='print.cfm@sid=AK.html#32'>32</a></sup> Two of them, in the Prudhoe Bay region, supply fuel to crude oil drilling operations. Motor gasoline demand is primarily met by a refinery in Kenai, and aviation and heating fuels are produced there and in two other refineries, located at Valdez and near Fairbanks.<sup><a href='print.cfm@sid=AK.html#33'>33</a>,<a href='print.cfm@sid=AK.html#34'>34</a>,<a href='print.cfm@sid=AK.html#35'>35</a></sup> A sixth refinery near Fairbanks, the state's largest, was shut down in 2014, with the owner citing unfavorable economics.<sup><a href='print.cfm@sid=AK.html#36'>36</a>,<a href='print.cfm@sid=AK.html#37'>37</a></sup> Alaska is the largest jet fuel-consuming state on a per capita basis.<sup><a href='print.cfm@sid=AK.html#38'>38</a>,<a href='print.cfm@sid=AK.html#39'>39</a></sup> It is a major fueling stop for military aircraft and for commercial passenger and cargo flights between the United States and Asian countries.<sup><a href='print.cfm@sid=AK.html#40'>40</a>,<a href='print.cfm@sid=AK.html#41'>41</a></sup> Alaska also consumes petroleum to produce one-eighth of its utility-scale net electricity generation,<sup><a href='print.cfm@sid=AK.html#42'>42</a></sup> and to produce electricity from diesel generators in isolated communities.<sup><a href='print.cfm@sid=AK.html#43'>43</a></sup> Alaska both imports and exports petroleum products.<sup><a href='print.cfm@sid=AK.html#44'>44</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>Most of Alaska's natural gas production is reinjected into oil fields to maintain oil production rates.</p></div><p>Alaska ranks third in the nation in natural gas gross withdrawals,<sup><a href='print.cfm@sid=AK.html#45'>45</a></sup> but most of the state's production is not brought to market. Natural gas volumes from the North Slope far exceed local demand, and there is no pipeline to transport the natural gas south to markets.<sup><a href='print.cfm@sid=AK.html#46'>46</a></sup> Large volumes of natural gas, extracted during oil production, are reinjected into oil fields to help maintain crude oil production rates.<sup><a href='print.cfm@sid=AK.html#47'>47</a></sup> About three-fourths of Alaska's natural gas withdrawals are consumed at the production site.<sup><a href='print.cfm@sid=AK.html#48'>48</a></sup> Natural gas produced in the south is either consumed domestically or exported as liquefied natural gas (LNG).<sup><a href='print.cfm@sid=AK.html#49'>49</a></sup></p>
+<p>The state government has long urged construction of a natural gas pipeline linking Alaska's North Slope with markets in the Lower 48 states, but, to date, a pipeline has not been considered commercially feasible.<sup><a href='print.cfm@sid=AK.html#50'>50</a></sup> Several major pipeline project applications have been filed with the state of Alaska, but none have yet gone forward.<sup><a href='print.cfm@sid=AK.html#51'>51</a></sup> Until 2012, the Kenai LNG liquefaction and terminal complex on the Cook Inlet, which began operating in 1969, was the only facility in the United States authorized to export LNG produced from domestic natural gas. The terminal, which has capacity to liquefy up to 200 million cubic feet of natural gas per day,<sup><a href='print.cfm@sid=AK.html#52'>52</a></sup> exports LNG to Japan.<sup><a href='print.cfm@sid=AK.html#53'>53</a>,<a href='print.cfm@sid=AK.html#54'>54</a>,<a href='print.cfm@sid=AK.html#55'>55</a></sup> Four major oil companies have expressed interest in jointly building a new LNG export terminal in the Valdez area that could eventually ship up to 2.4 billion cubic feet of LNG per day. Such exports would require an 800-mile-long pipeline from the North Slope natural gas fields south to the Valdez region.<sup><a href='print.cfm@sid=AK.html#56'>56</a></sup> One step forward was taken in 2016 when the first production well was drilled in the Point Thomson field, which contains much of the natural gas that would be exported. But the only marketed product from that well now is condensate,<sup><a href='print.cfm@sid=AK.html#57'>57</a></sup> and low commodity prices continue to be a hurdle for the multi-billion-dollar project.<sup><a href='print.cfm@sid=AK.html#58'>58</a></sup></p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Most of Alaska's coal exports go to Asia and South America.</p></div><p>Coal mines have operated in Alaska since 1855.<sup><a href='print.cfm@sid=AK.html#59'>59</a></sup> Substantial deposits of bituminous, subbituminous, and lignite coal<sup><a href='print.cfm@sid=AK.html#60'>60</a>,<a href='print.cfm@sid=AK.html#61'>61</a></sup> are found in the north, south, and central portions of the state,<sup><a href='print.cfm@sid=AK.html#62'>62</a></sup> but most of Alaska's coal resources have remained unmined.<sup><a href='print.cfm@sid=AK.html#63'>63</a></sup> Alaska has only one operating surface coal mine, the Usibelli mine, which produces about 1.5 million tons of coal per year.<sup><a href='print.cfm@sid=AK.html#64'>64</a></sup> In some years, more than half of Alaska's coal output is exported. The rest is burned by in-state industrial and utility energy consumers, mostly heat and power cogeneration plants in the state's interior.<sup><a href='print.cfm@sid=AK.html#65'>65</a>,<a href='print.cfm@sid=AK.html#66'>66</a></sup> Most of the state's coal exports go to Asia and South America.<sup><a href='print.cfm@sid=AK.html#67'>67</a></sup></p>
+<h2>Electricity</h2>
+<p>The electricity infrastructure in Alaska differs from that in the Lower 48 states in that Alaskans are not linked to large, interconnected grids through transmission and distribution lines. Although an interconnected grid called the Railbelt serves the populated areas from Fairbanks to south of Anchorage, where three-fourths of the state's population lives, even that grid is isolated from the electric grids in Canada and the Lower 48 states.<sup><a href='print.cfm@sid=AK.html#68'>68</a></sup> Most of the state's rural communities have no grid access and rely on consumer-owned electric cooperatives for their power, and many of those rural power providers use diesel electricity generators for some or all of their power.<sup><a href='print.cfm@sid=AK.html#69'>69</a>,<a href='print.cfm@sid=AK.html#70'>70</a></sup> This diesel use contributes to Alaska's ranking second only to Hawaii in the per capita generation of electric power from petroleum liquids.<sup><a href='print.cfm@sid=AK.html#71'>71</a>,<a href='print.cfm@sid=AK.html#72'>72</a></sup></p>
+<p>Natural gas accounts for about half of Alaska's utility-scale electricity generation, and hydroelectric power supplies one-fourth. Petroleum liquids and coal each account for about one-eighth of Alaska's net electricity generation, and wind and biomass provide nearly all the rest.<sup><a href='print.cfm@sid=AK.html#73'>73</a></sup> </p>
+<h2>Renewable energy</h2>
+<p>Hydropower is Alaska's largest source of renewable electricity.<sup><a href='print.cfm@sid=AK.html#74'>74</a></sup> Utility-scale hydropower facilities are concentrated in the state's south, in mountainous regions with high annual rainfalls. Smaller run-of-river projects, which do not employ dams, produce power in some rural communities. Alaska is also exploring tidal and ocean technologies that could supply renewable energy to coastal communities.<sup><a href='print.cfm@sid=AK.html#75'>75</a></sup> </p>
+<div class='pullquote'><p>In 2015, wind supplied nearly three-fourths of Alaska's nonhydroelectric renewable electricity.</p></div><p>Less than 4% of Alaska's utility-scale net electricity generation comes from nonhydroelectric renewable sources, but small-scale wind, biomass, and solar generation are used in many of the state's remote communities to reduce the need for petroleum fuels. Wind resources are abundant along Alaska's coastline, and wind supplies nearly three-fourths of Alaska's utility-scale nonhydroelectric renewable generation from more than 60 megawatts of wind turbines,<sup><a href='print.cfm@sid=AK.html#76'>76</a>,<a href='print.cfm@sid=AK.html#77'>77</a>,<a href='print.cfm@sid=AK.html#78'>78</a></sup> located primarily along the southern and western coasts and on the Railbelt grid.<sup><a href='print.cfm@sid=AK.html#79'>79</a>,<a href='print.cfm@sid=AK.html#80'>80</a>,<a href='print.cfm@sid=AK.html#81'>81</a>,<a href='print.cfm@sid=AK.html#82'>82</a></sup> Increasing numbers of small wind energy facilities, including some wind-diesel hybrid systems, are providing power to rural communities throughout the state.<sup><a href='print.cfm@sid=AK.html#83'>83</a></sup> </p>
+<p>Alaska's biomass fuels are wood, sawmill wastes, fish byproducts, and municipal waste. The first large-scale biodiesel plant in the state opened in 2010 and can produce 250,000 gallons of biodiesel annually using waste vegetable oil gathered from local restaurants. Wood is an important renewable energy source for Alaskans, with more than 100,000 cords burned every year for residential space heating. The state has a growing number of wood pellet manufacturers. About 8 million gallons of fish oil are produced annually as a byproduct at Alaskan fish meal plants; some of the fish oil is used for boiler fuel.<sup><a href='print.cfm@sid=AK.html#84'>84</a></sup></p>
+<p>Alaska was one of eight states in 2015 with power plants generating electricity from geothermal sources.<sup><a href='print.cfm@sid=AK.html#85'>85</a></sup> The 400-kilowatt geothermal power plant at Chena Hot Springs, built in 2006, is the first geothermal project completed in Alaska. Its generating capacity has since been increased to 730 kilowatts.<sup><a href='print.cfm@sid=AK.html#86'>86</a>,<a href='print.cfm@sid=AK.html#87'>87</a></sup> Several more geothermal projects are in development.<sup><a href='print.cfm@sid=AK.html#88'>88</a></sup></p>
+<p>Despite Alaska's high latitude, solar energy is playing a role in off-grid applications, especially in remote locations. Solar thermal technologies, primarily for hot water and building heat, and solar photovoltaic panels are all being used to tap solar energy when it is available, reducing the need for other fuels.<sup><a href='print.cfm@sid=AK.html#89'>89</a></sup> Some Alaska communities are also adopting combined heat and power systems, using the waste heat from electricity generation to heat homes and other buildings.<sup><a href='print.cfm@sid=AK.html#90'>90</a></sup></p>
+<h2>Energy on tribal lands</h2>
+<p>Alaska has more territory held as tribal lands than any other state&mdash;over 44 million acres.<sup><a href='print.cfm@sid=AK.html#91'>91</a></sup> Almost all Alaskan tribal land is owned outright by 12 regional native corporations encompassing 229 tribal groups.<sup><a href='print.cfm@sid=AK.html#92'>92</a></sup> The Alaska Native Claims Settlement Act, passed by the U.S. Congress in 1971, divided Alaska into 12 geographic regions of common heritage and interests. Under the Act, tribal lands do not have the sovereign status of reservations, as Native American reservations do in the Lower 48 states. Instead, the land is owned corporately by Native Alaskans, allowing them all to benefit from resources on their lands.<sup><a href='print.cfm@sid=AK.html#93'>93</a></sup> The 12 native corporations hold most subsurface mineral rights for native lands and all rank among the largest private businesses in the state.<sup><a href='print.cfm@sid=AK.html#94'>94</a></sup></p>
+<p>Alaska's tribal lands include oil and natural gas resources on the North Slope and along the southern coast, and Alaska's largest bituminous coal deposit.<sup><a href='print.cfm@sid=AK.html#95'>95</a>,<a href='print.cfm@sid=AK.html#96'>96</a>,<a href='print.cfm@sid=AK.html#97'>97</a></sup> Almost one-fourth of Alaska's 129 million acres of forested land is controlled by native corporations, providing the tribes with vast biomass resource potential.<sup><a href='print.cfm@sid=AK.html#98'>98</a></sup> Seventy percent of the revenue earned from timber and mineral resources by each regional corporation is shared among all 12 corporations in proportion to their native populations. A significant portion of each corporation's revenue is then redistributed to village corporations within each region.<sup><a href='print.cfm@sid=AK.html#99'>99</a></sup> The corporations have formed many business subsidiaries that involve Native Alaskans in the development of their energy resources, including drilling field services for crude oil and natural gas resources, oil refining, and real estate and financial services. One corporation manages a commercial-scale wind farm and is a shareholder in Alaska's first underground natural gas storage facility. <sup><a href='print.cfm@sid=AK.html#100'>100</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Alaska Public Lands Information Centers, Statewide FAQs, Interesting Facts About Alaska, accessed September 15, 2016.<br>
+<a name='2'></a><sup>2</sup> Fly Alaska, Interesting Geographical Alaska Facts, accessed September 15, 2016.<br>
+<a name='3'></a><sup>3</sup> Alaska Public Lands Information Centers, Statewide FAQs, What is Alaska's weather like?, accessed September 15, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. Census Bureau, Resident Population Data (Text Version), Population Density, 1910-2010.<br>
+<a name='5'></a><sup>5</sup> Alaska Department of Labor and Workforce Development, Alaska Population Overview, 2014 Estimates (May 2016), p. 7.<br>
+<a name='6'></a><sup>6</sup> State of Alaska, Alaska Kids' Corner, Economy, accessed September 15, 2016.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration (EIA), Top 100 U.S. Oil & Gas Fields (March 2015), p. 5, 8.<br>
+<a name='8'></a><sup>8</sup> Alaska Oil Production, Production History 1959-2012, accessed September 15, 2016.<br>
+<a name='9'></a><sup>9</sup> U.S. EIA, Alaska Field Production of Crude Oil, 1973-2015.<br>
+<a name='10'></a><sup>10</sup> U.S. Environmental Protection Agency, Alaska, Climate Impacts in Alaska, updated August 23, 2016.<br>
+<a name='11'></a><sup>11</sup> Flores, Romeo M., Gary D. Stricker, and Scott A. Kinney, Alaska Coal Geology, Resources, and Coalbed Methane Potential, U.S. Geological Survey, DDS-77 (2005), Introduction.<br>
+<a name='12'></a><sup>12</sup> Idaho National Laboratory, Hydropower, Undeveloped Hydropower Potential by State, accessed September 15, 2016.<br>
+<a name='13'></a><sup>13</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Alaska Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='14'></a><sup>14</sup> Leny, Patrick, and Julie Brizzee, Alaska Geothermal Resources, INEEL/MIS-2002-1623-Rev. 1 (November 2003).<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Table C3, Primary Energy Consumption Estimates, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014. <br>
+<a name='17'></a><sup>17</sup> U.S. EIA, Crude Oil Production, Annual-thousand barrels, 2010-15.<br>
+<a name='18'></a><sup>18</sup> U.S. EIA, Monthly Crude Oil and Natural Gas Production (August 2016), Table 2, Production of crude oil and lease condensate in the United States with monthly and annual changes.<br>
+<a name='19'></a><sup>19</sup> Bradner, Tim, "Producers Breathe New Life into Alaska's Prudhoe Bay: At the Wellhead," The Barrel (September 21, 2015).<br>
+<a name='20'></a><sup>20</sup> DeMarban, Alex, "Alaska Oil Production Is Up 3 Percent, But Are Tax Incentives the Real Reason?" Alaska Dispatch News (July 8, 2016).<br>
+<a name='21'></a><sup>21</sup> U.S. EIA, Alaska Field Production of Crude Oil, 1973-2015. <br>
+<a name='22'></a><sup>22</sup> Moriarty, Kara, The State of the Oil & Gas Industry, Alaska Oil & Gas Association (August 2, 2016), slide 6.<br>
+<a name='23'></a><sup>23</sup> U.S. EIA, Analysis of Crude Oil Production in the Arctic National Wildlife Refuge, SR/OIAF/2008-03 (Washington, DC, May 2008), p. 1.<br>
+<a name='24'></a><sup>24</sup> Alyeska Pipeline Service Co., "About Us," accessed September 15, 2016.<br>
+<a name='25'></a><sup>25</sup> Alyeska Pipeline Service Co., Pipeline Operations, TAPS Low Flow Impact Study, 2011, accessed September 15, 2016.<br>
+<a name='26'></a><sup>26</sup> Alyeska Pipeline Service Co., Pipeline Reliability, accessed September 15, 2016.<br>
+<a name='27'></a><sup>27</sup> Western States Petroleum Association, WSPA States List, accessed September 15, 2016. <br>
+<a name='28'></a><sup>28</sup> Muskal, Michael, "Alaska Oil, Exported for First Time in a Decade, Heads to South Korea," Los Angeles Times (September 30, 2014).<br>
+<a name='29'></a><sup>29</sup> Exxon Valdez Oil Spill Trustee Council, Questions and Answers about the Spill, accessed August 22, 2015.<br>
+<a name='30'></a><sup>30</sup> Hadhazy, Adam, "20 Years After the Exxon Valdez: Preventing-and Preparing For-the Next Oil Spill Disaster," Scientific American (March 23, 2009).<br>
+<a name='31'></a><sup>31</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='32'></a><sup>32</sup> U.S. EIA, Refinery Capacity Report (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 5-7.<br>
+<a name='33'></a><sup>33</sup> Alaska Department of Natural Resources, Division of Oil and Gas 2009 Annual Report, p. 54-56.<br>
+<a name='34'></a><sup>34</sup> Tesoro, Kenai Refinery, accessed September 15, 2016.<br>
+<a name='35'></a><sup>35</sup> PetroStar Inc., Mission, accessed September 15, 2016.<br>
+<a name='36'></a><sup>36</sup> Doan, Lynn, and Eliot Caroom, "Flint Hills Alaska Refinery to Shut Amid â€˜Enormous' Costs," Bloomberg Business (February 5, 2014).<br>
+<a name='37'></a><sup>37</sup> Buxton, Max, "Flint Hills' Quiet Transition: Closed Refinery Prepares for Next Phase as a Terminal," Newsminer.com (June 30, 2014).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, State Energy Data System, Table C8, Transportation Sector Energy Consumption Estimates, 2014.<br>
+<a name='39'></a><sup>39</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='40'></a><sup>40</sup> Alaska Department of Transportation and Public Facilities, Ted Stevens Anchorage International Airport, Airport Facts, accessed September 15, 2016.<br>
+<a name='41'></a><sup>41</sup> Federal Aviation Administration, Alaskan Region, FAI FSS - Military Activity, updated August 7, 2015.<br>
+<a name='42'></a><sup>42</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.5.B.<br>
+<a name='43'></a><sup>43</sup> U.S. Senate Committee on Energy and Natural Resources, "Murkowski Calls Attention to Alaska's Isolated Energy Systems," Press Release (July 14, 2015).  <br>
+<a name='44'></a><sup>44</sup> U.S. Census Bureau, Foreign Trade, State Imports for Alaska and State Exports from Alaska (2012, 2013, 2014, 2015).<br>
+<a name='45'></a><sup>45</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='46'></a><sup>46</sup> U.S. EIA, Alaska, Profile Overview, Map Legend, natural gas facilities, accessed September 16, 2016.<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, Natural Gas Summary, Alaska, 2010-15.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, Natural Gas Consumption by End Use, Alaska, Annual, 2010-15.<br>
+<a name='49'></a><sup>49</sup> Alaska OIl and Gas Association, AOGA Fact Sheet, Cook Inlet OIl & Gas Production (April 2015).<br>
+<a name='50'></a><sup>50</sup> Alaska Department of Natural Resources, Division of OIl & Gas, About, Gas Pipeline Projects, accessed September 16, 2016.<br>
+<a name='51'></a><sup>51</sup> U.S. Department of the Interior, Bureau of Land Management, Alaska Natural Gas Pipeline Projects, updated June 8, 2016.<br>
+<a name='52'></a><sup>52</sup> "Alaska Kenai LNG to Resume Exports in May: Update," Argus Media (April 30, 2015).<br>
+<a name='53'></a><sup>53</sup> ConocoPhillips Alaska, Kenai LNG Exports, accessed September 16, 2016. <br>
+<a name='54'></a><sup>54</sup> Ratner, Michael, et al., U.S. Natural Gas Exports: New Opportunities, Uncertain Outcomes, Congressional Research Service (Washington, DC, January 28, 2015), p. 1, 5.<br>
+<a name='55'></a><sup>55</sup> DiSavino, Scott, "U.S. Approves ConocoPhillips LNG Exports from Alaska," Reuters (February 9, 2016).<br>
+<a name='56'></a><sup>56</sup> Alaska Department of Natural Resources, Division of OIl & Gas, Alaska LNG, accessed September 16, 2016.<br>
+<a name='57'></a><sup>57</sup> DeMarban, Alex, "After Decades of Failed Attempts, Oil Production Begins at Point Thomson," Alaska Dispatch News (July 7, 2016).<br>
+<a name='58'></a><sup>58</sup> Torres, Nicolas, "Report: ExxonMobil Won't Invest in Alaska LNG Project, Looks for Exit," Petro Global News (September 5, 2016).<br>
+<a name='59'></a><sup>59</sup> Alaska Department of Natural Resources, Mining, Land & Water, Coal Regulatory Program, Coal Mining in Alaska, accessed September 16, 2016.<br>
+<a name='60'></a><sup>60</sup> Flores, Romeo M., Gary D. Stricker, and Scott A. Kinney, Alaska Coal Geology, Resources, and Coalbed Methane Potential, U.S. Geological Survey, DDS-77 (2005), Abstract.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Annual Coal Report 2014 (March 23, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2014.<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, U.S. Coalbed Methane (July 2007).<br>
+<a name='63'></a><sup>63</sup> Flores, Romeo M., Gary D. Stricker, and Scott A. Kinney, Alaska Coal Geology, Resources, and Coalbed Methane Potential, U.S. Geological Survey, DDS-77 (2005), Introduction.<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, Annual Coal Report 2014 (March 23, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='65'></a><sup>65</sup> U.S. EIA, Annual Coal Distribution Report (2014, 2013, 2012), Domestic and foreign distribution of U.S. coal by origin State, and Domestic distribution of U.S. coal by origin State, consumer, destination and method of transportation.<br>
+<a name='66'></a><sup>66</sup> McDowell Group, Statewide Socioeconomic Impacts of Usibelli Coal Mine, Inc. (January 2015), p. 11-12. <br>
+<a name='67'></a><sup>67</sup> Usibelli Coal Mine, accessed September 16, 2016.<br>
+<a name='68'></a><sup>68</sup> Alaska Center for Energy and Power, Alaska Energy Wiki, Railbelt, accessed September 19, 2016.<br>
+<a name='69'></a><sup>69</sup> Fay, Ginny, Alejandra Villalobos MelÃ©ndez, and Corinna West, Alaska Energy Statistics, 1960-2011, Final Report (December 2013), p. 6-8.<br>
+<a name='70'></a><sup>70</sup> Villalobos MelÃ©ndez, Alejandra, and Ginny Fay, "Energizing Alaska: Electricity Around the State," Institute of Social and Economic Research, University of Alaska Anchorage (July 2012), p. 5.<br>
+<a name='71'></a><sup>71</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.5.B.<br>
+<a name='72'></a><sup>72</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.5.B, 1.7.B, 1.10.B, 1.11.B.<br>
+<a name='74'></a><sup>74</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B. <br>
+<a name='75'></a><sup>75</sup> Alaska Energy Authority, Renewable Energy Atlas of Alaska (April 2013), p. 10-13.<br>
+<a name='76'></a><sup>76</sup> Alaska Energy Authority, Renewable Energy Atlas of Alaska (April 2013), p. 2.<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.11.B, 1.14.B.<br>
+<a name='78'></a><sup>78</sup> American Wind Energy Association, Alaska Wind Energy, accessed September 20, 2016.<br>
+<a name='79'></a><sup>79</sup> Kodiak Electric Association, Pillar Mountain Wind Farm, updated August 29, 2016.<br>
+<a name='80'></a><sup>80</sup> Caldwell, Suzanna, "With No Buyers for Power, Fire Island Delays Adding Turbines," Alaska Dispatch News (January 29, 2015).<br>
+<a name='81'></a><sup>81</sup> Renewable Energy Alaska Project, Wind, accessed September 20, 2016.<br>
+<a name='82'></a><sup>82</sup> Golden Valley Electric Association, Eva Creek Wind Project, accessed September 20, 2016.<br>
+<a name='83'></a><sup>83</sup> Alaska Energy Authority, Renewable Energy Atlas of Alaska (April 2013), p. 16.<br>
+<a name='84'></a><sup>84</sup> Alaska Energy Authority, Renewable Energy Atlas of Alaska (April 2013), p. 8.<br>
+<a name='85'></a><sup>85</sup> Geothermal Energy Association, 2015 Annual U.S. and Global Geothermal Power Production Report (February 2015), p. 14.<br>
+<a name='86'></a><sup>86</sup> Alaska Energy Authority, Chena Hot Springs, accessed September 20, 2016.<br>
+<a name='87'></a><sup>87</sup> Boyd, Tonya L., Alex Sifford, and John W. Lund, "The United States of America Country Update 2015," World Geothermal Congress, p. 3, accessed September 20, 2016.<br>
+<a name='88'></a><sup>88</sup> Alaska Energy Authority, Geothermal Projects, accessed September 20, 2016. <br>
+<a name='89'></a><sup>89</sup> Alaska Energy Authority, Renewable Energy Atlas of Alaska (April 2013), p. 14.<br>
+<a name='90'></a><sup>90</sup> Alaska Energy Authority, Combined Heat and Power/Heat Recovery, updated June 3, 2016.<br>
+<a name='91'></a><sup>91</sup> U.S. Forest Service, Forest Service National Resource Guide to American Indian and Alaska Native Relations, FS-600 (April 1997), Appendix D: Indian Nations, p. D-3.<br>
+<a name='92'></a><sup>92</sup> U.S. Department of the Interior, Indian Affairs, Alaska Region Overview, accessed September 20, 2016.<br>
+<a name='93'></a><sup>93</sup> Native American Science Curriculum, Alaska Native Land Claims & Tribal Sovereignty Issues, accessed September 20, 2016.<br>
+<a name='94'></a><sup>94</sup> Alaska Business Monthly, "Alaska's Top 49ers 2015, Winning the â€˜Race to Success'" (September 30, 2015). <br>
+<a name='95'></a><sup>95</sup> University of Alaska Fairbanks Interior Aleutians Campus, Federal Indian Law for Alaska Tribes, accessed September 20, 2016, see list of regional corporations with links to their businesses.<br>
+<a name='96'></a><sup>96</sup> Flores, Romeo M., Gary D. Stricker, and Scott A. Kinney, Alaska Coal Geology, Resources, and Coalbed Methane Potential, USGS, DDS-77 (2005) -Northern Alaska Slope Coal Province.<br>
+<a name='97'></a><sup>97</sup>Arctic Slope Regional Corporation, Resource Development, accessed September 20, 2016.<br>
+<a name='98'></a><sup>98</sup> Resource Development Council for Alaska, Alaska's Forest Industry, Facts & Economic Impact, accessed September 20, 2016. <br>
+<a name='99'></a><sup>99</sup> Native American Science Curriculum, Alaska Native Land Claims & Tribal Sovereignty Issues, accessed September 20, 2016.<br>
+<a name='100'></a><sup>100</sup> Cook Inlet Region, Inc., Energy and Infrastructure, accessed September 20, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 5</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="https://akenergygateway.alaska.edu/" title="Alaska Energy Data Gateway">Alaska Energy Data Gateway</a></li>
+  
+    <li><a href="http://www.akenergyauthority.org" title="Alaska Energy Authority">Alaska Energy Authority</a></li>
+  
+    <li><a href="http://doa.alaska.gov/ogc/" title="Alaska Oil and Gas Conservation Commission">Alaska Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="http://www.akenergyauthority.org/Programs/AEEE" title="Alaska Energy Authority (AEA), Alternative Energy and Energy Efficiency">Alaska Energy Authority (AEA), Alternative Energy and Energy Efficiency</a></li>
+  
+    <li><a href="http://dhss.alaska.gov/dpa/Pages/hap/default.aspx" title="Alaska Department of Health and Social Services, Division of Public Assistance, Heating Assistance Program">Alaska Department of Health and Social Services, Division of Public Assistance, Heating Assistance Program</a></li>
+  
+    <li><a href="http://www.alaskacdc.org/weatherization-assistance-program.html" title="Alaska Community Development Corporation, Weatherization Assistance Program">Alaska Community Development Corporation, Weatherization Assistance Program</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://rca.alaska.gov/RCAWeb/home.aspx" title="Regulatory Commission of Alaska">Regulatory Commission of Alaska</a></li>
+  
+    <li><a href="http://dec.alaska.gov/" title="Alaska Department of Environmental Conservation">Alaska Department of Environmental Conservation</a></li>
+  
+    <li><a href="http://dog.dnr.alaska.gov/" title="Alaska Department of Natural Resources, Division of Oil and Gas">Alaska Department of Natural Resources, Division of Oil and Gas</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Alaska website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Alaska\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/AK.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

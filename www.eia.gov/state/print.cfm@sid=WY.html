@@ -1,0 +1,3097 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Wyoming Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Wyoming State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Wyoming Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Wyoming produced 42% of all coal mined in the United States in 2015.</li>
+	
+	<li>In 2015, 32 states received coal from Wyoming mines, with 10 states, including Wyoming, obtaining more than 90% of their domestic coal from Wyoming.&nbsp;</li>
+	
+	<li>Wyoming accounted for 6.2% of U.S. marketed natural gas production in 2015.</li>
+	
+	<li>In 2015, almost 88% of net electricity generation in Wyoming came from coal and nearly 11% came from renewable energy resources, primarily wind. &nbsp;</li>
+	
+	<li>Wyoming had the third lowest average retail electricity rates of any state in 2015.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: December 15, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=WY.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=WY.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=WY.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=WY.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=WY.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Wyoming Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wyoming Energy Consumption Estimates',
+		data : [489.3,141.8,39.9,95.5,3.0,5.4,0.0,29.0,0.0,8.3,4.6,42.6,-323.7]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Wyoming Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 47.9],['Commercial', 62.4],['Industrial', 306.6],['Transportation', 118.7]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wyoming Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wyoming Energy Production Estimates',
+		data : [6880.2,1986.3,441.3,0.0,1.6,52.4]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wyoming Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wyoming Net Electricity Generation',
+		data : [4,63,3173,27,425]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Wyoming Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Wyoming U.S. Price Differentials',
+		data : [{y:-8.59188544153, period: Date.UTC(2016,9,1)},{y:-25.4730713246, period: Date.UTC(2016,9,1)},{y:-7.14859437751, period: Date.UTC(2016,9,1)},{y:-10.1241642789, period: Date.UTC(2016,9,1)},{y:4.16666666667, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					0.6 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.3 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 38.6  billion 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 2,211  million 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 55,303 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					9,457 million miles 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					30.4 million acres 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					44.2 degrees Fahrenheit 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					16.7 inches 
+				</td>
+				<td>
+					45 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 44.37 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 3.83 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 10.24 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 13.92 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.62 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.56 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.41 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.00 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=231">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					725 million barrels 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					20,436 billion cu ft 
+				</td>
+				<td>
+					6.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					418 million barrels 
+				</td>
+				<td>
+					3.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					6,681 million short tons 
+				</td>
+				<td>
+					36.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					54 rigs 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					25,279 wells 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					9,362 trillion Btu 
+				</td>
+				<td>
+					10.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					5,920 thousand barrels 
+				</td>
+				<td>
+					2.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,793,716 million cu ft 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					375,773 thousand short tons 
+				</td>
+				<td>
+					41.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					181,300 barrels/calendar day 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					8,592 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					3,728 thousand MWh 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					1.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					85.1 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					12.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					395 thousand barrels 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					600 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					110,204 million cu ft 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					28 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,156 thousand tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Wyoming</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">North Antelope Rochelle Mine / Peabody Powder River Mining LLC, Black Thunder / Thunder Basin Coal Company LLC, Cordero Mine / Cordero Mining LLC, Antelope Coal Mine / Antelope Coal LLC, Eagle Butte Mine / Alpha Coal West, Inc., Belle Ayr Mine / Alpha Coal West, Inc., Rawhide Mine / Peabody Caballo Mining, LLC, Buckskin Mine / Buckskin Mining Company, Coal Creek Mine / Thunder Basin Coal Company LLC, Caballo Mine / Peabody Caballo Mining, LLC, Dry Fork Mine / Western Fuels-Wyoming Inc, Kemmerer Mine / Westmoreland Kemmerer Inc, Wyodak Mine / Wyodak Resources Development Corp, Black Butte and Leucite Hills / Black Butte Coal Company</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Antelope Refining (Douglas), Hollyfrontier Cheyenne Refining (Cheyenne), Little America Refining (Evansville), Silver Eagle Refining (Evanston), Sinclair Wyoming Refining (Sinclair), Wyoming Refining (New Castle)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Jim Bridger (PacifiCorp), Laramie River Station (Basin Electric Power Coop), Dave Johnston (PacifiCorp), Naughton (PacifiCorp), Wyodak (PacifiCorp)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=231">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Wyoming</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Huntington</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">Opal Hub (Production Hub)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Wyoming</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Spectra Energy, Butte Pipeline, Plains Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Phillips 66 Pipeline, Plains All American Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Conoco Phillips, Enterprise Products, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Bison Pipeline LLC, Colorado Interstate Gas Company LLC, Columbia Gulf Transmission, Kern River Gas Transmission Company, Kinder Morgan Interstate Gas Transmission, MIGC Inc, Northwest Pipeline Group, Overthrust Pipeline Company, Questar Pipeline Company, Rockies Express Pipeline LLC, Ruby Pipeline LLC, Southern Star Central Gas Pipeline, Trailblazer Pipeline Company, WBI Energy Transmission INc, Westgas Interstate Inc, Wyoming Interstate Company LLC</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					333 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					29 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					27 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					11 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					27 stations 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					536 trillion Btu 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					917 million Btu 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 5,841  million 
+				</td>
+				<td>
+					45 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 9,997 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					48 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					62 trillion Btu 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					307 trillion Btu 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					119 trillion Btu 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 501  million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 581  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,934  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 2,826  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					31.5 million barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					136.0 billion cu ft 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					27.9 million short tons 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 4,019  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 456  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 798  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					7 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					421 million cu ft 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,933 thousand short tons 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=231">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					59.4 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.3 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					22.6 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					10.2 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					7.4 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,794 MW 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					27 thousand MWh 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					425 thousand MWh 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					285 Thousand Barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					10.3 % 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=WY"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					869 thousand barrels 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					66.0 million metric tons 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Wyoming</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=231">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					47,476 thousand metric tons 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					40 thousand metric tons 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					45 thousand metric tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: December 15, 2016</p>
+<h2>Overview </h2>
+<p>The tectonic forces that created Wyoming's complex Rocky Mountain terrain preserved rich fossil beds from multiple geologic eras,<sup><a href='print.cfm@sid=WY.html#1'>1</a></sup> making the state a major producer of coal, natural gas, and crude oil.<sup><a href='print.cfm@sid=WY.html#2'>2</a></sup> Wyoming has the smallest population of any state, and only Alaska has fewer residents per square mile.<sup><a href='print.cfm@sid=WY.html#3'>3</a>,<a href='print.cfm@sid=WY.html#4'>4</a></sup> But Wyoming supplies more energy to the rest of the nation<sup><a href='print.cfm@sid=WY.html#5'>5</a></sup> and has more producing federal oil and natural gas leases than any other state.<sup><a href='print.cfm@sid=WY.html#6'>6</a></sup> </p>
+<div class='pullquote'><p>Wyoming supplies more energy to other states than any other state in the nation.</p></div><p>Wyoming sits astride the Continental Divide. The state's lowest point is more than half a mile above sea level, and its mountain peaks exceed 2 miles above sea level. Its mountains channel weather&mdash;and often fierce winds&mdash;across wide plains. The altitude gives Wyoming a cooler climate overall, but temperatures can be extreme. The state's record high is 114&#8457 in the Big Horn Basin, and the record low is 66&#8457 below zero in Yellowstone National Park.<sup><a href='print.cfm@sid=WY.html#7'>7</a></sup> National parks like Yellowstone and national monuments like Devil's Tower, as well as the Teton, Wind River, and Big Horn mountain ranges, help make tourism the state's second largest industry.<sup><a href='print.cfm@sid=WY.html#8'>8</a></sup> </p>
+<p>The biggest industry in Wyoming is energy-related mining and minerals extraction.<sup><a href='print.cfm@sid=WY.html#9'>9</a></sup> Coal, crude oil, natural gas, or some combination of those fuels is produced in 22 of Wyoming's 23 counties,<sup><a href='print.cfm@sid=WY.html#10'>10</a></sup> and mineral royalties and severance and related taxes typically provide a substantial portion of state revenues.<sup><a href='print.cfm@sid=WY.html#11'>11</a>,<a href='print.cfm@sid=WY.html#12'>12</a></sup> Although only 6% of the energy produced in Wyoming is consumed there,<sup><a href='print.cfm@sid=WY.html#13'>13</a></sup> Wyoming is among the highest per-capita energy consumers of any state<sup><a href='print.cfm@sid=WY.html#14'>14</a></sup> and has one of the most energy-intensive state economies.<sup><a href='print.cfm@sid=WY.html#15'>15</a></sup> The industrial sector uses more than half of all energy consumed in the state, and the transportation sector consumes more than one-fifth.<sup><a href='print.cfm@sid=WY.html#16'>16</a></sup></p>
+<h2>Petroleum</h2>
+<p>Wyoming typically accounts for between 2% and 3% of U.S. crude oil production.<sup><a href='print.cfm@sid=WY.html#17'>17</a></sup> The state is a crossroads for pipelines bringing Canadian and Rocky Mountain crude oil to refineries in the Rocky Mountain states and the Midwest and for pipelines taking refined products to markets in those regions.<sup><a href='print.cfm@sid=WY.html#18'>18</a></sup> Wyoming has six operable crude oil refineries that provide more than one-fourth of the refining capacity in the Petroleum Administration for Defense District (PADD) 4, which also includes Colorado, Idaho, Montana, and Utah.<sup><a href='print.cfm@sid=WY.html#19'>19</a></sup> Two refineries are sited near a crude oil pipeline hub in Casper, Wyoming, and the other four are closer to the Utah, Colorado, Nebraska, and South Dakota borders.<sup><a href='print.cfm@sid=WY.html#20'>20</a></sup> Wyoming's refineries produce motor gasoline, diesel fuel, aviation fuel, and other products, and they have added capability to process Canadian heavy sour crude oils.<sup><a href='print.cfm@sid=WY.html#21'>21</a>,<a href='print.cfm@sid=WY.html#22'>22</a>,<a href='print.cfm@sid=WY.html#23'>23</a>,<a href='print.cfm@sid=WY.html#24'>24</a>,<a href='print.cfm@sid=WY.html#25'>25</a></sup></p>
+<p>Wyoming is among the top five consuming states per capita for petroleum,<sup><a href='print.cfm@sid=WY.html#26'>26</a>,<a href='print.cfm@sid=WY.html#27'>27</a></sup> but with the state's small population, total petroleum consumption is modest.<sup><a href='print.cfm@sid=WY.html#28'>28</a></sup> The state's refineries deliver much of their output to neighboring states. Of the petroleum products consumed in Wyoming, three-fifths are used in the transportation sector, and most of the rest are used by the industrial sector.<sup><a href='print.cfm@sid=WY.html#29'>29</a></sup> Wyoming is one of the few states that allow statewide use of conventional motor gasoline.<sup><a href='print.cfm@sid=WY.html#30'>30</a>,<a href='print.cfm@sid=WY.html#31'>31</a></sup> </p>
+<p>The state has less than 3% of proved U.S. crude oil reserves,<sup><a href='print.cfm@sid=WY.html#32'>32</a></sup> but, in recent years, producers using advanced drilling technologies have increased crude oil production in two regions of eastern Wyoming: the Niobrara Shale north of the Colorado border and the coal-rich Powder River Basin south of the Montana border. However, with low crude oil prices, production activity has fallen somewhat in 2016.<sup><a href='print.cfm@sid=WY.html#33'>33</a>,<a href='print.cfm@sid=WY.html#34'>34</a>,<a href='print.cfm@sid=WY.html#35'>35</a>,<a href='print.cfm@sid=WY.html#36'>36</a>,<a href='print.cfm@sid=WY.html#37'>37</a></sup> Southwestern Wyoming overlies part of the Green River oil shale, a formation rich in kerogen, an organic material found in sedimentary rock, which can be heated to extract crude oil. Green River, by some estimates, could be the world's largest crude oil resource if technology were developed to extract the oil economically.<sup><a href='print.cfm@sid=WY.html#38'>38</a>,<a href='print.cfm@sid=WY.html#39'>39</a></sup></p>
+<h2>Natural gas</h2>
+<p>Wyoming is one of the top 10 natural gas-producing states in the nation.<sup><a href='print.cfm@sid=WY.html#40'>40</a></sup> Two-thirds of its natural gas is produced on land leased from the federal government.<sup><a href='print.cfm@sid=WY.html#41'>41</a></sup> Production takes place throughout the state, but most of Wyoming's natural gas has come from fields in the Greater Green River Basin, in the state's southwest.<sup><a href='print.cfm@sid=WY.html#42'>42</a>,<a href='print.cfm@sid=WY.html#43'>43</a></sup></p>
+<p>Recovery of coalbed methane from coal seams in the Powder River Basin grew rapidly in the late 1990s but has declined in this decade.<sup><a href='print.cfm@sid=WY.html#44'>44</a></sup> Recent lower natural gas prices made some coalbed methane wells uneconomical.<sup><a href='print.cfm@sid=WY.html#45'>45</a>,<a href='print.cfm@sid=WY.html#46'>46</a></sup> Coalbed methane accounts for about one-seventh of state natural gas production.<sup><a href='print.cfm@sid=WY.html#47'>47</a></sup> Colorado, New Mexico, and Wyoming are the leading coalbed methane producers in the United States.<sup><a href='print.cfm@sid=WY.html#48'>48</a></sup> </p>
+<div class='pullquote'><p>Several interstate natural gas pipelines converge at Opal, Wyoming, creating a major natural gas trading hub. </p></div><p>Wyoming typically consumes less than one-tenth of the natural gas it produces, and half of that consumption is used in drilling, processing, and pipeline operations.<sup><a href='print.cfm@sid=WY.html#49'>49</a>,<a href='print.cfm@sid=WY.html#50'>50</a></sup> Most natural gas produced in the state is shipped out through interstate pipelines<sup><a href='print.cfm@sid=WY.html#51'>51</a></sup> crossing into Utah and Nebraska, delivering natural gas to both the Midwest and the West Coast.<sup><a href='print.cfm@sid=WY.html#52'>52</a></sup> Several interstate pipelines converge at Opal, Wyoming, creating a major interstate natural gas trading hub.<sup><a href='print.cfm@sid=WY.html#53'>53</a>,<a href='print.cfm@sid=WY.html#54'>54</a></sup> Wyoming's natural gas storage capability has recently increased with the addition of a new underground storage facility connected to the Opal hub. The first phase of the facility opened in 2012. At full capacity, the facility increased the state's underground storage capacity by one-third.<sup><a href='print.cfm@sid=WY.html#55'>55</a>,<a href='print.cfm@sid=WY.html#56'>56</a>,<a href='print.cfm@sid=WY.html#57'>57</a></sup></p>
+<p>Wyoming has 16 of the nation's largest natural gas fields, including the Pinedale and Jonah fields that rank among the top 10.<sup><a href='print.cfm@sid=WY.html#58'>58</a></sup> Natural gas exploration has been expanding across the state, including into the Powder River Basin.<sup><a href='print.cfm@sid=WY.html#59'>59</a>,<a href='print.cfm@sid=WY.html#60'>60</a></sup> Intensive drilling activity in the Green River Basin was identified by state officials as putting that region out of compliance with federal air quality standards, a first for Wyoming.<sup><a href='print.cfm@sid=WY.html#61'>61</a>,<a href='print.cfm@sid=WY.html#62'>62</a></sup> The state has developed strategies to manage the issue, including new requirements for emissions controls in drilling.<sup><a href='print.cfm@sid=WY.html#63'>63</a>,<a href='print.cfm@sid=WY.html#64'>64</a></sup> Those strategies, plus a slowdown in drilling because of depressed natural gas prices, have resulted in recent air quality improvements.<sup><a href='print.cfm@sid=WY.html#65'>65</a></sup></p>
+<p>Natural gas is Wyoming's most widely used home heating fuel, warming three in five households.<sup><a href='print.cfm@sid=WY.html#66'>66</a></sup> However, the industrial sector is the largest natural gas consumer, using about two-thirds of all natural gas delivered to consumers in the state.<sup><a href='print.cfm@sid=WY.html#67'>67</a></sup> </p>
+<h2>Coal</h2>
+<div class='pullquote'><p>Eight of the 10 largest U.S. coal mines are located in Wyoming's Powder River Basin.</p></div><p>Wyoming leads the nation in coal production, accounting for two-fifths of all coal mined in the United States.<sup><a href='print.cfm@sid=WY.html#68'>68</a>,<a href='print.cfm@sid=WY.html#69'>69</a></sup> Eight of the 10 largest U.S. coal mines are in Wyoming's Powder River Basin.<sup><a href='print.cfm@sid=WY.html#70'>70</a></sup> Seams of subbituminous coal, some more than 100 feet thick, lie at shallow depths, allowing large-scale mechanized surface mining.<sup><a href='print.cfm@sid=WY.html#71'>71</a>,<a href='print.cfm@sid=WY.html#72'>72</a>,<a href='print.cfm@sid=WY.html#73'>73</a></sup> Coal is loaded onto unit trains a half mile or more long and shipped to electricity generating plants around the nation.<sup><a href='print.cfm@sid=WY.html#74'>74</a></sup> In recent years, Wyoming coal has been used at power plants in more than 30 states. In 2015, the state's mines supplied 10 states with more than nine-tenths of the domestic coal they consumed.<sup><a href='print.cfm@sid=WY.html#75'>75</a>,<a href='print.cfm@sid=WY.html#76'>76</a></sup></p>
+<p>The primary transportation route for coal from the rugged and sparsely populated Powder River Basin region is the PRB Joint Line, co-owned by two major railroads.<sup><a href='print.cfm@sid=WY.html#77'>77</a>,<a href='print.cfm@sid=WY.html#78'>78</a></sup> As area coal mining has grown, the railroads have gradually added parallel tracks to decrease congestion and minimize shipping delays, particularly after three train derailments in 2005 severely damaged the PRB Joint Line and halted coal shipments.<sup><a href='print.cfm@sid=WY.html#79'>79</a>,<a href='print.cfm@sid=WY.html#80'>80</a></sup></p>
+<p>Wyoming has more than one-third of recoverable U.S. coal reserves at producing mines.<sup><a href='print.cfm@sid=WY.html#81'>81</a></sup> In the short term, coal use is expected to decline nationwide as older coal-fired electricity generating units are retired. In the longer term, demand is expected to stabilize for Wyoming's low-sulfur coal, which can help some generating units comply with air quality standards.<sup><a href='print.cfm@sid=WY.html#82'>82</a>,<a href='print.cfm@sid=WY.html#83'>83</a></sup> Wyoming also has the world's largest known deposit of trona,<sup><a href='print.cfm@sid=WY.html#84'>84</a></sup> a mineral used in dry sorbent injection technology to meet federal emission standards, which helps generators to continue to use coal.<sup><a href='print.cfm@sid=WY.html#85'>85</a>,<a href='print.cfm@sid=WY.html#86'>86</a></sup> Although little Wyoming coal has been exported overseas,<sup><a href='print.cfm@sid=WY.html#87'>87</a></sup> coal producers and railroads serving the Powder River Basin are considering more exports from Pacific ports to Asia.<sup><a href='print.cfm@sid=WY.html#88'>88</a>,<a href='print.cfm@sid=WY.html#89'>89</a>,<a href='print.cfm@sid=WY.html#90'>90</a>,<a href='print.cfm@sid=WY.html#91'>91</a></sup></p>
+<h2>Electricity</h2>
+<p>Coal-fired power plants dominate Wyoming electricity generation, producing about 8 of every 9 kilowatthours of net generation. Wind energy's share has increased rapidly in the last 10 years and contributed nearly 8% of net electricity generation in 2015. Small hydroelectric facilities, natural gas, and petroleum contribute minor amounts of electricity.<sup><a href='print.cfm@sid=WY.html#92'>92</a>,<a href='print.cfm@sid=WY.html#93'>93</a></sup> Most power from natural gas is generated and consumed at industrial facilities,<sup><a href='print.cfm@sid=WY.html#94'>94</a></sup> but some new natural gas-fired capacity is being built by electric utilities to replace aging coal units.<sup><a href='print.cfm@sid=WY.html#95'>95</a>,<a href='print.cfm@sid=WY.html#96'>96</a></sup></p>
+<p>Because of the state's small population, total electricity demand is low, and Wyoming sends two-thirds of the electricity it generates to nearby states.<sup><a href='print.cfm@sid=WY.html#97'>97</a>,<a href='print.cfm@sid=WY.html#98'>98</a></sup> High-voltage transmission lines carrying electricity from Wyoming often operate at maximum capacity,<sup><a href='print.cfm@sid=WY.html#99'>99</a></sup> and the state government is encouraging transmission expansion. Five major interstate projects are under way to transmit more power out of Wyoming to western population centers.<sup><a href='print.cfm@sid=WY.html#100'>100</a></sup> Within Wyoming, the industrial sector is the largest electricity consumer, accounting for more than half of the electricity used in the state.<sup><a href='print.cfm@sid=WY.html#101'>101</a></sup> Wyoming has among the lowest average electricity rates in the nation.<sup><a href='print.cfm@sid=WY.html#102'>102</a></sup></p>
+<p>Wyoming does not have any nuclear power plants, but it is home to nearly one-third of estimated U.S. uranium reserves.<sup><a href='print.cfm@sid=WY.html#103'>103</a></sup> Expectations for rising uranium ore prices have led to new mining activity in the state.<sup><a href='print.cfm@sid=WY.html#104'>104</a>,<a href='print.cfm@sid=WY.html#105'>105</a></sup> The largest uranium mining operations in the United States are located in Wyoming, and the state is home to four-fifths of the nation's operating capacity for producing the uranium ore that fuels nuclear power plants.<sup><a href='print.cfm@sid=WY.html#106'>106</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Winds are funneled through mountain passes and across the prairie, creating among the best wind resources in the nation.</p></div><p>Wyoming has among the best wind resources in the nation, especially in its southeast.<sup><a href='print.cfm@sid=WY.html#107'>107</a></sup> Sustained winds are funneled through mountain passes and out across the high prairie, giving Wyoming wind farms high capacity factors.<sup><a href='print.cfm@sid=WY.html#108'>108</a>,<a href='print.cfm@sid=WY.html#109'>109</a></sup> Wind-powered generating capacity has increased rapidly during the last 10 years.<sup><a href='print.cfm@sid=WY.html#110'>110</a>,<a href='print.cfm@sid=WY.html#111'>111</a></sup> Several large-scale projects are in development,<sup><a href='print.cfm@sid=WY.html#112'>112</a>,<a href='print.cfm@sid=WY.html#113'>113</a></sup> including a 3,000-megawatt project at Chokecherry-Sierra Madre, which may become the largest wind project in the nation.<sup><a href='print.cfm@sid=WY.html#114'>114</a>,<a href='print.cfm@sid=WY.html#115'>115</a></sup> Wyoming officials are actively seeking customers for the state's wind power in California and Colorado. Both states have ambitious renewable energy requirements.<sup><a href='print.cfm@sid=WY.html#116'>116</a>,<a href='print.cfm@sid=WY.html#117'>117</a>,<a href='print.cfm@sid=WY.html#118'>118</a></sup> The Wyoming Infrastructure Authority is encouraging two large transmission projects aimed at transporting Wyoming's wind-generated electricity to the West Coast.<sup><a href='print.cfm@sid=WY.html#119'>119</a></sup> </p>
+<p>Most of Wyoming's hydroelectric dams are smaller, older, and owned by the federal government.<sup><a href='print.cfm@sid=WY.html#120'>120</a>,<a href='print.cfm@sid=WY.html#121'>121</a></sup> Although the state has good solar resources,<sup><a href='print.cfm@sid=WY.html#122'>122</a></sup> no utility-scale solar generation has been installed, in part because of Wyoming's relatively low electricity rates. A small amount of distributed (customer-sited, small-scale) solar photovoltaic capacity has been installed around the state.<sup><a href='print.cfm@sid=WY.html#123'>123</a>,<a href='print.cfm@sid=WY.html#124'>124</a></sup> The state does not have a renewable portfolio standard or other requirement for renewable energy,<sup><a href='print.cfm@sid=WY.html#125'>125</a></sup> but it does provide net metering for residential, commercial, and industrial customers with renewable energy systems smaller than 25 kilowatts, including solar photovoltaic panels, wind turbines, biomass plants, and hydroelectric generators.<sup><a href='print.cfm@sid=WY.html#126'>126</a>,<a href='print.cfm@sid=WY.html#127'>127</a></sup></p>
+<h2>Energy on tribal lands</h2>
+<p>Wyoming's Wind River Reservation, one of the nation's largest reservations at more than 3,500 square miles, is home to both the Arapahoe and the Shoshone tribes.<sup><a href='print.cfm@sid=WY.html#128'>128</a>,<a href='print.cfm@sid=WY.html#129'>129</a></sup> It is Wyoming's only reservation, and it occupies most of the northern and central parts of the Wind River Basin in west-central Wyoming.<sup><a href='print.cfm@sid=WY.html#130'>130</a></sup> Crude oil and natural gas have been produced on the Wind River Reservation for decades.<sup><a href='print.cfm@sid=WY.html#131'>131</a></sup></p>
+<p>The state's first oil well was drilled in the Wind River Basin in 1884, south of the reservation boundary.<sup><a href='print.cfm@sid=WY.html#132'>132</a></sup> About a half century later, several oil seeps were discovered within the reservation, and crude oil and natural gas production on tribal lands followed.<sup><a href='print.cfm@sid=WY.html#133'>133</a></sup> Between 1884 and the mid-1990s, more than 550 million barrels of crude oil and almost 3 trillion cubic feet of natural gas were produced from reservoirs in the Wind River Basin.<sup><a href='print.cfm@sid=WY.html#134'>134</a></sup> In 2012, a settlement was reached between the tribes and the federal government regarding the payment and management of royalties owed on crude oil and natural gas production from reservation land. The settlement included a $157 million payment to the tribes.<sup><a href='print.cfm@sid=WY.html#135'>135</a>,<a href='print.cfm@sid=WY.html#136'>136</a></sup></p>
+<p>The Wind River Reservation has significant wind energy resources along the mountain ridges that border the reservation.<sup><a href='print.cfm@sid=WY.html#137'>137</a>,<a href='print.cfm@sid=WY.html#138'>138</a></sup> Several areas of the reservation have been evaluated for wind projects that could give the two tribes a sustainable source of clean energy.<sup><a href='print.cfm@sid=WY.html#139'>139</a></sup> The reservation has promising solar resources as well.<sup><a href='print.cfm@sid=WY.html#140'>140</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> McClendon, Russell, "Where Does Coal Come From?" Mother Nature Network (August 4, 2009).<br>
+<a name='2'></a><sup>2</sup> U.S. Energy Information Administration (EIA), State Energy Data System, Table P4, Energy Production Estimates in Physical Units, Ranked by State, 2014.<br>
+<a name='3'></a><sup>3</sup> U.S. Census Bureau, Resident Population Data, Population Density, 1910-2010.<br>
+<a name='4'></a><sup>4</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='5'></a><sup>5</sup> U.S. EIA, State Energy Data System, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='6'></a><sup>6</sup> U.S. Department of the Interior, Bureau of Land Management, Number of Producing Leases on Federal Lands, updated October 29, 2015.<br>
+<a name='7'></a><sup>7</sup> Gray, Steve, "Wicked Wind, Raging Blizzards and Bitter Cold&mdash;and That's Just Summer in Wyoming," Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed October 31, 2016.<br>
+<a name='8'></a><sup>8</sup> Forbes, Best States for Business, Wyoming (October 2015).<br>
+<a name='9'></a><sup>9</sup> U.S. Department of State, IIP Digital, Wyoming at a Glance, accessed October 29, 2015.<br>
+<a name='10'></a><sup>10</sup> Petroleum Association of Wyoming, Wyoming Oil & Gas, Facts & Figures, 2015 Edition, Production.<br>
+<a name='11'></a><sup>11</sup> Jeffries, Brian, Oil, Natural Gas, Pipelines and Wyoming State Revenues, Wyoming Pipeline Authority (2011), slide 4.<br>
+<a name='12'></a><sup>12</sup> State of Wyoming, Department of Revenue, 2015 Annual Report, Mineral Tax Division, p. 38-52.<br>
+<a name='13'></a><sup>13</sup> U.S. EIA, State Energy Data System, Production, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='14'></a><sup>14</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, Ranked by State, 2014.<br>
+<a name='17'></a><sup>17</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='18'></a><sup>18</sup> Jeffries, Brian, Oil, Natural Gas, Pipelines and Wyoming State Revenues, Wyoming Pipeline Authority (2011), slide 22.<br>
+<a name='19'></a><sup>19</sup> U.S. EIA, Refinery Capacity 2016, Table 1, Number and Capacity of Operable Petroleum Refineries by PAD District and State as of January 1, 2016.<br>
+<a name='20'></a><sup>20</sup> U.S. EIA, Refinery Capacity 2016, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 19-21.<br>
+<a name='21'></a><sup>21</sup> HollyFrontier Corp., Refinery Locations, Cheyenne Refinery, accessed October 31, 2016.<br>
+<a name='22'></a><sup>22</sup> Wyoming, Department of Environmental Quality, WYPDES Fact Sheet, Storm Water Program, Antelope Refining, Individual Permit (September 12, 2012), Background, paragraph 1.<br>
+<a name='23'></a><sup>23</sup> Sinclair Oil, Refineries, accessed October 31, 2016.<br>
+<a name='24'></a><sup>24</sup> Silver Eagle Refining, About, accessed October 31, 2016.<br>
+<a name='25'></a><sup>25</sup> Wyoming Department of Environmental Quality, Wyoming Refining, accessed October 31, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='27'></a><sup>27</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='28'></a><sup>28</sup> U.S. EIA, State Energy Data System, Table C2, Energy Consumption Estimates for Major Energy Sources in Physical Units, 2014.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='30'></a><sup>30</sup> U.S. Environmental Protection Agency, Gasoline Standards, see Gasoline Programs: Reformulated Gasoline, Reid Vapor Pressure, and Winter Oxygenates, accessed October 31, 2016.<br>
+<a name='31'></a><sup>31</sup> Gardner, K.W., U.S. Gasoline Requirements, ExxonMobil (June 2015).<br>
+<a name='32'></a><sup>32</sup> U.S. EIA, U.S. Crude Oil and Natural Gas Proved Reserves, 2014 (November 2015), Table 6, Crude oil plus lease condensate proved reserves, reserves changes, and production, 2014.<br>
+<a name='33'></a><sup>33</sup> Storrow, Benjamin, "Oil Companies, Racing to Acquire Wyoming Drilling Rights, Raise Questions of Fairness," Casper Star Tribune (June 6, 2015).<br>
+<a name='34'></a><sup>34</sup> Storrow, Benjamin, "With Oil Near $50, Wyoming Oil Companies Dust Off Drilling Plans," Casper Star Tribune (May 31, 2016). <br>
+<a name='35'></a><sup>35</sup> Voge, Adam, "Niobrara Production, Permitting on the Rise," Casper Star Tribune (August 13, 2012).<br>
+<a name='36'></a><sup>36</sup> Fugleberg, Jeremy, "Southern Powder River Basin Drilling Booms," Casper Star Tribune (May 24, 2012).<br>
+<a name='37'></a><sup>37</sup> DrillingEdge, Oil & Gas Production in Wyoming, Oil and Gas Production by Year in Wyoming, accessed October 31, 2016.<br>
+<a name='38'></a><sup>38</sup> U.S. Government Accountability Office, Opportunities and Challenges of Oil Shale Development, GAO-12-740T (May 10, 2012).<br>
+<a name='39'></a><sup>39</sup> U.S. Department of the Interior, Bureau of Land Management, BLM Issues Draft Programmatic Environmental Impact Statement for Oil Shale and Tar Sands (February 3, 2012).<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15, and Marketed Production, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='41'></a><sup>41</sup> Jeffries, Brian, Oil, Natural Gas, Pipelines and Wyoming State Revenues, Wyoming Pipeline Authority (2011), slide 19.<br>
+<a name='42'></a><sup>42</sup> Petroleum Association of Wyoming, Wyoming Oil & Gas, Facts & Figures 2015 Edition, Production.<br>
+<a name='43'></a><sup>43</sup> Wyoming State Geological Survey, Wyoming Oil & Gas Facts, Wyoming's Natural Gas, accessed November 1, 2016.<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, Wyoming Coalbed Methane Production, 2000-14.<br>
+<a name='45'></a><sup>45</sup> Bleizeffer, Dustin, "Coalbed Methane: Boom, Bust and Hard Lessons," Wyoming State Historical Society, accessed November 1, 2016.<br>
+<a name='46'></a><sup>46</sup> Storrow, Benjamin, "A Conversation with Tom Fitzsimmons, a Wyoming Regulator and New CBM Mogul," Casper Star Tribune (November 27, 2015).<br>
+<a name='47'></a><sup>47</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Wyoming, 2009-14.<br>
+<a name='48'></a><sup>48</sup> U.S. EIA, Coalbed Methane Production, 2009-14.<br>
+<a name='49'></a><sup>49</sup> U.S. EIA, Natural Gas Consumption By End-Use, Wyoming, 2010-15.<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Wyoming, 2009-14.<br>
+<a name='51'></a><sup>51</sup> Jeffries, Brian, Oil, Natural Gas, Pipelines and Wyoming State Revenues, Wyoming Pipeline Authority (2011), slides 22, 25.<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, International and Interstate Movements of Natural Gas by State, Wyoming, 2010-15.<br>
+<a name='53'></a><sup>53</sup> A Barrel Full, Opal Natural Gas Market Hub, see links to Ruby and Northwest Gas Pipelines, accessed November 1, 2016.<br>
+<a name='54'></a><sup>54</sup> NGI Data, Opal, Opal Description, accessed November 1, 2016.<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, Natural Gas, Wyoming Natural Gas Underground Storage Capacity, accessed November 1, 2016.<br>
+<a name='56'></a><sup>56</sup> Fugleberg, Jeremy, "New Natural Gas Storage Facility Opens in Southwest Wyoming," Casper Star Tribune (August 26, 2012).<br>
+<a name='57'></a><sup>57</sup> "Peregrine Midstream Partners Subsidiary Secures $110 Million Financing to Complete Gas Storage Project," Business Wire, Press Release (November 12, 2014).<br>
+<a name='58'></a><sup>58</sup> U.S. EIA, Top 100 U.S. Oil and Gas Fields (March 2015).<br>
+<a name='59'></a><sup>59</sup> Petroleum Association of Wyoming, Wyoming Oil & Gas, Facts & Figures 2015 Edition, Production.<br>
+<a name='60'></a><sup>60</sup> DrillingEdge, Oil & Gas Production in Wyoming, Browse Wyoming Counties by Production in June 2016, accessed November 1, 2016.<br>
+<a name='61'></a><sup>61</sup> Correspondence, Environmental Protection Agency Administrator Lisa Jackson to Wyoming Governor Matt Mead (April 30, 2012).<br>
+<a name='62'></a><sup>62</sup> Belden, Willow, "EPA Announces Plans for Air Quality Nonattainment Status in Sublette County," Wyoming Public Radio (May 4, 2012).<br>
+<a name='63'></a><sup>63</sup> Corra, John, Emissions From Hydrofracking Operations and General Oversight Information for Wyoming, Wyoming Department of Environmental Quality (July 13, 2011).<br>
+<a name='64'></a><sup>64</sup> Milford, Jana, "Out in Front? State and Federal Regulation of Air Pollution Emissions from Oil and Gas Production Activities in the Western United States," Natural Resources Journal (Fall 2014).<br>
+<a name='65'></a><sup>65</sup> Storrow, Benjamin, "Ozone Levels Down in Pinedale Area as EPA Prepares a More Stringent Pollution Threshold," Casper Star Tribune (September 1, 2015).<br>
+<a name='66'></a><sup>66</sup> U.S. Census Bureau, American FactFinder, Wyoming, Table B25040, House Heating Fuel, American Community Survey 1-Year Estimates, 2015.<br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Natural Gas Consumption by End Use, Wyoming, 2010-15.<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2015, 2014.<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, State Energy Data System, Table P4, Energy Production Estimates in Physical Units, Ranked by State, 2014.<br>
+<a name='70'></a><sup>70</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 9, Major U.S. Coal Mines, 2015.<br>
+<a name='71'></a><sup>71</sup> John T. Boyd Co., Powder River Basin Coal Resource and Cost Study (September 2011), Section 3.2, PRB Geology.<br>
+<a name='72'></a><sup>72</sup> Wyoming Mining Association, Coal, accessed November 1, 2016.<br>
+<a name='73'></a><sup>73</sup> Carroll, Chris, Wyoming's Coal Resources, Wyoming State Geological Survey (February 2015). <br>
+<a name='74'></a><sup>74</sup> Braasch, Gary, "Powder River Basin: Coal on the Move," The Daily Climate (December 9, 2013).<br>
+<a name='75'></a><sup>75</sup> U.S. EIA, Quarterly Coal Distribution Report, By Destination State (all 2015 quarters), accessed November 1, 2016.<br>
+<a name='76'></a><sup>76</sup> U.S. EIA, Annual Coal Distribution Report, Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation (2014, 2013, 2012, 2011).<br>
+<a name='77'></a><sup>77</sup> Stottlemyre, Matthew, "Railroaded: Coal Losses Continue as Mines Wait for Lagging Rail to Catch Up," Casper Star Tribune (December 8, 2014).<br>
+<a name='78'></a><sup>78</sup> Western Organization of Resource Councils, Heavy Traffic Ahead (July 2012), p. 20-21.<br>
+<a name='79'></a><sup>79</sup> U.S. Department of Energy, Electricity Delivery and Energy Reliability, Deliveries of Coal from the Powder River Basin: Events and Trends, 2005-2007 (October 2007), Executive Summary.<br>
+<a name='80'></a><sup>80</sup> "UP, BNSF Announce Southern Powder River Basin Joint Line $100 Million Capacity Expansion Plan," Union Pacific Railroad, Press Release (May 8, 2006).<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, Annual Coal Report 2015 (November 3, 2016), Table 14, Recoverable Coal Reserves and Average Recovery Percentage at Producing Mines by State, 2015 and 2014.<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, Annual Energy Outlook 2016, Coal Supply, Disposition, and Prices, Reference Case, Production: West.<br>
+<a name='83'></a><sup>83</sup> Levesque, Jim, "PRB Coal to Up U.S. Generation Market Share, Exports to Rise: Cloud Peak," Platts (March 25, 2015).<br>
+<a name='84'></a><sup>84</sup> Wyoming Mining Association, Trona, accessed November 1, 2016.<br>
+<a name='85'></a><sup>85</sup> Fischer, Diane, and Preston Tempero, "Early Lessons Learned from Implementation of Dry Sorbent Injection Systems," Black & Veatch (2012), p. 2.<br>
+<a name='86'></a><sup>86</sup> U.S. Environmental Protection Agency, "Regulatory Impact Analysis for the Final Mercury and Air Toxics Standards," EPA-452/R-11-011 (December 2011), p. 2-9.<br>
+<a name='87'></a><sup>87</sup> U.S. EIA, Annual Coal Distribution Report, Domestic and foreign distribution of U.S. coal by State, of origin (2014, 2013, 2012, 2011).<br>
+<a name='88'></a><sup>88</sup> Godby, Robert, et al., The Impact of Coal on Wyoming, Center for Energy Economics and Public Policy, University of Wyoming (February 2015), p. 5-6.<br>
+<a name='89'></a><sup>89</sup> Western Organization of Resource Councils, Heavy Traffic Ahead (July 2012), p. 4.<br>
+<a name='90'></a><sup>90</sup> Paterson, Leigh, "Gov. Mead Signs Bill That Would Allow State to Finance Coal Export Terminals," Wyoming Public Radio (March 10, 2015).<br>
+<a name='91'></a><sup>91</sup> "Cloud Peak Energy Inc. Announces Results for the Third Quarter and First Nine Months of 2016," Business Wire, Press Release (October 27, 2016).<br>
+<a name='92'></a><sup>92</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.7.B, 1.10.B, 1.14.B.<br>
+<a name='93'></a><sup>93</sup> U.S. EIA, Electricity, Detailed State Data, 1990-2014, Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860).<br>
+<a name='94'></a><sup>94</sup> Stafford, Jim, Wyoming's Electrical Generation, Wyoming State Geological Survey (February 2012), p. 2-3.<br>
+<a name='95'></a><sup>95</sup> "Wyoming Company to Close Coal Power Plant; Natural Gas Plant Will Open in Cheyenne," Greeley Tribune (March 31, 2014).<br>
+<a name='96'></a><sup>96</sup> Dixon, Tom, "The Big Switch: Utilities' Conversion from Coal to Natural Gas," Casper Star Tribune (May 31, 2014).<br>
+<a name='97'></a><sup>97</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 5.4.B, 1.3.B.<br>
+<a name='98'></a><sup>98</sup> U.S. EIA, Wyoming Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990-2014.<br>
+<a name='99'></a><sup>99</sup> Stafford, Jim, Wyoming's Electrical Generation, Wyoming State Geological Survey (February 2012), p. 3.<br>
+<a name='100'></a><sup>100</sup> Wyoming Infrastructure Authority, Transmission Projects, accessed November 2, 2016.<br>
+<a name='101'></a><sup>101</sup> U.S. EIA, Wyoming Electricity Profile 2014, Table 8, Retail sales, revenue, and average retail price by sector, 1990 through 2014.<br>
+<a name='102'></a><sup>102</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Domestic Uranium Production Report - Annual, 2015 (May 5, 2016), Table 10, Uranium reserve estimates at the end of 2014 and 2015.<br>
+<a name='104'></a><sup>104</sup> Gregory, Robert, Wyoming's Uranium Resources, Wyoming State Geological Survey (February 2015).<br>
+<a name='105'></a><sup>105</sup> Gruver, Mead, "Wyoming Uranium Mine Proposes to More Than Double in Size," Associated Press (September 15, 2015).<br>
+<a name='106'></a><sup>106</sup> U.S. EIA, Domestic Uranium Production Report - Annual, 2015, Table 5, U.S. uranium in-situ leach plants by owner, location, capacity and operating status at the end of the year, 2011-15.<br>
+<a name='107'></a><sup>107</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Wyoming Wind Resource Map and Potential Wind Capacity (September 24, 2015).<br>
+<a name='108'></a><sup>108</sup> National Renewable Energy Laboratory, "NREL Study Indicates Economic Potential for Wyoming Wind Transmission to California," Press Release (March 24, 2014).<br>
+<a name='109'></a><sup>109</sup> University of Wyoming, "UW Study Determines Wyoming Wind Could Benefit Colorado Economically" (April 3, 2013).<br>
+<a name='110'></a><sup>110</sup> U.S. EIA, Electricity, Detailed State Data, 1990-2014, Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860).<br>
+<a name='111'></a><sup>111</sup> American Wind Energy Association, Wyoming Wind Energy, accessed November 5, 2016.<br>
+<a name='112'></a><sup>112</sup> U.S. Department of the Interior, Bureau of Land Management, Wyoming, Wind Energy, updated November 22, 2013.<br>
+<a name='113'></a><sup>113</sup> Jaffe, Mark, "Wyoming Wind Farm Energy Would Go to L.A.," The Denver Post (September 24, 2014).<br>
+<a name='114'></a><sup>114</sup> Lambert, Geoff, Update on Two New Wyoming Energy Projects, Power Company of Wyoming and Transwest Express LLC (June 11, 2015).<br>
+<a name='115'></a><sup>115</sup> Power Company of Wyoming, How Will the Project Proceed?, updated September 9, 2016.<br>
+<a name='116'></a><sup>116</sup> TransWest Express LLC, Delivering Wyoming Wind Energy to the West, accessed November 5, 2016.<br>
+<a name='117'></a><sup>117</sup> Wyoming Business Council, Wyoming Wind, accessed November 5, 2016.<br>
+<a name='118'></a><sup>118</sup> Duke American Transmission Co., Zephyr Power Transmission Project, accessed November 5, 2016.<br>
+<a name='119'></a><sup>119</sup> Wyoming Infrastructure Authority, Power Transmission & Generation Projects, accessed November 5, 2016.<br>
+<a name='120'></a><sup>120</sup> Foundation for Water & Energy Education, Hydroelectric Projects in Wyoming, accessed November 5, 2016.<br>
+<a name='121'></a><sup>121</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 2015, Table 3_1_Y2015 (November 5, 2016).<br>
+<a name='122'></a><sup>122</sup> National Renewable Energy Laboratory, Solar Maps, U.S. Solar Resource Maps, Photovoltaics and Concentrating Solar Power, updated July 18, 2016.<br>
+<a name='123'></a><sup>123</sup> Joyce, Stephanie, "Solar Economics Looking Sunnier, Even in Coal Country," Wyoming Public Radio (February 27, 2015).<br>
+<a name='124'></a><sup>124</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='125'></a><sup>125</sup> National Conference of State Legislatures, State Renewable Portfolio Standards and Goals (July 27, 2016).<br>
+<a name='126'></a><sup>126</sup> NC Clean Energy Technology Center, DSIRE, Net Metering, Wyoming, updated December 1, 2015.<br>
+<a name='127'></a><sup>127</sup> State of Wyoming, Wyoming Statutes Annotated, Title 37, Chapter 16, Electric Utilities, Article 1, Net Metering, accessed November 5, 2016.<br>
+<a name='128'></a><sup>128</sup> U.S. Department of the Interior, Bureau of Indian Affairs, Wind River Agency, updated November 4, 2016.<br>
+<a name='129'></a><sup>129</sup> National Council of State Legislators, Federal and State Recognized Tribes, updated October 2016.<br>
+<a name='130'></a><sup>130</sup> Mason, Jon P., Sonja K. Sebree, and Thomas L. Quinn, Monitoring-Well Network and Sampling Design for Ground-Water Quality, Wind River Indian Reservation, Wyoming, USGS Scientific Investigations Report 2005-5027, Description of Study Area, updated January 10, 2013.<br>
+<a name='131'></a><sup>131</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Wind River Reservation, p. 2, accessed November 5, 2016.<br>
+<a name='132'></a><sup>132</sup> Wyoming State Geological Survey, Wind River Basin, p. 2, accessed November 5, 2016.<br>
+<a name='133'></a><sup>133</sup> Stillwell, Dean P., Stan W. Davis-Lawrence, and Alfred M. Elser, Reasonable Foreseeable Development Scenario for Oil and Gas, Lander Field Office, Wyoming (February 9, 2009), p. 22.<br>
+<a name='134'></a><sup>134</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Wind River Reservation, p. 2, accessed November 5, 2016.<br>
+<a name='135'></a><sup>135</sup> Zhorov, Irina, "Secretary Salazar Finalizes Indian Trust Settlement," Wyoming Public Radio (November 27, 2012).<br>
+<a name='136'></a><sup>136</sup> Zhorov, Irina, "Money Heads to the Wind River Indian Reservation," Wyoming Public Radio (April 17, 2014).<br>
+<a name='137'></a><sup>137</sup> U.S. Department of the Interior, Office of Indian Energy and Economic Development, Native American Wind Resource Atlas (2010 Edition), p. 62, 63.<br>
+<a name='138'></a><sup>138</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, WINDExchange, Wyoming Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='139'></a><sup>139</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Tribal Energy Program, Shoshone Tribe of the Wind River Reservation-2006 Project, updated April 1, 2016.<br>
+<a name='140'></a><sup>140</sup> National Renewable Energy Laboratory, Solar Maps, U.S. Solar Resource Maps, Photovoltaics and Concentrating Solar Power, updated July 18, 2016.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 4</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://psc.state.wy.us/" title="Wyoming Public Service Commission">Wyoming Public Service Commission</a></li>
+  
+    <li><a href="http://dfsweb.state.wy.us/economic-assistance/lieap/index.html" title="Wyoming Department of Family Services, LIEAP and WAP
+">Wyoming Department of Family Services, LIEAP and WAP
+</a></li>
+  
+    <li><a href="http://wyia.org/" title="Wyoming Infrastructure Authority">Wyoming Infrastructure Authority</a></li>
+  
+    <li><a href="https://www.wyopipeline.com/" title="Wyoming Pipeline Authority">Wyoming Pipeline Authority</a></li>
+  
+    <li><a href="http://wogcc.state.wy.us/" title="Wyoming Oil and Gas Conservation Commission">Wyoming Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="http://deq.wyoming.gov/lqd/" title="Wyoming Department of Environmental Quality, Land Quality Division">Wyoming Department of Environmental Quality, Land Quality Division</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://www.wyomingbusiness.org/energy" title="Wyoming Business Council, (State Energy Office) Energy Assistance">Wyoming Business Council, (State Energy Office) Energy Assistance</a></li>
+  
+    <li><a href="http://www.uwyo.edu/barnbackyard/resources/energy-renewable-alternative-conservation.html" title="University of Wyoming, School of Energy Resources">University of Wyoming, School of Energy Resources</a></li>
+  
+    <li><a href="http://www.westgov.org/index.php?option=com_content&view=article&id=129&Itemid=5" title="Western Governors' Association, Energy">Western Governors' Association, Energy</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.uwyo.edu/barnbackyard/resources/energy-renewable-alternative-conservation.html" title="University of Wyoming, Resources, Energy: Renewable, Alternative, and Conservation">University of Wyoming, Resources, Energy: Renewable, Alternative, and Conservation</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Wyoming website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Wyoming\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/WY.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

@@ -1,0 +1,3106 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Utah Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Utah State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Utah Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Utah produced 1.8% of U.S. coal in 2014 and shipped 30% of that production out of the state, of which just over half was exported.</li>
+	
+	<li>Utah&#39;s five refineries process crude oil primarily from Utah, Colorado, Wyoming, and Canada; the UNEV pipeline, opened in late 2011, was the first to connect Utah&#39;s refineries to Las Vegas, the largest city in Nevada.&nbsp;</li>
+	
+	<li>In 2015, coal produced less than 76% of Utah&#39;s net electricity generation and natural gas produced 19%; in 2005, coal produced 94% and natural gas, 3%. State planners expect the natural gas share to continue rising as older coal units are shut down.</li>
+	
+	<li>Utah had the ninth lowest average electricity prices in the nation in 2015.</li>
+	
+	<li>Utah has a voluntary goal of obtaining 20% of the state&#39;s 2025 adjusted retail electric sales from cost-effective eligible renewable energy resources; in 2015, 4.3% of utility-scale net electricity generation came from renewable resources.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: November 17, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=UT.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=UT.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=UT.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=UT.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=UT.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Utah Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Utah Energy Consumption Estimates',
+		data : [344.1,252.7,126.3,87.5,32.4,4.6,0.1,29.1,0.0,6.0,10.7,12.6,-106.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Utah Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 159.3],['Commercial', 157.4],['Industrial', 235.7],['Transportation', 247.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Utah Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Utah Energy Production Estimates',
+		data : [411.0,500.9,237.2,0.0,0.0,21.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Utah Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Utah Net Electricity Generation',
+		data : [3,586,2444,53,266]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Utah Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Utah U.S. Price Differentials',
+		data : [{y:15.0357995227, period: Date.UTC(2016,9,1)},{y:-32.8238719068, period: Date.UTC(2016,9,1)},{y:-14.1365461847, period: Date.UTC(2016,9,1)},{y:-14.6131805158, period: Date.UTC(2016,9,1)},{y:-7.58928571429, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					3.0 million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.5 million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 147.1  billion 
+				</td>
+				<td>
+					32 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 17,241  million 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 39,045 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					27,554 million miles 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					11.0 million acres 
+				</td>
+				<td>
+					25 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					50.9 degrees Fahrenheit 
+				</td>
+				<td>
+					27 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					15.4 inches 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 43.54 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.82 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 9.23 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					$ 34.53 /short ton 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.91 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					10.69 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					8.94 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					6.21 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=225">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					389 million barrels 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					3,547 billion cu ft 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					98 million barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					128 million short tons 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					25 rigs 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					8,739 wells 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,171 trillion Btu 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					2,661 thousand barrels 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					423,300 million cu ft 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					14,419 thousand short tons 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					181,050 barrels/calendar day 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					8,931 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					3,368 thousand MWh 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					17.4 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					72.6 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					9.5 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					105 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					466 thousand barrels 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					121,565 million cu ft 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					35 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					5,239 thousand tons 
+				</td>
+				<td>
+					3.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Utah</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">Sufco / Canyon Fuel Company LLC, Skyline Mine #3 / Canyon Fuel Company LLC</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Big West Oil (North Salt Lake), Chevron USA (Salt Lake City), Hollyfrontier Woods Cross Refining (Woods Cross), Silver Eagle Refining (Woods Cross), Tesoro West Coast (Salt Lake City)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Intermountain Power Project (Los Angeles City of) ; Hunter (PacifiCorp) ; Huntington (PacifiCorp) ; Bonanza (Deseret Generation & Tran Coop) ; Lake Side Power Plant (PacifiCorp)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=225">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Utah</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Utah</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Plains Pipeline, Chevron</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">UNEV Pipeline, Phillips 66 Pipeline, Chevron Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Colorado Interstate Gas Company LLC, Kern River Gas Transmission Company, Northwest Pipeline Group, Questar Pipeline Company, Ruby Pipeline LLC, Wyoming Interstate Company LLC</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					810 stations 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					46 stations 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					122 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					3 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					99 stations 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					798 trillion Btu 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					271 million Btu 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 10,755  million 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,653 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					159 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					157 trillion Btu 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					236 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					246 trillion Btu 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,602  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,363  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,466  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 6,324  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					53.0 million barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					242.7 billion cu ft 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					15.7 million short tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 7,162  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,348  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 726  million 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					4,437 million cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,136 thousand short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=225">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					84.6 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					11.2 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					2.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.8 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,429 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					53 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					259 thousand MWh 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					7 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					16 thousand MWh 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					3.7 % 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=UT"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					2,630 thousand barrels 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					65.0 million metric tons 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Utah</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=225">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					33,688 thousand metric tons 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					16 thousand metric tons 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					47 thousand metric tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: November 17, 2016</p>
+<h2>Overview </h2>
+<p>Utah is a state of contrasts, from flat salt desert to rugged canyons, and from mountains soaring above 13,000 feet in the northeast to the edge of the Mojave Desert 11,000 feet lower in the southwest. Deserts border the Wasatch Mountains, home to Olympic ski resorts. Temperatures vary greatly with season and altitude and have ranged from 117Â°F in the south in summer to 69Â°F below zero in the north in winter.<sup><a href='print.cfm@sid=UT.html#1'>1</a></sup> About three-fourths of the population lives along the western base of the Wasatch Range, called the Wasatch Front, while the rest of the state is lightly populated.<sup><a href='print.cfm@sid=UT.html#2'>2</a>,<a href='print.cfm@sid=UT.html#3'>3</a></sup> Utah was the third fastest-growing state by population from 2000 to 2010, and the fifth fastest-growing state from 2010 to 2015.<sup><a href='print.cfm@sid=UT.html#4'>4</a>,<a href='print.cfm@sid=UT.html#5'>5</a></sup></p>
+<div class='pullquote'><p>Utah has both fossil and renewable energy resources and is a net energy supplier to neighboring states. </p></div><p>Utah produces crude oil, natural gas, and coal and has geothermal, solar, and wind resources.<sup><a href='print.cfm@sid=UT.html#6'>6</a></sup> The state is a net energy supplier to the nation,<sup><a href='print.cfm@sid=UT.html#7'>7</a></sup> and the energy industry is an important component of Utah's economy.<sup><a href='print.cfm@sid=UT.html#8'>8</a></sup> Royalties from energy development on extensive state trust lands are the largest source of income for Utah's public school trust fund.<sup><a href='print.cfm@sid=UT.html#9'>9</a></sup> Construction, manufacturing, financial services, information technology, and tourism are also major industries.<sup><a href='print.cfm@sid=UT.html#10'>10</a></sup> Two-thirds of Utah's land is controlled by the federal government.<sup><a href='print.cfm@sid=UT.html#11'>11</a></sup> Of the 50 states, Utah has the fourth highest number of producing mineral leases on federal lands.<sup><a href='print.cfm@sid=UT.html#12'>12</a></sup></p>
+<p>Energy consumption in Utah is led by the transportation sector and the industrial sector. Each sector uses about one-third of the energy consumed in Utah. The residential sector and the commercial sector each use about one-fifth.<sup><a href='print.cfm@sid=UT.html#13'>13</a></sup> Energy consumption per capita and energy intensity, the energy consumed per dollar of gross domestic product, are both below the national median.<sup><a href='print.cfm@sid=UT.html#14'>14</a>,<a href='print.cfm@sid=UT.html#15'>15</a></sup></p>
+<h2>Petroleum</h2>
+<p>Utah typically accounts for a little more than 1 in every 100 barrels of crude oil produced in the United States, and nearly 1 in 7 barrels produced in the Rocky Mountain states.<sup><a href='print.cfm@sid=UT.html#16'>16</a></sup> Oil drilling operations and wells are concentrated in the Uinta Basin in northeastern Utah.<sup><a href='print.cfm@sid=UT.html#17'>17</a>,<a href='print.cfm@sid=UT.html#18'>18</a>,<a href='print.cfm@sid=UT.html#19'>19</a></sup> Oil production nearly tripled from 2004 to 2014 but declined somewhat in 2015 and 2016 as crude oil prices fell.<sup><a href='print.cfm@sid=UT.html#20'>20</a>,<a href='print.cfm@sid=UT.html#21'>21</a></sup> Nearly one-third of the state's 2015 crude oil production came from tribal lands.<sup><a href='print.cfm@sid=UT.html#22'>22</a></sup></p>
+<div class='pullquote'><p>Utah crude oil production nearly tripled from 2004 to 2014.</p></div><p>In 2015, Utah crude oil production supplied a little over two-fifths of demand from the state's five refineries.<sup><a href='print.cfm@sid=UT.html#23'>23</a></sup> Located in the Salt Lake City area, the refineries process crude oil brought in by pipeline from Utah, Wyoming, Colorado, and Canada.<sup><a href='print.cfm@sid=UT.html#24'>24</a>,<a href='print.cfm@sid=UT.html#25'>25</a></sup> The refineries, which produce motor gasoline, diesel fuel, jet fuel, other fuel oils, and wax, represent more than one-fourth of the refining capacity in Petroleum Administration for Defense District (PADD) 4, which includes Idaho, Montana, Wyoming, and Colorado.<sup><a href='print.cfm@sid=UT.html#26'>26</a>,<a href='print.cfm@sid=UT.html#27'>27</a></sup> Refined petroleum products are delivered by pipeline into the Salt Lake City area from refineries in Wyoming and Montana. Other pipelines flow out of Salt Lake City refining centers to markets in Idaho, eastern Oregon, and eastern Washington.<sup><a href='print.cfm@sid=UT.html#28'>28</a>,<a href='print.cfm@sid=UT.html#29'>29</a>,<a href='print.cfm@sid=UT.html#30'>30</a>,<a href='print.cfm@sid=UT.html#31'>31</a>,<a href='print.cfm@sid=UT.html#32'>32</a>,<a href='print.cfm@sid=UT.html#33'>33</a></sup> In December 2011, a refined products pipeline was opened between the Salt Lake City refineries and Las Vegas, providing Nevada with an alternative to California refineries for petroleum products supply.<sup><a href='print.cfm@sid=UT.html#34'>34</a>,<a href='print.cfm@sid=UT.html#35'>35</a></sup></p>
+<p>Utah's petroleum consumption per capita ranks among the lower half of the 50 states.<sup><a href='print.cfm@sid=UT.html#36'>36</a>,<a href='print.cfm@sid=UT.html#37'>37</a></sup> More than four-fifths of petroleum products consumed in the state are used in the transportation sector.<sup><a href='print.cfm@sid=UT.html#38'>38</a></sup> Utah requires the use of a motor gasoline blend with low volatility in the densely populated Salt Lake City and Provo/Orem areas. The rest of the state is allowed to use conventional motor gasoline.<sup><a href='print.cfm@sid=UT.html#39'>39</a>,<a href='print.cfm@sid=UT.html#40'>40</a>,<a href='print.cfm@sid=UT.html#41'>41</a></sup> The ethanol needed for blending with motor gasoline is supplied by rail from the Midwest.<sup><a href='print.cfm@sid=UT.html#42'>42</a>,<a href='print.cfm@sid=UT.html#43'>43</a></sup></p>
+<p>Utah's proven crude oil reserves account for between 1% and 2% of the U.S. total.<sup><a href='print.cfm@sid=UT.html#44'>44</a></sup> The Uinta Basin of eastern Utah overlays part of the Green River oil shale, a kerogen-rich formation that, by some estimates, could be the world's largest oil resource.<sup><a href='print.cfm@sid=UT.html#45'>45</a></sup> Kerogen is a fossilized organic material, found in sedimentary rock, which can be heated to extract crude oil. Pilot oil shale projects have been undertaken in the area, but current extraction technology is water-intensive and uneconomic.<sup><a href='print.cfm@sid=UT.html#46'>46</a>,<a href='print.cfm@sid=UT.html#47'>47</a></sup> Eastern Utah also hosts the largest U.S. resources of bitumen in tar sands, and commercial efforts to extract bitumen with new technology are under way.<sup><a href='print.cfm@sid=UT.html#48'>48</a>,<a href='print.cfm@sid=UT.html#49'>49</a>,<a href='print.cfm@sid=UT.html#50'>50</a>,<a href='print.cfm@sid=UT.html#51'>51</a>,<a href='print.cfm@sid=UT.html#52'>52</a></sup></p>
+<h2>Natural gas</h2>
+<p>Utah's natural gas production, concentrated in the Uinta Basin, accounted for about 1% of U.S. output in 2015.<sup><a href='print.cfm@sid=UT.html#53'>53</a></sup> Production rose from the middle of the last decade to peak in 2012,<sup><a href='print.cfm@sid=UT.html#54'>54</a>,<a href='print.cfm@sid=UT.html#55'>55</a></sup> partly because of production associated with the increasing numbers of wells drilled for natural gas liquids and crude oil.<sup><a href='print.cfm@sid=UT.html#56'>56</a></sup> Production of natural gas has decreased since 2012 in response to low market prices and reduced crude oil drilling.<sup><a href='print.cfm@sid=UT.html#57'>57</a></sup> Coalbed methane&mdash;natural gas produced from coal seams&mdash;has provided as much as one-third of Utah's natural gas output but has been gradually declining from its 2002 peak. Coalbed methane now supplies less than one-tenth of Utah's total natural gas production.<sup><a href='print.cfm@sid=UT.html#58'>58</a>,<a href='print.cfm@sid=UT.html#59'>59</a></sup> Utah has about 2% of U.S. proved natural gas reserves.<sup><a href='print.cfm@sid=UT.html#60'>60</a></sup> The state has 3 of the 100 largest U.S. natural gas fields, ranked by proved reserves.<sup><a href='print.cfm@sid=UT.html#61'>61</a></sup> </p>
+<div class='pullquote'><p>Utah has the sixth largest number of public access CNG refueling stations in the nation.</p></div><p>Utah consumes a little more than half of the natural gas it produces.<sup><a href='print.cfm@sid=UT.html#62'>62</a></sup> The industrial sector is Utah's largest consumer of natural gas.<sup><a href='print.cfm@sid=UT.html#63'>63</a></sup> The residential sector is a close second, with six in seven households using natural gas as their primary heating fuel.<sup><a href='print.cfm@sid=UT.html#64'>64</a></sup> Utah's state energy policy favors diversifying transportation fuels, including increased use of compressed natural gas (CNG).<sup><a href='print.cfm@sid=UT.html#65'>65</a>,<a href='print.cfm@sid=UT.html#66'>66</a></sup> In 2016, Utah had the sixth largest number of public access CNG refueling stations in the nation.<sup><a href='print.cfm@sid=UT.html#67'>67</a></sup></p>
+<p>Utah is crossed by a major transportation corridor for shipping natural gas from the Opal Hub in Wyoming and the Piceance Basin in western Colorado to markets in Nevada, Wyoming, Idaho, and beyond.<sup><a href='print.cfm@sid=UT.html#68'>68</a>,<a href='print.cfm@sid=UT.html#69'>69</a></sup> The Clay Basin facility, on the Utah-Wyoming border near Colorado, is one of the region's largest underground storage facilities.<sup><a href='print.cfm@sid=UT.html#70'>70</a></sup> More storage capacity is being developed in a salt formation in western Utah to provide market storage services on the interstate pipelines that form Wyoming's Opal natural gas market hub.<sup><a href='print.cfm@sid=UT.html#71'>71</a>,<a href='print.cfm@sid=UT.html#72'>72</a></sup></p>
+<h2>Coal</h2>
+<p>Utah typically accounts for less than 2% of U.S. coal production. Most active mines in Utah are underground operations in the central Uinta Basin.<sup><a href='print.cfm@sid=UT.html#73'>73</a></sup> The only active surface mine is in the south near the Arizona border.<sup><a href='print.cfm@sid=UT.html#74'>74</a>,<a href='print.cfm@sid=UT.html#75'>75</a></sup> More than seven-tenths of all coal mined in Utah is consumed in the state, primarily for electric power generation.<sup><a href='print.cfm@sid=UT.html#76'>76</a>,<a href='print.cfm@sid=UT.html#77'>77</a></sup> About half of the coal burned in-state is delivered by truck to power plants and industrial users, and the other half is delivered by rail. One mine delivered coal to a generating station by a 2.4-mile-long conveyor belt, but the mine was shut down in 2015.<sup><a href='print.cfm@sid=UT.html#78'>78</a>,<a href='print.cfm@sid=UT.html#79'>79</a></sup> Coal is transported to one generating plant by a dedicated electric rail line from a mine just across the border in Colorado.<sup><a href='print.cfm@sid=UT.html#80'>80</a></sup> Most coal shipments to customers outside the state are by rail.<sup><a href='print.cfm@sid=UT.html#81'>81</a></sup> Coal output has been declining and mines have been shutting down because demand from the electric power sector has decreased and some older coal mining areas have diminished economic reserves.<sup><a href='print.cfm@sid=UT.html#82'>82</a>,<a href='print.cfm@sid=UT.html#83'>83</a>,<a href='print.cfm@sid=UT.html#84'>84</a></sup> California, which historically was Utah's largest coal customer, is in the process of eliminating coal use.<sup><a href='print.cfm@sid=UT.html#85'>85</a>,<a href='print.cfm@sid=UT.html#86'>86</a></sup> Nevada was the next largest domestic consumer of Utah's coal, but Nevada also has decided to phase out coal use in electricity generation.<sup><a href='print.cfm@sid=UT.html#87'>87</a>,<a href='print.cfm@sid=UT.html#88'>88</a></sup> Small amounts of Utah coal are shipped to more than a half dozen states for industrial uses.<sup><a href='print.cfm@sid=UT.html#89'>89</a>,<a href='print.cfm@sid=UT.html#90'>90</a></sup> Some coal is exported through California ports.<sup><a href='print.cfm@sid=UT.html#91'>91</a>,<a href='print.cfm@sid=UT.html#92'>92</a></sup> Utah is trying to increase coal exports to Asia, and the state has invested in a coal export facility in Oakland, California.<sup><a href='print.cfm@sid=UT.html#93'>93</a>,<a href='print.cfm@sid=UT.html#94'>94</a>,<a href='print.cfm@sid=UT.html#95'>95</a>,<a href='print.cfm@sid=UT.html#96'>96</a></sup></p>
+<p>Utah has joined seven other states in the Southwest Partnership on Carbon Sequestration, which is testing methods of storing carbon dioxide from coal-fired generating plant emissions in a variety of geologic formations.<sup><a href='print.cfm@sid=UT.html#97'>97</a>,<a href='print.cfm@sid=UT.html#98'>98</a></sup> Utah research universities are exploring carbon-capture and related technologies that could enhance future coal use.<sup><a href='print.cfm@sid=UT.html#99'>99</a></sup></p>
+<h2>Electricity</h2>
+<p>In 2015, three-fourths of Utah's net electricity generation came from coal, down from the share a decade ago, when coal routinely fueled more than nine-tenths of generation. Most electric generating capacity built recently in Utah has been fueled by natural gas, and one-fifth of 2015 net generation came from natural gas. The remainder of Utah's net electricity generation comes from hydroelectric, wind, geothermal, solar, and biomass energy.<sup><a href='print.cfm@sid=UT.html#100'>100</a>,<a href='print.cfm@sid=UT.html#101'>101</a>,<a href='print.cfm@sid=UT.html#102'>102</a></sup> Utah ranks below two-thirds of the states in its per capita consumption of electricity.<sup><a href='print.cfm@sid=UT.html#103'>103</a>,<a href='print.cfm@sid=UT.html#104'>104</a></sup> Electricity is the primary fuel for home heating in about one in eight Utah households.<sup><a href='print.cfm@sid=UT.html#105'>105</a></sup> The commercial sector consumes the most electricity, but consumption is fairly evenly divided among that sector, the residential sector, and the industrial sector.<sup><a href='print.cfm@sid=UT.html#106'>106</a></sup> Utah's retail electricity prices are among the lowest one-fifth of the states.<sup><a href='print.cfm@sid=UT.html#107'>107</a></sup></p>
+<p>Utah generates more electricity than it consumes, and the state is a net power supplier to other states.<sup><a href='print.cfm@sid=UT.html#108'>108</a>,<a href='print.cfm@sid=UT.html#109'>109</a>,<a href='print.cfm@sid=UT.html#110'>110</a></sup> Utah's largest generating station, which was constructed to deliver the majority of its output to California,<sup><a href='print.cfm@sid=UT.html#111'>111</a></sup> is operated by the Los Angeles Department of Water and Power.<sup><a href='print.cfm@sid=UT.html#112'>112</a></sup> Some generating plant operators are switching from coal to natural gas to comply with California's emission laws for power brought into California.<sup><a href='print.cfm@sid=UT.html#113'>113</a>,<a href='print.cfm@sid=UT.html#114'>114</a></sup> Utah's state energy plan anticipates that natural gas will be the fuel of choice for new electricity generation to replace coal and to back up intermittent renewables.<sup><a href='print.cfm@sid=UT.html#115'>115</a></sup> High-capacity transmission is being built to bring conventional and renewable power from Wyoming and Utah to Colorado, Idaho, Oregon, Nevada, and California, as well as to enhance reliability of delivery within Utah.<sup><a href='print.cfm@sid=UT.html#116'>116</a>,<a href='print.cfm@sid=UT.html#117'>117</a>,<a href='print.cfm@sid=UT.html#118'>118</a>,<a href='print.cfm@sid=UT.html#119'>119</a></sup> </p>
+<p>Utah has no nuclear power plants, but it does have the only operating uranium ore mill in the United States.<sup><a href='print.cfm@sid=UT.html#120'>120</a>,<a href='print.cfm@sid=UT.html#121'>121</a></sup> The mill processes ore from underground mines in the Four Corners area where Utah, Colorado, New Mexico, and Arizona meet.<sup><a href='print.cfm@sid=UT.html#122'>122</a></sup> Utah experienced a boom in uranium mining during the Cold War, but mines were closed when U.S. demand dropped.<sup><a href='print.cfm@sid=UT.html#123'>123</a></sup> The state is believed to have significant uranium resources left, and several mining permit requests are pending.<sup><a href='print.cfm@sid=UT.html#124'>124</a>,<a href='print.cfm@sid=UT.html#125'>125</a></sup> The state's 10-year strategic energy plan keeps open the option of building nuclear electricity generation in the future.<sup><a href='print.cfm@sid=UT.html#126'>126</a>,<a href='print.cfm@sid=UT.html#127'>127</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Utah has a renewable portfolio goal that requires all distribution utilities to pursue renewable energy resources to the extent that it is cost-effective, with the goal of acquiring 20% of the electricity they sell from qualifying renewable sources by 2025.<sup><a href='print.cfm@sid=UT.html#128'>128</a>,<a href='print.cfm@sid=UT.html#129'>129</a>,<a href='print.cfm@sid=UT.html#130'>130</a>,<a href='print.cfm@sid=UT.html#131'>131</a></sup> Energy sources eligible to meet the goal include both solar photovoltaic and solar thermal installations, methane from coal mines, and compressed air energy storage, if the compression power source is renewable energy. Eligible sources must have become operational after January 1, 1995.<sup><a href='print.cfm@sid=UT.html#132'>132</a>,<a href='print.cfm@sid=UT.html#133'>133</a></sup> </p>
+<div class='pullquote'><p>Utah requires that renewable energy sources be used only if they are cost-effective for state ratepayers.</p></div><p>In 2015, more than 4% of Utah's net electricity generation came from renewable sources.<sup><a href='print.cfm@sid=UT.html#134'>134</a></sup> Hydroelectric generators typically supply between one-third and two-thirds of Utah's net renewable electricity generation, with the annual amount depending on water availability at 63 small facilities. The state's hydroelectric facilities are more than 60 years old on average; the oldest one dates from 1896.<sup><a href='print.cfm@sid=UT.html#135'>135</a>,<a href='print.cfm@sid=UT.html#136'>136</a>,<a href='print.cfm@sid=UT.html#137'>137</a></sup> Power from post-1994 hydroelectric facilities in Utah can count toward the renewable portfolio goal, but there are limits on what can be counted from out-of-state hydroelectric facilities.<sup><a href='print.cfm@sid=UT.html#138'>138</a></sup></p>
+<p>In 2015, wind energy supplied about one-third of Utah's net renewable electricity generation, slightly more than hydropower.<sup><a href='print.cfm@sid=UT.html#139'>139</a></sup> In mid-2016, Utah had five wind farms operating with nearly 400 megawatts of capacity, and another 80 megawatts under construction.<sup><a href='print.cfm@sid=UT.html#140'>140</a></sup> The state's largest wind farm sends its power to California.<sup><a href='print.cfm@sid=UT.html#141'>141</a></sup> There is commercial wind power potential in the Wasatch and Uinta mountain ranges in Utah's north-central region and on the mesas of the western region.<sup><a href='print.cfm@sid=UT.html#142'>142</a></sup> However, most wind investment approved for Utah utilities to date has involved Wyoming projects that Utah regulators deemed more cost-effective than in-state proposals.<sup><a href='print.cfm@sid=UT.html#143'>143</a></sup> </p>
+<p>In 2015, Utah was one of eight states with operating geothermal power capacity<sup><a href='print.cfm@sid=UT.html#144'>144</a></sup> and one of seven with commercial-scale geothermal electricity generation. Three small geothermal facilities southwestern Utah provided about one-fourth of the state's net renewable electricity generation.<sup><a href='print.cfm@sid=UT.html#145'>145</a>,<a href='print.cfm@sid=UT.html#146'>146</a></sup> The state has among the best geothermal potential in the nation,<sup><a href='print.cfm@sid=UT.html#147'>147</a></sup> and more geothermal projects are in development.<sup><a href='print.cfm@sid=UT.html#148'>148</a>,<a href='print.cfm@sid=UT.html#149'>149</a>,<a href='print.cfm@sid=UT.html#150'>150</a></sup> </p>
+<p>Until recently, biomass, primarily in the form of landfill gas at facilities on the Wasatch Front, provided the remainder of Utah's renewable net electricity generation, because Utah historically obtained little net electricity generation from solar energy.<sup><a href='print.cfm@sid=UT.html#151'>151</a></sup> But more solar generating capacity is being built, and, in 2015, solar provided more electricity than biomass for the first time.<sup><a href='print.cfm@sid=UT.html#152'>152</a></sup> As of April 2016, 166 megawatts of utility-scale solar generating capacity were operating and some 600 megawatts were under construction.<sup><a href='print.cfm@sid=UT.html#153'>153</a>,<a href='print.cfm@sid=UT.html#154'>154</a>,<a href='print.cfm@sid=UT.html#155'>155</a></sup> Of 17 areas of the West found suitable for large-scale solar development by a federal environmental study, 3 are in Utah.<sup><a href='print.cfm@sid=UT.html#156'>156</a></sup> In addition, the state requires private and cooperative electric utilities to offer net metering,<sup><a href='print.cfm@sid=UT.html#157'>157</a></sup> and solar arrays on consumers' rooftops have been increasing by rapidly.<sup><a href='print.cfm@sid=UT.html#158'>158</a></sup> In 2015, nearly 3,000 residential customers in Utah had solar facilities,<sup><a href='print.cfm@sid=UT.html#159'>159</a></sup> and seven-tenths of all the state's solar generation came from distributed (customer-sited small-scale) facilities.<sup><a href='print.cfm@sid=UT.html#160'>160</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Davies, Robert, "Climate Utah&mdash;Cathedral Peaks, Monument Valleys, Ancient Lakes and the Greatest Snow on Earth," State Climate Series, Community Collaborative Rain, Hail & Snow Network, accessed October 18, 2016.<br>
+<a name='2'></a><sup>2</sup> World Population Review, Utah Population 2016, accessed October 18, 2016.<br>
+<a name='3'></a><sup>3</sup> U.S. Census Bureau, 2010 Census: Utah Profile, Population Density by Census Tract, accessed October 18, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. Census Bureau, 2010 Census Briefs, "Population Distribution and Change: 2000 to 2010" (March 2011), p. 2.<br>
+<a name='5'></a><sup>5</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Cumulative Estimates of the Resident Population Change for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-02).<br>
+<a name='6'></a><sup>6</sup> Governor's Office of Energy Development, Utah's Energy Resources and Priorities, accessed October 18, 2016.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration (EIA), State Energy Data System, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='8'></a><sup>8</sup> Utah Economic Council, 2016 Economic Report to the Governor, Summary and p. 115-7.<br>
+<a name='9'></a><sup>9</sup> State of Utah School and Institutional Trust Lands Administration, Fiscal Year 2016 Annual Report, p. 6.<br>
+<a name='10'></a><sup>10</sup> Utah Governor's Office of Economic Development, Targeted Industries, accessed October 18, 2016. <br>
+<a name='11'></a><sup>11</sup> Gorte, Ross, et al., Federal Land Ownership: Overview and Data, Congressional Research Service (February 8, 2012), p. 4-5.<br>
+<a name='12'></a><sup>12</sup> U.S. Department of the Interior, Bureau of Land Management, Number of Producing Leases on Federal Lands (October 29, 2015).<br>
+<a name='13'></a><sup>13</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='14'></a><sup>14</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption per Real Dollar of GDP, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='17'></a><sup>17</sup> Utah Department of Natural Resources, Division of Oil, Gas and Mining, Oil and Gas Drilling Results, by County, by Year, Utah Oil Production by County, 2012-16, updated October 20, 2016.<br>
+<a name='18'></a><sup>18</sup> OnLineUtah.com, Counties of Utah map, accessed October 20, 2016. <br>
+<a name='19'></a><sup>19</sup> Utah Department of Natural Resources, Division of Oil, Gas and Mining, Utah Oil & Gas Production Map, accessed October 20, 2016.<br>
+<a name='20'></a><sup>20</sup> Utah Department of Natural Resources, Division of Oil, Gas and Mining, Oil Production by Year, 1976-2016, updated through July 2016.<br>
+<a name='21'></a><sup>21</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='22'></a><sup>22</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 24. <br>
+<a name='23'></a><sup>23</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 2.<br>
+<a name='24'></a><sup>24</sup> U.S. EIA, Refinery Capacity 2016, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016, p. 20-22.<br>
+<a name='25'></a><sup>25</sup> Utah Rails.net, Utah's Oil Industry and Utah's Railroads, updated July 5, 2015.<br>
+<a name='26'></a><sup>26</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 26.<br>
+<a name='27'></a><sup>27</sup> U.S. EIA, Refinery Capacity 2016, Table 1, Number and Capacity of Operable Petroleum Refineries by PAD District and State as of January 1, 2016.<br>
+<a name='28'></a><sup>28</sup> Utah Rails.net, Utah's Oil Industry and Utah's Railroads, updated July 5, 2015.<br>
+<a name='29'></a><sup>29</sup> Tesoro Corp., Salt Lake City Refinery, accessed October 21, 2016.<br>
+<a name='30'></a><sup>30</sup> Stevenson, Kathy, "Chevron Gives the Public a Glimpse of its Salt Lake Refinery," Salt Lake Tribune (May 30, 2015).<br>
+<a name='31'></a><sup>31</sup> Big West Oil, North Salt Lake Refinery, accessed October 21, 2016.<br>
+<a name='32'></a><sup>32</sup> HollyFrontier Corp., Woods Cross Refinery, accessed October 21, 2016.<br>
+<a name='33'></a><sup>33</sup> "Silver Eagle Shows Off Safety Measures," The Davis Clipper (June 17, 2011).<br>
+<a name='34'></a><sup>34</sup> Oberbeck, Steven, "New Pipeline to Vegas May Impact Utah Gas Prices," Salt Lake Tribune (January 20, 2012).<br>
+<a name='35'></a><sup>35</sup> Holly Energy Partners, Pipelines, accessed October 21, 2016.<br>
+<a name='36'></a><sup>36</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='37'></a><sup>37</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='39'></a><sup>39</sup> U.S. Environmental Protection Agency, Gasoline Reid Vapor Pressure, State by State RVP Table, updated August 1, 2016.<br>
+<a name='40'></a><sup>40</sup> Utah Administrative Code, Rule R307-301. Utah and Weber Counties: Oxygenated Gasoline Program As a Contingency Measure, as in effect October 1, 2016.<br>
+<a name='41'></a><sup>41</sup> American Petroleum Institute, U.S. Gasoline Requirements (June 2015).<br>
+<a name='42'></a><sup>42</sup> The Scoular Co., "Scoular to Construct Utah Ethanol Distribution Terminal," Press Release (June 3, 2010).<br>
+<a name='43'></a><sup>43</sup> Jessen, Holly, "Scoular Acquires Kansas Ethanol Plant, Shuttle Facility," Ethanol Producer Magazine (February 17, 2011).<br>
+<a name='44'></a><sup>44</sup> U.S. EIA, U.S. Crude Oil and Natural Gas Proved Reserves (November 23, 2015), Table 6, Crude oil plus lease condensate proved reserves, reserves changes, and production, 2014.<br>
+<a name='45'></a><sup>45</sup> U.S. Government Accountability Office, Opportunities and Challenges of Oil Shale Development, GAO-12-740T (May 10, 2012).<br>
+<a name='46'></a><sup>46</sup> Bureau of Land Management, "BLM Issues Draft Programmatic Environmental Impact Statement for Oil Shale and Tar Sands," Press Release (February 3, 2012).<br>
+<a name='47'></a><sup>47</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 34.<br>
+<a name='48'></a><sup>48</sup> Argonne National Laboratory, 2012 Oil Shale & Tar Sands Programmatic EIS, Information Center, About Tar Sands, accessed October 21, 2016. <br>
+<a name='49'></a><sup>49</sup> "First U.S. Tar Sands Mine Set to Open in Utah," Associated Press (August 22, 2015).<br>
+<a name='50'></a><sup>50</sup> Magill, Bobby, "Tar Sands Mining Makes Leap From Canada to Utah," Climate Central (October 1, 2015).<br>
+<a name='51'></a><sup>51</sup> U.S. Oil Sands, About Us, accessed October 21, 2016.<br>
+<a name='52'></a><sup>52</sup> MCW Energy Group, Overview, accessed October 21, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. EIA, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Utah Natural Gas Gross Withdrawals, 1967-2015.<br>
+<a name='55'></a><sup>55</sup> State of Utah, Oil and Gas Program, Natural Gas Production by Year, updated through July 2016.<br>
+<a name='56'></a><sup>56</sup> Utah Governor's Office of Planning and Budget, Economic Outlook 2012 (January 2012), p. 34.<br>
+<a name='57'></a><sup>57</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 31.<br>
+<a name='58'></a><sup>58</sup> State of Utah, Oil and Gas Program, Coalbed Methane Gas Production by Year, updated through July 2016.<br>
+<a name='59'></a><sup>59</sup> State of Utah, Oil and Gas Program, Natural Gas Production by Year, updated through July 2016.<br>
+<a name='60'></a><sup>60</sup> U.S. EIA, Natural Gas Proved Reserves, Wet After Lease Separation, Proved Reserves as of December 31, 2000-14.<br>
+<a name='61'></a><sup>61</sup> U.S. EIA, Top 100 U.S. Oil & Gas Fields (March 2015).<br>
+<a name='62'></a><sup>62</sup> U.S. EIA, Natural Gas Annual Supply & Disposition by State, Utah, Annual, 2010-15.<br>
+<a name='63'></a><sup>63</sup> U.S. EIA, State Energy Data System, Table F19, Natural Gas Consumption Estimates, 2014.<br>
+<a name='64'></a><sup>64</sup> U.S. Census Bureau, American FactFinder, Utah, Table B25040, House Heating Fuel, American Community Survey 1-Year Estimates, 2015.<br>
+<a name='65'></a><sup>65</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 15.<br>
+<a name='66'></a><sup>66</sup> Saxton, Bryon, "Natural Gas Stations in Utah Most Per Capita in the Nation," Standard-Examiner (July 30, 2012).<br>
+<a name='67'></a><sup>67</sup> U.S. Department of Energy, Alternative Fuels Data Center, Alternative Fueling Station Counts by State, updated October 21, 2016.<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, International & Interstate Movements of Natural Gas by State, Utah, 2010-15.<br>
+<a name='69'></a><sup>69</sup> U.S. EIA, Natural Gas Pipeline System, Central Region (2008).<br>
+<a name='70'></a><sup>70</sup> Questar Pipeline Co., Questar Pipeline, accessed October 21, 2016.<br>
+<a name='71'></a><sup>71</sup> Magnum, Western Energy Hub, accessed October 21, 2016.<br>
+<a name='72'></a><sup>72</sup> NGL Energy Partners, Overview of Magnum NGLs Storage Acquisition (February 2015), slide 2.<br>
+<a name='73'></a><sup>73</sup> U.S. EIA, Annual Coal Report 2015, Table 1, Coal Production and Number of Mines by State and Mine Type, 2015 and 2014.<br>
+<a name='74'></a><sup>74</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 16.<br>
+<a name='75'></a><sup>75</sup> O'Donoghue, Amy Joi, "Interior Halts New Federal Coal Leases," Deseret News (January 15, 2016). <br>
+<a name='76'></a><sup>76</sup> U.S. EIA, Quarterly Coal Distribution Report, by origin state and by destination state, Utah, January-December 2015.<br>
+<a name='77'></a><sup>77</sup> U.S. EIA, Coal, Annual Coal Distribution Report, Domestic distribution of U.S. coal by origin state, consumer, destination and method of transportation, and Domestic distribution of U.S. coal by destination state, consumer, destination and method of transportation, 2010-14.<br>
+<a name='78'></a><sup>78</sup> PacifiCorp, Huntington Plant, accessed October 22, 2016.<br>
+<a name='79'></a><sup>79</sup> Cassell, Barry, "PacifiCorp Clears Way for Shutdown of Deer Creek Coal Mine in Utah," Electric Light & Power (August 11, 2015).<br>
+<a name='80'></a><sup>80</sup> Power Plants Around the World, Coal-Fired Power Plants in Utah, Bonanza Plant, accessed October 22, 2016.<br>
+<a name='81'></a><sup>81</sup> U.S. EIA, Quarterly Coal Distribution Report, by origin state and by destination state, Utah, January-December 2015.<br>
+<a name='82'></a><sup>82</sup> U.S. Department of the Interior, Bureau of Land Management, Utah, Coal, accessed October 22, 2016.<br>
+<a name='83'></a><sup>83</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 18, 21.<br>
+<a name='84'></a><sup>84</sup> Utah Economic Council, 2016 Economic Report to the Governor, p. 116.<br>
+<a name='85'></a><sup>85</sup> Fitch Ratings, "Fitch Assigns â€˜AA-â€˜ Bank Note Rating to Intermountain Power Agency, UT CP; Outlook Stable" (January 14, 2016).<br>
+<a name='86'></a><sup>86</sup> "California Sticks With Coal Exit Despite Grid Concerns," Argus Media (June 23, 2016).<br>
+<a name='87'></a><sup>87</sup> Nemec, Richard, "Nevada Moves From Coal to NatGas, Renewables for Power Generation," Natural Gas Intelligence Daily Gas Price Index (August 18, 2016).<br>
+<a name='88'></a><sup>88</sup> Doughman, Andrew, "NV Energy Bill Wins Passage, Signaling State's Shift From Coal," Las Vegas Sun (June 4, 2013).<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, Quarterly Coal Distribution Report, by origin state and by destination state, Utah, January-December 2015.<br>
+<a name='90'></a><sup>90</sup> U.S. EIA, Coal, Annual Coal Distribution Report, Domestic distribution of U.S. coal by origin state, consumer, destination and method of transportation, and Domestic distribution of U.S. coal by destination state, consumer, destination and method of transportation, 2010-14.<br>
+<a name='91'></a><sup>91</sup> U.S. EIA, Annual Coal Distribution Report, Domestic and foreign distribution of U.S. coal by state of origin, 2010-14.<br>
+<a name='92'></a><sup>92</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 21.<br>
+<a name='93'></a><sup>93</sup> Maffly, Brian, "Environmentalists Sue to Halt Sanpete County Coal Deal," Salt Lake Tribune (September 16, 2015).<br>
+<a name='94'></a><sup>94</sup> Oakley, Doug, "Unlikely Partners: Utah Investing $53 Million to Export Coal Through Oakland Port," San Jose Mercury News (April 24, 2015).<br>
+<a name='95'></a><sup>95</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 37.<br>
+<a name='96'></a><sup>96</sup> Baldassari, Erin, "Utah Official: Oakland's Ban on Coal Risks Terminal Investment," San Jose Mercury News (June 28, 2016).<br>
+<a name='97'></a><sup>97</sup> Southwest Regional Partnership on Carbon Sequestration, accessed October 23, 2016.<br>
+<a name='98'></a><sup>98</sup> Brown, Bruce, 2014 SECARB Stakeholders Meeting, National Energy Technology Laboratory (March 4, 2014), slide 17.<br>
+<a name='99'></a><sup>99</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 22.<br>
+<a name='100'></a><sup>100</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.5.B, 1.7.B, 1.10.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B.<br>
+<a name='101'></a><sup>101</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+<a name='102'></a><sup>102</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 37, 39.<br>
+<a name='103'></a><sup>103</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='104'></a><sup>104</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Cumulative Estimates of the Resident Population Change for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-02).<br>
+<a name='105'></a><sup>105</sup> U.S. Census Bureau, American FactFinder, Utah, Table B25040, House Heating Fuel, American Community Survey 1-Year Estimates, 2015.<br>
+<a name='106'></a><sup>106</sup> U.S. EIA, State Energy Data System, Table F21, Electricity Consumption Estimates, 2014.<br>
+<a name='107'></a><sup>107</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='108'></a><sup>108</sup> U.S. EIA, State Energy Data System, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014.<br>
+<a name='109'></a><sup>109</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 39.<br>
+<a name='110'></a><sup>110</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 17, 22.<br>
+<a name='111'></a><sup>111</sup> Intermountain Power Agency, Generation Entitlement Shares, accessed October 23, 2016. <br>
+<a name='112'></a><sup>112</sup> U.S. EIA, State Electricity Profiles, Utah Electricity Profile 2014, Table 2, Ten Largest Plants by Generation Capacity, 2014.<br>
+<a name='113'></a><sup>113</sup> Intermountain Power Agency, Annual Report, Fiscal year 2015, p. 26-27.<br>
+<a name='114'></a><sup>114</sup> Hollenhorst, John, "Utah Power Plant Looks to Natural Gas to Fuel the Future," KSL.com (March 24, 2014).<br>
+<a name='115'></a><sup>115</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 25-26.<br>
+<a name='116'></a><sup>116</sup> Western Electricity Coordinating Council, 2015 State of the Interconnection, p. 33-35.<br>
+<a name='117'></a><sup>117</sup> Wyoming Infrastructure Authority, Power Transmission & Generation Projects, accessed October 24, 2016.<br>
+<a name='118'></a><sup>118</sup> Rocky Mountain Power, Energy Gateway, updated April 22, 2015.<br>
+<a name='119'></a><sup>119</sup> TransWest Express LLC, Delivering Wyoming Wind Energy to the West, accessed October 24, 2016.<br>
+<a name='120'></a><sup>120</sup> U.S. EIA, Domestic Uranium Production Report-Annual, Table 4, U.S. uranium mills by owner, location, capacity, and operating status at end of the year, 2011-15.<br>
+<a name='121'></a><sup>121</sup> Boden, Taylor, et al., Utah's Extractive Resource Industries 2014, Utah Geologic Survey, Utah Department of Natural Resources, p. 19.<br>
+<a name='122'></a><sup>122</sup> Energy Fuels-America's Premier Uranium Producer, Energy Investing News, accessed October 24, 2016.<br>
+<a name='123'></a><sup>123</sup> Ringholz, Raye C., Uranium Mining in Utah, Utah History Encyclopedia, Utah History to Go, accessed October 24, 2016.<br>
+<a name='124'></a><sup>124</sup> Energy Fuels-America's Premier Uranium Producer, Energy Investing News, accessed October 24, 2016.<br>
+<a name='125'></a><sup>125</sup> WISE Uranium Project, New Uranium Mining Projects-Utah, updated July 9, 2016.<br>
+<a name='126'></a><sup>126</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 17.<br>
+<a name='127'></a><sup>127</sup> Tanner, Courtney, "Utah Court Ruling Kills Environmentalists' Appeal, OKs Green River Nuclear Plant," Salt Lake Tribune (July 21, 2016).<br>
+<a name='128'></a><sup>128</sup> NC Clean Energy Technology Center, DSIRE, Utah, Renewable Portfolio Goal, updated March 23, 2016.<br>
+<a name='129'></a><sup>129</sup> Utah State Legislature, Utah Code, Title 54, Chapter 17, Energy Resource Procurement Act, Section 602, "Target amount of qualifying electricity-Renewable energy certificate-Cost-effectiveness-Cooperatives," accessed October 24, 2016.<br>
+<a name='130'></a><sup>130</sup> National Conference of State Legislators, Renewable Energy Legislative Update 2015 (September 13, 2016).<br>
+<a name='131'></a><sup>131</sup> Utah State Legislature, Utah Code, Title 10, Chapter 19, Municipal Electric Utility Carbon Emission Reduction Act, Section 201, "Target amount of qualifying electricity-Renewable energy certificate-Cost-effectiveness," accessed October 24, 2016.<br>
+<a name='132'></a><sup>132</sup> NC Clean Energy Technology Center, DSIRE, Utah, Renewable Portfolio Goal, updated March 23, 2016.<br>
+<a name='133'></a><sup>133</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 4.<br>
+<a name='134'></a><sup>134</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B.<br>
+<a name='135'></a><sup>135</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p 27.<br>
+<a name='136'></a><sup>136</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 2015, Table 3_1_Generator_Y2015.<br>
+<a name='137'></a><sup>137</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 13-14.<br>
+<a name='138'></a><sup>138</sup> National Hydropower Association, Report of State Renewable Portfolio Standard Programs (September 1, 2010), p. 46-47.<br>
+<a name='139'></a><sup>139</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.14.B.<br>
+<a name='140'></a><sup>140</sup> American Wind Energy Association, Utah Wind Energy, accessed October 24, 2016.<br>
+<a name='141'></a><sup>141</sup> Southern California Public Power Authority, Milford Wind Corridor Phase I and II, accessed October 24, 2016.<br>
+<a name='142'></a><sup>142</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Utah Wind Resource Map and Potential Wind Capability, updated September 24, 2015.<br>
+<a name='143'></a><sup>143</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p 28-32.<br>
+<a name='144'></a><sup>144</sup> Geothermal Energy Association, 2016 Annual U.S. and Global Geothermal Power Production Report (February 2016), p. 17.<br>
+<a name='145'></a><sup>145</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='146'></a><sup>146</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 11, 13.<br>
+<a name='147'></a><sup>147</sup> National Renewable Energy Laboratory, Geothermal Resource of the United States (October 13, 2009).<br>
+<a name='148'></a><sup>148</sup> Geothermal Energy Association, 2016 Annual U.S. and Global Geothermal Power Production Report (February 2016), p. 14.<br>
+<a name='149'></a><sup>149</sup> U.S. Department of the Interior, Bureau of Land Management, Utah, Geothermal, updated March 31, 2015.<br>
+<a name='150'></a><sup>150</sup> Utah Governor's Office, Energy Initiatives and Imperatives: Utah's 10-Year Strategic Energy Plan 2.0, updated February 2014, p. 27-29.<br>
+<a name='151'></a><sup>151</sup> U.S. EIA, Electricity, Detailed State Data, Net Generation by State by Type of Producer by Energy Source, 1990-2014.<br>
+<a name='152'></a><sup>152</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.15.B, 1.17.B.<br>
+<a name='153'></a><sup>153</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 12, 13.<br>
+<a name='154'></a><sup>154</sup> Utah Red Hills Renewable Park, Utah, United States of America, Power Technology.com, accessed October 24, 2016.<br>
+<a name='155'></a><sup>155</sup> Cassell, Barry, "PacifiCorp Approved for 320 MW of New Solar in Utah," GenerationHub (October 13, 2014).<br>
+<a name='156'></a><sup>156</sup> U.S. Department of the Interior, Bureau of Land Management, "Obama Administration Approves Roadmap for Utility-Scale Solar Energy Development on Public Lands," Press Release (October 12, 2012).<br>
+<a name='157'></a><sup>157</sup> NC Clean Energy Technology Center, DSIRE, Utah, Net Metering, updated May 25, 2016.<br>
+<a name='158'></a><sup>158</sup> Maffly, Brian, "Utah's Solar Power Homeowners Fight Proposed Utility Fee," Salt Lake Tribune (May 23, 2014).<br>
+<a name='159'></a><sup>159</sup> Vanden Berg, Michael, Utah's Energy Landscape, Circular 121, Utah Geological Survey (2016), p. 13.<br>
+<a name='160'></a><sup>160</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Western</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 4</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Western Electricity Coordinating Council (WECC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.energy.utah.gov" title="Utah Office of Energy Development">Utah Office of Energy Development</a></li>
+  
+    <li><a href="http://oilgas.ogm.utah.gov/" title="Utah Oil and Gas, Division of Oil, Gas and Mining, Department of Natural Resources">Utah Oil and Gas, Division of Oil, Gas and Mining, Department of Natural Resources</a></li>
+  
+    <li><a href="http://www.psc.state.ut.us/" title="Public Service Commission of Utah">Public Service Commission of Utah</a></li>
+  
+    <li><a href="http://trustlands.utah.gov/" title="Utah Trust Lands Administration">Utah Trust Lands Administration</a></li>
+  
+    <li><a href="http://jobs.utah.gov/housing/wap/index.html" title="Utah Housing and Community Development Division, Weatherization Assistance Program">Utah Housing and Community Development Division, Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://jobs.utah.gov/housing/seal/heat.html" title="Utah Department of Workforce Services, Home Energy Assistance Target (HEAT) Program">Utah Department of Workforce Services, Home Energy Assistance Target (HEAT) Program</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.deq.utah.gov/" title="Utah Department of Environmental Quality">Utah Department of Environmental Quality</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="https://www.bpa.gov/news/aboutus/Pages/default.aspx" title="Bonneville Power Administration">Bonneville Power Administration</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://westernenergyboard.org/wieb-board/who-what/" title="Western Interstate Energy Board">Western Interstate Energy Board</a></li>
+  
+    <li><a href="https://www.wrpinfo.org/AboutUs.aspx" title="Western Regional Partnership (WRP)">Western Regional Partnership (WRP)</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.westgov.org/index.php?option=com_content&view=article&id=129&Itemid=5" title="Western Governors' Association, Energy">Western Governors' Association, Energy</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Utah website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Utah\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/UT.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

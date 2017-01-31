@@ -1,0 +1,3022 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Nebraska Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Nebraska State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Nebraska Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Nebraska ranked second in the nation, after Iowa, in corn-based ethanol production capacity in 2015.&nbsp;</li>
+	
+	<li>Nebraska obtains about three-fifths of its net electricity generation from coal and about one-fourth from nuclear power.</li>
+	
+	<li>The National Renewable Energy Laboratory estimates that more than 90% of Nebraska has suitable conditions for commercial-scale wind-powered electricity generation.&nbsp;</li>
+	
+	<li>Nebraska is among the top 10 states in per capita energy consumption because of its energy-intensive industrial sector, led by food processing and chemical manufacturing.</li>
+	
+	<li>Farm irrigation is electricity-intensive and seasonal; it entails high costs for electricity that increase the average reported cost of electricity for Nebraska&rsquo;s industrial sector.<br />
+</li>
+	
+	<li>In 2015, Nebraska obtained more than 10% of its total net electricity generation from renewables, and wind supplied almost three-fourths of the renewable generation.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: May 19, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=NE.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=NE.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=NE.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=NE.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=NE.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Nebraska Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nebraska Energy Consumption Estimates',
+		data : [276.5,179.2,100.6,110.5,6.1,10.3,0.0,8.9,105.7,11.0,102.4,27.3,-74.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Nebraska Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 163.0],['Commercial', 141.4],['Industrial', 358.1],['Transportation', 202.1]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nebraska Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nebraska Energy Production Estimates',
+		data : [0.0,0.4,17.7,105.7,235.1,42.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nebraska Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nebraska Net Electricity Generation',
+		data : [53,1939,242,117,342]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Nebraska Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Nebraska U.S. Price Differentials',
+		data : [{y:-3.49344978166, period: Date.UTC(2016,9,1)},{y:-13.2530120482, period: Date.UTC(2016,9,1)},{y:-17.8605539637, period: Date.UTC(2016,9,1)},{y:5.80357142857, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.9 million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.0 million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 114.0  billion 
+				</td>
+				<td>
+					36 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 13,763  million 
+				</td>
+				<td>
+					35 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 48,006 
+				</td>
+				<td>
+					19 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					19,613 million miles 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					45.3 million acres 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					50.8 degrees Fahrenheit 
+				</td>
+				<td>
+					28 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					28.1 inches 
+				</td>
+				<td>
+					38 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 43.19 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 13.26 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					$ 1.33 /million Btu 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					10.80 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					8.60 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.11 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=210">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					17 million barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					1 rigs 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					140 wells 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					402 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					181 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					477 million cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					0 barrels/calendar day 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					8,223 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					2,693 thousand MWh 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					2.0 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					72.0 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					9.0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					17.0 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					84 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					837 thousand barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					34,651 million cu ft 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					101 thousand barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					3,260 thousand tons 
+				</td>
+				<td>
+					2.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Nebraska</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Nebraska City (Omaha Public Power District) ; Gerald Gentleman (Nebraska Public Power District) ; North Omaha (Omaha Public Power District) ; Cass County (Omaha Public Power District) ; Sarpy County (Omaha Public Power District)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Cooper (Nebraska Public Power District), Fort Calhoun (Omaha Public Power District)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=210">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Nebraska</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Nebraska</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">TransCanada, Spectra Energy</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Midstream Partners, Nustar, Plains All American Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Nustar, Enterprise Products, ONEOK</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Kinder Morgan Interstate Gas Transmission, Natural Gas Pipeline Company of America, Northern Natural Gas, Rockies Express Pipeline LLC, Southern Star Central Gas Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					956 stations 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					27 stations 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					40 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					81 stations 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					12 stations 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					864 trillion Btu 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					459 million Btu 
+				</td>
+				<td>
+					7 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 10,330  million 
+				</td>
+				<td>
+					36 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,486 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					163 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					141 trillion Btu 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					358 trillion Btu 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					202 trillion Btu 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,613  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,137  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 2,194  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 5,386  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					45.5 million barrels 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					172.8 billion cu ft 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					16.3 million short tons 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 6,517  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,125  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 396  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					478 million cu ft 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,171 thousand short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=210">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					61.8 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.4 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					27.7 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					7.7 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					2.4 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,219 MW 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					2,066 million gal/year 
+				</td>
+				<td>
+					13.7%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					117 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					333 thousand MWh 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					8 thousand MWh 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					41,340 Thousand Barrels 
+				</td>
+				<td>
+					12.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					16.3 % 
+				</td>
+				<td>
+					11 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=NE"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					2,023 thousand barrels 
+				</td>
+				<td>
+					37 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					52.0 million metric tons 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Nebraska</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=210">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					25,326 thousand metric tons 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					59 thousand metric tons 
+				</td>
+				<td>
+					2.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					23 thousand metric tons 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: February 18, 2016<p>
+<h2>Overview </h2>
+<p>Located in the center of the continental United States, Nebraska's plains have fertile soils and considerable renewable resources but few fossil energy resources.<sup><a href='print.cfm@sid=NE.html#1'>1</a>,<a href='print.cfm@sid=NE.html#2'>2</a></sup> Nebraska's climate varies greatly from season to season, with hot summers and frigid winters. The state's highest recorded temperature is 118 degrees Fahrenheit and the lowest, minus 47 degrees.<sup><a href='print.cfm@sid=NE.html#3'>3</a></sup> Tornadoes and thunderstorms are common in the spring and summer. The state is located in the nation's Tornado Alley, where warm air from the south often meets polar air from the north. Although the western half of the state is semiarid, Nebraska is a leading agricultural state. Corn is the most important crop, and the state is one of the nation's leading producers of ethanol.<sup><a href='print.cfm@sid=NE.html#4'>4</a>,<a href='print.cfm@sid=NE.html#5'>5</a></sup> Nebraska's wide plains provide some of the nation's best wind energy potential.<sup><a href='print.cfm@sid=NE.html#6'>6</a></sup> Hydropower and biomass resources are also used for electricity generation in the state.<sup><a href='print.cfm@sid=NE.html#7'>7</a>,<a href='print.cfm@sid=NE.html#8'>8</a></sup></p>
+<div class='pullquote'><p>Nebraska is one of the world's major meatpacking centers. Its energy-intensive food processing industry leads the manufacturing sector. </p></div><p>Nebraska ranks among the 10 highest states in energy consumption per person.<sup><a href='print.cfm@sid=NE.html#9'>9</a></sup> The industrial sector is the largest end-use energy consumer in the state.<sup><a href='print.cfm@sid=NE.html#10'>10</a></sup> Nebraska is one of the world's major meatpacking centers, and the energy-intensive food processing industry leads the state's manufacturing sector. Chemical manufacturing&#8212;particularly of pharmaceuticals, pesticides, and fertilizers&#8212;and machinery manufacturing are also major energy-intensive industries in the state.<sup><a href='print.cfm@sid=NE.html#11'>11</a>,<a href='print.cfm@sid=NE.html#12'>12</a></sup> Farm irrigation is also electricity-intensive, as well as seasonal; it entails high costs for electricity that increase the average reported cost of electricity for Nebraska's industrial sector.<sup><a href='print.cfm@sid=NE.html#13'>13</a></sup> Transportation, Nebraska's second-largest end-use energy-consuming sector, uses only about half as much energy as the industrial sector.<sup><a href='print.cfm@sid=NE.html#14'>14</a></sup> With the state's harsh winters and hot summers, per capita energy consumption by Nebraska's residential sector is among the largest in the nation.<sup><a href='print.cfm@sid=NE.html#15'>15</a></sup> Almost two-thirds of Nebraska households heat their homes with natural gas, another one-fourth use electricity, and about 8% use liquefied petroleum gas (LPG).<sup><a href='print.cfm@sid=NE.html#16'>16</a></sup></p>
+<h2>Petroleum</h2>
+<p>Nebraska began producing crude oil commercially in 1939. Annual production peaked at nearly 25 million barrels in 1962.<sup><a href='print.cfm@sid=NE.html#17'>17</a></sup> In 2014, Nebraska's crude oil production was about one-eighth of its peak.<sup><a href='print.cfm@sid=NE.html#18'>18</a></sup> The Niobrara shale formation, which is an emerging oil play in Colorado and Wyoming, extends into Nebraska, but significant Niobrara crude oil production has not been established in the state.<sup><a href='print.cfm@sid=NE.html#19'>19</a></sup> Nebraska does not have any crude oil refining capacity.<sup><a href='print.cfm@sid=NE.html#20'>20</a></sup> A network of petroleum product pipelines connects Nebraska markets to refining centers in nearby states.<sup><a href='print.cfm@sid=NE.html#21'>21</a></sup> Crude oil moves via pipeline through southern Nebraska on its way from Wyoming to refineries in the Midwest.<sup><a href='print.cfm@sid=NE.html#22'>22</a></sup> A proposed additional crude oil pipeline, routed through the Sand Hills of north-central and northwestern Nebraska, has stalled.<sup><a href='print.cfm@sid=NE.html#23'>23</a></sup> An area of sloping hills and small lakes, the Sand Hills region sits on top of the Ogallala Aquifer.<sup><a href='print.cfm@sid=NE.html#24'>24</a></sup> The Ogallala, a vast, shallow aquifer that extends beneath parts of eight states, provides groundwater crucial for agriculture in the semiarid Plains states, particularly Nebraska,<sup><a href='print.cfm@sid=NE.html#25'>25</a>,<a href='print.cfm@sid=NE.html#26'>26</a></sup> and is considered environmentally sensitive. <sup><a href='print.cfm@sid=NE.html#27'>27</a></sup></p>
+<p>Nebraska has no U.S. Environmental Protection Agency-identified non-attainment areas for air quality and allows the statewide use of conventional motor gasoline without ethanol added.<sup><a href='print.cfm@sid=NE.html#28'>28</a>,<a href='print.cfm@sid=NE.html#29'>29</a></sup> However, Nebraska is the nation's second-largest producer of ethanol<sup><a href='print.cfm@sid=NE.html#30'>30</a></sup> and has more than 70 fueling stations selling E85, a blend of 85% ethanol and 15% gasoline.<sup><a href='print.cfm@sid=NE.html#31'>31</a>,<a href='print.cfm@sid=NE.html#32'>32</a></sup></p>
+<h2>Natural gas</h2>
+<p>Natural gas production in Nebraska has been declining. With less than 1 billion cubic feet of natural gas marketed in 2014 from more than 300 producing wells statewide, Nebraska must rely on interstate deliveries to meet most of its natural gas needs.<sup><a href='print.cfm@sid=NE.html#33'>33</a>,<a href='print.cfm@sid=NE.html#34'>34</a>,<a href='print.cfm@sid=NE.html#35'>35</a></sup> Natural gas produced in the Rocky Mountain region, Texas, and Oklahoma enters Nebraska by pipeline from Wyoming, Kansas, and Colorado.<sup><a href='print.cfm@sid=NE.html#36'>36</a></sup> More than nine-tenths of the natural gas entering Nebraska is shipped on to other states.<sup><a href='print.cfm@sid=NE.html#37'>37</a></sup> Some of the natural gas received in Nebraska is stored in the state's one storage field, which has a total capacity of about 35 billion cubic feet.<sup><a href='print.cfm@sid=NE.html#38'>38</a></sup></p>
+<p>Nebraska's leading natural gas-consuming sector is industry.<sup><a href='print.cfm@sid=NE.html#39'>39</a></sup> The residential sector, the second-highest natural gas-consuming sector, uses less than half as much as the industrial sector, even though nearly two-thirds of Nebraska households use natural gas as their primary fuel for home heating.<sup><a href='print.cfm@sid=NE.html#40'>40</a></sup> The commercial sector uses less natural gas than the residential sector, and less than 5% of natural gas delivered to end-users in Nebraska is used for electric power generation. </p>
+<h2>Coal</h2>
+<p>Nebraska has no commercial coal production and must acquire all the coal it needs from out of state.<sup><a href='print.cfm@sid=NE.html#41'>41</a></sup> Nearly all of the coal consumed in Nebraska arrives by rail from Wyoming.<sup><a href='print.cfm@sid=NE.html#42'>42</a></sup> Most of the coal is used for electricity generation. A very small amount of coal is delivered to industrial plants as well.<sup><a href='print.cfm@sid=NE.html#43'>43</a></sup> </p>
+<h2>Electricity</h2>
+<p>Coal-fired power plants typically supply about three-fifths of Nebraska's net electricity generation, and nuclear power usually contributes about one-fourth.<sup><a href='print.cfm@sid=NE.html#44'>44</a>,<a href='print.cfm@sid=NE.html#45'>45</a></sup> Nebraska's two nuclear power plants, Fort Calhoun and Cooper, are located along the Missouri River on the state's eastern border.<sup><a href='print.cfm@sid=NE.html#46'>46</a>,<a href='print.cfm@sid=NE.html#47'>47</a></sup> In 2011, several factors, including Missouri River flooding, led to Fort Calhoun's being taken offline for more than two years for a series of upgrades.<sup><a href='print.cfm@sid=NE.html#48'>48</a></sup> The state's coal-fired power plants made up most of the shortfall in net electricity generation during that period.<sup><a href='print.cfm@sid=NE.html#49'>49</a></sup> Nebraska gets most of the rest of its net electricity generation from wind, plus small amounts of conventional hydroelectric power, natural gas, biomass, and petroleum. <sup><a href='print.cfm@sid=NE.html#50'>50</a></sup></p>
+<p>Nebraska has one uranium mine, and ore from the mine helps fuel one of the state's two nuclear power plants.<sup><a href='print.cfm@sid=NE.html#51'>51</a></sup> Uranium was discovered in Nebraska in 1980, and operations began at the Crow Butte mine in the state's northwestern corner in 1991.<sup><a href='print.cfm@sid=NE.html#52'>52</a></sup> As of 2014, Nebraska had one of only six operating uranium in-situ-leach plants in the nation.<sup><a href='print.cfm@sid=NE.html#53'>53</a></sup></p>
+<div class='pullquote'><p>Nebraska obtains the majority of its renewable electricity generation from wind power.</p></div>
+<p>Nebraska typically produces a little more electricity than it consumes.<sup><a href='print.cfm@sid=NE.html#54'>54</a></sup> Electricity consumption in the state is fairly evenly divided among the industrial, commercial, and residential sectors.<sup><a href='print.cfm@sid=NE.html#55'>55</a></sup> Slightly more than one-fourth of Nebraska households rely on electricity for their primary home heating needs.<sup><a href='print.cfm@sid=NE.html#56'>56</a></sup> Nebraska's retail electricity rates are in the lowest third of state rates.<sup><a href='print.cfm@sid=NE.html#57'>57</a></sup> Nebraska is the only state in which all electricity providers are non-profit organizations&#8212;either public power districts, municipal power systems, or rural electric cooperatives.<sup><a href='print.cfm@sid=NE.html#58'>58</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Renewable resources fuel about one-tenth of Nebraska's electricity generation,<sup><a href='print.cfm@sid=NE.html#59'>59</a></sup> and the state has substantial undeveloped potential. Wind is the largest source of Nebraska's renewable electricity generation. In 2015, Nebraska obtained about three-fourths of its renewable generation from wind energy, and the share from wind has been increasing in recent years.<sup><a href='print.cfm@sid=NE.html#60'>60</a>,<a href='print.cfm@sid=NE.html#61'>61</a></sup> About nine-tenths of the state is estimated to have suitable conditions for utility-scale wind-powered electricity generation, and Nebraska is fifth among the states in available land area suitable for wind power.<sup><a href='print.cfm@sid=NE.html#62'>62</a>,<a href='print.cfm@sid=NE.html#63'>63</a></sup></p>
+<p>Hydroelectric facilities produce most of the rest of Nebraska's renewable electricity generation. Nebraska typically obtains less than 5% of its total net electricity generation from hydroelectric power, with annual generation varying with water availability.<sup><a href='print.cfm@sid=NE.html#64'>64</a></sup> Fewer than a dozen of the state's 2,800 dams have hydroelectric generating facilities.<sup><a href='print.cfm@sid=NE.html#65'>65</a>,<a href='print.cfm@sid=NE.html#66'>66</a>,<a href='print.cfm@sid=NE.html#67'>67</a></sup> Most dams are earthen embankments,<sup><a href='print.cfm@sid=NE.html#68'>68</a></sup> and there is little potential for further utility-scale hydroelectric facilities, although micro-hydroelectric generators that use natural water flows may be feasible.<sup><a href='print.cfm@sid=NE.html#69'>69</a></sup> Nebraska also has substantial solar power potential,<sup><a href='print.cfm@sid=NE.html#70'>70</a>,<a href='print.cfm@sid=NE.html#71'>71</a></sup> but solar development has not been economical in most regions.<sup><a href='print.cfm@sid=NE.html#72'>72</a></sup> Small areas in the northwest and along the north-central border of the state have moderate geothermal energy potential.<sup><a href='print.cfm@sid=NE.html#73'>73</a>,<a href='print.cfm@sid=NE.html#74'>74</a></sup></p>
+<div class='pullquote'><p>Nebraska is the nation's second largest producer of ethanol.</p></div><p>Nebraska is a national leader in biofuels. The state is second only to Iowa in the production of corn-based ethanol.<sup><a href='print.cfm@sid=NE.html#75'>75</a></sup> Nebraska has 25 active ethanol-producing plants spread across the state, with the highest concentrations in southern Nebraska. Producers in the state use more than 700 million bushels of grain to manufacture almost 1.8 billion gallons of ethanol per year.<sup><a href='print.cfm@sid=NE.html#76'>76</a></sup> Most of the ethanol produced in Nebraska is shipped to other states.<sup><a href='print.cfm@sid=NE.html#77'>77</a></sup> Nebraska also has two commercial biodiesel plants, but both have suspended production. A third facility, built in 2008 but never operational, is being retrofitted to use a variety of feedstocks, including waste oils, with startup planned during 2016.<sup><a href='print.cfm@sid=NE.html#78'>78</a>,<a href='print.cfm@sid=NE.html#79'>79</a></sup> Nebraska also has biomass potential from woody biomass, crop residues, manure management, and municipal solid waste.<sup><a href='print.cfm@sid=NE.html#80'>80</a></sup></p>
+<p>Nebraska does not have a renewable energy standard.<sup><a href='print.cfm@sid=NE.html#80'>80</a></sup> The state does have a number of renewable energy tax credits, as well as interconnection and net metering rules for solar photovoltaics, landfill gas, wind, biomass, hydroelectric, geothermal electric, anaerobic digestion, and small hydroelectric power generation.<sup><a href='print.cfm@sid=NE.html#82'>82</a></sup> Nebraska also has a statewide building energy code.<sup><a href='print.cfm@sid=NE.html#83'>83</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> U.S. Energy Information Administration, State Energy Profiles, Nebraska, Reserves & Supply, accessed January 25, 2016.<br>
+<a name='2'></a><sup>2</sup> Nebraska Energy Office, Annual Report (2014), p. 35-38.<br>
+<a name='3'></a><sup>3</sup> Dutcher, Al, "Nebraska: Home of the Whopper," The CoCoRaHS '˜State Climate' Series (2011).<br>
+<a name='4'></a><sup>4</sup> U.S. Department of Agriculture, Economic Research Service, State Fact Sheets, Overview, Nebraska, updated December 8, 2015, Top Commodities, Exports, and Counties.<br>
+<a name='5'></a><sup>5</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, updated September 4, 2015.<br>
+<a name='6'></a><sup>6</sup> Nebraska Energy Office, Wind Energy Generation in Nebraska, updated January 11, 2016.<br>
+<a name='7'></a><sup>7</sup> Nebraska Energy Office, Biomass Energy Generation in Nebraska, updated November 23, 2015.<br>
+<a name='8'></a><sup>8</sup> Nebraska Energy Office, Annual Report (2014), p. 35-38.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='11'></a><sup>11</sup> Netstate, Nebraska, Nebraska Economy, updated April 22, 2015.<br>
+<a name='12'></a><sup>12</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Nebraska, Time Period 2012-14.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, "Many Industrial Electricity Customers are Farmers," Today in Energy (May 12, 2014).<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='16'></a><sup>16</sup> U.S. Census Bureau, American FactFinder, Table B25040, State Nebraska, 2014 American Community Survey 5-year estimates.<br>
+<a name='17'></a><sup>17</sup> Nebraska Energy Office, Crude Oil Production in Nebraska, updated January 25, 2016.<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2009-14.<br>
+<a name='19'></a><sup>19</sup> "While Nebraska Interest Piques, No Niobrara Boom Expected," Oil & Gas Journal (July 1, 2013).<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Nebraska, Annual (as of January 1), 2010-15.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Nebraska, Profile Data, Distribution & Marketing, accessed January 25, 2016.<br>
+<a name='22'></a><sup>22</sup> American Petroleum Institute, Pipeline 101, Where Are Liquids Pipelines Located? Region 6, accessed January 25, 2015.<br>
+<a name='23'></a><sup>23</sup> Cama, Timothy, "Keystone XL: Not Dead Yet?" The Hill (November 10, 2015).<br>
+<a name='24'></a><sup>24</sup> University of Nebraska-Lincoln, West Central Research and Extension Center, About the Sandhills, accessed January 26, 2016.<br>
+<a name='25'></a><sup>25</sup> Encyclopedia of the Great Plains, Ogallala Aquifer, University of Nebraska-Lincoln, accessed January 26, 2016.<br>
+<a name='26'></a><sup>26</sup> U.S. Department of Agriculture, National Resources Conservation Service, Groundwater Irrigation and Water Withdrawals: The Ogallala Initiative (August 2013), Summary.<br>
+<a name='27'></a><sup>27</sup> U.S. Department of State, Keystone XL Pipeline Project, Keystone XL Pipeline Evaluation Process Fact Sheet 2012.<br>
+<a name='28'></a><sup>28</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Programs, Reformulated gasoline, Reid vapor pressure, and Winter oxygenates, updated September 28, 2015. <br>
+<a name='29'></a><sup>29</sup> U.S. Environmental Protection Agency, Green Book, Details of Criteria Pollutant Nonattainment Area Summary Report, updated November 17, 2015.<br>
+<a name='30'></a><sup>30</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, updated September 4, 2015.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Nebraska, Profile Data, Distribution & Marketing, accessed January 26, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, Alternative Fuels Data Center, Alternative Fueling Station Counts by State, updated January 26, 2016.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Marketed Production, Annual-Million Cubic Feet, 2009-14.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, Number of Producing Gas Wells, Annual, 2009-14.<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Nebraska, Annual, 2009-14. <br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Central Region, accessed January 26, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Nebraska, Annual, 2009-14.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, Underground Natural Gas Storage Capacity, Nebraska, Annual, 2009-14.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Nebraska, Annual, 2009-14.<br>
+<a name='40'></a><sup>40</sup> U.S. Census Bureau, American FactFinder, Advanced Search, Table B25040, State Nebraska, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Nebraska, Profile Data, Reserves & Supply, accessed January 26, 2016.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013 (April 2015), Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation, Nebraska.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Annual Coal Report 2013, Table 26, U.S. Coal Consumption by End Use Sector, Census Division and State, 2013 and 2012.<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Electric Power Monthly (December 2015), Tables 1.3.B, 1.7.B.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Annual data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906. EIA-920, and EIA-923).<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, State Nuclear Profile, Nebraska (2010).<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Nebraska, Profile Overview, Layers/Legend, Nuclear Power Plant, accessed January 26, 2016.<br>
+<a name='48'></a><sup>48</sup> "Fort Calhoun Restarts After Extended Outage," World Nuclear News (December 19, 2013).<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2012, 2013, 2014), Tables 1.6.B, 1.7.B, 1.12.B.<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.10.B, 1.13.B, 1.17.B, 1.18.B.<br>
+<a name='51'></a><sup>51</sup> Cameco USA, Crow Butte, Expansion, accessed January 26, 2016.<br>
+<a name='52'></a><sup>52</sup> Cameco USA, Crow Butte, History, accessed January 26, 2016.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Domestic Uranium Production Report-Annual (April 30, 2015), Table 5, U.S. uranium in-situ-leach plants by owner, location, capacity, and operating status at end of the year, 2010-14.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, State Energy Data System, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2013.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 5.4.B.<br>
+<a name='56'></a><sup>56</sup> U.S. Census Bureau, American FactFinder, Advanced Search, Table B25040, State Nebraska, 2014 American Community Survey 5-Year Estimates.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 5.6.B.<br>
+<a name='58'></a><sup>58</sup> Nebraska Power Association, Public Power&#8212;How Nebraskans Benefit, accessed January 25, 2016.<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.13.B, 1.14.B.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, Annual data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906. EIA-920, and EIA-923).<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Electric Power Monthly (December 2015), Table 1.3.B, 1.14.B.<br>
+<a name='62'></a><sup>62</sup> U. S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Nebraska Wind Resource Map and Potential Wind Capacity, updated September 24, 2015, see table link in text.<br>
+<a name='63'></a><sup>63</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates (January 1, 2010).<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.13.B.<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Electricity, Form U.S. EIA-860 Detailed Data, updated December 23, 2015.<br>
+<a name='66'></a><sup>66</sup> Global Energy Observatory, Current List of Hydro Power Plants, updated January 23, 2016.<br>
+<a name='67'></a><sup>67</sup> Nebraska Energy Office, Annual Report (2014), p. 38.<br>
+<a name='68'></a><sup>68</sup> Nebraska Department of Natural Resources, Dam Safety, accessed January 27, 2016.<br>
+<a name='69'></a><sup>69</sup> Nebraska Energy Office, Annual Report (2014), p. 38.<br>
+<a name='70'></a><sup>70</sup> Nebraska Energy Office, Comparison of Solar Power Potential by State (2006), updated March 11, 2010.<br>
+<a name='71'></a><sup>71</sup> U.S. Department of Energy, Photovoltaic Resource of the United States (September 19, 2012).<br>
+<a name='72'></a><sup>72</sup> Nebraska Energy Office, Annual Report (2014), p. 38.<br>
+<a name='73'></a><sup>73</sup> Nebraska Energy Office, Annual Report (2014), p. 37.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Nebraska, Profile Overview, Layer, Geothermal Potential, accessed January 27, 2016.<br>
+<a name='75'></a><sup>75</sup> Nebraska Energy Office, Ethanol Facilities' Capacity by State, updated September 4, 2015.<br>
+<a name='76'></a><sup>76</sup> Nebraska Ethanol Board, Nebraska Ethanol Plants, updated December 28, 2015.<br>
+<a name='77'></a><sup>77</sup> U.S. Energy Information Administration, Nebraska, Profile Data, Environment, updated January 21, 2016.<br>
+<a name='78'></a><sup>78</sup> Nebraska Energy Office, Nebraska's Biodiesel Production Capacity, updated November 24, 2015.<br>
+<a name='79'></a><sup>79</sup> Simet, Anna, "Standing on Its Own 2 Feet," Biodiesel Magazine (January 19, 2016).<br>
+<a name='80'></a><sup>80</sup> Nebraska Energy Office, Annual Report (2014), p. 36-37.<br>
+<a name='81'></a><sup>81</sup> NC Clean Energy Technology Center, DSIRE, and U.S. Department of Energy, Energy Efficiency and Renewable Energy, Renewable Portfolio Standard Policies (October 2015).<br>
+<a name='82'></a><sup>82</sup> NC Clean Energy Technology Center, DSIRE, Nebraska, Programs, accessed January 27, 2016.<br>
+<a name='83'></a><sup>83</sup> NC Clean Energy Technology Center, DSIRE, Nebraska, Building Energy Code, updated October 5, 2015.<br>
+
+
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 2</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Midwest Reliability Organization (MRO</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.neo.ne.gov/" title="Nebraska Energy Office">Nebraska Energy Office</a></li>
+  
+    <li><a href="http://www.psc.state.ne.us/" title="Nebraska Public Service Commission">Nebraska Public Service Commission</a></li>
+  
+    <li><a href="http://www.nrea.org/" title="Nebraska Rural Electric Association">Nebraska Rural Electric Association</a></li>
+  
+    <li><a href="http://dhhs.ne.gov/children_family_services/Pages/fia_energy.aspx" title="Nebraska Department of Health and Human Services - Energy Assistance">Nebraska Department of Health and Human Services - Energy Assistance</a></li>
+  
+    <li><a href="http://www.neo.ne.gov/wx/wxindex.htm" title="Nebraska Energy Office - Low Income Weatherization Assistance Program">Nebraska Energy Office - Low Income Weatherization Assistance Program</a></li>
+  
+    <li><a href="http://www.nogcc.ne.gov/" title="Nebraska Oil and Gas Conservation Commission">Nebraska Oil and Gas Conservation Commission</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="https://www.wapa.gov/Pages/western.aspx" title="Western Area Power Administration">Western Area Power Administration</a></li>
+  
+    <li><a href="http://www.ne-ethanol.org/" title="Nebraska Ethanol Board">Nebraska Ethanol Board</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Nebraska website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Nebraska\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/NE.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

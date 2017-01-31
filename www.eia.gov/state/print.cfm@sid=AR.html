@@ -1,0 +1,3006 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Arkansas Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Arkansas State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Arkansas Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Marketed natural gas production in Arkansas experienced a nearly six-fold increase between 2005 and 2014. In 2014 it accounted for 4.1% of U.S. marketed production.</li>
+	
+	<li>Arkansas, the top rice-producing state as of 2014, typically experiences an increase in natural gas consumption in the industrial sector (which includes agriculture) in the fall when natural gas is used to dry rice after harvest.</li>
+	
+	<li>Coal-fired electric power plants in Arkansas supplied over half (54%) of the state&#39;s electricity in 2014 and relied on coal deliveries via railcar from Wyoming.</li>
+	
+	<li>Independent power producers provided over 18% of net electricity generation in Arkansas in 2014.</li>
+	
+	<li>Biomass supplied all of Arkansas&#39; non-hydroelectric renewable energy resources for utility-scale electricity generation in 2014.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: January 21, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=AR.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=AR.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=AR.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=AR.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=AR.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Arkansas Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arkansas Energy Consumption Estimates',
+		data : [339.2,274.8,160.7,122.4,7.8,9.1,0.1,27.7,151.4,25.1,96.1,1.0,-98.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Arkansas Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 247.0],['Commercial', 182.5],['Industrial', 406.2],['Transportation', 280.9]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arkansas Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arkansas Energy Production Estimates',
+		data : [1.9,1151.5,39.7,151.4,0.0,109.8]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arkansas Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Natural Gas-Fired','Coal-Fired','Nuclear','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arkansas Net Electricity Generation',
+		data : [1239,2368,78,227,121]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Arkansas Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Arkansas U.S. Price Differentials',
+		data : [{y:43.6754176611, period: Date.UTC(2016,9,1)},{y:34.0611353712, period: Date.UTC(2016,9,1)},{y:-20.8835341365, period: Date.UTC(2016,9,1)},{y:-22.7316141356, period: Date.UTC(2016,9,1)},{y:-11.4583333333, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					3.0 million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					1.3 million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 123.2  billion 
+				</td>
+				<td>
+					34 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 17,938  million 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 39,107 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					34,024 million miles 
+				</td>
+				<td>
+					30 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					13.8 million acres 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					61.4 degrees Fahrenheit 
+				</td>
+				<td>
+					9 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					67.3 inches 
+				</td>
+				<td>
+					2 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					$ 43.45 /barrel 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 6.02 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 18.42 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					9.85 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					8.09 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					5.95 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=183">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					51 million barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					8,339 billion cu ft 
+				</td>
+				<td>
+					2.7%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					4 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					25 million short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					12 rigs 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					9,965 wells 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					1,454 trillion Btu 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					441 thousand barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					1,010,274 million cu ft 
+				</td>
+				<td>
+					3.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					91 thousand short tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					90,500 barrels/calendar day 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					14,707 MW 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					4,036 thousand MWh 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					30.7 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					58.7 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					1.9 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					8.6 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					102 thousand barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					989 thousand barrels 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					15,791 million cu ft 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					3,950 thousand tons 
+				</td>
+				<td>
+					2.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Arkansas</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Cross Oil Refining & Marketing (Smackover), Lion Oil (El Dorado)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Union Power Partners LP (Union Power Partners LP) ; Tenaska Arkansas Generating Station (Tenaska Arkansas Partners LP) ; Independence (Entergy Arkansas Inc) ; White Bluff (Entergy Arkansas Inc) ; KGen Hot Spring LLC (DEGS of O&M, LLC)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">Arkansas Nuclear One (Entergy Arkansas Inc)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=183">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Arkansas</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Arkansas</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Sunoco, Exxon-Mobil</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Marathon Pipeline, Midstream Partners, Enterprise</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">Enterprise Products</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">ANR Pipeline Company, Arkansas Oklahoma Gas Corporation, Augusta Light, Water, and Gas, Enable Gas Transmission LLC, Enable Mississippi River Transmission, Fayetteville Express Pipeline, Natural Gas Pipeline Company of America, Ozark Gas Transmission LLC, Tennessee Gas Pipeline Company, Texas Eastern Transmission LP, Texas Gas Transmission LLC, Trans-Union Interstate Pipeline LP, Trunkline Gas Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					1,564 stations 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					44 stations 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					58 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					47 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					20 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					1,114 trillion Btu 
+				</td>
+				<td>
+					31 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					376 million Btu 
+				</td>
+				<td>
+					17 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 13,885  million 
+				</td>
+				<td>
+					33 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 4,680 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					247 trillion Btu 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					183 trillion Btu 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					406 trillion Btu 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					279 trillion Btu 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 2,352  million 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,486  million 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 2,961  million 
+				</td>
+				<td>
+					1.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 7,086  million 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					63.2 million barrels 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					268.3 billion cu ft 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					19.5 million short tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 8,539  million 
+				</td>
+				<td>
+					1.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 1,849  million 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 821  million 
+				</td>
+				<td>
+					1.8%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					8,905 million cu ft 
+				</td>
+				<td>
+					1.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,346 thousand short tons 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=183">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					40.2 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.1 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					47.7 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					7.3 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					4.8 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,591 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					227 thousand MWh 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					0 thousand MWh 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					119 thousand MWh 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					1 thousand MWh 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					11.0 % 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=AR"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					3,576 thousand barrels 
+				</td>
+				<td>
+					32 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					69.0 million metric tons 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Arkansas</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=183">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					28,587 thousand metric tons 
+				</td>
+				<td>
+					1.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					54 thousand metric tons 
+				</td>
+				<td>
+					2.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					29 thousand metric tons 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: January 21, 2016<p>
+<h2>Overview</h2>
+<div class='pullquote'><p>Forests cover more than half of Arkansas and provide significant woody biomass resource potential.</p></div><p>Arkansas is bounded to the east by the Mississippi River, to the west by the Great Plains, and to the south by the Gulf Coastal Plain. The Mississippi River Valley and the upper reaches of its delta occupy the eastern portion of the state and have created rich soils, which, with Arkansas' hot, humid summers and mild, slightly drier winters, provide excellent conditions for agriculture.<sup><a href='print.cfm@sid=AR.html#1'>1</a>,<a href='print.cfm@sid=AR.html#2'>2</a>,<a href='print.cfm@sid=AR.html#3'>3</a></sup> Forests cover more than half of the state, providing significant woody biomass resource potential.<sup><a href='print.cfm@sid=AR.html#4'>4</a></sup> The Gulf Coastal Plain, which extends into southern and eastern Arkansas, contains historically significant oil-producing geologic formations.<sup><a href='print.cfm@sid=AR.html#5'>5</a></sup> The Ouachita Mountains and the Ozark Mountains form the Interior Highlands of northern and western Arkansas. Those mountain ranges are separated by the fertile Arkansas River Valley and the Arkansas portion of the natural gas-rich Arkoma Basin.<sup><a href='print.cfm@sid=AR.html#6'>6</a>,<a href='print.cfm@sid=AR.html#7'>7</a></sup> </p>
+<p>Arkansas produces more total energy than it consumes, primarily because of its abundant natural gas resources, but the state's per capita total energy consumption is in the top one-third of all of the states in the nation.<sup><a href='print.cfm@sid=AR.html#8'>8</a>,<a href='print.cfm@sid=AR.html#9'>9</a></sup> The industrial sector, which includes agriculture, is the end-use sector that consumes the most energy in Arkansas, followed by the transportation sector.<sup><a href='print.cfm@sid=AR.html#10'>10</a></sup> Rice and poultry farming are two of the state's most important agricultural products, and food production leads the manufacturing sector in terms of revenue. The energy-intensive forest products industry, which includes the manufacture of paper products, ranks second, followed closely by the manufacture of fabricated metal products.<sup><a href='print.cfm@sid=AR.html#11'>11</a>,<a href='print.cfm@sid=AR.html#12'>12</a></sup> Arkansas has a relatively mild climate, but changes in terrain and increases in elevation from the Gulf Coastal Plain to the Interior Highlands can cause weather extremes.<sup><a href='print.cfm@sid=AR.html#13'>13</a></sup> Most households heat with electricity or natural gas, although almost 1 in 8 uses liquefied petroleum gas or wood for heating.<sup><a href='print.cfm@sid=AR.html#14'>14</a></sup> </p>
+<h2>Petroleum</h2>
+<div class='pullquote'><p>Arkansas led the nation's crude oil production in the 1920s with the discovery of the Smackover oil field.</p></div><p>The commercial petroleum industry in Arkansas began in the 1920s, and crude oil production has been concentrated in the southern part of the state since then.<sup><a href='print.cfm@sid=AR.html#15'>15</a>,<a href='print.cfm@sid=AR.html#16'>16</a></sup> Although many Arkansas oil wells are now stripper wells that produce less than 10 barrels of crude oil per day, the state has produced almost 2 billion barrels of oil since 1920 and still produces almost 7 million barrels of oil per year.<sup><a href='print.cfm@sid=AR.html#17'>17</a>,<a href='print.cfm@sid=AR.html#18'>18</a></sup> Some of the wells in Arkansas are remnants of two giant oil fields discovered in the first half of the twentieth century. Arkansas led the nation's crude oil production in the 1920s with the discovery of the Smackover oil field. A second giant oil field, the Magnolia field, was discovered in 1938.<sup><a href='print.cfm@sid=AR.html#19'>19</a></sup> </p>
+<p>Arkansas has two oil refineries that have a combined operable capacity of about 90,000 barrels of crude oil per calendar day.<sup><a href='print.cfm@sid=AR.html#20'>20</a>,<a href='print.cfm@sid=AR.html#21'>21</a></sup> The largest refinery in the state, the El Dorado Refinery, can process more than 80,000 barrels of sour crude oil per calendar day. Its product line includes ultra-low sulfur gasoline and diesel fuels, propane, solvents, and asphalt products.<sup><a href='print.cfm@sid=AR.html#22'>22</a>,<a href='print.cfm@sid=AR.html#23'>23</a></sup> To offset declines in production from local Arkansas producers and to take advantage of increased refinery capacity, other foreign and offshore domestic crude oils are also processed at the El Dorado Refinery.<sup><a href='print.cfm@sid=AR.html#24'>24</a></sup> A much smaller refinery, in Smackover, Arkansas, processes about 7,500 barrels per calendar day.<sup><a href='print.cfm@sid=AR.html#25'>25</a></sup> </p>
+<p>Two major crude oil pipelines cross Arkansas, but one of them ruptured in March 2013. The subsequent oil spill has shut down the Arkansas section of that pipeline.<sup><a href='print.cfm@sid=AR.html#26'>26</a></sup> Three petroleum product pipelines also cross the state.<sup><a href='print.cfm@sid=AR.html#27'>27</a></sup> The state does not have any ethanol plants, and Arkansas allows the statewide use of conventional motor gasoline.<sup><a href='print.cfm@sid=AR.html#28'>28</a>,<a href='print.cfm@sid=AR.html#29'>29</a></sup> The transportation sector accounts for four-fifths of the petroleum consumed in Arkansas.<sup><a href='print.cfm@sid=AR.html#30'>30</a></sup></p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>Arkansas is among the top 10 natural gas-producing states. </p></div><p>Arkansas is one of the top 10 natural gas producers in the nation. Dry natural gas production in the state experienced a six-fold increase in the past decade, peaking in 2012 at about 4% of the nation's total.<sup><a href='print.cfm@sid=AR.html#31'>31</a></sup> Proved natural gas reserves in Arkansas also increased almost six-fold in the same period, peaking in 2011 when they accounted for about 5% of the U.S. total.<sup><a href='print.cfm@sid=AR.html#32'>32</a>,<a href='print.cfm@sid=AR.html#33'>33</a></sup> Some of the increase is the result of horizontal drilling and hydraulic fracturing in the Fayetteville Shale, the current focus of shale gas exploration in Arkansas.<sup><a href='print.cfm@sid=AR.html#34'>34</a>,<a href='print.cfm@sid=AR.html#35'>35</a></sup> Coalbed methane is also produced in Arkansas. The development of this resource began in 2001. Although the state is not a major producer of coalbed methane, coal gas wells yielded more than 27 billion cubic feet of natural gas from 2001 to 2014.<sup><a href='print.cfm@sid=AR.html#36'>36</a>,<a href='print.cfm@sid=AR.html#37'>37</a></sup> Most of the state's natural gas production is from the Arkoma Basin, although there are several wells in the Gulf Coastal Plain.<sup><a href='print.cfm@sid=AR.html#38'>38</a></sup> </p>
+<p>Arkansas produces about four times more natural gas than its residents consume.<sup><a href='print.cfm@sid=AR.html#39'>39</a>,<a href='print.cfm@sid=AR.html#40'>40</a></sup> The state has no natural gas market centers. Several major natural gas pipelines from Louisiana, Oklahoma, and Texas pass through Arkansas on the way to markets in the Midwest and Northeast.<sup><a href='print.cfm@sid=AR.html#41'>41</a></sup> Large volumes of natural gas flow into the state and even larger volumes move out, mostly through Mississippi and Missouri on their way east and north.<sup><a href='print.cfm@sid=AR.html#42'>42</a></sup> Typically, about two-thirds of the natural gas consumed in Arkansas is used by the industrial and electric power sectors.<sup><a href='print.cfm@sid=AR.html#43'>43</a></sup> Consumption for electric power generation rose sharply in the past decade, peaking in 2012, and the electric power sector was the state's leading natural gas-consumer from 2009 through 2013.<sup><a href='print.cfm@sid=AR.html#44'>44</a>,<a href='print.cfm@sid=AR.html#45'>45</a></sup> In 2014, the industrial sector once again became the leading consumer of natural gas in the state.<sup><a href='print.cfm@sid=AR.html#46'>46</a></sup> Two-fifths of Arkansas households use natural gas as their primary source for home heating.<sup><a href='print.cfm@sid=AR.html#47'>47</a></sup> </p>
+<h2>Coal</h2>
+<p>There are two small bituminous coal mines in Arkansas, both in the Arkansas River Valley near the state's western border.<sup><a href='print.cfm@sid=AR.html#48'>48</a>,<a href='print.cfm@sid=AR.html#49'>49</a></sup> The Arkansas mines supply less than 1% of the state's coal needs, and Arkansas relies on other states for supply. Almost all of the coal consumed in Arkansas is used by the electric power sector.<sup><a href='print.cfm@sid=AR.html#50'>50</a>,<a href='print.cfm@sid=AR.html#51'>51</a></sup> Coal brought into the state for electricity generation comes by rail from Wyoming. Industrial facilities in Arkansas obtain coal from Illinois by truck and from Oklahoma by rail and truck.<sup><a href='print.cfm@sid=AR.html#52'>52</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Coal is the primary fuel used for electricity generation in Arkansas.</p></div><p>Coal is the primary fuel used for electricity generation in Arkansas and accounts for about half of the electricity produced in the state.<sup><a href='print.cfm@sid=AR.html#53'>53</a></sup> The state's only nuclear generating station typically provides between one-fifth and one-fourth of the state's net generation.<sup><a href='print.cfm@sid=AR.html#54'>54</a>,<a href='print.cfm@sid=AR.html#55'>55</a></sup> Although 5 of the 10 largest power plants by capacity in Arkansas use coal, the largest power plant in the state is natural gas-fired.<sup><a href='print.cfm@sid=AR.html#56'>56</a></sup> Natural gas, which at its peak in 2012 fueled more than one-fourth of the state's generation, contributed only one-sixth of the state's total net generation in 2014.<sup><a href='print.cfm@sid=AR.html#57'>57</a>,<a href='print.cfm@sid=AR.html#58'>58</a>,<a href='print.cfm@sid=AR.html#59'>59</a></sup> Independent power producers in Arkansas primarily use natural gas. A small amount of power is generated by the industrial sector using biomass. Hydroelectric facilities also contribute to the state's electricity supply.<sup><a href='print.cfm@sid=AR.html#60'>60</a></sup> </p>
+<p>The residential sector accounts for two-fifths of electricity sales in Arkansas. Retail sales to the residential sector are greater than sales to the industrial sector or to the commercial sector.<sup><a href='print.cfm@sid=AR.html#61'>61</a></sup> Almost half of the households in the state use electricity as their primary energy source for home heating.<sup><a href='print.cfm@sid=AR.html#62'>62</a></sup> </p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Hydroelectric and biomass-fueled facilities provide about 7% of electricity generation in Arkansas.</p></div><p>Hydroelectric power is the most commonly used renewable resource in Arkansas, providing almost two-thirds of the state's renewable power generation. Almost all of the hydroelectric generation is supplied by electric utilities. Biomass supplies all of Arkansas' nonhydroelectric renewable energy for electricity generation, almost all of it from wood and wood-derived fuels.<sup><a href='print.cfm@sid=AR.html#63'>63</a>,<a href='print.cfm@sid=AR.html#64'>64</a></sup> Solid biomass residues and methane from livestock, a major portion of the state's agricultural base, are other potential sources.<sup><a href='print.cfm@sid=AR.html#65'>65</a></sup> There are three wood pellet plants in Arkansas and more in development.<sup><a href='print.cfm@sid=AR.html#66'>66</a></sup> The state also has several facilities that produce biofuels from animal fats and vegetable oils.<sup><a href='print.cfm@sid=AR.html#67'>67</a></sup> Arkansas does not have any utility-scale electricity generation from wind energy projects; however, a number of manufacturers of the components used by wind generators are located in the state.<sup><a href='print.cfm@sid=AR.html#68'>68</a></sup> Arkansas has a small but increasing amount of installed solar generating capacity.<sup><a href='print.cfm@sid=AR.html#69'>69</a></sup> Overall, renewable resources provide about 7% of the state's electricity generation.<sup><a href='print.cfm@sid=AR.html#70'>70</a></sup> </p>
+<p>Arkansas does not have a renewable portfolio standard.<sup><a href='print.cfm@sid=AR.html#71'>71</a></sup> The state has adopted several policies to encourage energy efficiency. In 2009, the Sustainable Energy-Efficient Buildings Program was enacted, directing the Arkansas Energy Office to develop a plan for reducing energy use in all major existing state-owned facilities by 30% from 2008 levels by 2017.<sup><a href='print.cfm@sid=AR.html#72'>72</a></sup> Also in 2009, the Arkansas Alternative Energy Commission was created to study the need for and impact of various forms of alternative energy in Arkansas.<sup><a href='print.cfm@sid=AR.html#73'>73</a></sup> In December 2010, the Arkansas Public Service Commission announced a Sustainable Energy Resource Action Plan requiring implementation of energy efficiency measures by the state's investor-owned utilities.<sup><a href='print.cfm@sid=AR.html#74'>74</a></sup></p>
+<p>
+<h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Arkansas Geological Survey, Physiographic Provinces of Arkansas, accessed December 14, 2015.<br>
+<a name='2'></a><sup>2</sup> Foti, Thomas, “Geography and Geology,” Encyclopedia of Arkansas History and Culture (December 16, 2011). <br>
+<a name='3'></a><sup>3</sup> Buckner, Ed, “Climate and Weather,” Encyclopedia of Arkansas History and Culture (August 19, 2014).<br>
+<a name='4'></a><sup>4</sup> Arkansas Forestry Commission, Forest Health, accessed December 14, 2015.<br>
+<a name='5'></a><sup>5</sup> Arkansas Geological Survey, Oil, History of Discovery and Exploration, accessed December 14, 2015.<br>
+<a name='6'></a><sup>6</sup> Arkansas Geological Survey, Physiographic Provinces of Arkansas, accessed December 14, 2015.<br>
+<a name='7'></a><sup>7</sup> Arkansas Geological Survey, Natural Gas, accessed December 14, 2015.<br>
+<a name='8'></a><sup>8</sup> U.S. Energy Information Administration, State Energy Production Estimates 1960 Through 2013, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2013.<br>
+<a name='9'></a><sup>9</sup> U.S. Energy Information Administration, State Energy Production Estimates 1960 Through 2013, Table P2, Energy Production Estimates in Trillion Btu, 2013.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, State Energy Consumption Estimates 1960 Through 2013, DOE/EIA-0214(2013) (July 2015), Table C13, Energy Consumption per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='11'></a><sup>11</sup> U.S. Bureau of Economic Analysis, Interactive Data, Regional Data, GDP and Personal Income, Gross Domestic Product by State, Arkansas, 2013.<br>
+<a name='12'></a><sup>12</sup> Arkansas, The Natural State, Kids, Arkansas Agriculture and Manufacturing Facts for Kids, accessed December 14, 2015.<br>
+<a name='13'></a><sup>13</sup> Buckner, Ed, “Climate and Weather,” Encyclopedia of Arkansas History and Culture (August 19, 2014).<br>
+<a name='14'></a><sup>14</sup> U.S. Census Bureau, American FactFinder, Table: B25040, House Heating Fuel, State: Arkansas, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='15'></a><sup>15</sup> Bridges, Kenneth, "Oil Industry,” Encyclopedia of Arkansas History and Culture (July 29, 2011).<br>
+<a name='16'></a><sup>16</sup> Arkansas Geological Survey, Oil, accessed January 98, 2016.<br>
+<a name='17'></a><sup>17</sup> Arkansas Geological Survey, Oil, History of Discovery and Exploration, accessed December 14, 2015.<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, Crude Oil Production, Annual, accessed December 14, 2015.<br>
+<a name='19'></a><sup>19</sup> Arkansas Geological Survey, Oil, History of Discovery and Exploration, accessed December 14, 2015.<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Total Number of Operable Refineries, accessed December 14, 2015.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Number and Capacity of Petroleum Refineries, Atmospheric Crude Oil Distillation Operable Capacity, accessed December 14, 2015.<br>
+<a name='22'></a><sup>22</sup> U.S. Energy Information Administration, Refinery Capacity Report 2015, Table 3. Capacity of Operable Petroleum Refineries by State as of January 1, 2015. <br>
+<a name='23'></a><sup>23</sup> Lion Oil Company, About, accessed December 14, 2015.<br>
+<a name='24'></a><sup>24</sup> Lion Oil Company, History, accessed December 14, 2015.<br>
+<a name='25'></a><sup>25</sup> U.S. Energy Information Administration, Refinery Capacity Report 2015, Table 3. Capacity of Operable Petroleum Refineries by State as of January 1, 2015. <br>
+<a name='26'></a><sup>26</sup> U.S. Department of Transportation, Pipeline and Hazardous Materials Safety Administration, Office of Pipeline Safety, In the Matter of ExxonMobil Pipeline Company, Respondent, CPF No. 4-2013-5027, Final Order (Washington, DC, October 1, 2015), p. 2–3.<br>
+<a name='27'></a><sup>27</sup> U.S. Energy Information Administration, Arkansas State Profile and Energy Estimates, Profile Data, Distribution and Marketing, accessed December 14, 2015.<br>
+<a name='28'></a><sup>28</sup> Ethanol Producer Magazine, U.S. Ethanol Plants, All Platforms, All Plants (December 14, 2015). <br>
+<a name='29'></a><sup>29</sup> American Petroleum Institute, U.S. Gasoline Requirements (June 2015). <br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2013.<br>
+<a name='31'></a><sup>31</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Annual, accessed December 15, 2015. <br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, Natural Gas Reserves Summary as of December 31, Dry Natural Gas, accessed December 15, 2015.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, Arkansas Nonassociated Natural Gas, Wet After Lease Separation, Proved Reserves, accessed December 15, 2015. <br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, Arkansas Shale Production, accessed December 15, 2015.<br>
+<a name='35'></a><sup>35</sup> Arkansas Geological Survey, Natural Gas, Fayetteville Shale Gas, accessed December 15, 2015.<br>
+<a name='36'></a><sup>36</sup> Arkansas Geological Survey, Natural Gas, Coalbed Natural Gas Methane, accessed December 15, 2015.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Arkansas Coalbed Methane Production, accessed December 15, 2015.<br>
+<a name='38'></a><sup>38</sup> Arkansas Geological Survey, Natural Gas, accessed December 15, 2015.<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Annual, accessed December 15, 2015.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Arkansas Natural Gas Total Consumption, accessed December 15, 2015. <br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Arkansas State Profile and Energy Estimates, Profile Data, Distribution and Marketing, accessed December 14, 2015.<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, Arkansas, accessed December 16, 2015.<br>
+<a name='43'></a><sup>43</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Arkansas, accessed December 16, 2015. <br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, Arkansas Natural Gas Deliveries to Electric Power Consumers, accessed December 15, 2015. <br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Arkansas, accessed December 16, 2015. <br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Arkansas, accessed December 16, 2015. <br>
+<a name='47'></a><sup>47</sup> U.S. Census Bureau, American FactFinder, Table: B25040, House Heating Fuel, State: Arkansas, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='48'></a><sup>48</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 2, Coal Production and Number of Mines by State, County, and Mine Type, 2013. <br>
+<a name='49'></a><sup>49</sup> Ragsdale, John G., “Coal Mining,” Encyclopedia of Arkansas History and Culture (August 14, 2013).<br>
+<a name='50'></a><sup>50</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 6, Coal production and number of mines by state and coal rank, 2013.<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Annual Coal Report 2013 (April 2015), Table 26, U.S. Coal Consumption by End Use Sector, Census Division, and State, 2013 and 2012. <br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Annual Coal Distribution Report 2013, By Coal Destination State (April 16, 2015), Arkansas, Table DS-4, Domestic Coal Distribution, by Destination State, 2013.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.7.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Arkansas Nuclear Profile 2010.<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.12.B.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, Arkansas Electricity Profile 2013, Table 2, Ten Largest Plants by Generating Capacity, 2013.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Arkansas Natural Gas Deliveries to Electric Power Consumers, accessed December 17, 2015.<br>
+<a name='58'></a><sup>58</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2013), Tables 1.6.B, 1.10.B. <br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.10.B. <br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.6.B, 1.10.B, 1.13.B, 1.18.B. <br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Table 5.4.B. <br>
+<a name='62'></a><sup>62</sup> U.S. Census Bureau, American FactFinder, Table: B25040, House Heating Fuel, State: Arkansas, 2010-2014 American Community Survey 5-Year Estimates.<br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Arkansas Renewable Electricity Profiles 2010.<br>
+<a name='64'></a><sup>64</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables 1.13.B, 1.14.B, 1.18.B.<br>
+<a name='65'></a><sup>65</sup> U.S. Department of Agriculture, 2014 State Agricultural Overview, Arkansas, accessed January 11, 2016.<br>
+<a name='66'></a><sup>66</sup> Biomass Magazine, Pellet Plants (December 9, 2015).<br>
+<a name='67'></a><sup>67</sup> Biodiesel Magazine, USA Plants, existing (December 8, 2015).<br>
+<a name='68'></a><sup>68</sup> American Wind Energy Association, Arkansas Wind Energy, accessed December 17, 2015.<br>
+<a name='69'></a><sup>69</sup> Solar Energy Industries Association, State Solar Policy, Arkansas Solar, accessed December 18, 2015.<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2015), Tables1.6B, 1.13.B, 1.14.B. <br>
+<a name='71'></a><sup>71</sup> Durkay, Jocelyn, “State Renewable Portfolio Standards and Goals,” National Conference of State Legislatures (October 14, 2015).<br>
+<a name='72'></a><sup>72</sup> American Council for an Energy-Efficient Economy, State and Local Policy Database, Arkansas (July 2015). <br>
+<a name='73'></a><sup>73</sup> Arkansas Alternative Energy Commission, About the Energy Commission, accessed December 18, 2015.<br>
+<a name='74'></a><sup>74</sup> Arkansas Public Service Commission, APSC Sustainable Energy Resources (SER) Action Guide, Docket No. 08-144-U (Little Rock, AR, December 2010).<br>
+
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/energyexplained/images/maps/coal_production_map.jpg" title="Coal Region">Coal Region</a>: Interior</li>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: Southwest Power Pool (SPP)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 3</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.arkansasenergy.org/" title="Arkansas Energy Office">Arkansas Energy Office</a></li>
+  
+    <li><a href="http://www.accessarkansas.org/psc/" title="Arkansas Public Service Commission">Arkansas Public Service Commission</a></li>
+  
+    <li><a href="http://www.aaec.arkansas.gov/Pages/default.aspx" title="Arkansas Alternative Energy Commission">Arkansas Alternative Energy Commission</a></li>
+  
+    <li><a href="http://www.aogc.state.ar.us/" title="Arkansas Oil and Gas Commission">Arkansas Oil and Gas Commission</a></li>
+  
+    <li><a href="http://humanservices.arkansas.gov/dco/Pages/SupportServices.aspx" title="Arkansas Department of Human Services, Home Energy Services">Arkansas Department of Human Services, Home Energy Services</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://www.swpa.gov" title="Southwestern Power Administration">Southwestern Power Administration</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Arkansas website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Arkansas\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/AR.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

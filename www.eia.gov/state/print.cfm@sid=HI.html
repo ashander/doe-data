@@ -1,0 +1,3064 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Hawaii Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Hawaii State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Hawaii Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>In 2015, Hawaii generated more solar electricity per capita from distributed facilities than any other state, and solar energy from both utility-scale and distributed resources generated 35% of Hawaii&#39;s renewable electricity.&nbsp;</li>
+	
+	<li>With its mild tropical climate, Hawaii had the fourth-lowest per capita energy use in the nation in 2014. The transportation sector accounted for half of Hawaii&#39;s energy demand in 2014, led by commercial and military aviation fuel use.</li>
+	
+	<li>In 2014, Hawaii imported 90% of the energy it consumed, mostly as petroleum, and, in 2015, the state had the highest electricity prices in the nation.</li>
+	
+	<li>Hawaii is one of seven states with utility-scale geothermal capacity. In 2015, 17% of Hawaii&#39;s utility-scale renewable net electricity generation came from geothermal energy.</li>
+	
+	<li>Hawaii is the first state to set a legal deadline for producing 100% of its electricity from renewable energy sources. The state plans to achieve that target by 2045.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: October 20, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=HI.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=HI.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=HI.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=HI.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=HI.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Hawaii Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Hawaii Energy Consumption Estimates',
+		data : [17.2,0.2,51.5,25.2,73.3,3.2,62.1,18.9,0.0,0.9,11.0,18.6,0.0]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Hawaii Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 36.6],['Commercial', 38.8],['Industrial', 64.4],['Transportation', 142.2]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Hawaii Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Hawaii Energy Production Estimates',
+		data : [0.0,0.0,0.0,0.0,0.0,27.2]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Hawaii Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Coal-Fired','Hydroelectric','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Hawaii Net Electricity Generation',
+		data : [562,128,12,134]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Hawaii Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Hawaii U.S. Price Differentials',
+		data : [{y:259.665871122, period: Date.UTC(2016,9,1)},{y:172.707423581, period: Date.UTC(2016,9,1)},{y:121.204819277, period: Date.UTC(2016,9,1)},{y:137.82234957, period: Date.UTC(2016,9,1)},{y:209.375, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					1.4 million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.7 million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 79.7  billion 
+				</td>
+				<td>
+					39 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 1,446  million 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 47,753 
+				</td>
+				<td>
+					21 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					10,174 million miles 
+				</td>
+				<td>
+					44 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					1.2 million acres 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					
+                            NA
+                          
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					
+                            NA
+                          
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 15.07 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 37.47 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					27.54 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					24.90 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					20.79 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=192">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					27 trillion Btu 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					147,500 barrels/calendar day 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					2,689 MW 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					859 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					65.4 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					14.9 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					17.1 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					1 thousand barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					667 thousand barrels 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					2,168 thousand barrels 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					W 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Hawaii</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">Chevron USA (Honolulu), Hawaii Independent (Ewa Beach)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Kahe (Hawaiian Electric Co Inc) ; Waiau (Hawaiian Electric Co Inc) ; Kalaeola Cogen Plant (Kalaeloa Partners LP) ; Maalaea (Maui Electric Co Ltd) ; AES Hawaii (AES Hawaii Inc)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=192">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Hawaii</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Honolulu; Hilo; Kahului, Maui; Barbers Point, Oahu.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Hawaii</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					284 stations 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					226 stations 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					3 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					11 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					281 trillion Btu 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					198 million Btu 
+				</td>
+				<td>
+					48 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 7,379  million 
+				</td>
+				<td>
+					41 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,195 
+				</td>
+				<td>
+					14 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					37 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					39 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					64 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					141 trillion Btu 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 1,039  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 1,279  million 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 1,315  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 3,747  million 
+				</td>
+				<td>
+					0.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					41.7 million barrels 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					2.9 billion cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0.8 million short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 5,417  million 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 117  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 45  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					827 thousand barrels 
+				</td>
+				<td>
+					52.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					0 million cu ft 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					61 thousand short tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=192">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					2.0 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					
+								*
+							
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					30.3 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					1.2 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					66.5 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					579 MW 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					12 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					106 thousand MWh 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					29 thousand MWh 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					60 thousand MWh 
+				</td>
+				<td>
+					3.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					10.8 % 
+				</td>
+				<td>
+					19 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=HI"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					1,135 thousand barrels 
+				</td>
+				<td>
+					46 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					18.0 million metric tons 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Hawaii</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=192">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					7,356 thousand metric tons 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					20 thousand metric tons 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					17 thousand metric tons 
+				</td>
+				<td>
+					0.9%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: October 20, 2016<p>
+<h2>Overview</h2>
+<div class='pullquote'><p>Isolated by the Pacific Ocean, Hawaii is the most petroleum-dependent state in the nation. </p></div><p>Hawaii's islands stretch more than 1,500 miles across the central Pacific Ocean, from the Big Island of Hawaii in the southeast to the Kure Atoll in the northwest. The eight main islands, and the more than 100 uninhabited reefs, shoals, and atolls, are farther from a major landmass than any other island group on earth.<sup><a href='print.cfm@sid=HI.html#1'>1</a></sup> Located 1,800 miles north of the equator, Hawaii is tropical, but its climate is moderated by steady trade winds and the surrounding ocean. Extremes of heat, cold, and rainfall occur in the mountains, but weather at low altitudes is generally mild, with little variation year-round.<sup><a href='print.cfm@sid=HI.html#2'>2</a>,<a href='print.cfm@sid=HI.html#3'>3</a></sup> Most of the state's population lives on Oahu. On all the Hawaiian islands, residents are clustered in the coastal areas.<sup><a href='print.cfm@sid=HI.html#4'>4</a></sup></p>
+<p>Hawaii's geographic isolation makes its energy infrastructure unique among the states. In recent years, more than one-tenth of the state's gross domestic product has been spent on energy, most of that for imported crude oil and petroleum products.<sup><a href='print.cfm@sid=HI.html#5'>5</a>,<a href='print.cfm@sid=HI.html#6'>6</a></sup> More than four-fifths of Hawaii's energy comes from petroleum, making it the most petroleum-dependent state in the nation.<sup><a href='print.cfm@sid=HI.html#7'>7</a>,<a href='print.cfm@sid=HI.html#8'>8</a></sup> The state of Hawaii and the U.S. Department of Energy entered a partnership in 2008 called the Hawaii Clean Energy Initiative (HCEI), aimed at reducing the state's dependence on petroleum and optimizing use of sustainable local energy sources.<sup><a href='print.cfm@sid=HI.html#9'>9</a></sup> In 2015, Hawaii set a legal deadline&mdash;2045&mdash;for obtaining 100% of its electricity from sustainable renewable sources, the first state to set a date.<sup><a href='print.cfm@sid=HI.html#10'>10</a>,<a href='print.cfm@sid=HI.html#11'>11</a></sup></p>
+<p>Hawaii's largest industry is tourism. Major economic sectors also include the U.S. military and agriculture.<sup><a href='print.cfm@sid=HI.html#12'>12</a>,<a href='print.cfm@sid=HI.html#13'>13</a></sup> Transportation accounts for about half of all energy consumed.<sup><a href='print.cfm@sid=HI.html#14'>14</a></sup> Overall, Hawaii's economy is not energy intensive,<sup><a href='print.cfm@sid=HI.html#15'>15</a></sup> and the state's per capita energy consumption is among the lowest in the nation.<sup><a href='print.cfm@sid=HI.html#16'>16</a></sup></p>
+<h2>Petroleum</h2>
+<p>Hawaii does not produce petroleum<sup><a href='print.cfm@sid=HI.html#17'>17</a></sup> and has no proved petroleum reserves.<sup><a href='print.cfm@sid=HI.html#18'>18</a></sup> The state has two crude oil refineries, located in the Honolulu port area on Oahu. Both can produce a broad range of refined petroleum products<sup><a href='print.cfm@sid=HI.html#19'>19</a></sup> and have been supplying almost all of Hawaii's demand.<sup><a href='print.cfm@sid=HI.html#20'>20</a></sup> Refinery feedstock is most often light sweet crude oil imported from Pacific Rim producers, although crude oil is also imported from Africa and the Middle East.<sup><a href='print.cfm@sid=HI.html#21'>21</a></sup> Refined petroleum products, chiefly jet fuel and propane, are also imported from Asia, Canada, and the Caribbean.<sup><a href='print.cfm@sid=HI.html#22'>22</a></sup></p>
+<p>Hawaii has no inter-island pipelines. Crude oil is offloaded to storage tanks in the Oahu refinery area through offshore mooring systems, and refined products are loaded at Honolulu harbor terminals onto fuel barges for distribution to other islands.<sup><a href='print.cfm@sid=HI.html#23'>23</a></sup> State petroleum consumption patterns are changing. Hawaii's electricity generators and its synthetic gas supplier are seeking economic alternatives to refined petroleum products, and the state is exploring options for maintaining needed product supplies if one or both Oahu refineries should shut down.<sup><a href='print.cfm@sid=HI.html#24'>24</a>,<a href='print.cfm@sid=HI.html#25'>25</a></sup></p>
+<p>The transportation sector consumes about six-tenths of all petroleum in Hawaii, followed by the electric power sector, which consumes more than one-fourth.<sup><a href='print.cfm@sid=HI.html#26'>26</a>,<a href='print.cfm@sid=HI.html#27'>27</a></sup> Jet fuel accounts for half of all transportation fuels consumed, and motor gasoline for nearly two-fifths. Because of significant demand from military installations and commercial airlines, jet fuel makes up a larger share of total petroleum consumption in Hawaii than in any other state except Alaska.<sup><a href='print.cfm@sid=HI.html#28'>28</a>,<a href='print.cfm@sid=HI.html#29'>29</a></sup> A major goal of the HCEI is to displace 70% of petroleum-based ground transportation fuels by 2030.<sup><a href='print.cfm@sid=HI.html#30'>30</a>,<a href='print.cfm@sid=HI.html#31'>31</a>,<a href='print.cfm@sid=HI.html#32'>32</a></sup> Hawaii has instituted a series of incentives for electric vehicles (EVs), including discounted electricity rates, and leads the nation in the number of EV charging locations per capita.<sup><a href='print.cfm@sid=HI.html#33'>33</a>,<a href='print.cfm@sid=HI.html#34'>34</a></sup> All ethanol for blending with motor gasoline is shipped in, usually from the U.S. mainland or from Brazil.<sup><a href='print.cfm@sid=HI.html#35'>35</a></sup> Hawaii had hoped to spur creation of a local ethanol industry, using locally grown feedstocks, with a 2006 requirement that all motor gasoline be blended with 10% ethanol, but no ethanol refineries have been built in the state.<sup><a href='print.cfm@sid=HI.html#36'>36</a></sup> As of 2016, Hawaii eliminated the statewide ethanol blending requirement.<sup><a href='print.cfm@sid=HI.html#37'>37</a></sup> </p>
+<h2>Natural gas</h2>
+<div class='pullquote'><p>Until LNG was shipped to Hawaii in 2014, the state had only synthetic natural gas produced from naphtha feedstock.</p></div><p>Hawaii produces no natural gas<sup><a href='print.cfm@sid=HI.html#38'>38</a></sup> and has no proved natural gas reserves.<sup><a href='print.cfm@sid=HI.html#39'>39</a></sup> Hawaii is one of two states producing synthetic natural gas called syngas; the other is North Dakota.<sup><a href='print.cfm@sid=HI.html#40'>40</a></sup> Syngas is produced in an Oahu processing plant using naphtha feedstock from a local refinery.<sup><a href='print.cfm@sid=HI.html#41'>41</a>,<a href='print.cfm@sid=HI.html#42'>42</a></sup> The syngas is delivered by pipeline to parts of Oahu. Customers in rural areas of Oahu and on other islands, who are not connected to utility Hawaii Gas's distribution system, are supplied with propane. The natural gas utility is diversifying its supply with both liquefied natural gas (LNG) and renewables-based syngas.<sup><a href='print.cfm@sid=HI.html#43'>43</a></sup> As part of the state's shift to renewables, Hawaii is encouraging the development of synthetic gas production using local biomass as a feedstock.<sup><a href='print.cfm@sid=HI.html#44'>44</a></sup></p>
+<p>Hawaii's first LNG shipment arrived in April 2014 in a standardized cryogenic container from a liquefaction plant in California. Standardized shipping containers can serve markets that do not have terminals for LNG tankers. The LNG was regasified and injected into the Hawaii Gas distribution system, becoming the first non-synthetic natural gas ever put into the system.<sup><a href='print.cfm@sid=HI.html#45'>45</a></sup> Hawaii Gas is receiving monthly shipments of containerized LNG<sup><a href='print.cfm@sid=HI.html#46'>46</a></sup> and has obtained state regulatory approval to convert up to 30% of its supply to LNG.<sup><a href='print.cfm@sid=HI.html#47'>47</a></sup> Hawaii Gas is also pursuing a plan to build infrastructure for a floating regasification and storage facility that would allow bulk LNG imports by tanker. Such a facility could supply all Hawaii Gas needs, as well as natural gas for ground and marine transportation and for electricity generation.<sup><a href='print.cfm@sid=HI.html#48'>48</a>,<a href='print.cfm@sid=HI.html#49'>49</a></sup> </p>
+<p>With its limited supply and limited distribution network, Hawaii has the lowest total natural gas consumption in the nation and the lowest per capita consumption.<sup><a href='print.cfm@sid=HI.html#50'>50</a>,<a href='print.cfm@sid=HI.html#51'>51</a></sup> The commercial sector, which includes hotels and restaurants, consumes about two-thirds of all the natural gas distributed in Hawaii.<sup><a href='print.cfm@sid=HI.html#52'>52</a></sup> The residential sector accounts for less than one-fifth of consumption, in part because very few Hawaiians rely on natural gas as their primary fuel for home heating.<sup><a href='print.cfm@sid=HI.html#53'>53</a></sup></p>
+<h2>Coal</h2>
+<p>Hawaii does not produce coal<sup><a href='print.cfm@sid=HI.html#54'>54</a></sup> and has no demonstrated coal reserves.<sup><a href='print.cfm@sid=HI.html#55'>55</a></sup> Coal use began in Hawaii in the 1980s and was seen then as a way to reduce the state's dependence on petroleum in both the industrial sector and the electric power sector.<sup><a href='print.cfm@sid=HI.html#56'>56</a></sup> Coal is shipped in by ocean freighter, usually from Indonesia, for Hawaii's single operating coal-fired electricity generating plant, a 180-megawatt facility on Oahu.<sup><a href='print.cfm@sid=HI.html#57'>57</a>,<a href='print.cfm@sid=HI.html#58'>58</a>,<a href='print.cfm@sid=HI.html#59'>59</a>,<a href='print.cfm@sid=HI.html#60'>60</a></sup> Coal is transported by conveyor belt from a marine unloading terminal to the plant.<sup><a href='print.cfm@sid=HI.html#61'>61</a></sup> The plant is able to burn wastes such as wood chips, motor oils, and tires along with coal.<sup><a href='print.cfm@sid=HI.html#62'>62</a>,<a href='print.cfm@sid=HI.html#63'>63</a></sup> A small amount of coal is shipped to Hawaii, typically from Colorado, for industrial uses, mainly to supplement agricultural waste burned to power sugarcane processing operations.<sup><a href='print.cfm@sid=HI.html#64'>64</a>,<a href='print.cfm@sid=HI.html#65'>65</a>,<a href='print.cfm@sid=HI.html#66'>66</a></sup></p>
+<h2>Electricity</h2>
+<p>Petroleum-fired power plants have supplied more than three-fourths of Hawaii's net electricity generation in the past 20 years.<sup><a href='print.cfm@sid=HI.html#67'>67</a></sup> In 2014, for the first time, net generation from petroleum slipped below 70%. Renewable sources&mdash;mainly wind, biomass, and geothermal generators&mdash;supplied 13% of the state's electricity from utility-scale generators in 2014 and 14% in 2015, nearly the same amount as was generated by coal.<sup><a href='print.cfm@sid=HI.html#68'>68</a></sup> Use of distributed (customer-sited small-scale) renewable sources, like rooftop solar panels, has increased rapidly. In 2015, one in eight Hawaiian residential electricity customers had solar panels.<sup><a href='print.cfm@sid=HI.html#69'>69</a></sup> If generation from distributed sources is included, Hawaii obtained nearly one-fifth of its net electricity generated and more than 23% of electricity sold to consumers from renewable sources in 2015.<sup><a href='print.cfm@sid=HI.html#70'>70</a>,<a href='print.cfm@sid=HI.html#71'>71</a>,<a href='print.cfm@sid=HI.html#72'>72</a></sup> </p>
+<div class='pullquote'><p>Dependence on petroleum and isolated island grids give Hawaii the nation's highest electricity prices.</p></div><p>Hawaii's electricity is supplied by electric power utility Hawaiian Electric Company (HECO) and, on Kauai, by an electric cooperative.<sup><a href='print.cfm@sid=HI.html#73'>73</a></sup> HECO has explored the feasibility of converting some or all of its petroleum-fired generating units to LNG, both to reduce costs and to comply with tightening federal emissions standards.<sup><a href='print.cfm@sid=HI.html#74'>74</a></sup> LNG is a key step in the utility's plan to transition to 100% renewable electricity by 2045.<sup><a href='print.cfm@sid=HI.html#75'>75</a>,<a href='print.cfm@sid=HI.html#76'>76</a></sup> However, LNG conversion plans are being reconsidered since HECO's merger with a larger utility was cancelled.<sup><a href='print.cfm@sid=HI.html#77'>77</a>,<a href='print.cfm@sid=HI.html#78'>78</a></sup> Hawaii's islands have six separate electricity grids, owned by the power utility and one cooperative, that are not connected by undersea electric transmission cables. Each island must generate its own power. Hawaii is encouraging initiatives to interconnect the island grids to enable more efficient power generation and to support increased development of renewable energy resources.<sup><a href='print.cfm@sid=HI.html#79'>79</a>,<a href='print.cfm@sid=HI.html#80'>80</a>,<a href='print.cfm@sid=HI.html#81'>81</a></sup></p>
+<p>The state's heavy dependence on imported petroleum and the isolated island grids result in Hawaii's having the highest retail electricity prices of any state in the nation.<sup><a href='print.cfm@sid=HI.html#82'>82</a>,<a href='print.cfm@sid=HI.html#83'>83</a></sup> Hawaii's electricity demand is among the lowest in the nation, both in total amount consumed and in per capita consumption.<sup><a href='print.cfm@sid=HI.html#84'>84</a>,<a href='print.cfm@sid=HI.html#85'>85</a>,<a href='print.cfm@sid=HI.html#86'>86</a></sup> About 3 in 10 households in Hawaii use electricity as their primary energy source for home heating, but, with the mild tropical climate, heating is rarely needed, and nearly two-thirds of households have no heating system at all.<sup><a href='print.cfm@sid=HI.html#87'>87</a></sup></p>
+<h2>Renewable energy </h2>
+<div class='pullquote'><p>Hawaii is the first state to set a deadline for producing all of its electricity from renewable sources.</p></div><p>In 2015, Hawaii became the first state in the nation to set a deadline for all electricity to be generated by renewable sources. The legislature extended the state's renewable portfolio standard (RPS), which required 40% of electricity to come from renewable sources by 2030,<sup><a href='print.cfm@sid=HI.html#88'>88</a></sup> to require 100% renewable electricity by 2045.<sup><a href='print.cfm@sid=HI.html#89'>89</a></sup> The state has also set separate energy efficiency portfolio standards, which are aimed at reducing anticipated electricity consumption 30% by 2030.<sup><a href='print.cfm@sid=HI.html#90'>90</a></sup> The overall state goal for 2030 is 70% clean energy, counting both renewable sources and efficiency gains.<sup><a href='print.cfm@sid=HI.html#91'>91</a></sup> Technologies recognized in the RPS include: wind; solar thermal and photovoltaic (PV); geothermal; biogas, including landfill methane; biomass, including municipal solid wastes; hydroelectricity; seawater-chilled air conditioning; and wave, tidal, and ocean energy.<sup><a href='print.cfm@sid=HI.html#92'>92</a></sup></p>
+<p>Hawaii has substantial renewable resources throughout the island chain.<sup><a href='print.cfm@sid=HI.html#93'>93</a></sup> In 2015, solar power edged out wind to become the state's largest renewable source of electricity, providing 35% of renewable generation, primarily because of the growth of distributed solar generation.<sup><a href='print.cfm@sid=HI.html#94'>94</a>,<a href='print.cfm@sid=HI.html#95'>95</a>,<a href='print.cfm@sid=HI.html#96'>96</a></sup> Hawaii produced more distributed solar generation per capita than any other state.<sup><a href='print.cfm@sid=HI.html#97'>97</a>,<a href='print.cfm@sid=HI.html#98'>98</a>,<a href='print.cfm@sid=HI.html#99'>99</a></sup> At the end of 2015, more than 60,000 residential and commercial properties hosted solar PV capability, and nearly 50 megawatts were installed at larger commercial and military facilities on Oahu, Kauai, and Lanai. State regulators and grid operators are balancing increasing numbers of solar connection requests with grid stability requirements.<sup><a href='print.cfm@sid=HI.html#100'>100</a></sup> </p>
+<p>Utility-scale wind potential is found both onshore and offshore in Hawaii.<sup><a href='print.cfm@sid=HI.html#101'>101</a>,<a href='print.cfm@sid=HI.html#102'>102</a></sup> The state's six commercial wind farms are on Oahu, Maui, and the Big Island of Hawaii.<sup><a href='print.cfm@sid=HI.html#103'>103</a></sup> Smaller wind projects power a water treatment plant<sup><a href='print.cfm@sid=HI.html#104'>104</a></sup> and an irrigation system<sup><a href='print.cfm@sid=HI.html#105'>105</a></sup> on the Big Island. Three offshore wind projects have been proposed for federal waters around Oahu.<sup><a href='print.cfm@sid=HI.html#106'>106</a></sup> </p>
+<p>With the islands' small grids, some larger projects using variable wind and solar technologies are incorporating energy storage to offset variability.<sup><a href='print.cfm@sid=HI.html#107'>107</a>,<a href='print.cfm@sid=HI.html#108'>108</a></sup> The 6-megawatt Port Allen solar project on Kauai includes a 3-megawatt battery energy storage system, a 1-megawatt battery system on Oahu is being tested to balance power in an area with significant distributed solar generation, and Kauai's newest solar project is designed to charge a 13-megawatt battery array so it can supply power at night.<sup><a href='print.cfm@sid=HI.html#109'>109</a>,<a href='print.cfm@sid=HI.html#110'>110</a></sup> Since 2010, state building codes require all water heaters in new single-family homes to be solar-powered.<sup><a href='print.cfm@sid=HI.html#111'>111</a></sup> Solar thermal technologies for seawater desalination are also being explored.<sup><a href='print.cfm@sid=HI.html#112'>112</a></sup></p>
+<p>Biomass, mainly agricultural wastes such as bagasse from sugarcane, has long been used in rural Hawaii to generate heat and electricity.<sup><a href='print.cfm@sid=HI.html#113'>113</a>,<a href='print.cfm@sid=HI.html#114'>114</a></sup> The H-POWER plant provides nearly 10% of Oahu's electricity from municipal solid waste,<sup><a href='print.cfm@sid=HI.html#115'>115</a></sup> and the plant is being expanded from 46 to 73 megawatts.<sup><a href='print.cfm@sid=HI.html#116'>116</a></sup> Biomass electricity generators are operating or being developed on Oahu, the Big Island, Kauai, and Maui.<sup><a href='print.cfm@sid=HI.html#117'>117</a>,<a href='print.cfm@sid=HI.html#118'>118</a></sup> The 110-megawatt Campbell Industrial Park Generating Station, which began service on Oahu in 2010, is believed to be the world's largest commercial electricity generator fueled exclusively with sustainable biofuel.<sup><a href='print.cfm@sid=HI.html#119'>119</a>,<a href='print.cfm@sid=HI.html#120'>120</a></sup> The HCEI says more use of biomass and biofuels can both displace petroleum fuels and boost the state's agricultural sector.<sup><a href='print.cfm@sid=HI.html#121'>121</a></sup></p>
+<p>In 2015, Hawaii was one of seven states with utility-scale geothermal power production.<sup><a href='print.cfm@sid=HI.html#122'>122</a></sup> Its single geothermal generating plant is located on the Kilauea Volcano on the Big Island and supplied nearly one-fourth of the island's electricity in 2015. More projects are being considered to tap the earth's heat on the Big Island, Maui, and Oahu.<sup><a href='print.cfm@sid=HI.html#123'>123</a>,<a href='print.cfm@sid=HI.html#124'>124</a></sup></p>
+<p>Hawaii does not have rivers appropriate for hydroelectric dams. A handful of small hydroelectric turbines use run-of-river flow at sites on Maui, Kauai, and the Big Island, and hydropower provides more than 5% of the electricity generated on both Kauai and Hawaii.<sup><a href='print.cfm@sid=HI.html#125'>125</a>,<a href='print.cfm@sid=HI.html#126'>126</a></sup> Studies have identified nearly 50 potential sites for small-scale hydroelectric projects. Kauai's electric cooperative is exploring a 25-megawatt pumped storage facility to meet nighttime peak electricity demand.<sup><a href='print.cfm@sid=HI.html#127'>127</a>,<a href='print.cfm@sid=HI.html#128'>128</a></sup> The state is also looking to the surrounding ocean for renewable energy.<sup><a href='print.cfm@sid=HI.html#129'>129</a></sup> The U.S. Navy and private researchers have been testing wave energy technologies,<sup><a href='print.cfm@sid=HI.html#130'>130</a>,<a href='print.cfm@sid=HI.html#131'>131</a></sup> and studies indicate wave energy could provide one-third or more of the electricity Hawaiians use, depending on technological advances.<sup><a href='print.cfm@sid=HI.html#132'>132</a>,<a href='print.cfm@sid=HI.html#133'>133</a>,<a href='print.cfm@sid=HI.html#134'>134</a></sup> Ocean thermal energy technology, which generates electricity through temperature differences between warm, shallow waters and cool, deep waters, is being explored.<sup><a href='print.cfm@sid=HI.html#135'>135</a></sup> District cooling, drawing up deep sea water to chill air-conditioning units, is being commercially developed in Honolulu.<sup><a href='print.cfm@sid=HI.html#136'>136</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> To-Hawaii.com, Hawaii Geography, accessed September 6, 2016.<br>
+<a name='2'></a><sup>2</sup> National Oceanic & Atmospheric Administration, National Weather Service Forecast Office, Honolulu, HI, Climate of Hawaii, updated June 4, 2016.<br>
+<a name='3'></a><sup>3</sup> Community Collaborative Rain, Hail & Snow Network, State Climate Series, Hawaii, accessed September 6, 2016.<br>
+<a name='4'></a><sup>4</sup> U.S. Census Bureau, 2010 Census: Hawaii Profile.<br>
+<a name='5'></a><sup>5</sup> Hawaii Clean Energy Initiative (HCEI), HCEI Roadmap (2011), p. 3.<br>
+<a name='6'></a><sup>6</sup> Hawaii, Department of Business, Economic Development, and Tourism, State of Hawaii Energy Data and Trends (November 2015), p. 1, 2.<br>
+<a name='7'></a><sup>7</sup> U.S. Energy Information Administration (U.S. EIA), State Energy Data System, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014.<br>
+<a name='8'></a><sup>8</sup> Glick, Mark, State Energy Administrator, Department of Business, Economic Development, and Tourism, State of Hawaii, Testimony before U.S. Senate Committee on Energy and Natural Resources (July 14, 2015), p. 1.<br>
+<a name='9'></a><sup>9</sup> Hawaii Clean Energy Initiative, About the Hawaii Clean Energy Initiative, accessed September 6, 2016.	<br>
+<a name='10'></a><sup>10</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, p. 4.<br>
+<a name='11'></a><sup>11</sup> Lincoln, Mileka, "Gov. Ige Signs Bill Setting 100% Renewable Energy Goal for State," Hawaii News Now (June 8, 2015). <br>
+<a name='12'></a><sup>12</sup> Tian, Eugene, Department of Business, Economic Development, and Tourism, What Are the Economic Drivers for Hawaii in 2014 and Beyond? (May 2, 2014). p. 3.<br>
+<a name='13'></a><sup>13</sup> Jones, Shannon, "Top Five Industries in Hawaii: Which Parts of the Economy Are Strongest?" Newsmax (March 3, 2015).<br>
+<a name='14'></a><sup>14</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End Use Sector, Ranked by State, 2014.<br>
+<a name='15'></a><sup>15</sup> U.S. EIA, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. EIA, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='17'></a><sup>17</sup> U.S. EIA, Crude Oil Production, Annual-Thousand Barrels, 2010-15.<br>
+<a name='18'></a><sup>18</sup> U.S. EIA, U.S. Crude Oil, Natural Gas, and Natural Gas Liquids Proved Reserves, 2014 (November 2015), Table 6, Crude oil plus lease condensate proved reserves, reserves changes, and production, 2014.<br>
+<a name='19'></a><sup>19</sup> U.S. EIA, Refinery Capacity 2016 (June 22, 2016), Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2016.<br>
+<a name='20'></a><sup>20</sup> ICF International for the Hawaii Refinery Task Force, Refinery Closure Report (June 18, 2013), p. 18.<br>
+<a name='21'></a><sup>21</sup> Hawaii's Export-Import Resource Center, Foreign Trade Zone No. 9, About Us, FTZ Locations, see Oahu, subzone 9E, Chevron Hawaii Refinery, and subzone 9A, Tesoro Refinery.<br>
+<a name='22'></a><sup>22</sup> U.S. EIA, Petroleum & Other Liquids, Company Level Imports Archives (2015, 2014, 2013), Hawaii.<br>
+<a name='23'></a><sup>23</sup> ICF International for the Hawaii Refinery Task Force, Refinery Closure Report (June 18, 2013), p. 18.<br>
+<a name='24'></a><sup>24</sup> ICF International for the Hawaii Refinery Task Force, Final Report (April 9, 2014), p. 1.<br>
+<a name='25'></a><sup>25</sup> Hampton, Liz, and Ernest Scheyder, "Chevron to Sell Hawaii Refinery to Private Equity Group," Reuters (April 19, 2016).<br>
+<a name='26'></a><sup>26</sup> U.S. EIA, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='27'></a><sup>27</sup> U.S. EIA, State Energy Data System, State Energy Consumption Estimates, 1960 Through 2014, DOE/EIA-0214(2014), (June 2016), Hawaii Table CT3, Primary Energy Consumption Estimates, Selected Years, 1960-2014, p. 146.<br>
+<a name='28'></a><sup>28</sup> U.S. EIA, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.<br>
+<a name='29'></a><sup>29</sup> U.S. EIA, State Energy Data System, Table C8, Transportation Sector Energy Consumption Estimates, 2014.<br>
+<a name='30'></a><sup>30</sup> Hawaii Clean Energy Initiative (HCEI), HCEI Roadmap (2011), p. 9.<br>
+<a name='31'></a><sup>31</sup> Hawaii Clean Energy Initiative, Vehicle Transportation, accessed September 7, 2016.<br>
+<a name='32'></a><sup>32</sup> Hawaii Clean Energy Initiative, Transportation Charette, accessed September 7, 2016.<br>
+<a name='33'></a><sup>33</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 13.<br>
+<a name='34'></a><sup>34</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, p. 39.<br>
+<a name='35'></a><sup>35</sup> U.S. EIA, Petroleum & Other Liquids, Company Level Imports Archives (2015, 2014, 2013), Hawaii.<br>
+<a name='36'></a><sup>36</sup> Hawaii Clean Energy Initiative, "Ethanol Running Out of Gas" (February 26, 2015).<br>
+<a name='37'></a><sup>37</sup> Morales, Manolo, "Stations Continue to Sell Ethanol-Blended Gas, Despite State Law Repeal," KHON2 (February 1, 2016).<br>
+<a name='38'></a><sup>38</sup> U.S. EIA, Natural Gas, Gross Withdrawals and Production, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='39'></a><sup>39</sup> U.S. EIA, Natural Gas Proved Reserves, Wet After Lease Separation, as of December 31, Annual, 2009-14.<br>
+<a name='40'></a><sup>40</sup> U.S. EIA, Supplemental Gas Supplies, Synthetic, Annual, 2009-14.<br>
+<a name='41'></a><sup>41</sup> Hawai'i Gas, Company Profile, p. 6, accessed September 7, 2016.<br>
+<a name='42'></a><sup>42</sup> ICF International for the Hawaii Refinery Task Force, Final Report (April 9, 2014), p. 17.<br>
+<a name='43'></a><sup>43</sup> Hawai'i Gas, Company Profile, p. 6-8, accessed September 7, 2016.<br>
+<a name='44'></a><sup>44</sup> PR Newswire, "The Gas Company Pioneering Renewable Natural Gas in Hawaii," Press Release (December 16, 2011).<br>
+<a name='45'></a><sup>45</sup> Hawaii Gas, "Hawaii Gas Brings First Shipment of Liquefied Natural Gas (LNG) to Hawaii," Press Release (April 7, 2014).<br>
+<a name='46'></a><sup>46</sup> Carr, Housley, "Hawaii Can't Go For That (No Can Do)-Cheap Oil v. LNG," RBN Energy (September 14, 2015).<br>
+<a name='47'></a><sup>47</sup> Mykleseth, Kathryn, "Hawaii Gas Will Bring in More LNG," Honolulu Star Advertiser (April 6, 2016).<br>
+<a name='48'></a><sup>48</sup> Hawaii Gas, "LNG Could Save Its O'ahu Gas Utility Customers More Than 25 Percent," Press Release (January 19, 2016).<br>
+<a name='49'></a><sup>49</sup> Shimogawa, Duane, "Hawaii Gas LNG Bulk Shipment Goal Still 2019, Despite HECO Delay," Pacific Business News (June 9, 2015).<br>
+<a name='50'></a><sup>50</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='51'></a><sup>51</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='52'></a><sup>52</sup> U.S. EIA, Natural Gas Consumption by End Use, Hawaii, Annual, 2010-15.<br>
+<a name='53'></a><sup>53</sup> U.S. Census Bureau, American FactFinder, Hawaii, Table B25040, House Heating Fuel, American Community Survey 5-Year Estimates, 2014.<br>
+<a name='54'></a><sup>54</sup> U.S. EIA, Annual Coal Report 2014 (March 23, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014 and 2013.<br>
+<a name='55'></a><sup>55</sup> U.S. EIA, Annual Coal Report 2014 (March 23, 2016), Table 15, Recoverable Coal Reserves at Producing Mines, Estimated Recoverable Reserves, and Demonstrated Reserve Base by Mining Method, 2014.<br>
+<a name='56'></a><sup>56</sup> Hawaii, Department of Business, Economic Development, and Tourism, State of Hawaii Energy Data and Trends (November 2015), p. 11, 21.<br>
+<a name='57'></a><sup>57</sup> U.S. EIA, Electricity, Form EIA-860 detailed data, 2014, Table 3_1.<br>
+<a name='58'></a><sup>58</sup> U.S. Environmental Protection Agency, Cover Source Permit Renewal Application, AES Hawaii Inc., Fuels for Power Plant, p. 2, accessed September 7, 2016.<br>
+<a name='59'></a><sup>59</sup> U.S. EIA, Quarterly Coal Report, Table 20, Coal Imports by Customs District, Honolulu (2015, 2014, 2013).<br>
+<a name='60'></a><sup>60</sup> U.S. EIA, Annual Coal Distribution Report, Archive, Domestic Distribution of U.S. coal by destination State, consumer, destination and method of transportation, Hawaii (2014, 2013, 2012).<br>
+<a name='61'></a><sup>61</sup> U.S Environmental Protection Agency, Cover Source Permit Renewal Application, AES Hawaii Inc., Coal Processing, p. 2, accessed September 7, 2016.<br>
+<a name='62'></a><sup>62</sup> Namuo, Clynton, "Oahu Coal Plant Generates Energy Without Black Smoke," Pacific Business News (June 20, 2004).<br>
+<a name='63'></a><sup>63</sup> Hawaii Clean Energy Initiative, "Eucalyptus Chips In To Generate Power" (May 13, 2011).<br>
+<a name='64'></a><sup>64</sup> U.S. EIA, Annual Coal Distribution Report, Archive, Domestic Distribution of U.S. coal by destination State, consumer, destination and method of transportation, Hawaii (2014, 2013, 2012).<br>
+<a name='65'></a><sup>65</sup> Hawaii Clean Energy Initiative, Land, Biomass Energy in Hawaii, accessed September 7, 2015.<br>
+<a name='66'></a><sup>66</sup> Hawaii, Department of Health, Hawaiian Commercial & Sugar Co., Revised Application for a Covered Source Permit (April 3, 2007). <br>
+<a name='67'></a><sup>67</sup> U.S. EIA, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='68'></a><sup>68</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B to 1.18.B.<br>
+<a name='69'></a><sup>69</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, p. 4.<br>
+<a name='70'></a><sup>70</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 9.<br>
+<a name='71'></a><sup>71</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.16.B, 1.17.B, 1.18.B.<br>
+<a name='72'></a><sup>72</sup> Bade, Gavin, "Getting to 100% Renewables: How Hawaii Plans to Get Fossil Fuels Off the Grid," Utility Dive (March 23, 2016).<br>
+<a name='73'></a><sup>73</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 3.<br>
+<a name='74'></a><sup>74</sup> Hawaiian Electric Companies, 2013 Integrated Resource Planning Report (June 28, 2013), p. 20-7.<br>
+<a name='75'></a><sup>75</sup> Hawaiian Electric Companies, "Companies Submit Updated 20-Year Energy Plans Charting a Course to 100 Percent Renewable Energy," Press Release (April 1, 2016).<br>
+<a name='76'></a><sup>76</sup> Shimogawa, Duane, "Hawaiian Electric Co. Delays $235M LNG Project for Two Years," Pacific Business News (June 3, 2015).<br>
+<a name='77'></a><sup>77</sup> Brooks, Laura, "Hawaii LNG Import Boost Uncertain After Merger of Hawaiian Electric, NextEra Blocked," Platts (July 18, 2016).<br>
+<a name='78'></a><sup>78</sup> Shimogawa, Duane, "Hawaiian Electric Cancels its Major LNG Deal with Canadian Firm," Pacific Business News (July 19, 2016).<br>
+<a name='79'></a><sup>79</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2012, p. 44.<br>
+<a name='80'></a><sup>80</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 3, 7.<br>
+<a name='81'></a><sup>81</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, p. 48.<br>
+<a name='82'></a><sup>82</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.6.B.<br>
+<a name='83'></a><sup>83</sup> Hawaiian Electric Company, Rates & Regulations, Average Electricity Prices, accessed September 8, 2016.<br>
+<a name='84'></a><sup>84</sup> U.S. EIA, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2014.<br>
+<a name='85'></a><sup>85</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='86'></a><sup>86</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='87'></a><sup>87</sup> U.S. Census Bureau, American FactFinder, Hawaii, Table B25040, House Heating Fuel, American Community Survey 5-Year Estimates, 2014.<br>
+<a name='88'></a><sup>88</sup> Hawaii State Legislature, &#167;269-92, Renewable portfolio standards, accessed September 8, 2016.<br>
+<a name='89'></a><sup>89</sup> U.S. EIA, "Hawaii and Vermont Set High Renewable Portfolio Standard Targets," Today in Energy (June 29, 2015).<br>
+<a name='90'></a><sup>90</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, p. 8.<br>
+<a name='91'></a><sup>91</sup> Hawaii Clean Energy Initiative, Energy Efficiency, accessed September 8, 2016.<br>
+<a name='92'></a><sup>92</sup> NC Clean Energy Technology Center, DSIRE, Hawaii, Renewable Portfolio Standard, Program Overview, updated June 10, 2015.<br>
+<a name='93'></a><sup>93</sup> Hawaii, Department of Business, Economic Development, and Tourism, Energy Resources Coordinator's Annual Report 2015, Executive Summary, p. 3.<br>
+<a name='94'></a><sup>94</sup> U.S. EIA, Electric Power Monthly (February 2016), Tables 1.14.B, 1.17.B.<br>
+<a name='95'></a><sup>95</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 24.<br>
+<a name='96'></a><sup>96</sup> Solar Energy Industries Association, Major Solar Projects Map, accessed September 9, 2016.<br>
+<a name='97'></a><sup>97</sup> Hawaii State Energy Office, Score Card, accessed September 8, 2016.<br>
+<a name='98'></a><sup>98</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.17.B.<br>
+<a name='99'></a><sup>99</sup> U.S. Census Bureau, Population Estimates, StateTotals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='100'></a><sup>100</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 23-25.<br>
+<a name='101'></a><sup>101</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, WINDExchange, Hawaii Wind Resource Map and Potential Wind Capacity (September 24, 2015).<br>
+<a name='102'></a><sup>102</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, WINDExchange, Hawaii Offshore 90-Meter Wind Map and Wind Resource Potential (May 1, 2014).<br>
+<a name='103'></a><sup>103</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 26, 27.<br>
+<a name='104'></a><sup>104</sup> Hawaii State Energy Office, Hawaii Renewable Energy Projects Directory, Waikoloa Water Community Wind Project, accessed September 8, 2016.<br>
+<a name='105'></a><sup>105</sup> Hawaii State Energy Office, Hawaii Renewable Energy Projects Directory, North Kohala Microgrid Project, accessed September 8, 2016.<br>
+<a name='106'></a><sup>106</sup> U.S. Bureau of Ocean Energy Management, Hawaii Activities, accessed September 8, 2016.<br>
+<a name='107'></a><sup>107</sup> Sempra U.S. Gas & Power, Wind In Operation, Auwahi Wind, accessed September 9, 2016.<br>
+<a name='108'></a><sup>108</sup> Shimogawa, Duane, "North Shore Oahu Wind Farm Returns to Full Capacity," Pacific Business News (February 11, 2014).<br>
+<a name='109'></a><sup>109</sup> Maloney, Peter, "Inside the First Fully Dispatchable Utility Solar-Storage Project in Hawaii," UtilityDive (October 29, 2015).<br>
+<a name='110'></a><sup>110</sup> "Utility-Scale Battery System Goes Into Service at Campbell Industrial Park," Hawaiian Electric Company, Press Release (September 23, 2016).<br>
+<a name='111'></a><sup>111</sup> Hawaii State Energy Office, Solar Water Heating Variance, accessed September 9, 2016.<br>
+<a name='112'></a><sup>112</sup> Hawaii Clean Energy Initiative, "Desalination Pilot Project Harnesses Solar Power" (June 25, 2012).<br>
+<a name='113'></a><sup>113</sup> Hawaiian Electric Company, Renewable Energy Sources, Biomass, accessed September 9, 2016.<br>
+<a name='114'></a><sup>114</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 10-11.<br>
+<a name='115'></a><sup>115</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2015), p. 9.<br>
+<a name='116'></a><sup>116</sup> Hawaiian Electric Company, H-POWER (Covanta Honolulu Resource Recovery Venture), accessed September 9, 2016.<br>
+<a name='117'></a><sup>117</sup> Hu Honua Bioenergy, "Hu Honua Moves Forward on Site Construction, Reaches Settlement with Hawaiian Dredging," (December 14, 2014).<br>
+<a name='118'></a><sup>118</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 11.<br>
+<a name='119'></a><sup>119</sup> Hawaii State Energy Office, Hawaii Renewable Energy Projects Directory, HECO Campbell Industrial Park Generating Station, accessed September 9, 2016.<br>
+<a name='120'></a><sup>120</sup> Hawaiian Electric Company, Renewable Energy Sources, Biofuels, accessed September 9, 2016.<br>
+<a name='121'></a><sup>121</sup> Hawaii Clean Energy Initiative, HCEI Roadmap (2011), p. 8.<br>
+<a name='122'></a><sup>122</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.16.B.<br>
+<a name='123'></a><sup>123</sup> Hawaiian Electric Compay, Renewable Energy Sources, Geothermal, accessed September 9, 2016.<br>
+<a name='124'></a><sup>124</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 14-15.<br>
+<a name='125'></a><sup>125</sup> Hawaiian Electric Companies, Renewable Electricity Sources, Hydroelectricity, accessed September 9, 2016.<br>
+<a name='126'></a><sup>126</sup> Kaua'i Island Utility Cooperative, Hydroelectric, accessed September 9, 2016<br>
+<a name='127'></a><sup>127</sup> Kaua'i Island Utility Cooperative, Pumped Storage, accessed September 9, 2016.<br>
+<a name='128'></a><sup>128</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 16.<br>
+<a name='129'></a><sup>129</sup> Hawaii, Department of Business, Economic Development, and Tourism, Hawaii Energy Facts & Figures (May 2016), p. 19.<br>
+<a name='130'></a><sup>130</sup> Shimogawa, Duane, "Navy to Expand Wave Energy Testing off Hawaii," Pacific Business News (March 11, 2014).<br>
+<a name='131'></a><sup>131</sup> U.S. Department of Energy, Energy Efficiency & Renewable Energy, "Innovative Wave Power Device Starts Producing Clean Power in Hawaii" (July 6, 2015).<br>
+<a name='132'></a><sup>132</sup> Hawaii National Marine Renewable Energy Center, Hawai'i Marine Energy Resources, accessed September 9, 2016.<br>
+<a name='133'></a><sup>133</sup> Electric Power Research Institute, Mapping & Assessment of the United States Ocean Wave Energy Resource (December 2011), Abstract, p. v.<br>
+<a name='134'></a><sup>134</sup> U.S. EIA, Electric Power Monthly (February 2016), Table 1.3.B.<br>
+<a name='135'></a><sup>135</sup> Hawaiian Electric Company, Renewable Energy Sources, Ocean Energy, accessed September 9, 2016.<br>
+<a name='136'></a><sup>136</sup> Shimogawa, Duane, "$250M Honolulu Seawater Air Conditioning Project Could Start Construction in 2016," Pacific Business News (November 18, 2015).<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 5</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://energy.hawaii.gov/" title="Hawaii State Energy Office">Hawaii State Energy Office</a></li>
+  
+    <li><a href="http://puc.hawaii.gov/" title="Hawaii Public Utilities Commission">Hawaii Public Utilities Commission</a></li>
+  
+    <li><a href="http://humanservices.hawaii.gov/bessd/liheap" title="Hawaii Department of Health, LIHEAP">Hawaii Department of Health, LIHEAP</a></li>
+  
+    <li><a href="http://labor.hawaii.gov/ocs/weatherization-assistance-program/" title="Hawaii Department of Labor and Industrial Relations, Weatherization Assistance Programs">Hawaii Department of Labor and Industrial Relations, Weatherization Assistance Programs</a></li>
+  
+    <li><a href="http://www.hawaiicleanenergyinitiative.org/" title="Hawaii Clean Energy Initiative">Hawaii Clean Energy Initiative</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Hawaii website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Hawaii\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/HI.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

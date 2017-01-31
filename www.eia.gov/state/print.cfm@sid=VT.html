@@ -1,0 +1,3012 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Vermont Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Vermont State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Vermont Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>With the permanent closure of the Vermont Yankee Nuclear Plant at the end of 2014, Vermont is producing less than 40% of the electricity it consumes and depends on power from the New England grid and Canada. </li>
+	
+	<li>In 2015, nearly all of Vermont&#39;s in-state net electricity generation was produced by renewable energy, including hydroelectric, biomass, wind, and solar resources.</li>
+	
+	<li>Vermont has enacted the nation&#39;s first integrated renewable energy standard (RES), which makes utilities responsible both for supplying renewable electricity and for supporting reductions in customers&#39; fossil fuel use.</li>
+	
+	<li>Vermont has set energy goals of obtaining 67% of electricity, 30% of building energy consumption, and 10% of transportation energy from renewable sources by 2025.</li>
+	
+	<li>One in six Vermont households uses wood products, such as wood pellets, as their primary heating source.</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: June 16, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=VT.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=VT.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=VT.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=VT.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=VT.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Vermont Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Vermont Energy Consumption Estimates',
+		data : [0.0,10.8,35.3,26.5,1.2,10.1,0.5,5.8,52.9,11.2,20.3,3.9,-76.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Vermont Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 44.4],['Commercial', 26.6],['Industrial', 20.5],['Transportation', 48.4]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Vermont Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Vermont Energy Production Estimates',
+		data : [0.0,0.0,0.0,52.9,0.0,32.9]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Vermont Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Vermont Net Electricity Generation',
+		data : [63]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Vermont Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Citygate','Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Vermont U.S. Price Differentials',
+		data : [{y:-2.62529832936, period: Date.UTC(2016,9,1)},{y:36.4628820961, period: Date.UTC(2016,9,1)},{y:42.8112449799, period: Date.UTC(2016,9,1)},{y:41.4517669532, period: Date.UTC(2016,9,1)},{y:48.5119047619, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					0.6 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					0.3 million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 30.4  billion 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 2,763  million 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 47,864 
+				</td>
+				<td>
+					20 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					7,059 million miles 
+				</td>
+				<td>
+					49 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					1.3 million acres 
+				</td>
+				<td>
+					42 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					42.6 degrees Fahrenheit 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					42.4 inches 
+				</td>
+				<td>
+					26 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					$ 4.08 /thousand cu ft 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 18.75 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					17.78 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					14.81 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					9.98 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=227">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					0 rigs 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					86 trillion Btu 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					661 MW 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					130 thousand MWh 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					0 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					48.6 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					47 thousand barrels 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					91 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					49 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					0 thousand tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Vermont</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">J C McNeil (City of Burlington-Electric) ; Berlin 5 (Green Mountain Power Corp) ; Bellows Falls (TransCanada Hydro Northeast Inc.,) ; Sheffield Wind (Vermont Wind LLC) ; Wilder (TransCanada Hydro Northeast Inc.,)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=227">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Vermont</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Vermont</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">Portland Pipeline</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					441 stations 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					4 stations 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					126 stations 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					1 stations 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					6 stations 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					140 trillion Btu 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					223 million Btu 
+				</td>
+				<td>
+					43 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 3,275  million 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 5,225 
+				</td>
+				<td>
+					13 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					44 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					27 trillion Btu 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					21 trillion Btu 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					48 trillion Btu 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 995  million 
+				</td>
+				<td>
+					0.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 543  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 358  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 1,380  million 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					15.9 million barrels 
+				</td>
+				<td>
+					0.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					10.7 billion cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0.0 million short tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 2,286  million 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 113  million 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 0  million 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					0 thousand short tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=227">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					16.5 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					44.7 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					4.6 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					15.2 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					19.0 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					561 MW 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					30 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					33 thousand MWh 
+				</td>
+				<td>
+					0.7%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					5 thousand MWh 
+				</td>
+				<td>
+					0.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					25.3 % 
+				</td>
+				<td>
+					8 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=VT"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					682 thousand barrels 
+				</td>
+				<td>
+					50 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					6.0 million metric tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Vermont</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=227">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					11 thousand metric tons 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					0 thousand metric tons 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					1 thousand metric tons 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: June 16, 2016<p>
+<h2>Overview </h2>
+<p>Vermont's state name comes from the French name for the Green Mountains, which rise between the Connecticut River on the New Hampshire border and the Hudson River Valley on the New York border and run the length of Vermont, from Canada south to the Berkshire Hills of Massachusetts.<sup><a href='print.cfm@sid=VT.html#1'>1</a></sup> Vermont is the second smallest state by population, after Wyoming,<sup><a href='print.cfm@sid=VT.html#2'>2</a></sup> and the fifth smallest state by area.<sup><a href='print.cfm@sid=VT.html#3'>3</a></sup> Nearly one-third of the state's residents live in the Burlington metropolitan region, which is in the northwest around Lake Champlain. Most other Vermont residents live in small towns and on farms.<sup><a href='print.cfm@sid=VT.html#4'>4</a></sup> </p>
+<div class='pullquote'><p>Three-fourths of Vermont is forested, providing renewable wood products for electricity and heating.</p></div><p>Three-fourths of the state is forested, supporting both the traditional wood products industry and biomass generation.<sup><a href='print.cfm@sid=VT.html#5'>5</a></sup> One in six Vermont households uses wood products, such as wood pellets, as their primary heating source.<sup><a href='print.cfm@sid=VT.html#6'>6</a></sup> Some areas have reforested as traditional farming has declined.<sup><a href='print.cfm@sid=VT.html#7'>7</a></sup> Vermont's industrial sector is led by real estate, health care, electronics manufacturing, and tourism.<sup><a href='print.cfm@sid=VT.html#8'>8</a></sup> The state has mild summers and snowy winters.<sup><a href='print.cfm@sid=VT.html#9'>9</a></sup> The Green Mountains draw visitors year-round, and about one in seven homes is occupied only seasonally.<sup><a href='print.cfm@sid=VT.html#10'>10</a></sup></p>
+<p>Energy use is dominated by transportation and by heating requirements in the frigid winters.<sup><a href='print.cfm@sid=VT.html#11'>11</a>,<a href='print.cfm@sid=VT.html#12'>12</a></sup> As fuel costs to meet those needs rose, Vermont established long-term policies designed to increase both residential and business energy efficiency, reduce energy use, and shift energy consumption to renewable sources. The state's goals for 2050 include obtaining 90% of all energy from renewable sources and reducing energy use by one-third.<sup><a href='print.cfm@sid=VT.html#13'>13</a></sup> Vermont's total energy consumption is already the lowest of any state in the nation,<sup><a href='print.cfm@sid=VT.html#14'>14</a></sup> and it is among the lowest one-fifth of states in energy consumed per capita.<sup><a href='print.cfm@sid=VT.html#15'>15</a></sup></p>
+<h2>Petroleum</h2>
+<p>Although the state does not produce or refine petroleum,<sup><a href='print.cfm@sid=VT.html#16'>16</a>,<a href='print.cfm@sid=VT.html#17'>17</a></sup> three-fifths of the energy consumed in Vermont is petroleum-based.<sup><a href='print.cfm@sid=VT.html#18'>18</a></sup> Petroleum products are brought in by railroad and truck from neighboring states and Canada.<sup><a href='print.cfm@sid=VT.html#19'>19</a>,<a href='print.cfm@sid=VT.html#20'>20</a></sup> One petroleum pipeline crosses Vermont but does not have delivery terminals in the state: the World War II-era Portland-Montreal Pipeline carrying crude oil from tanker docks at Portland, Maine, to refineries in Montreal, Canada.<sup><a href='print.cfm@sid=VT.html#21'>21</a></sup> However, those Canadian refineries are now being supplied with crude oil from western Canada, and shipments from Portland have dwindled.<sup><a href='print.cfm@sid=VT.html#22'>22</a></sup> A proposal to reverse the flow in that pipeline and bring crude oil from Canada and North Dakota to Portland for shipment to refineries elsewhere has encountered stiff opposition in Vermont because the pipeline travels through the Northeast Kingdom, an ecologically sensitive corner of the state.<sup><a href='print.cfm@sid=VT.html#23'>23</a></sup></p>
+<div class='pullquote'><p>Petroleum provides three-fifths of Vermont's energy, primarily for transportation and home heating.</p></div><p>The residential sector consumes about one-fifth of petroleum products, mainly as heating oil and propane.<sup><a href='print.cfm@sid=VT.html#24'>24</a>,<a href='print.cfm@sid=VT.html#25'>25</a></sup> Nearly half of all Vermont households rely on fuel oil to heat their homes in the long winters,<sup><a href='print.cfm@sid=VT.html#26'>26</a></sup> making the state particularly vulnerable to distillate fuel oil shortages and price spikes during the cold months. In early 2000, heating oil prices rose sharply when extreme weather increased demand and hindered delivery of new supply. Subsequently, the Northeast Home Heating Oil Reserve was created to avert future shortages. In 2011, the U.S. Department of Energy converted the reserve to ultra-low sulfur diesel (ULSD) to correspond with decisions made by several northeastern states to begin requiring ULSD for heating.<sup><a href='print.cfm@sid=VT.html#27'>27</a></sup> Vermont is phasing in ULSD between 2014 and 2018.<sup><a href='print.cfm@sid=VT.html#28'>28</a></sup></p>
+<p>The transportation sector consumes nearly three-fifths of all petroleum products, partially because rural residents drive long distances.<sup><a href='print.cfm@sid=VT.html#29'>29</a>,<a href='print.cfm@sid=VT.html#30'>30</a></sup> Because the entire state meets federal air quality standards, Vermont allows the statewide use of conventional motor gasoline.<sup><a href='print.cfm@sid=VT.html#31'>31</a></sup> To reduce petroleum use in transportation, Vermont has set a goal of having 10% of transportation energy come from renewable sources by 2025 and 80% by 2050. State strategies include supporting greater adoption of alternatively fueled vehicles and land-use planning that reduces the need for automobiles. More than 1% of Vermont auto sales are electric vehicles (EVs); nationally, EVs make up 0.3% of auto sales.<sup><a href='print.cfm@sid=VT.html#32'>32</a>,<a href='print.cfm@sid=VT.html#33'>33</a></sup> The state's long-term goal is to eliminate most petroleum consumption.<sup><a href='print.cfm@sid=VT.html#34'>34</a></sup></p>
+<h2>Natural gas</h2>
+<p>There is no natural gas production within Vermont,<sup><a href='print.cfm@sid=VT.html#35'>35</a></sup> and there are no known natural gas reserves.<sup><a href='print.cfm@sid=VT.html#36'>36</a></sup> In 2012, the state legislature banned hydraulic fracturing, a technology used for natural gas production, on environmental grounds.<sup><a href='print.cfm@sid=VT.html#37'>37</a></sup> The state's single natural gas utility receives all of its natural gas by a small-capacity pipeline from Canada.<sup><a href='print.cfm@sid=VT.html#38'>38</a></sup> The utility retails natural gas in the Burlington, Vermont, area.<sup><a href='print.cfm@sid=VT.html#39'>39</a></sup> That region is the only area of the state with access to natural gas. Expanding access to natural gas in the rest of the state has been explored when the cost of petroleum products has risen.<sup><a href='print.cfm@sid=VT.html#40'>40</a>,<a href='print.cfm@sid=VT.html#41'>41</a></sup> Limited access makes Vermont the second-smallest natural gas consumer, and the second-smallest natural gas consumer per capita, among the states.<sup><a href='print.cfm@sid=VT.html#42'>42</a>,<a href='print.cfm@sid=VT.html#43'>43</a>,<a href='print.cfm@sid=VT.html#44'>44</a></sup> Only about one in six households uses natural gas as the primary home heating fuel.<sup><a href='print.cfm@sid=VT.html#45'>45</a></sup></p>
+<h2>Coal</h2>
+<p>Vermont does not have any demonstrated coal reserves<sup><a href='print.cfm@sid=VT.html#46'>46</a></sup> and is one of only two states in the nation without any coal-fired power plants; the other is Rhode Island.<sup><a href='print.cfm@sid=VT.html#47'>47</a></sup> Vermont is part of the six-state Independent System Operator-New England (ISO-NE) regional grid, which is getting a shrinking share of its power from coal but remains dependent on coal facilities during periods of peak electricity demand.<sup><a href='print.cfm@sid=VT.html#48'>48</a></sup></p>
+<h2>Electricity</h2>
+<div class='pullquote'><p>Vermont is the only New England state that has chosen not to restructure its electricity system.</p></div><p>Vermont electric utilities own little generating capacity and rely on contracts with independent generators and the ISO-NE grid for power from neighboring states and Canada.<sup><a href='print.cfm@sid=VT.html#49'>49</a></sup> With the permanent shutdown of the Vermont Yankee Nuclear Plant at the end of 2014,<sup><a href='print.cfm@sid=VT.html#50'>50</a></sup> Vermont lost 55% of its electricity generating capacity<sup><a href='print.cfm@sid=VT.html#51'>51</a></sup> and the source of more than 70% of its net generation in recent years.<sup><a href='print.cfm@sid=VT.html#52'>52</a></sup> As a result, in 2015, in-state generation provided less than two-fifths of the electricity consumed in Vermont.<sup><a href='print.cfm@sid=VT.html#53'>53</a></sup> About three-fifths of in-state generation came from hydroelectric power, with the remainder supplied by biomass, wind, and solar energy.<sup><a href='print.cfm@sid=VT.html#54'>54</a></sup> Vermont has little in-state generation from natural gas, but more of the state's electricity is coming from the New England grid, which is increasingly reliant on natural gas.<sup><a href='print.cfm@sid=VT.html#55'>55</a>,<a href='print.cfm@sid=VT.html#56'>56</a></sup> </p>
+<p>Vermont is the only New England state that has chosen not to restructure its electricity system. The state has 1 investor-owned distribution utility, 14 municipal utilities, and 2 cooperative utilities.<sup><a href='print.cfm@sid=VT.html#57'>57</a></sup> The investor-owned utility, which serves about three-fourths of all customers, is a subsidary of Canada's Gaz Métro, which also owns Vermont's sole natural gas utility.<sup><a href='print.cfm@sid=VT.html#58'>58</a></sup> In 1956, Vermont's electric utilities pooled their transmission systems to connect with hydroelectric generators in New York and Canada, so all wholesale transmission in the state is operated by a single entity, Vermont Electric Power Company.<sup><a href='print.cfm@sid=VT.html#59'>59</a></sup> </p>
+<p>Vermont's per capita electricity consumption is among the lower one-fifth of states.<sup><a href='print.cfm@sid=VT.html#60'>60</a>,<a href='print.cfm@sid=VT.html#61'>61</a></sup> Demand for air conditioning is minimal during the mild summers, and fewer than 1 in 20 households use electricity as their primary home heating source.<sup><a href='print.cfm@sid=VT.html#62'>62</a></sup> In 1999, Vermont created an Energy Efficiency Utility to reduce power demand peaks and optimize electricity use for consumers statewide, the first such entity in the nation. The efficiency utility is funded by a fee on electric bills and regulated by the state.<sup><a href='print.cfm@sid=VT.html#63'>63</a></sup> Vermont has been reducing electricity consumption annually through its efficiency programs.<sup><a href='print.cfm@sid=VT.html#64'>64</a>,<a href='print.cfm@sid=VT.html#65'>65</a>,<a href='print.cfm@sid=VT.html#66'>66</a></sup> The state is a member of the Regional Greenhouse Gas Initiative (RGGI), established to reduce greenhouse gas emissions from power generation, and proceeds from the sale of RGGI carbon allowances help fund efficiency programs.<sup><a href='print.cfm@sid=VT.html#67'>67</a></sup> With its small net electricity generation, nearly all of it from renewable sources, Vermont has the lowest carbon dioxide emissions of any state in the nation.<sup><a href='print.cfm@sid=VT.html#68'>68</a></sup></p>
+<h2>Renewable energy </h2>
+<p>Nearly one-fifth of all energy consumed in Vermont comes from renewable sources,<sup><a href='print.cfm@sid=VT.html#69'>69</a></sup> and the state is expanding the use of renewable energy for both heating and electricity. More than one-third of school children attend facilities heated by wood products, such as wood pellets, or other biomass.<sup><a href='print.cfm@sid=VT.html#70'>70</a></sup> Nearly all the electricity generated in Vermont<sup><a href='print.cfm@sid=VT.html#71'>71</a></sup> and about 45% of the electricity consumed in the state now come from renewable resources.<sup><a href='print.cfm@sid=VT.html#72'>72</a></sup> The largest share of renewable electricity consumed comes from Canadian hydroelectricity generators. Vermont has several dozen small hydroelectric dams, which typically produce about one-tenth of state consumption.<sup><a href='print.cfm@sid=VT.html#73'>73</a></sup> Several utility-scale generators using wood and wood waste products produce more than 5% of electricity consumed.<sup><a href='print.cfm@sid=VT.html#74'>74</a></sup> The state also obtains renewable electricity from solar photovoltaic (PV), wind, landfill methane, and methane digester facilities.<sup><a href='print.cfm@sid=VT.html#75'>75</a></sup></p>
+<div class='pullquote'><p>Vermont's integrated renewable energy standard requires electric utilities to help customers reduce fossil fuel use.</p></div><p>Vermont has been the only New England state without a mandatory renewable portfolio standard, but, in 2015, the state replaced its package of economic incentives for renewables with the nation's first integrated renewable energy standard (RES).<sup><a href='print.cfm@sid=VT.html#76'>76</a></sup> The Vermont RES makes electric utilities responsible not only for supplying renewably sourced power but also for helping consumers reduce their total fossil fuel use. The RES requires that 55% of electricity sold in Vermont in 2017 be obtained from renewables, rising 4% every 3 years to reach 75% in 2032. Of that power, by 2032, 10% must come from new, in-state, renewable generation facilities smaller than 5 megawatts. The RES also created a separate energy transformation requirement, equaling another 12% of sales in 2032, which may be met with additional distributed generation or projects that reduce customers' fossil fuel use. Those projects may include home weatherization and heating efficiency measures as well as infrastructure to support adoption of EVs.<sup><a href='print.cfm@sid=VT.html#77'>77</a>,<a href='print.cfm@sid=VT.html#78'>78</a></sup> Vermont's state goals for 2025 are to obtain 67% of electricity, 30% of building energy consumption, and 10% of transportation energy from renewable sources.<sup><a href='print.cfm@sid=VT.html#79'>79</a></sup></p>
+<p>Vermont was the first state in the nation to institute a feed-in tariff for small renewable energy facilities.<sup><a href='print.cfm@sid=VT.html#80'>80</a></sup> The feed-in tariff, called the Standard Offer, guarantees owners of small renewable facilities a specific price for their power for up to 25 years. Projects bid for contracts under the tariff.<sup><a href='print.cfm@sid=VT.html#81'>81</a></sup> The state also allows net metering of small, customer-sited facilities for up to 15% of each utility's peak load.<sup><a href='print.cfm@sid=VT.html#82'>82</a></sup> The programs have encouraged growth primarily of solar generation,<sup><a href='print.cfm@sid=VT.html#83'>83</a></sup> but also small hydroelectricity, wind, and agricultural digester facilities. Both programs are at or near capacity across the state.<sup><a href='print.cfm@sid=VT.html#84'>84</a>,<a href='print.cfm@sid=VT.html#85'>85</a>,<a href='print.cfm@sid=VT.html#86'>86</a></sup> </p>
+<p>In 2015, solar power produced 5.5% of Vermont's net electricity generation and about 2% of all electricity sold in the state. Nearly half of that solar generation came from distributed facilities smaller than 1 megawatt.<sup><a href='print.cfm@sid=VT.html#87'>87</a></sup> As of late 2015, Vermont had about 95 megawatts of distributed solar capacity installed at nearly 5,000 sites and another 100 megawatts in development.<sup><a href='print.cfm@sid=VT.html#88'>88</a></sup> Commercial systems of more than 200 kilowatts' capacity are increasing.<sup><a href='print.cfm@sid=VT.html#89'>89</a></sup> Vermont's potential commercial wind resources are concentrated on its mountain ridges.<sup><a href='print.cfm@sid=VT.html#90'>90</a></sup> Four utility-scale wind farms contributed 15% of Vermont's net electricity generation and 6% of the electricity consumed in the state in 2015.<sup><a href='print.cfm@sid=VT.html#91'>91</a></sup> The state also hosts a number of small-scale wind facilities.<sup><a href='print.cfm@sid=VT.html#92'>92</a></sup> The state has a Clean Energy Development Fund, created initially with tax payments from the Vermont Yankee Nuclear Plant, to assist small-scale and community projects using renewable technologies. The fund is focusing on promoting high-efficiency combustion of wood fuels from sustainable forest ecosystems.<sup><a href='print.cfm@sid=VT.html#93'>93</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> Morrissey, Charles T., Vermont, Encyclopedia Britannica, updated April 8, 2016.<br>
+<a name='2'></a><sup>2</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: 2010 to 2015 ((NST-EST2015-01).<br>
+<a name='3'></a><sup>3</sup> U.S. Census Bureau, Geography, State Area Measurements and Internal Point Coordinates (January 1, 2010).<br>
+<a name='4'></a><sup>4</sup> U.S. Census Bureau, 2010 Census: Vermont Profile, accessed May 24, 2016.<br>
+<a name='5'></a><sup>5</sup> North East State Foresters Association, The Economic Importance of Vermont's Forest-Based Economy 2013, Executive Summary.<br>
+<a name='6'></a><sup>6</sup> U.S. Census Bureau, American FactFinder, Vermont, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='7'></a><sup>7</sup> Vermont Department of Forests, Parks and Recreation, 2015 Vermont Forest Fragmentation Report (April 2015), p. 3, 9.<br>
+<a name='8'></a><sup>8</sup> U.S. Bureau of Economic Analysis, Regional Data, GDP & Personal Income, Begin using the data, Annual Gross Domestic Product (GDP) by State, GDP in Current Dollars, Classification NAICS, All Industries, Area Vermont, Time Period 2012–14.<br>
+<a name='9'></a><sup>9</sup> Dupigny-Giroux, Lesley-Ann, Vermont's Climate, Community Collaborative Rain, Hail & Snow Network, accessed May 24, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Census Bureau, American FactFinder, Vermont, Tables B25002, Occupancy Status, and B25004, Vacancy Status, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='11'></a><sup>11</sup> Vermont Department of Public Service, Comprehensive Energy Plan, Volume I (December 2011), p. 2.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, State Energy Data System, U.S. States, Table C4, Total End-Use Energy Consumption Estimates, 2013.<br>
+<a name='13'></a><sup>13</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, Executive Summary, p. 1, 5.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2013.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2013.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, by PADD and State, 2010–15.<br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, Refinery Capacity 2015, Table 3, Capacity of Operable Petroleum Refineries by State as of January 1, 2015.<br>
+<a name='18'></a><sup>18</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2013.<br>
+<a name='19'></a><sup>19</sup> Baird, Joel Banner, “Oil Risks Roll on Vermont's Rails,” Burlington Free Press (August 15, 2014).<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Petroleum and Other Liquids, Company Level Imports (2015, 2014, 2013).<br>
+<a name='21'></a><sup>21</sup> Portland Pipe Line Corp., Montreal Pipe Line Ltd., About Us, accessed May 24, 2016.<br>
+<a name='22'></a><sup>22</sup> Bell, Tom, “Shifting Markets May Make Portland's Oil Pipeline to Quebec Redundant,” Portland Press Herald (November 30, 2015).<br>
+<a name='23'></a><sup>23</sup> Herrick, John, “13 Vermont Towns Oppose Reversal of Portland-Montreal Oil Pipeline,” VT Digger (March 5, 2014).<br>
+<a name='24'></a><sup>24</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='25'></a><sup>25</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 88.<br>
+<a name='26'></a><sup>26</sup> U.S. Census Bureau, American FactFinder, Vermont, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='27'></a><sup>27</sup> U.S. Department of Energy, Office of Fossil Energy, Heating Oil Reserve, accessed May 24, 2016.<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets (May 2012), p. 9.<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='30'></a><sup>30</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, Executive Summary, p. 9.<br>
+<a name='31'></a><sup>31</sup> U.S. Environmental Protection Agency, Gasoline Standards, see Reformulated gasoline, Reid vapor pressure, Winter oxygenates, accessed May 24, 2016.<br>
+<a name='32'></a><sup>32</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, cover page.<br>
+<a name='33'></a><sup>33</sup> Goreham, John, “Battery Electric Vehicles Make Up 0.3% of Current U.S. Auto Sales,” Torque News (March 2, 2016).<br>
+<a name='34'></a><sup>34</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, Executive Summary, p. 2, 9.<br>
+<a name='35'></a><sup>35</sup> U.S. Energy Information Administration, Natural Gas Supply and Disposition by State, 2010–15.<br>
+<a name='36'></a><sup>36</sup> U.S. Energy Information Administration, Natural Gas Proved Reserves, Wet After Lease Separation, Proved Reserves as of Dec. 31, Annual, 2009–14.<br>
+<a name='37'></a><sup>37</sup> Page, Guy, “Vermont's Electricity Outlook: Today through 2016,” Vermont Energy Partnership, accessed May 24, 2016, p. 2.<br>
+<a name='38'></a><sup>38</sup> U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, 2009–14.<br>
+<a name='39'></a><sup>39</sup> Vermont Gas, About Us, accessed May 24, 2016.<br>
+<a name='40'></a><sup>40</sup> D'Ambrosio, Dan, “VT Gas Pulls Plug on Pipeline Expansion to NY,” Burlington Free Press (February 10, 2015).<br>
+<a name='41'></a><sup>41</sup> Baynes, Luke, “Town Eyed for Gas Pipeline,” Williston Observer (April 26, 2012).<br>
+<a name='42'></a><sup>42</sup> U.S. Energy Information Administration, State Energy Data System, Table C11, Energy Consumption Estimates by Source, Ranked by State, 2013.<br>
+<a name='43'></a><sup>43</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2014, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2014 (NST-EST2014-01).<br>
+<a name='44'></a><sup>44</sup> U.S. Energy Information Administration, State Energy Data System, Table F19, Natural Gas Consumption Estimates, 2014.<br>
+<a name='45'></a><sup>45</sup> U.S. Census Bureau, American FactFinder, Vermont, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, U.S. Coal Reserves, With Data for 2014 (March 24, 2016).<br>
+<a name='47'></a><sup>47</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2013 Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860).<br>
+<a name='48'></a><sup>48</sup> ISO New England, 2016 Regional Electricity Outlook (January 2016), p. 15.<br>
+<a name='49'></a><sup>49</sup> Vermont Department of Public Service, Electric, Vermont Electric Utilities, accessed May 25, 2016.<br>
+<a name='50'></a><sup>50</sup> Bidgood, Jess, “Vermont Yankee Nuclear Plant Begins Slow Process of Closing,” New York Times (January 4, 2015).<br>
+<a name='51'></a><sup>51</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2013 Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860).<br>
+<a name='52'></a><sup>52</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source.<br>
+<a name='53'></a><sup>53</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 5.4.B.<br>
+<a name='54'></a><sup>54</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.17.B.<br>
+<a name='55'></a><sup>55</sup> ISO New England, "ISO New England Issues Statement on Entergy's Announcement to Retire Vermont Yankee Nuclear Plant," Press Release (August 27, 2013).<br>
+<a name='56'></a><sup>56</sup> Institute for Energy Research, New England Using More Natural Gas Following Vermont Yankee Closure (January 20, 2016).<br>
+<a name='57'></a><sup>57</sup> Vermont Department of Public Service, Electric, Vermont Electric Utilities, accessed May 25, 2016.<br>
+<a name='58'></a><sup>58</sup> Valener, Inc., “Gaz Metro Completes Acquisition of Central Vermont Public Service Corporation,” Press Release (June 27, 2012).<br>
+<a name='59'></a><sup>59</sup> Vermont Electric Power Co. Inc., accessed May 25, 2016.<br>
+<a name='60'></a><sup>60</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='61'></a><sup>61</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: 2010 to 2015 ((NST-EST2015-01).<br>
+<a name='62'></a><sup>62</sup> U.S. Census Bureau, American FactFinder, Vermont, Table B25040, House Heating Fuel, 2010–14 American Community Survey 5-Year Estimates.<br>
+<a name='63'></a><sup>63</sup> Vermont Public Service Board, Energy Efficiency Utility Creation and Structure, accessed May 25, 2016.<br>
+<a name='64'></a><sup>64</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 4.<br>
+<a name='65'></a><sup>65</sup> Vermont Department of Public Service, Comprehensive Energy Plan, Volume I (December 2011), p. 2.<br>
+<a name='66'></a><sup>66</sup> American Council for an Energy-Efficient Economy, State and Local Policy Database, Vermont, updated October 2015.<br>
+<a name='67'></a><sup>67</sup> Regional Greenhouse Gas Initiative, Vermont, accessed May 25, 2016.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, U.S. States, Rankings: Total Carbon Dioxide Emissions, 2013.<br>
+<a name='69'></a><sup>69</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 29.<br>
+<a name='70'></a><sup>70</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 324.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B.<br>
+<a name='72'></a><sup>72</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, Executive Summary, p. 9, 10.<br>
+<a name='73'></a><sup>73</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 379–381.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B.<br>
+<a name='75'></a><sup>75</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 280.<br>
+<a name='76'></a><sup>76</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, cover page.<br>
+<a name='77'></a><sup>77</sup> Vermont General Assembly, 2015-2016 Session, H. 40 (Act 56), Act Summary.<br>
+<a name='78'></a><sup>78</sup> Herrick, John, “Special Report: New Renewable Standard Would Revolutionize Energy Use in Vermont,” VT Digger (February 17, 2015).<br>
+<a name='79'></a><sup>79</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, Executive Summary, p. 2.<br>
+<a name='80'></a><sup>80</sup> Larson, Linda, “Vermont Experiments with Feed-In Tariffs to Promote Renewable Energy Production,” Marten Law (September 23, 2009).<br>
+<a name='81'></a><sup>81</sup> NC Clean Energy Technology Center, DSIRE, Vermont, Standard Offer Program, updated May 19, 2016.<br>
+<a name='82'></a><sup>82</sup> NC Clean Energy Technology Center, DSIRE, Vermont, Net Metering, updated August 4, 2015.<br>
+<a name='83'></a><sup>83</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, cover page.<br>
+<a name='84'></a><sup>84</sup> Solar Siting Task Force Report, to the Vermont House and Senate Committees on Natural Resources and Energy, the House Committee on Commerce and Economic Development, and the Senate Committee on Finance (January 22, 2016), p. 6.<br>
+<a name='85'></a><sup>85</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 20.<br>
+<a name='86'></a><sup>86</sup> Ring, Wilson, “Vermont Solar Growth Slowed for Now as Utilities Hit Limit,” Washington Times (January 24, 2016).<br>
+<a name='87'></a><sup>87</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B, 5.4.B.<br>
+<a name='88'></a><sup>88</sup> Solar Siting Task Force Report, to the Vermont House and Senate Committees on Natural Resources and Energy, the House Committee on Commerce and Economic Development, and the Senate Committee on Finance (January 22, 2016), p. 5, 6.<br>
+<a name='89'></a><sup>89</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 288.<br>
+<a name='90'></a><sup>90</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Vermont Wind Resource Map and Potential Wind Capacity, updated September 24, 2015).<br>
+<a name='91'></a><sup>91</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.14.B, 5.4.B.<br>
+<a name='92'></a><sup>92</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 309.<br>
+<a name='93'></a><sup>93</sup> Vermont Department of Public Service, 2016 Vermont Comprehensive Energy Plan, p. 328, 329.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="https://www.ferc.gov/industries/electric/indus-act/rto.asp" title="Regional Transmission Organization (RTO)">Regional Transmission Organization (RTO)</a>: ISO New England (ISO-NE)</li>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1A</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Northeast Power Coordinating Council (NPCC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://psb.vermont.gov/" title="Vermont Public Service Board">Vermont Public Service Board</a></li>
+  
+    <li><a href="http://publicservice.vermont.gov/topics/energy_efficiency" title="Vermont Department of Public Service, Energy Efficiency">Vermont Department of Public Service, Energy Efficiency</a></li>
+  
+    <li><a href="http://dcf.vermont.gov/esd/fuel_assistance" title="Vermont Department for Children and Families, Agency of Human Services, Fuel Assistance in Vermont">Vermont Department for Children and Families, Agency of Human Services, Fuel Assistance in Vermont</a></li>
+  
+    <li><a href="http://dcf.vermont.gov/oeo/weatherization" title="Vermont Department for Children and Families, Agency of Human Services, Vermont's Weatherization Program">Vermont Department for Children and Families, Agency of Human Services, Vermont's Weatherization Program</a></li>
+  
+    <li><a href="http://www.veda.org/veda-in-the-news/new-financing-available-for-sustainable-energy-projects" title="Vermont Economic Development Authority, Vermont Sustainable Energy Loan Fund">Vermont Economic Development Authority, Vermont Sustainable Energy Loan Fund</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://publicservice.vermont.gov" title="Vermont Department of Public Service">Vermont Department of Public Service</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Vermont website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Vermont\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/VT.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>

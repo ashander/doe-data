@@ -1,0 +1,3056 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		
+		<title>Florida Profile</title>
+		
+	   <link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print, screen">
+
+		<script language="javascript" src="https://www.eia.gov/global/scripts/jQuery/jquery-1.7.1.min.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/highcharts.js"></script>
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/js/modules/exporting.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/Jquery/highcharts/js/eia-theme.js"></script>
+		<script language="javascript" src="https://www.eia.gov/global/scripts/modules/lib/require.js"></script>
+		<script>
+			require.config({
+				'paths' : {
+					// Libraries
+					'classy'			: '/global/scripts/modules/lib/classy',
+					'numberformatter'	: '/global/scripts/modules/dist/numberformatter'
+				}
+			});
+			
+			Highcharts.setOptions({
+				plotOptions : {
+					series : {
+						animation : false
+					}
+				}
+			});
+			
+			$(document).bind('profileChartsCreated', function(){
+				window.print();
+			});
+		</script>
+		<style>
+			body {
+				width:650px;
+				margin:auto;
+			}
+			div#tabs-1, div#tabs-3, div#tabs-5 {
+				page-break-after: always;
+			}
+			
+			
+						
+	   </style>
+	</head>
+
+	<body>
+		<div id="outerX">
+			<div id="header">
+				<div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+			</div>
+			<div class="title bg_states">
+				<br/>
+				<h1>Florida State Energy Profile</h1>
+			</div>
+			<div class="pagecontent mr_temp1">
+				<div class="main_col">
+					
+					<div class="left" style="width:100%;">
+						<br /><br />
+						<h2>Florida Quick Facts</h2>
+						<!--Commenting out because last updates handled manually as of June 19, 2014<p>Last updated March 27, 2014.</p>-->
+						
+<ul>
+
+	<li>Geologists believe there may be large crude oil and natural gas deposits in the federal Outer Continental Shelf off of Florida&rsquo;s western coast.&nbsp;</li>
+	
+	<li>Florida was second only to Texas in 2015 in net electricity generation,&nbsp;and third in the nation in electricity consumption, behind Texas and California.</li>
+	
+	<li>Renewable energy accounted for 2.3% of Florida&rsquo;s total net electricity generation in 2015. Nearly nine-tenths of that renewable power came from biomass.</li>
+	
+	<li>Five-sixths of the natural gas consumed in Florida is used to generate electricity, and natural gas fuels nearly two-thirds of Florida&#39;s net electricity generation.</li>
+	
+	<li>Florida&#39;s Martin generating station is the only concentrating solar thermal plant east of the Rocky Mountains and produced one-fourth of the state&#39;s net solar generation in 2015.</li>
+	
+	<li>Electricity accounts for 90% of the site energy consumed by Florida households, and the annual electricity expenditures of $1,900 are 40% higher than the U.S. average, according to EIA&#39;s Residential Energy Consumption Survey.&nbsp;</li>
+	
+</ul>
+<div class="update">
+	<p>Last Updated: August 18, 2016</p>
+</div>
+					</div>
+					<br/>
+					
+	<div id="tabs" class="page_tabs">
+		<ul>
+			<li><a href="print.cfm@sid=FL.html#tabs-1">Consumption by Source</a></li>
+			<li><a href="print.cfm@sid=FL.html#tabs-2">Consumption by Sector</a></li>
+			<li><a href="print.cfm@sid=FL.html#tabs-3">Production</a></li>
+			<li><a href="print.cfm@sid=FL.html#tabs-4">Electricity</a></li>
+			<li><a href="print.cfm@sid=FL.html#tabs-5">Prices</a></li>
+		</ul>
+		<div id="tabs-1"><div class="chart"></div></div>
+		<div id="tabs-2"><div class="chart"></div></div>
+		<div id="tabs-3"><div class="chart"></div></div>
+		<div id="tabs-4"><div class="chart"></div></div>
+		<div id="tabs-5"><div class="chart"></div></div>
+	</div>
+
+
+		<script>
+		require(
+			['numberformatter'], 
+			function( NumberFormatter) { 
+				$(document).ready(function() {
+					var chartOptions = [ 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 20
+	},
+	title : { 
+		text : 'Florida Energy Consumption Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas','Motor Gasoline excl. Ethanol','Distillate Fuel Oil','Jet Fuel','LPG','Residual Fuel','Other Petroleum','Nuclear Electric Power','Hydroelectric Power','Biomass','Other Renewables','Net Interstate Flow of Electricity'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Florida Energy Consumption Estimates',
+		data : [557.9,1246.7,939.2,286.6,186.0,16.5,59.8,51.9,291.5,2.0,249.7,61.6,166.2]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		spacingRight: 150
+	},
+	title : { 
+		text : 'Florida Energy Consumption by End-Use Sector, 2014'
+	},
+	tooltip: {
+		formatter: function() {
+			return '<b>'+ this.point.name +'</b>: '+ NumberFormatter.round(this.percentage, 1) +' %<br>' + NumberFormatter.addCommas(this.y) + '  trillion Btu';
+		}
+	},
+	plotOptions: {
+		pie: {
+			allowPointSelect: true,
+			cursor: 'pointer',
+			dataLabels: {
+				enabled: true,
+				color: '#000000',
+				connectorColor: '#000000',
+				formatter: function() {
+					return NumberFormatter.round(this.percentage, 1) +' %';
+				},
+				softConnector: false
+			},
+			showInLegend: true,
+			borderWidth: 0
+		}
+	},
+	legend: {
+		layout: 'vertical',
+		y: -100, 
+		x: 300,
+		floating: true
+	},
+	series : [{
+		type : 'pie',
+		name : 'Energy Consumption by End-Use Sector',
+		data : [['Residential', 1199.2],['Commercial', 974.1],['Industrial', 467.8],['Transportation', 1474.6]]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Florida Energy Production Estimates, 2014'
+	},
+	xAxis : {
+		categories : ['Coal','Natural Gas - Marketed','Crude Oil','Nuclear Electric Power','Biofuels','Other Renewable Energy'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Trillion Btu',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Florida Energy Production Estimates',
+		data : [0.0,0.7,12.9,291.5,0.0,248.6]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, State Energy Data System',
+		href : '/state/seds/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Florida Net Electricity Generation by Source, Oct. 2016'
+	},
+	xAxis : {
+		categories : ['Petroleum-Fired','Natural Gas-Fired','Coal-Fired','Nuclear','Nonhydroelectric Renewables'],
+		labels : {
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'thousand MWh',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Florida Net Electricity Generation',
+		data : [55,13194,3557,1704,376]
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, Electric Power Monthly',
+		href : '/electricity/monthly/'
+	}
+}
+, 
+{
+	chart : { 
+		type : 'bar',
+		spacingRight: 40
+	},
+	title : { 
+		text : 'Florida Price Differences from U.S. Average, Most Recent Monthly'
+	},
+	xAxis : {
+		categories : ['Natural Gas - Residential','Electricity - Residential','Electricity - Commercial','Electricity - Industrial'],
+		labels : {
+			formatter : function() {
+				var link = '';
+				switch(this.value) {
+				
+					case 'Motor Gasoline - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'No. 2 Distillate - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Wholesale':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Kerosene-Type Jet Fuel - Retail':
+						link = '/petroleum/marketing/monthly/';
+						break;
+				
+					case 'Natural Gas - Citygate':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Natural Gas - Residential':
+						link = '/naturalgas/monthly/';
+						break;
+				
+					case 'Electricity - Residential':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Commercial':
+						link = '/electricity/monthly/';
+						break;
+				
+					case 'Electricity - Industrial':
+						link = '/electricity/monthly/';
+						break;
+				
+				}
+				return '<a href="https://www.eia.gov/state/'&#32;+&#32;link&#32;+&#32;'">' + this.value + '</a>';
+			}
+		}
+	},
+	legend: {
+		enabled : false
+	},
+	yAxis: {
+		min: null,
+		title: {
+			text: 'Percent',
+			align: 'high'
+		}
+	},
+	series : [{
+		name : 'Florida U.S. Price Differentials',
+		data : [{y:69.4323144105, period: Date.UTC(2016,9,1)},{y:-10.0401606426, period: Date.UTC(2016,9,1)},{y:-12.7029608405, period: Date.UTC(2016,9,1)},{y:18.3035714286, period: Date.UTC(2016,9,1)}],
+		tooltip: {
+			precision: 2
+		}
+	}],
+	credits : {
+		text : 'Source: Energy Information Administration, <a href="../petroleum/marketing/monthly/index.html">Petroleum Marketing Monthly</a>; <a href="../naturalgas/monthly/index.html">Natural Gas Monthly</a>;<br/><a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly</a>',
+		href : null,
+		position: {
+			y: -22
+		}
+	},
+	tooltip: {
+		formatter : function() {
+			return Highcharts.universalTooltipFormatter.call(this) + "<br/>" + Highcharts.dateFormat('%b-%Y', this.point.period);
+		}
+	}
+}
+];
+				
+					for(var i = 0; i < chartOptions.length; i++) {
+						$.extend(chartOptions[i].chart, {renderTo : $('#tabs-' + (i+1) + ' > .chart', $('#tabs'))[0]});
+					}
+					if($.fn.tabs) $('#tabs').tabs({
+						/* show() is deprecated in jQuery UI 1.9 and removed in 1.10 (replaced with a property by the sane name). Now using create() and activate() below. Retain this in case we have to roll back to jQuery UI 1.8 -SNW
+						show: function(event, ui) {
+							if($('.chart', $(ui.panel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.index]);
+							}
+						}
+						*/
+						// Create the first Highchart immediately when the initial tab is created
+						create: function(event, ui) {
+							var chart = new Highcharts.Chart(chartOptions[0]);
+						},
+						// Create subsequent Highcharts only after those tabs are clicked by the user
+						activate: function(event, ui) {
+							if($('.chart', $(ui.newPanel))[0].children.length == 0) {
+								var chart = new Highcharts.Chart(chartOptions[ui.newTab.index()]);
+							}
+						}
+					});
+					else $('#tabs li a').parent().hide();
+					
+					
+						var completeCounter = 0;
+						
+						completeCallback = function(){
+							if(++completeCounter == chartOptions.length)
+								$(document).trigger('profileChartsCreated');
+						}
+						
+						var chart1 = new Highcharts.Chart(chartOptions[0], completeCallback);
+						var chart2 = new Highcharts.Chart(chartOptions[1], completeCallback);
+						var chart3 = new Highcharts.Chart(chartOptions[2], completeCallback);
+						var chart4 = new Highcharts.Chart(chartOptions[3], completeCallback);
+						var chart5 = new Highcharts.Chart(chartOptions[4], completeCallback);
+					
+				});
+			}
+		);
+		</script>
+	
+					<br/>
+					
+					<h1>Data</h1>
+					<div class="update"><p><strong>Last Update:</strong> January 19, 2017 | <strong>Next Update:</strong> February 16, 2017</p></div>
+					
+
+	<script>
+
+		$(document).on('click', ".expandall.sep", function(e){
+		  $(this).text("- COLLAPSE ALL").toggleClass("expandall collapseall")
+		  .parent().siblings(".contable").children("tbody").show()
+		  .parent().find("th:first-child").addClass("active");
+		  
+			return false;
+		});
+		$(document).on('click', ".collapseall.sep", function(e){
+			$(this).text("+ EXPAND ALL").toggleClass("expandall collapseall")
+			.parent().siblings(".contable").children("tbody").hide()
+			.parent().find("th").removeClass("active");
+			
+			return false;
+		  });
+	</script>
+	<span class="condaterange">
+		<a class="no-border expandall sep">+ EXPAND ALL</a>
+	</span>
+	
+<table class="contable">
+	<thead id="EnergyIndicators">
+		<tr>
+			<th colspan="5" width="90%"><a name="EnergyIndicators"></a>Energy Indicators</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Demography</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Population 
+				</td>
+				
+				<td>
+					20.3 million 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Civilian Labor Force 
+				</td>
+				
+				<td>
+					9.9 million 
+				</td>
+				<td>
+					6.2%
+								
+				</td>
+				<td></td>
+				<td> Nov-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Economy</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product 
+				</td>
+				
+				<td>
+					$ 882.8  billion 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Gross Domestic Product for the Manufacturing Sector 
+				</td>
+				
+				<td>
+					$ 44,760  million 
+				</td>
+				<td>
+					18 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Per Capita Personal Income 
+				</td>
+				
+				<td>
+					$ 44,101 
+				</td>
+				<td>
+					29 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Vehicle Miles Traveled 
+				</td>
+				
+				<td>
+					201,040 million miles 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Land in Farms 
+				</td>
+				
+				<td>
+					9.5 million acres 
+				</td>
+				<td>
+					30 
+				</td>
+				<td></td>
+				<td> 2012 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Climate</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Average Temperature 
+				</td>
+				
+				<td>
+					73.3 degrees Fahrenheit 
+				</td>
+				<td>
+					1 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Precipitation 
+				</td>
+				
+				<td>
+					52.6 inches 
+				</td>
+				<td>
+					12 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Prices">
+		<tr>
+			<th colspan="5" width="90%"><a name="Prices"></a>Prices</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Petroleum</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&3=21&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_pri_dfp1_k_m.htm" 
+						
+							class=""
+							>
+					  Domestic Crude Oil First Purchase </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 45.00 /barrel 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Natural Gas</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PG1_DMcf_m.htm" 
+						
+							class=""
+							>
+					  City Gate </a>
+				</td>
+				
+				<td>
+					NA 
+				</td>
+				<td>
+					$ 4.19 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=139&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_pri_sum_a_EPG0_PRS_DMcf_m.htm" 
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 23.28 /thousand cu ft 
+				</td>
+				<td>
+					$ 13.74 /thousand cu ft 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&3=21&6=134&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Coal</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&3=21&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table28.xls" 
+						
+							class="ico_xls"
+							>
+					  Average Sales Price </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					$ 31.83 /short ton 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_4_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Delivered to Electric Power Sector </a>
+				</td>
+				
+				<td>
+					W 
+				</td>
+				<td>
+					$ 2.07 /million Btu 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electricity</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					11.20 cents/kWh 
+				</td>
+				<td>
+					12.45 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=134&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					9.14 cents/kWh 
+				</td>
+				<td>
+					10.47 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=135&a=true&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_5_06_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					7.95 cents/kWh 
+				</td>
+				<td>
+					6.72 cents/kWh 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&3=21&6=136&a=true&2=190">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ReservesSupply">
+		<tr>
+			<th colspan="5" width="90%"><a name="ReservesSupply"></a>Reserves & Supply</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Reserves</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=120&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_pres_a_EPC0_R01_mmbbl_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					16 million barrels 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=120&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_sum_a_EPG0_R11_BCF_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Dry Natural Gas (as of Dec. 31) </a>
+				</td>
+				
+				<td>
+					0 billion cu ft 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=120&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_enr_ngpl_s1_a.htm" 
+						
+							class=""
+							>
+					  Expected Future Production of Natural Gas Plant Liquids </a>
+				</td>
+				
+				<td>
+					0 million barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=99&5=120&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table14.xls" 
+						
+							class="ico_xls"
+							>
+					  Recoverable Coal at Producing Mines </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=120&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Rotary Rigs & Wells</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=122&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Rotary Rigs in Operation 
+				</td>
+				
+				<td>
+					2 rigs 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_wells_s1_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas Producing Wells </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=122&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=121&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/xls/P2.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Energy </a>
+				</td>
+				
+				<td>
+					554 trillion Btu 
+				</td>
+				<td>
+					0.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=121&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_crd_crpdn_adc_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Crude Oil </a>
+				</td>
+				
+				<td>
+					160 thousand barrels 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=80&5=121&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_prod_sum_a_EPG0_VGM_mmcf_a.htm" 
+						
+							class=""
+							>
+					  Natural Gas - Marketed </a>
+				</td>
+				
+				<td>
+					499 million cu ft 
+				</td>
+				<td>
+					
+									*
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=121&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table1.xls" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=121&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Capacity</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/dnav/pet/pet_pnp_cap1_a_(na)_8D0_BpCD_a.htm" 
+						
+							class=""
+							>
+					  Crude Oil Refinery Capacity (as of Jan. 1) </a>
+				</td>
+				
+				<td>
+					0 barrels/calendar day 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Electric Power Industry Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					59,477 MW 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Utility-Scale Net Electricity Generation</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=102&5=124&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_03_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					19,230 thousand MWh 
+				</td>
+				<td>
+					6.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Utility-Scale Net Electricity Generation (share of total)</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_05_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum-Fired </a>
+				</td>
+				
+				<td>
+					0.3 % 
+				</td>
+				<td>
+					0.3 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=124&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_07_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas-Fired </a>
+				</td>
+				
+				<td>
+					68.6 % 
+				</td>
+				<td>
+					32.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=124&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_04_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal-Fired </a>
+				</td>
+				
+				<td>
+					18.5 % 
+				</td>
+				<td>
+					31.8 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=124&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Nuclear </a>
+				</td>
+				
+				<td>
+					8.9 % 
+				</td>
+				<td>
+					19.4 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&5=124&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Renewables </a>
+				</td>
+				
+				<td>
+					2.0 % 
+				</td>
+				<td>
+					15.1 % 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Stocks</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=132&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPM0F_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Motor Gasoline (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					660 thousand barrels 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/pet/pet_stoc_st_a_EPD0_STR_mbbl_m.htm" 
+						
+							class=""
+							>
+					  Distillate Fuel Oil (Excludes Pipelines) </a>
+				</td>
+				
+				<td>
+					2,030 thousand barrels 
+				</td>
+				<td>
+					1.6%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=86&5=132&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../dnav/ng/ng_stor_sum_a_EPG0_sat_mmcf_m.htm" 
+						
+							class=""
+							>
+					  Natural Gas in Underground Storage </a>
+				</td>
+				
+				<td>
+					-- 
+				</td>
+				<td>
+					-- 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=132&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,933 thousand barrels 
+				</td>
+				<td>
+					14.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=132&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_3_02.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal Stocks at Electric Power Producers </a>
+				</td>
+				
+				<td>
+					4,830 thousand tons 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=132&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Production Facilities</strong></td>
+				
+				<td colspan="4"><strong>Florida</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../coal/annual/xls/table9.xls" 
+						
+							class="ico_xls"
+							>
+					  Major Coal Mines </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=123&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/petroleum/refinerycapacity/" 
+						
+							class=""
+							>
+					  Petroleum Refineries </a>
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=125&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/state/index.html" 
+						
+							class=""
+							>
+					  Major Non-Nuclear Electricity Generating Plants </a>
+				</td>
+				
+				<td colspan="4">Martin (Florida Power & Light Co) ; West County Energy Center (Florida Power & Light Co) ; Hines Energy Complex (Progress Energy Florida Inc) ; Manatee (Florida Power & Light Co) ; Sanford (Florida Power & Light Co)</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../nuclear/state/index.html" 
+						
+							class=""
+							>
+					  Nuclear Power Plants </a>
+				</td>
+				
+				<td colspan="4"> Turkey Point (Florida Power & Light Co), St. Lucie (Florida Power & Light Co)</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=119&2=190">find more</a></td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="DistributionMarketing">
+		<tr>
+			<th colspan="5" width="90%"><a name="DistributionMarketing"></a>Distribution & Marketing</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Distribution Centers</strong></td>
+				
+				<td colspan="4"><strong>Florida</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Ports 
+				</td>
+				
+				<td colspan="4">Jacksonville, Port Everglades, Tampa, Port Canaveral, Pensacola, Panama City, Port Manatee, Miami.</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=127&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Market Hubs 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Major Pipelines</strong></td>
+				
+				<td colspan="4"><strong>Florida</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=131&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Crude Oil 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Petroleum Product 
+				</td>
+				
+				<td colspan="4">Tampa Airport Pipeline Corporation, Kinder Morgan, Duke Energy</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas Liquids 
+				</td>
+				
+				<td colspan="4">None</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Interstate Natural Gas Pipelines 
+				</td>
+				
+				<td colspan="4">Florida Gas Transmission Company, Gulf South Pipeline Company LP, Gulfstream Natural Gas System LLC, Southern Natural Gas Company</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Fueling Stations</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Motor Gasoline 
+				</td>
+				
+				<td>
+					6,112 stations 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					154 stations 
+				</td>
+				<td>
+					4.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					751 stations 
+				</td>
+				<td>
+					4.9%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol 
+				</td>
+				
+				<td>
+					77 stations 
+				</td>
+				<td>
+					2.5%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Compressed Natural Gas and Other Alternative Fuels 
+				</td>
+				
+				<td>
+					71 stations 
+				</td>
+				<td>
+					2.8%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="ConsumptionExpenditures">
+		<tr>
+			<th colspan="5" width="90%"><a name="ConsumptionExpenditures"></a>Consumption & Expenditures</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Summary</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Total Consumption </a>
+				</td>
+				
+				<td>
+					4,122 trillion Btu 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_use_capita.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Total Consumption per Capita </a>
+				</td>
+				
+				<td>
+					207 million Btu 
+				</td>
+				<td>
+					47 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=126&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Total Expenditures </a>
+				</td>
+				
+				<td>
+					$ 66,414  million 
+				</td>
+				<td>
+					4 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/rank_pr.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Total Expenditures per Capita </a>
+				</td>
+				
+				<td>
+					$ 3,336 
+				</td>
+				<td>
+					51 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=78&5=721&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by End-Use Sector</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					1,199 trillion Btu 
+				</td>
+				<td>
+					5.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=134&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					974 trillion Btu 
+				</td>
+				<td>
+					5.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=135&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					468 trillion Btu 
+				</td>
+				<td>
+					1.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=136&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					1,480 trillion Btu 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=137&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Residential </a>
+				</td>
+				
+				<td>
+					$ 14,493  million 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=134&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Commercial </a>
+				</td>
+				
+				<td>
+					$ 10,462  million 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=135&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Industrial </a>
+				</td>
+				
+				<td>
+					$ 4,308  million 
+				</td>
+				<td>
+					1.7%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=136&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_te.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Transportation </a>
+				</td>
+				
+				<td>
+					$ 37,151  million 
+				</td>
+				<td>
+					5.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=721&6=137&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>by Source</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Consumption
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_pa.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					304.4 million barrels 
+				</td>
+				<td>
+					4.4%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_ng.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					1,221.0 billion cu ft 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_cl.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					23.6 million short tons 
+				</td>
+				<td>
+					2.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Expenditures
+				</td>
+				<td colspan="4"></td>
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_pa.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					$ 40,058  million 
+				</td>
+				<td>
+					4.6%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=721&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_ng.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					$ 7,468  million 
+				</td>
+				<td>
+					4.3%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=721&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style=";white-space:nowrap;">
+					&nbsp;&nbsp&nbsp;&nbsp»&nbsp;
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_pr_cl.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					$ 1,858  million 
+				</td>
+				<td>
+					4.1%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=721&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Consumption for Electricity Generation</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?5=126&6=138&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_09_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Petroleum </a>
+				</td>
+				
+				<td>
+					99 thousand barrels 
+				</td>
+				<td>
+					6.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=79&5=126&6=138&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_11_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Natural Gas </a>
+				</td>
+				
+				<td>
+					97,268 million cu ft 
+				</td>
+				<td>
+					12.5%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=96&5=126&6=138&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_2_08_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Coal </a>
+				</td>
+				
+				<td>
+					1,598 thousand short tons 
+				</td>
+				<td>
+					2.9%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=101&5=126&6=138&2=190">find more</a></td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Energy Source Used for Home Heating (share of households)</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Average</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Natural Gas 
+				</td>
+				
+				<td>
+					4.5 % 
+				</td>
+				<td>
+					48.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Fuel Oil 
+				</td>
+				
+				<td>
+					0.2 % 
+				</td>
+				<td>
+					5.6 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Electricity 
+				</td>
+				
+				<td>
+					92.3 % 
+				</td>
+				<td>
+					37.2 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Liquefied Petroleum Gases 
+				</td>
+				
+				<td>
+					1.1 % 
+				</td>
+				<td>
+					4.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Other/None 
+				</td>
+				
+				<td>
+					1.9 % 
+				</td>
+				<td>
+					3.8 % 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+<table class="contable">
+	<thead id="Environment">
+		<tr>
+			<th colspan="5" width="90%"><a name="Environment"></a>Environment</th>
+			<th width="10%">&nbsp;</th>
+		</tr>
+	</thead>
+	
+		<tbody>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Capacity</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?1=112&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_6_02_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Total Renewable Energy Electricity Net Summer Capacity </a>
+				</td>
+				
+				<td>
+					1,444 MW 
+				</td>
+				<td>
+					0.8%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					Ethanol Plant Operating Capacity 
+				</td>
+				
+				<td>
+					0 million gal/year 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2016 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Production</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_10_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Hydroelectric Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					NM 
+				</td>
+				<td>
+					NM 
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/data/browser/index.html" 
+						
+							class=""
+							>
+					  Utility-Scale Solar, Wind, and Geothermal Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					18 thousand MWh 
+				</td>
+				<td>
+					0.1%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_15_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Utility-Scale Biomass Net Electricity Generation </a>
+				</td>
+				
+				<td>
+					358 thousand MWh 
+				</td>
+				<td>
+					7.4%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/monthly/xls/table_1_17_a.xlsx" 
+						
+							class="ico_xls"
+							>
+					  Distributed (Small-Scale) Solar Photovoltaic Generation </a>
+				</td>
+				
+				<td>
+					21 thousand MWh 
+				</td>
+				<td>
+					1.3%
+								
+				</td>
+				<td></td>
+				<td> Oct-16 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="seds/sep_prod/pdf/P1.pdf" 
+						
+							class="ico_pdf"
+							>
+					  Ethanol Production </a>
+				</td>
+				
+				<td>
+					0 Thousand Barrels 
+				</td>
+				<td>
+					0.0%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Renewable Energy Consumption</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>U.S. Rank</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=661&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_sum/html/sum_btu_totcb.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Renewable Energy Consumption as a Share of State Total </a>
+				</td>
+				
+				<td>
+					7.6 % 
+				</td>
+				<td>
+					29 
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="https://www.eia.gov/state/seds/data.cfm?incfile=/state/seds/sep_fuel/html/fuel_use_en.html&amp;sid=US&amp;sid=FL"
+						
+							class=""
+							>
+					  Ethanol Consumption </a>
+				</td>
+				
+				<td>
+					19,179 thousand barrels 
+				</td>
+				<td>
+					3 
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Total Emissions</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../environment/emissions/state/state_emissions.cfm.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					228.0 million metric tons 
+				</td>
+				<td>
+					4.2%
+								
+				</td>
+				<td></td>
+				<td> 2014 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr class="summary">
+				<td width="25%"><strong>Electric Power Industry Emissions</strong></td>
+				
+				<td><strong>Florida</strong></td>
+				<td><strong>Share of U.S.</strong></td>
+				<td></td>
+				<td><strong>Period</strong></td>
+				
+				<td><a class="ico_search" href="search/index.html#?7=150&6=138&2=190">find more</a></td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Carbon Dioxide </a>
+				</td>
+				
+				<td>
+					111,863 thousand metric tons 
+				</td>
+				<td>
+					5.5%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Sulfur Dioxide </a>
+				</td>
+				
+				<td>
+					77 thousand metric tons 
+				</td>
+				<td>
+					3.0%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+			<tr>
+				<td width="25%" style="">
+					
+						<a href="../electricity/annual/html/epa_09_05.html" 
+						
+							class=""
+							>
+					  Nitrogen Oxide </a>
+				</td>
+				
+				<td>
+					76 thousand metric tons 
+				</td>
+				<td>
+					4.2%
+								
+				</td>
+				<td></td>
+				<td> 2015 
+				</td>
+				
+				<td>&nbsp;</td>
+			</tr>
+		
+		</tbody></table>
+		
+					<br/>
+					
+					<h1>Analysis</h1>
+					<!--Commenting out because last updates will be handled manually as of June 19, 2014<p class="dat">Last Updated: December 18, 2013</p>-->
+					<p>Last Updated: August 18, 2016<p>
+<h2>Overview </h2>
+<div class='pullquote'><p>Florida is one of the largest energy-consuming states, but its per capita energy consumption is among the lowest.</p></div><p>Florida consists of a 447-mile-long peninsula, extending from the Georgia border south to the Florida Keys, and a northern panhandle stretching 361 miles from the Atlantic Ocean to Alabama. The state has about 1,200 miles of shoreline, half of it sandy beaches.<sup><a href='print.cfm@sid=FL.html#1'>1</a></sup> The warm waters of the Gulf Stream wrap around Florida and travel northward along the state's Atlantic coast.<sup><a href='print.cfm@sid=FL.html#2'>2</a></sup> The sea moderates Florida's warm climate year round but also makes the state one of the most humid in the nation, with frequent summer thunderstorms and occasional devastating hurricanes.<sup><a href='print.cfm@sid=FL.html#3'>3</a></sup> The north and central parts of the state have gentle hills, but the south is close to sea level, and the state's average elevation is only 100 feet.<sup><a href='print.cfm@sid=FL.html#4'>4</a></sup> </p>
+<p>Florida was the fourth-largest state by population in the 2010 U.S. Census and became the third-most populated state in 2014.<sup><a href='print.cfm@sid=FL.html#5'>5</a>,<a href='print.cfm@sid=FL.html#6'>6</a></sup> Until the 20th century, the state was largely rural and sparsely populated. Florida has been one of the fastest growing states in recent decades,<sup><a href='print.cfm@sid=FL.html#7'>7</a>,<a href='print.cfm@sid=FL.html#8'>8</a></sup> in part because air conditioning became widely available.<sup><a href='print.cfm@sid=FL.html#9'>9</a></sup> More Florida homes&mdash;19 out of 20&mdash;have air conditioning than have heating systems.<sup><a href='print.cfm@sid=FL.html#10'>10</a></sup> International trade, tourism, the space industry, and agriculture are leading Florida industries, with construction, high technology, financial services, and the life sciences growing in importance.<sup><a href='print.cfm@sid=FL.html#11'>11</a></sup> Florida produces only small amounts of crude oil and natural gas<sup><a href='print.cfm@sid=FL.html#12'>12</a>,<a href='print.cfm@sid=FL.html#13'>13</a></sup> and consumes substantially more energy than it produces.<sup><a href='print.cfm@sid=FL.html#14'>14</a></sup> With its large population, Florida is one of the five largest energy-consuming states,<sup><a href='print.cfm@sid=FL.html#15'>15</a></sup> but its per capita energy consumption ranks among the five lowest states<sup><a href='print.cfm@sid=FL.html#16'>16</a></sup> because of relatively low industrial sector consumption. The transportation sector leads state energy demand, followed by the residential sector.<sup><a href='print.cfm@sid=FL.html#17'>17</a></sup></p>
+<h2>Petroleum</h2>
+<p>Prospectors spent more than 40 years drilling dry holes in Florida's panhandle and in the southwest around the Everglades before finally striking oil in 1943.<sup><a href='print.cfm@sid=FL.html#18'>18</a></sup> Production from the two regions peaked at more than 100,000 barrels per day in 1978<sup><a href='print.cfm@sid=FL.html#19'>19</a></sup> with the development of the Jay Field in the Panhandle, but production statewide has dropped to about 6,000 barrels per day in recent years.<sup><a href='print.cfm@sid=FL.html#20'>20</a></sup> Florida has few proved crude oil reserves, but the estimated amount has increased in recent reassessments.<sup><a href='print.cfm@sid=FL.html#21'>21</a></sup> Geologists believe there may be substantial additional potential reserves in federal waters in the eastern Gulf of Mexico, off Florida's western coast.<sup><a href='print.cfm@sid=FL.html#22'>22</a></sup> Florida enacted a drilling ban for state waters in 1990,<sup><a href='print.cfm@sid=FL.html#23'>23</a>,<a href='print.cfm@sid=FL.html#24'>24</a></sup> and, in 2006, Congress banned leasing of federal offshore lands within 125 miles of Florida's Gulf of Mexico coast until at least 2022.<sup><a href='print.cfm@sid=FL.html#25'>25</a>,<a href='print.cfm@sid=FL.html#26'>26</a></sup> In addition, federal law gives priority use of much of the area to military training.<sup><a href='print.cfm@sid=FL.html#27'>27</a></sup></p>
+<div class='pullquote'><p>Tourism and traffic through busy international airports drive heavy consumption of transportation fuels.</p></div><p>Florida does not have any crude oil refineries<sup><a href='print.cfm@sid=FL.html#28'>28</a></sup> and relies on petroleum products delivered by tanker and barge to Florida marine terminals, primarily at the ports of Jacksonville, Miami, Port Canaveral, Port Manatee, and Port Everglades. Petroleum product imports, including motor gasoline and motor gasoline blending components, residual fuel oil, jet fuel, and asphalt, arrive in Florida from around the world. Ethanol is also imported, mainly from Brazil.<sup><a href='print.cfm@sid=FL.html#29'>29</a></sup></p>
+<p>In part because of Florida's tourism industry<sup><a href='print.cfm@sid=FL.html#30'>30</a></sup> and heavy passenger and cargo traffic through its international airports,<sup><a href='print.cfm@sid=FL.html#31'>31</a></sup> state demand for motor gasoline and jet fuel is among the highest in the United States.<sup><a href='print.cfm@sid=FL.html#32'>32</a>,<a href='print.cfm@sid=FL.html#33'>33</a></sup> More than nine-tenths of Florida's petroleum consumption occurs in the transportation sector.<sup><a href='print.cfm@sid=FL.html#34'>34</a></sup> Florida has repealed its requirement that all motor gasoline be blended with ethanol;<sup><a href='print.cfm@sid=FL.html#35'>35</a></sup> federal requirements for lower vapor pressure summer gasolines in Florida's urban areas were lifted beginning in 2014.<sup><a href='print.cfm@sid=FL.html#36'>36</a></sup> Until the middle of the last decade, petroleum and petroleum coke provided more than one-sixth of Florida's net electricity generation, producing the largest amount of power from those fuels in any state.<sup><a href='print.cfm@sid=FL.html#37'>37</a></sup> However, electric utilities are replacing older petroleum-fired units with natural gas-fired units, and petroleum products now fuel less than 1% of Florida's net electricity generation.<sup><a href='print.cfm@sid=FL.html#38'>38</a>,<a href='print.cfm@sid=FL.html#39'>39</a></sup></p>
+<h2>Natural gas</h2>
+<p>Florida's natural gas production peaked in the late 1970s, and by 2009 it had fallen to a small fraction of earlier production.<sup><a href='print.cfm@sid=FL.html#40'>40</a></sup> Increased natural gas withdrawals since 2009 have primarily been used to repressure oil reservoirs to improve oil recovery. Only a small amount of Florida's limited natural gas production is marketed.<sup><a href='print.cfm@sid=FL.html#41'>41</a></sup> Natural gas is produced from the same fields that produce crude oil. Almost all of the state's natural gas production comes from the Jay Field in the Florida Panhandle.<sup><a href='print.cfm@sid=FL.html#42'>42</a></sup> Geologists believe economically recoverable natural gas deposits may lie offshore in the eastern Gulf of Mexico,<sup><a href='print.cfm@sid=FL.html#43'>43</a>,<a href='print.cfm@sid=FL.html#44'>44</a></sup> but remaining onshore proved reserves are quite small.<sup><a href='print.cfm@sid=FL.html#45'>45</a></sup> </p>
+<p>Florida receives nearly all of its natural gas from the Gulf Coast region via two major interstate pipelines: the Florida Gas Transmission pipeline, which runs from Texas through the Florida panhandle to Miami, and the Gulfstream pipeline, an underwater link from Mississippi and Alabama to central Florida.<sup><a href='print.cfm@sid=FL.html#46'>46</a>,<a href='print.cfm@sid=FL.html#47'>47</a>,<a href='print.cfm@sid=FL.html#48'>48</a></sup> A small amount of natural gas comes into northern Florida via the Southern Natural pipeline from Georgia.<sup><a href='print.cfm@sid=FL.html#49'>49</a>,<a href='print.cfm@sid=FL.html#50'>50</a>,<a href='print.cfm@sid=FL.html#51'>51</a></sup> An additional pipeline is being developed to increase natural gas supply to the peninsula.<sup><a href='print.cfm@sid=FL.html#52'>52</a>,<a href='print.cfm@sid=FL.html#53'>53</a></sup> Plans for an offshore liquefied natural gas import terminal, approved in 2009 for a location near Port Manatee, south of Tampa, have been abandoned as U.S. natural gas imports have dwindled.<sup><a href='print.cfm@sid=FL.html#54'>54</a></sup></p>
+<p>Most of Florida's natural gas is consumed in electric power generation.<sup><a href='print.cfm@sid=FL.html#55'>55</a></sup> Six of the state's 10 largest electricity generating plants are fueled with natural gas.<sup><a href='print.cfm@sid=FL.html#56'>56</a></sup> Natural gas has displaced petroleum and coal in the electric power sector.<sup><a href='print.cfm@sid=FL.html#57'>57</a>,<a href='print.cfm@sid=FL.html#58'>58</a>,<a href='print.cfm@sid=FL.html#59'>59</a></sup> About 1 in 20 Florida households use natural gas as a primary home heating fuel.<sup><a href='print.cfm@sid=FL.html#60'>60</a></sup></p>
+<h2>Coal</h2>
+<p>Florida does not mine any coal.<sup><a href='print.cfm@sid=FL.html#61'>61</a></sup> Almost all of the coal consumed in the state is used for electricity generation. Coal is providing a decreasing amount of the state's power but still supplied nearly one-fifth of net electricity generation in 2015.<sup><a href='print.cfm@sid=FL.html#62'>62</a></sup> Domestic supplies for Florida's coal-fired electricity generating plants are delivered by railroad and barge, mostly from Kentucky, Illinois, Indiana, and West Virginia.<sup><a href='print.cfm@sid=FL.html#63'>63</a></sup> Florida generators also import coal from abroad, typically from Latin America.<sup><a href='print.cfm@sid=FL.html#64'>64</a></sup></p>
+<h2>Electricity</h2>
+<p>Florida is one of the largest producers of electricity in the United States, second only to Texas,<sup><a href='print.cfm@sid=FL.html#65'>65</a></sup> but Florida still brings in some electricity from adjoining states to meet demand.<sup><a href='print.cfm@sid=FL.html#66'>66</a>,<a href='print.cfm@sid=FL.html#67'>67</a></sup> Natural gas is the leading fuel for in-state electricity production, generating nearly two-thirds of net electricity.<sup><a href='print.cfm@sid=FL.html#68'>68</a></sup> Natural gas-fired generation has nearly doubled in the past decade.<sup><a href='print.cfm@sid=FL.html#69'>69</a></sup> Natural gas has almost entirely displaced petroleum, which supplied more than one-fifth of generation in 2001, and reduced coal's share from more than one-third in 2001 to less than one-fifth in 2015.<sup><a href='print.cfm@sid=FL.html#70'>70</a>,<a href='print.cfm@sid=FL.html#71'>71</a>,<a href='print.cfm@sid=FL.html#72'>72</a></sup> However, some natural gas plants retain capability to switch to petroleum fuels, and petroleum remains an important backup fuel source in case of natural gas supply constraints.<sup><a href='print.cfm@sid=FL.html#73'>73</a></sup> Two nuclear power plants on Florida's Atlantic Coast produce most of the state's remaining net electricity generation.<sup><a href='print.cfm@sid=FL.html#74'>74</a></sup> A third plant, on the Gulf coast, is being decommissioned.<sup><a href='print.cfm@sid=FL.html#75'>75</a></sup> New nuclear plants have been proposed at two Florida locations, but plans have not gone forward as electricity demand growth has leveled off, in part because of state efficiency programs.<sup><a href='print.cfm@sid=FL.html#76'>76</a>,<a href='print.cfm@sid=FL.html#77'>77</a></sup></p>
+<p>Florida's annual electricity demand growth, which had exceeded 2% before 2008, dropped in the recession to less than half that rate.<sup><a href='print.cfm@sid=FL.html#78'>78</a></sup> Demand growth is recovering, but the lower rate has extended the time available to bring planned new generating capacity online.<sup><a href='print.cfm@sid=FL.html#79'>79</a>,<a href='print.cfm@sid=FL.html#80'>80</a></sup> About nine-tenths of planned new capacity is natural gas-fueled and one-tenth is renewable, primarily solar.<sup><a href='print.cfm@sid=FL.html#81'>81</a></sup> Electric utility planners expect the state's electricity generating fuel mix to remain fairly stable in the next few years, with natural gas providing about three-fifths of net electricity generation and coal about one-fifth.<sup><a href='print.cfm@sid=FL.html#82'>82</a></sup></p>
+<p>The residential sector typically consumes more than half of Florida's electricity.<sup><a href='print.cfm@sid=FL.html#83'>83</a></sup> More than 9 in 10 Florida households use electricity as their primary energy source for home heating,<sup><a href='print.cfm@sid=FL.html#84'>84</a></sup> and, with even more households using electricity for air conditioning,<sup><a href='print.cfm@sid=FL.html#85'>85</a></sup> the state's per capita residential electricity consumption is among the highest one-fourth of states. Commercial sector consumption per capita is also high, but total electricity consumption per capita is below the national average because industrial use is small.<sup><a href='print.cfm@sid=FL.html#86'>86</a>,<a href='print.cfm@sid=FL.html#87'>87</a></sup></p>
+<h2>Renewable energy</h2>
+<p>Florida gets only a small portion of its energy from renewable sources.<sup><a href='print.cfm@sid=FL.html#88'>88</a></sup> Most of its renewable electricity comes from biomass, with the remainder coming from two hydroelectricity generators in the Panhandle<sup><a href='print.cfm@sid=FL.html#89'>89</a></sup> and solar facilities scattered around the state.<sup><a href='print.cfm@sid=FL.html#90'>90</a>,<a href='print.cfm@sid=FL.html#91'>91</a></sup> Agricultural and municipal solid waste; landfill and waste gas; and waste heat recovery dominate Florida's renewable energy facilities. Utility-scale solar technologies comprise almost one-sixth of the state's renewable electricity generating capacity,<sup><a href='print.cfm@sid=FL.html#92'>92</a></sup> but utility-scale and distributed (customer-sited small-scale) solar facilities together contribute less than one-tenth of the state's renewable net generation.<sup><a href='print.cfm@sid=FL.html#93'>93</a></sup></p>
+<div class='pullquote'><p>Biomass, including agricultural and municipal wastes, dominates Florida's renewable energy.</p></div><p>Florida does not have a renewable energy portfolio,<sup><a href='print.cfm@sid=FL.html#94'>94</a></sup> but it does have state and local incentives, such as net metering, for certain renewable energy technologies, including solar.<sup><a href='print.cfm@sid=FL.html#95'>95</a>,<a href='print.cfm@sid=FL.html#96'>96</a></sup> With good solar thermal and photovoltaic (PV) resources statewide,<sup><a href='print.cfm@sid=FL.html#97'>97</a></sup> Florida expects more than two-thirds of the utility-scale renewable energy capacity built through 2024 to be solar PV.<sup><a href='print.cfm@sid=FL.html#98'>98</a>,<a href='print.cfm@sid=FL.html#99'>99</a></sup> The Martin Next Generation Solar Energy Center in Martin County, Florida, a 75-megawatt concentrating solar power facility combined with a 1,100-megawatt combined-cycle natural gas generating plant, is the only concentrating solar thermal generating facility east of the Rocky Mountains<sup><a href='print.cfm@sid=FL.html#100'>100</a></sup> as well as the world's first retrofit hybrid combined-cycle solar-natural gas plant.<sup><a href='print.cfm@sid=FL.html#101'>101</a>,<a href='print.cfm@sid=FL.html#102'>102</a></sup> Distributed solar PV capacity is increasing, with nearly 75 megawatts installed in the state at the end of 2014 and 101 megawatts by January 2016.<sup><a href='print.cfm@sid=FL.html#103'>103</a>,<a href='print.cfm@sid=FL.html#104'>104</a></sup> </p>
+<p>About one-fourth of Florida's renewable capacity additions through 2024 are expected to use biomass.<sup><a href='print.cfm@sid=FL.html#105'>105</a></sup> The state has abundant biomass resources, including municipal and agricultural wastes. A cellulosic ethanol plant, designed to produce 8 million gallons of ethanol per year from yard, vegetative, and wood wastes, is located near Vero Beach, Florida.<sup><a href='print.cfm@sid=FL.html#106'>106</a></sup> Another ethanol plant designed to use sweet sorghum as a feedstock is under construction.<sup><a href='print.cfm@sid=FL.html#107'>107</a></sup> There are also three operational biodiesel plants in the state<sup><a href='print.cfm@sid=FL.html#108'>108</a></sup> and several dozen small combined-heat-and-power facilities using biomass-based fuels at industrial sites, including sugar cane, food processing and chemical facilities.<sup><a href='print.cfm@sid=FL.html#109'>109</a>,<a href='print.cfm@sid=FL.html#110'>110</a></sup> Florida has limited wind resources and no installed commercial wind capacity, though some wind power components are manufactured in the state.<sup><a href='print.cfm@sid=FL.html#111'>111</a>,<a href='print.cfm@sid=FL.html#112'>112</a></sup> The potential for a small amount of additional hydroelectric power exists in the northern part of the state.<sup><a href='print.cfm@sid=FL.html#113'>113</a></sup></p>
+<p><h2>Endnotes</h2><p>
+<a name='1'></a><sup>1</sup> State of Florida, Florida Quick Facts, Florida Geography, accessed July 7, 2016.<br>
+<a name='2'></a><sup>2</sup> Zimmerman, Kim Ann, "What is the Gulf Stream?" Live Science (January 15, 2013).<br>
+<a name='3'></a><sup>3</sup> Griffin, Melissa, "Florida ... The â€˜Liquid' Sunshine State," Community Collaborative Rain, Hail & Snow Network, State Climate Series, accessed July 7, 2016.<br>
+<a name='4'></a><sup>4</sup> NETSTATE, Florida, The Geography of Florida, updated February 25, 2016.<br>
+<a name='5'></a><sup>5</sup> U.S. Census Bureau, Population Distribution and Change: 2000 to 2010 (March 2011), p. 2.<br>
+<a name='6'></a><sup>6</sup> U.S. Census Bureau, "Florida Passes New York to Become the Nation's Third Most Populous State," Press Release (December 23, 2014).<br>
+<a name='7'></a><sup>7</sup> Hobbes, Frank, and Nicole Stoops, "Demographic Trends in the 20th Century," U.S. Census Bureau, CENSR-4 (November 2002), p. 17, 22, 26.<br>
+<a name='8'></a><sup>8</sup> U.S. Census Bureau, "Florida Passes New York to Become the Nation's Third Most Populous State," Press Release (December 23, 2014).<br>
+<a name='9'></a><sup>9</sup> Briney, Amanda, "The Sunbelt of the Southern and Western United States," About Education, accessed July 7, 2016.<br>
+<a name='10'></a><sup>10</sup> U.S. Energy Information Administration, Residential Energy Consumption Survey (RECS), 2009 RECS Survey Data, Air Conditioning, Table HC7.10, and Space Heating, Table HC6.10.<br>
+<a name='11'></a><sup>11</sup> State of Florida, Florida Quick Facts, Florida Economy, State Spending & Taxes, accessed July 7, 2016.<br>
+<a name='12'></a><sup>12</sup> U.S. Energy Information Administration, Florida, Profile Data, Reserves & Supply, accessed July 7, 2016.<br>
+<a name='13'></a><sup>13</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Gross Withdrawals, Annual-Million Cubic Feet, 2010-15.<br>
+<a name='14'></a><sup>14</sup> U.S. Energy Information Administration, State Energy Data System, Production, Table P3, Energy Production and Consumption Estimates in Trillion Btu, 2014.<br>
+<a name='15'></a><sup>15</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Total Consumption Estimates by End Use Sector, 2014.<br>
+<a name='16'></a><sup>16</sup> U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.<br>
+<a name='17'></a><sup>17</sup> U.S. Energy Information Administration, State Energy Data System, Table C10, Total Consumption Estimates by End Use Sector, 2014.<br>
+<a name='18'></a><sup>18</sup> American Oil & Gas Historical Society, "First Florida Oil Well," accessed July 8, 2016.<br>
+<a name='19'></a><sup>19</sup> Spencer, Starr, "New Frontiers: A Once-Booming Florida Oil Industry Tries to Get Back to the Past," Platts (January 7, 2013).<br>
+<a name='20'></a><sup>20</sup> U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels per Day, 2010-15.<br>
+<a name='21'></a><sup>21</sup> U.S. Energy Information Administration, Crude Oil Plus Lease Condensate Proved Reserves, Reserve Changes and Production, Florida, Annual, 2009-14.<br>
+<a name='22'></a><sup>22</sup> U.S. Bureau of Ocean Energy Management, Assessment of Undiscovered Technically Recoverable Oil and Gas Resources of the Nation's Outer Continental Shelf, BOEM Fact Sheet RED-2011-01a (November 2011), p. 3.<br>
+<a name='23'></a><sup>23</sup> Braslow, Leigh Derenne, "Coastal Petroleum's Fight to Drill off Florida's Gulf Coast," Journal of Land Use & Environmental Law, Vol 12/2, p. 352, accessed July 8, 2016.<br>
+<a name='24'></a><sup>24</sup> Online Sunshine, The 2016 Florida Statutes, Title XXVIII, 377.242, accessed July 8, 2016.<br>
+<a name='25'></a><sup>25</sup> "Obama Bans Eastern Gulf Drilling for 7 Years," CNN (December 1, 2010).<br>
+<a name='26'></a><sup>26</sup> U.S. Bureau of Ocean Energy Management, Areas Under Moratoria, accessed July 8, 2016.<br>
+<a name='27'></a><sup>27</sup> U.S. Bureau of Ocean Energy Management, Gulf of Mexico Energy Security Act (GOMESA) Areas (November 1, 2012).<br>
+<a name='28'></a><sup>28</sup> U.S. Energy Information Administration, Total Number of Operable Refineries, 2011-16.<br>
+<a name='29'></a><sup>29</sup> U.S. Energy Information Administration, Petroleum & Other Liquids, Company Level Imports, see all months 2015, 2014, 2013.<br>
+<a name='30'></a><sup>30</sup> U.S. Energy Information Administration, "Florida Gasoline Supply Sources and Prices Reflect Broader Market Shifts," Today in Energy (April 1, 2014).<br>
+<a name='31'></a><sup>31</sup> Airports Council International-North America, Airport Traffic Reports, accessed July 8, 2016.<br>
+<a name='32'></a><sup>32</sup> U.S. Energy Information Administration, State Energy Data System, Table F3, Motor Gasoline Consumption, Price, and Expenditure Estimates, 2014.<br>
+<a name='33'></a><sup>33</sup> U.S. Energy Information Administration, U.S. States, Table F2, Jet Fuel Consumption, Price, and Expenditure Estimates, 2014.<br>
+<a name='34'></a><sup>34</sup> U.S. Energy Information Administration, State Energy Data System, Table F15, Total Petroleum Consumption Estimates, 2014.<br>
+<a name='35'></a><sup>35</sup> McLaughlin, Tom, "Rick Scott Signs Ethanol Bill Repealing Required Percentage Statute," The Huffington Post (June 1, 2013).<br>
+<a name='36'></a><sup>36</sup> U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Reid Vapor Pressure, updated June 27, 2016.<br>
+<a name='37'></a><sup>37</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='38'></a><sup>38</sup> Starnes, Joshua, "Florida Gas-Fired Power Plant Latest Move Away From Fuel Oil," Platts (April 29, 2013).<br>
+<a name='39'></a><sup>39</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.5.B, 1.6.B.<br>
+<a name='40'></a><sup>40</sup> U.S. Energy Information Administration, Florida Natural Gas Gross Withdrawals, 1971-2014.<br>
+<a name='41'></a><sup>41</sup> U.S. Energy Information Administration, Natural Gas Gross Withdrawals and Production, Florida, Annual-Million Cubic Feet, 2009-14.<br>
+<a name='42'></a><sup>42</sup> Florida Department of Environmental Protection, Oil and Gas Annual Production Reports, 2015 APR.<br>
+<a name='43'></a><sup>43</sup> U.S. Bureau of Ocean Energy Management, Assessment of Undiscovered Technically Recoverable Oil and Gas Resources of the Nation's Outer Continental Shelf, BOEM Fact Sheet RED-2011-01a (November 2011), p. 3.<br>
+<a name='44'></a><sup>44</sup> Congressional Budget Office, Potential Budgetary Effects of Immediately Opening Most Federal Lands to Oil and Gas Leasing (August 2012), p. 3.<br>
+<a name='45'></a><sup>45</sup> U.S. Energy Information Administration, Natural Gas Reserves Summary as of Dec. 31, Florida, Annual, 2009-14.<br>
+<a name='46'></a><sup>46</sup> U.S. Energy Information Administration, International & Interstate Movements of Natural Gas by State, Florida, Annual, 2009-14.<br>
+<a name='47'></a><sup>47</sup> Florida Gas Transmission Co. LLC, Available Capacity and Allocations, accessed July 8, 2016.<br>
+<a name='48'></a><sup>48</sup> Spectra Energy, U.S. Pipelines, Gulfstream Natural Gas, accessed July 8, 2016.<br>
+<a name='49'></a><sup>49</sup> U.S. Energy Information Administration, About U.S. Natural Gas Pipelines, Natural Gas Pipelines in the Southeast Region, accessed July 8, 2016.<br>
+<a name='50'></a><sup>50</sup> Kinder Morgan, Natural Gas Pipelines & Facilities, updated August 22, 2013.<br>
+<a name='51'></a><sup>51</sup> "El Paso Corporation Completes Cypress Pipeline Expansion Project to Serve Growing Southeastern Markets," PR Newswire (May 1, 2007).<br>
+<a name='52'></a><sup>52</sup> Orzek, Kurt, "Sabal Trail Gets Easement Win for $3B Natural Gas Pipeline," Law360 (May 24, 2016).<br>
+<a name='53'></a><sup>53</sup> Sabal Trail Transmission, map, accessed July 8, 2016.<br>
+<a name='54'></a><sup>54</sup> Johnson, Matt, "U.S. Natural Gas Market Kills Port Manatee Pipeline Project," Bradenton Herald (January 4, 2016).<br>
+<a name='55'></a><sup>55</sup> U.S. Energy Information Administration, State Energy Data System, Table F19, Natural Gas Consumption Estimates, 2014.<br>
+<a name='56'></a><sup>56</sup> U.S. Energy Information Administration, State Electricity Profiles, Florida Electricity Profile 2014, Table 2, Ten largest plants by generation capacity, 2014.<br>
+<a name='57'></a><sup>57</sup> U.S. Energy Information Administration, Natural Gas Consumption by End Use, Florida, Annual, 2010-15.<br>
+<a name='58'></a><sup>58</sup> Spear, Kevin, "Low Cost Spurs Utilities' Switch to Natural Gas, But Will Price Hold?" Orlando Sentinel (July 14, 2012).<br>
+<a name='59'></a><sup>59</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='60'></a><sup>60</sup> U.S. Census Bureau, American FactFinder, Florida, Table B25040, House Heating Fuel, American Community Survey 5-Year Estimates, 2014.<br>
+<a name='61'></a><sup>61</sup> U.S. Energy Information Administration, Annual Coal Report 2014 (March 23, 2016), Table 1, Coal Production and Number of Mines by State and Mine Type, 2014.<br>
+<a name='62'></a><sup>62</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B.<br>
+<a name='63'></a><sup>63</sup> U.S. Energy Information Administration, Archive, Annual Coal Distribution Report, Domestic distribution of U.S. coal by destination State, consumer, destination and method of transportation (2014, 2013, 2012), Florida.<br>
+<a name='64'></a><sup>64</sup> Union of Concerned Scientists, Burning Coal, Burning Cash: Ranking the States That Import the Most Coal, 2014 Update, p. 6, 13, 16.<br>
+<a name='65'></a><sup>65</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 1.3.B.<br>
+<a name='66'></a><sup>66</sup> U.S. Energy Information Administration, U.S. States, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014.<br>
+<a name='67'></a><sup>67</sup> U.S. Energy Information Administration, State Electricity Profiles, Florida Electricity Profile 2014, Table 10, Supply and disposition of electricity, 1990-2014.<br>
+<a name='68'></a><sup>68</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B.<br>
+<a name='69'></a><sup>69</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='70'></a><sup>70</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.5.B, 1.7.B.<br>
+<a name='71'></a><sup>71</sup> U.S. Energy Information Administration, Electricity, Detailed State Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).<br>
+<a name='72'></a><sup>72</sup> Starnes, Joshua, "Florida Gas-Fired Power Plant Latest Move Away From Fuel Oil," Platts (April 29, 2013).<br>
+<a name='73'></a><sup>73</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slides 20, 21, 31.<br>
+<a name='74'></a><sup>74</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.9.B.<br>
+<a name='75'></a><sup>75</sup> U.S. Nuclear Regulatory Commission, Crystal River Unit 3 Nuclear Generating Plant, updated March 4, 2016.<br>
+<a name='76'></a><sup>76</sup> U.S. Nuclear Regulatory Commission, Location of Projected New Nuclear Power Reactors, updated April 1, 2016.<br>
+<a name='77'></a><sup>77</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slides 7-14.<br>
+<a name='78'></a><sup>78</sup> Florida Public Service Commission, Review of the 2012 Ten-Year Site Plans for Florida's Electric Utilities (December 2012), p. 1-2.<br>
+<a name='79'></a><sup>79</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slides 7-14.<br>
+<a name='80'></a><sup>80</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 2, 21.<br>
+<a name='81'></a><sup>81</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 4.<br>
+<a name='82'></a><sup>82</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slides 20, 21.<br>
+<a name='83'></a><sup>83</sup> U.S. Energy Information Administration, U.S. States, Table F21, Electricity Consumption Estimates, 2014.<br>
+<a name='84'></a><sup>84</sup> U.S. Census Bureau, American FactFinder, Florida, Table B25040, House Heating Fuel, American Community Survey 5-Year Estimates, 2014.<br>
+<a name='85'></a><sup>85</sup> U.S. Energy Information Administration, Residential Energy Consumption Survey (RECS), 2009 RECS Survey Data, Air Conditioning, Table HC7.10, and Space Heating, Table HC6.10.<br>
+<a name='86'></a><sup>86</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.<br>
+<a name='87'></a><sup>87</sup> U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).<br>
+<a name='88'></a><sup>88</sup> U.S. Energy Information Administration, U.S. States, Table C1, Energy Consumption Overview: Estimates by Energy Source and End-Use Sector, 2014.<br>
+<a name='89'></a><sup>89</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 27.<br>
+<a name='90'></a><sup>90</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.11.B, 1.14.B, 1.15.B, 1.17.B, 1.18.B.<br>
+<a name='91'></a><sup>91</sup> Solar Energy Industries Association, Florida Solar, accessed July 9, 2016.<br>
+<a name='92'></a><sup>92</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slides 20, 22.<br>
+<a name='93'></a><sup>93</sup> U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.10.B, 1.11.B, 1.17.B, 1.18.B.<br>
+<a name='94'></a><sup>94</sup> Durkay, Jocelyn, State Renewable Portfolio Standards and Goals, National Conference of State Legislators (March 23, 2016).<br>
+<a name='95'></a><sup>95</sup> NC Clean Energy Technology, DSIRE, Programs, Florida, Financial Incentives, accessed July 9, 2016.<br>
+<a name='96'></a><sup>96</sup> NC Clean Energy Technology, DSIRE, Florida, Net Metering, updated November 9, 2015.<br>
+<a name='97'></a><sup>97</sup> National Renewable Energy Laboratory, Solar Maps, U.S. Solar Resource Maps, Photovoltaics and Concentrating Solar Power, updated February 22, 2015.<br>
+<a name='98'></a><sup>98</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slide 23.<br>
+<a name='99'></a><sup>99</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 27.<br>
+<a name='100'></a><sup>100</sup> National Renewable Energy Laboratory, Concentrating Solar Power Projects, Martin Next Generation Solar Energy Center, updated January 25, 2013.<br>
+<a name='101'></a><sup>101</sup> Florida Power & Light Co., Solar Energy Centers, accessed July 9, 2016.<br>
+<a name='102'></a><sup>102</sup> Armistead, Thomas F., "Integrating Solar, Conventional Energy Resources," Combined Cycle Journal (July 15, 2011).<br>
+<a name='103'></a><sup>103</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 3, 25-26.<br>
+<a name='104'></a><sup>104</sup> U.S. Energy Information Administration, Electric Power Monthly (March 2016), Table 6.2.B. <br>
+<a name='105'></a><sup>105</sup> Florida Reliability Coordinating Council, Florida Public Service Commission, 2015 Ten-Year Site Plan Workshop, FRCC Presentation (September 15, 2015), slide 23.<br>
+<a name='106'></a><sup>106</sup> Jessen, Holly, and Susanne Retka Schill, "Bringing Up the Throttle on Cellulosic Ethanol," Ethanol Producer Magazine (March 16, 2016).<br>
+<a name='107'></a><sup>107</sup> Ethanol Producers Magazine, U.S. Ethanol Plants, Under Construction, updated January 23, 2016.<br>
+<a name='108'></a><sup>108</sup> Biodiesel Magazine, USA Plants, Existing, updated December 8, 2015.<br>
+<a name='109'></a><sup>109</sup> U.S. Department of Energy Combined Heat and Power Installation Database, Combined Heat and Power Installations in Florida (December 31, 2015).<br>
+<a name='110'></a><sup>110</sup> U.S. Sugar Corporation and Florida Crystals,  Florida Sugar Farmers: Proud Partners in the Everglades Restoration, (1998), p. 17, 18.<br>
+<a name='111'></a><sup>111</sup> U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, Florida Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.<br>
+<a name='112'></a><sup>112</sup> American Wind Energy Association, Florida Wind Energy, accessed July 9, 2016.<br>
+<a name='113'></a><sup>113</sup> Florida Public Service Commission, Review of the 2015 Ten-Year Site Plans of Florida's Electric Utilities (November 2015), p. 27.<br>
+</p>
+					<br/>
+					
+					<h1>Other Resources</h1>
+					
+
+<h4>Energy-Related Regions and Organizations</h4>
+<ul>
+  
+    <li><a href="http://www.eia.gov/todayinenergy/detail.php?id=4890" title="Petroleum Administration for Defense District (PADD)">Petroleum Administration for Defense District (PADD)</a>: 1C</li>
+  
+    <li><a href="http://www.nerc.com/AboutNERC/keyplayers/Pages/Regional-Entities.aspx" title="North American Electric Reliability Corporation (NERC) Region">North American Electric Reliability Corporation (NERC) Region</a>: Florida Reliability Coordinating Council (FRCC), SERC Reliability Corporation (SERC)</li>
+  
+</ul>
+<h4>Other Websites</h4>
+<ul>
+  
+    <li><a href="http://www.freshfromflorida.com/Divisions-Offices/Energy" title="Florida Department of Agriculture and Consumer Services, Office of Energy">Florida Department of Agriculture and Consumer Services, Office of Energy</a></li>
+  
+    <li><a href="http://www.psc.state.fl.us/" title="Florida Public Service Commission">Florida Public Service Commission</a></li>
+  
+    <li><a href="http://www.floridajobs.org/job-seekers-community-services/community-services/low-income-home-energy-assistance-program" title="Florida Department of Economic Opportunity, Low-Income Home Energy Assistance Program">Florida Department of Economic Opportunity, Low-Income Home Energy Assistance Program</a></li>
+  
+    <li><a href="http://www.floridajobs.org/job-seekers-community-services/community-services/weatherization-assistance-program" title="Florida Department of Economic Opportunity, Weatherization Assistance Program">Florida Department of Economic Opportunity, Weatherization Assistance Program</a></li>
+  
+    <li><a href="../special/gulf_of_mexico/index.html" title="EIA Gulf of Mexico Fact Sheet">EIA Gulf of Mexico Fact Sheet</a></li>
+  
+    <li><a href="http://www.dep.state.fl.us/air/emission/emissions.htm" title="Florida Department of Environmental Protection - Department of Air Resources Division">Florida Department of Environmental Protection - Department of Air Resources Division</a></li>
+  
+    <li><a href="http://www.afdc.energy.gov/afdc/laws/" title="Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws">Alternative Fuels and Advanced Vehicle Data Center, Federal and State Incentives and Laws</a></li>
+  
+    <li><a href="http://snmrec.fau.edu/" title="Florida Atlantic University - Southeast National Marine Renewable Energy Center">Florida Atlantic University - Southeast National Marine Renewable Energy Center</a></li>
+  
+    <li><a href="https://www.benefits.gov/benefits/browse-by-category/category/27" title="Benefits.Gov, Energy Assistance">Benefits.Gov, Energy Assistance</a></li>
+  
+    <li><a href="http://dsireusa.org/" title="NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)">NC Clean Technology Center, Database of State Incentives for Renewables and Efficiency (DSIRE)</a></li>
+  
+    <li><a href="http://www.naruc.org/about-naruc/regulatory-commissions/" title="National Association of Regulatory Utility Commissioners (NARUC)">National Association of Regulatory Utility Commissioners (NARUC)</a></li>
+  
+    <li><a href="http://www.naseo.org/" title="National Association of State Energy Officials (NASEO)">National Association of State Energy Officials (NASEO)</a></li>
+  
+    <li><a href="http://www.ncsl.org/issues-research.aspx?tabs=951,65,163#951" title="National Conference of State Legislatures (NCSL), Energy">National Conference of State Legislatures (NCSL), Energy</a></li>
+  
+    <li><a href="http://www.nrel.gov/gis/" title="National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools">National Renewable Energy Laboratory (NREL)-Dynamic Maps, Geographic Information System (GIS) Data and Analysis Tools</a></li>
+  
+    <li><a href="https://www2.usgs.gov/pubprod/maps.html" title="U.S. Geological Survey (USGS) Maps, Imagery, and Publications">U.S. Geological Survey (USGS) Maps, Imagery, and Publications</a></li>
+  
+    <li><a href="http://iogcc.publishpath.com/" title="Interstate Oil and Gas Compact Commission">Interstate Oil and Gas Compact Commission</a></li>
+  
+    <li><a href="http://www.boem.gov/" title="U.S. Bureau of Ocean Energy Management">U.S. Bureau of Ocean Energy Management</a></li>
+  
+    <li><a href="http://eflorida.com/Clean_Energy.aspx?id=8516" title="eFlorida/Enterprise Florida - Cleantech">eFlorida/Enterprise Florida - Cleantech</a></li>
+  
+    <li><a href="http://www.dep.state.fl.us/water/mines/oil_gas/index.htm" title="Florida Department of Environmental Protection Mining and Minerals Regulation Oil and Gas">Florida Department of Environmental Protection Mining and Minerals Regulation Oil and Gas</a></li>
+  
+    <li><a href="http://www.sepa.doe.gov" title="Southeastern Power Administration">Southeastern Power Administration</a></li>
+  
+    <li><a href="http://www.dep.state.fl.us/mainpage/programs/siting.htm" title="Florida Department of Environmental Protection - Siting Coordination Office">Florida Department of Environmental Protection - Siting Coordination Office</a></li>
+  
+    <li><a href="http://www.fsec.ucf.edu/en/" title="Florida Solar Energy Center">Florida Solar Energy Center</a></li>
+  
+    <li><a href="http://www.floridaenergy.ufl.edu/" title="Florida Energy Systems Consortium">Florida Energy Systems Consortium</a></li>
+  
+    <li><a href="http://www.acf.hhs.gov/programs/ocs/liheap/" title="United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program">United States Department of Health and Human Services, Administration for Children and Families, Low Income Home Energy Assistance Program</a></li>
+  
+</ul>
+
+<hr />
+  
+  <p>Email suggestions for additional Florida website resources to:
+  <script language="JavaScript">
+	var name = "states";
+	var domain = "eia.gov";
+	document.write('<a href="https://www.eia.gov/state/\&quot;mailto:'" + name + '@' + domain + '?Subject=Comments/Suggestions for Florida\">');
+	document.write(name + '@' + domain + '</a>');
+	</script>.</p>
+
+				</div>
+			</div>
+		</div>
+		<div  style="page-break-before:always !important;" >
+	<img src="https://www.eia.gov/state/maps/print/FL.png" height="90%" width="90%" />
+	</div>
+	</body>
+</html>
