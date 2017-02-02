@@ -1,0 +1,519 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="X-UA-Compatible" content="IE=9" > <!-- IE9 mode -->
+<link href="https://www.eia.gov/styles/eia_sitewideF.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://www.eia.gov/energyexplained/styles/energyfacts.css" type="text/css" media="screen">
+<link rel="stylesheet" href="https://www.eia.gov/energyexplained/styles/energyfactsframe.css" type="text/css" media="screen">
+<link rel="stylesheet" href="https://www.eia.gov/energyexplained/styles/jquery.treeviewM.css" type="text/css" media="screen">
+<link rel="stylesheet" href="https://www.eia.gov/energyexplained/styles/rate_page.css" type="text/css" media="screen">
+<link rel="stylesheet" href="https://www.eia.gov/energyexplained/styles/print.css" type="text/css" media="print"/>
+<link rel="stylesheet" type="text/css" href="https://www.eia.gov/kids/shadowbox/shadowbox.css">
+<script type="text/javascript" src="https://www.eia.gov/styles/eia_header.js"></script>
+<script language="JavaScript" src="https://www.eia.gov/styles/eia_footer.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://www.eia.gov/kids/shadowbox/shadowbox.js"></script>
+
+<script src="https://www.eia.gov/energyexplained/js/jquery.treeview.js" type="text/javascript"></script>
+<script src="https://www.eia.gov/energyexplained/js/demom.js" type="text/javascript"></script>
+<script src="https://www.eia.gov/energyexplained/js/rating_style.js" type="text/javascript"></script>
+
+<title>Biofuels: Ethanol and Biodiesel - Energy Explained, Your Guide To Understanding Energy - Energy Information Administration</title>
+
+<script language="javascript">
+var selectedTab = "basics-k";
+
+	
+	function showPanel(tab, name)
+	{
+		if (selectedTab)
+		{
+			document.getElementById('tab' + selectedTab).className = 'tabinactive';
+			document.getElementById(selectedTab).className = 'panelinactive';
+		}
+		selectedTab = name;
+		document.getElementById('tab' + selectedTab).className = 'tabactive';
+		document.getElementById(selectedTab).className = 'panelactive';
+		getPrintPage();
+		return false;
+	}
+
+function getPrintPage()
+{
+	var x = location.href.search(/index/);
+	if(x == "-1")
+	{
+		document.getElementById('printTab').href = location.href.replace(/\?page/,"print.cfm?page");
+	}
+	else
+	{
+		document.getElementById('printTab').href = location.href.replace(/index/,"print");
+	}
+}
+
+var the_tab=0;
+
+function checkURL()
+{
+	var all_tabs=document.getElementById("tabs").getElementsByTagName("li");
+	the_tab=location.hash.substring(4);
+	if (the_tab > 0)
+	{
+		the_tab=the_tab - 1;
+	}
+	else
+	{
+		the_tab=0;
+	}
+
+	if (the_tab != "")
+	{
+		showPanel(all_tabs[the_tab].firstChild.href, all_tabs[the_tab].id.substring(3));
+	}
+}
+
+	
+	function emailPage()
+{
+	var browser=navigator.appName;
+	var SubjectLine='Take a look at this web page from the Energy Information Administration! ';
+	var BodyText='You can find the web page at: '+top.location.href;
+	var Message='mailto:?SUBJECT='+escape(SubjectLine)+'&BODY='+escape(BodyText);
+	var MessageIE='mailto:?SUBJECT='+(SubjectLine)+'&BODY='+(BodyText);
+	if(browser=="Microsoft Internet Explorer")
+		{
+			document.getElementById("email-this").href=MessageIE;
+		}
+	else
+		{
+			document.getElementById("email-this").href=Message;
+		}
+
+}
+
+	
+
+function showplace() {
+	var whichpage = location.search;
+	var endurl = whichpage.indexOf("?", 1);
+	if (endurl != -1)
+	{
+		whichpage = "im" + whichpage.substring(6, endurl);
+	}
+	else
+	{
+		whichpage = "im" + whichpage.substring(6);
+	}
+
+//		alert(document.getElementById(whichpage).id);
+
+	if (document.getElementById(whichpage) != null && document.getElementById(whichpage).id == whichpage)
+	{
+		document.getElementById(whichpage).style.display = "inline";
+	}
+
+}
+
+Shadowbox.init({
+    language: 'en',
+    players:  ['img', 'iframe'],
+	handleOversize: "resize"
+});
+
+window.onload = function(){
+
+	emailPage();
+	showplace();
+	checkURL();
+	$('.selected').focus();
+};
+
+</script>
+
+</head>
+<body class="home">
+<div id="print-hed"><img src="https://www.eia.gov/energyexplained/images/style-images/e-explained_150x75.jpg" alt="Energy Explained"></div>
+   <table width="100%" border="0" align="center" cellpadding="3" id="content">
+
+
+
+
+      <tr>
+         <td colspan="2" style="padding-bottom: 0px;">
+
+			<script language="JavaScript">InsertEIAHeaderCode();</script>
+
+
+<!--
+       <div id="eialogo"><a href="http://www.eia.gov/"><img src="images/style-images/eia-logo.jpg" width="410" height="55" border="0" alt="oxy/eia logo" align="left"></a>
+         </div>
+         <div id="search" style="margin-bottom: -20px;">
+         
+<form method="get" action="http://usasearch.gov/search" class="search">
+<input type="hidden" name="affiliate" value="eia.doe.gov">
+<input type="hidden" name="v:project" value="firstgov">
+
+<input type="text" name="query" size="28" maxlength="256" title="enter the information you are searching for" />
+
+<input type="button" name="search" alt="enter terms to search" align="absmiddle" value="Search" title="click to search EIA">
+		<p style="margin-right: 200px;"><a href="http://www.eia.gov/glossary/index.html">Glossary</a></p>
+</form></fieldset>
+
+         </div>
+   -->
+
+         <div id="breadcrumbs">
+            <p><a href='../index.html'>Home</a> > <a href='https://www.eia.gov/energyexplained/index.cfm'>Energy Explained</a> > <a href='https://www.eia.gov/energyexplained/index.cfm?page=renewable_home'><b>Renewable Sources</b></a> > Biofuels: Ethanol &amp; Biodiesel</p>
+         </div>
+         </td>
+      </tr>
+
+      <tr>
+         <td id="donotprint">
+         
+         <div class='home-link'><a href='https://www.eia.gov/energyexplained/index.cfm'><img src='https://www.eia.gov/energyexplained/images/style-images/e-explained-home.jpg' width='220' height='37' alt='Energy Explained - Home'></a></div><div class='menu' id='main'><ul><ul id='navigation'> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_home'>What Is Energy?</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_forms_of_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_forms_of_energy'>Forms of Energy</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_sources_of_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_sources_of_energy'>Sources of Energy</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_laws_of_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_laws_of_energy'>Laws of Energy</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_units' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units'>Units and Calculators</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_conversion_calculator' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_energy_conversion_calculator'>Energy Conversion Calculators</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_btu' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_btu'>British Thermal Units (Btu)</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_degree_days' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_degree_days'>Degree-Days</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_home'>U.S. Energy Facts</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_state' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_state'>State and U.S. Territory Data</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use'>Use of Energy</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_industry' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_industry'>In Industry</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_transportation' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_transportation'>For Transportation</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_homes' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_homes'>In Homes</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imus_energy_commercial' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_commercial'>In Commercial Buildings</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imabout_energy_efficiency' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=about_energy_efficiency'>Efficiency and Conservation</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_home'>Energy and the Environment</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_about_ghg' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_about_ghg'>Greenhouse Gases</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_how_ghg_affect_climate' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_how_ghg_affect_climate'>Effect on the Climate</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_where_ghg_come_from' class='activepage' style='display:none;' /><a href='../energy_in_brief/article/greenhouse_gas.cfm.html'>Where Greenhouse Gases Come From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_outlook_for_emissions' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_outlook_for_emissions'>Outlook for Future Emissions</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imenvironment_recycling' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=environment_recycling'>Recycling and Energy</a> </ul> <li class='rightnav-split open'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnonrenewable_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nonrenewable_home'><b>Nonrenewable Sources</b></a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_home'>Oil and Petroleum Products</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_refining' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_refining'>Refining Crude Oil</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_where' class='activepage' style='display:none;' /><a href='../energy_in_brief/article/world_oil_market.cfm.html'>Where Our Oil Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_imports' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_imports'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_offshore' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_offshore'> &nbsp;&nbsp;&nbsp;&nbsp;Offshore Oil and Gas</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_use'>Use of Oil</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_prices'>Prices and Outlook</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imoil_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=oil_environment'>Oil and the Environment</a> </ul> </ul><ul> <ul><li style='display:block; position: relative; left:16px; max-width:150px;width:150px; margin-top:-6px;//display:inline-block; //margin-top:-9px;'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_home'>Gasoline</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_where'>Where Our Gasoline Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_use'>Use of Gasoline</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_prices'>Prices and Outlook</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_factors_affecting_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_factors_affecting_prices'>Factors Affecting Gasoline Prices</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_regional' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_regional'>Regional Price Differences</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_fluctuations' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_fluctuations'>Price Fluctuations</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_history' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_history'>History of Gasoline</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgasoline_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=gasoline_environment'>Gasoline &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_home'>Diesel Fuel</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_where'>Where Our Diesel Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_use'>Use of Diesel</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_prices'>Prices and Outlook</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_factors_affecting_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_factors_affecting_prices'>Factors Affecting Diesel Prices</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_surcharges' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_surcharges'>Diesel Fuel Surcharges</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imdiesel_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=diesel_environment'>Diesel &amp; the Environment</a> </ul> <li style='display:block;//display:inline-block; position: relative; left:16px; max-width:150px;width:150px; //margin-top:-3px;'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=heating_oil_home'>Heating Oil</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=heating_oil_where'>Where Our Heating Oil Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=heating_oil_use'>Use of Heating Oil</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=heating_oil_prices'>Prices and Outlook</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imheating_oil_factors_affecting_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=heating_oil_factors_affecting_prices'>Factors Affecting Heating Oil Prices</a> </ul> </ul> </ul> </ul> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_home'>Hydrocarbon Gas Liquids</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_where'>Where do Hydrocarbon Gas Liquids Come From?</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_transporting_storing' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_transporting_storing'>Transporting and Storing</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_uses' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_uses'>Uses of Hydrocarbon Gas Liquids</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_imports_exports' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_imports_exports'>Imports and Exports</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhgls_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hgls_prices'>Prices</a> </ul> </ul> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home'>Natural Gas</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_delivery' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_delivery'>Delivery and Storage</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_pipelines' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_pipelines'> &nbsp;&nbsp;&nbsp;&nbsp;Natural Gas Pipelines</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_lng' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_lng'> &nbsp;&nbsp;&nbsp;&nbsp;Liquefied Natural Gas</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_where'>Where Our Natural Gas Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_imports' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_imports'>&nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a><br>&nbsp;&nbsp;&nbsp;&nbsp;<em style='line-height:16px;'>Offshore: See Oil</em> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_reserves' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_reserves'>How Much Gas Is Left</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_use'>Use of Natural Gas</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_prices'>Prices</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_factors_affecting_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_factors_affecting_prices'>Factors Affecting Natural Gas Prices</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_environment'>Natural Gas &amp; the Environment</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnatural_gas_customer_choice' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_customer_choice'>Customer Choice Programs</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_home'>Coal</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_mining' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_mining'>Mining and Transportation</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_where'>Where Our Coal Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_imports' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_imports'> &nbsp;&nbsp;&nbsp;&nbsp;Imports and Exports</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_reserves' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_reserves'>How Much Coal Is Left</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_use' class='activepage' style='display:none;' /><a href='../energy_in_brief/article/role_coal_us.cfm.html'>Use of Coal</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_prices'>Prices and Outlook</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imcoal_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=coal_environment'>Coal &amp; the Environment</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home'>Nuclear</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_power_plants' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_power_plants'>Nuclear Power Plants</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_fuel_cycle' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_fuel_cycle'>The Nuclear Fuel Cycle</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_where'>Where Our Uranium Comes From</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_use'>U.S. Nuclear Industry</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imnuclear_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=nuclear_environment'>Nuclear Power &amp; the Environment</a> </ul> </ul> <li class='open'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imrenewable_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=renewable_home'><b>Renewable Sources</b></a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home'>Hydropower</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_where'>Where Hydropower Is Generated</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_environment'>Hydropower &amp; the Environment</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_tidal' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_tidal'>Tidal Power</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_wave' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_wave'>Wave Power</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydropower_ocean_thermal_energy_conversion' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydropower_ocean_thermal_energy_conversion'>Ocean Thermal Energy Conversion</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_home'>Biomass</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_wood' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_wood'>Wood and Wood Waste</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_waste_to_energy' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_waste_to_energy'>Waste-to-Energy (MSW)</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_biogas' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_biogas'>Landfill Gas and Biogas</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiomass_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biomass_environment'>Biomass &amp; the Environment</a><br><em style='line-height:16px;'>See also: Biofuels</em> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home'>Biofuels: Ethanol &amp; Biodiesel</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_home'>Ethanol</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_use'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Ethanol</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_ethanol_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_environment'> &nbsp;&nbsp;&nbsp;&nbsp;Ethanol &amp; the Environment</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_home'>Biodiesel</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_use'> &nbsp;&nbsp;&nbsp;&nbsp;Use of Biodiesel</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imbiofuel_biodiesel_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_environment'> &nbsp;&nbsp;&nbsp;&nbsp;Biodiesel &amp; the Environment</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_home'>Wind</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_electricity_generation' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_electricity_generation'>Electricity Generation from Wind</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_where'>Where Wind Power Is Harnessed</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_types_of_turbines' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_types_of_turbines'>Types of Wind Turbines</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_history' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_history'>History of Wind Power</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imwind_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=wind_environment'>Wind Energy &amp; the Environment</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home'>Geothermal</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_where'>Where Geothermal Energy Is Found</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_use'>Use of Geothermal Energy</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_power_plants' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_power_plants'>Geothermal Power Plants</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_heat_pumps' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_heat_pumps'>Geothermal Heat Pumps</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imgeothermal_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=geothermal_environment'>Geothermal Energy &amp; the Environment</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_home'>Solar</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_photovoltaics' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_photovoltaics'>Photovoltaics and Electricity</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_where' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_where'>Where Solar Is Found</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_thermal_power_plants' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_thermal_power_plants'>Solar Thermal Power Plants</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_thermal_collectors' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_thermal_collectors'>Solar Thermal Collectors</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsolar_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=solar_environment'>Solar Energy and the Environment</a> </ul> </ul> <li class='open'><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imsecondary_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=secondary_home'><b>Secondary Sources</b></a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_home'>Electricity</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_science' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_science'>The Science of Electricity</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_magnets' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_magnets'>Magnets and Electricity</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_batteries' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_batteries'>Batteries, Circuits, &amp; Transformers</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_measuring' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_measuring'>Measuring Electricity</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_generating' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_generating'>How Electricity Is Generated</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_in_the_united_states' class='activepage' style='display:none;' /><a href='../energy_in_brief/article/fuel_mix_for_elect_generation.cfm.html'>Electricity in the U.S.</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_delivery' class='activepage' style='display:none;' /><a href='../energy_in_brief/article/power_grid.cfm.html'>Delivery To Consumers</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_use'>Use of Electricity</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_factors_affecting_prices' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_factors_affecting_prices'>Prices and Factors Affecting Prices</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imelectricity_environment' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=electricity_environment'>Electricity &amp; the Environment</a> </ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_home' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydrogen_home'>Hydrogen</a> <ul> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_production' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydrogen_production'>Production of Hydrogen</a> <li><img src='https://www.eia.gov/energyexplained/images/style-images/acpage.png' id='imhydrogen_use' class='activepage' style='display:none;' /><a href='https://www.eia.gov/energyexplained/index.cfm?page=hydrogen_use'>Use of Hydrogen</a> </ul></ul></ul></ul></div> 
+         
+
+             <div id="outreach-image">
+             <a href="../todayinenergy.1.html"><img src="https://www.eia.gov/todayinenergy/badges/smt1.png" /></a><br><br>
+             <a href="https://www.eia.gov/energyexplained/outreach.cfm" ><img src="https://www.eia.gov/energyexplained/images/style-images/outreach.jpg" border="0" alt="Help promote Energy Explained with the outreach toolkit" ></a>
+             </div>
+             
+             
+
+         </td>
+         <td width="735" >
+
+         <div id="page-frame" >
+         
+            <h1 id="pagetitle" style="background-image:url(https://www.eia.gov/energyexplained/images/section-headings/biofuels.jpg);" >
+            <div class="pgtitle"></div>
+            </h1>
+         
+              <div class="main">
+
+                  <ul id="tabs">
+                  
+                     
+                              <li class='tabactive' id='tabbasics-k'><a href='index.html@page=biofuel_home.html#tab1' onMouseDown="return event.returnValue = showPanel(this, 'basics-k');" ><span><b>Basics</b></span></a></li>
+						   
+                              <li class='tabinactive' id='tabstats'><a href='index.html@page=biofuel_home.html#tab2' onMouseDown="return event.returnValue = showPanel(this, 'stats');" ><span><b>Data &amp; Statistics</b></span></a></li>
+						   
+                  
+                  </ul>
+                  
+                  <div class="print-email-share" align="right">
+                       
+                       <a href="index.html@page=biofuel_home.html##" id="printTab" title="Print this page" target="_blank" onMouseOver="getPrintPage();">
+                       <img src="https://www.eia.gov/energyexplained/images/style-images/print-this.png" id="print-icon" alt="Print this page icon" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('print-icon').src='images/style-images/print-this-over.png';" onMouseOut="document.getElementById('print-icon').src='images/style-images/print-this.png';" title="Print this page" style="cursor: pointer;"/></a>
+                       |&nbsp;
+                       <a href="index.html@page=biofuel_home.html##" title="Email someone about this page" id="email-this">
+                       <img src="https://www.eia.gov/energyexplained/images/style-images/email-this.png" id="email-icon" alt="Email this page" width="73" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('email-icon').src='images/style-images/email-this-over.png';" onMouseOut="document.getElementById('email-icon').src='images/style-images/email-this.png';"/></a>
+                       <noscript>
+                       <a href="mailto:?SUBJECT=Take%20a%20look%20at%20this%20article%20from%20the%20Energy%20Information%20Administration%21" title="Email someone about this page"><img src="https://www.eia.gov/energyexplained/images/style-images/email-this.png" alt="Email this page" width="73" height="28" border="0" align="absmiddle"/></a>
+                       </noscript>
+                       &nbsp;|&nbsp;
+                       					<!-- AddThis Bookmark Button BEGIN -->
+					<script type="text/javascript">
+                    addthis_url = location.href;
+                    addthis_title = document.title;                    
+                    addthis_logo_background = 'EFEFFF';
+                    addthis_logo_color      = '666699';
+                    addthis_options         = 'favorites, facebook, delicious, digg, myspace, google, live, furl, stumbleupon';
+                    
+                    </script>
+                    
+					<script type="text/javascript">var addthis_pub = 'Energy Information Administration';</script><script type="text/javascript" src="https://www.eia.gov/energyexplained/js/bookmarks.js"></script>  
+					<!-- AddThis Bookmark Button END -->
+                       <a href="http://www.addthis.com/bookmark.php" onClick="return addthis_sendto()" title="Share this page">
+                       <img src="https://www.eia.gov/energyexplained/images/style-images/share-this2.png" id="share-icon" alt="Share this page" width="140" height="28" border="0" align="absmiddle" onMouseOver="document.getElementById('share-icon').src='images/style-images/share-this-over2.png';" onMouseOut="document.getElementById('share-icon').src='images/style-images/share-this2.png';"/></a>
+                  </div>
+                  
+                  
+                  
+                     
+                  
+                  <div class='panelactive' id="basics-k">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+
+
+<p>Biofuels are transportation fuels like <a href="https://www.eia.gov/energyexplained/?page=biofuel_ethanol_home">ethanol</a> and <a href="https://www.eia.gov/energyexplained/?page=biofuel_biodiesel_home">biodiesel</a> that are made from biomass materials. These fuels are usually blended with petroleum fuels (gasoline and diesel fuel), but they can also be used on their own. Using ethanol or biodiesel means less gasoline and diesel fuel is burned, which can reduce the amount of crude oil imported from other countries. Ethanol and biodiesel are also cleaner-burning fuels than pure gasoline and diesel fuel.</p>
+
+<h2>What is ethanol?</h2>
+
+<p>Ethanol is an alcohol fuel made from the sugars found in grains like corn, sorghum, and barley.</p>
+
+<div class="image right"><div class="image-title">U.S. Department of Agriculture research geneticists study switchgrass as a source of ethanol.</div>
+<img width="265" alt="Switchgrass can yield almost twice as much ethanol as corn, estimates geneticist Ken Vogel, who is conducting breeding and genetics research on switchgrass to improve its biomass yield and its ability to recycle carbon as a renewable energy crop.
+Photo by Brett Hampton." src="https://www.eia.gov/energyexplained/images/stock/usda_geneticist_studying_switchgrass.jpg"/>
+<div class="image-caption">
+  <p class="footnote-or-source">Photo Credit: <a href="http://www.ars.usda.gov/is/graphics/photos/feb01/k9268-23.jpg">Brett Hampton, USDA Agricultural Research Sevice</a> (Public Domain)</p>
+</div>
+</div>
+
+
+
+<br />
+<p>Other sources of sugars to produce ethanol include</p>
+
+<ul>
+
+<li>Sugar cane</li>
+<li>Sugar beets</li>
+<li>Potato skins</li> 
+<li>Rice</li>
+<li>Yard clippings</li>
+<li>Tree bark</li>
+<li><a href="http://plants.usda.gov/factsheet/pdf/fs_pavi2.pdf">Switchgrass</a></li>
+</ul><br />
+
+<p>Most of the fuel ethanol used in the United States is distilled from corn. Scientists are working on ways to make ethanol from all parts of plants and trees rather than just grain. Farmers are experimenting with fast-growing woody crops such as small poplar and willow trees and switchgrass to see if they can be used to produce ethanol. </p>
+
+<h2>Ethanol is blended with gasoline</h2>
+
+<div class="image right">
+
+<div class="image-title">A biodiesel and standard gasoline pump</div>
+<img width="265" alt="A standard gas and biodiesel pump." src="https://www.eia.gov/energyexplained/images/stock/ist2_1798393-biodiesel-fuel-choice.jpg"/>
+<div class="image-caption"><p class="footnote-or-source">Source: Stock photography (copyrighted)</p></div>
+</div>
+
+<p>Nearly all of the gasoline now sold in the United States is about 10% ethanol by volume. Any gasoline-powered engine in the United States can use E10 (gasoline with 10% ethanol), but only specific types of vehicles can use mixtures with fuel containing more than 10% ethanol. A <a href="../tools/glossary/index.cfm@id=Flexible%2520fuel%2520vehicle.html">flexible-fuel vehicle</a> can use gasoline with ethanol content greater than 10%. The U.S. Environmental Protection Agency ruled in October 2010 that cars and light trucks of model year 2007 and newer can use E15 (gasoline with 15% ethanol). E85, a fuel that contains 51%&ndash;83% ethanol, depending on location and season, is mainly sold in the Midwest and can only be used in a flexible-fuel vehicle.</p>
+
+<h2>What is biodiesel?</h2>
+
+<p>Biodiesel is a fuel made from vegetable oils, fats, or greases&#8212;such as recycled restaurant grease. Biodiesel fuel can be used in diesel engines without changing the engine. Pure biodiesel is non-toxic, biodegradable, and produces lower levels of most air pollutants than petroleum-based diesel fuel. Biodiesel is usually sold as a blend of biodiesel and petroleum-based diesel fuel. A common blend of diesel fuel is B20, which is 20% biodiesel.</p>
+
+
+
+
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_use'>Use of Ethanol</a></li><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_environment'>Biodiesel and the Environment</a></li><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_transportation'>Energy Use for Transportation</a></li> </ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='../tools/faqs/faq.cfm@id=90&amp;t=4.html'>How much ethanol is produced, imported, and consumed in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=90&t=4</span></li><li><a href='../tools/faqs/faq.cfm@id=927&amp;t=4.html'>How much biodiesel is produced, imported, exported, and consumed in the United States? </a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=927&t=4</span></li><li><a href='../tools/faqs/faq.cfm@id=93&amp;t=4.html'>How many alternative fuel and hybrid vehicles are there in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=93&t=4</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='../mer/index.html#renewable'>Biomass data</a><span class='printonly'> &mdash; http://www.eia.gov/totalenergy/data/monthly/#renewable</span></li><li><a href='../todayinenergy/index.cfm@tg=%2520biofuels.html'>Related biofuels articles</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/index.cfm?tg=%20biofuels</span></li><li><a href='http://www.youtube.com/watch?v=-ck3FYVNl6s&list=SPACD8E92715335CB2&index=10&feature=plpp_video'>Biofuels video</a><span class='printonly'> &mdash; http://www.youtube.com/watch?v=-ck3FYVNl6s&list=SPACD8E92715335CB2&index=10&feature=plpp_video</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last reviewed: August 9, 2016</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+                  <div class='panelinactive' id="stats">
+
+                      <div class="article-text">
+                         
+
+                         
+
+
+
+ 
+
+
+<h2>Fuel ethanol statistics</h2>
+<p>Preliminary data for the United States for 2015.</p>
+<table width="375" border="1">
+  <tr>
+    <td width="115"><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. production</a></p>
+    <p>&nbsp;</p></td>
+    <td width="244">14.81 billion gallons<br />
+      <br>
+    352.52 million barrels</td>
+  </tr>
+  <tr>
+    <td><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. net imports</a></p>
+    <p>&nbsp;</p></td>
+    <td>-0.75 billion gallons<br />
+      <br />
+    -17.92 million barrels</td>
+  </tr>
+  <tr>
+    <td><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. consumption</a></p>
+    <p>&nbsp;</p></td>
+    <td>13.94 billion gallons
+      <br />
+      <br />
+331.90 million barrels</td>
+  </tr>
+  
+ 
+</table>
+
+ <p>Source: <em>Monthly Energy Review</em>, May 2016, Table 10.3</p> 
+
+<br />
+<br />
+<h2>Biodiesel statistics</h2>
+<p>Preliminary data for the United States for 2015.</p>
+<table width="375" border="1">
+  <tr>
+    <td width="112"><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. production</a></p>
+    <p>&nbsp;</p></td>
+    <td width="247">1.26 billion gallons<br />
+      <br>
+30.06 million barrels</td>
+  </tr>
+  <tr>
+    <td><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. net imports</a></p>
+    <p>&nbsp;</p></td>
+    <td>0.25 billion gallons<br />
+      <br />
+    5.86 million barrels</td>
+  </tr>
+  <tr>
+    <td><p><a href="https://www.eia.gov/totalenergy/data/monthly/index.cfm#renewable">U.S. consumption</a></p>
+    <p>&nbsp;</p></td>
+    <td>1.48 billion gallons<br />
+      <br>
+35.15 million barrels</td>
+  </tr>
+</table>
+
+<p>Source: <em>Monthly Energy Review</em>, May 2016, Table 10.4</p>
+<br />
+<br />
+
+
+
+
+
+
+
+                      </div>
+
+
+                      
+
+                          
+
+                      
+                      
+                      <div class="related-links">
+                         <table width="100%" border="0" cellspacing="0" cellpadding="0" class="related">
+                            <tr>
+                               
+                                 <td width="50%" id="donotprint">
+                                 <div class="related_topics brdrght">
+                                 
+                                    <h2>Also on <em>Energy Explained</em></h2>
+                                 <!-- Related Topics -->
+                                    <ul><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_use'>Use of Ethanol</a></li><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=biofuel_biodiesel_environment'>Biodiesel and the Environment</a></li><li><a href='https://www.eia.gov/energyexplained/index.cfm?page=us_energy_transportation'>Energy Use for Transportation</a></li> </ul>
+                                 <!--/ Related Topics -->
+                                 
+                                    <h2>FAQs</h2>
+                                 <!-- Faqs -->
+                                    <ul><li><a href='../tools/faqs/faq.cfm@id=90&amp;t=4.html'>How much ethanol is produced, imported, and consumed in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=90&t=4</span></li><li><a href='../tools/faqs/faq.cfm@id=927&amp;t=4.html'>How much biodiesel is produced, imported, exported, and consumed in the United States? </a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=927&t=4</span></li><li><a href='../tools/faqs/faq.cfm@id=93&amp;t=4.html'>How many alternative fuel and hybrid vehicles are there in the United States?</a><span class='printonly'> &mdash; http://www.eia.gov/tools/faqs/faq.cfm?id=93&t=4</span></li></ul>
+                                 <!--/ Faqs -->
+                                 
+                                 </div>
+                                 </td>
+                               
+                               <td width="50%">
+                                  <div class="related_other">
+                                  <h2>Learn more</h2>
+                                  <!-- Related Links -->
+                                     <ul><li><a href='../mer/index.html#renewable'>Renewable energy data</a><span class='printonly'> &mdash; http://www.eia.gov/totalenergy/data/monthly/#renewable</span></li><li><a href='http://www.ethanolrfa.org/industry/statistics/'>Ethanol Statistics from the Renewable Fuels Association</a><span class='printonly'> &mdash; http://www.ethanolrfa.org/industry/statistics/</span></li><li><a href='../todayinenergy/index.cfm@tg=%2520biofuels.html'>Related biofuels articles</a><span class='printonly'> &mdash; http://www.eia.gov/todayinenergy/index.cfm?tg=%20biofuels</span></li><li><a href='http://eia.gov/totalenergy/data/monthly/#renewable'>Biofuels data</a><span class='printonly'> &mdash; http://eia.gov/totalenergy/data/monthly/#renewable</span></li></ul>
+                                  <!--/ Related Links -->
+                                  </div>
+                               </td>
+                               
+                            </tr>
+                         </table>
+                      </div>
+                      
+
+                      <p style="clear:both;//margin-top:16px;*/"></p>
+					  
+                      <div class="updatedDate"><p>Last reviewed: September 7, 2016</p></div>
+                      
+					  
+					  
+
+                  </div>
+                           
+                  
+
+              </div>
+
+           
+         </div>
+         
+
+
+                         
+
+                          <div id="forwardBackwardLinks">
+						     
+                             <table width="100%">
+                                <tr>
+                                   <td class="upward-links"><a class="backward-link" href="https://www.eia.gov/energyexplained/index.cfm?page=biomass_environment">&laquo; Biomass and the Environment</a></td>
+                                   <td class="downward-links"><a class="forward-link" href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_ethanol_home">Ethanol &raquo;</a></td>
+                                </tr>
+                             </table>
+							 
+                          </div>
+
+         </td>
+      </tr>
+      <tr><td colspan="2" valign="top">
+      <script language="JavaScript" type="text/javascript">InsertEIAFooterCode();</script>
+      </td>
+      </tr>
+   </table>
+   <br><br><br><br><br>
+</body>
+</html>
