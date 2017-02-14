@@ -1,0 +1,1432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="http://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="http://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="http://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/eia-theme-module.min.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/captions.min.js"></script>
+		
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="../../../../../favicon.ico" />
+<link rel="icon" href="../../../../../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../../../favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="http://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+<body>
+
+
+<div id="outerX">
+  
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="http://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="../../../../../index.html"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="../../../../index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../../../cneaf/electricity/contacts/elect_epm_coord.txt.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../../../consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../../fuelcoal.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="../../../../../fuelrenewable.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../../../nuclear.1.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="../../../../../totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../../petroleum/weekly/index.html">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../../petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="../../../index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="../../../../../cneaf/electricity/epm/epm_ex_bkis.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="../../../../../cneaf/coal/quarterly/qcr_sum.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../../../mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="../../../../../emeu/recs/recs97/appusage.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../../../electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../../analysis/index.html"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="../../../../../finance/index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../../environment.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../../forecasts/steo/special/pdf/2013/2013_sp_04.pdf.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../../forecasts/aeo/appendixe.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../../../special/disruptions.1.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../../../forecasts/ieo.1.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../../../state/search/images/sort_desc_disabled.png.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../../../country/index.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../../../state/seds/index.html">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="../../../../../special/gulf_of_mexico/index.html">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="../../../../../state/maps.cfm.html">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="../../../../../tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../tools/survey/index.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="../../../../../listserv_signup.html" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="../../../../../tools/rssfeeds/index.html" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../../../todayinenergy.1.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="../../../../../ask/crude_types1.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="../../../../../tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../../../pub/oil_gas/petroleum/analysis_publications/oil_market_basics/paddmap.htm">Energy Explained</a></h3>
+              <p class="width152"><a href="../../../../../energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=environment_home.html">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="../../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="../../../../../energyexplained/index.cfm@page=oil_home.html">Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../../../energyexplained/index.cfm@page=hgls_home.html">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=natural_gas_home.html">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=coal_home.html">Coal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=nuclear_home.html">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="../../../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="../../../../../energyexplained/index.cfm@page=hydropower_home.html">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=biofuel_home.html">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=wind_home.html">Wind&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="../../../../../energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="../../../../../about/new/index.html">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="../../../../../pressroom/archive/images/press109_kyoto5.gif.html" style="color:#fff !important;">Press Room</a></h3>
+              <a href="../../../../../pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
+              <a href="../../../../../pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
+              <a href="../../../../../pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="../../../../../radio/index.html">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="http://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="../../../../../tools/a-z/index.html">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="../../../../../tools/a-z/index.html">A-Z Index</a></h3>
+          <a href="../../../../../tools/a-z/index.cfm@id=a.html">A</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=b.html">B</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=c.html">C</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=d.html">D</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=e.html">E</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=f.html">F</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=g.html">G</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=h.html">H</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=i.html">I</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=j.html">J</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=k.html">K</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=l.html">L</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=m.html">M</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=n.html">N</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=o.html">O</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=p.html">P</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=q.html">Q</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=r.html">R</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=s.html">S</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=t.html">T</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=u.html">U</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=v.html">V</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=w.html">W</a>
+          <a href="../../../../../tools/a-z/index.cfm@id=xyz.html">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+
+<script>
+
+$(document).ready(function(){
+    $('.dropdown').dd();
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});	
+</script>
+
+
+<div class="title bg_naturalgas">
+  <h1>Natural Gas</h1>
+</div>
+
+<div class="subnav">
+  <span class="right"><a href="../../../../../tools/glossary/index.html@id=natural%2520gas.html">Glossary &rsaquo;</a> <a href="../../../../../ask/crude_types1.html#naturalgas">FAQS &rsaquo;</a></span>
+  <ul>
+    <li ><a href="../../../../index.html">Overview</a></li>
+    <li class="dropdown "><a href="../../../../data.cfm.html">Data</a></li>
+    
+    <div class="dat_block dat_links">
+      <ul>
+        <li><a href="../../../../data.cfm.html#summary">Summary</a></li>
+        <li><a href="../../../../data.cfm.html#prices">Prices</a></li>
+        <li><a href="../../../../data.cfm.html#exploration">Exploration & reserves</a></li>
+        <li><a href="../../../../data.cfm.html#production">Production</a></li>
+        <li><a href="../../../../data.cfm.html#imports">Imports/exports</a></li>
+        <li><a href="../../../../data.cfm.html#pipelines">Pipelines</a></li>
+        <li><a href="../../../../data.cfm.html#storage" target="_parent">Storage</a></li>
+        <li><a href="../../../../data.cfm.html#consumption">Consumption</a></li>
+        <li><a href="../../../../data.cfm.html">All natural gas data reports</a></li>
+      </ul>
+    </div>
+    
+
+    <li class="dropdown "><a href="../../../../reports.cfm@t=9999.html">Analysis & Projections</a></li>
+
+    
+    <div id="analysis-projections" class="dat_block dat_links" style="width:600px;">
+
+      
+      <div style="float:left; width:400px;">
+        <h4 style="margin: 12px 20px 6px 20px;border-bottom:1px solid #CCC;padding-bottom:2px;">Major Topics</h4>
+        <ul class="split_2columns" style="margin-bottom:16px;">
+          
+          
+<li><a href="../../../../reports.cfm@t=9999.html#/T214">Most popular</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T72">Consumption</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T170">Exploration & reserves</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T172">Imports/exports & pipelines</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T66">Prices</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T80">Production</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T186">Projections</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T214">Recurring</a></li>
+<li><a href="../../../../reports.cfm@t=9999.html#/T174">Storage</a></li>
+<li class="no-border" style="padding-bottom:0px;"><a href="../../../../reports.cfm@t=9999.html">All reports</a></li>
+
+
+        </ul>
+      </div>
+
+      
+      <div class="listContainer2" style="width:200px; float:right">
+        <h4 style="margin: 12px 20px 6px 20px; border-bottom:1px solid #ccc; padding-bottom:2px;">Browse by Tag</h4>
+        <ul>
+          <li><a href="../../../../browsebytag.cfm.html">Alphabetical</a></li>
+          <li><a href="../../../../browsebytag.cfm@frequency.html">Frequency</a></li>
+          <li><a href="../../../../browsebytag.cfm@tagcloud.html">Tag Cloud</a></li>
+        </ul>
+      </div>
+    </div>
+    
+  </ul>
+</div> <div class="report_header"> <span class="left rtitle" style="width:680px"> <a href="../../../../index.html">&lsaquo; See all Natural Gas </a>
+  <h2>Natural Gas Weekly Update </h2>
+  <p><strong>for week ending June 5, 2013</strong>&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Release date:</strong>&nbsp;&nbsp;June 6, 2013&nbsp;&nbsp;|&nbsp;&nbsp;<strong>Next release:</strong> June 13, 2013&nbsp;&nbsp;|&nbsp;&nbsp;<a href="http://www.eia.gov/naturalgas/weekly/includes/archive.cfm" data-fancybox-type="iframe" class="lightbox" style="text-transform:none; font-size:11px">Previous weeks</a>
+  
+</p> 
+</p></span>
+   
+</div>
+
+     
+    
+    <div class="pagecontent mr_temp4"> 
+      
+      <div class="main_col"> 
+        
+        
+
+<div class="ngwu_text_box">
+ <span class="ngwu_jump_menu do-not-print"><strong>JUMP TO:</strong> <a href="index.cfm.html#jm-trends">In The News</a> | <a href="index.cfm.html#jm-overview">Overview</a> | <a href="index.cfm.html#jm-prices">Prices/Supply/Demand</a> | <a href="index.cfm.html#jm-storage">Storage</a></span><hr />
+ <div class="ngwu_itn_box">
+ <h2><a name="jm-trends" id="jm-trends"></a>In the News:</h2>
+  
+ 
+  <h4>Fundamental natural gas market changes become apparent as winter temperatures return to 10-year average levels</h4>
+  
+
+ <p>The return of temperatures this past winter (November 2012 through March 2013) to levels close to average levels over the last 10 years marked a return to a more balanced U.S. natural gas market after the abnormally low demand associated with the extremely warm winter of 2011-12. </p>
+
+ <p>The changes to the natural gas market that became apparent included:</p>
+
+ <p><strong>Slowly rising natural gas production:</strong>  Domestic production in the winter of 2012-13 was slightly higher than during the winter of 2011-12, growing at a lower rate than during the previous two winters. </p>
+
+ <p><strong>A shift in natural gas consumption patterns:</strong> Total U.S. natural gas consumption in winter 2012-13 was higher than the three previous winters, with relatively high demand from electric generators and a return to more typically seasonal levels of residential and commercial demand. </p>
+
+ <p><strong>Relatively low natural gas prices:</strong> Gas prices continued to rise from the low they reached in early April 2012, but remained below prices during the winters of 2009-10 and 2010-11 for most U.S. regions.</p>
+
+ <p><strong>Natural gas imports fall:</strong> Net imports continued to decline as a portion of U.S. consumption in winter 2012-13, with Canadian net imports and liquefied natural gas (LNG) receipts both decreasing. 
+
+</p>
+<p><a href="page-2.cfm.html">See more</a></p>
+
+</ul>
+
+  
+ </div>
+ <h2><a name="jm-overview" id="jm-overview"></a>Overview:</h2>
+  
+ 
+ 
+ <h4>(<strong>For the Week Ending Wednesday, June 5, 2013</strong>)</h4>
+
+<ul>
+
+<li>Natural gas prices declined across all regional hubs this week (Wednesday to Wednesday). The Henry Hub closed at $3.99 per MMBtu yesterday, down 16 cents, or 3.9%, for the week. </li>
+
+<li>At the Nymex, the June 2013 contract closed at $4.148 per MMBtu on Wednesday, May 29, its final day of trading. The near-month (July) Nymex contract finished trading yesterday at $4.001 per MMBtu, 2.2 cents, or 0.5%, below its first day as the near-month contract on May 30, and 1.1 cents per MMBtu above the Henry Hub spot price. </li>
+
+<li>Working natural gas in storage increased to 2,252 Bcf as of Friday, May 31, according to the U.S. Energy Information Administration's (EIA) <em>Weekly Natural Gas Storage Report</em> (<em>WNGSR</em>). A net storage injection of 111 Bcf for the week resulted in storage levels of 616 Bcf below year-ago levels, and 69 Bcf below the 5-year average. </li>
+
+<li>The Baker Hughes natural gas rotary rig count totaled 354 units as of Friday, May 31, the same total as the preceding two weeks. The average oil rig count rose by 8 units to 1,410, following two weeks of declines. </li>
+
+<li>The weekly average natural gas plant liquid composite price for last week (Tuesday, May 28 – Friday, May 31) decreased by 2%, falling $0.17 per MMBtu over the previous week to $9.07 per MMBtu. The ethane and propane spot prices fell by 4% and 2%, respectively, driving the decrease in the composite price.
+</li>
+
+</ul>
+ 
+ 
+ <p class="do-not-print"> <a href="../../../../../dnav/ng/ng_sum_lsum_dcu_nus_m.htm">more summary data</a></p>
+ <h2><a name="jm-prices" id="jm-prices"></a>Prices/Demand/Supply:</h2>
+ 
+ 
+ <p><strong>Natural gas spot prices declined this week.</strong> The Henry Hub spot price began the report week on Wednesday, May 29 at $4.15 per MMBtu, and declined to $3.99 per MMBtu on Wednesday, June 5, amid cooler than normal temperatures for most of the country. Most other major trading hubs also saw prices decline by 10-20 cents per MMBtu for the report week. </p>
+ 
+<p><strong>Significant price fluctuations occurred in New England during the report week.</strong> For the week as a whole, prices at Algonquin Citygate, which serves Boston, fell by $1.70 per MMBtu, after starting the report week on Wednesday, May 29, at $5.79 per MMBtu. Amid reports of warmer weather during the weekend, prices increased to $6.67 per MMBtu by Friday, May 31. However, cooler temperatures took hold by Monday, and prices declined by $2.00 per MMBtu on Monday, June 3, and then an additional 58 cents by Wednesday, June 5, closing at $4.09 per MMBtu. </p>
+
+<p><strong>The Nymex futures price decreased week-on-week.</strong> The Nymex June contract price closed at $4.148 per MMBtu on Wednesday, May 29, its final day of trading. On Thursday, May 30, the Nymex July contract took over as the front-month contract, and closed at $4.023 per MMBtu.  On Friday, May 31, it traded down to $3.984 per MMBtu, and closed on Wednesday, June 5, at $4.001 per MMBtu. The 12-month strip (the average of July 2013 to June 2014 contracts) closed the report week at $4.135 per MMBtu, down 2.2 cents, or 0.5%, from its closing price on Thursday, May 30. </p>
+
+<p><strong>Total demand increased week-on-week, but decreased during the report week.</strong>   According to Bentek Energy Services LLC estimates, overall natural gas consumption in the United States increased by 3.5%, or 1.9 Bcf/d, over last week’s daily average. This increase was the result of large amounts of natural gas consumed for electric generation at the beginning of the report week on Thursday, May 30, and Friday, May 31. Increases during these two days drove the entire week’s increase in the amount of natural gas consumed for electric generation, which grew 4.8 Bcf/d (25%) over last week’s daily average.  Natural gas consumed for electric generation in the Northeast was the largest regional contributor to the bump up in natural gas power generation demand Thursday and Friday, during a period of warm weather that prompted increased air-conditioning load.  </p>
+
+Industrial consumption decreased by 1.6% week-on-week, while exports to Mexico increased by 3.2%.</p>
+ 
+<p><strong>Total supply for the report week was up slightly.</strong> Bentek estimated that supply was up slightly for the report period. U.S. gross and dry natural gas production both declined by 0.2% week-on-week, following last week’s 0.5% increase. However, this 0.1 Bcf/d gross production decline was less than the 0.9 Bcf/d combined rise in LNG imports and net pipeline imports from Canada. Net pipeline imports from Canada were up 16.2%; increased imports from Canada in the West offset a decline in Northeast imports. LNG imports continued to account for less than 1% of total U.S. supply.
+
+
+</p>
+
+
+
+ 
+ 
+ <p class="do-not-print"><a href="../../../../../dnav/ng/ng_pri_sum_dcu_nus_m.htm">more price data</a></p>
+ <h2><a name="jm-storage" id="jm-storage"></a>Storage</h2>
+ 
+ 
+<p>
+<strong>This week’s net injection of 111 Bcf is the highest weekly net injection since October 2011.</strong> Working natural gas in storage increased to 2,252 Bcf as of Friday, May 31, according to EIA's <em>WNGSR</em>.  The net injection was considerably higher than market expectations, which, on average, were reported to be 99 Bcf. </p>
+
+<p><strong>The 111 Bcf gain in storage levels was higher than both the 5-year average and year-ago stock changes for the week, which had net injections of 92 Bcf and 63 Bcf, respectively</strong>. Despite the large build, current inventories remain 616 Bcf (21.5 percent) less than last year at this time and 69 Bcf (3.0 percent) below the 5-year average of 2,321 Bcf. </p>
+
+
+<p><strong>All three storage regions posted increases this week.</strong> Inventories in the East, West, and Producing regions increased by 58 Bcf (the 5-year average net injection is 54 Bcf), 16 Bcf (the 5-year average net injection is 16 Bcf), and 37 Bcf (the 5-year average net injection is 22 Bcf), respectively. In the Producing region, working natural gas inventories increased 11 Bcf (4.5 percent) in salt cavern facilities and increased 26 Bcf (4.3 percent) in nonsalt cavern facilities. </p>
+
+
+<p><strong>Cooler spring temperatures during the storage report week supported this week’s net injection.  </strong>Temperatures in the Lower 48 states were 1.1 degrees cooler than the 30-year normal temperature and 6.1 degrees cooler than the same period last year, and averaged 64.6 degrees, compared to 70.7 degrees last year and the 30-year normal of 65.7 degrees. 
+
+
+</p>
+
+
+
+ 
+ 
+ 
+ <p class="do-not-print"><a href="http://ir.eia.gov/ngs/ngs.html">more storage data</a></p>
+ <p class="do-not-print">See also:</p>
+ <ul class="do-not-print">
+ <li> <a href="../../../../reports.cfm@t=9999.html">Natural Gas Analysis Reports</a></li>
+ <li> <a href="../../../../../emeu/steo/pub/contents.html">Short-Term Energy Outlook</a></li>
+ </ul>
+</div>
+
+        <div id="ngwu_left_column"> 
+          
+          <div class="ngwu_image_container" >
+
+<img src="img/20130606_itn.png" />
+<div style="clear:left"></div>
+</div>
+
+
+
+
+
+
+
+
+
+          <br />
+          <br />
+          
+          <div class="page_tabs" id="prices">
+            <ul>
+              <li><a href="index.cfm.html#tabs-prices-1">Spot Prices</a></li>
+              <li><a href="index.cfm.html#tabs-prices-2">Spot Prices Table</a></li>
+              <li><a href="index.cfm.html#tabs-prices-3">NYMEX Prices</a></li>
+              <li><a href="index.cfm.html#tabs-prices-4">NGPL Prices</a></li>
+            </ul>
+            <div id="tabs-prices-1"> 
+               
+              <img src="img/20130606_NGSP.png" alt="Natural gas spot prices" /></div>
+            <div id="tabs-prices-2">
+              
+  <table class="simpletable ngwu_tables">
+    <thead>
+      <tr>
+        <th width="150px"><strong>Spot Prices ($/MMBtu)</strong></th>
+        <th width="40px"><div align="center"><strong>Thu,<br />
+            30-May</strong></div></th>
+        <th width="40px"><div align="center"><strong>Fri,<br />
+            31-May</strong></div></th>
+        <th width="40px"><div align="center"><strong>Mon,<br />
+            03-Jun</strong></div></th>
+        <th width="40px"><div align="center"><strong>Tue,<br />
+            04-Jun</strong></div></th>
+        <th width="40px"><div align="center"><strong>Wed,<br />
+            05-Jun</strong></div></th>
+      </tr>
+    </thead>
+    <tr>
+      <td><strong>Henry Hub</strong></td>
+      <td><div align="center">
+          4.12 
+        </div></td>
+      <td><div align="center">4.02</div></td>
+      <td><div align="center">4.00</div></td>
+      <td><div align="center">4.00</div></td>
+      <td><div align="center">3.99</div></td>
+    </tr>
+    <tr>
+      <td><strong>New York</strong></td>
+      <td><div align="center">
+          4.93 
+        </div></td>
+      <td><div align="center">4.18</div></td>
+      <td><div align="center">4.04</div></td>
+      <td><div align="center">4.01</div></td>
+      <td><div align="center">4.02</div></td>
+    </tr>
+    <tr>
+      <td><strong>Chicago</strong></td>
+      <td><div align="center">
+          4.19 
+        </div></td>
+      <td><div align="center">4.06</div></td>
+      <td><div align="center">4.08</div></td>
+      <td><div align="center">4.04</div></td>
+      <td><div align="center">4.03</div></td>
+    </tr>
+    <tr>
+      <td><strong>Cal. Comp. Avg,*</strong></td>
+      <td><div align="center">
+          4.10 
+        </div></td>
+      <td><div align="center">4.04</div></td>
+      <td><div align="center">4.00</div></td>
+      <td><div align="center">3.97</div></td>
+      <td><div align="center">3.95</div></td>
+    </tr>
+    <thead>
+      <tr>
+        <th colspan="6"><strong>Futures ($/MMBtu)</strong></th>
+      </tr>
+    </thead>
+    <tr>
+      <td><strong>July Contract
+</strong></td>
+      <td><div align="center">
+          4.023 
+        </div></td>
+      <td><div align="center">3.984</div></td>
+      <td><div align="center">3.991</div></td>
+      <td><div align="center">3.998</div></td>
+      <td><div align="center">4.001</div></td>
+    </tr>
+    <tr>
+      <td><strong>August Contract
+</strong></td>
+      <td><div align="center">
+          4.043 
+        </div></td>
+      <td><div align="center">4.003</div></td>
+      <td><div align="center">4.009</div></td>
+      <td><div align="center">4.015</div></td>
+      <td><div align="center">4.015</div></td>
+    </tr>
+    <tr>
+      <td colspan="6">*Avg. of NGI's reported prices for: Malin, PG&amp;E citygate, and Southern California Border Avg.</td>
+    </tr>
+    <tr>
+      <td colspan="6" class="no-border"><span class="source">Source: NGI's Daily Gas Price Index</span></td>
+    </tr>
+  </table>
+  
+            </div>
+            <div id="tabs-prices-3"> 
+               
+              <img src="img/20130606_NGFP.png" alt="Natural gas futures prices" /></div>
+             <div id="tabs-prices-4">
+              <img src="img/20130606_NGLSP.png" alt="Natural gas liquids spot prices" />
+            </div>
+          </div>
+           
+          <br />
+          <br />
+          
+          <div class="page_tabs" id="supply">
+            <ul>
+              <li><a href="index.cfm.html#tabs-supply-1">Supply Table</a></li>
+              <li><a href="index.cfm.html#tabs-supply-2">Demand Table</a></li>
+              <li><a href="index.cfm.html#tabs-supply-3">Daily Suppy/Demand Graph</a></li>
+            </ul>
+            <div id="tabs-supply-1">
+              
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th colspan="3"><strong>U.S. Natural Gas Supply - Gas Week: (5/29/13 - 6/5/13)
+</strong></th>
+  </tr>
+  <tr>
+    <td class="no-border"><strong></strong></td>
+     <td colspan="2"><div align="center">Percent change for week compared with:</div></td>
+ </tr>
+  <tr>
+    <td width="120" class="no-border">&nbsp;</td>
+    <td><div align="center"><strong>last year</strong></div></td>
+    <td><div align="center"><strong>last week</strong></div></td>
+  </tr>
+  <tr>
+    <td>Gross Production</td>
+    <td><div align="center">2.61%
+</div></td>
+    <td><div align="center">-0.36%
+</div></td>
+  </tr>
+  <tr>
+    <td>Dry Production</td>
+    <td><div align="center">2.59%
+</div></td>
+    <td><div align="center">-0.36%
+</div></td>
+  </tr>
+  <tr>
+    <td>Canadian Imports</td>
+    <td><div align="center">-4.91%
+</div></td>
+    <td><div align="center">16.34%
+</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;West (Net)</td>
+    <td><div align="center">-2.72%
+</div></td>
+    <td><div align="center">9.66%
+</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MidWest (Net)</td>
+    <td><div align="center">4.36%
+</div></td>
+    <td><div align="center">0.18%
+</div></td>
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Northeast (Net)</td>
+    <td><div align="center">-46.98%
+</div></td>
+    <td><div align="center">-297.84%
+</div></td>
+  </tr>
+  <tr>
+    <td>LNG Imports</td>
+    <td><div align="center">-17.44%
+</div></td>
+    <td><div align="center">82.05%
+</div></td>
+  </tr>
+  <tr>
+    <td>Total Supply</td>
+    <td><div align="center">1.87%
+</div></td>
+    <td><div align="center">0.95%
+</div></td>
+  </tr>
+  <tr><td colspan="3" class="no-border">
+<span class="source">Source: BENTEK Energy LLC</span></td></tr>
+</table>
+
+            </div>
+            <div id="tabs-supply-2">
+              
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th colspan="3"><strong>U.S. Consumption - Gas Week: (5/29/13 - 6/5/13)
+</strong></th>
+  </tr>
+  <tr>
+    <td class="no-border"><strong></strong></td>
+     <td colspan="2"><div align="center">Percent change for week compared with:</div></td>
+ </tr>
+  <tr>
+    <td width="120" class="no-border">&nbsp;</td>
+    <td><div align="center"><strong>last year</strong></div></td>
+    <td><div align="center"><strong>last week</strong></div></td>
+  </tr>
+  <tr>
+    <td>U.S. Consumption</td>
+    <td><div align="center">-5.32%
+</div></td>
+    <td><div align="center">3.55%
+</div></td>
+  </tr>
+  <tr>
+    <td>Power</td>
+    <td><div align="center">-8.36%
+</div></td>
+    <td><div align="center">25.08%
+</div></td>
+  </tr>
+  <tr>
+    <td>Industrial</td>
+    <td><div align="center">-0.71%
+</div></td>
+    <td><div align="center">-1.62%
+</div></td>
+  </tr>
+  <tr>
+    <td>Residential/Commercial</td>
+    <td><div align="center">-5.64%
+</div></td>
+    <td><div align="center">-17.45%
+</div></td>
+  </tr>
+  <tr>
+    <td>Total Demand</td>
+    <td><div align="center">-4.91%
+</div></td>
+    <td><div align="center">3.58%
+</div></td>
+  </tr>
+    <tr><td colspan="3" class="no-border">
+<span class="source">Source: BENTEK Energy LLC</span></td></tr>
+</table>
+
+            </div>
+            <div id="tabs-supply-3"> 
+               
+              <img src="img/20130606_Supply.png" alt="Natural gas supply" /></div>
+          </div>
+           
+          <br />
+          <br />
+          
+          <div class="page_tabs" id="rigs">
+            <ul>
+              <li><a href="index.cfm.html#tabs-rigs-1">Spot Prices vs. Rigs Graph</a></li>
+              <li><a href="index.cfm.html#tabs-rigs-2">Rigs Table</a></li>
+            </ul>
+            <div id="tabs-rigs-1">
+            <img src="img/20130606_rigs.png" alt="Weekly natural gas rig count and average Henry Hub" />
+  <div style="clear:left"></div>
+              
+            </div>
+            <div id="tabs-rigs-2">
+              
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th width="33%"><strong>Rigs</strong></th>
+    <th width="29%" ><div align="center"></div> </th>
+    <th colspan="2" width="50%"><div align="center"></div></th>
+  </tr>
+  <tr>
+    <td width="33%" class="no-border"></td>
+    <td rowspan="2"><div align="center"><strong>Fri, May 31, 2013</strong></div></td>
+    <td colspan="2"><div align="center"><strong>Change from</strong></div></td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;</td>
+    <td width="20%"><div align="center">last week</div></td>
+    <td width="20%"><div align="center">last year</div></td>
+  </tr>
+  <tr>
+    <td>Oil Rigs</td>
+    <td bgcolor="#F2F2F2"><div align="center">1,410</div></td>
+    <td><div align="center">0.57%</div></td>
+    <td><div align="center">1.73%</div></td>
+  </tr>
+  <tr>
+    <td>Natural Gas Rigs</td>
+    <td bgcolor="#F2F2F2"><div align="center">354</div></td>
+    <td><div align="center">0.00%</div></td>
+    <td><div align="center">-39.80%</div></td>
+  </tr>
+  <tr>
+    <td>Miscellaneous</td>
+    <td bgcolor="#F2F2F2"><div align="center">7</div></td>
+    <td><div align="center">16.67%</div></td>
+    <td><div align="center">16.67%</div></td>
+  </tr>
+</table>
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th width="33%"><strong>Rig Numbers by Type</strong></th>
+    <th width="29%" ><div align="center"></div> </th>
+    <th colspan="2" width="50%"><div align="center"></div></th>
+  </tr>
+  <tr>
+    <td width="33%" class="no-border"></td>
+    <td rowspan="2"><div align="center"><strong>Fri, May 31, 2013</strong></div></td>
+    <td colspan="2"><div align="center"><strong>Change from</strong></div></td>
+  </tr>
+  <tr>
+    <td width="33%">&nbsp;</td>
+    <td width="20%"><div align="center">last week</div></td>
+    <td width="20%"><div align="center">last year</div></td>
+  </tr>
+  <tr>
+    <td>Vertical</td>
+    <td bgcolor="#F2F2F2"><div align="center">450</div></td>
+    <td><div align="center">-1.53%</div></td>
+    <td><div align="center">-22.41%</div></td>
+  </tr>
+  <tr>
+    <td>Horizontal</td>
+    <td bgcolor="#F2F2F2"><div align="center">1,089</div></td>
+    <td><div align="center">0.18%</div></td>
+    <td><div align="center">-7.95%</div></td>
+  </tr>
+  <tr>
+    <td>Directional</td>
+    <td bgcolor="#F2F2F2"><div align="center">232</div></td>
+    <td><div align="center">6.42%</div></td>
+    <td><div align="center">6.91%</div></td>
+  </tr>
+      <tr><td colspan="4" class="no-border"><span class="source">Source: Baker Hughes Inc.</span></td></tr>
+</table>
+
+            </div>
+          </div>
+           
+          <br />
+          <br />
+          
+          
+          <div class="page_tabs" id="storage">
+            <ul>
+              <li><a href="index.cfm.html#tabs-storage-1">Storage Graph</a></li>
+              <li><a href="index.cfm.html#tabs-storage-2">Stocks Table</a></li>
+              <li><a href="index.cfm.html#tabs-storage-3">History Table</a></li>
+            </ul>
+            <div id="tabs-storage-1">
+              
+<script type="text/javascript">					
+var gasStorage = {
+    chart: {
+        renderTo: 'container_storage',
+        zoomType: 'xy'
+        },
+    title: {
+        text: 'Working natural gas in underground storage',
+        },
+    credits: {
+        text: 'Source: Form EIA-912, "Weekly Underground Natural Gas Storage Report"',
+        href: 'http://ir.eia.gov/ngs/ngs.html'
+        },
+    xAxis: {
+        type: 'datetime'
+        },
+    yAxis: [{ //primary axis
+        max: 4000,
+        min: 1000,
+        title:{
+            text:'billion cubic feet'
+            //align:'center',
+            //rotation:0,
+            //margin:-50,
+            //y:-10,
+            },
+        labels: {
+            formatter: function() {
+                return Highcharts.numberFormat(this.value, 0);
+                }
+            }
+        }],
+    tooltip: {
+			formatter: function() {
+				var s = '<b>'+ Highcharts.dateFormat('%b %e, %Y', this.x) +'</b>';
+				
+				$.each(this.points, function(i, point) {
+				s += '<br/> <b>'+ point.series.name +':</b> '+
+				Highcharts.numberFormat(point.y, 0) +' Bcf';
+				});
+				
+				return s;
+			},
+		shared: true
+		},
+    legend: {
+            layout: 'vertical',
+            },
+    series: [{
+        name: '5-year (2008-2012) maximum',
+        color: 'rgba(136, 136, 136, 1.0)',
+        lineWidth: 2,
+        type: 'line',
+        dashStyle: 'shortdot',
+        data: [ [Date.UTC(2011, 5, 10), 2895], [Date.UTC(2011, 5, 17), 2957], [Date.UTC(2011, 5, 24), 3014], [Date.UTC(2011, 6, 1), 3053], [Date.UTC(2011, 6, 8), 3086], [Date.UTC(2011, 6, 15), 3114], [Date.UTC(2011, 6, 22), 3140], [Date.UTC(2011, 6, 29), 3168], [Date.UTC(2011, 7, 5), 3192], [Date.UTC(2011, 7, 12), 3212], [Date.UTC(2011, 7, 19), 3259], [Date.UTC(2011, 7, 26), 3325], [Date.UTC(2011, 8, 2), 3353], [Date.UTC(2011, 8, 9), 3380], [Date.UTC(2011, 8, 16), 3447], [Date.UTC(2011, 8, 23), 3527], [Date.UTC(2011, 8, 30), 3604], [Date.UTC(2011, 9, 7), 3676], [Date.UTC(2011, 9, 14), 3727], [Date.UTC(2011, 9, 21), 3794], [Date.UTC(2011, 9, 28), 3859], [Date.UTC(2011, 10, 4), 3880], [Date.UTC(2011, 10, 11), 3862], [Date.UTC(2011, 10, 18), 3828], [Date.UTC(2011, 10, 25), 3828], [Date.UTC(2011, 11, 2), 3807], [Date.UTC(2011, 11, 9), 3757], [Date.UTC(2011, 11, 16), 3675], [Date.UTC(2011, 11, 23), 3603], [Date.UTC(2011, 11, 30), 3468], [Date.UTC(2012, 0, 6), 3377], [Date.UTC(2012, 0, 13), 3290], [Date.UTC(2012, 0, 20), 3098], [Date.UTC(2012, 0, 27), 2966], [Date.UTC(2012, 1, 3), 2888], [Date.UTC(2012, 1, 10), 2761], [Date.UTC(2012, 1, 17), 2595], [Date.UTC(2012, 1, 24), 2513], [Date.UTC(2012, 2, 2), 2433], [Date.UTC(2012, 2, 9), 2369], [Date.UTC(2012, 2, 16), 2380], [Date.UTC(2012, 2, 23), 2430], [Date.UTC(2012, 2, 30), 2472], [Date.UTC(2012, 3, 6), 2478], [Date.UTC(2012, 3, 13), 2501], [Date.UTC(2012, 3, 20), 2548], [Date.UTC(2012, 3, 27), 2576], [Date.UTC(2012, 4, 4), 2606], [Date.UTC(2012, 4, 11), 2667], [Date.UTC(2012, 4, 18), 2744], [Date.UTC(2012, 4, 25), 2815], [Date.UTC(2012, 5, 1), 2877], [Date.UTC(2012, 5, 8), 2944], [Date.UTC(2012, 5, 15), 3006], [Date.UTC(2012, 5, 22), 3063], [Date.UTC(2012, 5, 29), 3102], [Date.UTC(2012, 6, 6), 3135], [Date.UTC(2012, 6, 13), 3163], [Date.UTC(2012, 6, 20), 3189], [Date.UTC(2012, 6, 27), 3217], [Date.UTC(2012, 7, 3), 3241], [Date.UTC(2012, 7, 10), 3261], [Date.UTC(2012, 7, 17), 3308], [Date.UTC(2012, 7, 24), 3374], [Date.UTC(2012, 7, 31), 3402], [Date.UTC(2012, 8, 7), 3429], [Date.UTC(2012, 8, 14), 3496], [Date.UTC(2012, 8, 21), 3576], [Date.UTC(2012, 8, 28), 3653], [Date.UTC(2012, 9, 5), 3725], [Date.UTC(2012, 9, 12), 3776], [Date.UTC(2012, 9, 19), 3843], [Date.UTC(2012, 9, 26), 3908], [Date.UTC(2012, 10, 2), 3929], [Date.UTC(2012, 10, 9), 3911], [Date.UTC(2012, 10, 16), 3873], [Date.UTC(2012, 10, 23), 3877], [Date.UTC(2012, 10, 30), 3804], [Date.UTC(2012, 11, 7), 3806], [Date.UTC(2012, 11, 14), 3724], [Date.UTC(2012, 11, 21), 3652], [Date.UTC(2012, 11, 28), 3517], [Date.UTC(2013, 0, 4), 3404], [Date.UTC(2013, 0, 11), 3315], [Date.UTC(2013, 0, 18), 3153], [Date.UTC(2013, 0, 25), 3004], [Date.UTC(2013, 1, 1), 2910], [Date.UTC(2013, 1, 8), 2797], [Date.UTC(2013, 1, 15), 2642], [Date.UTC(2013, 1, 22), 2536], [Date.UTC(2013, 2, 1), 2444], [Date.UTC(2013, 2, 8), 2378], [Date.UTC(2013, 2, 15), 2378], [Date.UTC(2013, 2, 22), 2423], [Date.UTC(2013, 2, 29), 2466], [Date.UTC(2013, 3, 5), 2477], [Date.UTC(2013, 3, 12), 2498], [Date.UTC(2013, 3, 19), 2541], [Date.UTC(2013, 3, 26), 2572], [Date.UTC(2013, 4, 3), 2602], [Date.UTC(2013, 4, 10), 2658], [Date.UTC(2013, 4, 17), 2733], [Date.UTC(2013, 4, 24), 2805], [Date.UTC(2013, 4, 31), 2868], [Date.UTC(2013, 5, 7), 2934], [Date.UTC(2013, 5, 14), 2997], [Date.UTC(2013, 5, 21), 3055], [Date.UTC(2013, 5, 28), 3096], [Date.UTC(2013, 6, 5), 3130], [Date.UTC(2013, 6, 12), 3159], [Date.UTC(2013, 6, 19), 3185], [Date.UTC(2013, 6, 26), 3213]]
+        }, {
+        name: 'Working Gas in Storage',
+        color: 'rgba(0, 150, 215, 1.0)',
+        data: [ [Date.UTC(2011, 5, 10), 2256], [Date.UTC(2011, 5, 17), 2354], [Date.UTC(2011, 5, 24), 2432], [Date.UTC(2011, 6, 1), 2527], [Date.UTC(2011, 6, 8), 2611], [Date.UTC(2011, 6, 15), 2671], [Date.UTC(2011, 6, 22), 2714], [Date.UTC(2011, 6, 29), 2758], [Date.UTC(2011, 7, 5), 2783], [Date.UTC(2011, 7, 12), 2833], [Date.UTC(2011, 7, 19), 2906], [Date.UTC(2011, 7, 26), 2961], [Date.UTC(2011, 8, 2), 3025], [Date.UTC(2011, 8, 9), 3112], [Date.UTC(2011, 8, 16), 3201], [Date.UTC(2011, 8, 23), 3312], [Date.UTC(2011, 8, 30), 3409], [Date.UTC(2011, 9, 7), 3521], [Date.UTC(2011, 9, 14), 3624], [Date.UTC(2011, 9, 21), 3716], [Date.UTC(2011, 9, 28), 3794], [Date.UTC(2011, 10, 4), 3831], [Date.UTC(2011, 10, 11), 3843], [Date.UTC(2011, 10, 18), 3852], [Date.UTC(2011, 10, 25), 3851], [Date.UTC(2011, 11, 2), 3831], [Date.UTC(2011, 11, 9), 3729], [Date.UTC(2011, 11, 16), 3629], [Date.UTC(2011, 11, 23), 3548], [Date.UTC(2011, 11, 30), 3472], [Date.UTC(2012, 0, 6), 3377], [Date.UTC(2012, 0, 13), 3290], [Date.UTC(2012, 0, 20), 3098], [Date.UTC(2012, 0, 27), 2966], [Date.UTC(2012, 1, 3), 2888], [Date.UTC(2012, 1, 10), 2761], [Date.UTC(2012, 1, 17), 2595], [Date.UTC(2012, 1, 24), 2513], [Date.UTC(2012, 2, 2), 2433], [Date.UTC(2012, 2, 9), 2369], [Date.UTC(2012, 2, 16), 2380], [Date.UTC(2012, 2, 23), 2430], [Date.UTC(2012, 2, 30), 2472], [Date.UTC(2012, 3, 6), 2478], [Date.UTC(2012, 3, 13), 2501], [Date.UTC(2012, 3, 20), 2548], [Date.UTC(2012, 3, 27), 2576], [Date.UTC(2012, 4, 4), 2606], [Date.UTC(2012, 4, 11), 2667], [Date.UTC(2012, 4, 18), 2744], [Date.UTC(2012, 4, 25), 2815], [Date.UTC(2012, 5, 1), 2877], [Date.UTC(2012, 5, 8), 2944], [Date.UTC(2012, 5, 15), 3006], [Date.UTC(2012, 5, 22), 3063], [Date.UTC(2012, 5, 29), 3102], [Date.UTC(2012, 6, 6), 3135], [Date.UTC(2012, 6, 13), 3163], [Date.UTC(2012, 6, 20), 3189], [Date.UTC(2012, 6, 27), 3217], [Date.UTC(2012, 7, 3), 3241], [Date.UTC(2012, 7, 10), 3261], [Date.UTC(2012, 7, 17), 3308], [Date.UTC(2012, 7, 24), 3374], [Date.UTC(2012, 7, 31), 3402], [Date.UTC(2012, 8, 7), 3429], [Date.UTC(2012, 8, 14), 3496], [Date.UTC(2012, 8, 21), 3576], [Date.UTC(2012, 8, 28), 3653], [Date.UTC(2012, 9, 5), 3725], [Date.UTC(2012, 9, 12), 3776], [Date.UTC(2012, 9, 19), 3843], [Date.UTC(2012, 9, 26), 3908], [Date.UTC(2012, 10, 2), 3929], [Date.UTC(2012, 10, 9), 3911], [Date.UTC(2012, 10, 16), 3873], [Date.UTC(2012, 10, 23), 3877], [Date.UTC(2012, 10, 30), 3804], [Date.UTC(2012, 11, 7), 3806], [Date.UTC(2012, 11, 14), 3724], [Date.UTC(2012, 11, 21), 3652], [Date.UTC(2012, 11, 28), 3517], [Date.UTC(2013, 0, 4), 3316], [Date.UTC(2013, 0, 11), 3168], [Date.UTC(2013, 0, 18), 2996], [Date.UTC(2013, 0, 25), 2802], [Date.UTC(2013, 1, 1), 2684], [Date.UTC(2013, 1, 8), 2527], [Date.UTC(2013, 1, 15), 2400], [Date.UTC(2013, 1, 22), 2229], [Date.UTC(2013, 2, 1), 2083], [Date.UTC(2013, 2, 8), 1938], [Date.UTC(2013, 2, 15), 1876], [Date.UTC(2013, 2, 22), 1781], [Date.UTC(2013, 2, 29), 1687], [Date.UTC(2013, 3, 5), 1673], [Date.UTC(2013, 3, 12), 1704], [Date.UTC(2013, 3, 19), 1734], [Date.UTC(2013, 3, 26), 1777], [Date.UTC(2013, 4, 3), 1865], [Date.UTC(2013, 4, 10), 1964], [Date.UTC(2013, 4, 17), 2053], [Date.UTC(2013, 4, 24), 2141], [Date.UTC(2013, 4, 31), 2252]]
+        }, {
+        name: '5-year (2008-2012) minimum',
+        color: 'rgba(136, 136, 136, 1.0)',
+        lineWidth: 2,
+        type: 'line',
+        dashStyle: 'shortdot',
+        data: [ [Date.UTC(2011, 5, 10), 1788], [Date.UTC(2011, 5, 17), 1845], [Date.UTC(2011, 5, 24), 1935], [Date.UTC(2011, 6, 1), 2020], [Date.UTC(2011, 6, 8), 2110], [Date.UTC(2011, 6, 15), 2214], [Date.UTC(2011, 6, 22), 2298], [Date.UTC(2011, 6, 29), 2363], [Date.UTC(2011, 7, 5), 2419], [Date.UTC(2011, 7, 12), 2469], [Date.UTC(2011, 7, 19), 2557], [Date.UTC(2011, 7, 26), 2659], [Date.UTC(2011, 8, 2), 2749], [Date.UTC(2011, 8, 9), 2807], [Date.UTC(2011, 8, 16), 2874], [Date.UTC(2011, 8, 23), 2925], [Date.UTC(2011, 8, 30), 3012], [Date.UTC(2011, 9, 7), 3100], [Date.UTC(2011, 9, 14), 3179], [Date.UTC(2011, 9, 21), 3249], [Date.UTC(2011, 9, 28), 3295], [Date.UTC(2011, 10, 4), 3314], [Date.UTC(2011, 10, 11), 3374], [Date.UTC(2011, 10, 18), 3390], [Date.UTC(2011, 10, 25), 3324], [Date.UTC(2011, 11, 2), 3260], [Date.UTC(2011, 11, 9), 3193], [Date.UTC(2011, 11, 16), 3069], [Date.UTC(2011, 11, 23), 2922], [Date.UTC(2011, 11, 30), 2779], [Date.UTC(2012, 0, 6), 2701], [Date.UTC(2012, 0, 13), 2638], [Date.UTC(2012, 0, 20), 2462], [Date.UTC(2012, 0, 27), 2213], [Date.UTC(2012, 1, 3), 2013], [Date.UTC(2012, 1, 10), 1893], [Date.UTC(2012, 1, 17), 1721], [Date.UTC(2012, 1, 24), 1570], [Date.UTC(2012, 2, 2), 1435], [Date.UTC(2012, 2, 9), 1349], [Date.UTC(2012, 2, 16), 1264], [Date.UTC(2012, 2, 23), 1228], [Date.UTC(2012, 2, 30), 1199], [Date.UTC(2012, 3, 6), 1185], [Date.UTC(2012, 3, 13), 1212], [Date.UTC(2012, 3, 20), 1236], [Date.UTC(2012, 3, 27), 1322], [Date.UTC(2012, 4, 4), 1387], [Date.UTC(2012, 4, 11), 1480], [Date.UTC(2012, 4, 18), 1565], [Date.UTC(2012, 4, 25), 1652], [Date.UTC(2012, 5, 1), 1757], [Date.UTC(2012, 5, 8), 1837], [Date.UTC(2012, 5, 15), 1894], [Date.UTC(2012, 5, 22), 1984], [Date.UTC(2012, 5, 29), 2069], [Date.UTC(2012, 6, 6), 2159], [Date.UTC(2012, 6, 13), 2263], [Date.UTC(2012, 6, 20), 2347], [Date.UTC(2012, 6, 27), 2412], [Date.UTC(2012, 7, 3), 2468], [Date.UTC(2012, 7, 10), 2518], [Date.UTC(2012, 7, 17), 2606], [Date.UTC(2012, 7, 24), 2708], [Date.UTC(2012, 7, 31), 2798], [Date.UTC(2012, 8, 7), 2856], [Date.UTC(2012, 8, 14), 2923], [Date.UTC(2012, 8, 21), 2974], [Date.UTC(2012, 8, 28), 3061], [Date.UTC(2012, 9, 5), 3149], [Date.UTC(2012, 9, 12), 3228], [Date.UTC(2012, 9, 19), 3298], [Date.UTC(2012, 9, 26), 3344], [Date.UTC(2012, 10, 2), 3363], [Date.UTC(2012, 10, 9), 3423], [Date.UTC(2012, 10, 16), 3439], [Date.UTC(2012, 10, 23), 3373], [Date.UTC(2012, 10, 30), 3309], [Date.UTC(2012, 11, 7), 3242], [Date.UTC(2012, 11, 14), 3118], [Date.UTC(2012, 11, 21), 2971], [Date.UTC(2012, 11, 28), 2828], [Date.UTC(2013, 0, 4), 2750], [Date.UTC(2013, 0, 11), 2686], [Date.UTC(2013, 0, 18), 2507], [Date.UTC(2013, 0, 25), 2262], [Date.UTC(2013, 1, 1), 2062], [Date.UTC(2013, 1, 8), 1942], [Date.UTC(2013, 1, 15), 1770], [Date.UTC(2013, 1, 22), 1619], [Date.UTC(2013, 2, 1), 1472], [Date.UTC(2013, 2, 8), 1386], [Date.UTC(2013, 2, 15), 1308], [Date.UTC(2013, 2, 22), 1273], [Date.UTC(2013, 2, 29), 1246], [Date.UTC(2013, 3, 5), 1238], [Date.UTC(2013, 3, 12), 1264], [Date.UTC(2013, 3, 19), 1297], [Date.UTC(2013, 3, 26), 1380], [Date.UTC(2013, 4, 3), 1449], [Date.UTC(2013, 4, 10), 1541], [Date.UTC(2013, 4, 17), 1626], [Date.UTC(2013, 4, 24), 1716], [Date.UTC(2013, 4, 31), 1817], [Date.UTC(2013, 5, 7), 1894], [Date.UTC(2013, 5, 14), 1956], [Date.UTC(2013, 5, 21), 2045], [Date.UTC(2013, 5, 28), 2131], [Date.UTC(2013, 6, 5), 2223], [Date.UTC(2013, 6, 12), 2324], [Date.UTC(2013, 6, 19), 2405], [Date.UTC(2013, 6, 26), 2469]]
+        }]
+    };
+$(document).ready(function() {
+    var chart_Storage = new Highcharts.Chart(gasStorage);
+    });
+</script>
+<div id="container_storage" class="ngwu_highcharts"></div>
+
+            </div>
+            <div id="tabs-storage-2">
+              <style>
+span.red {color: red; font-weight:bold; float:none;}
+</style>
+
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th colspan="5" ><strong>Working Gas in Underground Storage</strong></th>
+  </tr>
+  <tr>
+    <td class="no-border"></td>
+    <td colspan="3" style="border-right:9px solid white;"><div align="center" style="vertical-align:bottom"><strong>Stocks</strong><br />billion cubic feet (bcf)</div></td>
+
+  </tr>
+  <tr>
+    <td><strong>Region</strong></td>
+    <td><div align="center"><strong>5/31/13
+</strong></div></td>
+    <td><div align="center"><strong>5/24/13
+</strong></div></td>
+    <td style="border-right:9px solid white;"><div align="center"><strong>change</strong></div></td>
+    </tr>
+  <tr>
+    <td>East</td>
+    <td bgcolor="#F2F2F2"><div align="center">968</div></td>
+    <td><div align="center">910</div></td>
+    <td style="border-right:9px solid white;"><div align="center">58
+</div></td>
+    </tr>
+  <tr>
+    <td>West</td>
+    <td bgcolor="#F2F2F2"><div align="center">396</div></td>
+    <td><div align="center">380</div></td>
+    <td style="border-right:9px solid white;"><div align="center">16
+</div></td>
+    
+    </tr>
+  <tr>
+    <td>Producing</td>
+    <td bgcolor="#F2F2F2"><div align="center">888</div></td>
+    <td><div align="center">851</div></td>
+    <td style="border-right:9px solid white;"><div align="center">37
+</div></td>
+    </tr>
+  <tr>
+    <td>Total</td>
+    <td bgcolor="#F2F2F2"><div align="center">2,252</div></td>
+    <td><div align="center">2,141</div></td>
+    <td style="border-right:9px solid white;"><div align="center">111
+</div></td>
+    </tr>
+      <tr><td colspan="5" class="no-border"><span class="source">Source: U.S. Energy Information Administration</span></td></tr>
+</table>
+
+
+            </div>
+            <div id="tabs-storage-3">
+              
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th colspan="6" ><strong>Working Gas in Underground Storage</strong></th>
+  </tr>
+  <tr>
+    <td rowspan="2" class="no-border"></td>
+    
+    <td colspan="4" ><div align="center">Historical Comparisons</div></td>
+  </tr>
+  <tr>
+    <td colspan="2" style="border-right:9px solid white;"><div align="center"><strong>Year ago</strong> <br />
+      (5/31/12)</div></td>
+    <td colspan="2" ><div align="center"><strong>5-year average</strong> <br />
+      (2008-2012) </div></td>
+  </tr>
+  <tr>
+    <td><strong>Region</strong></td>
+    <td><div align="center"><strong>Stocks</strong> (Bcf)</div></td>
+    <td><div align="center"><strong>% change</strong></div></td>
+    <td><div align="center"><strong>Stocks</strong> (Bcf)</div></td>
+    <td><div align="center"><strong>% change</strong></div></td>
+  </tr>
+  <tr>
+    <td>East</td>
+    <td><div align="center">1,358</div></td>
+    <td><div align="center">-28.7</div></td>
+    <td><div align="center">1,074</div></td>
+    <td><div align="center">-9.9</div></td>
+  </tr>
+  <tr>
+    <td>West</td>
+    <td><div align="center">421</div></td>
+    <td><div align="center">-5.9</div></td>
+    <td><div align="center">349</div></td>
+    <td><div align="center">13.5</div></td>
+  </tr>
+  <tr>
+    <td>Producing</td>
+    <td><div align="center">1,089</div></td>
+    <td><div align="center">-18.5</div></td>
+    <td><div align="center">898</div></td>
+    <td><div align="center">-1.1</div></td>
+  </tr>
+  <tr>
+    <td>Total</td>
+    <td><div align="center">2,868</div></td>
+    <td><div align="center">-21.5</div></td>
+    <td><div align="center">2,321</div></td>
+    <td><div align="center">-3.0</div></td>
+  </tr>
+  <tr>
+    <td colspan="6" class="no-border"><span class="source">Source: U.S. Energy Information Administration</span></td>
+  </tr>
+</table>
+
+
+            </div>
+          </div>
+           
+          <br />
+          <br />
+          
+          <div class="page_tabs" id="temperatures">
+            <ul>
+              <li><a href="index.cfm.html#tabs-temp-1">Temp. Table</a></li>
+              <li><a href="index.cfm.html#tabs-temp-2">Average Temp.</a></li>
+              <li><a href="index.cfm.html#tabs-temp-3">Diff. b/w average and normal</a></li>
+            </ul>
+            <div id="tabs-temp-1">
+              
+<table class="simpletable ngwu_tables">
+  <tr>
+    <th colspan="9" ><strong>Temperature -- Heating & Cooling Degree Days (week ending May 30)</strong></th>
+  </tr>
+  <tr>
+    <td class="no-border" colspan="2"><div align="center">&nbsp;</div></td>
+    <td colspan="2"><div align="center">HDD deviation from: </div></td>
+    <td class="no-border"><div align="center"><strong>&nbsp;</strong></div></td>
+    <td colspan="2"><div align="center">CDD deviation from: </div></td>
+  </tr>
+  <tr>
+    <td><strong>Region</strong>
+    </td><td><div align="center"><strong><abbr title="heating-degree day">HDD</abbr> Current</strong></div></td>
+    <td><div align="center"><strong>normal</strong></div></td>
+    <td><div align="center"><strong>last year</strong></div></td>
+    <td><div align="center"><strong><abbr title="cooling-degree day">CDD</abbr> Current</strong></div></td>
+    <td><div align="center"><strong>normal</strong></div></td>
+    <td><div align="center"><strong>last year</strong></div></td>
+  </tr>
+  <tr>
+    <td>New England</td>
+    <td><div align="center">54
+</div></td>
+    <td><div align="center">16
+</div></td>
+    <td><div align="center">50
+</div></td>
+    <td><div align="center">6
+</div></td>
+    <td><div align="center">3
+</div></td>
+    <td><div align="center">-15
+</div></td>
+  </tr>
+  <tr>
+    <td>Middle Atlantic</td>
+    <td><div align="center">51
+</div></td>
+    <td><div align="center">23
+</div></td>
+    <td><div align="center">50
+</div></td>
+    <td><div align="center">15
+</div></td>
+    <td><div align="center">5
+</div></td>
+    <td><div align="center">-35
+</div></td>
+  </tr>
+  <tr>
+    <td>E N Central</td>
+    <td><div align="center">53
+</div></td>
+    <td><div align="center">19
+</div></td>
+    <td><div align="center">48
+</div></td>
+    <td><div align="center">19
+</div></td>
+    <td><div align="center">1
+</div></td>
+    <td><div align="center">-36
+</div></td>
+  </tr>
+  <tr>
+    <td>W N Central</td>
+    <td><div align="center">30
+</div></td>
+    <td><div align="center">0
+</div></td>
+    <td><div align="center">14
+</div></td>
+    <td><div align="center">23
+</div></td>
+    <td><div align="center">-1
+</div></td>
+    <td><div align="center">-25
+</div></td>
+  </tr>
+  <tr>
+    <td>South Atlantic</td>
+    <td><div align="center">19
+</div></td>
+    <td><div align="center">9
+</div></td>
+    <td><div align="center">19
+</div></td>
+    <td><div align="center">49
+</div></td>
+    <td><div align="center">-4
+</div></td>
+    <td><div align="center">-32
+</div></td>
+  </tr>
+  <tr>
+    <td>E S Central</td>
+    <td><div align="center">10
+</div></td>
+    <td><div align="center">1
+</div></td>
+    <td><div align="center">10
+</div></td>
+    <td><div align="center">47
+</div></td>
+    <td><div align="center">3
+</div></td>
+    <td><div align="center">-33
+</div></td>
+  </tr>
+  <tr>
+    <td>W S Central</td>
+    <td><div align="center">0
+</div></td>
+    <td><div align="center">-1
+</div></td>
+    <td><div align="center">0
+</div></td>
+    <td><div align="center">90
+</div></td>
+    <td><div align="center">17
+</div></td>
+    <td><div align="center">-18
+</div></td>
+  </tr>
+  <tr>
+    <td>Mountain</td>
+    <td><div align="center">26
+</div></td>
+    <td><div align="center">-17
+</div></td>
+    <td><div align="center">-21
+</div></td>
+    <td><div align="center">30
+</div></td>
+    <td><div align="center">-1
+</div></td>
+    <td><div align="center">6
+</div></td>
+  </tr>
+  <tr>
+    <td>Pacific</td>
+    <td><div align="center">27
+</div></td>
+    <td><div align="center">-1
+</div></td>
+    <td><div align="center">-9
+</div></td>
+    <td><div align="center">3
+</div></td>
+    <td><div align="center">-9
+</div></td>
+    <td><div align="center">3
+</div></td>
+  </tr>
+  <tr>
+    <td>United States</td>
+    <td><div align="center">34
+</div></td>
+    <td><div align="center">8
+</div></td>
+    <td><div align="center">21
+</div></td>
+    <td><div align="center">31
+</div></td>
+    <td><div align="center">0
+</div></td>
+    <td><div align="center">-22
+</div></td>
+  </tr>
+  <tr><td colspan="7" class="no-border">
+Note: HDD = heating degree-day; CDD = cooling degree-day<br /><br />
+<span class="source">Source: National Oceanic and Atmospheric Administration</span></td></tr>
+</table>
+
+
+            </div>
+            <div id="tabs-temp-2">
+              
+  <div class="ngwu_temp_map_container">
+    <p class="ngwu_temp_map_title">Average temperature (&deg;F)</p>
+    <p class="ngwu_temp_map_subtitle">7-Day Mean ending May 30, 2013</p>
+    <div class="ngwu_temp_map_crop1"><img src="img/20130530.7day.mean.F.gif" alt="Mean Temperature (F) 7-Day Mean ending May 30, 2013"/></div>
+    <p class="ngwu_temp_map_source">Source: <acronym title="National Oceanic and Atmospheric Administration">NOAA</acronym>/National Weather Service</p>
+  </div>
+
+            </div>
+            <div id="tabs-temp-3">
+              
+  <div class="ngwu_temp_map_container">
+    <p class="ngwu_temp_map_title">Deviation between average and normal (&deg;F)</p>
+    <p class="ngwu_temp_map_subtitle">7-Day Mean ending May 30, 2013</p>
+    <div class="ngwu_temp_map_crop2"><img src="img/20130530.7day.mean.F.gif" alt="Mean Temperature Anomaly (F) 7-Day Mean ending May 30, 2013"/></div>
+    <p class="ngwu_temp_map_source">Source: <acronym title="National Oceanic and Atmospheric Administration">NOAA</acronym>/National Weather Service</p>
+  </div>
+
+            </div>
+          </div>
+           
+          
+          
+          <div class="ngwu_image_container">
+<img src="img/201304-April-monthly.png" />
+<p style="margin-left:15px;"><a href="http://www.eia.gov/naturalgas/weekly/archive/2013/06_06/img/ShaleGas-201304.xlsx" class="ico_xls">Download figure data</a></p>
+<div style="clear:left"></div>
+  <div style="clear:left"></div>
+</div>
+<div style="margin-bottom:38px;"></div>
+
+           
+        </div>
+         
+      </div>
+       
+    </div>
+    
+    
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+	  
+      </div>
+      <div id="addbar">
+      <a href="../../../../../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../../../../../abouteia/eia_standards.cfm.html">About EIA</a></h3>
+        <h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="../../../../../pressroom/archive/images/press109_kyoto5.gif.html">Press Room</a></h3>
+        <h3><a href="../../../../../about/careers.1.html">Careers</a></h3>
+        
+        <h3><a href="../../../../../contactus.html">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="../../../../../petroleum/index.html">Petroleum</a><br />
+           <a href="../../../../../fuelcoal.html">Coal</a><br />
+           <a href="../../../../index.html">Natural Gas</a><br />
+           <a href="../../../../../fuelrenewable.html">Renewable</a><br />
+           <a href="../../../../../nuclear.1.html">Nuclear</a><br />
+           <a href="../../../../../cneaf/electricity/contacts/elect_epm_coord.txt.html">Electricity</a><br />
+           <a href="../../../../../consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html">Consumption</a><br />
+           <a href="../../../../../totalenergy/index.html">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="../../../../../analysis/index.html">Analysis & Projections</a><br />
+           <a href="../../../../../environment.1.html">Environment</a><br />
+           <a href="../../../../../finance/index.html">Markets & Finance</a><br />
+           <a href="../../../../../todayinenergy.1.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../../../../../state/search/images/sort_desc_disabled.png.html">States</a><br />
+           <a href="../../../../../countries/index.html">Countries</a><br />
+           <a href="../../../../../maps.1.html">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="../../../../../tools/a-z/index.html">A-Z Index</a><br />
+           <a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="../../../../../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="../../../../../tools/survey/index.html">EIA Survey Forms</a><br />
+           <a href="../../../../../beta.html">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="../../../../../about/privacy_security_policy.cfm.html">Privacy/Security</a><br />
+           <a href="../../../../../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br />
+           <a href="../../../../../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="../../../../../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="../../../../../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>
