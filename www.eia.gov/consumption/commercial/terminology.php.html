@@ -1,0 +1,846 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+
+<link type="text/css" href="https://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+
+<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+<link rel="stylesheet" href="https://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+<script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/eia_global.js"></script>
+
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+
+		<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+
+			<script type="text/javascript" src="https://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="https://www.eia.gov/favicon.ico" />
+<link rel="icon" href="https://www.eia.gov/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="https://www.eia.gov/favicon.ico" />
+
+<!-- Add fancyBox 2 -->
+<link rel="stylesheet" href="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="https://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+
+<script type="text/javascript" src="https://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="https://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>Commercial Buildings Energy Consumption Survey (CBECS) - U.S. Energy Information Administration (EIA)</title>
+    </head>
+<body>
+<div id="outerX">
+
+		<script>
+        $(document).ready(function() {
+
+
+
+
+            function position() {
+              $( "#sticker.positionable" ).position({
+                of: $( "#outerX" ),
+                my: "left top",
+                at: "right top"
+              });
+              $('#sticker').offset({top:$(window).scrollTop()+10});
+            }
+         
+            position();
+        
+            $('#sticker').hover(function(event){
+               $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+            },function(event){  
+                $(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+            });
+            $(window).scroll(function () {position();});
+            $(window).resize(function () {position();});
+        });
+    </script>
+    <div id="sticker" class="social-fixed positionable">
+      <div class="addthis_toolbox addthis_default_style ">
+        <ul class="social shider">
+          <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+            <div class="link twt">
+              <div class="tweet"><a class="addthis_button_tweet"></a></div>
+            </div>
+          </li>
+          <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="https://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+            <div class="link facebook">
+              <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+        <script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+<div id="innerX">
+    <div class="content">
+    
+    <div id="header">
+    <div class="print"><img src="https://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+      <a href="https://www.eia.gov/"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+        <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/petroleum/"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="https://www.eia.gov/naturalgas/"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../electricity/monthly/pdf/appenc.pdf.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="data/archive/cbecs/description_files/plainlink.css.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/coal/"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="https://www.eia.gov/renewable/"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../nuclear/index.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="https://www.eia.gov/totalenergy/"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/petroleum/weekly/">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/petroleum/supply/weekly/">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/naturalgas/weekly/">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/electricity/monthly/">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/coal/production/quarterly/">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../totalenergy/data/monthly/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/consumption/residential/">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../electricity/data/browser/index.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+                  </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+        <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="https://www.eia.gov/analysis/"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="https://www.eia.gov/finance/"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../environment/index.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/outlooks/steo/">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/aeo/">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/disruptions/">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/outlooks/ieo/">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+        <li class="global-geo"><a>Geography</a></li>
+        <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../state/seds/sep_prod/xls/PT2_VQ.xlsx.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="https://www.eia.gov/maps/"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="https://www.eia.gov/beta/international/"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="https://www.eia.gov/state/seds/">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/special/gulf_of_mexico/">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/state/maps.cfm">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+        <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/tools/" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="https://www.eia.gov/survey/" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="https://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="https://www.eia.gov/tools/emailupdates/" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+        </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+        <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../todayinenergy/index.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="https://www.eia.gov/tools/faqs/" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="https://www.eia.gov/tools/glossary/" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="https://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="https://www.eia.gov/energyexplained/">Energy Explained</a></h3>
+                <p class="width152"><a href="https://www.eia.gov/energyexplained/index.cfm?page=about_home">What is Energy?&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=about_energy_units">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=us_energy_use">Use of Energy&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=environment_home">Energy & Environment&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a></p>
+                <p class="width110"><a href="https://www.eia.gov/energyexplained/index.cfm?page=oil_home">Petroleum&nbsp;&rsaquo;</a>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hgls_home">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=natural_gas_home">Natural Gas&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=coal_home">Coal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=nuclear_home">Nuclear&nbsp;&rsaquo;</a></p>
+                <p class="width181"><a href="https://www.eia.gov/energyexplained/index.cfm?page=electricity_home">Electricity&nbsp;&rsaquo;</a><br>
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=hydropower_home">Hydropower&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=biofuel_home">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=wind_home">Wind&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=geothermal_home">Geothermal&nbsp;&rsaquo;</a><br />
+                <a href="https://www.eia.gov/energyexplained/index.cfm?page=solar_home">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="https://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+        </div>
+        <li class="global-news"><a>News</a></li>
+        <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="https://www.eia.gov/about/new/">What's New?</a></h3>
+                            <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="https://www.eia.gov/pressroom/" style="color:#fff !important;">Press Room</a></h3>
+              <a href="https://www.eia.gov/pressroom/releases.cfm">Press Releases&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/presentations.cfm">Presentations&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/pressroom/testimony.cfm">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="https://www.eia.gov/radio/">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+        </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+                    				      			<form accept-charset="UTF-8" action="https://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          		  
+      </div>
+      <li class="global-a-z"><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="https://www.eia.gov/tools/a-z/">A-Z Index</a></h3>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=a">A</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=b">B</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=c">C</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=d">D</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=e">E</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=f">F</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=g">G</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=h">H</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=i">I</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=j">J</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=k">K</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=l">L</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=m">M</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=n">N</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=o">O</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=p">P</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=q">Q</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=r">R</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=s">S</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=t">T</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=u">U</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=v">V</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=w">W</a>
+          <a href="https://www.eia.gov/tools/a-z/index.cfm?id=xyz">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+                
+
+
+
+
+    
+<script>
+	$(function(){
+		$('.dropdown').dd();
+	});
+	
+$(document).ready(function(){
+    $("div.dat_block a").click(function(){
+		 $("table.contable").children("tbody").hide();
+		$("table.contable th").removeClass("active");
+		var sID = this.href.substring(this.href.indexOf("#") + 1);
+		$("[name$='" + sID + "']").click();
+  });
+});		
+</script>
+<div class="title bg_commercial"> 
+   
+  <a href="data/archive/cbecs/description_files/plainlink.css.html">&#8249; Consumption &amp; Efficiency</a>
+  <h1 style="font-size:27px"> Commercial Buildings Energy Consumption Survey (CBECS)  </h1>
+</div>
+<div class="subnav"> 
+   
+  <span class="right"><a href="https://www.eia.gov/tools/glossary/?id=consumption">Glossary &rsaquo;</a> <a href="https://www.eia.gov/tools/faqs/#crudeoil">FAQS &rsaquo;</a></span>
+  <ul>
+    <li class="active"><a href="https://www.eia.gov/consumption/commercial/">Overview</a></li>
+    <li class="dropdown "><a href="https://www.eia.gov/consumption/commercial/data/2012/">Data</a></li>
+    <div class="dat_block">
+      <ul><li><a href="https://www.eia.gov/consumption/commercial/data/2012/">2012</a></li>
+        <li><a href="https://www.eia.gov/consumption/commercial/data/2003/">2003</a></li>
+        <li><a href="https://www.eia.gov/consumption/commercial/data/1999/">1999</a></li>
+        <li><a href="https://www.eia.gov/consumption/commercial/data/1995/">1995</a></li>
+        <li><a href="https://www.eia.gov/consumption/commercial/data/1992/">1992</a></li>
+        <li><a href="https://www.eia.gov/consumption/commercial/data/previous/">Previous</a></li>
+      </ul>
+    </div>
+    <li ><a href="https://www.eia.gov/consumption/commercial/reports.cfm">Analysis &amp; Projections</a></li>
+</div>
+ 
+<div class="pagecontent mr_temp1">
+  <div class="main_col"> 
+        <h1>CBECS Terminology</h1>
+    <p><strong>NOTE:</strong> This glossary is specific to the 1999, 2003 and 2012Commercial Buildings Energy Consumption Surveys (CBECS). CBECS glossaries for prior years can be found in the appendices of <a href="https://www.eia.gov/consumption/commercial/data/archive/">past CBECS reports</a>.</p>
+    <p align="center">A&nbsp;&nbsp;<a href="terminology.php.html#B">B</a>&nbsp;&nbsp;<a href="terminology.php.html#C">C</a>&nbsp;&nbsp;<a href="terminology.php.html#D">D</a>&nbsp;&nbsp;<a href="terminology.php.html#E">E</a>&nbsp;&nbsp;<a href="terminology.php.html#F">F</a>&nbsp;&nbsp;<a href="terminology.php.html#G">G</a>&nbsp;&nbsp;<a href="terminology.php.html#H">H</a>&nbsp;&nbsp;<a href="terminology.php.html#I">I</a>&nbsp;&nbsp;J&nbsp;&nbsp;<a href="terminology.php.html#K">K</a>&nbsp;&nbsp;<a href="terminology.php.html#L">L</a>&nbsp;&nbsp;<a href="terminology.php.html#M">M</a>&nbsp;&nbsp;<a href="terminology.php.html#N">N</a>&nbsp;&nbsp;<a href="terminology.php.html#O">O</a>&nbsp;&nbsp;<a href="terminology.php.html#P">P</a>&nbsp;&nbsp;Q&nbsp;&nbsp;<a href="terminology.php.html#R">R</a>&nbsp;&nbsp;<a href="terminology.php.html#S">S</a>&nbsp;&nbsp;<a href="terminology.php.html#T">T</a>&nbsp;&nbsp;U&nbsp;&nbsp;<a href="terminology.php.html#V">V</a>&nbsp;&nbsp;<a href="terminology.php.html#W">W</a>&nbsp;&nbsp;X&nbsp;&nbsp;<a href="terminology.php.html#Y">Y</a>&nbsp;&nbsp;Z</p>
+    <p><strong>Account Classification:</strong> The method in which suppliers of electricity, natural gas, or fuel oil classify and bill their customers. Commonly used account classifications are &ldquo;Commercial,&rdquo; &ldquo;Industrial,&rdquo; and &ldquo;Residential.&rdquo; Suppliers&rsquo; definitions of these terms vary from supplier to supplier and from the definitions used in CBECS. In addition, the same customer may be classified differently by each of its energy suppliers. </p>
+    <p> <strong>Activities with Large Amounts of Hot Water:</strong> An energy-related space function within a building that requires large amounts of hot water for other than space heating. Examples of these activities are commercial dishwashers, laundry rooms, heated swimming pools, spas, saunas, showers and steam rooms. </p>
+    <p> <span class="report_bold">Air Conditioning:  See Cooling.</span> &nbsp;</p>
+    <p> <strong>Air-Handling Unit:</strong> A type of heating and/or cooling distribution equipment that channels warm or cool air to different parts of a building. This process of channeling the conditioned air often involves drawing air over heating or cooling coils and forcing it from a central location through ducts or air-handling units. Air-handling units are hidden in the walls or ceilings, where they use steam or hot water to heat, or chilled water to cool the air inside the ductwork. </p>
+    <p><strong>Air Source Heat Pump:</strong> A type of heat pump that extracts heat from the outside air and brings it inside the building. Most heat pumps in use today are air source. (See Heat Pump.) </p>
+    <p><strong>Authorization Form:</strong> A form signed by the building respondent, authorizing energy suppliers that serve the building to release information on the amounts and costs of energy consumed in the building and the participation by the building in Demand-Side Management programs during a specified period. (See Energy Supplier.) </p>
+    <p> <a name="B"></a><strong>Barrel:</strong> A volumetric unit of measure for crude oil and petroleum products equivalent to 42 U.S. gallons.</p>
+    <p> <strong>Boiler:</strong> A type of space-heating equipment consisting of a vessel or tank where heat produced from the combustion of such fuels as natural gas, fuel oil, or coal is used to generate hot water or steam. Many buildings have their own boilers, while other buildings have steam or hot water piped in from a central plant. For this survey, only boilers inside the building (or serving only that particular building) are counted as part of the building&rsquo;s heating system. Steam or hot water piped into a building from a central plant is considered district heat. </p>
+    <p> <strong>Bottled Gas, LPG, or Propane:</strong> Any fuel gas supplied in liquid form, such as liquefied petroleum gas, propane or butane. It is usually delivered by tank truck and stored near the building in a tank or cylinder until used.&nbsp;</p>
+    <p> <strong>Brick, Stone, or Stucco:</strong> Nonstructural materials typically used on the exterior of a wood or metal frame building.</p>
+    <p> <strong>Broker:</strong> An entity that arranges the sale and purchase of electric or natural gas energy, transmission and other services between electricity or natural gas buyers and the electricity or natural gas sellers.</p>
+    <p> <strong>Btu (British Thermal Unit):</strong> A unit of energy consumed by or delivered to a building. A Btu is defined as the amount of energy required to increase the temperature of 1 pound of water by 1 degree Fahrenheit, at normal atmospheric pressure. Energy consumption is expressed in Btu to allow for consumption comparisons among fuels that are measured in different units. (See Btu Conversion Factors and Metric Conversion Factors.) </p>
+    <p> <strong>Btu Conversion Factors:</strong> The Btu conversion factors used for for the CBECS are  shown in the following table. Only the Natural gas factor differed between the 199 and 2003 surveys.
+    
+    <p>
+    
+    <div>
+      <table class="basic_table" width="100%">
+        <thead>
+          <tr>
+            <th> Energy Source</th>
+            <th>Btu Equivalent</th>
+            <th> Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Electricity</td>
+            <td>3,412</td>
+            <td>kilowatthour</td>
+          </tr>
+          <tr>
+            <td>Natural Gas (1999)</td>
+            <td>1,027</td>
+            <td>cubic foot</td>
+          </tr>
+          <tr>
+            <td>Natural Gas (2003)</td>
+            <td>1,031</td>
+            <td>cubic Foot</td>
+          </tr>
+          <tr>
+            <td>Distillate Fuel Oils (Nos. 1, 2, and 4)</td>
+            <td>138,690</td>
+            <td>Gallon</td>
+          </tr>
+          <tr>
+            <td>Residual Fuel Oils (Nos. 5 and 6)</td>
+            <td>149,690</td>
+            <td>Gallon</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"><span class="footnotes"><strong>Sources: </strong>Energy Information Administration, <em>Annual Energy Review 2004</em>.<br>
+              Note: A Btu of district hot water has been converted into equivalent pounds of steam with the conversion of 1,000 Btu hot water approximately =1 pound steam.<br>
+              <strong>Source: </strong><em>Methodological Issues in the Nonresidential Buildings Energy Consumption Survey</em> (September 1983), p. 173-175</span></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p> <strong>Building:</strong> A structure totally enclosed by walls extending from the foundation to the roof, containing over 1,000 square feet of floorspace and intended for human occupancy. Included in the survey as a specific exception were structures erected on pillars to elevate the first fully enclosed level but leaving the sides at ground level open. Excluded from the survey as nonbuildings were the following: structures (other than the exception just noted) that were not totally enclosed by walls and a roof (such as oil refineries, steel mills, and water towers), street lights, pumps, billboards, bridges, swimming pools, oil storage tanks, construction sites, and mobile homes and trailers, even if they housed commercial activity. Since 1995, the CBECS has excluded enclosed parking garages and commercial buildings on manufacturing sites. These buildings were included in previous CBECS. (See  Commercial Building.) </p>
+    <p><strong>Building Automation System (BAS):</strong> See Energy Management and Control System (EMCS).</p>
+    <p><strong>Building Floorspace:</strong> See Floorspace. </p>
+    <p> <strong>Building Shell (Envelope):</strong> The thermal envelope of the building; that is, the roof, exterior walls, and bottom floors that enclose conditioned space through which thermal energy may be transferred to or from the exterior. </p>
+    <p> <strong>Built-Up Roof:</strong> A roof covering consisting of several successive layers (each of which is called a &ldquo;ply&rdquo;), usually of roofing felt, with mopping of hot asphalt between layers and topped by a mineral-surfaced layer or by gravel embedded in a heavy coat of asphalt. </p>
+    <p> <a name="C"></a><strong>Cases or Cabinets:</strong> Refrigeration in open or closed units for the purpose of selling, displaying, or storing perishable materials. &ldquo;Open&rdquo; refers to cases or cabinets with no covers or with flexible covers made of plastic or some other material, hung in strips or curtains to stop the flow of warm air into the refrigerated space. Examples of open cases are produce, dairy, and deli cases, salad bars, and sandwich preparation units. &ldquo;Closed&rdquo; refers to units with doors that shut, such as beverage display coolers, grocery coolers or freezers, dessert displays, under-counter coolers, floral display coolers, and ice machines. (See Refrigeration Equipment.) </p>
+    <p> <strong>CDD:</strong> See Cooling Degree-Days (CDD). </p>
+    <p><strong>Census Region and Division:</strong> A geographic area consisting of several states defined by the U.S. Department of Commerce, Bureau of the Census. See following table: </p>
+    <div>
+      <table width="100%" class="basic_table">
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Division</th>
+            <th>States</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Northeast</td>
+            <td>New England</td>
+            <td>Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Middle Atlantic</td>
+            <td>New Jersey, New York, and Pennsylvania</td>
+          </tr>
+          <tr>
+            <td>Midwest</td>
+            <td>East North Central</td>
+            <td>Illinois, Indiana, Michigan, Ohio, and Wisconsin</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>West North Central</td>
+            <td>Iowa, Kansas, Minnesota, Missouri, Nebraska, North Dakota, and South Dakota</td>
+          </tr>
+          <tr>
+            <td>South</td>
+            <td>South Atlantic</td>
+            <td>Delaware, District of Columbia, Florida, Georgia, Maryland, North Carolina, South Carolina, Virginia, and West Virginia</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>East South Central</td>
+            <td>Alabama, Kentucky, Mississippi, and Tennessee</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>West South Central</td>
+            <td>Arkansas, Louisiana, Oklahoma, and Texas</td>
+          </tr>
+          <tr>
+            <td>West</td>
+            <td>Mountain</td>
+            <td>Arizona, Colorado, Idaho, Montana, Nevada, New Mexico, Utah, and Wyoming</td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>Pacific</td>
+            <td>Alaska, California, Hawaii, Oregon, and Washington</td>
+          </tr>
+        </tbody>
+      </table>
+      <P><strong>Central Chiller:</strong> A type of cooling equipment that is centrally located and that produces chilled water in order to cool air. The chilled water or cold air is then distributed throughout the building by use of pipes or air ducts, or both. These systems are also commonly known as &ldquo;chillers,&rdquo; &ldquo;centrifugal chillers,&rdquo; &ldquo;reciprocating chillers,&rdquo; or &ldquo;absorption chillers.&rdquo; Chillers are generally located in, or just outside, the building they serve. Chillers located at central plants are included in &#8220;District Chilled Water&#8221; under &#8220;Cooling Equipment.&#8221; </P>
+      <p><strong>Central Physical Plant:</strong> A plant that is owned by, and on the grounds of, a multibuilding facility that provides district heating, district cooling, or electricity to one or more buildings on the same facility. The central physical plant may be by itself in a separate building or may be located in a building where other activities occur. (See Multibuilding Facility, District Heat, or District Chilled Water.) </p>
+      <p><strong>Centralized Water-Heating System:</strong> A type of water-heating equipment that heats and stores water (for purposes other than space heating) in tanks and then distributes this heated water throughout the building. A residential-type tank water heater is an example of a centralized water heater. </p>
+      <p><strong>Climate Region:</strong> Starting with the 2012 CBECS, buildings are classified according to climate regions created by the Building America program, sponsored by the U.S. Department of Energy's Office of Energy Efficiency and Renewable Energy (EERE). Building America defines eight climate regions which are collapsed into five regions for the purposes of CBECS: Very cold/Cold, Mixed-humid, Mixed-dry/Hot-dry, Hot-humid, and Marine.</p>
+      <p><strong>Climate Zone:</strong> One of five climatically distinct areas, defined by long-term weather conditions which affect the heating and cooling loads in buildings. The zones were determined according to a  historical average of the annual heating and cooling degree-days (base 65 degrees  Fahrenheit). Prior to the 2003 CBECS, the climate zones were based on a 45-year  average (1931-1975); beginning with the 2003 CBECS, the climate zones are based  on a 30-year average (1971-2000).  An individual building was assigned to a climate zone according to the historical average annual degree-days for its National Oceanic and Atmospheric Administration (NOAA) Division. (See Heating Degree-Days (HDD) and Cooling Degree-Days (CDD).) The climate zones are defined below: </p>
+      <div>
+        <table class="basic_table" width="100%">
+          <thead>
+            <tr>
+              <th>Climate Zone</th>
+              <th>Average Annual Cooling Degree-Days</th>
+              <th>Average Annual Heating Degree-Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Fewer than 2,000</td>
+              <td>More than 7,000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Fewer than 2,000</td>
+              <td>5,500 to 7,000</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Fewer than 2,000</td>
+              <td>4,000 to 5,499</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Fewer than 2,000</td>
+              <td>Fewer than 4,000</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>2,000 or More</td>
+              <td>Fewer than 4,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><strong>Coal:</strong> A black or brownish-black solid, combustible substance formed by the partial decomposition of vegetable matter without access to air. The term includes anthracite, bituminous, and sub bituminous coal, as well as coke, the derivative of coal formed by destructive distillation or imperfect combustion. Data on the use of coal were collected but no consumption and expenditure data were collected. Coal is included in the &ldquo;Other&rdquo; category for &ldquo;Energy Sources,&rdquo; &ldquo;Space-Heating Energy Sources,&rdquo; and &ldquo;Primary Space-Heating Energy Sources.&rdquo;</p>
+      <p><strong>Cogeneration:</strong> The simultaneous production of electric and thermal energy in on-site, distributed energy systems; typically, waste heat from the electricity generation process is recovered and used to heat, cool, or dehumidify building space. Neither generation of electricity without use of the byproduct heat, nor waste-heat recovery from processes other than electricity generation is included in the definition of cogeneration. (See Electricity Generation.) </p>
+      <p><strong>Commercial:</strong> In the CBECS, commercial refers to any building that is neither residential (used as a dwelling for one or more households), manufacturing/industrial (used for processing or procurement of goods, merchandise raw materials or food), nor agricultural (used for the production, processing, sale, storage, or housing of agricultural products, including livestock). At least 50 percent of the floorspace must be used for purposes other than these for a building to be considered &#8220;commercial.&#8221;</p>
+      <p><strong>Commercial Building:</strong> A building with more than 50 percent of its floorspace used for commercial activities. Commercial buildings include, but are not limited to, the following: stores, offices, schools, churches, gymnasiums, libraries, museums, hospitals, clinics, warehouses, and jails. Government buildings were included except for buildings on sites with restricted access, such as some military bases. Agricultural buildings, residences, and manufacturing/industrial buildings are excluded. Since 1995, parking garages and commercial buildings on manufacturing sites have also been excluded. For a list of building types, see <a href="https://www.eia.gov/consumption/commercial/building-type-definitions.cfm">&ldquo;Description of types of buildings.&rdquo;</a> ( See  Building , Commercial, and  Principal Building Activity .) </p>
+      <p><strong>Commercial Food Preparation:</strong> An energy-related function that has space specifically designed and equipped to meet the needs for preparing and serving food commercially. This includes kitchens in restaurants, diners, and other commercial institutions, such as schools. The term &ldquo;commercial&rdquo; also includes what is sometimes classified as &ldquo;institutional&rdquo;&mdash;that is, food preparation and serving areas in schools, hospitals, prisons, shelters, churches, and nursing homes. This category includes cafeterias where food is brought in and kept warm with steam tables or other warming devices until it is served. It does not include employee or student &ldquo;lounge&rdquo; areas with microwaves or other food preparation equipment and/or vending machines. </p>
+      <p> <strong>Commercial Refrigeration:</strong> Refrigeration equipment is designed to maintain the stored items below room temperature but above the freezing point of water. This category also includes freezer equipment, which is designed to keep its contents below the freezing point of water (32 degrees Fahrenheit). In the 2003 CBECS tables, the &ldquo;commercial refrigeration&rdquo; category includes only open, closed, or walk-in commercial refrigeration or freezer units for the sale or storage of perishable materials so that it may be compared with previous CBECS, which did not collect data on residential-type refrigeration units or vending machines. (See Cases or&nbsp; Cabinets, Refrigeration Equipment, Residential-Type Refrigeration Unit, Vending Machine, and Walk-in Refrigeration Unit.) </p>
+      <p><strong>Compact Fluorescent Light Bulb:</strong> A light bulb designed to replace screw-in incandescent light bulbs; they are often found in table lamps, wall sconces, and hall and ceiling fixtures of commercial buildings with residential type lights. They combine the efficiency of fluorescent lighting with the convenience of standard incandescent bulbs. Light is produced the same way as other fluorescent lamps. Compact fluorescent bulbs have either electronic or magnetic ballasts. </p>
+      <p><strong>Concrete (Block or Poured):</strong> &ldquo;Concrete block&rdquo; is more than just square cinder block; it comes in a wide variety of sizes, shapes, and colors. &ldquo;Above grade poured concrete&rdquo; is formed and poured in place; it may also be referred to as &ldquo;ICF (insulated concrete form) walls.&rdquo; It is very expensive and rarely used in commercial buildings. </p>
+      <p><strong>Concrete Panels:</strong> A wall construction material usually made in a factory and delivered to the construction site, where it is hoisted onto the structure, although sometimes they are poured at the site and then hoisted on the structure. The panels are either solid or insulated. They can have plain, colored, or textured finishing. They may also be referred to as &ldquo;prefabricated concrete panels.&rdquo;</p>
+      <p><strong>Concrete Roof:</strong> A poured concrete roof, often intended to bear the load of a parking garage that occupies the roof area of a building. </p>
+      <p><strong>Conditional Energy Intensity:</strong> Total consumption of a particular energy source(s) or fuel(s) divided by the total floorspace of buildings that use the energy source(s) or fuel(s), i.e., the ratio of consumption to energy source-specific floorspace. This measure is used in the fuel-specific detailed tables. </p>
+      <p><strong>Consumption:</strong> The amount of energy used in, or delivered to, a building during a given period of time. Unless otherwise noted, all consumption statistics are site energy consumption, which includes electric utility sales to commercial buildings but excludes electrical system and district heat energy losses. Statistics are presented on an annual basis for the survey calendar year. Site consumption is the amount of energy delivered to the site (building); no adjustment is made for the fuels consumed to produce electricity or district sources. Site consumption is also referred to as net energy. Primary consumption is the amount of site consumption plus losses that occur in the electricity generation process. </p>
+      <p> Data on energy consumption were not collected by end uses separately. For example, although it might be known that electricity was used in some buildings for heating, the consumption of electricity reported for those buildings would typically include other uses of electricity as well (such as lighting and water heating). Total consumption is reported as well as &ldquo;Consumption per Square Foot&rdquo;&mdash;the aggregate ratio of total consumption for a particular set of buildings to the total floorspace of those buildings; and &ldquo;Consumption per Worker&rdquo;&mdash;the aggregate ratio of total consumption to total number of workers (main shift). (See Btu, Conversion Losses, Energy Supplier, Expenditures, Floorspace, and Workers (Main Shift).) </p>
+      <p><strong>Conversion Factors:</strong> See Btu Conversion Factors and Metric Conversion Factors. </p>
+      <p><strong>Conversion Losses:</strong> The amount of energy lost during generation, transmission, and distribution of energy sources, particularly electricity, including plant and unaccounted-for uses. (See Site Electricity and Primary Electricity.) </p>
+      <p><strong>Cooking:</strong> As an energy end use, the use of energy for commercial or institutional food preparation. Specifically, cooking that took place in a kitchen facility that was not part of a residence. It does not include employee lounge areas that are equipped with microwaves, other food preparation equipment, and/or vending machines. (See Energy End Use.) </p>
+      <p><strong>Cooling:</strong> The conditioning of air in a room for human comfort by a refrigeration unit (such as an air conditioner or heat pump) or by a central cooling or district cooling system that circulates chilled water. Use of fans or blowers by themselves without chilled air or water is not included in this definition of air conditioning. (See Energy End Use.) </p>
+      <p><strong>Cooling Degree-Days (CDD):</strong> A measure of how hot a location was over a period of time, relative to a base temperature. In this report, the base temperature is 65 degrees Fahrenheit, and the period of time is one year. The cooling degree-day is the difference between that day&rsquo;s average temperature and 65 degrees if the daily average is greater than 65; it is zero if the daily average temperature is less than or equal to 65. Cooling degree-days for a year are the sum of the daily cooling degree-days for that year. </p>
+      <p><strong>Cooling Equipment:</strong> The equipment used for cooling room air in a building for human comfort. (See Residential-Type Central Air Conditioner, Heat Pump, Individual Air Conditioner, Central Chiller, District Chilled Water, Packaged Unit, and Swamp Cooler.)</p>
+      <p><strong>Cosmetic Improvements:</strong> A type of building renovation involving interior or exterior surface improvements such as new paint, siding, furniture, wallpaper, or carpeting. </p>
+      <p> <strong>Cubic Foot (cf):</strong> As a natural gas measure, the volume of gas contained in a cube with an edge that is 1 foot long at standard temperature and pressure (60 degrees Fahrenheit and 14.73 pounds standard per square inch.) The thermal content varies by the composition of the gas. (See Natural Gas and Btu Conversion Factors.) </p>
+      <p><a name="D"></a><strong>Data Center:</strong> See Server Farm. </p>
+      <p><strong>Daylight Harvesting:</strong> An interior lighting control and shade system that automatically dims light fixtures when natural light is available, and/or adjusts shades so that the combination of natural light and artificial light combine to provide the desired level of lighting. </p>
+      <p><strong>Daylighting Sensors:</strong> A lighting feature that takes advantage of sunlight to cut the amount of electric lighting used in a building by varying output of the lighting system in response to variations in available daylight. They are sometimes referred to as &ldquo;natural lighting control sensors &rdquo; or &ldquo;photocells.&rdquo; &nbsp;</p>
+      <p> <strong>Decorative or Construction Glass:</strong> Exterior glass covering that you can&rsquo;t see through. It may look just like window glass when viewed from the street, except that it is opaque and does not let light through. Includes glass blocks, structural glass, or glass curtain walls. It is included in the &ldquo;Other&rdquo; category of &ldquo;Predominant Exterior Wall Material.&rdquo;</p>
+      <p><strong>Dedicated Server:</strong> A server is usually just the CPU or &quot;case&quot; portion of a computer that is used to manage network resources such as computer files, printers, databases, or network traffic; it does not require much human operation, so most do not have keyboards or monitors. &#8220;Dedicated&#8221; means that the server performs no other tasks besides server tasks. </p>
+      <p> <strong>Degree-Days 45-Year Average:</strong> The average of the total annual heating and cooling degree-days (base, 65 Degrees Fahrenheit) in each NOAA Division, for the 45 years, 1931 through 1975. Computed from the Division&rsquo;s daily temperature averages for each year in question and used to assign individual buildings to climate zones. (See NOAA Division and Climate Zone.) </p>
+      <p><strong>Demand Responsive Lighting:</strong> An interior lighting control that reduces lighting at times of peak electricity demand.</p>
+      <p><strong>Diesel:</strong> A fuel composed of distillates obtained in petroleum refining operation or blends of such distillates with residual oil used in motor vehicles. It is included in the &ldquo;Fuel Oil&rdquo; category under &ldquo;Energy Sources.&rdquo; </p>
+      <p> <strong>Distributed Water-Heating System:</strong> A type of system for heating water (for purposes other than space-heating) that heats water as needed for immediate use near the location where this water is used. It is often called a &ldquo;point-of-use&rdquo; water heating system, and is usually located in more than one place within a building. Because water is not heated until it is required, this equipment is more energy efficient. </p>
+      <p><strong>District Chilled Water:</strong> Water chilled outside of a building in a central plant and piped into the building as an energy source for cooling. Chilled water may be purchased from a utility or provided by a central physical plant in a separate building that is part of the same multibuilding facility (for example, a hospital complex or university).</p>
+      <p><strong>District Heat:</strong> Steam or hot water produced outside of a building in a central plant and piped into the building as an energy source for space heating or another end use. The district heat may be purchased from a utility or provided by a central physical plant in a separate building that is part of the same multibuilding facility (for example, a hospital complex or university.) District heat includes district steam and/or district hot water. </p>
+      <p><strong>District Hot Water:</strong> District heat in the form of hot water. (See District Heat.) </p>
+      <p><strong>District Steam:</strong> District heat in the form of steam. (See District Heat.) </p>
+      <P align=left> <b><a name="E"></a></b><span><strong>Economizer Cycle:</strong> A heating, ventilation, and air-conditioning (HVAC) conservation feature consisting of indoor and outdoor temperature and humidity sensors, dampers, motors, and motor controls for the ventilation system to reduce the air-conditioning load. Wherever the temperature and humidity of the outdoor air are more favorable (lower heat content) than the temperature and humidity of the return air, more outdoor air is brought into the building. </span></P>
+      <p><b>Electricity:</b> Electric energy supplied to a building by a central utility via power lines or from a central physical plant in a separate building that is part of the same multibuilding facility. Electric power generated within a building for exclusive use in that building is specifically excluded from the definition of electricity as an energy source. </p>
+      <p><b>Electricity Generation:</b> As an energy end use, the onsite production of electricity by means of electricity generators on either a regular or emergency basis. (See <b>Energy End Use</b> and <b>Electricity</b>.)</p>
+      <p ><b>Electronic Ballasts:</b> A lighting conservation feature that consists of an electronic version of a conventional electromagnetic ballast. The ballast is the transformer for fluorescent and high-intensity discharge (HID) lamps and provides the necessary current, voltage, and wave-form conditions to operate the lamp. Electronic ballasts operate lamps using electronic switching power supply circuits, are lightweight, and start instantly without flickering. Specifically excluded from this category are magnetic ballasts. </p>
+      <p><b>EMCS:</b> See <b>Energy Management and Control System (EMCS)</b>.</p>
+      <p><b>Energy End Use:</b> A use for which energy is consumed in a building. Information on six specific end uses was collected in the CBECS&mdash;space heating, cooling, water heating, cooking, manufacturing, and electricity generation. Estimates of consumption for eight end uses and an &ldquo;other&rdquo; category are also estimated&mdash;cooking, cooling, lighting, office equipment, refrigeration, space heating, ventilation, and water heating. (See <b>Cooking</b>, <b>Cooling</b>, <b>Electricity Generation</b>, <b>Lighting</b>, <b>Manufacturing</b>, <b>Office Equipment</b>, <b>Refrigeration</b>, <b>Space Heating</b>, and <b>Water Heating</b>.)</p>
+      <p><b>Energy Intensity:</b> The ratio of consumption to unit of measurement (floorspace, number of workers, etc.) Energy intensity is usually given on an aggregate basis, as the ratio of the total consumption for a set of buildings to the total floorspace in those buildings. Conditional energy intensity and gross energy intensity are presented. The energy intensity can also be computed for individual buildings. (See <b>Conditional Energy Intensity</b> and <b>Gross Energy Intensity</b>.)</p>
+      <p><strong>Energy  Management and Control System (EMCS):</strong> An energy management feature that uses remote sensing  and control instruments, and interpretive and control software to monitor  changes in ambient temperature and operating systems. These systems manage a  building's use of energy for heating, ventilation, air conditioning, lighting,  and/or business-related processes. These systems may also manage fire control,  safety, and security. The 2012 CBECS  refers to EMCS as <strong>Building Automation  System (BAS)</strong>.</p>
+      <p><b>Energy-Related Space Functions:</b> The use of space in the building for one or more of three specific functions: commercial food preparation, activities requiring large amounts of hot water, and separate computer areas. (See <b>Commercial Food Preparation</b>, <b>Separate Computer Area</b>, and <b>Activities with Large Amounts of Hot Water</b>.)</p>
+      <p><b>Energy Source:</b> A type of energy or fuel consumed in a building. In the CBECS, information about the use of electricity, natural gas, fuel oil, district heat, district chilled water, propane, wood, coal, and solar thermal panels in commercial buildings was obtained from the building respondent. In most tables, wood, coal, and solar thermal panels are included in the &ldquo;Other&rdquo; category under &#8220;Energy Sources.&#8221; (See <b>Electricity</b>, <b>Natural Gas</b>, <b>Fuel Oil</b>, <b>District Heat</b>, <b>District Chilled Water</b>, <b>Liquefied Petroleum Gas [LPG]</b>, <b>Propane</b>, <b>Wood</b>, <b>Coal</b>, and <b>Solar Thermal Panels</b>.)</p>
+      <p><b>Energy Source-Specific Floorspace:</b> Total floorspace of those buildings that use a particular fuel, for example, total floorspace in buildings that use natural gas. (See <b>Conditional Energy Intensity</b>.)</p>
+      <p><b>Energy Supplier:</b> Energy companies that supply electricity, natural gas, fuel oil, or other sources of energy to a building. In the 1999 and 2012 CBECS, suppliers of electricity, natural gas, fuel oil, and district heat were sent the Energy Supplier Survey forms; in the 2003 CBECS, only suppliers of electricity and natural gas were sent the forms (consumption and expenditure information for fuel oil and district heat were collected only from the building respondent).</p>
+      <p><strong>Equipment Usage Reduced When Building Not In Full Use</strong>: A method of conserving energy by changing the temperature setting or reducing the use of heating, cooling, lighting, or office equipment either manually or automatically when the building is closed. In 2003 and 2012, for buildings open 24 hours a day, this question also included whether heating or cooling was reduced during any periods over a normal 24 hour day. </p>
+      <p><b>Establishment:</b> As defined by the Standard Industrial Classification Manual developed by the U.S. Office of Management and Budget, &ldquo;an economic unit, generally at a single physical location where business is conducted or where services or industrial operations are performed.&rdquo; However, &ldquo;establishment&rdquo; is not synonymous with &ldquo;building.&rdquo; In the CBECS, respondents were asked how many establishments or organizations occupy the building &mdash; i.e., hold or lease space in it on a full-time basis.</p>
+  <p>    <b>Evaporative Cooler:</b> See <strong>Swamp Cooler</strong>. </p>
+      <p><b>Expenditures:</b> Funds spent for the energy consumed in, or delivered to, a building during a given period of time. All expenditure statistics are presented on an annual basis for the survey calendar year. The total dollar amount includes State and local taxes, fuel adjustment charges, system charges, and demand charges. The total dollar amount excludes merchandise, repair charges, and service charges. Data on energy expenditures were not collected by end uses separately. For example, although it might be known that electricity was used in some buildings for heating, the expenditures for electricity reported for those buildings would typically include other uses of electricity as well (such as lighting and water heating). Total expenditures were reported as well as &ldquo;Expenditures per Million Btu&rdquo;&mdash;the aggregate ratio of a group of buildings&rsquo; total expenditures for a given fuel to the total consumption of that fuel and &ldquo;Expenditures per Square Foot&rdquo;&mdash;the aggregate ratio of a group of buildings&rsquo; total expenditures for a given fuel to the total floorspace in those buildings. (See <b>Consumption</b>.)</p>
+      <p><b>External Overhangs or Awnings:</b> A conservation feature designed to reduce the transmission of light into a building. These include any type of overhang (including architectural) or awning on the outside of the building designed to limit solar penetration.</p>
+      <p><b><a name="F"></a>Flat Screen Monitor: </b>A type of computer monitor, also known as a liquid crystal display or LCD, that is lightweight and very thin, in contrast to standard monitors which have bulky backs and take up a lot of desk space. Laptop or notebook computers have flat screen monitors. </p>
+      <p><b>Floors:</b> The number of levels in the tallest section of a building that are actually considered a part of the building, including parking areas, basements, or other floors below ground level, but excluding half-floors, mezzanines, balconies, and lofts. </p>
+      <p><b>Floorspace:</b> All the area enclosed by the exterior walls of a building, both finished and unfinished, including indoor parking facilities, basements, hallways, lobbies, stairways, and elevator shafts. For aggregate floorspace statistics, floorspace was summed or aggregated over all buildings in a category (such as all office buildings in the United States). (See <b>Square Footage</b>.)</p>
+      <p><b>Fluorescent Light Bulb:</b> See <strong>Compact Fluorescent Light Bulb</strong> and <strong>Standard Fluorescent Light Bulb</strong>.</p>
+      <p><strong>Fuel Cell: </strong>A technology used for electricity generation composed of electrode devices that convert the energy of a chemical reaction directly into electrical energy, heat, and water; it is somewhat like a battery that requires no recharging</p>
+      <p><b>Fuel Oil:</b> A liquid petroleum product used as an energy source that is less volatile than gasoline. Fuel oil includes distillate fuel oil (Nos. 1, 2, and 4), residual fuel oil (Nos. 5 and 6), and kerosene. </p>
+      <p><b>Furnace:</b> A type of space-heating equipment with an enclosed chamber where fuel is burned or electrical resistance is used to heat air directly without steam or hot water. The heated air is then distributed throughout a building, typically by air ducts.</p>
+      <p><b><a name="G"></a>Gallon:</b> A volumetric measure equal to 4 quarts (231 cubic inches) used to measure fuel oil. One barrel equals 42 gallons.</p>
+      <p><b>Geothermal Heat Pump:</b> See <strong>Ground Source Heat Pump</strong>. </p>
+      <p><b>Government Owned:</b> A building owned by a Federal, State, or local government agency. The building may be occupied by agencies of more than one government and may also be shared with nongovernment establishments.</p>
+      <p><b>Gross Energy Intensity:</b> Total consumption of a particular energy source(s) or fuel(s) by a group of buildings, divided by the total floorspace of those buildings, including buildings and floorspace where the energy source or fuel is not used, i.e., the ratio of consumption to gross floorspace. (See <b>Conditional Energy Intensity</b>.)</p>
+      <p><b>Gross Floorspace:</b> Total floorspace of a group of buildings, regardless of which end uses are present or which energy sources or fuels are used within the buildings. (See <b>Energy Source-Specific Floorspace</b> and <b>Gross Energy Intensity</b>.)</p>
+      <p><b>Ground Source Heat Pump:</b> A type of heat pump that uses the natural heat storage ability of the earth and/or the groundwater to heat and/or cool a building. The earth has the ability to absorb and store heat energy from the sun. To use that stored energy, heat is extracted from the earth through a liquid medium (groundwater or an anti-freeze solution) and is pumped to the heat pump or heat exchanger. There, the heat is used to heat the building. In the summer, the process is reversed and indoor heat is extracted from the building and transferred to the earth through the liquid. The geothermal heat pump is more efficient than an air-source heat pump. Also referred to as a &#8220;closed-loop&#8221; system.</p>
+      <p><b><a name="H"></a>Halogen Light Bulb:</b> A type of incandescent light bulb that lasts much longer and is more efficient than a standard incandescent light bulb. The light bulb uses a halogen gas, usually iodine or bromine, that causes the evaporating tungsten to be redeposited on the filament, thus prolonging its life. Halogen lamps produce a brighter, whiter light than standard incandescent. They are especially suited to recessed or &#8220;canned fixtures,&#8221; track lights, and outdoor lights.</p>
+      <p><b>Heating Degree-Days (HDD):</b> A measure of how cold a location was over a period of time, relative to a base temperature. In CBECS, the base temperature used is 65 degrees Fahrenheit, and the period of time is one year. The heating degree-day is the difference between that day&rsquo;s average temperature and 65 degrees if the daily average is less than 65; it is zero if the daily average temperature is greater than or equal to 65. Heating degree-days for a year are the sum of the daily heating degree-days for days that year.</p>
+      <p><b>Heating Equipment:</b> The equipment used for heating ambient air in a building, such as a heat pump, furnace, boiler, packaged-heating unit, individual space heater, and district steam or hot water piped in from outside the building. (See <b>Boiler</b>, <b>Furnace</b>, <b>Heat Pump</b>, <b>Individual Space Heater</b>, and <b>Packaged Unit</b>.)</p>
+      <p><b>Heating, Ventilation, and Air Conditioning (HVAC):</b> The system or systems that condition air in a building.</p>
+      <p><b>Heat Pump:</b> A type of heating and/or cooling equipment that draws heat into a building from outside and, during the cooling season, ejects heat from the building to the outside. Heat pumps are vapor-compression refrigeration systems whose indoor/outdoor coils are used reversibly as condensers or evaporators, depending on the need for heating or cooling. In the 2003 CBECS, specific information was collected on whether the heat pump system was a packaged unit, residential-type split system, or individual room heat pump, and whether the heat pump was air source, ground source, or water source. (See <strong>Air Source Heat Pump</strong>, <strong>Ground Source Heat Pump</strong>, <strong>Individual Room Heat Pump</strong>, <strong>Residential-Type Split System Heat Pump</strong>, and <strong>Water Source Heat Pump</strong>.) </p>
+      <p><b>High-Intensity Discharge (HID) Light Bulb:</b> A lamp bulb that produces light by passing electricity through gas, which causes the gas to glow. Examples of HID lamps are mercury vapor lamps, metal halide lamps, and high- and low-pressure sodium lamps. HID lamps have an extremely long life and emit many more lumens per fixture than do fluorescent lights.</p>
+      <p><b>HVAC:</b> See <b>Heating, Ventilation, and Air Conditioning (HVAC)</b>.</p>
+      <p><b>HVAC Conservation Features:</b> A building feature designed to reduce the amount of energy consumed by the heating, cooling, and ventilating equipment. This category includes the presence of a variable air-volume (VAV) system, an economizer cycle, HVAC maintenance programs, or an Energy Management and Control System (EMCS). (See <b>Energy Management and Control System (EMCS)</b>, <b>Economizer Cycle</b>, <b>HVAC Maintenance</b>, and<b> Variable Air-Volume (VAV) System</b>.)</p>
+      <p><b>HVAC Maintenance:</b> An HVAC conservation feature consisting of a program of routine inspection and service for heating and/or cooling equipment. The inspection is performed on a regular basis, even if there are no apparent problems.<br>
+      </p>
+      <P><span><strong><a name="I"></a>Imputation:</strong> A statistical method used to generate values for missing items, designed to minimize the bias of estimates based on the resulting data set. In this survey, missing responses were generated using a procedure known as a &#8220;hot-deck imputation&#8221; which uses random resampling from similar nonmissing cases to generate values for missing cases. </span>
+      <P><B>Incandescent Light Bulb:</B> A light bulb that produces a soft warm light by electrically heating a tungsten filament so that it glows. Because so much of the energy is lost as heat, these are highly inefficient sources of light. Included in this category are the familiar type of light bulbs which screw into sockets, as well as energy-efficient incandescent bulbs, such as Reflector or R-Lamps (accent and task lighting), Parabolic Aluminized Reflector (PAR) lamps (flood and spot lighting), and Ellipsoidal Reflector (ER) lamps (recessed lighting).</P>
+      <P><B>Individual Air Conditioner:</B> A type of cooling equipment installed in either walls or windows (with heat-radiating condensers exposed to the outdoor air). These self-contained units are characterized by a lack of pipes or duct work for distributing the cool air; the units condition only air in the room or areas where they are located. This category includes what are commonly termed Packaged Terminal Air Conditioners (PTACs).</P>
+      <P><strong>Individual Room Heat Pump:</strong> A type of heat pump system that is mounted in a window or wall. These include what are commonly termed Packaged Terminal Heat Pumps (PTHPs), found primarily in hotels, motels, and similar living spaces. (See <strong>Heat Pump</strong>.) </P>
+      <P><B>Individual Space Heater:</B> A type of space heating equipment that is a free-standing or a self-contained unit that generates and delivers heat to a local zone within the building. The heater may be permanently mounted in a wall or floor or may be portable. Examples of individual space heaters include electric baseboards, electric radiant or quartz heaters, heating panels, gas- or kerosene-fired unit heaters, wood stoves, infrared radiant heaters, and the heating elements in room space conditioning equipment such as Packaged Terminal Air Conditioners (PTACs). Individual space heaters are characterized by a lack of pipes or duct work for distributing hot water, steam, or warm air through a building.</P>
+      <P><strong>Inkjet Printer:</strong> A type of computer printer that splashes tiny jets of ink onto paper to form an image or character. (See <strong>Office Equipment</strong>.)</P>
+      <P><B>Intensity:</B> The amount of a quantity per unit of measurement (floorspace, number of workers, etc.) This is a method of adjusting either the amount of energy consumed or expenditures spent, for the effects of various building characteristics, such as size of the building, number of workers, or number of operating hours, to facilitate comparisons of energy across time, fuels, and buildings. (See <B>Conditional Energy Intensity</B>, <B>Energy Intensity</B>, <B>Expenditures</B>, and<B> Gross Energy Intensity</B>)</P>
+      <P><strong>Interior  Lighting Features:</strong> Building features designed to reduce the amount of energy consumed by the  lighting system. These include skylights or atriums, daylighting sensors, specular  reflectors, electronic ballasts, an Energy Management and Control System (EMCS)  or Building Automation System (BAS) that controls the lighting in the building,  light scheduling, occupancy sensors, multi-level lighting or dimming, daylight  harvesting, and demand responsive lighting. (See <strong>Daylighting Sensors</strong>,<strong> Electronic Ballasts</strong>,<strong> Energy Management and Control System (EMCS)</strong>, <strong>Specular  Reflectors, Light Scheduling, Occupancy Sensors, Multi-Level Lighting or  Dimming, Daylight Harvesting, and Demand Responsive Lighting</strong>.)</P>
+<P><strong>Interior Wall Re-Configuration:</strong> A type of building renovation in which walls within the building are taken down or moved, such as individual offices turned into an area for cubicles.</P>
+      <P><B><a name="K"></a>Kerosene:</B> A petroleum distillate with properties similar to those of No. 1 fuel oil; used primarily in space heaters, cooking stoves, and water heaters. In this report, no distinction is made between kerosene and fuel oil; kerosene is included in the &#8220;Fuel Oil&#8221; category under &#8220;Energy Sources.&#8221; (See <B>Fuel Oil</B>.)</P>
+      <P><B>Kilowatthour (kWh):</B> A unit of work or energy, measured as 1 kilowatt (1,000 watts) of power expended for 1 hour. One kWh is equivalent to 3,412 Btu. (See <B>Btu</B>.)</P>
+      <P><strong><a name="L"></a>Laser Printer:</strong> A type of computer printer that uses a laser beam to produce an image on a drum. The drum is then rolled through toner, which is transferred to the paper. A laser printer uses the same technology as a copy machine. (See <strong>Office Equipment</strong>.)</P>
+      <P><strong>Light-Emitting  Diode (LED) Lights: </strong>A type of solid state lighting where a  semi-conducting material converts electricity directly into light. Unlike  incandescent and fluorescent lights, LEDs generate light without producing  heat. The first LEDs were tiny indicator lights typically found in electronic  devices, but they have become less expensive and are beginning to be used for  small-area lighting such as task and under-shelf fixtures, decorative lights,  and pathway and step marking.</P>
+      <P><strong>Light  Scheduling: </strong>An interior lighting conservation strategy in which lights are  automatically dimmed or turned off at certain times of the day.</P>
+<P><B>Lighting:</B> The illumination of the interior of a building by use of artificial sources of light. End-use estimates are estimated for lighting and eight other end-uses. (See <B>Energy End Use</B>.)</P>
+      <P><B>Lighting Conservation Features:</B> See <strong>Interior Lighting Features</strong>.</P>
+      <P><strong>Lighting  Equipment:</strong> Light bulbs  used to light a building&rsquo;s interior. (See <strong>Incandescent Light Bulb</strong>, <strong>Standard  Fluorescent Light Bulb</strong>, <strong>Compact Fluorescent Light Bulb</strong>, <strong>High-Intensity  Discharge (HID) Light Bulb</strong>, <strong>Halogen Light Bulb, and Light-Emitting Diode  (LED) Lights</strong>.)</P>
+<P><B>Liquefied Petroleum Gas (LPG):</B> Any fuel gas supplied to a building in liquid form. Propane is the usual LPG, but gases such as butane, propylene, butylene, and ethane are also LPG. For this report, any LPG reported was assumed to be propane. (See <B>Energy Source</B>, <B>Propane</B>, and <B>Natural Gas</B>.)</P>
+      <P><B>LPG:</B> See <B>Liquefied Petroleum Gas (LPG)</B>.</P>
+      <P><B><a name="M"></a>Major Fuels:</B> The energy sources or fuels for which consumption and expenditures data are collected. These fuels or energy sources are: electricity, fuel oil, natural gas, district steam, and district hot water. (See <B>Energy Source</B>.)</P>
+      <P><B>Manufacturing:</B> As an energy end use, any of the energy-using operations required for manufacturing/industrial processes. (See <B>Energy End Use</B>.)</P>
+      <P><B>Mean:</B> The simple average for a population characteristic is the sum of all the values in a population divided by the size of the population. For this report, population means are estimated by computing the weighted sum of the sample values, then dividing by the sum of the sample weights. For example, &ldquo;Mean Hours per Week&rdquo; is the weighted sum of the number of operating hours divided by the weighted sum of the number of buildings; &ldquo;Mean Square Feet per Building&rdquo; is the weighted sum of the total square feet divided by the weighted sum of the number of buildings; and &ldquo;Mean Square Feet per Worker&rdquo; is the weighted sum of the total square feet divided by the weighted sum of the total number of main shift workers. (See <B>Weight</B>.)</P>
+      <P><B>Median:</B> The middle value of the population characteristic. Half the population has a value above the median and half has a value below. The median is different from the mean in that the median is not influenced much by extremes in the sample. An estimate of the mean square feet per building would be affected by the inclusion of some very large buildings and would not express square footage for a &ldquo;typical&rdquo; building. In contrast, the median square feet would not be so affected. For example, &ldquo;Median Age of the Building&rdquo; is the middle age of all CBECS buildings; &ldquo;Median Hours per Week&rdquo; is the middle number of operating hours of all CBECS buildings; &ldquo;Median Square Feet per Building&rdquo; is the middle size (in square feet) of all CBECS buildings; and &ldquo;Median Square Feet per Worker&rdquo; is the middle amount of the floorspace per worker of all CBECS buildings.</P>
+      <P><B>Metal Panels:</B> An exterior wall construction material made of aluminum or galvanized steel panels fabricated in factories and fastened to the frame of the building to form outside walls. Pre-engineered metal buildings are also included in this category.</P>
+      <P><B>Metal Surfacing:</B> Light-gauge metal sheets used for roofing, commonly referred to as a &#8220;tin roof.&#8221;</P>
+      <P><B>Metric Conversion Factors:</B> Estimates are presented in customary U.S. units. Floorspace estimates may be converted to metric units by using the relationship: 1 square foot is approximately equal to 0.0929 square meters. Energy estimates may be converted to metric units by using the relationship: 1 Btu is approximately equal to 1,055 joules; one kilowatthour is exactly equal to 3,600,000 joules; and one gigajoule (10<SUP>9</SUP> joules) is approximately 278 kilowatthours (kWh).</P>
+      <P><strong>Microturbine:</strong> As an electricity generation technology, a small combustion turbine that produces between 25 kW and 500 kW of power.</P>
+      <P><B>More than One May Apply:</B> A row stub accompanied by this phrase indicates overlapping categories, so that a particular building may be represented in more than one line under this stub. In general, row stubs without this designation are mutually exclusive&mdash;that is, they divide the population of buildings into distinct groups, so that a particular building is represented in no more than one line under this stub.</P>
+      <P><B>Multibuilding Facility:</B> A group of two or more buildings on the same site owned or operated by a single organization, business, or individual. Examples include university campuses and hospital complexes.</P>
+      <P><strong>Multi-Level  Lighting or Dimming: </strong>Interior lighting control devices that adjust  lighting power by continuous dimming, stepped dimming, or stepped switching.<strong></strong></P>
+<P><strong>Multipaned Window:</strong> An energy-efficient window made of two or three pieces of glass with air space in between them to improve insulation against heat transfer. These may also be referred to as &#8220;double-paned&#8221; or &#8220;triple-paned&#8221; windows.</P>
+      <P><B>Multistage Area Probability Sample:</B> A sample design executed in stages with geographic &ldquo;clusters&rdquo; of sampling units selected at each stage.</P>
+      <P><B><a name="N"></a>Natural Gas:</B> Hydrocarbon gas (mostly methane) supplied as an energy source to individual buildings by pipelines from a central utility company. Natural gas does not refer to liquefied petroleum gas (LPG) or to privately owned gas wells operated by a building owner. (See <B>Energy Source</B>, <B>Liquefied Petroleum Gas (LPG)</B>, and <B>Propane</B>.)</P>
+      <P><B>NOAA Division:</B> One of the 356 weather divisions designated by the National Oceanic and Atmospheric Administration (NOAA) that encompass the 50 contiguous United States and the District of Columbia. These divisions usually follow county borders to encompass counties with similar weather conditions. However, the NOAA division does not follow county borders when weather conditions vary considerably within a county, as is likely to be the case when a county borders the ocean or contains high mountains. A State contains an average of seven NOAA divisions; a NOAA division contains an average of nine counties. (See <B>Climate Zone</B>.)</P>
+      <P><B>Nongovernment Owned:</B> Owned by an individual or a group, such as a private business, a nonprofit organization, a privately-owned utility company; or a church, synagogue, or other religious organization. The building may be occupied by more than one agency and may be owner occupied, nonowner occupied or unoccupied.</P>
+      <P><strong>Nonowner  Occupied:</strong> Refers to a building that is leased to tenants. If both the owner and other  tenants are in a building, the building would be classified as owner occupied. </P>
+      <P><strong><a name="O"></a>Occupancy  Sensors: </strong>Interior lighting control sensors that automatically turn off or dim  lights when a person leaves a room or space.</P>
+<P><strong>Off-Hours Equipment Reduction:</strong> See Equipment Usage Reduced When Building Not In Full Use.</P>
+      <P><B>Office Equipment:</B> A class of energy-using equipment including computers, servers, copiers, FAX machines, cash registers, printers, mainframe computer systems,typewriters, and other miscellaneous office equipment. End-use estimates estimated provided for office equipment and eight other end-uses. (See <B>Flat Screen Monitor, Dedicated Server</B>,<B> Energy End Use</B>,<B> Inkjet Printer</B>,<B> Laser Printer</B>.)</P>
+      <P><B>Owner Occupied:</B> Refers to a building that has the owner or the owner&rsquo;s business represented at the site.</P>
+      <P><B>Ownership and Occupancy:</B> Ownership refers to the individual, agency, or organization that owns the building. Building ownership is grouped into Government ownership (Federal, State, or local) and Nongovernment ownership (a private business or nonprofit organization owned by a group or an individual). Occupancy refers to the individual, agency, or organization that leases or holds the space on a full-time basis. (See <B>Owner Occupied</B> and <B>Nonowner Occupied</B>.)</P>
+    
+      <P><a name="P"></a><B>Packaged Air Conditioning Unit:</B> See <B>Packaged Unit</B>.</P>
+      <P><B>Packaged Heating Unit:</B> See <B>Packaged Unit</B>.</P>
+      <P><B>Packaged Unit:</B> A type of heating and/or cooling equipment that is assembled at a factory and installed as a self-contained unit. Packaged units are in contrast to engineer-specified units built up from individual components for use in a given building. They are generally mounted on the roof of the building, but also sometimes located on a slab outside the building. Packaged units produce warm or cool air directly and distribute it throughout the building by ducts or a similar distribution system. Some types of electric packaged units are also called &ldquo;Direct Expansion,&rdquo; or DX, units.</P>
+      <P><B>Percent Lit When Closed:</B> The percentage of a building&rsquo;s square footage that is lit electrically during all hours other than the usual operating hours.</P>
+      <P><B>Percent Lit When Open:</B> The percentage of a building&rsquo;s square footage that is lit electrically during usual operating hours.</P>
+      <P><B>Percent of Floorspace Cooled:</B> The percentage of a building&rsquo;s square footage that is cooled to meet the comfort requirements of the occupants.</P>
+      <P><B>Percent of Floorspace Heated:</B> The percentage of a building&rsquo;s square footage designed to be heated to at least 50 degrees Fahrenheit.</P>
+      <P><B>Photovoltaic (PV) Cells:</B> A technology used for electricity generation which is usually large, roof-mounted panels that convert sunlight directly into electricity; these are commonly known as &#8220;solar cells.&#8221;</P>
+      <P ><strong>Plumbing System Upgrade:</strong> A type of building renovation that involves improvements to the pipes, fixtures, and other apparatus of the water system in the building, including the hot water heater. </P>
+      <P><B>Precast Concrete Panel:</B> See <strong>Concrete Panel</strong>. </P>
+      <P><B>Predominant Exterior Wall Material:</B> The major type of exterior wall construction material used in a building. (See <B>Brick, Stone, or Stucco</B>,<B> <B>Concrete (Block or Poured), Concrete Panels</B></B>,<B> <B>Metal Panels</B></B>,<B> Siding</B>,<B> Shingles</B>, and <B>Window or Vision Glass</B>.)</P>
+      <P><B>Predominant Roof Material:</B> The material used the most for the roof of a building. See <B>Built-Up Roof</B>, <B>Concrete Roof</B>, <B><B>Metal Surfacing</B></B>,<B> Shakes</B>, <B>Shingles</B>, <B><B>Slate or Tile Shingles</B></B>,<B> Synthetic or Rubber Roofing</B>, and<B> Wooden Materials</B>.</P>
+      <P><B>Primary Electricity:</B> The amount of electricity delivered to commercial buildings adjusted to account for the fuels used to produce the electricity. Primary electricity is site electricity plus the conversion losses in the generation process at the utility plant. (See <B>Conversion Losses</B>, <B>Electricity</B> and <B>Site Electricity</B>.)</P>
+      <P><B>Primary Sampling Unit (PSU):</B> A sampling unit selected at the first stage in a multistage area probability sample. A PSU typically consists of one to several contiguous counties&mdash;for example, an MSA with surrounding suburban counties.</P>
+      <P><B>Primary Space-Heating Energy Source:</B> The energy source used to heat most of the heated floorspace in a building most of the time.</P>
+      <P><B>Principal Building Activity:</B> The activity or function occupying the most floorspace in a building. The categories were designed to group buildings that have similar patterns of energy consumption. Examples of various types of principal activity include office, health care, lodging, and mercantile and service. (See <A 
+      href="https://www.eia.gov/consumption/commercial/building-type-definitions.cfm">Description of CBECS Building Types</A> for a complete list and definitions of each.) </P>
+      <P><B>Propane:</B> A gaseous petroleum product that liquefies under pressure. Propane is the major component of liquefied petroleum gas, or LPG. Any LPG reported in the CBECS was assumed to be propane. (See <B>Liquefied Petroleum Gas (LPG)</B>.)</P>
+      <P><B><a name="R"></a>Reflective Window Glass:</B> A conservation feature that consists of reflective glass installed on the exterior glazing of a building to reduce the rate of solar penetration into the building.</P>
+      <P><B>Refrigeration Equipment:</B> Refrigeration equipment is designed to maintain the stored items below room temperature but above the freezing point of water. This category also includes freezer equipment, which is designed to keep its contents below the freezing point of water (32 degrees Fahrenheit). In addition to open or closed cases or cabinets and walk-in units, the 2003 CBECS collected information on residential-type units and vending machines for the first time. (See <strong>Cases or Cabinets</strong>, <strong>Commercial Refrigeration</strong>, <strong>Residential-Type Refrigeration Unit</strong>, <strong>Vending Machine</strong>, and <strong>Walk-in Refrigeration Unit</strong>.) </P>
+      <P><B>Residential-Type Central Air Conditioner:</B> A type of cooling equipment in which there are four basic parts: (1) a condensing unit, (2) a cooling coil, (3) ductwork, and (4) a control mechanism, such as a thermostat.</P>
+      <P><strong>Residential-Type Refrigeration Unit:</strong> The type of refrigerator, freezer, or combination refrigerator and freezer such as would be found in a home kitchen. This category also includes half-size units such as might be found in a dormitory, office, or hotel. (See <strong>Refrigeration Equipment</strong>.)</P>
+      <P><B>RSE or Relative Standard Error:</B> A measure of the reliability or precision of a survey statistic. Variability occurs in survey statistics because the different samples that could be drawn would each produce different values for the survey statistics. The RSE is defined as the standard error (the square root of the variance) of a survey estimate, divided by the survey estimate and multiplied by 100. For example, an RSE of 10 percent means that the standard error is one-tenth as large as the survey estimate. Tables of RSEs are provided for each of the CBECS Detailed Tables. </P>
+      <P><strong><a name="S"></a>Separate Computer Area: </strong>A room or rooms in a building specifically designed and equipped to meet the needs of computer equipment, such as a mainframe computer room, server farm, computer-based training room, or a computer center for student or public use. </P>
+      <P><strong>Server:</strong> The CPU, or &#8220;case,&#8221; portion of a computer that manages network resources such as computer files, printers, databases, or network traffic. A server does not require much human operation, so most do not have keyboards or monitors. </P>
+      <P><strong>Server Farm:</strong> A group of networked computer servers that are housed in one location, usually a secure area, that perform no other tasks besides server tasks; there are usually many computers without screens, stacked in rows of racks, that operate continuously, day and night; these areas are generally kept very cool and have a backup source of electricity; these are also known as &ldquo;data centers&rdquo; or &ldquo;server clusters.&rdquo; (See<strong> Server</strong>.) </P>
+      <P><B>Shakes:</B> Flat pieces of weatherproof material laid with others in a series of overlapping rows as covering for roofs and sometimes the sides of buildings. Shakes are similar to wood shingles, but, instead of having a cut and smoothly planed surface, shakes have textured grooves and a rough or &ldquo;split&rdquo; rustic appearance.</P>
+      <P><B>Shingles:</B> Flat pieces of weatherproof material laid with others in a series of overlapping rows as covering for roofs and sometimes the walls of buildings. Shingles are manufactured in a variety of materials, including fiberglass, plastic, baked clay, tile, asbestos, asphalt, aluminum, and wood. Wood shingles are included in the &ldquo;Wooden Materials&rdquo; category under &#8220;Predominant Roof Material.&#8221;</P>
+      <P><B>Siding:</B> An exterior wall covering material made of wood, plastic (including vinyl), or metal. The structural walls may be masonry or wood. Siding is generally produced in the shape of boards and applied to the outside of a building in overlapping rows.</P>
+      <P><B>Site Electricity:</B> The amount of electricity delivered to commercial buildings. (See <B>Conversion Losses</B>, <B>Electricity</B>, and <B>Primary Electricity</B>.)</P>
+      <P><B>Slate or Tile Shingles:</B> A shingle is a thin, wedge-shaped piece of material laid with others in a series of overlapping rows as a covering for roofs. &#8220;<strong>Tile</strong>&#8221; refers to any thin, square, or rectangular piece of baked clay, stone, or concrete used as a roofing material. &#8220;<strong>Slate</strong>&#8221; refers to a particular stone used for roofing.</P>
+      <P><B>Solar:</B> A system that actively concentrates thermal energy from the sun by means of solar collector panels. The panels typically consist of flat, sun-oriented boxes with transparent covers, containing water tubes or air baffles under a blackened heat absorbent panel. The energy is usually used for space heating, water heating, and for heating swimming pools. Passive collection of solar thermal energy is not included in this definition. Solar is included in the &ldquo;Other&rdquo; category for &ldquo;Energy Sources,&rdquo; &ldquo;Space-Heating Energy Sources,&rdquo; and &ldquo;Primary Space-Heating Energy Sources.&rdquo;</P>
+      <P><B>Space Heating:</B> As an energy end use, the use of mechanical equipment (including wood stoves and active solar heating devices) to heat all, or part, of a building to at least 50 degrees Fahrenheit. (See <strong>Energy End Use</strong>.)</P>
+      <P><B>Specular Reflectors:</B> The mirror-like backing of a fluorescent lighting fixture designed specifically to reflect light into the room. The materials and shape of the reflector are designed to reduce absorption of light within the fixture, while delivering light in the desired angular pattern. The most common materials used are silver (highest reflectivity) and aluminum (lowest cost).</P>
+      <P><B>Square Footage:</B> Floorspace, in units of square feet. One square foot is approximately equal to 0.0929 square meters. (See <B>Floorspace</B>.)</P>
+      <P><B>Standard Error:</B> A measure of the precision of an estimate, equal to the square root of the variance. (See <B>Variance</B> and <B>RSE or Relative Standard Error</B>.)</P>
+      <P><B>Standard Fluorescent Light Bulb:</B> Usually a long, narrow, white tube made of glass, coated on the inside with fluorescent material that is connected to an electric fixture at both ends of the light bulb; they may also be circular or U-shaped. The light bulb produces light by passing electricity through mercury vapor, causing the fluorescent coating to glow, or fluoresce. Excluded are compact fluorescent light bulbs, which are listed in a separate category. </P>
+      <P><B>Swamp Cooler (Evaporative Cooler):</B> A type of cooling equipment that turns air into moist, cool air by spraying cool water into ducts and cooling the air as the spray evaporates. It does not cool air by use of a refrigeration unit. This type of equipment is commonly used in warm, dry climates.</P>
+      <P><B>Synthetic or Rubber Roofing:</B> A layer of heavy gauge plastic or rubber used for roofing.</P>
+      <P><B><a name="T"></a>Time Clock Thermostat:</B> Controls for the heating and/or cooling system that can be programmed to automatically change thermostat settings for times when the building or establishment is unoccupied. Also referred to as &ldquo;setback thermostats,&rdquo; &ldquo;occupied/unoccupied controls,&rdquo; or &ldquo;programmable thermostats.&rdquo; </P>
+      <P><B>Tinted Window Glass:</B> A conservation feature that consists of tinted glass installed on the exterior glazing of a building to reduce the rate of solar penetration into the building.</P>
+      <P><B>Trillion Btu:</B> Equivalent to 1,000,000,000,000 (or 10<SUP>12</SUP>) Btu. (See <B>Btu</B>.)</P>
+      <P><B><a name="V"></a>Vacancy Status: </B>A category used to describe the portion of the building that was vacant during the survey period. &ldquo;<strong>Completely Vacant</strong>&rdquo; buildings are those which were 100 percent vacant; &ldquo;<strong>Mostly Vacant</strong>&rdquo; buildings are those in which the majority of the floorspace was vacant; &ldquo;<strong>Partially Vacant</strong>&rdquo; are those in which some (but not a majority) of the floorspace was vacant or some portion of the building was vacant for at least three consecutive months in 2003; and &ldquo;<strong>Not At All Vacant</strong>&rdquo; are those in which no portion of the building was reported as vacant in 2003.</P>
+      <P><B>Vacant:</B> A building was considered vacant if 50 percent or more of the floorspace was not occupied by any tenant or establishment at the time of the interview. A vacant building may contain occupants who are using up to 50 percent of the floorspace. For all buildings, data were collected on whether the building had any floorspace that was vacant for three or more consecutive months and on the number of months the building was in use. (See <B>Principal Building Activity</B>.)</P>
+      <P><B>Variable Air-Volume (VAV) System:</B> An HVAC conservation feature usually referred to as &ldquo;VAV&rdquo; that supplies varying quantities of conditioned (heated or cooled) air to different parts of a building according to the heating and cooling needs of those specific areas.</P>
+      <P><B>Variance:</B> A measure of the variability of a set of observations that are subject to some chance variation, equal to the expected squared difference between a single observation and the average of all possible observations obtained in the same manner. The variance is the square of the standard error of estimates. The variance indicates the likely difference between the value computed from the CBECS sample and the average of the values that could have been computed from all possible samples that might have been obtained by the same sample selection process. (See <B>Standard Error</B>.)</P>
+      <P><strong>Vending Machine:</strong> As a type of refrigeration equipment, this category includes only refrigerated vending machines, such as soda, juice, water, or frozen dessert machines. (See <strong>Refrigeration Equipment</strong>.) </P>
+      <P><B>Ventilation:</B> The circulation of air through a building to provide fresh air to the occupants and to deliver heating and cooling to the occupied spaces. End-use estimates are estimated for ventilation and eight other end uses. (See <B>Energy End Use</B>.)</P>
+      <P><B><a name="W"></a>Walk-In Refrigeration Unit:</B> A refrigeration or freezer unit (within a building) that is large enough to walk into. It may be portable or permanent, such as a meat storage locker in a butcher store. Walk-in units may or may not have a door, plastic strips, or other flexible covers. (See <strong>Refrigeration Equipment</strong>.) </P>
+      <P><B>Water Heating:</B> As an energy end use, the use of energy to heat water for purposes other than space heating. Also referred to as &#8220;domestic hot water heating.&#8221; (See <B>Energy End Use</B>.)</P>
+      <P><B>Water Heating Equipment:</B> Automatically controlled, thermally-insulated equipment designed for heating water at temperatures less than 180 degrees Fahrenheit for other than space heating purposes. This survey collected data to distinguish between two types of water heating equipment: centralized and distributed. (See <B>Centralized Water-Heating System</B> and <B>Distributed Water-Heating System</B>.)</P>
+      <P><strong>Water Source Heat Pump: </strong> A type of heat pump in which water is drawn up through a well directly to a heat exchanger where the heat is obtained. The water is then discharged back to an above-ground body of water or to a separate well. It uses water as a source of heat in the heating season. May also be referred to as an &#8220;open&#8221; system. (See <strong>Heat Pump</strong>.) </P>
+      <P><B>Weekly Operating Hours:</B> The number of hours per week that a building is used, excluding hours when the building is occupied only by maintenance, security, or other support personnel. For buildings with a schedule that varied during the year, &ldquo;Weekly Operating Hours&rdquo; refer to the total weekly hours for the schedule most often followed. If operating hours varied throughout a building, the usual operating hours of the largest business in the building (based on floorspace) determined the operating hours for the building.</P>
+      <P><B>Weight:</B> The number of buildings in the United States that a particular building in the sample represents. To estimate the total value of an attribute (such as square footage) in the U.S. commercial buildings population as a whole, each sample building&rsquo;s value is multiplied by the building&rsquo;s weight. Summing (aggregating) the weighted sample values provides an estimate of the national total.</P>
+      <P><B>Window Glass:</B> An exterior wall construction material made of glass that can be seen through from the inside of the building, like the glass found in windows. Walls that are glass-covered or constructed of non-transparent material are excluded from this category.</P>
+      <P><B>Wood:</B> As an energy source, wood logs, chips, or wood products that are used as fuel. Wood is included in the &ldquo;Other&rdquo; category for &ldquo;Energy Sources,&rdquo; &ldquo;Space-Heating Energy Sources,&rdquo; and &ldquo;Primary Space-Heating Energy Sources.&rdquo;</P>
+      <P><B>Wooden Materials:</B> Wood shingles, wood shakes, or other wooden materials used as roofing materials or exterior wall materials. Wooden materials are included in &#8220;Siding or Shingles&#8221; in the &#8220;Predominant Exterior Wall Material&#8221; category.</P>
+      <P><B>Workers (Main Shift):</B> The number of people working in a building during the main shift on a typical workday during the year. The main shift is the time when most people are in the building. Included in this definition are self-employed workers and volunteers. Excluded are customers, patients, and students, unless they are working for establishments in the building. Also excluded are employees who work out of the office, such as salespeople who report into the office, delivery people with routes, and messengers.</P>
+      <P><B><a name="Y"></a>Year Constructed:</B> The year in which the major part or the largest portion of a building was constructed.</P>
+      </P>
+    </div>
+  </div>
+    <div class="side_col right">
+    
+<div class="side_col right"> <span class="grey_side green_top">
+  <h4>Background Information</h4>
+  <p><a href="https://www.eia.gov/consumption/commercial/about.cfm">About the CBECS</a></p>
+  
+  
+  <p><a href="https://www.eia.gov/survey/#eia-871">CBECS Survey Forms</a></p>
+  <p><a href="https://www.eia.gov/consumption/commercial/maps.cfm">CBECS Maps</a></p>
+  <p><a href="https://www.eia.gov/consumption/commercial/terminology.cfm">CBECS Terminology</a></p>
+  <p><a href="https://www.eia.gov/consumption/commercial/survey-background-technical-information.cfm">Survey Background & Technical Information</a></p>
+      <p><a href="https://www.eia.gov/consumption/commercial/building-type-definitions.cfm">Building Type Definitions</a></p>
+  <p class="no-border"><a href="https://www.eia.gov/consumption/commercial/data/archive/">Archived Reports</a></p>
+  </span> 
+  
+  <span class="blue_side">
+  <h4 class="q_side"> <a href="https://www.eia.gov/consumption/commercial/faq.cfm#q9">Is it possible to obtain a list of all the buildings that participated in your survey?</a> </h4>
+  <strong>
+  <p><a href="https://www.eia.gov/consumption/commercial/faq.cfm">See all CBECS FAQs &rsaquo;</a></p>
+  </strong> </span> 
+  
+  <span class="grey_side green_top side_list_nocolumn">
+  <h4>Features</h4>
+  <p><a href="https://www.eia.gov/consumption/commercial/reports/2012/water/">
+Water Consumption in Large Buildings Summary  (2012)</a> </p>
+  <p><a href="https://www.eia.gov/consumption/commercial/reports/2012/energyusage/">
+Energy Usage Summary  (2012)</a> </p>
+  <p><a href="https://www.eia.gov/consumption/commercial/reports/2012/buildstock/index.cfm">
+  A Look at the U.S. Commercial Building Stock (2012)</a> </p>
+ <!-- <p><a href="/consumption/commercial/2012-cbecs-building-sampling.cfm">How Were Buildings Selected for the 2012 CBECS?</a></p>-->
+  <p><a href="https://www.eia.gov/consumption/commercial/reports/2007/large-hospital.cfm">Large Hospital Report (2007)</a></p>
+  <p class="no-border"><a href="https://www.eia.gov/consumption/commercial/reports/2007/hospital-water-data-collection.cfm">Water Data Collection (2007)</a></p>
+  
+  
+    
+    </span> 
+  
+     <span class="dblue_side_top blue_top ">
+  <a href="../../todayinenergy/index.html"><img src="https://www.eia.gov/global/images/sprites/tie_w_title.png"/></a>
+</span>
+<span class="white_box">
+  <div id="eiatie">
+    <a href="https://www.eia.gov/todayinenergy/detail.cfm?id=29852"></a>
+  <p><strong><a href="https://www.eia.gov/todayinenergy/detail.cfm?id=29852">EIA’s residential and commercial studies require significant data collection and analysis</a></strong><br />
+    <em>February 7, 2017</em></p>
+
+<p><strong><a href="https://www.eia.gov/todayinenergy/detail.cfm?id=28232">Office buildings with data centers use significantly more electricity than other offices</a></strong><br />
+<em>October 5, 2016</em> </p>
+<p><strong><a href="https://www.eia.gov/todayinenergy/detail.cfm?id=27972">Recent energy intensity decline in government buildings exceeds commercial sector average</a></strong><br />
+<em>September 16, 2016</em> </p>
+<p class="no_btm_border"><a href="https://www.eia.gov/todayinenergy/index.cfm?tg=commercial"><b>All 38 related articles &rsaquo;</b></a></p>
+  </div>
+</span>
+<br />
+
+     <span class="grey_side blue_top">
+  <h4>Other End Use Surveys</h4>
+  <p><a href="https://www.eia.gov/consumption/manufacturing/">Manufacturing - MECS</a></p>
+  <p><a href="https://www.eia.gov/consumption/residential/">Residential - RECS</a>
+  <p class="no-border"><a href="https://www.eia.gov/consumption/archive/rtecs/contents.html">Transportation</a></p>
+  </span> </div>
+
+  </div>
+  
+   
+  
+   
+</div>
+	<div id="footer">
+		<a name="btm"></a>
+		<div class="clear">
+												<div id="rs_home"></div>
+		</div>
+		<div id="addbar">
+						<a href="https://www.eia.gov/"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+			<h3><a href="https://www.eia.gov/about/">About EIA</a></h3>
+			<h3><a href="https://www.eia.gov/beta/api/">Open Data</a></h3>
+			<h3><a href="https://www.eia.gov/pressroom/">Press Room</a></h3>
+			<h3><a href="../../about/careers/index.html">Careers</a></h3>
+						<h3><a href="https://www.eia.gov/about/contact/">Contact Us</a></h3>
+		</div>
+				<div id="quicklinks">
+									<p><b>Sources & Uses</b><br/>
+				<a href="https://www.eia.gov/petroleum/">Petroleum</a><br/>
+				<a href="https://www.eia.gov/coal/">Coal</a><br/>
+				<a href="https://www.eia.gov/naturalgas/">Natural Gas</a><br/>
+				<a href="https://www.eia.gov/renewable/">Renewable</a><br/>
+				<a href="../../nuclear/index.html">Nuclear</a><br/>
+				<a href="../../electricity/monthly/pdf/appenc.pdf.html">Electricity</a><br/>
+				<a href="data/archive/cbecs/description_files/plainlink.css.html">Consumption</a><br/>
+				<a href="https://www.eia.gov/totalenergy/">Total Energy</a></p>
+			<p><b>Topics</b><br/>
+				<a href="https://www.eia.gov/analysis/">Analysis & Projections</a><br/>
+				<a href="../../environment.1.html">Environment</a><br/>
+				<a href="https://www.eia.gov/finance/">Markets & Finance</a><br/>
+				<a href="../../todayinenergy/index.html">Today in Energy</a></p>
+			<p><b>Geography</b><br/>
+				<a href="../../state/seds/sep_prod/xls/PT2_VQ.xlsx.html">States</a><br/>
+				<a href="https://www.eia.gov/countries/">Countries</a><br/>
+				<a href="https://www.eia.gov/maps/">Maps</a><br/>
+			<p><b>Tools</b><br/>
+				<a href="https://www.eia.gov/tools/a-z/">A-Z Index</a><br />
+				<a href="https://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+				<a href="https://www.eia.gov/tools/">Data Tools, Apps,<br />and Maps</a><br />
+				<a href="https://www.eia.gov/survey/">EIA Survey Forms</a><br />
+				<a href="https://www.eia.gov/beta/">EIA Beta</a></p>
+			<p><b>Policies</b><br/>
+				<a href="https://www.eia.gov/about/privacy_security_policy.cfm">Privacy/Security</a><br/>
+				<a href="https://www.eia.gov/about/copyrights_reuse.cfm">Copyright & Reuse</a><br/>
+				<a href="https://www.eia.gov/about/accessability.cfm">Accessibility</a></p>
+			<p><b>Related Sites</b><br/>
+				<a href="http://www.energy.gov/">U.S. Department of Energy</a><br/>
+				<a href="http://www.usa.gov/">USA.gov</a><br/>
+				<a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+			<p><b>Stay Connected</b><br/>
+				<a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br/>
+				<a href="http://twitter.com/eiagov/"  target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br/>
+				<a href="http://youtube.com/eiagov/"  target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br/>
+				<a href="https://www.eia.gov/tools/emailupdates/" class="ico_email ft_icon_pad">Email Updates</a><br/>
+				<a href="https://www.eia.gov/tools/rssfeeds/" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+		</div>
+				<div class="clear"></div>
+		
+	</div>
+	</div>
+</div>
+<script type="text/javascript">
+	jQuery(document).ready(function(){
+		$(".page_tabs").tabs();
+		$(".page_tabs").localScroll({
+			                            target:".page_tabs",
+			                            duration:0,
+			                            hash:true
+		                            });
+		/*  if($(".page_tabs") && document.location.hash != ''){
+		 $.scrollTo(".page_tabs");
+		 }*/
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+ 
+
+ 
+*** PROGRAM TO CREATE FORMAT LIBRARY FOR THE 1986 NBECS DATA ***; 
+ 
+PROC FORMAT LIBRARY=SASLIB; 
+ 
+   VALUE $ACTIVTY 
+     '  ' = 'Inapplicable' 
+     '01' = 'Vacant' 
+     '02' = 'Office' 
+     '03' = 'Mercantile/services' 
+     '04' = 'Assembly' 
+     '05' = 'Food sales' 
+     '06' = 'Public order/safety' 
+     '07' = 'Health care (outpatient)' 
+     '08' = 'Industrial' 
+     '09' = 'Agricultural' 
+     '10' = 'Laboratory' 
+     '11' = 'Warehouse (refrig)' 
+     '12' = 'Warehouse (nonrefrig)' 
+     '13' = 'Education' 
+     '14' = 'Food service' 
+     '15' = 'Health care (inpatient)' 
+     '16' = 'Skilled nursing' 
+     '17' = 'Lodging' 
+     '18' = 'Residential' 
+     '19' = 'Other'; 
+ 
+   VALUE $BILTYP 
+     ' ' = 'Inapplicable' 
+     '1' = 'One bill' 
+     '2' = 'More than one bill' 
+     '7' = 'Not billed' 
+     '8' = 'Don''t know' 
+     '9' = 'Missing'; 
+
+   VALUE $CENDIV 
+     '1' = 'New England'
+     '2' = 'Middle Atlantic' 
+     '3' = 'East North Central' 
+     '4' = 'West North Central' 
+     '5' = 'South Atlantic' 
+     '6' = 'East South Central' 
+     '7' = 'West South Central' 
+     '8' = 'Mountain' 
+     '9' = 'Pacific'; 
+
+
+
+       Appendix B.  SAS Format Library Creation Program  
+
+ 
+   VALUE $CLCNTL 
+     ' ' = 'Inapplicable' 
+     '1' = 'Yes' 
+     '2' = 'No' 
+     '7' = 'No cooling'; 
+ 
+   VALUE $CLIMAT 
+     '1' = '<2000 CDD,>7000 HDD' 
+     '2' = '<2000 CDD,5500-7000 HDD' 
+     '3' = '<2000 CDD,4000-5499 HDD' 
+     '4' = '<2000 CDD,<4000 HDD' 
+     '5' = '>=2000 CDD,<4000 HDD'; 
+ 
+   VALUE $COVER 
+     ' '  = 'Inapplicable' 
+     '1'  = 'Just sampled building' 
+     '2'  = 'Covers other building(s)' 
+     '7'  = 'No bill' 
+     '8'  = 'Don''t know' 
+     '9'  = 'Missing'; 
+ 
+   VALUE $DISAGG 
+     ' ' = 'Inapplicable' 
+     '1' = 'No aggreg./disagg. required' 
+     '2' = 'Aggregation performed' 
+     '3' = 'Disaggregation performed' 
+     '4' = 'Ratio < .1' 
+     '5' = 'Unable to calculate'; 
+
+   VALUE $FORM 
+     '  ' = 'Inapplicable' 
+     'B1' = 'Propane' 
+     'B2' = 'Propane (aggreg)' 
+     'C1' = 'Natural gas' 
+     'C2' = 'Natural gas (aggreg)' 
+     'D1' = 'District system' 
+     'E1' = 'Electricity' 
+     'E2' = 'Electricity (aggreg)'
+     'F1' = 'Fuel oil'
+     'F2' = 'Fuel oil (aggreg)' 
+     'C3' = 'Natural gas (worksheet)' 
+     'E3' = 'Electricity (worksheet)'; 
+
+
+
+       Appendix B.  SAS Format Library Creation Program  
+ 
+ 
+   VALUE $GENUSE 
+     '  ' = 'Inapplicable' 
+     '01' = 'Emergency back-up' 
+     '02' = 'Periods of peak demand' 
+     '03' = 'Operate continuously' 
+     '04' = 'Other' 
+     '95' = 'Other' 
+     '98' = 'Don''t know' 
+     '99' = 'Not ascertained'; 
+ 
+   VALUE $HTCL 
+     ' ' = 'Inapplicable' 
+     '1' = 'Heating only' 
+     '2' = 'Cooling only' 
+     '3' = 'Both heating and cooling'; 
+ 
+   VALUE $HTCNTL 
+     ' ' = 'Inapplicable' 
+     '1' = 'Yes' 
+     '2' = 'No' 
+     '7' = 'No heating'; 
+
+   VALUE $INSADD 
+     ' ' = 'Inapplicable' 
+     '1' = 'Installed' 
+     '2' = 'Added'; 
+
+   VALUE $MSA 
+     '1' = 'Non-Metropolitan' 
+     '2' = 'Metropolitan'; 
+ 
+   VALUE $NWKERC 
+     '00' = 'None' 
+     '01' = '1 to 4' 
+     '02' = '5 to 9' 
+     '03' = '10 to 19' 
+     '04' = '20 to 49' 
+     '05' = '50 to 99' 
+     '06' = '100 to 249' 
+     '07' = '250 to 499' 
+     '08' = '500 to 999' 
+     '09' = '1,000 to 2,499' 
+     '10' = '2,500 to 4,999' 
+     '11' = '5,000 or more'; 
+
+
+
+      Appendix B.  SAS Format Library Creation Program  
+ 
+ 
+   VALUE $OCCNUM 
+     '1' = 'None, completely vacant' 
+     '2' = 'One' 
+     '3' = 'More than one'; 
+ 
+   VALUE $OTCNSX 
+     '  ' = 'Inapplicable' 
+     '00' = 'Code pending' 
+     '01' = 'Water heating' 
+     '02' = 'Behavioral' 
+     '95' = 'Other'; 
+ 
+   VALUE $OTHVCX 
+     '  ' = 'Inapplicable' 
+     '00' = 'Code pending' 
+     '01' = 'Timer/time clock' 
+     '02' = 'Economizer' 
+     '03' = 'Load management' 
+     '95' = 'Other'; 
+ 
+   VALUE $OTLIT 
+     '  ' = 'Inapplicable' 
+     '00' = 'Code pending' 
+     '01' = 'Daylighting' 
+     '02' = 'Speciality lighting' 
+     '03' = 'Light bulbs (not spec)' 
+     '04' = 'Infra-red lamps' 
+     '05' = 'Fluorescent (not spec)' 
+     '95' = 'Other'; 
+ 
+   VALUE $OTLTX 
+     '  ' = 'Inapplicable' 
+     '00' = 'Code pending' 
+     '01' = 'Daylighting' 
+     '02' = 'Relamping' 
+     '03' = 'Delamping' 
+     '04' = 'Dimmer switches' 
+     '05' = 'Recircuit/other switches' 
+     '95' = 'Other'; 
+ 
+   VALUE $PCTCAT 
+     '1' = '0 percent' 
+     '2' = '1 to 25 percent' 
+     '3' = '26 to 50 percent' 
+     '4' = '51 to 75 percent' 
+     '5' = '76 percent or more'; 
+ 
+
+      Appendix B.  SAS Format Library Creation Program  
+ 
+   VALUE $RATE
+      ' ' = 'Inapplicable' 
+     '1' = 'Mandatory' 
+     '2' = 'Yes, but optional' 
+     '3' = 'No, but optional' 
+     '4' = 'Not available' 
+     '8' = 'Don''t know' 
+     '9' = 'Not ascertained'; 
+ 
+   VALUE $REGION 
+     '1' = 'Northeast' 
+     '2' = 'Midwest' 
+     '3' = 'South' 
+     '4' = 'West'; 
+
+   VALUE $RESPC 
+     ' ' = 'Inapplicable' 
+     '2' = '75 to 99' 
+     '3' = '25 to 74' 
+     '4' = '1 to 25' 
+     '8' = 'Don''t know' 
+     '9' = 'Not ascertained'; 
+ 
+   VALUE $RFCNS 
+     '01' = 'Wooden materials' 
+     '02' = 'Slate or tile' 
+     '03' = 'Shingles (not wood)' 
+     '04' = 'Built-up' 
+     '05' = 'Metal surfacing' 
+     '06' = 'Single ply synthetic' 
+     '07' = 'Other (specify)' 
+     '08' = 'Concrete roof' 
+     '09' = 'Concrete-not parking lot' 
+     '10' = 'Sprayed foam' 
+     '95' = 'Other'; 
+ 
+   VALUE $RFSQFTC 
+     '01' = '5,000 or less' 
+     '02' = '5,001 to 10,000' 
+     '03' = '10,001 to 25,000' 
+     '04' = '25,001 to 50,000' 
+     '05' = '50,001 to 100,000' 
+     '06' = '100,001 to 200,000' 
+     '07' = '200,001 to 500,000' 
+     '08' = '500,001 to 1 million' 
+     '09' = 'Over 1 million'; 
+
+
+
+       Appendix B.  SAS Format Library Creation Program  
+
+ 
+   VALUE $SEASON 
+    ' '= 'Inapplicable' 
+     1 = 'Summer' 
+     2 = 'Winter' 
+     3 = 'Summer & winter'; 
+
+    VALUE $SQFTC 
+     '01' = '1,001 to 5,000' 
+     '02' = '5,001 to 10,000' 
+     '03' = '10,001 to 25,000' 
+     '04' = '25,001 to 50,000' 
+     '05' = '50,001 to 100,000' 
+     '06' = '100,001 to 200,000' 
+     '07' = '200,001 to 500,000' 
+     '08' = '500,001 to 1 million' 
+     '09' = 'Over 1 million'; 
+ 
+   VALUE $WLCNS 
+     '01' = 'Glass (not window)' 
+     '02' = 'Concrete panels' 
+     '03' = 'Masonry/wood frame' 
+     '04' = 'Siding/wood frame' 
+     '05' = 'Siding/masonry wall' 
+     '06' = 'Masonry/masonry wall' 
+     '07' = 'Masonry/steel frame' 
+     '08' = 'Pre-engen. metal' 
+     '09' = 'Other (specify)' 
+     '10' = 'Masonry/frame not given' 
+     '11' = 'Siding/frame not given' 
+     '12' = 'Mason. fr. mult ext' 
+     '13' = 'Steel fr. mult ext' 
+     '95' = 'Other';
+
+   VALUE $XXSUPL 
+     ' ' = 'Inapplicable' 
+     '1' = 'Yes' 
+     '2' = 'No' 
+     '3' = 'No (revised)' 
+     '4' = 'Not 1986' 
+     '5' = 'Yes (revised)' 
+     '8' = 'Don''t know' 
+     '9' = 'Not ascertained'; 
+
+   VALUE $YESNO 
+     ' ' = 'Inapplicable' 
+     '1' = 'Yes' 
+     '2' = 'No' 
+     '8' = 'Don''t know' 
+     '9' = 'Not ascertained'; 
+
+
+       Appendix B.  SAS Format Library Creation Program  
+ 
+
+   VALUE $YRADD 
+     ' ' = 'Inapplicable' 
+     '1' = '1986'
+      '2' = '1980 to 1985' 
+     '3' = 'Before 1980'; 
+ 
+   VALUE $YRCONC 
+     '01' = '1900 or before' 
+     '02' = '1901 to 1920' 
+     '03' = '1921 to 1945' 
+     '04' = '1946 to 1960' 
+     '05' = '1961 to 1970' 
+     '06' = '1971 to 1973' 
+     '07' = '1974 to 1979' 
+     '08' = '1980 to 1983' 
+     '09' = '1984 to 1986'; 
+ 
+
+   VALUE $ZCNSEXP 
+     ' ' = 'Not supplied' 
+     '0' = 'Not imputed' 
+     '1' = 'Prorated from adjacent periods' 
+     '2' = 'Hot-decked' 
+     '3' = 'Regression estimate' 
+     '8' = 'Worksheet procedure'; 
+ 
+   VALUE $ZVAR 
+     ' ' = 'Inapplicable' 
+     '1' = 'Imputed' 
+     '2' = 'Reported'; 
+ 
+   PICTURE HTCLP 
+     0-995 = '009' 
+      996  = 'Less than one half'; 
+ 
+   PICTURE LOADFAC 
+     0-1 = '0.009' 
+   9.999 = 'Not ascertained'; 
+ 
+   PICTURE NFLOOR 
+     1-14 = '009' 
+   15,996 = '15 to 25' (NOEDIT) 
+   26,997 = 'More than 25' (NOEDIT); 
+ 
+   PICTURE PEAK 
+   1-999998 = '000,009' 
+    999999  = 'Not ascertained'; 
+
+ 
+

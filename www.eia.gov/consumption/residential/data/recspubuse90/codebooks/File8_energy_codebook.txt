@@ -1,0 +1,722 @@
+FILE8 ENERGY
+
+
+HHID 'HOUSEHOLD ID'
+
+NWEIGHT 'FINAL HOUSEHOLD WEIGHT'
+
+REGIONC 'CENSUS REGION'
+       'NORTHEAST'            = 1
+       'MIDWEST'              = 2
+       'SOUTH'                = 3
+       'WEST'                 = 4
+ 
+DIVISION 'CENSUS DIVISION'
+       'NEW ENGLAND'          = 1
+       'MIDDLE ATLANTIC'      = 2
+       'EAST NORTH CENTRAL'   = 3
+       'WEST NORTH CENTRAL'   = 4
+       'SOUTH ATLANTIC'       = 5
+       'EAST SOUTH CENTRAL'   = 6
+       'WEST SOUTH CENTRAL'   = 7
+       'MOUNTAIN'             = 8
+       'PACIFIC'              = 9
+
+UGASHERE 'UNDERGROUND GAS AVAILABLE'              
+        C Q.B-1, POSITION 0033  
+        C QUESTION DIFF. FROM RECS 87    
+        C IMPUTED FOR NONRESPONSE        
+        'YES'                  = 1
+        'NO'                   = 0          
+FUELHEAT 'MAIN HOME HEATING FUEL'                  
+        0134 - 0135:   
+       C Q.B-2, POSITION 0034  
+       C QUESTION IDENTICAL TO RECS 87  
+       C IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NO FUEL USED'         = 00
+               
+FUELTWIN 'MAIN HEATING FUEL SAME AS NOV 87'        
+       Q.B-3  
+       QUESTION SAME AS RECS 87       
+       IMPUTED FOR NONRESPONSE        
+       ANSWR CATEGORIES REFER TO  HEATING FUEL 1N  
+       THE HOUSING UNIT IN NOVEMBER OF 1987.  
+       IF THE HOUSING UNIT WAS BUILT IN 1988  
+       OR LATER ANSWER WAS EDITED TO CODE 5  
+       HOUSING UNITS REPORTING NO HEATING FUEL  
+       IN 1990-1991 WERE EDITED TO CODE 9.  
+      'YES'                  = 1
+      'NO'                   = 0
+      'HOUSE NOT BLT IN 87'  = 5
+      'NOT APPLICABLE'       = 9
+                
+FUELPAST 'MAIN HEATING FUEL NOVEMBER 1987'         
+       Q.B-4  
+       QUESTION SAME AS RECS 87       
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NO FUEL USED'         = 00
+      'NOT APPLICABLE'       = 99
+                
+MOFUELCH 'MONTH MAIN HEATING FUEL CHANGED'         
+       Q.B-5  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'JANUARY'              = 01
+      'FEBRUARY'             = 02
+      'MARCH'                = 03
+      'APRIL'                = 04
+      'MAY'                  = 05
+      'JUNE'                 = 06
+      'JULY'                 = 07
+      'AUGUST'               = 08
+      'SEPTEMBER'            = 09
+      'OCTOBER'              = 10
+      'NOVEMBER'             = 11
+      'DECEMBER'             = 12
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                
+YRFUELCH 'YEAR MAIN HEATING FUEL CHANGED'          
+       Q.B-5  
+       QUESTION DIFF FROM RECS 87     
+       THIS VARIABLE NOT IMPUTED      
+      '1987'                 = 08
+      '1988'                 = 09
+      '1989'                 = 10
+      '1990'                 = 11
+      'DONT KNOW'            = 96
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                
+AUXUGAS 'UGAS USED AS AUX HOME HEATING FUEL'       
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXLPG 'LPG USED AS AUX HOME HEATING FUEL'         
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXFOIL 'FUEL OIL USED AUX HOME HEATING FUEL'      
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXKERO 'KEROSENE USED AUX HOME HEATING FUEL'      
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXELEC 'ELECTRIC USED AUX HOME HEATING FUEL'      
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXCOAL 'COAL USED AS AUX HOME HEATING FUEL'       
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXWOOD 'WOOD USED AS AUX HOME HEATING FUEL'       
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXSOLAR 'SOLAR USED AS AUX HOME HEATING FUEL'     
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXOTHER 'OTHER FUEL USED AUX HOME HEATING'        
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+DKFUEL 'AUXILIARY HOME HEATING FUEL UNKNOWN'       
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+       SECONDARY FUEL NOT CODED IF SAME AS PRIMARY  
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+            
+AUXFUEL 'AUXIL HOME HEATING FUEL NOT USED'         
+       Q.B-6  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'AUX FUEL NOT USED'    = 1
+      'AUX FUEL USED'        = 0
+      'NOT APPLICABLE'       = 9
+     
+HEATAMT 'HEAT AMT MAIN HEATING FUEL PROVIDES'      
+       Q.B-7  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      '95 PERCENT OR MORE'   = 1
+      '67-94 PERCENT'        = 2
+      '66 PERCENT OR LESS'   = 3
+      'NOT APPLICABLE'       = 9
+               
+CAPIBL2 'CAN HEAT WITHOUT MAIN FUEL'               
+       Q.B-8   
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE       
+      'NO'                   = 0
+      'YES'                  = 1
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+                  
+MBKUPFUE 'BACKUP FUEL'                             
+       Q.B-12  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'BOTTLED GAS'          = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL/COKE'            = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NONE'                 = 00
+      'NOT APPLICABLE'       = 99
+                  
+NEWFUEL 'CHOOSE WHAT NEW FUEL'                     
+       Q.B-16  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE         
+      'PIPED GAS'            = 01
+      'BOTTLED GAS'          = 02
+      'FUEL OIL'             = 03
+      'KEROSENE'             = 04
+      'ELECTRICITY'          = 05
+      'COAL/COKE'            = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'DONT KNOW'            = 96
+      'NOT APPLICABLE'       = 99
+                 
+SBKUPFUE 'BACKUP FUEL'                             
+       Q.B-20  
+       QUESTION NEW TO RECS 90         
+       THIS VARIABLE NOT IMPUTED        
+      'PIPED GAS'            = 01
+      'BOTTLED GAS'          = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL/COKE'            = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NONE'                 = 00
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                 
+WOODBURN 'WOOD BURNED IN PAST YEAR'                
+       Q.B-21  
+       QUESTION IDENTICAL TO RECS 87   
+       IMPUTED FOR NONRESPONSE         
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+FUELH2O 'MAIN WATER HEATING FUEL'                  
+       Q.C-3  
+       QUESTION DIFF FROM RECS 87     
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NOT APPLICABLE'       = 99
+               
+UAUXH2OF 'USE AUXILIARY WATER HEATING FUEL'        
+       Q.C-8  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+                
+FAUXH2O 'AUXILIARY WATER HEATING FUEL'             
+       Q.C-9  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NOT APPLICABLE'       = 99
+               
+FUELCOOL 'CENTRAL AIR CONDITIONING FUEL'           
+       Q.D-4  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'ELECTRICITY'          = 05
+      'NOT APPLICABLE'       = 99
+               
+FUELFOOD 'FUEL USED FOR COOKING'                   
+       Q.E-1  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'OTHER'                = 21
+      'NO COOKING DONE'      = 00
+               
+FODEL 'FUEL OIL DELIVERED'                         
+       Q.H-5  
+       QUESTION NEW TO RECS 90        
+       VARIABLE NOT IMPUTED          
+      'YES'                  = 1
+      'NO'                   = 0
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+NFODELNC 'NUMBER FUEL OIL DELIVERIES YEARLY'
+       Q.H-6  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+       00 = LESS THAN ONE DELIVERY PER YEAR  
+       01-20 = NUMBER OF DELIVERIES  
+       98 = NO ANSWER  
+       99 = NOT APPLICABLE  
+
+NDIFFOCO 'NUMBER OF DIFFERENT COMPANIES'           
+       Q.H-7  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+      'ONE COMPANY'          = 1
+      'TWO COMPANIES'        = 2
+      'THREE OR MORE'        = 3
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+LPGDELV 'LPG DELIVERED TO YOUR HOME'               
+       Q.H-9  
+       QUESTION NEW TO RECS 90        
+       THIS VARIABLE NOT IMPUTED     
+      'YES'                  = 1
+      'NO'                   = 0
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+NLPDELNC 'NUMBER OF LPG DELIVERIES YEARLY'      
+        0445 - 0446:  99 
+       C Q.H-10, POSITION 0285  
+       C QUESTION DIFF. FROM RECS 87    
+       C THIS VARIABLE NOT IMPUTED      
+       C 00 = LESS THAN ONE DELIVERY PER YEAR  
+       C 01-30 = NUMBER OF DELIVERIES  
+       C 98 = NO ANSWER  
+       C 99 = NOT APPLICABLE
+  
+NDIFLPCO 'DIFFERENT COMPANIES DELIVERED LPG'       
+       Q.H-11  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+      'ONE COMPANY'          = 1
+      'TWO COMPANIES'        = 2
+      'THREE OR MORE'        = 3
+      'DONT KNOW'           = 6
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+KERODEL 'KEROSENE DELIVERED LAST 12 MONTHS'        
+       Q.H-12  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+                
+NOKRDEL 'TIMES KERO DELIVERED PAST YEAR'        
+       Q.H-13  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+       VALUES OF 00-20 ACCEPTED  
+       99 = NOT APPLICABLE
+  
+NDIFKRCO 'NUMBER KEROSENE STORES DELIVERING'       
+       Q.H-14  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+      'ONE'                  = 1
+      'TWO'                  = 2
+      'THREE OR MORE'        = 3
+      'NOT APPLICABLE'       = 9
+               
+KEROCASH 'CASH AND CARRY KEROSENE'                 
+       Q.H-15  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+NOKRCASH 'HOW MANY TIMES CASH AND CARRY KERO'   
+       Q.H-16  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED      
+       VALUES 00-95 ACCEPTED  
+       96 = DONT KNOW  
+       98 = NO ANSWER  
+       99 = NOT APPLICABLE  
+
+NKRGALNC 'QUANTITY BOUGHT EACH TIME'               
+       Q.H-17  
+       QUESTION DIFF. FROM RECS 87    
+       THIS VARIABLE NOT IMPUTED     
+      '1 GALLON'             = 1
+      '3 GALLONS'            = 2
+      '5 GALLONS'            = 3
+      '55 GALLONS'           = 4
+      '10 GALLONS'           = 5
+      'NOT SURE'             = 6
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+               
+ELWATER 'USES ELECTRIC FOR HOT WATER'              
+       Q.H-3A  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+ELWARM 'USES ELECTRIC FOR HEATING HOME'            
+       Q.H-3B  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+ELCOOL 'USES ELECTRIC FOR AIR CONDITIONING'        
+       Q.H-3C  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+ELFOOD 'USES ELECTRIC FOR COOKING'                 
+       Q.H-3D  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0 
+              
+ELOTHER 'USES ELECTRIC LIGHTS AND APPLIANCES'      
+       Q.H-3E  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0               
+
+UGWATER 'USES PIPED GAS FOR HOT WATER'             
+       Q.H-3F  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+UGWARM 'USES PIPED GAS FOR HEATING HOME'           
+       Q.H-3G  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+UGCOOL 'USES PIPED GAS CENTRAL AIR COND'           
+       Q.H-3H  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+UGFOOD 'USES PIPED GAS FOR COOKING INSIDE'         
+       Q.H-3I  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+UGOUTSID 'USES PIPED GAS FOR OUTDOOR GRILL'        
+       Q.H-3J  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+UGOTHER 'USES PIPED GAS FOR OTHER APPLIANCES'      
+       Q.H-3K  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+LPGWATER 'USES LPG FOR HOT WATER'                  
+       C Q.H-3L, POSITION 0822  
+       C QUESTION IDENTICAL TO RECS 87  
+       C IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0               
+
+LPGWARM 'USES LPG FOR HEATING HOME'                
+       Q.H-3M  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+LPGCOOL 'USES LPG CENTRAL AIR CONDITIONING'        
+       C Q.H-3N  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+LPGFOOD 'USES LPG FOR COOKING IN HOME'             
+       Q.H-3O  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+LPGOUT 'USES LPG FOR OUTDOOR GRILL COOKING'        
+       Q.H-3P  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+LPGOTHER 'USES LPG FOR OTHER APPLIANCES'           
+       Q.H-3Q  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+FOIWATER 'USES FUEL OIL FOR HOT WATER'             
+       Q.H-3R  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+FOILWARM 'USES FUEL OIL FOR HEATING HOME'          
+       Q.H-3S  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+FOILFOOD 'USES FUEL OIL FOR COOKING AND OTHER'     
+       Q.H-3T  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+KERWATER 'USES KEROSENE FOR HOT WATER'             
+       Q.H-3  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+KERWARM  'USES KEROSENE FOR HEATING HOME'          
+       Q.H-3V  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0
+               
+KERFOOD  'USES KEROSENE FOR COOKING'               
+       Q.H-3W  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+      'USED'                 = 1
+      'NOT USED'             = 0               
+
+RENT1 'REPORTED HEATING FUEL CHANGED'              
+       Q6  
+       BASED ON INFORMATION FROM RENTAL AGENTS  
+      'NO CHANGE ON 0131'    = 0
+      'CHANGE'               = 1
+               
+RENT2 'REPORTED SUPPL FUEL CHANGED'                
+       Q7  
+       BASED ON INFORMATION FROM RENTAL AGENTS  
+      'NO CHANGE ON SUPPLF'  = 0
+      'CHANGE'               = 1
+               
+RENT3 'REPORTED WATER HEATING FUEL CHANGED'        
+       Q32  
+       BASED ON INFORMATION FROM RENTAL AGENTS  
+      'NO CHANGE ON 0255'    = 0
+      'CHANGE'               = 1
+               
+RENT4 'REPORTED AIR COND FUEL CHANGED'             
+       Q38  
+       BASED ON INFORMATION FROM RENTAL AGENTS  
+      'NO CHANGE ON 0263,64' = 0
+      'CHANGE'               = 1
+               
+GASCALL 'OUTCOME GAS AIR COND. PHONE CALL'         
+       HOUSEHOLDS REPORTED USE OF LPG OR  
+       UTILITY GAS FOR CENTRAL AIR CONDITIONING  
+      'CONTACT, RESOLVED'    = 1
+      'CONTACT, UNRESOLVED'  = 2
+      'NO CONTACT'           = 3
+      'RECS90 CALLS'         = 4
+      'RENTAL AGENT CALLS'   = 5
+      'NOT APPLICABLE'       = 0
+               
+GASBASIS 'BASIS FOR FINAL FUEL USE CODE'           
+       HOUSEHOLDS REPORTED USE OF LPG  
+       OR UTILITY GAS FOR CENTRAL AIR CONDITIONING  
+      'CALL, GAS CONFIRMED'  = 1
+      'CALL, ELECTRIC USED'  = 2
+      'BILL PATTERNS, GAS'   = 3
+      'BILL PATTERNS, ELEC'  = 4
+      'OTHER INFO, GAS'      = 5
+      'OTHER INFO, ELEC'     = 6
+      'NOT APPLICABLE'       = 0
+               
+USEKERO 'HOUSEHOLD USES KEROSENE'                  
+      'YES'                  = 1
+      'NO'                   = 0
+               
+USEEL 'HOUSEHOLD USES ELECTRICITY'                 
+      'YES'                  = 1
+      'NO'                   = 0
+               
+USENG 'HOUSEHOLD USES UTILITY GAS'                 
+      'YES'                  = 1
+      'NO'                   = 0
+               
+USEFO 'HOUSEHOLD USES FUEL OIL'                    
+      'YES'                  = 1
+      'NO'                   = 0
+
+TYPEF01 'FUEL OIL TYPE FROM SUPPLIER 1'           
+       COMBINATION INCLUDES RESIDUAL AND DIESEL FUELS  
+      'FUEL OIL NO 1'        = 1
+      'FUEL OIL NO 2'        = 2
+      'COMBINATION'          = 5
+      'NOT APPLICABLE'       = 9
+               
+TYPEF02 'FUEL OIL TYPE FROM SUPPLIER 2'            
+       COMBINATION INCLUDES RESIDUAL AND DIESEL FUELS  
+      'FUEL OIL NO 1'        = 1
+      'FUEL OIL NO 2'        = 2
+      'COMBINATION'          = 5
+      'NOT APPLICABLE'       = 9
+               
+TYPEF03 'FUEL OIL TYPE FROM SUPPLIER 3'            
+       COMBINATION INCLUDES RESIDUAL AND DIESEL FUELS  
+      'FUEL OIL NO 1'        = 1
+      'FUEL OIL NO 2'        = 2
+      'COMBINATION'          = 5
+      'NOT APPLICABLE'       = 9
+               
+USELP 'HOUSEHOLD USES LPG'                         
+      'YES'                  = 1
+      'NO'                   = 0
+               
+TYPELP1 'LPG TYPE FROM SUPPLIER 1'                 
+      'PROPANE'              = 1
+      'BUTANE'               = 2
+      'OTHER'                = 5
+      'NOT APPLICABLE'       = 9
+               
+TYPELP2 'LPG TYPE FROM SUPPLIER 2'                 
+      'PROPANE'              = 1
+      'BUTANE'               = 2
+      'OTHER'                = 5
+      'NOT APPLICABLE'       = 9
+               
+TYPELP3 'LPG TYPE FROM SUPPLIER 3'                 
+      'PROPANE'              = 1
+      'BUTANE'               = 2
+      'OTHER'                = 5
+      'NOT APPLICABLE'       = 9
+               
+
+END OF FILE8 ENERGY

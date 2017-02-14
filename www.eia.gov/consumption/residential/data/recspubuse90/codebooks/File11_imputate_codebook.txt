@@ -1,0 +1,1286 @@
+FILE11 IMPUTATE
+
+
+HHID 'HOUSEHOLD ID'
+
+INSIDE 'HOME MEASURED INSIDE OR OUTSIDE'           
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'MEASURED INSIDE'      = 01
+      'MEASURED OUTSIDE'     = 02
+      'INSIDE AND OUTSIDE'   = 03
+      'FLOOR PLAN'           = 04
+      'ESTIMATED'            = 05
+      'OTHER OR COMBINATION' = 21
+      'MEASURES NOT USABLE'  = 95
+      'NO MEASUREMENTS'      = 00
+      'PROCEDURE UNKNOWN'    = 98
+               
+SCALE 'SCALE FACTOR'                            
+       INFORMATION TAKEN FROM RECS 87 AS  
+       APPROPRIATE. SEE COL 1164  
+       A SCALE FACTOR IS RPRTD FOR THE VARS HTED,  
+       UNHEATED, & HOMEAREA WHEN THE  MEASURE-  
+       MENTS OR ESTIMS.WERE BASED ON INSD DIMEN-  
+       SIONS.  THE SCALE FACTOR HAS AN IMPLIED  
+       DECIMAL POINT BEFORE THE FIRST DIGIT,  
+       AND MUST BE ADDED TO 1.000 TO PRODUCE  
+       THE ACTUAL SCALE FACTOR:  E.G., SCALE =  
+       149 REPRESENTS A SCALE FACTOR OF 1.149.   
+       WHEN THE VARIABLES HEATED, UNHEATED, AND  
+       HOMEAREA ARE NOT BASED ON INSIDE MEASURE-  
+       MENTS, SCALE IS SET AT 999.  ALSO, SCALE = 999  
+       WHENEVER THE VARIABLES HEATED, UNHEATED AND  
+       HOMEAREA WERE ALL IMPUTED.   
+
+SOURCE 'SOURCE OF SQUARE FOOT MEASUREMENTS'        
+       ALL SQUARE FOOTAGE DATA  REPORTED IN TERMS  
+       OF MEASUREMENTS OR ESTIM. BASED ON OUTSIDE  
+       DIMENSIONS. A SCALE FACTOR, COLUMNS 1161 - 1163  
+       HAS BEEN USED TO CNVRT INSIDE TTLS TO OUTSIDE  
+       TOTALS AS REQUIRED.   
+       CODE 0 = THE VARIABLES HOMEAREA, HEATED, AND  
+       UNHEATED ARE AVAILABLE.   
+       MEASUREMENTS ARE BASED ON OUTSIDE  
+       DIMENSIONS:  I.E., VARIABLE INSIDE = 02.   
+       IN ADDITION, QUESTION P-12, VARIABLE  
+       BASEHEAT, IS CONSISTENT WITH BASEMENT DATA  
+       CODE 1 = THE VARIABLES HOMEAREA, HEATED, &  
+       UNHEATED ARE AVAILABLE.   
+       MSRMNTS  BASED ON INSIDE DIMENSIONS:  I.E.,  
+       VARIABLE INSIDE = 01.   
+       IN ADDITION, QUESTION P-12, VARIABLE  
+       BASEHEAT, IS CONSISTENT WITH BASEMENT DATA,  
+       CODE 2 = THE VARS HOMEAREA, HEATED, & UNHEATED  
+       ARE AVAILABLE.   
+       IT IS NOT KNOWN WHETHER MSRMNTS OR ESTIMATES  
+       ARE BASED ON INSIDE OR OUTSIDE DIMS:  I.E.,  
+       VARIABLE INSIDE = 03, 04, 05, 21, 98.  
+       IN ADDITION, QUESTION P-12, VARIABLE  
+       BASEHEAT, IS CONSISTENT WITH BASEMENT DATA,  
+       CODE 3 = HOMEAREA IS AVAIL. BUT HTD AND UNHTD  
+       ARE NOT AVAILABLE.    
+       CODE 4 = NONE OF THE VARS HOMEAREA, HTD OR UN-  
+       HEATED ARE AVAILABLE.  MSRMNTS  NOT USABLE:  
+       VARIABLE INSIDE = 00 OR 95,  
+       CODE 5 = ALL MEASUREMENTS ARE USABLE EXCEPT FOR  
+       A BASEMENT.  LINEARFL = 1,2, OR 3, BUT  
+       0846-0869 IS NOT SUFFICIENTLY COMPLETE TO  
+       PERMIT COMPUTATION OF A TOTAL FOR HOMEAREA.   
+       CODE 6 = THE VARIABLE HOMEAREA IS AVAILABLE AND  
+       HEATED AND UNHEATED SUBTOTALS ARE KNOWN FOR  
+       ALL FLOORS EXCEPT THE BASEMENT. IN THIS CASE,  
+       THE BREAKDOWN BETWEEN HEATED AND UNHEATED FOR  
+       THE BASEMENT IS IMPUTED.                     
+       CODE 7 = IF THE HOUSEHOLD WOULD BE SOURCE CODE  
+       4  SEE ABOVE  ACCORDING TO RECS90 MSRMNTS  
+       AND IF RECS87 SOURCE CODE = 0,1, OR 2  SEE     
+       C87SQFT, 1649 , HEATED,UNHEATED,HOMEAREA, AND  
+       SCALE WERE ALL TAKEN FROM RECS87.            
+      'OUTSIDE MEASUREMENTS' = 0
+      'INSIDE MEASUREMENTS'  = 1
+      'OUT OR IN UNKNOWN'    = 2
+      'TOTAL ONLY KNOWN'     = 3
+      'ALL DATA IMPUTED'     = 4
+      'BASEMENT PROBLEM1'    = 5
+      'BASEMENT PROBLEM2'    = 6
+      'MEAS FROM RECS87'     = 7               
+
+NWEIGHT 'FINAL HOUSEHOLD WEIGHT'
+                    
+MAILQ 'MAIL QUESTIONNAIRE CODES'            
+      'NO MAILING ADDRESS'   = 631
+      'MOVED AFTER CONTACT'  = 632
+      'OTHER NOT MAILED'     = 635
+      'RETURNED BLANK'       = 673
+      'RETURNED UNUSABLE'    = 674
+      'WRONG RESP OR HU'     = 676
+      'RETURNED BY POST OFF' = 677
+      'NOT RETURNED'         = 678
+      'COMPLETED'            = 681
+      'NOT APPLICABLE'       = 999
+               
+
+REGIONC 'CENSUS REGION'                            
+      'NORTHEAST'            = 1
+      'MIDWEST'              = 2
+      'SOUTH'                = 3
+      'WEST'                 = 4
+               
+DIVISION 'CENSUS DIVISION'                         
+      'NEW ENGLAND'          = 1
+      'MIDDLE ATLANTIC'      = 2
+      'EAST NORTH CENTRAL'   = 3
+      'WEST NORTH CENTRAL'   = 4
+      'SOUTH ATLANTIC'       = 5
+      'EAST SOUTH CENTRAL'   = 6
+      'WEST SOUTH CENTRAL'   = 7
+      'MOUNTAIN'             = 8
+      'PACIFIC'              = 9
+               
+GASCALL 'OUTCOME GAS AIR COND. PHONE CALL'         
+       HOUSEHOLDS REPORTED USE OF LPG OR  
+       UTILITY GAS FOR CENTRAL AIR CONDITIONING  
+      'CONTACT, RESOLVED'    = 1
+      'CONTACT, UNRESOLVED'  = 2
+      'NO CONTACT'           = 3
+      'RECS90 CALLS'         = 4
+      'RENTAL AGENT CALLS'   = 5
+      'NOT APPLICABLE'       = 0
+       
+GASBASIS 'BASIS FOR FINAL FUEL USE CODE'           
+       HOUSEHOLDS REPORTED USE OF LPG  
+       OR UTILITY GAS FOR CENTRAL AIR CONDITIONING  
+      'CALL, GAS CONFIRMED'  = 1
+      'CALL, ELECTRIC USED'  = 2
+      'BILL PATTERNS, GAS'   = 3
+      'BILL PATTERNS, ELEC'  = 4
+      'OTHER INFO, GAS'      = 5
+      'OTHER INFO, ELEC'     = 6
+      'NOT APPLICABLE'       = 0
+               
+IMP001 'IMPUTATIONS'                               
+       THE NUMBER AFTER EACH LETTER DEFINES THE  
+       CARD AND FIRST COLUMN  
+       OF THE VARIABLE THAT HAS BEEN IMPUTED.   
+       FOR EXAMPLE, A 0124 MEANS THAT THE  
+       VARIABLE REFERRED TO AS A BEGINS IN  CARD 1 
+       COLUMN 24.  THE VARIABLE REFERRED TO AS  
+       B BEGINS IN CARD 1 COLUMN 25 AND SO ON.   
+      'NONE IMPUTED'         = 0
+      'VAR A 0124 IMPUTED'   = 1
+      'VAR B 0125 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0127 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP002 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0129 IMPUTED'   = 1
+      'VAR B 0131 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0133 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP003 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0134 IMPUTED'   = 1
+      'VAR B 0136 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0137 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP004 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0160 IMPUTED'   = 1
+      'VAR B 0161 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0162 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP005 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0164 IMPUTED'   = 1
+      'VAR B 0166  IMPUTED'  = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0168 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP006 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0170 IMPUTED'   = 1
+      'VAR B 0171  IMPUTED'  = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0172 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP007 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0233 IMPUTED'   = 1
+      'VAR B 0237  IMPUTED'  = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0241 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP008 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0242 IMPUTED'   = 1
+      'VAR B 0245  IMPUTED'  = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0253 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP009 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0254 IMPUTED'   = 1
+      'VAR B 0256 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0258 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP010 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0262 IMPUTED'   = 1
+      'VAR B 0264 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0265 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP011 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0267 IMPUTED'   = 1
+      'VAR B 0268 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0310 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED   '  = 7
+               
+IMP012 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0311 IMPUTED'   = 1
+      'VAR B 0313 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0314 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP013 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0316 IMPUTED'   = 1
+      'VAR B 0317 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0318 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP014 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0320 IMPUTED'   = 1
+      'VAR B 0321 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0323 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP015 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0324 IMPUTED'   = 1
+      'VAR B 0325 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0326 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP016 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0327 IMPUTED'   = 1
+      'VAR B 0328 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0329 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP017 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0330 IMPUTED'   = 1
+      'VAR B 0331 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0332 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP018 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0333 IMPUTED'   = 1
+      'VAR B 0334 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0335 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP019 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0336 IMPUTED'   = 1
+      'VAR B 0338 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0339 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP020 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0340 IMPUTED'   = 1
+      'VAR B 0341 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0342 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP021 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0343 IMPUTED'   = 1
+      'VAR B 0344 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0345 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP022 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0346 IMPUTED'   = 1
+      'VAR B 0348 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0350 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP023 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0352 IMPUTED'   = 1
+      'VAR B 0355 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0356 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP024 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0357 IMPUTED'   = 1
+      'VAR B 0358 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0361 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP025 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0362 IMPUTED'   = 1
+      'VAR B 0363 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0364 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP026 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0365 IMPUTED'   = 1
+      'VAR B 0366 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0367 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP027 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0368 IMPUTED'   = 1
+      'VAR B 0369 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0370 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP028 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0371 IMPUTED'   = 1
+      'VAR B 0372 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0373 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP029 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0374 IMPUTED'   = 1
+      'VAR B 0375 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0377 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP030 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0378 IMPUTED'   = 1
+      'VAR B 0379 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0380 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP031 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0418 IMPUTED'   = 1
+      'VAR B 0419 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0420 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP032 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0421 IMPUTED'   = 1
+      'VAR B 0422 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0423 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP033 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0426 IMPUTED'   = 1
+      'VAR B 0427 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0433 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP034 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0434 IMPUTED'   = 1
+      'VAR B 0435 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0436 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP035 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0437 IMPUTED'   = 1
+      'VAR B 0438 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0464 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP036 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0526 IMPUTED'   = 1
+      'VAR B 0528 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0533 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP037 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0535 IMPUTED'   = 1
+      'VAR B 0536 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0538 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP038 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0543 IMPUTED'   = 1
+      'VAR B 0545 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0546 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP039 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0548 IMPUTED'   = 1
+      'VAR B 0553 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0555 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP040 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0556 IMPUTED'   = 1
+      'VAR B 0558 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0563 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP041 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0565 IMPUTED'   = 1
+      'VAR B 0566 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0568 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP042 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0573 IMPUTED'   = 1
+      'VAR B 0578 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0628 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+
+IMP043 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0671 IMPUTED'   = 1
+      'VAR B 0673 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0675 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP044 'IMPUTATIONS'                               
+      'VAR A 0676 IMPUTED'   = 1
+      'VAR B 0677 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0710 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+      'NONE IMPUTED'         = 0
+
+IMP045 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0711 IMPUTED'   = 1
+      'VAR B 0712 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0713 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP046 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0714 IMPUTED'   = 1
+      'VAR B 0715 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0716 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP047 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0717 IMPUTED'   = 1
+      'VAR B 0718 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0719 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP048 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0722 IMPUTED'   = 1
+      'VAR B 0723 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0724 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP049 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0725 IMPUTED'   = 1
+      'VAR B 0726 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0727 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP050 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0728 IMPUTED'   = 1
+      'VAR B 0729 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0730 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP051 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0731 IMPUTED'   = 1
+      'VAR B 0732 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0736 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP052 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0737 IMPUTED'   = 1
+      'VAR B 0738 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0739 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP053 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0740 IMPUTED'   = 1
+      'VAR B 0742 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0745 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP054 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0746 IMPUTED'   = 1
+      'VAR B 0747 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0748 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP055 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0749 IMPUTED'   = 1
+      'VAR B 0750 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0751 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP056 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0752 IMPUTED'   = 1
+      'VAR B 0753 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0754 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP057 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0755 IMPUTED'   = 1
+      'VAR B 0756 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0757 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP058 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0758 IMPUTED'   = 1
+      'VAR B 0759 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0760 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP059 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0761 IMPUTED'   = 1
+      'VAR B 0762 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0763 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP060 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0764 IMPUTED'   = 1
+      'VAR B 0765 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0768 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP061 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0770 IMPUTED'   = 1
+      'VAR B 0771 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0772 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+
+IMP062 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0773 IMPUTED'   = 1
+      'VAR B 0774 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0775 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP063 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0776 IMPUTED'   = 1
+      'VAR B 0777 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0778 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP064 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0810 IMPUTED'   = 1
+      'VAR B 0811 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0812 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP065 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0813 IMPUTED'   = 1
+      'VAR B 0814 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0815 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP066 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0816 IMPUTED'   = 1
+      'VAR B 0818 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0820 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP067 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0822 IMPUTED'   = 1
+      'VAR B 0825 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0830 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP068 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0831 IMPUTED'   = 1
+      'VAR B 0832 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0833 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP069 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0834 IMPUTED'   = 1
+      'VAR B 0835 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0836 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP070 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0840 IMPUTED'   = 1
+      'VAR B 0841 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0842 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP071 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 0843 IMPUTED'   = 1
+      'VAR B 0844 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 0845 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP072 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1065 IMPUTED'   = 1
+      'VAR B 1066 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1067 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP073 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1068 IMPUTED'   = 1
+      'VAR B 1069 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1070 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP074 'IMPUTATIONS'                               
+       'NONE IMPUTED'         = 0
+      'VAR A 1071 IMPUTED'   = 1
+      'VAR B 1072 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1073 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP075 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1074 IMPUTED'   = 1
+      'VAR B 1110 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1111 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP076 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1112 IMPUTED'   = 1
+      'VAR B 1113 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1114 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP077 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1116 IMPUTED'   = 1
+      'VAR B 1117 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1118 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP078 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1119 IMPUTED'   = 1
+      'VAR B 1120 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1121 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP079 'IMPUTATIONS'                               
+       'NONE IMPUTED'         = 0
+      'VAR A 1122 IMPUTED'   = 1
+      'VAR B 1124 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1125 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP080 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1126 IMPUTED'   = 1
+      'VAR B 1128 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1129 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP081 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1130 IMPUTED'   = 1
+      'VAR B 1131 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1132 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+
+IMP082 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1133 IMPUTED'   = 1
+      'VAR B 1134 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1135 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP083 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1136 IMPUTED'   = 1
+      'VAR B 1137 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1138 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP084 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1140 IMPUTED'   = 1
+      'VAR B 1142 IMPUTED'   = 2
+      'VAR A AND B IMPUTED'  = 3
+      'VAR C 1143 IMPUTED'   = 4
+      'VAR A AND C IMPUTED'  = 5
+      'VAR B AND C IMPUTED'  = 6
+      'ALL VARS IMPUTED    ' = 7
+               
+IMP085 'IMPUTATIONS'                               
+      'NONE IMPUTED'         = 0
+      'VAR A 1144 IMPUTED'   = 1
+               
+ORIGKERQ 'SOURCE ESTIMATED KEROSENE QUANTITY'      
+      'DELIVERY RECORD'      = 1
+      'SUPPLIER ESTIMATE'    = 2
+      'HOUSEHOLD ESTIMATE'   = 3
+      'SUPPL EST YR'         = 4
+      'REGRESSION ESTIMATE'  = 8
+      'NOT APPLICABLE'       = 9
+               
+SCALEKER 'KERO USE SCALED DOWN NONHSLD USES'       
+      'SCALE USED'           = 1
+      'NOT USED'             = 0
+      'NOT APPLICABLE'       = 9
+
+ORIGKRC 'SOURCE OF ESTIMATED KEROSENE COST'        
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'HOUSEHOLD ESTIMATE'   = 4
+      'NOT APPLICABLE'       = 9               
+
+ORIGKERS 'SUMMARY CODE KEROSENE DATA SOURCE'       
+       CODES 11,12, AND 31 APPLY IF SOME DATA ARE    
+         AVAILABLE FROM THE SUPPLIER.                
+       CODE 13 -- FULL YEAR ESTIMATE FROM SUPPLIER   
+         USED FOR BOTH QUANTITY AND COSTS.           
+       CODE 14 -- FULL YEAR ESTIMATE FROM SUPPLIER   
+         USED FOR QUANTITY; COSTS IMPUTED.           
+       CODE 15 -- QUANTITY AND COST ESTIMATE FROM    
+         HOUSEHOLD.                                  
+       CODE 16 -- QUANTITY ESTIMATE FROM HOUSEHOLD;  
+         COST IMPUTED.                               
+       CODES 41-43 APPLY IF THE AUTHORIZATION FORM   
+         IS SIGNED, BUT NO DATA WERE RECEIVED FROM   
+         THE SUPPLIER.                               
+       CODE 51 -- AUTHORIZATION FORM NOT SIGNED      
+       CODE 61 -- FUEL USE NOT PAID BY HOUSEHOLD     
+       CODE 41 INCLUDES HOUSEHOLDS FOR WHICH MAILED  
+        QUESTIONNAIRES INDICATED THAT HOUSEHOLD DID  
+        NOT USE OR DID NOT PAY DIRECTLY FOR FUEL,    
+        BUT SURROGATE PERSONAL INTERVIEW HOUSEHOLD   
+        DID USE AND PAY DIRECTLY FOR FUEL.           
+       QTY = QUANTITY; IMP = IMPUTED; HH = HOUSEHOLD;  
+       AVAIL = AVAILABLE;  CO = COMPANY             
+      'QTY , COST FROM DATA' = 11
+      'QTY-DATA; COST-IMP'   = 12
+      'FY QTY, COST FROM CO' = 13
+      'FY QTY ONLY FROM CO'  = 14
+      'QTY,COST EST FROM HH' = 15
+      'QTY HH; COST-IMP'     = 16
+      'DATA AVAIL-NOT USED'  = 31
+      'HH NOT IDENTIFIABLE'  = 41
+      'COMPANY REFUSED'      = 42
+      'NO COMPANY CONTACT'   = 43
+      'FORM NOT SIGNED'      = 51
+      'USE INCLUDED IN RENT' = 61
+      'NO ANSWER'            = 98
+      'FUEL NOT USED'        = 99               
+
+ORIGELQ 'SOURCE OF ESTIMATED QUANTITY OF EL'       
+       CODES 1-4 BASED ON ANNUALIZED BILLING  
+       RECORDS FOR 330 OR MORE DAYS  
+       EST = ESTIMATED  
+       BILLING PERIOD USED FOR ANNUALIZED ESTIMATE  
+       MAY BE SHORTER THAN TOTAL PERIOD GIVEN IN    
+       PERIODEL  2217  DUE TO ELIMINATION OF ESTIMATED  
+       BILLS AT THE ENDS OF THE BILLING PERIOD.     
+      'ACTUAL READINGS'      = 1
+      'START EST-END ACTUAL' = 2
+      'START ACTUAL-END EST' = 3
+      'BOTH PERIODS EST'     = 4
+      '146-329 DAY ESTIMATE' = 5
+      '60-145 DAY ESTIMATE'  = 6
+      'NOT ALL USES PAID'    = 7
+      'REGRESSION ESTIMATE'  = 8
+      'NOT APPLICABLE'       = 9
+               
+SCALEEL 'EL USE SCALED DOWN FOR NONHSLD USES'      
+      'SCALE USED'           = 1
+      'NOT USED'             = 0
+      'NOT APPLICABLE'       = 9
+               
+ORIGELC 'SOURCE OF ESTIMATED COST OF EL'           
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'NOT APPLICABLE'       = 9
+               
+ORIGELS 'SUMMARY CODE FOR SOURCE OF EL DATA'       
+       CODES 11-31 APPLY IF SOME DATA ARE  
+         AVAILABLE FROM THE SUPPLIER.   
+         CODES 11 AND 12, GROUP A BELOW,  
+         APPLY IF 330 OR MORE DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 21 AND 22, GROUP B BELOW,  
+         APPLY IF 146-329 DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 23 AND 24, GROUP C BELOW,  
+         APPLY IF 60-145 DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 25 AND 26, GROUP D BELOW,  
+         APPLY IF NOT ALL USES OF THE  
+         FUEL ARE PAID BY THE HOUSEHOLD. 
+       CODES 41-43, GROUP E BELOW, APPLY IF THE   
+         AUTHORIZATION FORM IS SIGNED, BUT NO DATA  
+         WERE RECEIVED FROM THE SUPPLIER.   
+       CODE 41 INCLUDES HOUSEHOLDS FOR WHICH MAILED  
+         QUESTIONNAIRES INDICATED THAT HOUSEHOLD DID  
+         NOT USE OR DID NOT PAY DIRECTLY FOR FUEL,  
+         BUT SURROGATE PERSONAL INTERVIEW HOUSEHOLD  
+         DID USE AND PAY DIRECTLY FOR FUEL.   
+       QTY = QUANTITY; IMP = IMPUTED; HH = HOUSEHOLD;  
+         FR = FROM; AVAIL = AVAILABLE  
+      'A QTY , COST FR DATA' = 11
+      'A QTY-DATA; COST-IMP' = 12
+      'B QTY , COST FR DATA' = 21
+      'B QTY-DATA; COST-IMP' = 22
+      'C QTY , COST FR DATA' = 23
+      'C QTY-DATA; COST-IMP' = 24
+      'D QTY , COST FR DATA' = 25
+      'D QTY-DATA; COST-IMP' = 26
+      'DATA AVAIL-NOT USED'  = 31
+      'E HH NOT IDENTIFIED'  = 41
+      'E COMPANY REFUSED'    = 42
+      'E NO COMPANY CONTACT' = 43
+      'FORM NOT SIGNED'      = 51
+      'USE INCLUDED IN RENT' = 61
+      'NO ANSWER'            = 98
+      'FUEL NOT USED'        = 99
+    
+ORIGNGQ 'SOURCE OF ESTIMATED QUANTITY OF UG'       
+       CODES 1-4 BASED ON ANNUALIZED BILLING  
+       RECORDS FOR 330 OR MORE DAYS  
+       EST = ESTIMATED  
+       BILLING PERIOD USED FOR ANNUALIZED ESTIMATE  
+       MAY BE SHORTER THAN TOTAL PERIOD GIVEN IN    
+       PERIODNG  2317  DUE TO ELIMINATION OF ESTIMATED  
+       BILLS AT THE ENDS OF THE BILLING PERIOD.     
+      'ACTUAL READINGS'      = 1
+      'START EST-END ACTUAL' = 2
+      'START ACTUAL-END EST' = 3
+      'BOTH PERIODS EST'     = 4
+      '146-329 DAY ESTIMATE' = 5
+      '60-145 DAY ESTIMATE'  = 6
+      'NOT ALL USES PAID'    = 7
+      'REGRESSION ESTIMATE'  = 8
+      'NOT APPLICABLE'       = 9
+               
+SCALENG 'UG USE SCALED DOWN FOR NONHSLD USES'      
+      'SCALE USED'           = 1
+      'NOT USED'             = 0
+      'NOT APPLICABLE'       = 9
+               
+ORIGNGC 'SOURCE OF ESTIMATED COST OF UG'           
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'NOT APPLICABLE'       = 9
+               
+ORIGNGS 'SUMMARY CODE FOR SOURCE OF UG DATA'       
+       CODES 11-31 APPLY IF SOME DATA ARE  
+         AVAILABLE FROM THE SUPPLIER.   
+         CODES 11 AND 12, GROUP A BELOW,  
+         APPLY IF 330 OR MORE DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 21 AND 22, GROUP B BELOW,  
+         APPLY IF 146-329 DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 23 AND 24, GROUP C BELOW,  
+         APPLY IF 60-145 DAYS OF DATA  
+         ARE AVAILABLE.   
+       CODES 25 AND 26, GROUP D BELOW,  
+         APPLY IF NOT ALL USES OF THE   
+         FUEL ARE PAID BY THE HOUSEHOLD. 
+       CODES 41-43, GROUP E BELOW, APPLY IF THE   
+         AUTHORIZATION FORM IS SIGNED, BUT NO DATA  
+         WERE RECEIVED FROM THE SUPPLIER.   
+       CODE 41 INCLUDES HOUSEHOLDS FOR WHICH MAILED  
+         QUESTIONNAIRES INDICATED THAT HOUSEHOLD DID  
+         NOT USE OR DID NOT PAY DIRECTLY FOR FUEL, BUT  
+         SURROGATE PERSONAL INTERVIEW HOUSEHOLD DID USE  
+         AND PAY DIRECTLY FOR FUEL.   
+       QTY = QUANTITY; IMP = IMPUTED;  
+         HH = HOUSEHOLD; FR = FROM;  
+         AVAIL = AVAILABLE  
+      'A QTY , COST FR DATA' = 11
+      'A QTY-DATA; COST-IMP' = 12
+      'B QTY , COST FR DATA' = 21
+      'B QTY-DATA; COST-IMP' = 22
+      'C QTY , COST FR DATA' = 23
+      'C QTY-DATA; COST-IMP' = 24
+      'D QTY , COST FR DATA' = 25
+      'D QTY-DATA; COST-IMP' = 26
+      'DATA AVAIL-NOT USED'  = 31
+      'E HH NOT IDENT      ' = 41
+      'E COMPANY REFUSED'    = 42
+      'E NO COMPANY CONTACT' = 43
+      'FORM NOT SIGNED'      = 51
+      'USE INCLUDED IN RENT' = 61
+      'NO ANSWER'            = 98
+      'FUEL NOT USED'        = 99               
+
+ORIGFOQ 'SOURCE OF ESTIMATED QUANTITY OF FO'       
+      'DELIVERY RECORD'      = 1
+      'SUPPLIER ESTIMATE'    = 2
+      'HOUSEHOLD ESTIMATE'   = 3
+      'SUPPL EST YR'         = 4
+      'REGRESSION ESTIMATE'  = 8
+      'NOT APPLICABLE'       = 9
+               
+SCALEFO 'FO USE SCALED DOWN FOR NONHSLD USES'      
+      'SCALE USED'           = 1
+      'NOT USED'             = 0
+      'NOT APPLICABLE'       = 9
+               
+ORIGFOC 'SOURCE OF ESTIMATED COST OF FO'           
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'HOUSEHOLD ESTIMATE'   = 4
+      'NOT APPLICABLE'       = 9
+               
+ORIGFOS 'SUMMARY CODE FOR SOURCE OF FO DATA'       
+       CODES 11,12, AND 31 APPLY IF SOME DATA ARE  
+         AVAILABLE FROM THE SUPPLIER.   
+       CODE 13 -- FULL YEAR ESTIMATE FROM SUPPLIER  
+         USED FOR BOTH QUANTITY AND COSTS.   
+       CODE 14 -- FULL YEAR ESTIMATE FROM SUPPLIER  
+         USED FOR QUANTITY; COSTS IMPUTED.   
+       CODE 15 -- QUANTITY AND COST ESTIMATE FROM    
+         HOUSEHOLD.                                  
+       CODE 16 -- QUANTITY ESTIMATE FROM HOUSEHOLD;  
+         COST IMPUTED.                               
+       CODES 41-43 APPLY IF THE AUTHORIZATION FORM  
+         IS SIGNED, BUT NO DATA WERE RECEIVED FROM  
+         THE SUPPLIER.   
+       CODE 41 INCLUDES HOUSEHOLDS FOR WHICH MAILED  
+        QUESTIONNAIRES INDICATED THAT HOUSEHOLD DID  
+        NOT USE OR DID NOT PAY DIRECTLY FOR FUEL,  
+        BUT SURROGATE PERSONAL INTERVIEW HOUSEHOLD DID  
+        USE AND PAY DIRECTLY FOR FUEL.   
+       QTY = QUANTITY; IMP = IMPUTED; HH = HOUSEHOLD;  
+         AVAIL = AVAILABLE; CO = COMPANY  
+      'QTY , COST FROM DATA' = 11
+      'QTY-DATA; COST-IMP'   = 12
+      'FY QTY, COST FROM CO' = 13
+      'FY QTY ONLY FROM CO'  = 14
+      'QTY,COST EST FROM HH' = 15
+      'QTY HH; COST-IMP'     = 16
+      'DATA AVAIL-NOT USED'  = 31
+      'HH NOT IDENTIFIABLE'  = 41
+      'COMPANY REFUSED'      = 42
+      'NO COMPANY CONTACT'   = 43
+      'FORM NOT SIGNED'      = 51
+      'USE INCLUDED IN RENT' = 61
+      'NO ANSWER'            = 98
+      'FUEL NOT USED'        = 99
+               
+ORIGLPQ 'SOURCE OF ESTIMATED QUANTITY OF LPG'      
+      'DELIVERY RECORD'      = 1
+      'SUPPLIER ESTIMATE'    = 2
+      'HOUSEHOLD ESTIMATE'   = 3
+      'SUPPL EST YR'         = 4
+      'REGRESSION ESTIMATE'  = 8
+      'NOT APPLICABLE'       = 9
+               
+SCALELP 'LP USE SCALED DOWN FOR NONHSLD USES'      
+      'SCALE USED'           = 1
+      'NOT USED'             = 0
+      'NOT APPLICABLE'       = 9
+               
+ORIGLPC 'SOURCE OF ESTIMATED COST OF LPG'          
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'HOUSEHOLD ESTIMATE'   = 4
+      'NOT APPLICABLE'       = 9
+               
+ORIGLPS 'SOURCE OF ESTIMATED COST OF LPG'          
+       QTY = QUANTITY; RGS = REGRESSION  
+      'COMPANY RECORDS'      = 1
+      'QTY-RECORD; COST-RGS' = 2
+      'RGS-BOTH QTY AND COST'= 3
+      'HOUSEHOLD ESTIMATE'   = 4
+      'NOT APPLICABLE'       = 9
+               
+
+END OF FILE11 IMPUTATE

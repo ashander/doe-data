@@ -1,0 +1,501 @@
+*** PROGRAM TO CREATE FORMAT LIBRARY FOR THE 1979-83 CBECS DATA ***; 
+ 
+
+PROC FORMAT LIBRARY=SASLIB;
+
+VALUE $AUDTR
+ '  '='Inapplicable'
+ ‘1’ ='Private contractor'
+ ‘2’ ='Utility company representative'
+ ‘3’ ='Someone else'
+ ‘7’ ='Refused'
+ ‘8’ ='Don''t know'
+ ‘9’ ='Not ascertained';
+
+VALUE $BCWM
+  ' '='1983 nonrespondent'
+‘01’ ='Agricultural'
+‘02’ ='Assembly'
+‘03’ ='Educational'
+‘04’ ='Food sales/service'
+‘05’ ='Health care (in-patient)'
+‘06’ ='Health care (out-patient)'
+‘07’ ='Industrial'
+‘08’ ='Laboratory'
+‘09’ ='Mercantile/service'
+‘10’ ='Mixed use'
+‘11’ ='Office'
+‘12’ ='Public order/safety'
+‘13’ ='Residential'
+‘14’ ='Lodging'
+‘15’ ='Warehouse/storage'
+‘16’ ='Other'
+‘17’ ='Vacant'
+‘18’ ='Automobile sales/service'
+‘81’ ='100 percent residential'
+‘82’ ='Demolished'
+‘83’ ='Dodge overlap'
+‘84’ ='Not a building'
+‘85’ ='Combined building'
+‘86’ ='Under list sample size cutoff';
+
+VALUE $BLCOV
+  ' '='Not applicable'
+ ‘1’ ='Just this building'
+ ‘2’ ='More than this building'
+ ‘8’ ='Don''t know'
+ ‘9’ ='Not ascertained';
+
+VALUE $BLDG
+'    '='Inapplicable'
+‘0100’='Agricultural buildings'
+‘0110’='Agricultural (on farms)'
+‘0120’='Livestock (non-farm)'
+‘0130’='Agricultural service buildings'
+‘0200’='Assembly building'
+‘0210’='Social,public,civic assembly'
+‘0220’='Religious assembly'
+‘0230’='Recreational facility'
+‘0231’='Gymnasium'
+‘0232’='Pool room'
+‘0233’=Amusement arcade'
+‘0234’='Skating rink'
+‘0235’='Bowling alley'
+‘0236’='Indoor pool'
+‘0237’='Other recreational facility'
+‘0240’='Entertainment building'
+‘0241’='Archive,library, museum, art gallery'
+‘0242’='Observatory, arena'
+‘0243’='Concert hall'
+‘0244’='Coliseum, arena'
+‘0245’='Theater, movie, cinema'
+‘0246’='Radio-tv studio'
+‘0247’='Night club'
+‘0248’='Other entertainment building'
+‘0250’='Other enclosed assembly building'
+‘0251’='Passenger terminal'
+‘0252’='Armory'
+‘0253’='Other enclosed assembly'
+‘0260’='Non-enclosed or partial structure'
+‘0261’='Stadium'
+‘0262’='Grandstand'
+‘0263’='Other non-enclosed or partial structure'
+‘0300’='Educational building'
+‘0310’='Preschool'
+‘0320’='Elementary'
+‘0330’='Junior high'
+‘0340’='Senior high'
+‘0350’='College or university'
+‘0360’='Vocational school'
+‘0400’='Food related sales and service'
+‘0410’='Cafeteria'
+‘0420’='Full service restaurant'
+‘0430’='Carry out service'
+‘0440’='Retail food sales'
+‘0441’='Supermarket'
+‘0442’='Specialty food store'
+‘0443’='Meat, seafood market'
+‘0444’='Retail bakery'
+‘0445’='Farmers market'
+‘0446’='Other retail food sales'
+‘0500’='Health in-patient card'
+‘0510’='Medical care hospital'
+‘0520’='Mental facility'
+‘0530’='Rehabilitation'
+‘0540’='Veterinary hospital'
+‘0600’='Health out-patient card'
+‘0610’='Medical clinic'
+‘0620’='Mental health clinic'
+‘0630’='Dental clinic'
+‘0640’='Veterinary clinic'
+‘0700’='Industrial buildings'
+‘0710’='Food processing plant'
+‘0720’='Leather, textile mill'
+‘0730’='Light assembly'
+‘0740’='Heavy assembly'
+‘0750’='Paper, chemical, rubber, or petroleum'
+‘0760’='Metalworks, glassworks'
+‘0770’='Printing, publishing'
+‘0780’='Gener., trans., distribution of utility'
+‘0790’='Natural resource construc./procurement'
+‘0800’='Laboratory'
+‘0810’='Mechanical, electrical'
+‘0820’='Medical, dental'
+‘0830’='Agricultural'
+‘0840’='Other laboratory'
+‘0900’='Mercantile, service'
+‘0910’='Shopping mall'
+‘0920’='Strip shopping center'
+‘0930’='Retail sales, single establishment'
+‘0931’='Bldg. materials/hardware/garden supply'
+‘0932’='Gas station'
+‘0933’='Department store'
+‘0934’='Furniture, home furnishings'
+‘0935’='Drugstore'
+‘0936’='Automobile dealer'
+‘0937’='Multi retail establishment'
+‘0938’='Other retail store'
+‘0940’='Wholesale goods except food'
+‘0950’='Services except food'
+‘0951’='Laundry, dry cleaner, car wash'
+‘0952’='Motor vehicl repair, service'
+‘0953’='Post office'
+‘0954’='Personal service'
+‘0955’='Multi-service establishment'
+‘0956’='Other service'
+‘1000’='Mixed use'
+‘1010’='Resid/other'
+‘1011’='Resid/food related'
+‘1012’='Resid/sales nonfood'
+‘1013’='Resid/office'
+‘1014’='Resid/service'
+‘1015’='Resid/other nec'
+‘1020’='Office/other activity'
+‘1021’='Ofc/non-food retail'
+‘1022’='Office/with food sales'
+‘1023’='Office/service activity except food'
+‘1024’='Office/warehouse'
+‘1025’='Real estate, other'
+‘1026’='State/federal capital'
+‘1030’='Food related/exc office/resid'
+‘1031’='Food sales/retail'
+‘1032’='Food sales/service'
+‘1033’='Food sales/storage'
+‘1034’='Other food related/other'
+‘1040’='Storage/retail/wholesale/manufacturing'
+‘1041’='Storage/food processing'
+‘1042’='Storage/retail sales (non-food)'
+‘1043’='Storage/wholesale (non-food)'
+‘1044’='Storage/manufacturing (non-food)'
+‘1050’='Building nec'
+‘1051’='Service/retail'
+‘1052’='Retail/wholesale'
+‘1053’='Service/wholesale'
+‘1054’='Ret/whsle/service'
+‘1060’='Other mixed not covered'
+‘1100’='Office building'
+‘1110’='Professional office building'
+‘1120’='Financial office building'
+‘1130’='Data processing'
+‘1131’='Computer center'
+‘1132’='Other data processing'
+‘1200’='Public order and safety'
+‘1210’='Fire station'
+‘1220’='Police station'
+‘1230’='Jail'
+‘1240’='Reformatory'
+‘1250’='Penitentiary'
+‘1260’='Courthouse'
+‘1270’='Sheriffs office'
+‘1280’='Other public order and safety'
+‘1300’='Residential housekeeping'
+‘1310’='Multi-family'
+‘1311’='High-rise apartments'
+‘1312’='Low-rise apartments'
+‘1320’='Single family'
+‘1321’='Detached'
+‘1322’='Duplex'
+‘1323’='Triplex'
+‘1324’='Quadraplex'
+‘1325’='Townhouse, rowhouse'
+‘1330’='Mobile homes'
+‘1400’='Resid. non-housekeeping'
+‘1410’='Short-term residential'
+‘1411’='Shelter home'
+‘1412’='Motel'
+‘1413’='Tourist home'
+‘1414’='Hotel'
+‘1415’='Convention hotel'
+‘1416’='Inn'
+‘1417’='Other short-term residential'
+‘1420’='Long-term residential'
+‘1421’='Boarding house'
+‘1422’='Orphanage'
+‘1423’='Home for aged, nursing home'
+‘1424’='Convent, monastery'
+‘1425’='Dormitory, sorority, fraternity'
+‘1426’='Other long-term residential'
+‘1500’='Storage'
+‘1510’='Agricultural storage'
+‘1520’='Warehouse non-refrigerated'
+‘1530’='Refrigerated storage'
+‘1540’='Other storage'
+‘1600’='Other building nec'
+‘1610’='Crematorium'
+‘1620’='Parking garage'
+‘1630’='Hanger'
+‘1640’='Telephone exchange'
+‘1650’='Rest rooms'
+‘1660’='Other'
+‘1700’='Vacant'
+‘9999’='Not ascertained';
+
+VALUE $BOILR
+   ' '='Inapplicable'
+  ‘1’ ='Yes'
+  ‘2’ ='No'
+  ‘3’ ='No longer in service'
+  ‘9’ ='Not ascertained';
+
+VALUE $CERTCMP
+   ' '='Inapplicable'
+  ‘1’ ='Full compliance'
+  ‘2’ ='Exempted compliance'
+  ‘3’ ='Excepted from compliance'
+  ‘8’ ='Don''t know'
+  ‘9’ ='Not ascertained';
+
+VALUE $CLIMAT
+  ‘1’ ='<2000 CDD,>7000 HDD'
+  ‘2’ ='<2000 CDD,5500-7000 HDD'
+  ‘3’ ='<2000 CDD,4000-5499 HDD'
+  ‘4’ ='<2000 CDD,<4000 HDD'
+  ‘6’ ='>=2000 CDD,<4000 HDD';
+
+VALUE $CSTBLT
+  '  '='Inapplicable'
+  ‘1’ ='Built for many buildings'
+  ‘2’ ='Built for just this building'
+  ‘3’ ='Built for both'
+  ‘7’ ='Refused'
+  ‘8’ ='Don''t know'
+  ‘9’ ='Not ascertained';
+
+VALUE $DISAGG
+  '  '='Inapplicable'
+  ‘1’ ='Disaggregation performed'
+  ‘2’ ='Unable to disaggregate'
+  ‘3’ ='Disaggregation not required';
+
+VALUE $ENDUSE
+  '  '='Inapplicable'
+  ‘1’ ='Yes'
+  ‘2’ ='No'
+  ‘3’ ='No (supplier survey update)'
+  ‘7’ ='Refused'
+  ‘8’ ='Don''t know'
+  ‘9’ ='Not ascertained';
+
+VALUE $PRORATE
+   ' '='Inapplicable'
+  ‘1’ ='Prorated';
+
+VALUE $FNBLIO
+   ' '='Inapplicable'
+  ‘1’ ='Within the building'
+  ‘2’ ='Outside the building'
+  ‘3’ ='Both within and outside the building'
+  ‘7’ ='Refused'
+  ‘8’ ='Don''t know'
+  ‘9’ ='Not ascertained';
+
+VALUE $GLASPC
+  ‘1’ ='75 to 100%'
+  ‘2’ ='50 to 74%'
+  ‘3’ ='25 to 49%'
+  ‘4’ ='0 to 25%'
+  ‘9’ ='Not ascertained';
+
+VALUE $HCDDF
+  ‘0’ ='Weather fully reported'
+  ‘’1 ='Weather underreported'
+ ‘2,9’='Weather not reported';
+
+VALUE $IMPFLAG
+  ‘1’ ='Yes'
+  ‘2’ ='No'
+  ‘7’ ='Aggegate value';
+
+VALUE $IMPNW
+   ' '='Not imputed'
+  ‘1’ ='Hot deck imputation'
+  ‘2’ ='Midpoint of range'
+  ‘6’ ='Aggregate value';
+
+VALUE $IMPSF
+  ‘0’ ='Not imputed'
+  ‘1’ ='Hot deck imputation'
+  ‘2’ ='Midpoint of range'
+  ‘3’ ='Transferred from 1979'
+  ‘4’ ='Based on other information'
+  ‘6’ ='Aggregate value';
+
+VALUE $IMPTYP
+   ' '='Fuel not used'
+  ‘0’ ='No imputations required'
+  ‘1’ ='Prorated from adjacent periods'
+  ‘2’ ='Hot deck imputation'
+  ‘3’ ='Regression estimate'
+  ‘4’ ='Prorated worksheet'
+ ‘6,7’='Aggregate value';
+
+VALUE $LONG
+  ‘1’ ='Longitudinal'
+  ‘2’ ='Demolition'
+  ‘3’ ='New construction'
+  ‘4’ ='Non-Response 1979 (In-Scope)'
+  ‘5’ ='Non-Response 1983'
+  ‘6’ ='Overlap'
+  ‘7’ ='Shift-in'
+  ‘8’ ='Shift-out'
+  ‘9’ ='Out-of-scope';
+
+VALUE $MAINT
+   ' '='Inapplicable'
+  ‘1’ ='Yes'
+  ‘2’ ='No'
+  ‘3’ ='Maintenance for heating but not A/C'
+  ‘4’ ='Maintenance for A/C but not heating'
+  ‘7’ ='Refused'
+  ‘8’ ='Don''t know'
+  ‘9’ ='Not ascertained';
+
+PICTURE MISS2CH
+   97 ='Refused'
+   98 ='Don''t know'
+   99 ='Not ascertained';
+
+PICTURE MISS3CH
+  997 ='Refused'
+  998 ='Don''t know'
+  999 ='Not ascertained';
+
+PICTURE MISS4CH
+ 0-9996='0,009'
+  9997 ='Refused'
+  9998 ='Don''t know'
+  9999 ='Not ascertained';
+
+VALUE $NRH
+    ' '='No heat supplied'
+   ‘1’ ='Yes'
+   ‘2’ ='No'
+   ‘8’ ='Don''t know'
+   ‘9’ ='Not ascertained';
+
+VALUE $NWKERC
+  ‘01’ ='Less than 10'
+  ‘02’ ='10-19'
+  ‘03’ ='20-49'
+  ‘04’ ='50-99'
+  ‘05’ ='100-249'
+  ‘06’ ='250-499'
+  ‘07’ ='500-999'
+  ‘08’ ='1,000-2,499'
+  ‘09’ ='2,500 or more';
+
+VALUE $OCCNUM
+   ‘0’ ='None'
+   ‘1’ ='One'
+   ‘2’ ='More than one'
+   ‘7’ ='Refused'
+   ‘8’ ='Don''t know'
+   ‘9’ ='Not ascertained';
+
+VALUE $REGION
+   ‘1’ ='Northeast'
+   ‘2’ ='Midwest'
+   ‘3’ ='South'
+   ‘4’ ='West';
+
+VALUE $RESCC
+    ' '='Inapplicable'
+   ‘1’ ='Yes'
+   ‘2’ ='No'
+   ‘3’ ='No air conditioning'
+   ‘9’ ='Not ascertained';
+
+VALUE $RESHALF
+    ' '='Inapplicable'
+   ‘1’ ='50% or more'
+   ‘2’ ='Under 50%'
+   ‘9’ ='Not ascertained';
+
+VALUE $RES1QTR
+   ‘1’ ='25% or over'
+   ‘2’ ='Less than 25%'
+   ‘9’ ='Not ascertained';
+
+VALUE $RES3QTR
+    ' '='Inapplicable'
+   ‘1’ ='75 Percent or over'
+   ‘2’ ='50 to 75 Percent'
+   ‘3’ ='25 to 49 Percent'
+   ‘4’ ='Under 25%'
+   ‘9’ ='Not ascertained';
+
+VALUE $SEAS
+   ‘1’ ='Year round use'
+   ‘2’ ='Seasonal use'
+   ‘8’ ='Don''t know'
+   ‘9’ ='Not ascertained';
+
+VALUE $SMSA
+   ‘0’ ='Non-SMSA'
+   ‘1’ ='SMSA';
+
+VALUE $SQFTC
+    ' '='Inapplicable'
+  ‘01’ ='1,000 or less'
+  ‘02’ ='1,001-5,000'
+  ‘03’ ='5,001-10,000'
+  ‘04’ ='10,001-25,000'
+  ‘05’ ='25,001-50,000'
+  ‘06’ ='50,001-100,000'
+  ‘07’ ='100,001-200,000'
+  ‘08’ ='200,001-500,000'
+  ‘09’ ='500,001-1 million'
+  ‘10’ ='Over 1 million';
+
+PICTURE TEMP
+   997 ='Not operating'
+   998 ='Don''t know'
+   999 ='Not applicable';
+
+VALUE $TIMEC
+    ' '='Inapplicable'
+   ‘1’ ='At construction'
+   ‘2’ ='Since construction'
+   ‘3’ ='At constr. & later'
+   ‘8’ ='Don''t know'
+   ‘9’ ='Not ascertained';
+
+VALUE $USE
+    ' '='Inapplicable'
+   ‘1’ ='Yes'
+   ‘2’ ='Not used'
+   ‘9’ ='Not ascertained';
+
+PICTURE YEARFMT
+  9997 ='Refused'
+  9998 ='Don''t know'
+  9999 ='Not ascertained';
+
+VALUE $YESNO
+   '  '='Inapplicable'
+    1  ='Yes'
+    2  ='No'
+    6  ='Aggregate value'
+    7  ='Refused'
+    8  ='Don''t know'
+    9  ='Not ascertained';
+
+VALUE $YRCONC
+    ' '='Inapplicable'
+  ‘01’ ='1900 or before'
+  ‘02’ ='1901-1920'
+  ‘03’ ='1921-1945'
+  ‘04’ ='1946-1960'
+  ‘05’ ='1961-1970'
+  ‘06’ ='1971-1973'
+  ‘07’ ='1974-1979'
+  ‘08’ ='1980-1983';
+
+VALUE $WSTTYP
+    ' '='Inapplicable'
+   ‘1’ ='Computer room'
+   ‘2’ ='Refrigeration or A/C'
+   ‘3’ ='Process'
+   ‘4’ ='Other'
+   ‘5’ ='Computer/refrigeration'
+   ‘9’ ='Not ascertained';

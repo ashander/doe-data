@@ -1,0 +1,537 @@
+FILE3 EQUIP
+
+
+HHID 'HOUSEHOLD ID'
+
+NWEIGHT 'FINAL HOUSEHOLD WEIGHT'
+
+REGIONC 'CENSUS REGION'
+       'NORTHEAST'            = 1
+       'MIDWEST'              = 2
+       'SOUTH'                = 3
+       'WEST'                 = 4
+ 
+DIVISION 'CENSUS DIVISION'
+       'NEW ENGLAND'          = 1
+       'MIDDLE ATLANTIC'      = 2
+       'EAST NORTH CENTRAL'   = 3
+       'WEST NORTH CENTRAL'   = 4
+       'SOUTH ATLANTIC'       = 5
+       'EAST SOUTH CENTRAL'   = 6
+       'WEST SOUTH CENTRAL'   = 7
+       'MOUNTAIN'             = 8
+       'PACIFIC'              = 9
+
+UGASHERE 'UNDERGROUND GAS AVAILABLE'              
+        C Q.B-1, POSITION 0033  
+        C QUESTION DIFF. FROM RECS 87    
+        C IMPUTED FOR NONRESPONSE        
+        'YES'                  = 1
+        'NO'                   = 0          
+FUELHEAT 'MAIN HOME HEATING FUEL'                  
+        0134 - 0135:   
+       C Q.B-2, POSITION 0034  
+       C QUESTION IDENTICAL TO RECS 87  
+       C IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NO FUEL USED'         = 00
+               
+FUELTWIN 'MAIN HEATING FUEL SAME AS NOV 87'        
+       Q.B-3  
+       QUESTION SAME AS RECS 87       
+       IMPUTED FOR NONRESPONSE        
+       ANSWR CATEGORIES REFER TO  HEATING FUEL 1N  
+       THE HOUSING UNIT IN NOVEMBER OF 1987.  
+       IF THE HOUSING UNIT WAS BUILT IN 1988  
+       OR LATER ANSWER WAS EDITED TO CODE 5  
+       HOUSING UNITS REPORTING NO HEATING FUEL  
+       IN 1990-1991 WERE EDITED TO CODE 9.  
+      'YES'                  = 1
+      'NO'                   = 0
+      'HOUSE NOT BLT IN 87'  = 5
+      'NOT APPLICABLE'       = 9
+                
+FUELPAST 'MAIN HEATING FUEL NOVEMBER 1987'         
+       Q.B-4  
+       QUESTION SAME AS RECS 87       
+       IMPUTED FOR NONRESPONSE        
+      'PIPED GAS'            = 01
+      'LPG'                  = 02
+      'FUEL OIL'             = 03
+      'KEROSENE OR COAL OIL' = 04
+      'ELECTRICITY'          = 05
+      'COAL OR COKE'         = 06
+      'WOOD'                 = 07
+      'SOLAR COLLECTORS'     = 08
+      'OTHER'                = 21
+      'NO FUEL USED'         = 00
+      'NOT APPLICABLE'       = 99
+                
+MOFUELCH 'MONTH MAIN HEATING FUEL CHANGED'         
+       Q.B-5  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'JANUARY'              = 01
+      'FEBRUARY'             = 02
+      'MARCH'                = 03
+      'APRIL'                = 04
+      'MAY'                  = 05
+      'JUNE'                 = 06
+      'JULY'                 = 07
+      'AUGUST'               = 08
+      'SEPTEMBER'            = 09
+      'OCTOBER'              = 10
+      'NOVEMBER'             = 11
+      'DECEMBER'             = 12
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                
+YRFUELCH 'YEAR MAIN HEATING FUEL CHANGED'          
+       Q.B-5  
+       QUESTION DIFF FROM RECS 87     
+       THIS VARIABLE NOT IMPUTED      
+      '1987'                 = 08
+      '1988'                 = 09
+      '1989'                 = 10
+      '1990'                 = 11
+      'DONT KNOW'            = 96
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                
+EQUIPAGE 'AGE OF MAIN HEATING EQUIPMENT'   
+       Q.B-13  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+       ALL 'OLD AS HOME/ORIGINAL EQUIPMENT' RESPONSES 
+       HAVE BEEN RECODED TO REFLECT THE ACTUAL   
+       AGE OF THE HOUSE IN THIS VARIABLE.   
+       SEE ALSO 'HEATAGE'  CARD/COL 2674   
+       FOR ORIGINAL VERSION OF THIS VARIABLE.  
+      'LESS THAN 2 YEARS'    = 01
+      ' 2 - 4 YEARS OLD'     = 02
+      ' 5 - 9 YEARS OLD'     = 03
+      '10 - 19 YEARS OLD'    = 04
+      '20 YEARS OR OLDER'    = 05
+      'DONT KNOW'            = 96
+      'NOT APPLICABLE'       = 99
+                 
+HEATOTH 'HEATING EQUIPMENT HEATS OTHER UNITS'      
+       Q.B-14  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'DOES NOT HEAT OTHERS' = 0
+      'HEATS OTHER UNITS'    = 1
+      'NOT APPLICABLE'       = 9
+               
+REPEQUIP 'REPLACE EQUIPMENT WITH SAME TYPE'        
+       Q.B-15  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE         
+      'NO'                   = 0
+      'YES'                  = 1
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+                 
+RADIANT 'AUX EQUIPMENT IS HOT WATER PIPES'         
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9               
+
+STEAM 'AUX EQUIPMENT IS RADIATORS'                 
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+WARMAIR 'AUX EQUIPMENT IS CENTRAL WARM AIR'        
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+REVERSE 'AUX EQUIPMENT IS HEAT PUMP'               
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+PERMELEC 'AUX EQUIPMENT BUILT IN ELEC UNITS'       
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+PIPELESS 'AUX EQUIPMENT IS PIPELESS FURNACE'       
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+ROOMHEAT 'AUX EQUIPMENT IS ROOM HEATERS'           
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+WOODKILN 'AUX EQUIPMENT IS HEATING STOVE'          
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+CHIMNEY 'AUX EQUIPMENT IS FIREPLACE'               
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+                
+CARRYEL 'AUX EQUIPMENT PORTABLE ELEC HEATER'       
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+CARRYKER 'AUX EQUIPMENT PORTABLE KERO HEATER'      
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+RANGE 'AUX EQUIPMENT IS COOKING STOVE'             
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+DIFEQUIP 'OTHER AUX HEATING EQUIPMENT USED'        
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+DKEQUIP 'AUXILIARY HEATING EQUIPMENT UNKNOWN'      
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+AUXEQUIP 'AUXIL HEATING EQUIPMENT NOT USED'        
+       Q.B-17  
+       QUESTION IDENTICAL TO RECS 87  
+       THIS VARIABLE NOT IMPUTED      
+      'EQUIPMENT NOT USED'   = 1
+      'EQUIPMENT USED'       = 0
+      'NOT APPLICABLE'       = 9
+               
+FANSECD 'CENTRAL WARM AIR FURNACE USES FAN'        
+       Q.B-18  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE             
+      'NO'                   = 0
+      'YES'                  = 1
+      'NOT APPLICABLE'       = 9
+                 
+SHTPUMP 'TYPE OF HEAT PUMP'                        
+       Q.B-19  
+       QUESTION NEW TO RECS 90         
+       THIS VARIABLE NOT IMPUTED       
+      'CENTRAL SYSTEM'       = 1
+      'WINDOW/WALL UNIT'     = 2
+      'OTHER'                = 3
+      'NO ANSWER'            = 8
+      'NOT APPLICABLE'       = 9
+                 
+WOODEQP1 'FIRST WOOD EQUIPMENT'                    
+       Q.B-22  
+       QUESTION NEW TO RECS 90         
+       THIS VARIABLE NOT IMPUTED       
+      'WOOD HEATING STOVE'   = 1
+      'FIREPLACE'            = 2
+      'FIREPLACE INSERT'     = 3
+      'WOOD FURNACE'         = 4
+      'NOT APPLICABLE'       = 9
+                 
+WOODEQP2 'SECOND WOOD EQUIPMENT'                   
+       Q.B-22  
+       QUESTION NEW TO RECS 90         
+       THIS VARIABLE NOT IMPUTED       
+      'FIREPLACE'            = 2
+      'FIREPLACE INSERT'     = 3
+      'WOOD FURNACE'         = 4
+      'NOT APPLICABLE'       = 9
+                 
+WOODEQP3 'THIRD WOOD EQUIPMENT'                    
+       Q.B-22  
+       QUESTION NEW TO RECS 90         
+       THIS VARIABLE NOT IMPUTED       
+      'FIREPLACE INSERT'     = 3
+      'WOOD FURNACE'         = 4
+      'NOT APPLICABLE'       = 9
+                 
+WHEATOTH 'HOT WATER SYSTEM HEATS OTHER WATER'      
+       Q.C-4  
+       QUESTION DIFF FROM RECS 87     
+       IMPUTED FOR NONRESPONSE        
+      'DOES NOT HEAT OTHERS' = 0
+      'HEATS OTHER WATER'    = 1
+      'NOT APPLICABLE'       = 9
+               
+WHEATAGE 'AGE OF HOT WATER HEATER'                 
+       Q.C-5  
+       QUESTION DIFF FROM RECS 87     
+       IMPUTED FOR NONRESPONSE        
+       ALL 'OLD AS HOME/ORIGINAL EQUIPMENT' RESPONSES 
+       HAVE BEEN RECODED TO REFLECT THE ACTUAL   
+       AGE OF THE HOUSE IN THIS VARIABLE.   
+       SEE ALSO 'WATERAGE'  CARD/COL 2676   
+       FOR ORIGINAL VERSION OF THIS VARIABLE.  
+      'NO SEPARATE WTRHTR'   = 00
+      'LESS THAN 2 YEARS'    = 01
+      ' 2 - 4 YEARS'         = 02
+      ' 5 - 9 YEARS'         = 03
+      '10 - 19 YEARS'        = 04
+      '20 YEARS OR MORE'     = 05
+      'DONT KNOW'            = 96
+      'NOT APPLICABLE'       = 99
+                
+WHEATSIZ 'SIZE OF WATER HEATER TANK'               
+       Q.C-6  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE         
+      'SMALL,30 GAL OR LESS' = 1
+      'MEDIUM, 31-49 GAL'    = 2
+      'LARGE, 50 GAL OR MORE'= 3
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+                  
+WHEATLOC 'IS WATER HEATER IN HEATED AREA'          
+       Q.C-7  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE        
+      'NO'                   = 0
+      'YES'                  = 1
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+           
+AIRCOND 'HOME HAS AIR CONDITIONING EQUIP'          
+       Q.D-1  
+       QUESTION NEW TO RECS 90         
+       IMPUTED FOR NONRESPONSE        
+      'NO'                   = 0
+      'YES'                  = 1
+                 
+RMSCOOL 'NUMBER ROOMS USUALLY AIR CONDITION'       
+       Q.D-2  
+       QUESTION DIFF FROM RECS 87     
+       IMPUTED FOR NONRESPONSE        
+      'NO ROOMS COOLED'      = 00
+      'ONE ROOM'             = 01
+      'TWO'                  = 02
+      'THREE'                = 03
+      'FOUR'                 = 04
+      'FIVE'                 = 05
+      'SIX'                  = 06
+      'SEVEN'                = 07
+      'EIGHT'                = 08
+      'NINE'                 = 09
+      'TEN'                  = 10
+      'ELEVEN'               = 11
+      'TWELVE'               = 12
+      'ENTIRE HOUSE'         = 95
+      'NOT APPLICABLE'       = 99
+               
+COOLMAIN 'HAVE CENTRAL AIR CONDITIONING'           
+       Q.D-3  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+ACOTHERS 'A/C EQUIPMENT USED FOR OTHER UNITS'      
+       Q.D-6  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'DOES NOT COOL OTHERS' = 0
+      'COOLS OTHER UNITS'    = 1
+      'NOT APPLICABLE'       = 9
+               
+AGECENAC 'AGE OF A/C EQUIPMENT'                    
+       Q.D-7  
+       QUESTION NEW TO RECS 90        
+       IMPUTED FOR NONRESPONSE        
+       ALL 'OLD AS HOME/ORIGINAL EQUIPMENT' RESPONSES 
+       HAVE BEEN RECODED TO REFLECT THE ACTUAL   
+       AGE OF THE HOUSE IN THIS VARIABLE.   
+       SEE ALSO 'AIRCAGE'  CARD/COL 2678   
+       FOR ORIGINAL VERSION OF THIS VARIABLE.  
+      '< 2 YRS OLD'          = 01
+      '2-4 YRS OLD'          = 02
+      '5-9 YRS OLD'          = 03
+      '10-19 YRS OLD'        = 04
+      '20 YRS OR OLDER'      = 05
+      'DONT KNOW'            = 96
+      'NOT APPLICABLE'       = 99
+               
+COOLUNIT 'HAS WINDOW OR WALL AIR CONDITIONER'      
+       Q.D-8  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'YES'                  = 1
+      'NO'                   = 0
+      'NOT APPLICABLE'       = 9
+               
+NUMBERAC 'NUMBER OF AIR CONDITIONING UNITS'
+       Q.D-9  
+       QUESTION IDENTICAL TO RECS 87  
+       IMPUTED FOR NONRESPONSE        
+       99 = NOT APPLICABLE
+  
+WWACSIZE 'SIZE OF MOST USED A/C UNIT'              
+       Q.D-10  
+       QUESTION NEW TO RECS 90        
+       IMPUTED FOR NONRESPONSE        
+      'SMALL'                = 1
+      'MEDIUM'               = 2
+      'LARGE'                = 3
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+               
+WWACAGE 'AGE OF MOST USED A/C UNIT'                
+       Q.D-11  
+       QUESTION NEW TO RECS 90        
+       IMPUTED FOR NONRESPONSE        
+      '< 2 YRS'              = 1
+      '2-4 YRS'              = 2
+      '5-9 YRS'              = 3
+      '10-19 YRS'            = 4
+      '20 YEARS OR OLDER'    = 5
+      'DONT KNOW'            = 6
+      'NOT APPLICABLE'       = 9
+               
+USEWWAC 'WAY MOST USED A/C USED LAST SUMMER'       
+       Q.D-12  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+      'NOT USED'             = 0
+      'A FEW TIMES'          = 1
+      'QUITE A BIT'          = 2
+      'ALMOST ALL SUMMER'    = 3
+      'NOT HERE LAST SUMMER' = 4
+      'OTHER'                = 5
+      'NOT APPLICABLE'       = 9
+               
+RENT6 'REPORTED MAIN HEATING EQUIP CHANGED'        
+       Q.D-12  
+       BASED ON INFORMATION FROM RENTAL AGENTS  
+      'NO CHANGE ON 0152'    = 0
+      'CHANGE'               = 1
+         
+CAPACITY 'CAPACITY FOR CENTRAL AIR CONDITIONERS'
+       BTUS IN HUNDREDS  
+       ADDED LATER BY EEUISD  
+
+SEER 'SEASONAL ENERGY EFFICIENCY RATING'
+       EFFICIENCY RATING FOR CENTRAL AIR CONDITIONERS  
+       AND HEAT PUMPS IN SINGLE FAMILY AND MOBILE HOMES  
+       9991 = MAKE AND/OR MODEL # MISSING OR  
+       NO MATCH ON MAKE   
+       9992 = MODEL YEAR MISSING    
+       9993 = NO MATCH ON MODEL #   
+       9994 = NO SEER AVAILABLE  UNIT PRE-1980    
+       9995 = MAIL Q, NO NAMEPLATE DATA    
+       9996 = MULTI-UNIT DWELLING    
+       9999 = NOT APPLICABLE
+     
+HEATAGE  'AGE OF MAIN HEATING EQUIPMENT'           
+       Q.B-13  
+       QUESTION DIFF. FROM RECS 87    
+       IMPUTED FOR NONRESPONSE        
+       THIS VARIABLE REFLECTS THE ORIGINAL DATA THAT  
+       WERE COLLECTED.  SEE ALSO 'EQUIPAGE'      
+       CARD/COL 0168  FOR RECODED VERSION  
+       OF THIS VARIABLE.                   
+      'LESS THAN 2 YEARS'    = 01
+      ' 2 - 4 YEARS OLD'     = 02
+      ' 5 - 9 YEARS OLD'     = 03
+      '10 - 19 YEARS OLD'    = 04
+      '20 YEARS OR OLDER'    = 05
+      'OLD AS THE HOUSE'     = 06
+      'DONT KNOW'            = 96
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                 
+WATERAGE 'AGE OF HOT WATER HEATER'                 
+       Q.C-5  
+       QUESTION DIFF FROM RECS 87     
+       IMPUTED FOR NONRESPONSE        
+       THIS VARIABLE REFLECTS THE ORIGINAL DATA THAT  
+       WERE COLLECTED.  SEE ALSO 'WHEATAGE'      
+       CARD/COL 0265  FOR RECODED VERSION  
+      'NO SEPARATE WTRHTR'   = 00
+      'LESS THAN 2 YEARS'    = 01
+      ' 2 - 4 YEARS'         = 02
+      ' 5 - 9 YEARS'         = 03
+      '10 - 19 YEARS'        = 04
+      '20 YEARS OR MORE'     = 05
+      'OLD AS THE HOUSE'     = 06
+      'DONT KNOW'            = 96
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+                
+AIRCAGE  'AGE OF A/C EQUIPMENT'                    
+       Q.D-7 
+       QUESTION NEW TO RECS 90        
+       IMPUTED FOR NONRESPONSE        
+       THIS VARIABLE REFLECTS THE ORIGINAL DATA THAT  
+       WERE COLLECTED.  SEE ALSO 'AGECENAC'      
+       CARD/COL 0318  FOR RECODED VERSION. 
+      '< 2 YRS OLD'          = 01
+      '2-4 YRS OLD'          = 02
+      '5-9 YRS OLD'          = 03
+      '10-19 YRS OLD'        = 04
+      '20 YRS OR OLDER'      = 05
+      'OLD AS THE HOUSE'     = 06
+      'DONT KNOW'            = 96
+      'NO ANSWER'            = 98
+      'NOT APPLICABLE'       = 99
+
+
+END OF FILE3 EQUIP

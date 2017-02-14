@@ -1,0 +1,493 @@
+PROGRAM TO CREATE FORMAT LIBRARY FOR THE 1989 CBECS DATA 
+ 
+PROC FORMAT LIBRARY=SASLIB; 
+
+   VALUE $ACTIVTY
+     '  ' = 'Inapplicable'
+     '01' = 'Vacant'
+     '02' = 'Office'
+     '03' = 'Mercantile/services'
+     '04' = 'Assembly'
+     '05' = 'Food sales'
+     '06' = 'Public order/safety'
+     '07' = 'Health care (outpatient)'
+     '08' = 'Industrial'
+     '09' = 'Agricultural'
+     '10' = 'Laboratory'
+     '11' = 'Warehouse (refrig.)'
+     '12' = 'Warehouse (nonrefrig.)'
+     '13' = 'Education'
+     '14' = 'Food service'
+     '15' = 'Health care (inpatient)'
+     '16' = 'Skilled nursing'
+     '17' = 'Lodging'
+     '18' = 'Residential'
+     '19' = 'Parking garage'
+     '20' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $BILTYP
+     ' ' = 'Inapplicable'
+     '1' = 'One bill'
+     '2' = 'More than one bill'
+     '7' = 'Not billed'
+     '8' = 'Don''t know'
+     '9' = 'Missing';
+
+   VALUE $BLDGCL
+     '  ' = 'Inapplicable'
+     '01' = 'Residential'
+     '02' = 'Commercial'
+     '03' = 'Industrial'
+     '04' = 'Commercial/Industrial'
+     '05' = 'Commercial/Residential'
+     '06' = 'School'
+     '07' = 'Government (school)'
+     '08' = 'Government (other)'
+     '09' = 'Agriculture'
+     '10' = 'Institutional, non-profit (non-gov.)'
+     '11' = 'Industrial/Residential'
+     '55' = 'Combination of types (aggregation)'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $CENDIV
+     '1' = 'New England'
+     '2' = 'Middle Atlantic'
+     '3' = 'East North Central'
+     '4' = 'West North Central'
+     '5' = 'South Atlantic'
+     '6' = 'East South Central'
+     '7' = 'West South Central'
+     '8' = 'Mountain'
+     '9' = 'Pacific';
+
+   VALUE $CLIMAT
+     '1' = '<2000 CDD,>7000 HDD'
+     '2' = '<2000 CDD,5500-7000 HDD'
+     '3' = '<2000 CDD,4000-5499 HDD'
+     '4' = '<2000 CDD,<4000 HDD'
+     '5' = '>=2000 CDD,<4000 HDD';
+
+   VALUE $COVER
+     ' '  = 'Inapplicable'
+     '1'  = 'Just sampled building'
+     '2'  = 'Covers other building(s)'
+     '7'  = 'No bill'
+     '8'  = 'Don''t know'
+     '9'  = 'Missing';
+
+   VALUE $DISAGG
+     ' ' = 'Inapplicable'
+     '1' = 'No aggreg./disagg. required'
+     '2' = 'Aggregation performed'
+     '3' = 'Disaggregation performed'
+     '4' = 'Ratio < .1'
+     '5' = 'Unable to calculate'
+     '9' = 'Not ascertained';
+
+   VALUE $FACACT
+     '  ' = 'Inapplicable'
+     '01' = 'College or university'
+     '02' = 'Secondary school'
+     '03' = 'Elementary school'
+     '04' = 'Office'
+     '05' = 'Shopping center/mall'
+     '06' = 'Hospital/other inpatient health center'
+     '07' = 'Industrial/Manufacturing'
+     '08' = 'Agricultural'
+     '09' = 'Hotel/motel'
+     '10' = 'Prison/jail/reformatory'
+     '11' = 'Entertainment/sports complex'
+     '12' = 'Warehouse'
+     '13' = 'Religious assembly'
+     '14' = 'Auto service/sales'
+     '15' = 'School (unspecified)'
+     '16' = 'Residential'
+     '17' = 'Airport'
+     '18','95' = 'Other';
+
+   VALUE $FACTSRC
+     '1' = 'Facility Form'
+     '2' = 'Coded by EIA staff'
+     '3' = 'Coded by contractor staff';
+
+   VALUE $FORM
+     '  ' = 'Inapplicable'
+     'NG' = 'Natural Gas'
+     'DH' = 'District Heating and Cooling'
+     'EL' = 'Electricity'
+     'FO' = 'Fuel Oil'
+     'WN' = 'Natural Gas (worksheet)'
+     'WE' = 'Electricity (worksheet)';
+
+   VALUE $GOVTYP
+     ' ' = 'Inapplicable'
+     '1' = 'Federal agency'
+     '2' = 'State agency'
+     '3' = 'Local agency'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $INSADD
+     ' ' = 'Inapplicable'
+     '1' = 'Installed'
+     '2' = 'Added'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $INTYPE
+     '  ' = 'Inapplicable'
+     '01' = 'Distillate '
+     '02' = 'Residual'
+     '03' = 'Anthracite'
+     '04' = 'Bituminous'
+     '05' = 'Subbituminous'
+     '06' = 'Distillate/residual'
+     '11' = 'Propane'
+     '12' = 'Wood'
+     '13' = 'Solar'
+     '14' = 'Steam (input)'
+     '15' = 'Black liquor'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $LISTCK
+     ' ' = 'Inapplicable'
+     '1' = 'Correct (one bldg.)'
+     '2' = 'Incorrect (2+ bldgs.)'
+     '3' = 'Incorrect (part bldg.)'
+     '9' = 'Not ascertained';
+
+   VALUE $MALL
+     ' ' = 'Inapplicable'
+     '1' = 'Strip shopping center'
+     '2' = 'Enclosed mall'
+     '3' = 'Not strip center/mall'
+     '9' = 'Don''t know';
+
+   VALUE $MEASURE
+     '  '      = 'Inapplicable'
+     '01'      = 'Kilowatt hours'
+     '02'      = 'Therms'
+     '03'      = 'Decitherms'
+     '04'      = 'Decatherms'
+     '05'      = 'Cubic feet'
+     '06'      = '100 cubic feet'
+     '07'      = '1,000 cubic feet'
+     '08'      = 'Gallons'
+     '09'      = 'Btu''s'
+     '10'      = 'Million Btu''s'
+     '11'      = 'Ton hours'
+     '12'      = 'Pounds'
+     '13'      = 'Thousand pounds'
+     '14'      = 'Barrels'
+     '15'      = 'Day tons'
+     '16'      = 'Thousand BTU''s'
+     '95'      = 'Code pending'
+     '98'      = 'Don''t know'
+     '99'      = 'Not ascertained';
+
+   VALUE $MSA
+     '1' = 'Non-Metropolitan'
+     '2' = 'Metropolitan';
+
+   VALUE $NOCCAT
+     ' ' = 'Inapplicable'
+     '1' = '2 to 5'
+     '2' = '6 to 10'
+     '3' = '11 to 20'
+     '4' = '21 to 49'
+     '5' = '50 to 99'
+     '6' = '100 or more'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $NWKERC
+     '  ' = 'Building not in use'
+     '00' = 'None'
+     '01' = '1 to 4'
+     '02' = '5 to 9'
+     '03' = '10 to 19'
+     '04' = '20 to 49'
+     '05' = '50 to 99'
+     '06' = '100 to 249'
+     '07' = '250 to 499'
+     '08' = '500 to 999'
+     '09' = '1,000 to 2,499'
+     '10' = '2,500 to 4,999'
+     '11' = '5,000 or more'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $OCCTYP
+     '1' = 'One, the owner'
+     '2' = 'One, not owner'
+     '3' = 'More than 1, incl owner'
+     '4' = 'More than 1, excl owner'
+     '5' = 'Currently unoccupied'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $OTCL
+     '  ' = 'Inapplicable'
+     '01' = 'Evaporative coolers'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $OTHT
+     '  ' = 'Inapplicable'
+     '01' = 'Heating panels'
+     '02' = 'Dist''n for boilers'
+     '03' = 'Induction units'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $OTREF
+     '  ' = 'Inapplicable'
+     '01' = 'Frozen drink/food maker'
+     '02' = 'Dehumidifier'
+     '03' = 'Lab refrigeration'
+     '04' = 'Compressors for refrig.'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $RDHTCL
+     ' ' = 'Inapplicable'
+     '1' = 'Yes'
+     '2' = 'No'
+     '7' = 'Always in full use'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $REGION
+     '1' = 'Northeast'
+     '2' = 'Midwest'
+     '3' = 'South'
+     '4' = 'West';
+
+   VALUE $RFCNS
+     '01' = 'Wooden materials'
+     '02' = 'Slate or tile'
+     '03' = 'Shingles (not wood)'
+     '04' = 'Built-up'
+     '05' = 'Metal surfacing'
+     '06' = 'Single/multiple ply'
+     '07' = 'Concrete roof'
+     '08' = 'Other (specify)'
+     '09' = 'Metal & rubber'
+     '10' = 'Cement & asphalt'
+     '11' = 'Composite'
+     '12' = 'Glass'
+     '13' = 'Shingles & metal'
+     '14' = 'Slate & built-up'
+     '15' = 'Built-up & metal'
+     '16' = 'Built-up & s/m ply'
+     '95' = 'Other'
+     '97' = 'Refused'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $SEASON
+    ' '= 'Inapplicable'
+    '1'= 'Summer'
+    '2'= 'Winter'
+    '3'= 'Summer & winter'
+    '8'= 'Unknown'
+    '9'= 'Missing';
+
+   VALUE $SQFTC
+     '01' = '1,000 or less'
+     '02' = '1,001 to 5,000'
+     '03' = '5,001 to 10,000'
+     '04' = '10,001 to 25,000'
+     '05' = '25,001 to 50,000'
+     '06' = '50,001 to 100,000'
+     '07' = '100,001 to 200,000'
+     '08' = '200,001 to 500,000'
+     '09' = '500,001 to 1 million'
+     '10' = 'Over 1 million'
+     '97' = 'Refused'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $SWTCH
+     '  ' = 'Inapplicable'
+     '01' = 'Electricity'
+     '02' = 'Natural gas'
+     '03' = 'Fuel oil/kerosene'
+     '04' = 'District steam'
+     '05' = 'District hot water'
+     '06' = 'Other'
+     '07' = 'Propane'
+     '08' = 'Wood'
+     '09' = 'Coal'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $WKHRSC
+     ' ' = 'Inapplicable'
+     '0' = 'Never open'
+     '1' = '1 to 39'
+     '2' = '40 to 48'
+     '3' = '49 to 60'
+     '4' = '61 to 84'
+     '5' = '85 to 167'
+     '7' = 'Always open'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $WLCNS
+     '01' = 'Window/vision glass'
+     '02' = 'Decor./construction glass'
+     '03' = 'Concrete panels'
+     '04' = 'Masonry'
+     '05' = 'Siding/shingles/shakes'
+     '06' = 'Metal panels'
+     '07' = 'Other'
+     '08' = 'Masonry & metal'
+     '09' = 'Masonry & siding'
+     '10' = 'Window glass & masonry'
+     '11' = 'Window glass & concrete'
+     '12' = 'Window & construction glass'
+     '13' = 'Steel frame & masonry'
+     '14' = 'Window glass & metal'
+     '15' = 'Window,constr.glass & concrete'
+     '16' = 'Concrete & siding'
+     '95' = 'Other'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $XXSUPL
+     ' ' = 'Inapplicable'
+     '1' = 'Yes'
+     '2' = 'No'
+     '3' = 'No (revised)'
+     '4' = 'Not 1989'
+     '5' = 'Yes (revised)'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $YESNO
+     ' ' = 'Inapplicable'
+     '1' = 'Yes'
+     '2' = 'No'
+     '7' = 'Refused'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $YRADD
+     ' ' = 'Inapplicable'
+     '1' = '1989'
+     '2' = '1984 to 1988'
+     '3' = 'Before 1984'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $YRC
+     ' ' = 'Inapplicable'
+     '1' = '1959 or before'
+     '2' = '1960 to 1969'
+     '3' = '1970 to 1979'
+     '4' = '1980 to 1986'
+     '5' = '1987 to 1989'
+     '8' = 'Don''t know'
+     '9' = 'Not ascertained';
+
+   VALUE $YRCONC
+     '01' = '1899 or before'
+     '02' = '1900 to 1919'
+     '03' = '1920 to 1945'
+     '04' = '1946 to 1959'
+     '05' = '1960 to 1969'
+     '06' = '1970 to 1979'
+     '07' = '1980 to 1983'
+     '08' = '1984 to 1986'
+     '09' = '1987 to 1989'
+     '97' = 'Refused'
+     '98' = 'Don''t know'
+     '99' = 'Not ascertained';
+
+   VALUE $ZCNSEXP
+     ' ' = 'Not supplied'
+     '0' = 'Reported'
+     '1' = 'Prorated from adjacent periods'
+     '2' = 'Hot-decked'
+     '3' = 'Regression estimate'
+     '8' = 'Worksheet procedure'
+     '9' = 'Missing';
+
+   VALUE $ZVAR
+     ' ' = 'Inapplicable'
+     '1' = 'Imputed'
+     '2' = 'Reported'
+     '9' = 'Missing';
+
+   PICTURE HTCLP
+     0-100 = '009'
+      995  = '32 < heated < 50' (NOEDIT)
+      996  = 'Less than one half'
+      998  = 'Don''t know'
+      999  = 'Not ascertained';
+
+   PICTURE LTNHRP
+     0-100= '009'
+      995 = 'Less than one half'
+      997 = 'No off-hours'
+      998 = 'Don''t know'
+      999 = 'Not ascertained';
+
+   PICTURE LTOHRP
+     0-100= '009'
+      995 = 'Less than one half'
+      997 = 'Not in use'
+      998 = 'Don''t know'
+      999 = 'Not ascertained';
+
+   PICTURE MISS2CH
+     0-97 = '09'
+      98  = 'Don''t know'
+      99  = 'Not ascertained';
+
+   PICTURE MISS3CH
+     0-997 = '009'
+      998  = 'Don''t know'
+      999  = 'Not ascertained';
+
+   PICTURE MISS5CH
+     0-99997 = '00,009'
+      99998  = 'Don''t know'
+      99999  = 'Not ascertained';
+
+   PICTURE MISS6CH
+     0-999997   = '000,009'
+      999998    = 'Don''t know'
+      999999    = 'Not ascertained';
+
+   PICTURE MISS8CH
+     0-99999996 = '00,000,009'
+      99999997  = 'Refused'
+      99999998  = 'Don''t know'
+      99999999  = 'Not ascertained';
+
+   PICTURE NFLOOR
+     0-14 = '009'
+      994 = '15 to 25' (NOEDIT)
+      995 = 'Over 25' (NOEDIT)
+      998 = 'Don''t know'
+      999 = 'Not ascertained';
+
+   PICTURE YRCON
+     1492-1989    = '9999'
+ 0-1491,1990-9996 = '*9999*'
+       9997       = 'Refused'
+       9998       = 'Don''t know'
+       9999       = 'Not ascertained';
+ 
+
