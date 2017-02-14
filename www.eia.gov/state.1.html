@@ -100,7 +100,7 @@ var _gaq = _gaq || [];
 <link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" /> 
 	<script language="javascript" src="http://www.eia.gov/global/scripts/modules/lib/require.js"></script>
 
-<link type="text/css" rel="stylesheet" href="http://www.eia.gov/state/css/states.css"/>
+<link type="text/css" rel="stylesheet" href="state/css/states.css"/>
 <!--[IF IE 7]><link rel="stylesheet" href="/state/css/ie7.css" type="text/css" /><![endif]-->
 <script type="text/javascript">
 	var config = {"shim":{"jVectorMap":{"exports":"jQuery.fn.vectorMap","deps":["mousewheel"]},"us-merc-en":{"exports":"jvm.WorldMap.maps.us_merc_en","deps":["jVectorMap"]},"loadmask":{"exports":"jQuery.fn.mask"},"mousewheel":{"exports":"jQuery.fn.mousewheel"},"qtips":{"exports":"jQuery.fn.qtip"},"us-census-merc-en":{"exports":"jvm.WorldMap.maps.us_census_merc_en","deps":["jVectorMap"]},"usa-en-labels":{"exports":"jQuery.fn.vectorMap.prototype.usa_en_labels","deps":["jVectorMapOld"]},"us-terr-merc-en":{"exports":"jvm.WorldMap.maps.us_terr_merc_en","deps":["jVectorMap"]},"us-aea-en":{"exports":"jvm.WorldMap.maps.us_aea_en","deps":["jVectorMap"]},"coal-basin-merc-en":{"exports":"jvm.WorldMap.maps.coal_basin_merc_en","deps":["jVectorMap"]},"slickcore":{"exports":"Slick.Event","deps":["dragevent","mousewheel"]},"slickdataview":{"exports":"Slick.Data.DataView","deps":["slickgrid"]},"mustache":{"exports":"Mustache"},"slickgrid":{"exports":"Slick.Grid","deps":["slickcore"]},"usa-en":{"exports":"jvm.WorldMap.maps.usa_en","deps":["jVectorMap"]},"world-mill-en":{"exports":"jvm.WorldMap.maps.world_mill_en","deps":["jVectorMap"]},"json2":{"exports":"JSON"},"dragevent":{"exports":"jQuery.fn.drag"},"simpleModal":{"exports":"jQuery.modal"},"multiselect":{"exports":"jQuery.fn.multiselect"},"jVectorMapOld":{"exports":"jQuery.fn.vectorMap","deps":["mousewheel"]}},"paths":{"viewStack":"/global/scripts/modules/dist/viewStack","order":"/global/scripts/modules/lib/order","us-census-merc-en":"/global/scripts/modules/lib/jvectormap/maps/us-census-merc-en","timeSlider":"/global/scripts/modules/dist/timeSlider","coal-basin-merc-en":"/global/scripts/modules/lib/jvectormap/maps/coal-basin-merc-en","rankingsTable":"/global/scripts/modules/dist/rankingsTable","hasher":"/global/scripts/modules/lib/hasher","mustache":"/global/scripts/modules/lib/mustache","classy":"/global/scripts/modules/lib/classy","queryRouter":"/global/scripts/modules/dist/queryRouter","world-mill-en":"/global/scripts/modules/lib/jvectormap/maps/world-mill-en","microcache":"/global/scripts/modules/lib/microcache","dragevent":"/global/scripts/modules/lib/jquery.event.drag-2.2","selection":"/global/scripts/modules/dist/selection","jVectorMap":"/global/scripts/modules/lib/jvectormap/jquery-jvectormap-mod.min","dateCodeUtils":"/global/scripts/modules/dist/dateCodeUtils","us-merc-en":"/global/scripts/modules/lib/jvectormap/maps/us-merc-en","loadmask":"/global/scripts/modules/lib/jquery.loadmask","mousewheel":"/global/scripts/modules/lib/jquery.mousewheel","numberformatter":"/global/scripts/modules/dist/numberformatter","bucketMap":"/global/scripts/modules/dist/bucketMap","puremvc":"/global/scripts/modules/lib/puremvc-classy-1.0","us-terr-merc-en":"/global/scripts/modules/lib/jvectormap/maps/us-terr-merc-en","growthMap":"/global/scripts/modules/dist/growthMap","crossroads":"/global/scripts/modules/lib/crossroads","signals":"/global/scripts/modules/lib/signals","usa-en":"/global/scripts/modules/lib/vector-map/usa-en","multiselect":"/global/scripts/modules/lib/jquery.multiselect.1.13.min","chartTabs":"/global/scripts/modules/dist/chartTabs","animatedComponent":"/global/scripts/modules/dist/animatedComponent","qtips":"/global/scripts/modules/lib/jquery.qtip-1.0.min","continuousMap":"/global/scripts/modules/dist/continuousMap","dropdown":"/global/scripts/modules/dist/dropdown","us-aea-en":"/global/scripts/modules/lib/jvectormap/maps/us-aea-en","animatedMap":"/global/scripts/modules/dist/animatedMap","text":"/global/scripts/modules/lib/text.src","slickgrid":"/global/scripts/modules/lib/slick.grid","datagrid":"/global/scripts/modules/dist/datagrid","json2":"/global/scripts/modules/lib/json2","simpleModal":"/global/scripts/modules/lib/jquery.simplemodal-1.4.2","page":"/global/scripts/modules/dist/page","usa-en-labels":"/global/scripts/modules/lib/vector-map/usa-en-labels","map":"/global/scripts/modules/dist/map","slickdataview":"/global/scripts/modules/lib/slick.dataview","slickcore":"/global/scripts/modules/lib/slick.core","timeSliderInput":"/global/scripts/modules/dist/timeSliderInput","kizzy":"/global/scripts/modules/lib/kizzy","qTipsHelp":"/global/scripts/modules/dist/qTipsHelp","jVectorMapOld":"/global/scripts/modules/lib/vector-map/jquery.vector-map"},"enforceDefine":true};
@@ -193,7 +193,7 @@ var _gaq = _gaq || [];
 								name : 'State',
 								field : 0,
 								displayFormatter : function(value, row, column) {
-									return '<a href="http://www.eia.gov/state/?sid='&#32;+&#32;value&#32;+&#32;'">' + row[column.descriptionField] + '</a>';
+									return '<a href="state/index.html@sid='%2520+%2520value%2520+%2520'.html">' + row[column.descriptionField] + '</a>';
 								},
 								descriptionField : 1,
 								sortFunction : RankingsTable.LOW_TO_HIGH,
@@ -247,7 +247,7 @@ var _gaq = _gaq || [];
 							}
 							
 						],
-						data : [["AK","Alaska",1.691114257187478,818,9348.9],["AL","Alabama",1.5519345411900376,404,4982.3],["AR","Arkansas",1.6672641796644085,376,4680],["AZ","Arizona",0.728032673092935,211,3360.1],["CA","California",2.7668726687879066,196,3550.2],["CO","Colorado",3.4869835943474627,276,3733.4],["CT","Connecticut",0.2261550011081275,209,4307.2],["DC","District of Columbia",4.1271043589238105E-4,271,3516.5],["DE","Delaware",0.004802344488758845,293,4111.7],["FL","Florida",0.634815142639376,207,3336.4],["GA","Georgia",0.6855063019278576,282,3934.6],["HI","Hawaii",0.031143588059590065,198,5195.2],["IA","Iowa",0.8678543831017637,496,5795.8],["ID","Idaho",0.17762140026506099,318,4269.7],["IL","Illinois",3.076773495845863,314,4001.7],["IN","Indiana",1.287539625360726,444,5176.2],["KS","Kansas",1.0095929038017373,390,5046.1],["KY","Kentucky",2.3560274547821836,401,5091.5],["LA","Louisiana",3.270054964317285,921,9765.5],["MA","Massachusetts",0.142925063203164,213,4082],["MD","Maryland",0.2866709616066028,234,3841],["ME","Maine",0.17340372889381633,309,5681.3],["MI","Michigan",0.7827603697280197,291,4108.4],["MN","Minnesota",0.5353393169926598,350,4638.4],["MO","Missouri",0.22880895849449104,314,4406.3],["MS","Mississippi",0.4618252705993293,386,5327.8],["MT","Montana",1.331912875726422,394,5401.9],["NC","North Carolina",0.6828752728990436,257,3750.7],["ND","North Dakota",3.7388814088943776,865,11093.5],["NE","Nebraska",0.46051491496537106,459,5486],["NH","New Hampshire",0.18461111006404943,234,4789.8],["NJ","New Jersey",0.44525265376249534,262,4376.1],["NM","New Mexico",2.8829474788826386,326,4324.8],["NV","Nevada",0.0815561678038444,233,3704],["NY","New York",0.9993553921558512,190,3446.1],["OH","Ohio",1.7739303382386717,329,4430.9],["OK","Oklahoma",4.095955038774833,433,5283.2],["OR","Oregon",0.5502060640278054,249,3743.5],["PA","Pennsylvania",8.125112893500484,305,4351],["RI","Rhode Island",0.004934182544668912,194,3984.9],["SC","South Carolina",0.7739581732647373,338,4529.9],["SD","South Dakota",0.28636257519756103,459,5648],["TN","Tennessee",0.5726368762185562,335,4522.8],["TX","Texas",20.173635763872216,478,6025.3],["UT","Utah",1.3420896272248015,271,3652.7],["VA","Virginia",1.1232373079962141,292,4080.1],["VT","Vermont",0.09844748881061757,223,5225],["WA","Washington",1.1778343129932665,285,3653.4],["WI","Wisconsin",0.34232381746881296,324,4592.1],["WV","West Virginia",4.762292087373368,407,4736.3],["WY","Wyoming",10.732483296576882,917,9996.8]]
+						data : [["AK","Alaska",1.691114257187,818,9348.9],["AL","Alabama",1.55193454119,404,4982.3],["AR","Arkansas",1.667264179664,376,4680],["AZ","Arizona",0.728032673093,211,3360.1],["CA","California",2.766872668788,196,3550.2],["CO","Colorado",3.486983594347,276,3733.4],["CT","Connecticut",0.226155001108,209,4307.2],["DC","District of Columbia",0.000412710436,271,3516.5],["DE","Delaware",0.004802344489,293,4111.7],["FL","Florida",0.634815142639,207,3336.4],["GA","Georgia",0.685506301928,282,3934.6],["HI","Hawaii",0.03114358806,198,5195.2],["IA","Iowa",0.867854383102,496,5795.8],["ID","Idaho",0.177621400265,318,4269.7],["IL","Illinois",3.076773495846,314,4001.7],["IN","Indiana",1.287539625361,444,5176.2],["KS","Kansas",1.009592903802,390,5046.1],["KY","Kentucky",2.356027454782,401,5091.5],["LA","Louisiana",3.270054964317,921,9765.5],["MA","Massachusetts",0.142925063203,213,4082],["MD","Maryland",0.286670961607,234,3841],["ME","Maine",0.173403728894,309,5681.3],["MI","Michigan",0.782760369728,291,4108.4],["MN","Minnesota",0.535339316993,350,4638.4],["MO","Missouri",0.228808958494,314,4406.3],["MS","Mississippi",0.461825270599,386,5327.8],["MT","Montana",1.331912875726,394,5401.9],["NC","North Carolina",0.682875272899,257,3750.7],["ND","North Dakota",3.738881408894,865,11093.5],["NE","Nebraska",0.460514914965,459,5486],["NH","New Hampshire",0.184611110064,234,4789.8],["NJ","New Jersey",0.445252653762,262,4376.1],["NM","New Mexico",2.882947478883,326,4324.8],["NV","Nevada",0.081556167804,233,3704],["NY","New York",0.999355392156,190,3446.1],["OH","Ohio",1.773930338239,329,4430.9],["OK","Oklahoma",4.095955038775,433,5283.2],["OR","Oregon",0.550206064028,249,3743.5],["PA","Pennsylvania",8.1251128935,305,4351],["RI","Rhode Island",0.004934182545,194,3984.9],["SC","South Carolina",0.773958173265,338,4529.9],["SD","South Dakota",0.286362575198,459,5648],["TN","Tennessee",0.572636876219,335,4522.8],["TX","Texas",20.173635763872,478,6025.3],["UT","Utah",1.342089627225,271,3652.7],["VA","Virginia",1.123237307996,292,4080.1],["VT","Vermont",0.098447488811,223,5225],["WA","Washington",1.177834312993,285,3653.4],["WI","Wisconsin",0.342323817469,324,4592.1],["WV","West Virginia",4.762292087373,407,4736.3],["WY","Wyoming",10.732483296577,917,9996.8]]
 					}
 				);
 			});
@@ -665,13 +665,13 @@ $(document).ready(function() {
             <span class="global_menu_col1">
               <a href="petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
               <a href="naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
-              <a href="electricity.1.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
-              <a href="consumption/residential/methodology/index.cfm.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+              <a href="cneaf/electricity/contacts/elect_epm_coord.txt.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
             </span>
             <span class="global_menu_col2">
-              <a href="coal/index.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
-              <a href="renewable/index.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
-              <a href="fuelnuclear.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="fuelcoal.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="fuelrenewable.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="nuclear.1.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
               <a href="totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
             </span>
             <span class="global_menu_col3">
@@ -680,10 +680,10 @@ $(document).ready(function() {
               <a href="petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
               <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
               <a href="naturalgas/weekly/index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
-              <a href="electricity/monthly.1.html">Electric Power Monthly&nbsp;&rsaquo;</a>
-              <a href="cneaf/coal/quarterly/html/t33p01p1.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="cneaf/electricity/epm/epm_ex_bkis.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="cneaf/coal/quarterly/qcr_sum.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
               <a href="mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
-              <a href="emeu/recs/recs97_additions/recs_changes.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="emeu/recs/recs97/appusage.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
               <a href="electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
             </span>
             
@@ -695,25 +695,25 @@ $(document).ready(function() {
               <a href="finance/index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
             </span>
             <span class="global_menu_col2">
-              <a href="environment.1.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+              <a href="environment.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
             </span>
             <span class="global_menu_col3">
               <h3>Highlights</h3>
-              <a href="forecasts/steo/xls/Probability_HH.xls.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
-              <a href="forecasts/aeo/er/early_elecgen.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
-              <a href="special/disruptions/index.html">Energy Disruptions&nbsp;&rsaquo;</a>
-              <a href="forecasts/ieo/index.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="forecasts/steo/special/pdf/2013/2013_sp_04.pdf.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="forecasts/aeo/appendixe.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="special/disruptions.1.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="forecasts/ieo.1.html">International Energy Outlook&nbsp;&rsaquo;</a>
               <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
             </span>
           </div>
         <li class="global-geo"><a>Geography</a></li>
           <div class="global_geo_menu">
             <span class="global_menu_col1">
-              <a href="state/seds/sep_prod/xls/P2.xls.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="state/search/images/sort_desc_disabled.png.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
               <a href="maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
             </span>
             <span class="global_menu_col2">
-              <a href="emeu/international/contents.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="country/index.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
               
             </span>
             <span class="global_menu_col3">
@@ -734,7 +734,7 @@ $(document).ready(function() {
               <a href="tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
               <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
               <a href="tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
-              <a href="survey.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="tools/survey/index.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
               <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
               </p>
             </span>
@@ -753,12 +753,12 @@ $(document).ready(function() {
               <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
             </span>
             <span class="global_menu_col6">
-              <p class="no-border"><a href="tools/faqs/index.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <p class="no-border"><a href="ask/crude_types1.html" class="ico_faqs header_icon_pad">FAQs</a><br />
               <a href="tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
               <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
             </span>
             <span class="global_menu_col8">
-              <h3><a href="energyexplained.1.html">Energy Explained</a></h3>
+              <h3><a href="pub/oil_gas/petroleum/analysis_publications/oil_market_basics/paddmap.htm">Energy Explained</a></h3>
               <p class="width152"><a href="energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
               <a href="energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
               <a href="energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
@@ -776,13 +776,7 @@ $(document).ready(function() {
               <a href="energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
               <a href="energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
             </span>
-            <span class="global_menu_col9">
-              <h3><a href="energy_in_brief.1.html">Energy in Brief</a></h3>
-				<p class="no-border global_menu_col10"><a href="energy_in_brief/article/renewable_electricity.cfm.html">How much U.S. electricity is generated from renewable energy?&nbsp;&rsaquo;</a><br />
-				<a href="energy_in_brief/article/shale_in_the_united_states.cfm.html">Shale in the United States&nbsp;&rsaquo;</a></p>
-				<p class="no-border global_menu_col10"><a href="energy_in_brief/world_oil_market.cfm.html">Who are the major players supplying the world oil market?&nbsp;&rsaquo;</a><br />
-				<a href="energy_in_brief/role_coal_us.cfm.html">What is the role of coal in the United States?&nbsp;&rsaquo;</a></p>
-            </span>
+            
             <span class="global_menu_col6 mt_40">
               <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
             </span>
@@ -795,7 +789,7 @@ $(document).ready(function() {
               <div id="whatsnew3"></div>
             </span>
             <span class="global_menu_col3">
-              <h3><a href="pressroom/index.html" style="color:#fff !important;">Press Room</a></h3>
+              <h3><a href="pressroom/archive/images/press109_kyoto5.gif.html" style="color:#fff !important;">Press Room</a></h3>
               <a href="pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
               <a href="pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
               <a href="pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
@@ -903,8 +897,8 @@ $(document).ready(function() {
 
 
 <div class="pub_title bg_pub_states_tall new_header" id="stateSelection">
-  <a href="state/seds/sep_prod/xls/P2.xls.html">&lsaquo; U.S. States</a>
-  <h1 style="padding-top:45px;">U.S. States&nbsp;&nbsp;&nbsp;<img src="http://www.eia.gov/state/img/flags/US.png" height="25" align="absmiddle" vspace="2" alt="U.S. States Profile" style="border:1px solid #eee"></h1>
+  <a href="state/search/images/sort_desc_disabled.png.html">&lsaquo; U.S. States</a>
+  <h1 style="padding-top:45px;">U.S. States&nbsp;&nbsp;&nbsp;<img src="state/img/flags/US.png" height="25" align="absmiddle" vspace="2" alt="U.S. States Profile" style="border:1px solid #eee"></h1>
   <p class="subtitle"><i>State Profiles and Energy Estimates</i></p>
   <p class="submenu rnd_crn4  no_print"><a class="change_location submenu_toggle">Change State/Territory<span class="arrow_rL">&nbsp;</span></a></p>
 </div>
@@ -918,138 +912,138 @@ $(document).ready(function() {
 	  <tr>
 		<td width="14%">
 		
-			<a href="http://www.eia.gov/state/?sid=US">United States</a><br />
+			<a href="state/index.html@sid=US.html">United States</a><br />
 		
-				<a href="http://www.eia.gov/state/?sid=AL">Alabama</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=AL.html">Alabama</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=AK">Alaska</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=AK.html">Alaska</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=AZ">Arizona</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=AZ.html">Arizona</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=AR">Arkansas</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=AR.html">Arkansas</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=CA">California</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=CA.html">California</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=CO">Colorado</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=CO.html">Colorado</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=CT">Connecticut</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=CT.html">Connecticut</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=DE">Delaware</a><br />
-			
-				</td>
-				<td width="14%">
-			
-				<a href="http://www.eia.gov/state/?sid=DC">District of Columbia</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=FL">Florida</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=GA">Georgia</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=HI">Hawaii</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=ID">Idaho</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=IL">Illinois</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=IN">Indiana</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=IA">Iowa</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=KS">Kansas</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=DE.html">Delaware</a><br />
 			
 				</td>
 				<td width="14%">
 			
-				<a href="http://www.eia.gov/state/?sid=KY">Kentucky</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=DC.html">District of Columbia</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=LA">Louisiana</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=FL.html">Florida</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=ME">Maine</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=GA.html">Georgia</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MD">Maryland</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=HI.html">Hawaii</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MA">Massachusetts</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=ID.html">Idaho</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MI">Michigan</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=IL.html">Illinois</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MN">Minnesota</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=IN.html">Indiana</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MS">Mississippi</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=IA.html">Iowa</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=MO">Missouri</a><br />
-			
-				</td>
-				<td width="14%">
-			
-				<a href="http://www.eia.gov/state/?sid=MT">Montana</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NE">Nebraska</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NV">Nevada</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NH">New Hampshire</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NJ">New Jersey</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NM">New Mexico</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NY">New York</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=NC">North Carolina</a><br />
-			
-				<a href="http://www.eia.gov/state/?sid=ND">North Dakota</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=KS.html">Kansas</a><br />
 			
 				</td>
 				<td width="14%">
 			
-				<a href="http://www.eia.gov/state/?sid=OH">Ohio</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=KY.html">Kentucky</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=OK">Oklahoma</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=LA.html">Louisiana</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=OR">Oregon</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=ME.html">Maine</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=PA">Pennsylvania</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MD.html">Maryland</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=RI">Rhode Island</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MA.html">Massachusetts</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=SC">South Carolina</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MI.html">Michigan</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=SD">South Dakota</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MN.html">Minnesota</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=TN">Tennessee</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MS.html">Mississippi</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=TX">Texas</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MO.html">Missouri</a><br />
 			
 				</td>
 				<td width="14%">
 			
-				<a href="http://www.eia.gov/state/?sid=UT">Utah</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=MT.html">Montana</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=VT">Vermont</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NE.html">Nebraska</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=VA">Virginia</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NV.html">Nevada</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=WA">Washington</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NH.html">New Hampshire</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=WV">West Virginia</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NJ.html">New Jersey</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=WI">Wisconsin</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NM.html">New Mexico</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=WY">Wyoming</a><br />
+				<a href="state/state_energy_profiles.cfm@sid=NY.html">New York</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=NC.html">North Carolina</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=ND.html">North Dakota</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="state/state_energy_profiles.cfm@sid=OH.html">Ohio</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=OK.html">Oklahoma</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=OR.html">Oregon</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=PA.html">Pennsylvania</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=RI.html">Rhode Island</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=SC.html">South Carolina</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=SD.html">South Dakota</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=TN.html">Tennessee</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=TX.html">Texas</a><br />
+			
+				</td>
+				<td width="14%">
+			
+				<a href="state/state_energy_profiles.cfm@sid=UT.html">Utah</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=VT.html">Vermont</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=VA.html">Virginia</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=WA.html">Washington</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=WV.html">West Virginia</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=WI.html">Wisconsin</a><br />
+			
+				<a href="state/state_energy_profiles.cfm@sid=WY.html">Wyoming</a><br />
 			
 				</td>
 				<td width="15%">
 				  <strong>U.S. Territories</strong><br />
 			
-				<a href="http://www.eia.gov/state/?sid=AQ">American Samoa</a><br />
+				<a href="state/index.html@sid=AQ.html">American Samoa</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=GQ">Guam</a><br />
+				<a href="state/index.html@sid=GQ.html">Guam</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=CQ">Northern Mariana Islands</a><br />
+				<a href="state/index.html@sid=CQ.html">Northern Mariana Islands</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=RQ">Puerto Rico</a><br />
+				<a href="state/index.html@sid=RQ.html">Puerto Rico</a><br />
 			
-				<a href="http://www.eia.gov/state/?sid=VQ">US Virgin Islands</a><br />
+				<a href="state/index.html@sid=VQ.html">US Virgin Islands</a><br />
 			
 		 </td>
 	  </tr>
@@ -1060,7 +1054,7 @@ $(document).ready(function() {
 <div class="subnav tools">
   
   <ul>
-	<li class="active" id="overview"><a href="http://www.eia.gov/state/?sid=US">Overview</a></li>
+	<li class="active" id="overview"><a href="state/index.html@sid=US.html">Overview</a></li>
     
 	<li class=" dropdown" id="data">
 		
@@ -1068,7 +1062,7 @@ $(document).ready(function() {
 				data-page-href="/state/data.cfm?sid={{ID}}"
 				data-region-name="the United States"
 				data-page-name="Data"
-				href="http://www.eia.gov/state/data.cfm">Data</a>
+				href="state/data.cfm.html">Data</a>
 		
 	</li>
     <div class="dat_block">
@@ -1082,7 +1076,7 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#EnergyIndicators"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#EnergyIndicators">Energy Indicators</a>
+							href="state/data.cfm.html#EnergyIndicators">Energy Indicators</a>
 					</li>
 				
 					<li>
@@ -1090,7 +1084,7 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#Prices"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#Prices">Prices</a>
+							href="state/data.cfm.html#Prices">Prices</a>
 					</li>
 				
 					<li>
@@ -1098,7 +1092,7 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#ReservesSupply"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#ReservesSupply">Reserves & Supply</a>
+							href="state/data.cfm.html#ReservesSupply">Reserves & Supply</a>
 					</li>
 				
 					<li>
@@ -1106,7 +1100,7 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#DistributionMarketing"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#DistributionMarketing">Distribution & Marketing</a>
+							href="state/data.cfm.html#DistributionMarketing">Distribution & Marketing</a>
 					</li>
 				
 					<li>
@@ -1114,7 +1108,7 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#ConsumptionExpenditures"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#ConsumptionExpenditures">Consumption & Expenditures</a>
+							href="state/data.cfm.html#ConsumptionExpenditures">Consumption & Expenditures</a>
 					</li>
 				
 					<li>
@@ -1122,19 +1116,19 @@ $(document).ready(function() {
 							data-page-href="/state/data.cfm?sid={{ID}}#Environment"
 							data-region-name="the United States"
 							data-page-name="Data"
-							href="http://www.eia.gov/state/data.cfm#Environment">Environment</a>
+							href="state/data.cfm.html#Environment">Environment</a>
 					</li>
 				
     
             <li><b>Energy estimates (SEDS)</b></li>
             <li>
             
-                <a href="http://www.eia.gov/state/seds/seds-data-complete.cfm?sid=US">1960-2014 estimates</a>
+                <a href="state/seds/seds-data-complete.cfm@sid=US.html">1960-2014 estimates</a>
             
             </li>
             <li>
             
-                <a href="http://www.eia.gov/state/seds/seds-data-fuel.cfm?sid=US">2015 updates</a>
+                <a href="state/seds/seds-data-fuel.cfm@sid=US.html">2015 updates</a>
             
             
             
@@ -1151,7 +1145,7 @@ $(document).ready(function() {
 				data-page-href="/state/analysis.cfm?sid={{ID}}"
 				data-region-name="the United States"
 				data-page-name="Analysis"
-				href="http://www.eia.gov/state/analysis.cfm">Analysis</a>
+				href="state/analysis.cfm.html">Analysis</a>
 		
 	</li>
 	
@@ -1179,10 +1173,10 @@ $(document).ready(function() {
 			</li>
 			<li class="" id="compare">
 				
-					<a href="http://www.eia.gov/state/compare/?sid=US#?selected=US-US">Compare</a>
+					<a href="state/compare/index.html@sid=US.html#?selected=US-US">Compare</a>
 				
 			</li>
-			<li  id="find"><a href="http://www.eia.gov/state/search/?sid=US">Find</a></li>
+			<li  id="find"><a href="state/search/index.html@sid=US.html">Find</a></li>
 			<li class="help"><a>Help</a></li>
 		</ul>
 	</div>
@@ -1198,11 +1192,11 @@ $(document).ready(function() {
 		<div id="territory_map_container">
 			<span>
 			<B>U.S. Territories:</B>&nbsp;
-			<a href="http://www.eia.gov/state/?sid=AQ">American Samoa</a>&nbsp;|&nbsp;
-			<a href="http://www.eia.gov/state/?sid=GQ">Guam</a>&nbsp;|&nbsp;
-			<a href="http://www.eia.gov/state/?sid=CQ">Northern Mariana Islands</a>&nbsp;|&nbsp;
-			<a href="http://www.eia.gov/state/?sid=RQ">Puerto Rico</a>&nbsp;|&nbsp;
-			<a href="http://www.eia.gov/state/?sid=VQ">U.S. Virgin Islands</a>
+			<a href="state/index.html@sid=AQ.html">American Samoa</a>&nbsp;|&nbsp;
+			<a href="state/index.html@sid=GQ.html">Guam</a>&nbsp;|&nbsp;
+			<a href="state/index.html@sid=CQ.html">Northern Mariana Islands</a>&nbsp;|&nbsp;
+			<a href="state/index.html@sid=RQ.html">Puerto Rico</a>&nbsp;|&nbsp;
+			<a href="state/index.html@sid=VQ.html">U.S. Virgin Islands</a>
 			</span>
 		</div>
 	</div>
@@ -1218,16 +1212,16 @@ $(document).ready(function() {
 			<h4>by Source</h4>
 			<br/>
 			<ul class="left">
-				<li><a href="http://www.eia.gov/state/search/#?1=79">Petroleum</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?1=96">Natural Gas</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?1=102">Electricity</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?1=101">Coal</a></li>
+				<li><a href="state/search/index.html#?1=79">Petroleum</a></li>
+				<li><a href="state/search/index.html#?1=96">Natural Gas</a></li>
+				<li><a href="state/search/index.html#?1=102">Electricity</a></li>
+				<li><a href="state/search/index.html#?1=101">Coal</a></li>
 			</ul>
 			<ul class="right">
-				<li><a href="http://www.eia.gov/state/search/#?1=104">Renewable & Alternative Fuels</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?1=119">Nuclear</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?7=147">Environment</a></li>
-				<li><a href="http://www.eia.gov/state/search/#?1=78">Total Energy</a></li>
+				<li><a href="state/search/index.html#?1=104">Renewable & Alternative Fuels</a></li>
+				<li><a href="state/search/index.html#?1=119">Nuclear</a></li>
+				<li><a href="state/search/index.html#?7=147">Environment</a></li>
+				<li><a href="state/search/index.html#?1=78">Total Energy</a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
@@ -1236,12 +1230,12 @@ $(document).ready(function() {
 			<br/>
 			<ul>
 				
-				<li><a href="consumption/residential/reports/2009/state_briefs/index.cfm.html">Household Energy Use</a></li>
+				<li><a href="http://www.eia.gov/consumption/residential/reports/2009/state_briefs/index.cfm">Household Energy Use</a></li>
 				
-				<li><a href="electricity/state.1.html">State Electricity Summaries</a></li>
+				<li><a href="cneaf/electricity/st_profiles/e_profiles_sum.html">State Electricity Summaries</a></li>
 				<li><a href="cneaf/solar.renewables/page/state_profiles/r_profiles_sum.html">State Renewable Electricity Statistics</a></li>
 				
-				<li><a href="http://www.eia.gov/dnav/ng/ng_sum_lsum_dcu_NUS_m.htm">Natural Gas Summary Statistics</a></li>
+				<li><a href="dnav/ng/ng_sum_lsum_dcu_NUS_m.htm">Natural Gas Summary Statistics</a></li>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -1252,21 +1246,21 @@ $(document).ready(function() {
 		<span class="grey_side blue_top" id="tie_side">
 			<h4>Today In Energy</h4>
 			
-      <p><a href="http://www.eia.gov/todayinenergy/detail.cfm?id=29552">Natural gas prices in 2016 were the lowest in nearly 20 years</a><br><em>Jan 13, 2017</em></p>
+      <p><a href="todayinenergy/detail.cfm@id=29772.html">Indian Point, closest nuclear plant to New York City, set to retire by 2021</a><br><em>Feb 01, 2017</em></p>
     
-      <p><a href="http://www.eia.gov/todayinenergy/detail.cfm?id=29452">U.S. gasoline prices in 2016 were the lowest since 2004</a><br><em>Jan 06, 2017</em></p>
+      <p><a href="todayinenergy/detail.cfm@id=29752.html">Major U.S. tight oil-producing states expected to drive production gains through 2018</a><br><em>Jan 31, 2017</em></p>
     
-  <p class="no_btm_border"><a href="http://www.eia.gov/state/search/?sid=US">See all articles for this state &rsaquo;</a></p>
+  <p class="no_btm_border"><a href="state/search/index.html@sid=US.html">See all articles for this state &rsaquo;</a></p>
 
 		</span>
 		<span class="grey_side blue_top">
 			<h4>Household Energy Use</h4>
-			<a href="http://www.eia.gov/consumption/residential/reports/2009/state_briefs/"><img src= "http://www.eia.gov/consumption/images/images_recs/state-promo.jpg" alt="Arizona household graph" height="85" border="0" /></a>
-			<p><a href="http://www.eia.gov/consumption/residential/reports/2009/state_briefs/">See state fact sheets &rsaquo;</a></p> 
+			<a href="consumption/residential/reports/2009/state_briefs/index.html"><img src= "consumption/images/images_recs/state-promo.jpg" alt="Arizona household graph" height="85" border="0" /></a>
+			<p><a href="consumption/residential/reports/2009/state_briefs/index.html">See state fact sheets &rsaquo;</a></p> 
 		</span>
 		<span class="grey_side green_top" id="tie_side">
 	<h4>U.S. Energy Mapping System</h4>
-	<p><a href="state/maps.cfm.html"><img src="http://www.eia.gov/state/img/thumb_mapping_system.jpg" alt="U.S. Energy Mapping System" /></a></p>
+	<p><a href="state/maps.cfm.html"><img src="state/img/thumb_mapping_system.jpg" alt="U.S. Energy Mapping System" /></a></p>
    
 	
 
@@ -1279,8 +1273,8 @@ $(document).ready(function() {
 </span>
 		<span class="grey_side blue_top" id="other_resources_side">
 			<h4>Resources</h4>
-			<p><a href="http://www.eia.gov/state/updates.cfm">Data Updates</a></p>
-			<p><a href="http://www.eia.gov/state/notes-sources.cfm">Notes & Sources</a></p>
+			<p><a href="state/updates.cfm.html">Data Updates</a></p>
+			<p><a href="state/notes-sources.cfm.html">Notes & Sources</a></p>
 		</span>
 		<span class="grey_side blue_top" ><iframe width="100%" src="http://www.youtube.com/embed/F-WBhuIHTXs?rel=0" frameborder="0" allowfullscreen=""></iframe>Play a short video to learn how to use this tool.</span>
 	</div>
@@ -1297,9 +1291,9 @@ $(document).ready(function() {
       </div>
       <div id="addbar">
       <a href="index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
-        <h3><a href="abouteia/index.html">About EIA</a></h3>
+        <h3><a href="abouteia/eia_standards.cfm.html">About EIA</a></h3>
         <h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
-        <h3><a href="pressroom/index.html">Press Room</a></h3>
+        <h3><a href="pressroom/archive/images/press109_kyoto5.gif.html">Press Room</a></h3>
         <h3><a href="about/careers.1.html">Careers</a></h3>
         
         <h3><a href="contactus.html">Contact Us</a></h3>
@@ -1308,12 +1302,12 @@ $(document).ready(function() {
         
         <p><b>Sources & Uses</b><br />
            <a href="petroleum/index.html">Petroleum</a><br />
-           <a href="coal/index.html">Coal</a><br />
+           <a href="fuelcoal.html">Coal</a><br />
            <a href="naturalgas/index.html">Natural Gas</a><br />
-           <a href="renewable/index.html">Renewable</a><br />
-           <a href="fuelnuclear.html">Nuclear</a><br />
-           <a href="electricity.1.html">Electricity</a><br />
-           <a href="consumption/residential/methodology/index.cfm.html">Consumption</a><br />
+           <a href="fuelrenewable.html">Renewable</a><br />
+           <a href="nuclear.1.html">Nuclear</a><br />
+           <a href="cneaf/electricity/contacts/elect_epm_coord.txt.html">Electricity</a><br />
+           <a href="consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html">Consumption</a><br />
            <a href="totalenergy/index.html">Total Energy</a></p>
         <p><b>Topics</b><br />
            <a href="analysis/index.html">Analysis & Projections</a><br />
@@ -1321,15 +1315,15 @@ $(document).ready(function() {
            <a href="finance/index.html">Markets & Finance</a><br />
            <a href="todayinenergy.1.html">Today in Energy</a></p>
         <p><b>Geography</b><br />
-           <a href="state/seds/sep_prod/xls/P2.xls.html">States</a><br />
-           <a href="emeu/international/gasconsumption.html">Countries</a><br />
+           <a href="state/search/images/sort_desc_disabled.png.html">States</a><br />
+           <a href="countries/index.html">Countries</a><br />
            <a href="maps.1.html">Maps</a><br />
         <p><b>Tools</b><br />
            <a href="tools/a-z/index.html">A-Z Index</a><br />
            <a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
            <a href="tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
-           <a href="survey.html">EIA Survey Forms</a><br />
-           <a href="http://www.eia.gov/beta/">EIA Beta</a></p>
+           <a href="tools/survey/index.html">EIA Survey Forms</a><br />
+           <a href="beta.html">EIA Beta</a></p>
         <p><b>Policies</b><br />
            <a href="about/privacy_security_policy.cfm.html">Privacy/Security</a><br />
            <a href="about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br />
