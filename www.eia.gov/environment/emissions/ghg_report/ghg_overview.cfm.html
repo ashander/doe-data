@@ -1,0 +1,826 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
+<meta http-equiv="Content-Language" content="en-us" />
+<meta name="robots" content="all" />
+<meta name="agency" content="EIA - Energy Information Administration" />
+<meta name="subject" content="official energy statistics, data, analysis and forecasting" />
+<meta name="Description" content="Energy Information Administration - EIA - Official Energy Statistics from the U.S. Government" />
+
+  
+	   
+	
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/screen.css" type="text/css" media="screen, projection"/>
+
+	
+	<link type="text/css" href="http://www.eia.gov/global/scripts/jquery/datepicker/jquery-ui-dp.custom.css" rel="stylesheet" />
+	
+		<link rel="stylesheet" href="http://www.eia.gov/global/styles/EIA_global.css" type="text/css" media="screen, projection">
+	
+	<!--[if lt IE 8]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_fixes.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="http://www.eia.gov/global/styles/print.css" type="text/css" media="print">
+	<!--[if lte IE 8]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+	<!--[if IE 7]><link rel="stylesheet" href="/global/styles/ie_print.css" type="text/css" media="print"><![endif]-->
+
+		<script src="http://www.eia.gov/global/scripts/jquery/jquery-1.11.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/jquery-migrate-1.2.1.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ui/1.10.3/js/jquery-ui-1.10.3.custom.min.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/touch-punch/jquery.ui.touch-punch.min.js"></script>
+	
+
+	
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/eia_utils.js"></script>
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/eia_global.js"></script>
+
+			<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts.js"></script>
+		
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/highcharts-more.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/exporting.js"></script>
+	
+		<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/modules/no-data-to-display.js"></script>
+	
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/jquery/ga/ga-file-downloads.js" ></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25837230-1']);
+  _gaq.push(['_setDomainName', 'eia.gov']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+<link rel="shortcut icon" href="../../../favicon.ico" />
+<link rel="icon" href="../../../favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="../../../favicon.ico" />
+
+
+
+	<!-- Add fancyBox 2 -->
+	<link rel="stylesheet" href="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://www.eia.gov/global/scripts/fancybox2/jquery.fancybox.pack.js?v=2.1.5"></script>
+	
+
+
+
+
+<script type="text/javascript" src="http://www.eia.gov/global/survey/engine/js/survey_engine.js"></script>
+<link rel="stylesheet" href="http://www.eia.gov/global/survey/engine/css/layout.css" type="text/css" media="screen" />
+<title>EIA - Greenhouse Gas Emissions Overview</title>
+<title>U.S. Energy Information Administration (EIA)</title>
+</head>
+
+<body>
+<div id="outerX">
+
+<script>
+$(document).ready(function() {
+    function position() {
+      $( "#sticker.positionable" ).position({
+        of: $( "#outerX" ),
+        my: "left top",
+        at: "right top"
+      });
+	  $('#sticker').offset({top:$(window).scrollTop()+10});
+    }
+ 
+    position();
+
+	$('#sticker').hover(function(event){
+	   $(this).stop(true,false).animate({right: '-125px', width: '160px'}, 'slow');
+	},function(event){  
+		$(this).stop(true,true).animate({right: '0', width: '35px'}, 'slow');
+	});
+	$(window).scroll(function () {position();});
+	$(window).resize(function () {position();});
+});
+</script>
+<div id="sticker" class="social-fixed positionable">
+  <div class="addthis_toolbox addthis_default_style ">
+    <ul class="social shider">
+      <li><a href="http://twitter.com/EIAgov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-twitter.jpg" class="imgalpha"></a>
+        <div class="link twt">
+          <div class="tweet"><a class="addthis_button_tweet"></a></div>
+        </div>
+      </li>
+      <li><a href="http://www.facebook.com/eiagov" target="_blank"><img src="http://www.eia.gov/global/images/icons/social-facebook.jpg" class="imgalpha"></a>
+        <div class="link facebook">
+          <div id="share-facebook"><a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"></a></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+ 
+<script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-514b0d4a047a687f" async="async"></script>
+
+
+<div id="innerX">
+  <div class="content">
+
+
+    <div id="header">
+    <div class="print"><img src="http://www.eia.gov/global/images/logos/eia_logo_print.png"/></div>
+
+      <a href="../../../index.html"><h1>U.S. Energy Information Administration - EIA - Independent Statistics and Analysis</h1></a>
+      <ul class="global-width" id="g-margin3">
+        <li class="global-es"><a>Sources &amp; Uses</a></li>
+          <div class="global_es_menu">
+            <span class="global_menu_col1">
+              <a href="../../../petroleum/index.html"><h3>Petroleum &amp; Other Liquids</h3><p>Crude oil, gasoline, heating oil, diesel, propane, and other liquids including biofuels and natural gas liquids.</p></a>
+              <a href="../../../naturalgas/index.html"><h3>Natural Gas</h3><p>Exploration and reserves, storage, imports and exports, production, prices, sales.</p></a>
+              <a href="../../../cneaf/electricity/contacts/elect_epm_coord.txt.html"><h3>Electricity</h3><p>Sales, revenue and prices, power plants, fuel use, stocks, generation, trade, demand & emissions.</p></a>
+              <a href="../../../consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html"><h3>Consumption & Efficiency</h3><p class="no-border no-btm">Energy use in homes, commercial buildings, manufacturing, and transportation.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../fuelcoal.html"><h3>Coal</h3><p>Reserves, production, prices, employ- ment and productivity, distribution, stocks, imports and exports.</p></a>
+              <a href="../../../fuelrenewable.html"><h3>Renewable &amp;<br>Alternative Fuels</h3><p class="sp-renewable">Includes hydropower, solar, wind, geothermal, biomass and ethanol.</p></a>
+              <a href="../../../nuclear.1.html"><h3>Nuclear &amp; Uranium</h3><p>Uranium fuel, nuclear reactors, generation, spent fuel.<br />&nbsp;</p></a>
+              <a href="../../../totalenergy/index.html"><h3>Total Energy</h3><p class="no-border">Comprehensive data summaries, comparisons, analysis, and projections integrated across all energy sources.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../petroleum/weekly/index.html">This Week in Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../petroleum/supply/weekly/index.html">Weekly Petroleum Status Report&nbsp;&rsaquo;</a>
+              <a href="http://ir.eia.gov/ngs/ngs.html">Weekly Natural Gas Storage Report&nbsp;&rsaquo;</a>
+              <a href="../../../naturalgas/weekly/index.html">Natural Gas Weekly Update&nbsp;&rsaquo;</a>
+              <a href="../../../cneaf/electricity/epm/epm_ex_bkis.html">Electric Power Monthly&nbsp;&rsaquo;</a>
+              <a href="../../../cneaf/coal/quarterly/qcr_sum.html">Quarterly Coal Report&nbsp;&rsaquo;</a>
+              <a href="../../../mer/index.html">Monthly Energy Review&nbsp;&rsaquo;</a>
+              <a href="../../../emeu/recs/recs97/appusage.html">Residential Energy Consumption Survey 2009&nbsp;&rsaquo;</a>
+              <a href="../../../electricity/data/browser.1.html">Electricity Data Browser&nbsp;&rsaquo;</a>
+            </span>
+            
+          </div>
+        <li class="global-topics" id="g-margin1"><a>Topics</a></li>
+          <div class="global_topics_menu">
+            <span class="global_menu_col1">
+              <a href="../../../analysis/index.html"><h3>Analysis &amp; Projections</h3><p>Monthly and yearly energy forecasts, analysis of energy topics, financial analysis, Congressional reports.</p></a>
+              <a href="../../../finance/index.html"><h3>Markets &amp; Finance</h3><p class="no-border no-btm">Financial market analysis and financial data for major energy companies.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../environment.html"><h3>Environment</h3><p class="sp-environment">Greenhouse gas data, voluntary report- ing, electric power plant emissions.</p></a>
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../forecasts/steo/special/pdf/2013/2013_sp_04.pdf.html">Short-Term Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../forecasts/aeo/appendixe.cfm.html">Annual Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="../../../special/disruptions.1.html">Energy Disruptions&nbsp;&rsaquo;</a>
+              <a href="../../../forecasts/ieo.1.html">International Energy Outlook&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/beta/api/excel/">Excel Data Add-In&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+        <li class="global-geo"><a>Geography</a></li>
+          <div class="global_geo_menu">
+            <span class="global_menu_col1">
+              <a href="../../../state/search/images/sort_desc_disabled.png.html"><h3>U.S. States</h3><p>State energy information, including overviews, rankings, data, and analyses.</p></a>
+              <a href="../../../maps.1.html"><h3>Maps</h3><p class="no-border no-btm">Maps by energy source and topic, includes forecast maps.</p></a>
+            </span>
+            <span class="global_menu_col2">
+              <a href="../../../country/index.html"><h3>International</h3><p>International energy information, including overviews, rankings, data, and analyses.</p></a>
+              
+            </span>
+            <span class="global_menu_col3">
+              <h3>Highlights</h3>
+              <a href="../../../state/seds/index.html">State Energy Data System (SEDS)&nbsp;&rsaquo;</a>
+              <a href="http://www.eia.gov/cfapps/ipdbproject/IEDIndex3.cfm">International Energy Statistics&nbsp;&rsaquo;</a>
+              <a href="../../../special/gulf_of_mexico/index.html">Gulf of Mexico&nbsp;&rsaquo;</a>
+              <a href="../../../state/maps.cfm.html">U.S. Energy<br />Mapping System&nbsp;&rsaquo;</a>
+              
+            </span>
+          </div>
+      </ul>
+      <ul class="utils">
+        <li class="global-tools" id="g-margin2"><a>Tools</a></li>
+          <div class="global_tools_menu">
+            <span class="global_menu_col5">
+              <p class="no-border">
+              <a href="../../../tools/glossary/index.html" class="ico_glossary_dblue header_icon_pad">Glossary&nbsp;&rsaquo;</a><br />
+              <a href="http://www.eia.gov/reports/" class="ico_reports header_icon_pad">All Reports &amp; Publications&nbsp;&rsaquo;</a><br />
+              <a href="../../../tools/index.html" class="ico_mining header_icon_pad">Data Tools, Apps, and Maps&nbsp;&rsaquo;</a><br />
+              <a href="../../../tools/survey/index.html" class="ico_survey header_icon_pad">EIA Survey Forms&nbsp;&rsaquo;</a>              
+              <a href="http://www.eia.gov/beta/api/" class="ico_api header_icon_pad">Open Data&nbsp;&rsaquo;</a>              
+              </p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook header_icon_pad">Facebook</a><br />
+              <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter header_icon_pad">Twitter</a><br />
+              <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube header_icon_pad">YouTube</a><br />
+              <a href="../../../listserv_signup.html" class="ico_email header_icon_pad">Email Updates</a><br />
+              <a href="../../../tools/rssfeeds/index.html" class="ico_rss header_icon_pad">RSS Feeds</a></p>
+            </span>
+          </div>
+        <li class="global-learn" id="g-margin2"><a>Learn About Energy</a></li>
+          <div class="global_learn_menu">
+            <span class="global_menu_col8a">
+              <h3><a href="../../../todayinenergy.1.html">Today in Energy</a></h3>
+              <p>Short, timely articles with graphics on energy, facts, issues, and trends.</p>
+            </span>
+            <span class="global_menu_col6">
+              <p class="no-border"><a href="../../../ask/crude_types1.html" class="ico_faqs header_icon_pad">FAQs</a><br />
+              <a href="../../../tools/glossary/index.html" class="ico_glossary header_icon_pad">Glossary</a><br />
+              <a href="http://www.eia.gov/kids/energy.cfm?page=6" class="ico_teachers header_icon_pad border_learn">For Teachers</a></p>
+            </span>
+            <span class="global_menu_col8">
+              <h3><a href="../../../pub/oil_gas/petroleum/analysis_publications/oil_market_basics/paddmap.htm">Energy Explained</a></h3>
+              <p class="width152"><a href="../../../energyexplained/index.cfm@page=about_home.html">What is Energy?&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=about_energy_units.html">Units &amp; Calculators&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=us_energy_use.html">Use of Energy&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=environment_home.html">Energy & Environment&nbsp;&rsaquo;</a><br>
+              <a href="../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a></p>
+              <p class="width110"><a href="../../../energyexplained/index.cfm@page=oil_home.html">Petroleum&nbsp;&rsaquo;</a>
+              <a href="../../../energyexplained/index.cfm@page=hgls_home.html">Hydrocarbon Gas Liquids&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=natural_gas_home.html">Natural Gas&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=coal_home.html">Coal&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=nuclear_home.html">Nuclear&nbsp;&rsaquo;</a></p>
+              <p class="width181"><a href="../../../energyexplained/index.cfm@page=electricity_home.html">Electricity&nbsp;&rsaquo;</a><br>
+              <a href="../../../energyexplained/index.cfm@page=hydropower_home.html">Hydropower&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=biofuel_home.html">Biofuels: Ethanol &amp; Biodiesel&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=wind_home.html">Wind&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=geothermal_home.html">Geothermal&nbsp;&rsaquo;</a><br />
+              <a href="../../../energyexplained/index.cfm@page=solar_home.html">Solar&nbsp;&rsaquo;</a></p>
+            </span>
+            
+            <span class="global_menu_col6 mt_40">
+              <p class="no-border"><a href="http://www.eia.gov/kids/" class="ant_banner">Energy Kids</a></p>
+            </span>
+          </div>
+        <li class="global-news"><a>News</a></li>
+          <div class="global_news_menu">
+            <span class="global_menu_col7">
+              <h3><a href="../../../about/new/index.html">What's New?</a></h3>
+              
+              <div id="whatsnew3"></div>
+            </span>
+            <span class="global_menu_col3">
+              <h3><a href="../../../pressroom/archive/images/press109_kyoto5.gif.html" style="color:#fff !important;">Press Room</a></h3>
+              <a href="../../../pressroom/releases.cfm.html">Press Releases&nbsp;&rsaquo;</a>
+              <a href="../../../pressroom/presentations.cfm.html">Presentations&nbsp;&rsaquo;</a>
+              <a href="../../../pressroom/testimony.cfm.html">Congressional Testimony&nbsp;&rsaquo;</a>
+              <a href="../../../radio/index.html">Radio Spots&nbsp;&rsaquo;</a>
+            </span>
+          </div>
+      </ul>
+      <ul class="utils2">
+      <div class="global-search">
+          
+          
+      			
+      			<form accept-charset="UTF-8" action="http://search.usa.gov/search" id="search_form" method="get">
+                <input name="utf8" type="hidden" value="&#x2713;" />
+      			    <input id="affiliate" name="affiliate" type="hidden" value="eia.doe.gov" />
+      			    <label class="accessibility" for="query">Enter Search Term(s):</label>
+      			    <input autocomplete="off" class="usagov-search-autocomplete" id="search-input" name="query" type="text" maxlength="256" style="width:150px" value="Search eia.gov" />
+     	          <input type="submit" name="search" alt="enter terms to search" class="arrow_go" align="absmiddle" border="0" title="Click to search EIA">
+      			</form>
+            <script type="text/javascript">
+            //<![CDATA[
+                var usasearch_config = { siteHandle:"eia.doe.gov" };
+                var script = document.createElement("script");
+                script.type = "text/javascript";
+                script.src = "/global/scripts/search.usa.gov/remote.loader.js"; // NOTE this may need to be updated from //search.usa.gov/javascripts/remote.loader.js" periodically
+                document.getElementsByTagName("head")[0].appendChild(script);
+            //]]>
+            </script>
+          
+      </div>
+      <li class="global-a-z"><a href="../../../tools/a-z/index.html">A-Z Index</a></li>
+      <div class="global_a-z_menu">
+        <span class="global_menu_col11">
+        <h3><a href="../../../tools/a-z/index.html">A-Z Index</a></h3>
+          <a href="../../../tools/a-z/index.cfm@id=a.html">A</a>
+          <a href="../../../tools/a-z/index.cfm@id=b.html">B</a>
+          <a href="../../../tools/a-z/index.cfm@id=c.html">C</a>
+          <a href="../../../tools/a-z/index.cfm@id=d.html">D</a>
+          <a href="../../../tools/a-z/index.cfm@id=e.html">E</a>
+          <a href="../../../tools/a-z/index.cfm@id=f.html">F</a>
+          <a href="../../../tools/a-z/index.cfm@id=g.html">G</a>
+          <a href="../../../tools/a-z/index.cfm@id=h.html">H</a>
+          <a href="../../../tools/a-z/index.cfm@id=i.html">I</a>
+          <a href="../../../tools/a-z/index.cfm@id=j.html">J</a>
+          <a href="../../../tools/a-z/index.cfm@id=k.html">K</a>
+          <a href="../../../tools/a-z/index.cfm@id=l.html">L</a>
+          <a href="../../../tools/a-z/index.cfm@id=m.html">M</a>
+          <a href="../../../tools/a-z/index.cfm@id=n.html">N</a>
+          <a href="../../../tools/a-z/index.cfm@id=o.html">O</a>
+          <a href="../../../tools/a-z/index.cfm@id=p.html">P</a>
+          <a href="../../../tools/a-z/index.cfm@id=q.html">Q</a>
+          <a href="../../../tools/a-z/index.cfm@id=r.html">R</a>
+          <a href="../../../tools/a-z/index.cfm@id=s.html">S</a>
+          <a href="../../../tools/a-z/index.cfm@id=t.html">T</a>
+          <a href="../../../tools/a-z/index.cfm@id=u.html">U</a>
+          <a href="../../../tools/a-z/index.cfm@id=v.html">V</a>
+          <a href="../../../tools/a-z/index.cfm@id=w.html">W</a>
+          <a href="../../../tools/a-z/index.cfm@id=xyz.html">XYZ</a>
+        </span>
+      </div>
+      </ul>
+    </div>
+    
+
+
+
+
+
+
+    <div class="pub_title bg_aeo">
+	
+    <a href="../../../environment.1.html">&lsaquo; Environment</a>
+      <h1>Emissions of Greenhouse Gases in the U. S.</h1>
+      <p><b>Release Date:</b> March 31, 2011 &nbsp; | &nbsp;<b>Next Release Date:</b> Report Discontinued &nbsp; | &nbsp; <a href="http://www.eia.gov/environment/emissions/ghg_report/pdf/0573%282009%29.pdf" class="pdf">Report Number: DOE/EIA-0573(2009)</a></p>
+    </div>
+
+
+    <div class="pagecontent mpub_temp">
+      <div class="main_col">
+	  
+		
+            
+        
+        
+        <h2>1. Greenhouse Gas Emissions Overview</h2>
+<h3>1.1 Total emissions</h3>
+<p>Total U.S. anthropogenic (human-caused) greenhouse gas emissions in 2009 were 5.8 percent below the 2008 total (<a href="excel/tbl1.xls">Table 1</a>). The decline in total emissions&mdash;from 6,983 million metric tons carbon dioxide equivalent (MMTCO<sub>2</sub>e) in 2008 to 6,576 MMTCO<sub>2</sub>e in 2009&mdash;was the largest since emissions have been tracked over the 1990-2009 time frame. It was largely the result of a 419-MMTCO<sub>2</sub>e drop in carbon dioxide (CO<sub>2</sub>) emissions (7.1 percent). There was a small increase of 7 MMTCO<sub>2</sub>e (0.9 percent) in methane (CH<sub>4</sub>) emissions, and an increase of 8 MMTCO<sub>2</sub>e (4.9 percent), based on partial data, in emissions of man-made gases with high global warming potentials (high-GWP gases). (Draft estimates for emissions of HFC and PFC substitutes for ozone-depleting substances in 2009 are included; 2008 data are used for emissions of other high-GWP gases.) Emissions of nitrous oxide (N<sub>2</sub>O), on the other hand, fell by 4 MMTCO<sub>2</sub>e (1.7 percent).</p>
+
+<p>The decrease in U.S. CO<sub>2</sub> emissions in 2009 resulted primarily from three factors: an economy in recession, a particularly hard-hit energy-intensive industries sector, and a large drop in the price of natural gas that caused fuel switching away from coal to natural gas in the electric power sector.</p>
+
+<p>Methane emissions totaled 731 MMTCO<sub>2</sub>e in 2009 (Figure 1), up by 7 MMTCO<sub>2</sub>e (0.9 percent) from 2008. Increases in energy-related methane emissions&mdash;largely from underground coal mining&mdash;were offset by decreases in emissions from agricultural sources. Methane emissions from waste management systems rose by 7 MMTCO<sub>2</sub>e, while industrial emissions declined by 0.4 MMTCO<sub>2</sub>e.</p>
+
+<p>Emissions of nitrous oxide dropped by 4 MMTCO<sub>2</sub>e (1.7 percent) to 220 MMTCO<sub>2</sub>e. The decrease came mainly from a reduction in energy-related emissions, as well as declines in industrial-related and agricultural nitrous oxide emissions.</p>
+
+<p>Based on a partial estimate, U.S. emissions of high-GWP gases totaled 178 MMTCO<sub>2</sub>e in 2009&mdash;8 MMTCO<sub>2</sub>e (4.9 percent) above the 2008 level. Emissions of hydrofluorocarbons (HFCs) rose by 7 MMTCO<sub>2</sub>e (5.4 percent) from 2008 to 2009.</p>
+
+<p><span><a href="images/figure1-lg.jpg" class="lightbox"><img src="images/figure1.jpg" /></a><br /><span class="caption"><a href="excel/figure1data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p><img src="images/overview_tbl1.jpg" width="323" height="221" alt="U.S. greenhouse gas emissions, 1990, 2005, 2008, and 2009." /></p>
+<h3>1.2. Energy-related carbon dioxide emissions by fuel and end use</h3>
+<p>Energy-related CO<sub>2</sub> emissions dominate total U.S. greenhouse gas emissions (Figure 1). The figures below show the shares of energy-related CO<sub>2</sub> emissions accounted for by major energy fuels and by energy sectors.</p>
+
+<p>Petroleum is the largest fossil fuel source for energy-related CO<sub>2</sub> emissions, contributing 43 percent of the total (Figure 2).</p>
+<p><span><a href="images/figure2-lg.jpg" class="lightbox"><img src="images/figure2.jpg" width="333" height="221" /></a><br /><span class="caption"><a href="excel/figure2data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p>Coal is the second-largest fossil fuel contributor, at 35 percent. Although coal produces more CO<sub>2</sub> per unit of energy produced than petroleum does (i.e., coal has a higher carbon intensity than petroleum), petroleum consumption&mdash;in terms of British thermal units (Btu)&mdash;made up 45.0 percent of total fossil fuel energy consumption in 2009, as compared with coal's 25 percent.</p>
+<p>Natural gas, with a carbon intensity that is about 55 percent of the carbon intensity of coal and 75 percent of the carbon intensity of petroleum, accounted for 30 percent of U.S. fossil energy use in 2009 but only 22 percent of total energy-related CO<sub>2</sub> emissions.</p>
+<p>In Figure 3, emissions are divided into three categories: emissions from the direct use of fossil fuels in homes (for example, natural gas for heating), commercial buildings, and industry; emissions from fuel use for transportation (principally, petroleum); and emissions from the conversion of primary energy to electricity in the electric power sector.</p>
+<p><span><a href="images/figure3-lg.jpg" class="lightbox"><img src="images/figure3sm.jpg" /></a><br /><span class="caption"><a href="excel/figure3data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p>The electric power sector is the largest source, accounting for 40 percent of all energy-related CO<sub>2</sub> emissions. The electric power sector consists of those entities whose primary business is the production of electricity.</p>
+<p>The transportation sector is the second-largest source, at 34 percent of the total. Those emissions are principally from the combustion of motor gasoline, diesel fuel, and jet fuel.</p>
+<p>Direct fuel use in the residential and commercial sectors (mainly for heating) and the use of fuels to produce process heat in the industrial sector together accounted for 26 percent of total CO<sub>2</sub> emissions in 2009.</p>
+<h3>1.3 Decomposition of U.S. greenhouse gas changes</h3>
+<p>While the U.S. economy declined by 2.6 percent in 2009, a 5.8-percent decrease in total greenhouse gas emissions meant that U.S. greenhouse gas intensity decreased by 3.3 percent from 2008 to 2009.</p>
+<p>Because energy-related CO<sub>2</sub> is such a large component of greenhouse gas emissions, it is helpful to analyze energy-related CO<sub>2</sub> emissions by using an equation known as the Kaya identity. The Kaya identity relates percent changes in energy-related CO<sub>2</sub> emissions to changes in the economy through the following approximation:</p>
+<table width="346" border="0" align="center">
+  <tr>
+    <td width="340"><img src="images/equation.jpg" width="300" height="18" /></td></tr>
+</table>
+<br />
+<table width="316">
+  <tr>
+    <td width="245">where <img src="images/equation2.jpg" width="25" height="17" /> represents percentage change.</td>
+  </tr>
+</table>
+<p>As indicated in Figure 4, energy-related CO<sub>2</sub> emissions have declined in every year since 2005, with the exception of 2007. Although this is not a long period of time, it is instructive to examine the reasons for the change in trend as compared with the period from 1990 to 2005. A lower rate of economic growth from 2005 to 2009 (averaging 0.5 percent per year, as compared with the average of 3.1 percent per year from 1990 to 2005) is a key driver of the changing trend in emissions.</p>
+<p><span><a href="images/figure4-lg.jpg" class="lightbox"><img src="images/figure4sm.jpg" /></a><br /><span class="caption"><a href="excel/figure4data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p>Over both periods, the energy intensity of the economy declined by an average of 1.9 percent per year, as the trend toward a service-oriented, post-industrial U.S. economy continued. In contrast, a drop in the carbon intensity of the U.S. energy supply may represent a new trend: from 1990 to 2005, carbon intensity increased on average by 1.0 percent per year, but from 2005 to 2009 it fell by an average of 1.9 percent per year, as natural gas was increasingly substituted for coal, and renewable electricity generation continued to grow. In combination, these factors resulted in a 7.1-percent decline in energy-related CO<sub>2</sub> emissions from 2008 to 2009 (<a href="excel/tbl2.xls">Table 2</a>).</p>
+<h3>1.4. Greenhouse gas emissions in the U.S. economy</h3>
+<p>Figure 5 illustrates the flow of U.S. greenhouse gas emissions in 2009, from their sources to their end uses. The left side shows CO<sub>2</sub> quantities by fuel sources and quantities for other gases; the right side shows their distribution by sector. The center of the diagram indicates the split between CO<sub>2</sub> emissions from direct fuel combustion and those from electricity conversion. Adjustments indicated at the top of the diagram for U.S. territories and international bunker fuels correspond to greenhouse gas reporting requirements developed by the United Nations Framework Convention on Climate Change (UNFCCC) (see also <a href="excel/tbl3.xls">Table 3</a>).</p>
+<p><span><a href="images/figure5-lg.jpg" class="lightbox"><img src="images/figure5sm.jpg" width="323" height="221" /></a><br />
+<span class="caption"><a href="diagram_notes.cfm.html">Diagram notes</a></span></p>
+<p><b><em>CO<sub>2</sub></em>.</b> CO<sub>2</sub> emission sources include energy-related emissions (primarily from fossil fuel consumption) and emissions from industrial processes. The energy subtotal (5,426 MMTCO<sub>2</sub>e) includes petroleum, coal, and natural gas consumption and smaller amounts from nonbiogenic municipal solid waste and some forms of geothermal power generation. The energy subtotal also includes emissions from nonfuel uses of fossil fuels, mainly as inputs to other products. Industrial process emissions (87 MMTCO<sub>2</sub>e) include CO<sub>2</sub> stripped from natural gas and flared natural gas, cement manufacture, limestone and dolomite calcination, soda ash manufacture and consumption, CO<sub>2</sub> manufacture, and aluminum production. The sum of the energy subtotal and industrial processes equals unadjusted CO<sub>2</sub> emissions (5,513 MMTCO<sub>2</sub>e). The energy component of unadjusted emissions can be divided into direct fuel use (3,265 MMTCO<sub>2</sub>e) and fuel converted to electricity (2,160 MMTCO<sub>2</sub>e).</p>
+<p><b><em>Non-CO<sub>2</sub> gases</em>.</b> Methane (731 MMTCO<sub>2</sub>e) and nitrous oxide (220 MMTCO<sub>2</sub>e) sources include emissions related to energy, agriculture, waste management, and industrial processes. High-GWP gases (178 MMTCO<sub>2</sub>e) include hydrofluorocarbons (HFCs), perfluorocarbons (PFCs), and sulfur hexafluoride (SF<sub>6</sub>). These gases have a variety of uses in the U.S. economy, including as refrigerants, insulators, solvents, and aerosols; as etching, cleaning, and firefighting agents; and as cover gases in various manufacturing processes.</p>
+<p><b><em>Adjustments</em>.</b> In keeping with the UNFCCC, CO<sub>2</sub> emissions from U.S. Territories (47 MMTCO<sub>2</sub>e) are added to the U.S. total, and CO<sub>2</sub> emissions from fuels used for international transport (both oceangoing vessels and airplanes) (113 MMTCO<sub>2</sub>e) are subtracted to derive total U.S. greenhouse gas emissions (6,576 MMTCO<sub>2</sub>e).</p>
+<p><b><em>Emissions by end-use sector</em>.</b> CO<sub>2</sub> emissions by end-use sector are based on EIA's estimates of energy consumption (direct fuel use and purchased electricity) by sector and on the attribution of industrial process emissions by sector. CO<sub>2</sub> emissions from purchased electricity are allocated to the end-use sectors, based on their shares of total electricity sales. Non-CO<sub>2</sub> gases are allocated by direct emissions in those sectors plus emissions in the electric power sector that can be attributed to the end-use sectors on the basis of electricity sales.</p>
+<p><b><em>Residential </em></b>emissions (1,186 MMTCO<sub>2</sub>e) include energy-related CO<sub>2</sub> emissions (1,172 MMT) and non-CO<sub>2</sub> emissions (14 MMTCO<sub>2</sub>e). The non-CO<sub>2</sub> sources include methane and nitrous oxide emissions from direct fuel use. Non-CO<sub>2</sub> indirect emissions attributable to purchased electricity, including methane and nitrous oxide emissions from electric power generation and SF<sub>6</sub> emissions related to electricity transmission and distribution, are also included.</p>
+<p><b><em>Commercial</em></b> emissions (1,288 MMTCO<sub>2</sub>e) include both energy-related CO<sub>2</sub> emissions (1,012 MMT) and non-CO<sub>2</sub> emissions (276 MMTCO<sub>2</sub>e). The non-CO<sub>2</sub> emissions include direct emissions from landfills, wastewater treatment plants, and commercial refrigerants, and emissions of methane and nitrous oxide from stationary combustion. Non-CO<sub>2</sub> indirect emissions attributable to purchased electricity, including methane and nitrous oxide emissions from electric power generation and SF<sub>6</sub> emissions related to electricity transmission and distribution, are also included.</p>
+<p><b><em>Industrial</em></b> emissions (2,240 MMTCO<sub>2</sub>e) include CO<sub>2</sub> emissions (1,505 MMT)&mdash;which can be broken down between combustion (1,418 MMT) and process emissions (87 MMT)&mdash;and non-CO<sub>2</sub> emissions (735 MMTCO<sub>2</sub>e). The non-CO<sub>2</sub> direct emissions include emissions from agriculture (methane and nitrous oxide), coal mines (methane), petroleum and natural gas pipelines (methane), industrial process emissions (methane, nitrous oxide, HFCs, PFCs, and SF<sub>6</sub>), and direct stationary combustion emissions of methane and nitrous oxide. Non-CO<sub>2</sub> indirect emissions attributable to purchased electricity, including methane and nitrous oxide emissions from electric power generation and SF<sub>6</sub> emissions related to electricity transmission and distribution, are also included.</p>
+<p><b><em>Transportation</em></b> emissions (1,861 MMTCO<sub>2</sub>e) include energy-related CO<sub>2</sub> emissions from mobile source combustion (1,757 MMT) and non-CO<sub>2</sub> emissions (104 MMTCO<sub>2</sub>e). The non-CO<sub>2</sub> emissions include methane and nitrous oxide emissions from mobile source combustion and HFC emissions from the use of refrigerants for mobile source air-conditioning units.</p>
+<h3>1.5. U.S. emissions in a global perspective</h3>
+<p>Total U.S. energy-related CO<sub>2</sub> emissions in 2007 (including nonfuel uses of fossil fuels) are estimated at 6,022 MMT&#8212;about 20 percent of the 2007 world total for energy-related CO<sub>2</sub> emissions, estimated at 29,728 MMT (<a href="excel/tbl4.xls">Table 4</a>).</p>
+<p>CO<sub>2</sub> emissions related to energy use in the mature economies of countries that are members of the Organization for Economic Cooperation and Development (OECD)&mdash;including OECD North America, OECD Europe, Japan, South Korea, and Australia/New Zealand&#8212;were estimated at 13,711 MMT in 2007, or 46 percent of the world total, with the remaining 54 percent of worldwide energy-related CO<sub>2</sub> emissions (16,017 MMT) estimated to have come from non-OECD countries (Figure 6).</p>
+<p><span><a href="images/figure6-lg.jpg" class="lightbox"><img src="images/figure6sm.jpg" /></a><br /><span class="caption"><a href="excel/figure6data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p>  <img src="images/overview_tbl2.jpg" width="323" height="221" alt="World energy-related carbon diioxide emissions, 1990, 2005, 2007, and 2035." /></p>
+<p>In EIA's <i>International Energy Outlook 2010</i> (<i>IEO2010</i>) Reference case, projections of energy use and emissions are sensitive to economic growth rates and energy prices. Projections for a range of alternative growth and price scenarios are presented in <i>IEO2010</i>.</p>
+<p>U.S. energy-related CO<sub>2</sub> emissions are projected to increase by an average of 0.2 percent per year from 2007 to 2035 in the <i>Annual Energy Outlook 2011</i> (<i>AEO2011</i>) Reference case, while emissions from the non-OECD economies (<i>IEO2010</i> Reference case) grow by 1.7 percent per year. Both rates are lower than previous projections as a result of the 2008-2009 global recession and newly enacted energy policies. Consequently, the U.S. share of world CO<sub>2</sub> emissions is projected to fall to 15.8 percent (6,320 MMT out of a global total of 39,975 MMT) in 2035 (Figure 7).</p>
+<p></p>
+<p><span><a href="images/figure7-lg.jpg" class="lightbox"><img src="images/figure7sm.jpg" /></a><br /><span class="caption"><a href="excel/figure7data.xls" class="ico_xls">Figure Data</a></span></span></p>
+<p>China's share of global energy-related CO<sub>2</sub> emissions is projected to grow from 21 percent in 2007 to 31 percent in 2035, and China accounts for 56 percent of the projected increase in world emissions over the period. India accounts for the second-largest share of the projected increase, 7 percent.</p>
+<h3>1.6. Recent U.S. and international developments in global climate change</h3>
+<h4>  United States: Federal actions</h4>
+<h4>  U.S. Environmental Protection Agency</h4>
+<p>Rules for Mandatory Reporting of Greenhouse Gases by 31 industries and emissions sources were finalized by the U.S. Environmental Protection Agency (EPA) in October 2009.<a href="ghg_overview.cfm.html#_ftn1" name="_ftnref1" id="_ftnref1"><sup>1</sup></a> Final rules and methods were proposed in April 2010 for a second group of industries: oil and natural gas systems; five industries that emit fluorinated greenhouse gases (GHGs); and facilities that inject and store CO<sub>2</sub> underground for the purposes of geologic sequestration or enhanced oil and gas recovery. The rules were finalized in November and December 2010, with data collection for this second group beginning in January 2011. Reporting rules for the remaining sources from the original proposed rule that were not finalized in October 2009 were finalized in June 2010. This batch of final rules included magnesium production, underground coal mines, industrial wastewater treatment, and industrial landfills. However, the EPA has not acted to finalize the proposed rules for ethanol production, food processing, and coal suppliers.</p>
+
+<p>In December 2009, the EPA issued its final endangerment and cause or contribute findings for greenhouse gas emissions from light-duty vehicles, classifying them as a danger to public health and welfare. As a result, the EPA and the U.S. Department of Transportation's National Highway Traffic Safety Administration (NHTSA), in April 2010, jointly published Corporate Average Fuel Economy (CAFE) and GHG emissions standards to regulate emissions from light-duty vehicles of model years 2012-2016.</p>
+
+<p>In May 2010, a Presidential memo declared that the rulemaking to set standards for light-duty vehicles of model years 2017-2025 would begin, and also directed the EPA and NHTSA for the first time to draft efficiency rules for medium- and heavy-duty engines and vehicles.<a href="ghg_overview.cfm.html#_ftn2" name="_ftnref2" id="_ftnref2"><sup>2</sup></a> A Notice of Intent to conduct a joint rulemaking on light-duty vehicles for model years 2017-2025, which includes the Agencies' initial assessment of a potential future standard, was released in September 2010.<a href="ghg_overview.cfm.html#_ftn3" name="_ftnref3" id="_ftnref3"><sup>3</sup></a> Proposed rules covering model years 2014-2018 were announced in October 2010. Also in May 2010, the EPA published its Tailoring Rule, which details the Agency's plans to begin regulating GHG emissions from large industrial GHG sources, including power generation facilities, industrial boilers, and oil refineries.<a href="ghg_overview.cfm.html#_ftn4" name="_ftnref4" id="_ftnref4"><sup>4</sup></a> The EPA began requiring Clean Air Act (CAA) permits for stationary GHG sources under the Prevention of Significant Deterioration (PSD) requirements of the CAA in January 2011.<a href="ghg_overview.cfm.html#_ftn5" name="_ftnref5" id="_ftnref5"><sup>5</sup></a> In August 2010, the EPA announced plans to amend or take over State permitting operations in cases where the State Implementation Plan (SIP) for PSD permitting did not adequately address GHG emissions, as would be required by the CAA.<a href="ghg_overview.cfm.html#_ftn6" name="_ftnref6" id="_ftnref6"><sup>6</sup></a></p>
+<h4>  Other Federal agencies and offices</h4>
+<p><b><em>Implementation of Executive Order 13514 (EO 13514)</em>.</b> The White House Council on Environmental Quality (CEQ) and DOE's Federal Energy Management Program (FEMP) developed guidance and calculation methodologies for Federal agencies to conduct and report their GHG inventories under the requirements of EO 13514, Federal Leadership in Environmental, Energy, and Economic Performance (October 5, 2009). The final guidelines for FY 2008 and FY 2010 inventory submissions were published in October 2010. CEQ and FEMP will continue to update the guidelines and methodologies to cover additional emissions sources and provide improved calculation methods for future inventory years.
+Individual agencies submitted their Strategic Sustainability Performance Plans in June 2010, detailing their strategies to help reach the overall Federal Government-wide goal to reduce Scope 1 and 2 emissions by 28 percent and Scope 3 emissions by 13 percent.<a href="ghg_overview.cfm.html#_ftn7" name="_ftnref7" id="_ftnref7"><sup>7</sup></a></p>
+<p><b><em>New home appliance efficiency standards agreement</em>.</b> In August, a coalition of energy and water efficiency and consumer advocacy groups, along with major home appliance manufacturers and their industry association, announced an agreement to increase the efficiency of Energy Star home appliances and to seek tax credits for the production of super-efficient appliances.</p>
+<p><b><em>American Recovery and Reinvestment Act</em>.</b> As of September 30, 2010, the close of the government's fiscal year 2010, DOE had used $35.2 billion in Recovery Act appropriations and $7.5 billion in Treasury tax incentive programs to support more than $100 billion in clean energy projects. This funding went to support more than 8,000 projects across the country, selected from among more than 30,000 applications.<a href="ghg_overview.cfm.html#_ftn8" name="_ftnref8" id="_ftnref8"><sup>8</sup></a></p>
+<h4>United States: Regional and State initiatives</h4>
+<p>  <strong>Regional GHG initiatives</strong>. The Western Climate Initiative (WCI) consists of seven western U.S. member States, four Canadian member provinces, and an additional 14 observing States and provinces in the United States, Canada, and Mexico. The U.S. member States hold 19 percent of the total U.S. population and produce 20 percent of U.S. GDP.<a href="ghg_overview.cfm.html#_ftn9" name="_ftnref9" id="_ftnref9"><sup>9</sup></a> In July 2010, WCI released its comprehensive design strategy, which outlines its plan to reduce regional GHG emissions to 15 percent below 2005 levels by 2020.</p>
+
+<p>  <strong>State energy and GHG legislation</strong>. A number of new energy efficiency, renewable energy, and climate change laws were enacted in States across the country in 2010,<a href="ghg_overview.cfm.html#_ftn10" name="_ftnref10" id="_ftnref10"><sup>10</sup></a> including: RPS amendments (Maryland increased its solar carve-out, and Colorado increased its solar energy target to 30 percent of total energy production by 2020); an ocean energy development goal (Maine); electric vehicle incentives (Maryland); a carbon tax (Montgomery County, Maryland); a low carbon fuel standard for vehicle fuels (California); energy efficiency standards for utilities (Massachusetts) and for new commercial buildings (California); smart grid policy development (Maine); and planning for reductions in GHG emissions from the transportation sector (Oregon).</p>
+<p>In July 2010, the Governors of Rhode Island and Massachusetts signed a Memorandum of Understanding (MOU) on the development of offshore wind energy facilities in the Federal waters off of their coasts. The MOU requires that the States coordinate and collaborate on wind energy efforts in an "area of mutual interest" in their overlapping shared waters.<a href="ghg_overview.cfm.html#_ftn11" name="_ftnref11" id="_ftnref11"><sup>11</sup></a></p>
+<h4>International actions </h4>
+  <h4>UNFCCC and the Kyoto Protocol</h4>
+    <p>The 15th Conference of the Parties (COP-15) and 5th Meeting of the Parties to the Kyoto Protocol (CMP-5) were held in Copenhagen, Denmark, in December 2009. The main product of the meetings was the Copenhagen Accord, which had been agreed to by 140 of the 192 UNFCCC nations as of November 2010.<a href="ghg_overview.cfm.html#_ftn12" name="_ftnref12" id="_ftnref12"><sup>12</sup></a> The Accord is a non-binding statement pledging action on:    </p>
+    <ul>
+      <li>A goal to limit global warming to 2 degrees Celsius</li>
+      <li>Submission of mitigation goals by individual nations</li>
+      <li>Funding $30 billion in "new and additional" financing for mitigation, adaptation, technology development, and capacity building in developing nations over the 2010-2012 period, increasing to $100 billion per year by 2020</li>
+      <li>Reporting and verification of national inventories and mitigation actions</li>
+      <li>Establishment of a mechanism to use developed country financing in support of efforts to reduce emissions from deforestation and forest degradation and to enhance carbon sinks.</li>
+  </ul>
+    
+   <p> COP-16 and CMP-6 convened from November 29 through December 10, 2010, in Cancun, Mexico. The Parties adopted a package of agreements that reaffirms and builds upon the Copenhagen Accord of 2009. The Cancun Agreements<a href="ghg_overview.cfm.html#_ftn13" name="_ftnref13" id="_ftnref13"><sup>13</sup></a> include the following actions:</p>
+    <ul>
+      <li>Reaffirm the Accord's goal to limit global average temperature rise to 2 degrees Celsius above pre-industrial levels</li>
+      <li>Formally recognize the reduction pledges made in the Copenhagen Accord for the first time by "taking note" of the pledges made by both developed and developing nations</li>
+      <li>Indicate that the Clean Development Mechanism (CDM) and Joint Implementation, by which Annex I nations may use non-Annex I mitigation projects to offset their emissions, will continue beyond 2012</li>
+      <li>Create a new "standardized baseline" process for some types of CDM projects</li>
+      <li>Set out a reporting framework that continues annual submission of inventories by developed nations and creates a new registry for developing nations to report on mitigation actions that receive international financing and includes general guidelines for reporting autonomous actions</li>
+      <li>Provide a framework to develop financing and other policies to Reduce Emissions from Deforestation and Degradation (REDD+) and call upon developing nations to develop national strategies and reference levels for future efforts to reduce deforestation</li>
+      <li>Establish the World Bank as interim trustee of The Green Climate Fund, which seeks to raise $100 billion per year from public and private sources by 2020 to support greenhouse gas mitigation efforts in developing countries</li>
+      <li>Set up the Cancun Adaptation Framework to formalize and outline efforts to enhance adaptation activities by all UNFCCC members</li>
+      <li>Establish the Technology Mechanism to assist developing countries with identification, transfer, and application of appropriate low-carbon technologies.</li>
+</ul>
+<h4>Montreal Protocol</h4>
+    <p>The United States, Canada, and Mexico continued to move forward with their proposal, first announced in 2009, to amend the Montreal Protocol to include a binding schedule for phasing down production and consumption of 20 hydrofluorocarbons (HFCs). The proposal calls for developed countries to reduce their production and consumption of the 20 HFCs to 15 percent of a 2004-2006 average baseline by 2033, and for developing nations to meet the same level by 2043. The proposal was considered at the 22nd Meeting of the Parties to the Montreal Protocol in Bangkok in November. The United States, Canada, and Mexico also offered a proposal to increase project-based efforts to control emissions from HFC-23 and HCFC-22 production.<a href="ghg_overview.cfm.html#_ftn14" name="_ftnref14" id="_ftnref14"><sup>14</sup></a> (For more information on domestic efforts to reduce emissions of high-GWP gases, see Chapter 5.)</p>
+    <h4>Major Economies Forum</h4>
+    <p>The 6th, 7th, and 8th Meetings of the Leaders' Representatives to the Major Economies Forum on Energy and Climate Change convened during 2010.<a href="ghg_overview.cfm.html#_ftn15" name="_ftnref15" id="_ftnref15"><sup>15</sup></a> Representatives of the 17 major economies, the United Nations, and guest smaller nations discussed the path forward after COP-15 in Copenhagen and toward COP-16 in Cancun. Discussions centered around further development of the Copenhagen Accord and goals for progress in Cancun, including an emphasis on monitoring, reporting, verification, and transparency; quick implementation of the Accord's Fast Start Financing provisions; the future of the Kyoto Protocol; and different notions of equity. Separately, a Clean Energy Ministerial meeting track was launched to advance initiatives related to energy supply, energy efficiency, and energy access. The Ministerial met in July to develop steps toward accelerated deployment of clean energy technologies and will meet again in April 2011 in Abu Dhabi.<a href="ghg_overview.cfm.html#_ftn16" name="_ftnref16" id="_ftnref16"><sup>16</sup></a></p>
+    <h4>Bilateral and multilateral agreements</h4>
+    <p>The U.S. State Department signed two memoranda of understanding (MOU) in 2010 related to cooperation on greenhouse gas emissions. In March, the United States signed an MOU with Brazil establishing a "Climate Change Policy Dialogue," which aims to increase cooperation between the two nations on energy efficiency, capacity building, and combating deforestation.<a href="ghg_overview.cfm.html#_ftn17" name="_ftnref17" id="_ftnref17"><sup>17</sup></a> In July, the United States and China signed an MOU to cooperate in the development of clean energy and energy efficiency technologies and engage in a policy dialog.<a href="ghg_overview.cfm.html#_ftn18" name="_ftnref18" id="_ftnref18"><sup>18</sup></a></p>
+    <h3>1.7. Special topic: Energy and carbon initiatives at the U.S. Department of Energy</h3>
+    <p>Under EO 13514, all Federal Government agencies are required to develop integrated sustainability plans that include greenhouse gas emission reductions; efficient water use; waste reduction and pollution prevention; and increased efficiency in buildings, products, and vehicle fleets.<a href="ghg_overview.cfm.html#_ftn19" name="_ftnref19" id="_ftnref19"><sup>19</sup></a> At the U.S. Department of Energy (DOE), the mission of the Federal Energy Management Program (FEMP) is to facilitate the Federal Government's implementation of sound, cost-effective energy management and investment practices in order to enhance the Nation's energy security and environmental stewardship. Serving its mission, FEMP assists DOE and other agencies in planning and implementing strategies to achieve conservation, efficiency, and renewable energy goals under EO 13514 and other mandates.</p>
+    <p>DOE has more than 15,000 Federal employees in offices and laboratories around the country. Under the EO 13514 requirement to quantify Agency GHG emissions, DOE calculated a fiscal year (FY) 2008 baseline of 5 MMTCO<sub>2</sub>e and established a goal of a 28-percent absolute reduction in its emissions by 2020.<a href="ghg_overview.cfm.html#_ftn20" name="_ftnref20" id="_ftnref20"><sup>20</sup></a></p>
+    <p>In October 2010, FEMP released its <i>Annual GHG and Sustainability Data Report, Version 1.0</i> to coincide with the release of the <i>Federal Greenhouse Gas Accounting and Reporting Guidance</i> and <i>Technical Support Document by the White House Council on Environmental Quality</i>. The documents and reporting tool aid Federal agencies in gauging their progress toward goals set under EO 13514 by providing guidance and the means for the necessary data collection.<a href="ghg_overview.cfm.html#_ftn21" name="_ftnref21" id="_ftnref21"><sup>21</sup></a> The Data Report includes reporting requirements for facility and operational energy and water use, as well as calculation of Federal fleet fuel use, fulfilling previous FEMP requirements. FEMP will continue to release updated versions of the Data Report to aid agencies in realizing their EO 13514 goals. Notable initiatives contributing to DOE's efforts to achieve EO 13514 goals are described below.</p>
+<h4>DOE Headquarters facilities</h4>
+      <p>DOE Headquarters (HQ) is located in the James Forrestal building in downtown Washington, DC, and in Germantown, MD. The HQ facilities house more than 5,800 of the Agency's Federal and contract employees. Initiatives to increase energy savings and efficiency at DOE HQ buildings include the following.</p>
+        <h4>           Solar array</h4>
+         <p>Installed on the roof of the Forrestal building in September 2008, the solar array generates about 235,000 kilowatthours of electricity per year. The array is also important for technology demonstration and testing purposes. In addition to the main configuration, the array contains several examples of solar panel technologies, along with monitoring stations to measure power generation in relation to weather conditions.</p>
+        <h4>Energy savings</h4>
+         <p>In December 2009, DOE entered into an Energy Savings Performance Contract (ESPC) involving a large-scale HQ retrofit project. An ESPC allows DOE to finance the project with minimal initial cost, because the installation costs will be offset by monetary savings associated with reduced resource consumption.<a href="ghg_overview.cfm.html#_ftn22" name="_ftnref22" id="_ftnref22"><sup>22</sup></a> The project focuses on reducing energy consumption in the Forrestal building and water consumption at the Germantown facilities. Construction is scheduled to be completed by December 2011. The efforts are expected to result in reductions of energy consumption by 22 percent at the Forrestal building and water consumption by 11 percent in Germantown.
+In spring 2010, the Forrestal corridor lighting system was rewired to allow for all lights, with the exception of emergency lighting, to be turned off during night and weekend hours. This upgrade should reduce energy consumption by about 280,000 kilowatthours per year.</p>
+<h4> Forrestal west and south buildings cool roofs</h4>
+        <p>DOE has completed a "cool roof" on the cafeteria and plans to complete one for the south building at the Forrestal complex over the summer of 2011. The project includes roof engineering designs that will reflect sunlight and emit heat more efficiently than existing roofs, reducing energy consumption and costs associated with summertime cooling. It also includes solar hot water heating for the cafeteria, energy savings and life-cycle cost evaluation, and other technical and economic analyses.</p>
+        <h4>Other notable DOE projects</h4>
+    <p>During December 2009, DOE awarded 16 new Energy Savings Performance Contracts (ESPCs), including the following.</p>
+        <h4>            Savannah River Biomass Steam Plant, Aiken, South Carolina</h4>
+          <p>DOE's Savannah River Biomass Steam Plant is one of the largest of its kind. Originally powered by coal-burning boilers, the project, financed by an ESPC, has replaced the original boilers with two steam boilers powered by the combustion of woody biomass. These upgrades are estimated to save $34 million a year in fuel, operations, and maintenance costs.</p>
+<h4>            Existing Building Assessment Tool</h4>
+          <p>            In 2009, DOE continued to use the Existing Building Assessment Tool (EBAT), part of the High Performance Sustainable Building Assessment Tool. EBAT aids in identifying and prioritizing sustainability projects for retrofitting DOE's building stock with energy-efficient technologies.<a href="ghg_overview.cfm.html#_ftn23" name="_ftnref23" id="_ftnref23"><sup>23</sup></a> DOE's building portfolio currently includes 20 Leadership in Energy and Environmental Design (LEED) certified buildings. LEED is an internationally recognized green building certification system, which verifies that a building was designed and constructed to improve energy savings, CO<sub>2</sub> emission reductions, and other environmental factors.<a href="ghg_overview.cfm.html#_ftn24" name="_ftnref24" id="_ftnref24"><sup>24</sup></a> The assessment tool is being used to identify candidate projects that would enable additional buildings to gain certification.</p>
+          <h4>National Renewable Energy Laboratory, Golden, Colorado</h4>
+ <p>DOE's National Renewable Energy Laboratory (NREL) facility in Golden, Colorado, has begun efforts to achieve net-zero energy consumption. Part of the initiative includes "greening" its data center by consolidating servers from 250 to 50, arranging servers to enable more efficient air flow, and using more energy-efficient methods to cool the air around servers. The efforts will reduce power consumption at the data center by 65 percent.<a href="ghg_overview.cfm.html#_ftn25" name="_ftnref25" id="_ftnref25"><sup>25</sup></a></p>
+ <h4>Future DOE projects</h4>
+<h4>Data center acceleration campaign</h4>
+            <p>DOE is planning a $2.5 million strategic energy efficiency plan for its information technology infrastructure. The plan emphasizes 41 data centers. FEMP projects a 30-percent energy savings through the implementation of existing technologies under the initiative.<a href="ghg_overview.cfm.html#_ftn26" name="_ftnref26" id="_ftnref26"><sup>26</sup></a></p>
+        <h4> Biomass generation plant at Oak Ridge, Tennessee</h4>
+<p>DOE's research facilities in Oak Ridge, Tennessee, will house a biomass steam generation plant, scheduled to be operational in 2011. The project replaces four natural-gas-fired boilers and will eliminate more than 55,000 metric tons of carbon dioxide emissions each year, in addition to reductions in nitrogen oxide and sulfur dioxide emissions.<a href="ghg_overview.cfm.html#_ftn27" name="_ftnref27" id="_ftnref27"><sup>27</sup></a></p>
+<h3>1.8. Units for measuring greenhouse gases</h3>
+<p>Emissions data are reported here in metric units. Metric tons are relatively intuitive for users of U.S. measurement units, because 1 metric ton is only about 10 percent heavier than a short ton.</p>
+<p>Throughout this report, emissions of carbon dioxide and other greenhouse gases are given in carbon dioxide equivalents. In the case of carbon dioxide, emissions denominated in the molecular weight of the gas or in carbon dioxide equivalents are the same. Carbon dioxide equivalent data can be converted to carbon equivalents by multiplying by 12/44.</p>
+<p>Emissions of other greenhouse gases (such as methane) can also be measured in carbon dioxide equivalent units by multiplying their emissions (in metric tons) by their global warming potentials (GWPs). Carbon dioxide equivalents are the amount of carbon dioxide by weight emitted into the atmosphere that would produce the same estimated radiative forcing as a given weight of another radiatively active gas.</p>
+<p>Carbon dioxide equivalents are computed by multiplying the weight of the gas being measured (for example, methane) by its estimated GWP (which is 25 for methane). As indicated in <a href="excel/tbl5.xls">Table 5</a>, the GWP for methane was estimated at 21 in the second scientific assessment and 23 in the third. These changes reflect enhanced knowledge, through climate research, of methane's radiative efficiency. Also, as the level of carbon dioxide in the atmosphere increases, it becomes marginally less potent as a greenhouse gas. Consequently, other gases with lower atmospheric concentrations are relatively more potent. In 2008, the IPCC Working Group I released Errata to its Fourth Assessment Report, <i>Climate Change 2007: The Physical Science Basis</i>.<a href="ghg_overview.cfm.html#_ftn28" name="_ftnref28" id="_ftnref28"><sup>28</sup></a> The Errata revise the reported GWPs for a small number of high-GWP gases. The GWPs published in the Errata to the Fourth Assessment Report (AR4) were used in the calculation of carbon dioxide equivalent emissions for this report. Table 5 summarizes the GWP values from the Second, Third, and Fourth Assessment Reports.<b></b></p>
+<h3>1.9. Methodology updates for this report</h3>
+<h4>  Carbon dioxide</h4>
+<p>  Revised coal and motor gasoline carbon factors have been adopted, based on work done by the U.S. EPA.<a href="ghg_overview.cfm.html#_ftn29" name="_ftnref29" id="_ftnref29"><sup>29</sup></a></p>
+<p>For the first time, EIA is providing estimates of biogenic CO<sub>2</sub> emissions from biofuels and bioenergy, based on energy consumption data from EIA's <i>Monthly Energy Review</i> (<i>MER</i>). The estimates are provided in Chapter 6 for informational purposes and are not included in the total emissions estimate, because they are considered to be part of the natural carbon cycle and so are excluded under UNFCCC guidelines.</p>
+<h4><strong>Methane</strong></h4>
+  <p>Styrene has been dropped as a source of CH<sub>4</sub> emissions from the chemicals industry, based on guidance from the 2006 IPCC guidelines. Those emissions have been removed from all years of this inventory.</p>
+  <p>CH<sub>4</sub> emission factors for passenger cars and light-duty vehicles have been revised to the values published in the 2006 IPCC guidelines, resulting in a significant decline in calculated emissions from this source category from 1990 to 2008.</p>
+  <p>Updates have been made to the specificity of the calculations used to estimate emissions from the production and management of manure, including conducting a State-level analysis of swine manure emissions for the first time. In addition, sheep populations have been separated into those on feedlots and those not on feedlots; and populations of pullets, other chickens, and turkeys have been included in the poultry account for the first time. These updates also affect the estimation of N<sub>2</sub>O emissions from manure management.</p>
+  <p>Changes in livestock population data that are used to derive the emissions factors for calculating CH<sub>4</sub> emissions from enteric fermentation resulted in an average increase in emissions of 3 percent over the series.</p>
+  <p>Additional emissions factors, conversion factors, and constants applied to the calculation of emissions related to agriculture and livestock have been updated on the basis of the most recent values published by the EPA or IPCC, as applicable.</p>
+  <p>For the first time in this report, CH<sub>4</sub> emissions from composting and from the combustion of waste are included in the inventory.<b></b></p>
+  <h4>    <strong>Nitrous oxide</strong></h4>
+  <p>Emissions calculations methodologies for direct and indirect emissions of N<sub>2</sub>O from nitrogen fertilization of agricultural soils and from runoff of fertilizer and manure applied to soils have been revised to align more completely with methods in the 2006 IPCC guidelines. Most notably, the revised IPCC methodology, which accounts for nitrogen in below-ground crop residues but omits biological fixation of nitrogen, has been implemented for the 2009 inventory.</p>
+  <p>Emissions resulting from manure that is directly deposited on lands by grazing or pasture-raised animals have been transferred from the manure management category to the agricultural soils category, and new sources of indirect emissions from soil leaching and volatization have been included in nitrogen fertilization of soils.</p>
+  <p>The specificity of direct and indirect emissions from manure management has been improved by implementing State-level calculation of swine emissions and updating the waste management system distributions for dairy cattle and swine to annually variable State-level values.</p>
+  <p>N<sub>2</sub>O emission factors for passenger cars and light-duty vehicles have been revised to the values published in the 2006 IPCC guidelines, resulting in a significant decline in calculated emissions from this source category from 1990 to 2008.</p>
+  <p>Emissions estimates for 2007 and 2008 have been corrected to account for the 2006 closing of the smallest adipic acid plant in the United States, which was the only remaining plant that did not use abatement technology. Also, the N<sub>2</sub>O emission factor for adipic acid production has been revised to the value published in the 2006 IPCC guidelines.</p>
+  <p>For the first time in this report, N<sub>2</sub>O emissions from composting are included in the inventory.<br />
+  </p>
+  <h4><strong>High-GWP gases</strong></h4>
+  <p>Data for 2009 covering the use or production of HFCs, PFCs, and SF<sub>6</sub> in industrial applications are not yet available for inclusion in the 2009 GHG inventory. To obtain a total, the 2008 values for those emissions were used. Draft estimates for emissions of HFC and PFC substitutes for ozone-depleting substances are included in Chapter 5. Complete final estimates of those emissions will be available in the EPA's 2009 inventory of greenhouse gas emissions and sinks, to be published in April 2011.<a href="ghg_overview.cfm.html#_ftn30" name="_ftnref30" id="_ftnref30"><sup>30</sup></a></p>
+  
+  <h3>1.10. Special topic: Beyond carbon dioxide&#8212;reducing emissions of black carbon to achieve near-term results</h3>
+  <h4>    What is black carbon?</h4>
+  <p>    Black carbon is an aerosol component of particulate matter formed through the incomplete combustion of fossil fuels, biofuels, and biomass. It is found in both anthropogenic (human-caused) and naturally occurring soot. The science and understanding of black carbon have evolved rapidly over the past decade. This has drawn attention to black carbon's contribution to climate change. Globally, the primary sources of black carbon include emissions from diesel engines, cook stoves, wood fires, and forest fires. In contrast with CO<sub>2</sub>, which has an atmospheric lifetime of more than 100 years, black carbon remains in the atmosphere for only a few weeks. Therefore, reducing black carbon emissions may be an effective way to slow climate change in the short term. The 20-year GWP of black carbon is estimated at 2,200, with a 100-year GWP of 680.<a href="ghg_overview.cfm.html#_ftn31" name="_ftnref31" id="_ftnref31"><sup>31</sup></a> Because of its relatively short atmospheric lifetime, the 20-year GWP is considered a more accurate estimate of the climate impact of black carbon emissions.</p>
+  <p>Black carbon contributes to changes in the atmosphere in two ways. First, when it is suspended in the air it absorbs sunlight and generates heat and can affect regional cloud formation and precipitation patterns, which may have a cooling effect. Second, when deposited on snow and ice, it absorbs sunlight, generating heat and counteracting the usual reflective (cooling) effects of pure snow, thus warming both the air above and the snow and ice below, accelerating melting, and further reducing the reflective power of snow and ice cover. Its warming effects in the polar regions are of particular concern.</p>
+  <p>In 2010, in the Department of the Interior, Environment and Related Agencies Appropriations Act, the U.S. Congress allocated money for the EPA to conduct a study of black carbon emissions and their possible effects on climate change. The study is due to be published in April 2011.<a href="ghg_overview.cfm.html#_ftn32" name="_ftnref32" id="_ftnref32"><sup>32</sup></a></p>
+  <p><strong><em>Regional sources of black carbon emissions</em></strong><em></em></p>
+  <p>Since 1950, the United States, Europe, and the former Soviet Union have significantly reduced black carbon emissions from fossil fuel sources.<a href="ghg_overview.cfm.html#_ftn33" name="_ftnref33" id="_ftnref33"><sup>33</sup></a> U.S. emissions of black carbon&mdash;measured as elemental carbon&mdash;are estimated to have fallen by 30 percent from 1990 to 2005, when they made up about 6 percent of total world black carbon emissions.<a href="ghg_overview.cfm.html#_ftn34" name="_ftnref34" id="_ftnref34"><sup>34</sup></a> The primary source of black carbon emissions in the United States is mobile combustion (vehicle fuels), and 90 percent of emissions in this category are from diesel fuel use. Figure 8 shows a breakdown of U.S. black carbon emissions sources in 2001 and projections for 2020. After mobile emissions, biomass combustion is the second-largest source of black carbon emissions in the United States, and its share of the total is expected to grow as diesel emissions continue to be reduced.</p>
+  <p>Technology has played a major role in reducing black carbon emissions. Important technologies include filters placed in diesel vehicle engines to capture the emissions, fuel switching (e.g., from diesel to natural gas in buses), and cleaner-burning, more efficient cook stoves in developing nations. Today, the majority of black carbon emissions come from developing countries.<a href="ghg_overview.cfm.html#_ftn35" name="_ftnref35" id="_ftnref35"><sup>35</sup></a> The leading emitters are Asia, Latin America, and Africa.<a href="ghg_overview.cfm.html#_ftn36" name="_ftnref36" id="_ftnref36"><sup>36</sup></a> China and India, in particular, are responsible for more than one-fourth of global black carbon pollution.<a href="ghg_overview.cfm.html#_ftn37" name="_ftnref37" id="_ftnref37"><sup>37</sup></a> Significant sources of biomass-related emissions in the developing world include deforestation by burning, wildfires, and savannah burning.<a href="ghg_overview.cfm.html#_ftn38" name="_ftnref38" id="_ftnref38"><sup>38</sup></a></p>
+  <p><span><a href="images/figure8-lg.jpg" class="lightbox"><img src="images/figure8sm.jpg" /></a><br /><span class="caption"><a href="excel/figure8data.xls" class="ico_xls">Figure Data</a></span></span></p>
+  <p><strong><em>Reducing emissions of black carbon</em></strong><em></em> </p>
+  <p>The United States does not have any regulations in force that are directly aimed at reducing black carbon emissions. However, some States have included black carbon emissions and corresponding reduction strategies in their Climate Action Plans.<a href="ghg_overview.cfm.html#_ftn39" name="_ftnref39" id="_ftnref39"><sup>39</sup></a> Also, Federal rules developed to address particulate matter, a class of criteria pollutant under the Clean Air Act, and smog-forming nitrogen oxide from engines and stationary sources have the added effect of reducing black carbon emissions. Key regulations in effect include National Ambient Air Quality Standards (NAAQS) for airborne particulates, the Clean Air Highway Diesel Rule (2001), the Diesel Emissions Reduction Act (2005), and the Clean Air Visibility Rule (2005).<a href="ghg_overview.cfm.html#_ftn40" name="_ftnref40" id="_ftnref40"><sup>40</sup></a> These regulations typically require the use of emission control technologies, such as particulate filters, to reduce emissions. The EPA estimates that the rules already finalized will lead to reductions in U.S. emissions of black carbon by 38 percent in 2020 from their 2001 baseline (Figure 8), primarily by achieving additional reductions in the mobile emissions sector.<a href="ghg_overview.cfm.html#_ftn41" name="_ftnref41" id="_ftnref41"><sup>41</sup></a> The 2020 projection assumes continued implementation of the Clean Air Nonroad Diesel Rule, the Clean Air Highway Diesel Rule, and the Clean Air Interstate Rule, among others. If all areas meet their NAAQS requirements for small-diameter particulater matter (PM<sub>2.5</sub>), the reduction is projected to reach 42 percent, with total U.S. emissions of black carbon falling to 255,000 metric tons in 2020. The State of Maine estimates that the cost of reducing black carbon emissions through use of ultra-low-sulfur diesel (ULSD) and clean diesel technologies would be $14 per ton CO<sub>2</sub>e.<a href="ghg_overview.cfm.html#_ftn42" name="_ftnref42" id="_ftnref42"><sup>42</sup></a></p>
+  <p>In December 2009, the United States pledged $5 million in funding for the development and implementation of black carbon mitigation strategies for the Arctic.<a href="ghg_overview.cfm.html#_ftn43" name="_ftnref43" id="_ftnref43"><sup>43</sup></a> The pledge came in the wake of the April 2009 Tromso Declaration, in which the Arctic Council recognized the impacts of black carbon, methane, and other short-lived climate-forcing emissions on climate change in the Arctic.<a href="ghg_overview.cfm.html#_ftn44" name="_ftnref44" id="_ftnref44"><sup>44</sup></a></p>
+  <p>International strategies to reduce emissions from deforestation, such as the Reducing Emissions from Deforestation and Forest Degradation (REDD) policies being discussed under the UNFCCC process, could also contribute to black carbon emissions reductions, particularly in the developing world.</p>
+  <p><b>Footnotes</b></p>
+  <p><a href="ghg_overview.cfm.html#_ftnref1" name="_ftn1" id="_ftn1" id:ftn1="id:ftn1"><sup>1</sup></a> U.S. Environmental Protection Agency, "Climate Change&mdash;Regulatory Initiatives: Greenhouse Gas Reporting Program," website <a href="http://www.epa.gov/climatechange/emissions/ghgrulemaking.html">www.epa.gov/climatechange/emissions/ghgrulemaking.html</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref2" name="_ftn2" id="_ftn2" id:ftn2="id:ftn2"><sup>2</sup></a> National Highway Traffic Safety Administration, "NHTSA and EPA To Propose Greenhouse Gas and Fuel Efficiency Standards for Medium- and Heavy-
+    Duty Trucks; Begin Process for Further Light-Duty Standards: Fact Sheet" (May 2010), website <a href="http://www.nhtsa.gov/staticfiles/rulemaking/pdf/cafe/LD_HD_FE_FactSheet.pdf">www.nhtsa.gov/staticfiles/rulemaking/pdf/cafe/LD_HD_FE_FactSheet.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref3" name="_ftn3" id="_ftn3" id:ftn3="id:ftn3"><sup>3</sup></a>U.S. Environmental Protection Agency and U.S. Department of Transportation, "Notice of Upcoming Joint Rulemaking To Establish 2017 and Later
+    Model Year Light Duty Vehicle GHG Emissions and CAFE Standards" (September 30, 2010), website <a href="http://www.nhtsa.gov/staticfiles/rulemaking/pdf/cafe/2017+CAFE_and_GHG_Notice_of_Intent.pdf">www.nhtsa.gov/staticfiles/rulemaking/pdf/cafe/2017+CAFE_and_GHG_Notice_of_Intent.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref4" name="_ftn4" id="_ftn4" id:ftn4="id:ftn4"><sup>4</sup></a>U.S. Environmental Protection Agency, "Regulations &amp; Standards," website <a href="http://www.epa.gov/NSR/actions.html">www.epa.gov/NSR/actions.html</a>; and Pew Center on Global Climate Change,
+    "EPA's &quot;Tailoring' Rule,&quot; website <a href="http://www.pewclimate.org/federal/executive/epa-tailoring-rule">www.pewclimate.org/federal/executive/epa-tailoring-rule</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref5" name="_ftn5" id="_ftn5" id:ftn5="id:ftn5"><sup>5</sup></a>U.S. Environmental Protection Agency, "Proposed Rules on Clean Air Act Permits for Sources of Greenhouse Gas Emissions Under the Prevention of
+    Significant Deterioration Program," website <a href="http://www.epa.gov/NSR/documents/20100810SIPFIPFactSheet.pdf">www.epa.gov/NSR/documents/20100810SIPFIPFactSheet.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref6" name="_ftn6" id="_ftn6" id:ftn6="id:ftn6"><sup>6</sup></a>"Action To Ensure Authority To Issue Permits Under the Prevention of Significant Deterioration Program to Sources of Greenhouse Gas Emissions:
+    Federal Implementation Plan," <i>Federal Register</i> (September 2, 2010), website <a href="http://www.federalregister.gov/articles/2010/09/02/2010-21706/action-to-ensure-authority-to-issue-permits-under-the-prevention-of-significant-deterioration">www.federalregister.gov/articles/2010/09/02/2010-21706/action-to-ensure-authority-to-issue-permits-under-the-prevention-of-significant-deterioration</a>; and "Proposed Rules," <i>Federal Register</i> (September 2, 2010),
+    website <a href="http://www.gpo.gov/fdsys/pkg/FR-2010-09-02/pdf/2010-21706.pdf">www.gpo.gov/fdsys/pkg/FR-2010-09-02/pdf/2010-21706.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref7" name="_ftn7" id="_ftn7" id:ftn7="id:ftn7"><sup>7</sup></a>Scope 1 emissions include direct GHG emissions from sources that are owned or controlled by a Federal agency. Scope 2 emissions include direct GHG
+    emissions that result from the generation of electricity, heat, or steam purchased by a Federal agency. Scope 3 emissions include GHG emissions from
+    sources not owned or directly controlled by a Federal agency, such as vendor supply chains, delivery services, and employee travel and commuting.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref8" name="_ftn8" id="_ftn8" id:ftn8="id:ftn8"><sup>8</sup></a>U.S. Department of Energy, Secretary Stephen Chu, "Progress" (email to DOE employees) (October 6, 2010).</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref9" name="_ftn9" id="_ftn9" id:ftn9="id:ftn9"><sup>9</sup></a>Western Climate Initiative, Design for the WCI Regional Program, "Design Summary and Documentation" (July 27, 2010), p. 3, website <a href="http://westernclimateinitiative.org/component/remository/func-startdown/281">http://westernclimateinitiative.org/component/remository/func-startdown/281</a>; and Pew Center on Global Climate Change, "Western Climate Initiative
+    (WCI) Partners Release Comprehensive Strategy to Address Climate Change," website <a href="http://www.pewclimate.org/news/WCI_design/WCI_07_10">www.pewclimate.org/news/WCI_design/WCI_07_10</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref10" name="_ftn10" id="_ftn10" id:ftn10="id:ftn10"><sup>10</sup></a>Pew Center on Global Climate Change, "States News," website <a href="http://www.pewclimate.org/states-regions/news">www.pewclimate.org/states-regions/news</a>; and Environment Northeast, "2010.01.29-
+    New York Times-Massachusetts Sets Ambitious Energy Standards" (January 1, 2010), website <a href="http://www.env-ne.org/resources/open/p/id/1048">www.env-ne.org/resources/open/p/id/1048</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref11" name="_ftn11" id="_ftn11" id:ftn11="id:ftn11"><sup>11</sup></a>Rhode Island Government, "Rhode Island and Massachusetts Sign Agreement To Collaborate on the Development of Offshore Wind in Federal Waters"
+    (July 27, 2010), website <a href="http://riclapp.org/news/?p=415">http://riclapp.org/news/?p=415</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref12" name="_ftn12" id="_ftn12" id:ftn12="id:ftn12"><sup>12</sup></a>United Nations Framework Convention on Climate Change, "Copenhagen Accord," website <a href="http://unfccc.int/home/items/5262.php">http://unfccc.int/home/items/5262.php</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref13" name="_ftn13" id="_ftn13" id:ftn13="id:ftn13"><sup>13</sup></a>Pew Center on Global Climate Change, "Sixteenth Session of the Conference of the Parties to the United Nations Framework Convention on Climate
+    Change and Sixth Session of the Meeting of the Parties to the Kyoto Protocol" (December, 2010), website <a href="http://www.pewclimate.org/docUploads/cancunclimate-conference-cop16-summary.pdf">www.pewclimate.org/docUploads/cancunclimate-conference-cop16-summary.pdf</a>; and United Nations Framework Convention on Climate Change, "UN Climate Change Conference in Cancun
+    Delivers Balanced Package of Decisions, Restores Faith in Multilateral Process" (December 11, 2010), website <a href="http://unfccc.int/files/press/news_room/press_releases_and_advisories/application/pdf/pr_20101211_cop16_closing.pdf">http://unfccc.int/files/press/news_room/press_releases_and_advisories/application/pdf/pr_20101211_cop16_closing.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref14" name="_ftn14" id="_ftn14" id:ftn14="id:ftn14"><sup>14</sup></a>United Nations Environment Programme, "Issues for Discussion by and Information for the Attention of the Twenty-Second Meeting of the Parties" (July 9th, 2010), website <a href="http://ozone.unep.org/Meeting_Documents/mop/22mop/MOP-22-2E.pdf">http://ozone.unep.org/Meeting_Documents/mop/22mop/MOP-22-2E.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref15" name="_ftn15" id="_ftn15" id:ftn15="id:ftn15"><sup>15</sup></a>Major Economies Forum on Energy and Climate, "Past Meetings," website <a href="http://www.majoreconomiesforum.org/past-meetings/">www.majoreconomiesforum.org/past-meetings/</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref16" name="_ftn16" id="_ftn16" id:ftn16="id:ftn16"><sup>16</sup></a>Clean Energy Ministerial, "2010 Clean Energy Ministerial," website <a href="http://cleanenergyministerial.org/">http://cleanenergyministerial.org/</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref17" name="_ftn17" id="_ftn17" id:ftn17="id:ftn17"><sup>17</sup></a>U.S. Department of State, "Secretary Clinton and Brazilian Foreign Minister Amorim Announce Increased Cooperation on Climate Change" (March 3, 2010), website <a href="http://www.state.gov/r/pa/prs/ps/2010/03/137723.htm">www.state.gov/r/pa/prs/ps/2010/03/137723.htm</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref18" name="_ftn18" id="_ftn18" id:ftn18="id:ftn18"><sup>18</sup></a>U.S. Department of State, "U.S.-China Memorandum of Understanding to Enhance Cooperation on Climate Change, Energy and the Environment" (July 28, 2010), website <a href="http://www.state.gov/r/pa/prs/ps/2009/july/126592.htm">www.state.gov/r/pa/prs/ps/2009/july/126592.htm</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref19" name="_ftn19" id="_ftn19" id:ftn19="id:ftn19"><sup>19</sup></a>U.S. Department of Energy, Energy Efficiency &amp; Renewable Energy, "Energy Management at DOE" (May 2010), website <a href="http://www1.eere.energy.gov/femp/about/energymanage.html">www1.eere.energy.gov/femp/about/energymanage.html</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref20" name="_ftn20" id="_ftn20" id:ftn20="id:ftn20"><sup>20</sup></a>A. Lawrence, "Implementing Executive Order 13514, Federal Leadership in Environmental, Energy, and Economic Performance at the Department of
+    Energy" (March 2010), website <a href="http://www.hss.energy.gov/nuclearsafety/env/training/eo13514_overview_presentation.pdf">www.hss.energy.gov/nuclearsafety/env/training/eo13514_overview_presentation.pdf</a>, slide 30, "DOE Scope 1 and 2
+    GHGs."</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref21" name="_ftn21" id="_ftn21" id:ftn21="id:ftn21"><sup>21</sup></a>Federal Facilities Environmental Stewardship &amp; Compliance Assistance Center, "FEMP Releases Greenhouse Gas Inventory Reporting Tool for Federal
+    Agencies" (October 2010), website <a href="http://www.fedcenter.gov/Announcements/index.cfm?id=16388&amp;pge_id=1854">www.fedcenter.gov/Announcements/index.cfm?id=16388&amp;pge_id=1854</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref22" name="_ftn22" id="_ftn22" id:ftn22="id:ftn22"><sup>22</sup></a>U.S. Department of Energy, Energy Efficiency &amp; Renewable Energy, "Energy Savings Performance Contracts" (September 2010), website <a href="http://www1.eere.energy.gov/femp/financing/espcs.html">www1.eere.energy.gov/femp/financing/espcs.html</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref23" name="_ftn23" id="_ftn23" id:ftn23="id:ftn23"><sup>23</sup></a>U.S. Department of Energy, Energy Efficiency &amp; Renewable Energy, FEMP Year in Review 2009 (December 2009), website <a href="http://www1.eere.energy.gov/femp/pdfs/yrinrview_2009.pdf">www1.eere.energy.gov/femp/pdfs/yrinrview_2009.pdf</a>, p. 8.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref24" name="_ftn24" id="_ftn24" id:ftn24="id:ftn24"><sup>24</sup></a>U.S. Green Building Council, "Intro&mdash;What LEED Is" (2010), website <a href="http://www.usgbc.org/DisplayPage.aspx?CMSPageID=1988">www.usgbc.org/DisplayPage.aspx?CMSPageID=1988</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref25" name="_ftn25" id="_ftn25" id:ftn25="id:ftn25"><sup>25</sup></a>White House Council on Environmental Quality, "Leading by Example&mdash;Making the Federal Government More Sustainable, E.O. 13514: Agencies
+    Leading by Example" (February 2010), website <a href="http://www.whitehouse.gov/sites/default/files/microsites/20100128-ceq-agency-stories.pdf">www.whitehouse.gov/sites/default/files/microsites/20100128-ceq-agency-stories.pdf</a>; and National
+    Renewable Energy Laboratory, "NREL Targets Data Centers for Energy Savings" (June 2008), website <a href="http://www.nrel.gov/features/20080601_green_it.html">www.nrel.gov/features/20080601_green_it.html</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref26" name="_ftn26" id="_ftn26" id:ftn26="id:ftn26"><sup>26</sup></a>Future DOE projects described in this section are detailed in U.S. Department of Energy, Energy Efficiency &amp; Renewable Energy, FEMP Year in Review
+    2009 (December 2009), p. 15, website <a href="http://www1.eere.energy.gov/femp/pdfs/yrinrview_2009.pdf">www1.eere.energy.gov/femp/pdfs/yrinrview_2009.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref27" name="_ftn27" id="_ftn27" id:ftn27="id:ftn27"><sup>27</sup></a>White House Council on Environmental Quality, "Leading by Example&mdash;Making the Federal Government More Sustainable, E.O. 13514: Agencies Leading
+    by Example" (February 2010), website <a href="http://www.whitehouse.gov/sites/default/files/microsites/20100128-ceq-agency-stories.pdf">www.whitehouse.gov/sites/default/files/microsites/20100128-ceq-agency-stories.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref28" name="_ftn28" id="_ftn28" id:ftn286="id:ftn286"><sup>28</sup></a>Intergovernmental Panel on Climate Change, Climate Change 2007: The Physical Science Basis: Errata (Cambridge, UK: Cambridge University Press,
+    2008), website <a href="http://www.ipcc.ch/pdf/assessment-report/ar4/wg1/ar4-wg1-errata.pdf">www.ipcc.ch/pdf/assessment-report/ar4/wg1/ar4-wg1-errata.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref29" name="_ftn29" id="_ftn29" id:ftn29="id:ftn29"><sup>29</sup></a>U.S. Environmental Protection Agency, 40 CFR: Protection of the Environment, Part 98&mdash;Mandatory Greenhouse Gas Reporting, "Table C&#8211;1 to Subpart
+    C of Part 98&mdash;Default CO2 Emission Factors and High Heat Values for Various Types of Fuel," <i>Federal Register</i>, Vol. 74, No. 209 (October 30, 2009), p.
+    56410, website <a href="http://www.epa.gov/climatechange/emissions/downloads09/GHG-MRR-FinalRule.pdf">www.epa.gov/climatechange/emissions/downloads09/GHG-MRR-FinalRule.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref30" name="_ftn30" id="_ftn30" id:ftn30="id:ftn30"><sup>30</sup></a>For details on the changes described above, see U.S. Energy Information Administration, <i>Documentation For Emissions of Greenhouse Gases in the United
+    States 2009</i> (to be published).</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref31" name="_ftn31" id="_ftn31" id:ftn31="id:ftn31"><sup>31</sup></a>T. Bond and H. Sun, "Can Reducing Black Carbon Emissions Counteract Global Warming?" Environmental Science &amp; Technology, Vol. 39, No. 16 (2005),
+    p. 5922, website <a href="http://pubs.acs.org/doi/pdfplus/10.1021/es0480421">http://pubs.acs.org/doi/pdfplus/10.1021/es0480421</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref32" name="_ftn32" id="_ftn32" id:ftn32="id:ftn32"><sup>32</sup></a>Office of Management and Budget, Appendix, Budget of the United States Government, Fiscal Year 2011 (Washington, DC, 2010), "U.S. Environmental
+    Protection Agency," p. 1142, website <a href="http://www.whitehouse.gov/sites/default/files/omb/budget/fy2011/assets/appendix.pdf">www.whitehouse.gov/sites/default/files/omb/budget/fy2011/assets/appendix.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref33" name="_ftn33" id="_ftn33" id:ftn33="id:ftn33"><sup>33</sup></a>T. Novakov, V. Ramanathan, J.E. Hansen, T.W. Kirchstetter, M. Sato, J. E. Sinton, and J.A. Sathaye, Large Historical Changes of Fossil-Fuel Black Carbon
+    Aerosols, LBNL-50881 (Berkeley, CA: Lawrence Berkeley National Laboratory, September 2002), website <a href="http://ies.lbl.gov/drupal.files/ies.lbl.gov.sandbox/50881.pdf">http://ies.lbl.gov/drupal.files/ies.lbl.gov.sandbox/50881.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref34" name="_ftn34" id="_ftn34" id:ftn34="id:ftn34"><sup>34</sup></a>V. Rao and J.H. Somers, "Black Carbon as a Short-Lived Climate Forcer: A Profile of Emission Sources and Co-Emitted Pollutants," presented at the 19th
+    Annual International Emission Inventory Conference: Emissions Inventories&mdash;Informing Emerging Issues (San Antonio, TX: September 27-30, 2010),
+    website <a href="http://www.epa.gov/ttn/chief/conference/ei19/session5/rao.pdf">www.epa.gov/ttn/chief/conference/ei19/session5/rao.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref35" name="_ftn35" id="_ftn35" id:ftn35="id:ftn35"><sup>35</sup></a>T.C. Bond, E. Bhardwaj, R. Dong, R. Jogani, S. Jung, C. Roden, D. G. Streets, and N. M. Trautmann, "Historical Emissions of Black and Organic Carbon
+    Aerosol from Energy-Related Combustion, 1850&#8211;2000," Global Biogeochemical Cycles, Vol. 21, GB2018 (May 30, 2007), Figure 6, website <a href="http://www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf">www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref36" name="_ftn36" id="_ftn36" id:ftn36="id:ftn36"><sup>36</sup></a>T.C. Bond, E. Bhardwaj, R. Dong, R. Jogani, S. Jung, C. Roden, D. G. Streets, and N. M. Trautmann, "Historical Emissions of Black and Organic Carbon
+    Aerosol from Energy-Related Combustion, 1850&#8211;2000," Global Biogeochemical Cycles, Vol. 21, GB2018 (May 30, 2007), Figure 6, website <a href="http://www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf">www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref37" name="_ftn37" id="_ftn37" id:ftn6="id:ftn6"><sup>37</sup></a>T.C. Bond, E. Bhardwaj, R. Dong, R. Jogani, S. Jung, C. Roden, D. G. Streets, and N. M. Trautmann, "Historical Emissions of Black and Organic Carbon
+    Aerosol from Energy-Related Combustion, 1850&#8211;2000," Global Biogeochemical Cycles, Vol. 21, GB2018 (May 30, 2007), Figure 6, website <a href="http://www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf">www.cee.mtu.edu/~nurban/classes/ce5508/2008/Readings/Bond07.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref38" name="_ftn38" id="_ftn38" id:ftn38="id:ftn38"><sup>38</sup></a>T.C. Bond, "Confidence and Key Uncertainties in Black Carbon Emissions &amp; Radiative Impacts," presentation at U.S. Environmental Protection Agency,
+    SLCF Workshop (March 3, 2010), <a href="http://www.epa.gov/air/oaqps/eog/video/pdfs/bond_epa_slcf_march_3_2010.pdf">website www.epa.gov/air/oaqps/eog/video/pdfs/bond_epa_slcf_march_3_2010.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref39" name="_ftn39" id="_ftn39" id:ftn39="id:ftn39"><sup>39</sup></a>See, for example, Maine Department of Environmental Protection, A Climate Action Plan for Maine 2004 (December 2004), website <a href="http://maineghg.raabassociates.org/Articles/MaineClimateActionPlan2004Volume%201.pdf">http://maineghg.raabassociates.org/Articles/MaineClimateActionPlan2004Volume%201.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref40" name="_ftn40" id="_ftn40" id:ftn40="id:ftn40"><sup>40</sup></a>M.A. Bahner, K.A. Weitz, A. Zapata, and B. DeAngelo, "Use of Black Carbon and Organic Carbon Inventories for Projections and Mitigation Analysis,"
+    presentation at 16th Annual International Emission Inventory Conference (Raleigh, NC, May 14-17, 2007), website <a href="http://www.epa.gov/ttn/chief/conference/ei16/session3/k.weitz.pdf">www.epa.gov/ttn/chief/conference/ei16/session3/k.weitz.pdf</a>; and U.S. Environmental Protection Agency, "Reducing Particle Pollution," <a href="http://www.epa.gov/oar/particlepollution/reducing.html">website www.epa.gov/oar/particlepollution/reducing.html.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref41" name="_ftn41" id="_ftn41" id:ftn41="id:ftn41"><sup>41</sup></a>M.A. Bahner, K.A. Weitz, A. Zapata, and B. DeAngelo, website <a href="http://www.epa.gov/ttn/chief/conference/ei16/session3/k.weitz.pdf">www.epa.gov/ttn/chief/conference/ei16/session3/k.weitz.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref42" name="_ftn42" id="_ftn42" id:ftn42="id:ftn42"><sup>42</sup></a>Maine Department of Environmental Protection, website <a href="http://maineghg.raabassociates.org/Articles/MaineClimateActionPlan2004Volume%201.pdf">http://maineghg.raabassociates.org/Articles/MaineClimateActionPlan2004Volume%201.pdf</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref43" name="_ftn43" id="_ftn43" id:ftn43="id:ftn43"><sup>43</sup></a>U.S. Department of State, "Strategy to Reduce Black Carbon Emissions Affecting the Arctic" (December 17, 2009), website <a href="http://cop15.state.gov/pressroom/133771.htm">http://cop15.state.gov/pressroom/133771.htm</a>.</p>
+  <p><a href="ghg_overview.cfm.html#_ftnref44" name="_ftn44" id="_ftn44" id:ftn44="id:ftn44"><sup>44</sup></a>The Arctic Council, "Troms Declaration" (April 29, 2009), website <a href="http://arctic-council.org/filearchive/Tromsoe%20Declaration-1..pdf">http://arctic-council.org/filearchive/Tromsoe%20Declaration-1..pdf</a>.</p>
+<p>.       </p>
+</div>
+      <div class="side_col pub_side right">
+	  
+                        
+            <h2>Chapters</h2>
+               <ul class="split_2columns">
+                  <li><a href="index.cfm.html">Introduction</a></li>
+                  <li><a href="ghg_overview.cfm.html">Greenhouse Gas Emissions Overview</a></li>
+                  <li><a href="ghg_carbon.cfm.html">Carbon Dioxide Emissions</a><a href="http://www.eia.gov/environment/emissions/ghg_report/early_economic.cfm"></a></li>
+                  <li><a href="ghg_methane.cfm.html">Methane Emissions</a></li>
+                  <li><a href="ghg_nitrous.cfm.html">Nitrous Oxide Emissions<br />
+                  </a></li>
+                  <li><a href="ghg_gwp.cfm.html">High-GWP Gases<br />
+                  </a></li>
+                  <li><a href="ghg_land.cfm.html">Land Use</a></li>
+                </ul>       
+<hr class="novis"/>
+            <hr class="hr_soft"/>
+            			
+            
+            <h2>Data Tables
+            </h2>
+            <table class="aeo_data">
+  <tr>
+                    <td><b>1</b></td>
+                    <td>U.S. emissions of greenhouse gases, based on global warming potential, 1990-2009</td>
+                    <td><a href="pdf/tbl1.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl1.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>2</b></td>
+                    <td>U.S. greenhouse gas intensity and related factors, 1990-2009</td>
+                    <td><a href="pdf/tbl2.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl2.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>3</b></td>
+                    <td>Distribution of total U.S. greenhouse gas emissions by end-use sector, 2009</td>
+                    <td><a href="pdf/tbl3.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl3.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>4</b></td>
+                    <td>World energy-related carbon dioxide emissions by region, 1990-2035</td>
+                    <td><a href="pdf/tbl4.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl4.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>5</b></td>
+                    <td>Greenhouse gases and 100-year net global warming potentials</td>
+                    <td><a href="pdf/tbl5.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl5.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>6</b></td>
+                    <td>U.S. carbon dioxide emissions from energy and industry, 1990-2009</td>
+                    <td><a href="pdf/tbl6.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl6.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>7</b></td>
+                    <td>U.S. energy-related carbon dioxide emissions by end-use sector, 1990-2009</td>
+                    <td><a href="pdf/tbl7.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl7.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>8</b></td>
+                    <td>U.S. carbon dioxide emission from residential sector enerhgy consumption, 1990-2009</td>
+                    <td><a href="pdf/tbl8.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl8.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>9</b></td>
+                    <td>U.S. carbon dioxide emissions from commercial sector energy consumption, 1990-2009</td>
+                    <td><a href="pdf/tbl9.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl9.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                  <tr>
+                    <td><b>10</b></td>
+                    <td>U.S. carbon dioxide emissions from industrial sector energy consumption, 1990-2009</td>
+                    <td><a href="pdf/tbl10.pdf" class="pdf_link">&nbsp;</a></td>
+                    <td><a href="excel/tbl10.xls" class="xls_link">&nbsp;</a></td>
+                  </tr>
+                </table>
+		        <p><a href="tables_ghg.cfm.html"><b>View more &rsaquo;</b></a></p>
+            
+
+      
+      </div>
+      
+      	  
+         <div class="ghg_footer blue_top">
+            <div class="ghg_inner">
+              <span class="left_box">
+                <h4>About the Report</h4>
+                <ul class="no-liststyle">
+                   <li><a href="contacts.cfm.html">Contact information</a></li>
+                  
+                </ul>
+              </span>
+              <span class="mid_box">
+<h4>Previous Editions</h4>
+                   <form name="form" id="form">
+                     <select name="jumpMenu" id="jumpMenu" style="width:110px">
+                       <option value="http://www.eia.gov/environment/emissions/archive/ghg/gg09rpt/index.html">2008</option>
+                       <option value="http://www.eia.gov/environment/emissions/archive/ghg/gg08rpt/index.html">2007</option>
+                       <option value="http://www.eia.gov/environment/emissions/archive/ghg/gg07rpt/index.html">2006</option>
+                       <option value="http://www.eia.gov/environment/emissions/archive/ghg/gg06rpt/index.html">2005</option>
+                       <option value="http://www.eia.gov/environment/emissions/archive/ghg/gg05rpt/index.html">2004</option>
+                       <option value="http://www.eia.doe.gov/environment/emissions/1605aold.cfm">See all</option>
+                     </select>
+                     <input type="button" name="go_button" class="arrow_go" align="absmiddle" id= "go_button" value="Go" onclick="MM_jumpMenuGo('jumpMenu','parent',1)" />
+                   </form>
+              </span>
+              <span class="right_box">
+                <h4>Documentation</h4>
+                <ul class="split_2columns no-liststyle">
+                   
+                   <li><a href="notes_sources.cfm.html">Notes and Sources</a></li>
+                  <li><a href="glossary.cfm.html">Glossary</a></li>
+                </ul>
+              </span></div></div>
+      
+    </div>
+
+
+
+    <div id="footer">
+    <a name="btm"></a>
+      <div class="clear">
+      
+      
+        <div id="rs_home"></div>
+        
+	  
+      </div>
+      <div id="addbar">
+      <a href="../../../index.html"><h2 class="right">EIA - 1000 Independence Avenue, SW, Washington, DC 20585</h2></a>
+        <h3><a href="../../../abouteia/eia_standards.cfm.html">About EIA</a></h3>
+        <h3><a href="http://www.eia.gov/beta/api/">Open Data</a></h3>
+        <h3><a href="../../../pressroom/archive/images/press109_kyoto5.gif.html">Press Room</a></h3>
+        <h3><a href="../../../about/careers.1.html">Careers</a></h3>
+        
+        <h3><a href="../../../contactus.html">Contact Us</a></h3>
+      </div>
+      <div id="quicklinks">
+        
+        <p><b>Sources & Uses</b><br />
+           <a href="../../../petroleum/index.html">Petroleum</a><br />
+           <a href="../../../fuelcoal.html">Coal</a><br />
+           <a href="../../../naturalgas/index.html">Natural Gas</a><br />
+           <a href="../../../fuelrenewable.html">Renewable</a><br />
+           <a href="../../../nuclear.1.html">Nuclear</a><br />
+           <a href="../../../cneaf/electricity/contacts/elect_epm_coord.txt.html">Electricity</a><br />
+           <a href="../../../consumption/archive/rtecs/nhts_survey/2001/image30_files/eia_sitewideF.css.html">Consumption</a><br />
+           <a href="../../../totalenergy/index.html">Total Energy</a></p>
+        <p><b>Topics</b><br />
+           <a href="../../../analysis/index.html">Analysis & Projections</a><br />
+           <a href="../../../environment.1.html">Environment</a><br />
+           <a href="../../../finance/index.html">Markets & Finance</a><br />
+           <a href="../../../todayinenergy.1.html">Today in Energy</a></p>
+        <p><b>Geography</b><br />
+           <a href="../../../state/search/images/sort_desc_disabled.png.html">States</a><br />
+           <a href="../../../countries/index.html">Countries</a><br />
+           <a href="../../../maps.1.html">Maps</a><br />
+        <p><b>Tools</b><br />
+           <a href="../../../tools/a-z/index.html">A-Z Index</a><br />
+           <a href="http://www.eia.gov/reports/">All Reports<br />& Publications</a><br />
+           <a href="../../../tools/index.html">Data Tools, Apps,<br />and Maps</a><br />
+           <a href="../../../tools/survey/index.html">EIA Survey Forms</a><br />
+           <a href="../../../beta.html">EIA Beta</a></p>
+        <p><b>Policies</b><br />
+           <a href="../../../about/privacy_security_policy.cfm.html">Privacy/Security</a><br />
+           <a href="../../../about/copyrights_reuse.cfm.html">Copyright & Reuse</a><br />
+           <a href="../../../about/accessability.cfm.html">Accessibility</a></p>
+        <p><b>Related Sites</b><br />
+           <a href="http://www.energy.gov/">U.S. Department of Energy</a><br />
+           <a href="http://www.usa.gov/">USA.gov</a><br />
+           <a href="http://fedstats.sites.usa.gov/">FedStats</a></p>
+        <p><b>Stay Connected</b><br />
+           <a href="http://facebook.com/eiagov/" target="_blank" class="ico_facebook ft_icon_pad">Facebook<span class="external">&nbsp;</span></a><br />
+           <a href="http://twitter.com/eiagov/" target="_blank" class="ico_twitter ft_icon_pad">Twitter<span class="external">&nbsp;</span></a><br />
+           <a href="http://youtube.com/eiagov/" target="_blank" class="ico_youtube ft_icon_pad">YouTube<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.flickr.com/photos/eiagov/" target="_blank" class="ico_flickr ft_icon_pad">Flickr<span class="external">&nbsp;</span></a><br />
+           <a href="https://www.linkedin.com/company/u-s-energy-information-administration" target="_blank" class="ico_linkedin ft_icon_pad">LinkedIn<span class="external">&nbsp;</span></a><br />
+           <a href="../../../listserv_signup.html" class="ico_email ft_icon_pad">Email Updates</a><br />
+           <a href="../../../tools/rssfeeds/index.html" class="ico_rss ft_icon_pad">RSS Feeds</a></p>
+      </div>
+      <div class="clear"></div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+  $(".page_tabs").tabs();
+  $(".page_tabs").localScroll({ 
+	target:".page_tabs",
+	duration:0,
+	hash:true
+  });
+/*  if($(".page_tabs") && document.location.hash != ''){
+	$.scrollTo(".page_tabs");
+  }*/
+});
+</script>
+</div>
+</body>
+</html>
