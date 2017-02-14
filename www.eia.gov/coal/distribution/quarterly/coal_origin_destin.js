@@ -23,7 +23,7 @@ var chart_container_origin; // globally available
 	},
  
       title: {
-         text: 'Top 5 coal origin and destination states, fourth quarter 2015',
+         text: 'Top 5 coal origin and destination states, third quarter 2016',
        
 	   
 		 
@@ -38,7 +38,7 @@ var chart_container_origin; // globally available
 	  
 	  
 	     xAxis: {
-         categories:  ['WY','WV','KY','IL','PA', ' TX',' IL',' KY',' MO',' IN'],
+         categories:  ['WY','WV','IL','KY','TX', ' TX',' IL',' MO',' KY',' IN'],
 		  labels: {
  		   y: 18,
            style: {
@@ -107,12 +107,12 @@ var chart_container_origin; // globally available
 					  type: 'column',
 			name: 'Top 5 coal origin states',
 				//color: 'rgba(0, 150, 215, 1.0)',
-			data: [91.29, 14.38, 11.77, 10.82, 9.23,null,null,null,null,null]
+			data: [86.62,14.91,11.45,10.45,10.29,null,null,null,null,null]
 			}, {
 			name: 'Top 5 coal destination states',
 			type: 'column',
 			//color: 'rgba(163, 51, 64, 1.0)',
-			data: [null,null,null,null,null,23.15, 14.46, 10.23, 9.94, 9.23]	
+			data: [null,null,null,null,null,25.42,11.03,10.17,9.82,8.82]	
 		
 				
  
