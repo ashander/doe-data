@@ -1,0 +1,69 @@
+<html>
+<head>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>-->
+    <script src="https://www.eia.gov/global/scripts/jquery/jquery-1.11.2.min.js"></script>
+    <!--Highcharts is a commercial JavaScript library.  Use via this IFRAME served from eia.gov is covered by EIA's license.  -->
+    <script src="https://www.eia.gov/developer/shared/highcharts.3.0.10.src.js"></script>
+
+
+    
+            <script src="https://www.eia.gov/global/scripts/jquery/highcharts/3.0.10/js/eia-theme-module.min.js"></script>
+        <!--free EIA API visualization library, also available on www.github.com/eiagov-->
+    <script type="text/javascript" src="https://www.eia.gov/opendata/embed/EIA_grapher.js"></script>
+
+    <script>
+        //needs to be moved to JavaScript because of CDN caching:  var referer = '?= $_SERVER["HTTP_REFERER"] ?';
+        EIA_grapher.api_key = '';
+
+        <!-- Google Analytics -->
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        var modReferrer=document.referrer;
+        if(document.referrer.indexOf("://")>=0)
+            modReferrer=document.referrer.substr(0,document.referrer.indexOf("://")+3)+'vizeia.'+document.referrer.substr(document.referrer.indexOf("://")+3);
+        ga('create', 'UA-25837230-1', 'auto');
+        ga('set', {
+            referrer: modReferrer,
+            title: 'Embedded API Visualization'
+        });
+        ga('send', 'pageview');
+    <!-- End Google Analytics -->
+    </script>
+
+    <style>
+        .eia-visualization {
+            height: 100%;
+            width: 100%;
+        }
+		span.EIA-map-title {
+			position: absolute;
+			z-index: 10000;
+			left: 100px;
+			color: black;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.jvectormap-legend{
+			color: black;
+			background-color: transparent;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+        .jvectormap-legend-title{
+            font-weight: normal;
+        }
+
+        .jvectormap-legend-cnt-h .jvectormap-legend-tick {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="eia-visualization  chart"
+	    series_id="PET_IMPORTS.WORLD-US-MED.M"			relation_mode="line"        					>
+</div>
+
+</body>
+</html>
